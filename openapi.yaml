@@ -1,0 +1,865 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hello@wordlift.io
+    name: WordLift
+    url: https://wordlift.io
+  description: Generate completions based on customized linguistic models.
+  license:
+    name: (c) copyright 2022-present WordLift
+    url: https://wordlift.io
+  termsOfService: https://wordlift.io/terms-of-service/
+  title: Content Generation
+  version: "1.0"
+servers:
+- url: https://api.wordlift.io/content-generation/
+tags:
+- description: Get Prompts' completions.
+  name: Completions
+- description: Operations on Content Generation projects.
+  name: Content Generations
+- description: List the available linguistic models.
+  name: Models
+- description: Operations on Prompts connected to Content Generations.
+  name: Prompts
+- description: Operations on Word biases connected to prompts.
+  name: Word biases
+paths:
+  /content-generations:
+    delete:
+      operationId: delete
+      parameters:
+      - in: query
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Deleted
+        "401":
+          description: Authentication Failure
+      security:
+      - security_oauth2: []
+      summary: Delete a Content Generation project.
+      tags:
+      - Content Generations
+    get:
+      operationId: listByCursor_3
+      parameters:
+      - description: The cursor
+        in: query
+        name: cursor
+        required: false
+        schema:
+          type: string
+      - description: The maximum number of results
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageContentGeneration'
+          description: Found.
+        "401":
+          description: Authentication Failure
+      security:
+      - security_oauth2: []
+      summary: List objects according to the cursor specifications and limit.
+      tags:
+      - Content Generations
+    post:
+      operationId: create_2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentGenerationRequest'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentGeneration'
+          description: Created
+        "401":
+          description: Authentication Failure
+      security:
+      - security_oauth2: []
+      summary: Create a new Content Generation project.
+      tags:
+      - Content Generations
+  /content-generations/{contentGenerationId}/prompts/{promptId}/words:
+    get:
+      operationId: listByCursor_2
+      parameters:
+      - description: The Content Generation id.
+        in: path
+        name: contentGenerationId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - description: The Prompt id.
+        in: path
+        name: promptId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - description: The cursor.
+        in: query
+        name: cursor
+        required: false
+        schema:
+          type: string
+      - description: The maximum number of results.
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageWord'
+          description: Found.
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - security_oauth2: []
+      summary: List the Word biases associated with the specified Prompt.
+      tags:
+      - Word biases
+    post:
+      operationId: create_1
+      parameters:
+      - description: The Content Generation id.
+        in: path
+        name: contentGenerationId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - description: The Prompt id.
+        in: path
+        name: promptId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WordRequest'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Word'
+          description: Created
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - security_oauth2: []
+      summary: Create a Word bias.
+      tags:
+      - Word biases
+    put:
+      description: Send a list of word biases for this prompt. Existing words they
+        will be deleted.
+      operationId: update_2
+      parameters:
+      - description: The Content Generation id.
+        in: path
+        name: contentGenerationId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - description: The Prompt id.
+        in: path
+        name: promptId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              description: The Word to create.
+              items:
+                $ref: '#/components/schemas/WordRequest'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Word'
+          description: Created
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - security_oauth2: []
+      summary: Create Word biases for the specified Prompt.
+      tags:
+      - Word biases
+  /content-generations/{contentGenerationId}/prompts/{promptId}/words/{id}:
+    delete:
+      operationId: delete_1
+      parameters:
+      - description: The Content Generation id.
+        in: path
+        name: contentGenerationId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - description: The Prompt id.
+        in: path
+        name: promptId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - description: The Word to create.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Created
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - security_oauth2: []
+      summary: Delete a Word bias.
+      tags:
+      - Word biases
+    put:
+      operationId: update_1
+      parameters:
+      - description: The Content Generation id.
+        in: path
+        name: contentGenerationId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - description: The Prompt id.
+        in: path
+        name: promptId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - description: The Word bias to update.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WordRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Word'
+          description: Updated
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - security_oauth2: []
+      summary: Update a Word bias.
+      tags:
+      - Word biases
+  /content-generations/{id}:
+    get:
+      operationId: get_2
+      parameters:
+      - description: The Content Generation id.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentGeneration'
+          description: Found.
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - security_oauth2: []
+      summary: Get a Content Generation project by its id.
+      tags:
+      - Content Generations
+    put:
+      operationId: update
+      parameters:
+      - description: The Content Generation id.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentGenerationRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ContentGeneration'
+          description: Update
+        "401":
+          description: Authentication Failure
+      security:
+      - security_oauth2: []
+      summary: Update a Content Generation project.
+      tags:
+      - Content Generations
+  /content-generations/{id}/completions:
+    get:
+      description: Get all the completions for the Prompts of the specified Content
+        Generation
+      operationId: get_1
+      parameters:
+      - description: Content Generation id.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          content:
+            text/csv:
+              schema:
+                type: array
+                items:
+                  type: string
+          description: Success
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - security_oauth2: []
+      summary: Get all the completions.
+      tags:
+      - Completions
+  /content-generations/{parentId}/prompts:
+    get:
+      operationId: listByCursor_1
+      parameters:
+      - description: The Content Generation id.
+        in: path
+        name: parentId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - description: A value or empty to start from the first page.
+        in: query
+        name: cursor
+        required: false
+        schema:
+          type: string
+      - description: The maximum number of results.
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagePrompt'
+          description: Success
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - security_oauth2: []
+      summary: Get a list of Prompts.
+      tags:
+      - Prompts
+    post:
+      operationId: create
+      parameters:
+      - description: The Content Generation id.
+        in: path
+        name: parentId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
+              description: "A payload with prompts, one per line."
+        required: true
+      responses:
+        "201":
+          description: Created
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - security_oauth2: []
+      summary: Create a Prompt.
+      tags:
+      - Prompts
+  /content-generations/{parentId}/prompts/{id}:
+    get:
+      operationId: get
+      parameters:
+      - description: The Content Generation id.
+        in: path
+        name: parentId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - description: The Prompt id.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Prompt'
+          description: Success
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - security_oauth2: []
+      summary: Get a Prompt.
+      tags:
+      - Prompts
+  /content-generations/{parentId}/prompts/{id}/completion:
+    get:
+      operationId: getCompletion
+      parameters:
+      - description: The Content Generation id.
+        in: path
+        name: parentId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - description: The Prompt id.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Success
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - security_oauth2: []
+      summary: Get a Prompt completion.
+      tags:
+      - Prompts
+  /models:
+    get:
+      operationId: listByCursor
+      parameters:
+      - description: The cursor
+        in: query
+        name: cursor
+        required: false
+        schema:
+          type: string
+      - description: The maximum number of results
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageModel'
+          description: Found.
+        "401":
+          description: Authentication Failure
+      security:
+      - security_oauth2: []
+      summary: List objects according to the cursor specifications and limit.
+      tags:
+      - Models
+components:
+  schemas:
+    ContentGeneration:
+      type: object
+      description: A Content Generation project.
+      properties:
+        created_at:
+          type: string
+          format: date-time
+          description: The create date-time.
+          readOnly: true
+        id:
+          type: integer
+          format: int64
+          description: The unique id.
+          readOnly: true
+        max_tokens:
+          type: integer
+          format: int32
+          default: 64
+          description: The maximum number of tokens.
+          maximum: 2000
+          minimum: 0
+        model:
+          type: string
+          description: The model name.
+          maxLength: 250
+          minLength: 0
+        modified_at:
+          type: string
+          format: date-time
+          description: The last modified date-time.
+          readOnly: true
+        name:
+          type: string
+          description: The name.
+          maxLength: 250
+          minLength: 0
+        penalty:
+          type: number
+          format: double
+          default: 0.5
+          description: The penalty score.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          maximum: 1.9
+          minimum: 0.5
+        temperature:
+          type: number
+          format: double
+          default: 0.4
+          description: The temperature score.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          maximum: 0.8
+          minimum: 0.4
+      required:
+      - model
+      - name
+    ContentGenerationRequest:
+      type: object
+      description: The Content Generation request.
+      properties:
+        max_tokens:
+          type: integer
+          format: int32
+          default: 64
+          description: The maximum number of tokens.
+          maximum: 2000
+          minimum: 0
+        model:
+          type: string
+          description: The model name.
+          maxLength: 250
+          minLength: 0
+        name:
+          type: string
+          description: The model name.
+          maxLength: 250
+          minLength: 0
+        penalty:
+          type: number
+          format: double
+          default: 0.5
+          description: The penalty score.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          maximum: 1.9
+          minimum: 0.5
+        temperature:
+          type: number
+          format: double
+          default: 0.4
+          description: The temperature score.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          maximum: 0.8
+          minimum: 0.4
+      required:
+      - model
+      - name
+    Model:
+      type: object
+      description: A linguistic model.
+      properties:
+        Unique identifier:
+          type: string
+          description: A string which uniquely identifies a linguistic model. Please
+            note that this may become a number in the future.
+    PageContentGeneration:
+      type: object
+      description: A page object with links to move to other pages and the list of
+        objects.
+      properties:
+        first:
+          type: string
+          description: The link to the first page.
+        items:
+          type: array
+          description: An array of objects.
+          items:
+            $ref: '#/components/schemas/ContentGeneration'
+        last:
+          type: string
+          description: The link to the last page.
+        next:
+          type: string
+          description: The link to the next page or `null` if there's no page.
+        prev:
+          type: string
+          description: The link to the previous page or `null` if there's no page.
+        self:
+          type: string
+          description: The link to the current page.
+    PageModel:
+      type: object
+      description: A page object with links to move to other pages and the list of
+        objects.
+      properties:
+        first:
+          type: string
+          description: The link to the first page.
+        items:
+          type: array
+          description: An array of objects.
+          items:
+            $ref: '#/components/schemas/Model'
+        last:
+          type: string
+          description: The link to the last page.
+        next:
+          type: string
+          description: The link to the next page or `null` if there's no page.
+        prev:
+          type: string
+          description: The link to the previous page or `null` if there's no page.
+        self:
+          type: string
+          description: The link to the current page.
+    PagePrompt:
+      type: object
+      description: A page object with links to move to other pages and the list of
+        objects.
+      properties:
+        first:
+          type: string
+          description: The link to the first page.
+        items:
+          type: array
+          description: An array of objects.
+          items:
+            $ref: '#/components/schemas/Prompt'
+        last:
+          type: string
+          description: The link to the last page.
+        next:
+          type: string
+          description: The link to the next page or `null` if there's no page.
+        prev:
+          type: string
+          description: The link to the previous page or `null` if there's no page.
+        self:
+          type: string
+          description: The link to the current page.
+    PageWord:
+      type: object
+      description: A page object with links to move to other pages and the list of
+        objects.
+      properties:
+        first:
+          type: string
+          description: The link to the first page.
+        items:
+          type: array
+          description: An array of objects.
+          items:
+            $ref: '#/components/schemas/Word'
+        last:
+          type: string
+          description: The link to the last page.
+        next:
+          type: string
+          description: The link to the next page or `null` if there's no page.
+        prev:
+          type: string
+          description: The link to the previous page or `null` if there's no page.
+        self:
+          type: string
+          description: The link to the current page.
+    Prompt:
+      type: object
+      properties:
+        completion:
+          type: string
+        content_generation_id:
+          type: integer
+          format: int64
+        created_at:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        modified_at:
+          type: string
+          format: date-time
+        prompt:
+          type: string
+      required:
+      - content_generation_id
+      - prompt
+    Word:
+      type: object
+      description: A Word bias.
+      properties:
+        bias:
+          type: integer
+          format: int32
+          description: The bias.
+        created_at:
+          type: string
+          format: date-time
+          description: The create date-time.
+          readOnly: true
+        id:
+          type: integer
+          format: int64
+          description: The unique id.
+          readOnly: true
+        modified_at:
+          type: string
+          format: date-time
+          description: The last modified date-time.
+          readOnly: true
+        prompt_id:
+          type: integer
+          format: int64
+          description: The Prompt id.
+          readOnly: true
+        word:
+          type: string
+          description: The actual word.
+          maxLength: 1000
+      required:
+      - bias
+      - prompt_id
+      - word
+    WordRequest:
+      type: object
+      description: The Word to create.
+      properties:
+        bias:
+          type: integer
+          format: int32
+          description: The bias.
+        word:
+          type: string
+          description: The actual word.
+          maxLength: 1000
+      required:
+      - bias
+      - word
+  securitySchemes:
+    security_oauth2:
+      flows:
+        authorizationCode:
+          authorizationUrl: https://s.wordlift.io/oauth/authorize/
+          scopes:
+            basic: basic scope
+          tokenUrl: https://s.wordlift.io/oauth/token/
+      openIdConnectUrl: https://s.wordlift.io/.well-known/openid-configuration/
+      type: oauth2
