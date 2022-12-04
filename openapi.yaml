@@ -42,7 +42,7 @@ paths:
           description: Authentication Failure
       security:
       - security_oauth2: []
-      summary: Delete a Content Generation project.
+      summary: Delete
       tags:
       - Content Generations
     get:
@@ -73,7 +73,7 @@ paths:
           description: Authentication Failure
       security:
       - security_oauth2: []
-      summary: List objects according to the cursor specifications and limit.
+      summary: List
       tags:
       - Content Generations
     post:
@@ -95,7 +95,7 @@ paths:
           description: Authentication Failure
       security:
       - security_oauth2: []
-      summary: Create a new Content Generation project.
+      summary: Create
       tags:
       - Content Generations
   /content-generations/{contentGenerationId}/prompts/{promptId}/words:
@@ -143,7 +143,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: List the Word biases associated with the specified Prompt.
+      summary: List
       tags:
       - Word biases
     post:
@@ -182,7 +182,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Create a Word bias.
+      summary: Create
       tags:
       - Word biases
     put:
@@ -227,7 +227,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Create Word biases for the specified Prompt.
+      summary: Create many
       tags:
       - Word biases
   /content-generations/{contentGenerationId}/prompts/{promptId}/words/{id}:
@@ -264,7 +264,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Delete a Word bias.
+      summary: Delete
       tags:
       - Word biases
     put:
@@ -310,7 +310,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Update a Word bias.
+      summary: Update
       tags:
       - Word biases
   /content-generations/{id}:
@@ -337,7 +337,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Get a Content Generation project by its id.
+      summary: Get by id
       tags:
       - Content Generations
     put:
@@ -367,7 +367,7 @@ paths:
           description: Authentication Failure
       security:
       - security_oauth2: []
-      summary: Update a Content Generation project.
+      summary: Update
       tags:
       - Content Generations
   /content-generations/{id}/completions:
@@ -398,7 +398,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Get all the completions.
+      summary: Get all
       tags:
       - Completions
   /content-generations/{parentId}/prompts:
@@ -439,7 +439,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Get a list of Prompts.
+      summary: List
       tags:
       - Prompts
     post:
@@ -468,7 +468,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Create a Prompt.
+      summary: Create
       tags:
       - Prompts
   /content-generations/{parentId}/prompts/{id}:
@@ -502,7 +502,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Get a Prompt.
+      summary: Get by id
       tags:
       - Prompts
   /content-generations/{parentId}/prompts/{id}/completion:
@@ -536,7 +536,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Get a Prompt completion.
+      summary: Get completion by id
       tags:
       - Prompts
   /models:
@@ -568,7 +568,7 @@ paths:
           description: Authentication Failure
       security:
       - security_oauth2: []
-      summary: List objects according to the cursor specifications and limit.
+      summary: List
       tags:
       - Models
 components:
@@ -612,12 +612,12 @@ components:
         penalty:
           type: number
           format: double
-          default: 0.5
+          default: 0.0
           description: The penalty score.
           exclusiveMaximum: false
           exclusiveMinimum: false
-          maximum: 1.9
-          minimum: 0.5
+          maximum: 2.0
+          minimum: -2.0
         temperature:
           type: number
           format: double
@@ -625,8 +625,8 @@ components:
           description: The temperature score.
           exclusiveMaximum: false
           exclusiveMinimum: false
-          maximum: 0.8
-          minimum: 0.4
+          maximum: 1.0
+          minimum: 0.0
       required:
       - model
       - name
@@ -654,12 +654,12 @@ components:
         penalty:
           type: number
           format: double
-          default: 0.5
+          default: 0.0
           description: The penalty score.
           exclusiveMaximum: false
           exclusiveMinimum: false
-          maximum: 1.9
-          minimum: 0.5
+          maximum: 2.0
+          minimum: -2.0
         temperature:
           type: number
           format: double
@@ -667,8 +667,8 @@ components:
           description: The temperature score.
           exclusiveMaximum: false
           exclusiveMinimum: false
-          maximum: 0.8
-          minimum: 0.4
+          maximum: 1.0
+          minimum: 0.0
       required:
       - model
       - name
