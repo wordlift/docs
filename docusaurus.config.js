@@ -69,7 +69,7 @@ const config = {
           {
             label: 'WordPress Plugin',
             position: 'left',
-            to: "/wordpress-plugin/introduction"
+            to: "/wordpress-plugin/getting-started"
           },
           {
             label: "API",
