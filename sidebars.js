@@ -86,6 +86,11 @@ const sidebars = {
           label: "Inspector",
           items: require("./docs/api/inspector/sidebar.js"),
         },
+        {
+          type: "category",
+          label: "Long Tail",
+          items: require("./docs/api/long-tail/sidebar.js"),
+        },
       ],
     }
   ],
