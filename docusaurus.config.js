@@ -64,17 +64,33 @@ const config = {
             type: 'doc',
             docId: 'introduction',
             position: 'left',
-            label: 'Docs',
-          },
-          {
-            label: 'WordPress Plugin',
-            position: 'left',
-            to: "/wordpress-plugin/getting-started"
+            label: 'Start Here',
           },
           {
             label: "API",
             position: "left",
             to: "/category/wordlift-api"
+          },
+          {
+            type: 'dropdown',
+            label: 'Products',
+            position: 'left',
+            items: [ {
+              label: 'SEO Automation',
+              to: '/wordpress-plugin/getting-started'
+            }, {
+              label: 'WordPress Plugin',
+              to: '/wordpress-plugin/getting-started'
+            }, {
+              label: 'WooCommerce Plugin',
+              to: '/wordpress-plugin/getting-started'
+            }, {
+              label: 'Google Sheets Add-on',
+              to: '/wordpress-plugin/getting-started'
+            }, {
+              label: 'Looker Studio Connector',
+              to: '/wordpress-plugin/getting-started'
+            } ]
           },
           {
             href: 'https://github.com/wordlift',
