@@ -1,3 +1,7 @@
+---
+sidebar_position: 30
+---
+
 # Advanced Topics
 
 ## Knowledge Graph
@@ -12,7 +16,7 @@ created and published as [RDF] graph in the cloud.
 ### Linked Data
 
 **Linked Open Data** is [Linked Data](http://en.wikipedia.org/wiki/Linked_data) that is made available as **open content**.
-Large linked open datasets (or [Knowledge Graph]) include DBpedia and Freebase.
+Large linked open datasets (or [Knowledge Graph](#knowledge-graph)) include DBpedia and Freebase.
 
 ### Reconciliation
 
