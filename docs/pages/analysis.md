@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # Analysis
 
 **WordLift** suggests to the content editor relevant fact-based information, images and links to organize and enrich contents.

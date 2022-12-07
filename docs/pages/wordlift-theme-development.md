@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # WordLift Theme Development
 
 ## Who should read this

@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # Widgets
 
 ## Context Cards

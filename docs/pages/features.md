@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # Features
 
 <iframe src="https://www.youtube.com/embed/TzsIz-mjY94" width="100%" height="540" frameborder="0" scrolling="auto"></iframe>

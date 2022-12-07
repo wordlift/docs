@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # Mappings
 
 Mappings are designed to help us organize and structure content while improving the SEO on our website.

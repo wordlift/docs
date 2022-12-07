@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # Product Knowledge Graph Builder
 
 **Product KG Builder** is the feature for e-commerce that allows you to automate your SEO and [create a product knowledge graph](https://wordlift.io/blog/en/how-build-product-knowledge-graph/) **with your Google Merchant Feed**.

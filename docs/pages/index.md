@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # Welcome to WordLift Documentation
 
 The main documentation for getting started with WordLift is organized in the following sections:

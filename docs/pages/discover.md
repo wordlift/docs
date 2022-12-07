@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # Discover
 
 **WordLift** brings to the readers of your site multiple means of **content discovery**.

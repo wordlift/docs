@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # Who is WordLift for?
 
 **WordLift** is for all *bloggers*, *journalists*, and *content marketers* publishing and fighting for readers’ attention on the web.

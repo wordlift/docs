@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # WordLift Cloud
 
 Learn how to use WordLift Cloud to improve the **organic traffic** of your website using [Semantic SEO](https://wordlift.io/blog/en/entity/semantic-seo).

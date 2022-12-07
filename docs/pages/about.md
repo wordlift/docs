@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # About WordLift
 
 **WordLift** brings the power of *Artificial Intelligence* to web publishers around the World.

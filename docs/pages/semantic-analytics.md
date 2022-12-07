@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # Semantics Analytics
 
 You can use **WordLift** to create an *entity-based* [Web Analytics Dashboard](https://wordlift.io/blog/en/semantic-web-analytics/) using Google Data Studio and traffic data from Google Analytics.

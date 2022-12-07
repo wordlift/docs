@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # Overview
 
 <iframe src="https://www.youtube-nocookie.com/embed/AR2pBOTLsy4"  width="100%" height="540" frameborder="0" scrolling="auto"></iframe>

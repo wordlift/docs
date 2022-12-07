@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # Sidebar
 
 ## Content Analysis and Disambiguation

@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # Edit Entity
 
 **WordLift** uses [entities](key-concepts#entity) to annotate and organize blog posts and pages.

@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # Key Concepts
 
 Here is the terminology describing the core concepts that will help you set up and manage your content with WordLift:

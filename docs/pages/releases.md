@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # Releases
 
 This section is dedicated to the latest *versions* of the plugin. Here you can keep track of everything that is happening with the developemnt of the plugin: read the *changelog* and discover *fixes and enhancements*.

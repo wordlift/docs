@@ -1,6 +1,6 @@
 ---
-sidebar_position: 10
 title: Introduction
+displayed_sidebar: wordpress-plugin
 ---
 
 # WordLift Looker Studio Connector

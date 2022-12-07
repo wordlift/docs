@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # Troubleshooting
 
 In rare cases, you might receive an error message when installing or updating WordLift. Here are some of the issues we gathered from our clients.

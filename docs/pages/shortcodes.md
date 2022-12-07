@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # Shortcodes
 
 WordLift provides several useful shortcodes to provide enhanced visualizations on your web site.

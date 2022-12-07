@@ -1,5 +1,6 @@
 ---
 title: Introduction
+displayed_sidebar: wordpress-plugin
 ---
 
 # SEO Add-On for Google Sheets

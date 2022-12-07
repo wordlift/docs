@@ -1,3 +1,7 @@
+---
+displayed_sidebar: wordpress-plugin
+---
+
 # Export & Import of the Vocabulary
 
 There are several cases where a user decides to export or import the vocabulary of terms created with **WordLift**. Let’s see them in details:

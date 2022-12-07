@@ -1,5 +1,6 @@
 ---
 title: Introduction
+displayed_sidebar: wordpress-plugin
 ---
 
 # WooCommerce SEO by WordLift
