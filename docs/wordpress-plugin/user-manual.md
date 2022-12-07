@@ -1,0 +1,37 @@
+---
+sidebar_position: 20
+---
+
+# User Manual
+
+- [Editors](editors)
+    - [Classic Editors](editors#classic-editors)
+    - [Block Editors](editors#block-editors)
+    - [Automatic Summarization](editors#automatic-summarization)
+- [Sidebar](sidebar)
+    - [Content Analysis and Disambiguation](sidebar#content-analysis-and-disambiguation)
+    - [Manual Entity Selection](sidebar#manual-entity-selection)
+    - [Adding Entities](sidebar#adding-entities)
+    - [Updating and Linking Entities](sidebar#updating-and-linking-entities)
+    - [Synonyms](sidebar#synonyms)
+    - [Entity Types](sidebar#entity-types)
+- [Publishing](publishing)
+    - [Rich Snippets](publishing#rich-snippets)
+    - [Linked Data](publishing#linked-data)
+    - [Widgets and Shortcodes](publishing#widgets-and-shortcodes)
+- [Mappings](mappings)
+    - [Supported Schema types](mappings#supported-schema-types)
+    - [Advanced Schema types](mappings#advanced-schema-types)
+    - [Advanced Custom Fields](mappings#advanced-custom-fields-1)
+- [WooCommerce SEO by WordLift](woocommerce)
+    - [Editors](woocommerce#editors)
+    - [Categories](woocommerce#categories)
+    - [Widgets](woocommerce#widgets)
+- [SEO Add-On for Google Sheets](seo-add-on-google-sheets)
+    - [How it works](seo-add-on-google-sheets#how-it-works)
+    - [Why is it asking for the country to be added?](seo-add-on-google-sheets#why-is-it-asking-for-the-country-to-be-added)
+    - [How can the location affect the analysis?](seo-add-on-google-sheets#how-can-the-location-affect-the-analysis)
+- [WordLift Looker Studio Connector](looker-studio-connector)
+    - [Get Started](looker-studio-connector#get-started)
+- [Product Knowledge Graph Builder](pkg-builder)
+    - [Get Started](pkg-builder#get-started)

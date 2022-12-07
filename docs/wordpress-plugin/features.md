@@ -1,19 +1,15 @@
 # Features
 
-```{raw} html
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-    <iframe src="https://www.youtube.com/embed/TzsIz-mjY94" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-</div>
-```
+<iframe src="https://www.youtube.com/embed/TzsIz-mjY94" width="100%" height="540" frameborder="0" scrolling="auto"></iframe>
 
 **WordLift** is a **semantic editor** for WordPress to help writing, organizing, tagging and sharing content online.
 **WordLift** is designed for bloggers, journalists and content creators to inspire and make writing more productive.
 
-**WordLift** adds [semantic annotation](key-concepts.html#semantic-fingerprint) and combines information publicly available as [linked open data](key-concepts.html#linked-open-data) to support the editorial workflow by suggesting relevant information, images and links.
+**WordLift** adds [semantic annotation](key-concepts#semantic-fingerprint) and combines information publicly available as [linked open data](key-concepts#linked-open-data) to support the editorial workflow by suggesting relevant information, images and links.
 
 ## WordLift brings to content editors
 
-- support for **self-organising** (or structuring) **content** using publicly (or privately) available [knowledge graphs](key-concepts.html#knowledge-graph) ([linked open data](key-concepts.html#linked-open-data))
+- support for **self-organising** (or structuring) **content** using publicly (or privately) available [knowledge graphs](key-concepts#knowledge-graph) ([linked open data](key-concepts#linked-open-data))
 - an easy way to **build your own dataset** made of *web content*, *semantic annotations* and a *custom vocabulary*
 - support for creating web content using **contextually relevant fact-based information**
 - valued and **free to use photos and illustrations** from the Commons community ranging from maps to astronomical imagery to photographs, artworks and more

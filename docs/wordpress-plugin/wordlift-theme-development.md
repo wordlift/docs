@@ -11,8 +11,8 @@ In the first paragraph we describe the WordLift data model, i.e. *how additional
 1. WordLift Entities are **custom posts**;
 2. Entity properties are managed as standard posts' metadata;
 3. Entity types are managed through a [custom taxonomy](https://codex.wordpress.org/Taxonomies#Custom_Taxonomies);
-4. When a property references another entity:
-   : - Its value is the entity ID (if the entity is inside the same WordPress site),
+4. **When a property references another entity:**
+     - Its value is the entity ID (if the entity is inside the same WordPress site),
      - Its value is the entity URI (if the entity is outside the WordPress site).
 5. The 4Ws classification, i.e. the relationships among posts and entities, are stored in a custom table called *wl_relation_instances*.
 6. WordLift's Topics are a [custom taxonomy](https://codex.wordpress.org/Taxonomies#Custom_Taxonomies)
@@ -37,7 +37,7 @@ To personalise the design of entity pages the template file to be used is called
 
 Template files in WordPress are modular, reusable files, to create web pages on your web site. To learn more how to customize an existing WordPress theme or create a new one read the [template hirarchy page](https://developer.wordpress.org/themes/basics/template-hierarchy/) on the WordPress website or visualise the [WordPress template hierarchy](https://wphierarchy.com/).
 
-:::note
+:::info Note
 When [articles or pages are turned into entities](https://wordlift.io/blog/en/wordlift-3-15/) they mantain their existing post type.
 :::
 
@@ -63,7 +63,7 @@ This will return:
 
 ## Personalization of the Navigator Widget
 
-The [Navigator widget](discover.html#the-navigator-widget) by default is wrapped in a `wl-navigator` class. You can style this class and the child element classes using CSS.
+The [Navigator widget](discover#the-navigator-widget) by default is wrapped in a `wl-navigator` class. You can style this class and the child element classes using CSS.
 
 Optionally, while using the navigator, you can also specify a `template_id` to style a specific instance with its own template.
 The template can be written using [Mustache](https://github.com/Mustache/Mustache): a framework-agnostic way to style web components.
@@ -84,17 +84,13 @@ Here's a sample code that you can use as reference:
 ```
 
 As a theme developer you have complete flexibility on both: the contents of these templates and the CSS styling.
-Read here the [parameters supported](shortcodes.html#navigator-widget) by the Navigator widget.
+Read here the [parameters supported](shortcodes#navigator-widget) by the Navigator widget.
 
 ## Personalization of the Context Cards
 
-[Context Cards](discover.html#context-cards) provide an immediate preview of an entity. If the entity has been annotated and, if links are active, WordLift will show a preview of the annotated entity.
+[Context Cards](discover#context-cards) provide an immediate preview of an entity. If the entity has been annotated and, if links are active, WordLift will show a preview of the annotated entity.
 
 By default context cards will show up on hovering if Links to Entity Pages are enabled. To disable context cards, add the following code to your theme:
-
-```PHP add_filter('wl_context_cards_show' '__return_false')
-
-```
 
 The context card itself is wrapped within a class `wl-context-card` You can style this class and the child element classes using CSS. Other classes that you can use to style the context cards:
 

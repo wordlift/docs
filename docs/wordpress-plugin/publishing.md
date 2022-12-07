@@ -18,7 +18,7 @@ By clicking on the **View Linked Data** button (right after the *Permalink* in t
 
 ![image](./images/wordlift-publish-entity-lodview.png)
 
-In this example you can see the relation being created between the entity *\[Mars\]* and the entity *\[Solar System\]* (`dcterms:relation`). This relation has been created from the [entity page](edit-entity.html#linking-other-entities) page by annotating the description of the entity.
+In this example you can see the relation being created between the entity *\[Mars\]* and the entity *\[Solar System\]* (`dcterms:relation`). This relation has been created from the [entity page](edit-entity#linking-other-entities) page by annotating the description of the entity.
 
 ![image](./images/wordlift-publish-entity-lodlive.png)
 
@@ -37,7 +37,7 @@ As of today, the data being represented in RDF for each post or page include:
 
 ![image](./images/wordlift-publish-post-lodview.png)
 
-:::note
+:::info Note
 In the RDF representation of the posts you can find all entities related to a post (or a page) by looking at the `dcterms:references` attribute
 :::
 
@@ -59,7 +59,7 @@ WordLift widgets can be inserted in a post or page to give a rich visual present
 [wl_faceted_search]
 ```
 
-The Faceted Search widget can be used on entity pages to display and filter the posts related to the current and other entities. It is useful for [content discovery](discover.html#the-navigator-widget).
+The Faceted Search widget can be used on entity pages to display and filter the posts related to the current and other entities. It is useful for [content discovery](discover#the-navigator-widget).
 
 ![image](./images/wordlift-edit-entity-faceted-search-widget-frontend.gif)
 
@@ -70,7 +70,7 @@ The Faceted Search widget can be used on entity pages to display and filter the 
 ```
 
 The Navigator widget offers links to **semantic-related posts** in the blog.
-The search is made by considering the entities mentioned in the current post and by finding other blog posts that mentions the same entities. It is useful for [content discovery](discover.html#the-faceted-search-widget).
+The search is made by considering the entities mentioned in the current post and by finding other blog posts that mentions the same entities. It is useful for [content discovery](discover#the-faceted-search-widget).
 
 ![image](./images/wordlift-discover-navigator.png)
 
@@ -204,7 +204,7 @@ excerpt_length
 
 *(optional)* Allows you to set the number of words that appear in the the excerpts of the timeline.
 
-:::note
+:::info Note
 When you create a timeline with WordLift you can pass in the shortcode optional parameters to set a variety of presentation options. These are derived from the TimelineJS library [read more here](https://timeline.knightlab.com/docs/options.html).
 :::
 

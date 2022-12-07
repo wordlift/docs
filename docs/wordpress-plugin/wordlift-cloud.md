@@ -2,11 +2,7 @@
 
 Learn how to use WordLift Cloud to improve the **organic traffic** of your website using [Semantic SEO](https://wordlift.io/blog/en/entity/semantic-seo).
 
-```{raw} html
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-     <iframe src="https://www.youtube.com/embed/DF4HQENosfo?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-</div>
-```
+<iframe src="https://www.youtube.com/embed/DF4HQENosfo?rel=0&amp;showinfo=0" width="100%" height="540" frameborder="0" scrolling="auto"></iframe>
 
 ## Introduction
 
@@ -40,6 +36,6 @@ To start enriching your content using WordLift Cloud:
 You are all set. Entities have been saved automatically and the page now features the required
 **WordLift Cloud** enables content owners to re-use any [RDF knowledge graph](https://wordlift.io/blog/en/entity/knowledge-graph/) to add [schema markup](https://wordlift.io/blog/en/entity/schema-org/).
 
-:::note
+:::info Note
 To learn more about the **WordLift Cloud** [get in contact](https://wordlift.io/contact-us/) with our *concierge team* and request a WordLift access key. Our team will help you to get the best out of the service.
 :::

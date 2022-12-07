@@ -2,52 +2,6 @@
 
 WordLift provides several useful shortcodes to provide enhanced visualizations on your web site.
 
-Entity Shortcodes
-_________________
-Load entity data::
-    [wl_entity_view uri=... suffix=...][/wl_entity_view]
-The URI of the entity is determined by combining the *uri* defined in the shortcode and the current address path.
-uri
-    The *base* URI for remote resources (e.g. http://data.redlink.io/353/salzburgerland/)
-suffix
-    *(optional)* The suffix for remote requests (e.g. '.json')
-Display the value of a property::
-    [wl_entity_property name=... language=...]
-It must be used inside a *wl_entity_view*.
-name
-    The full property name (e.g. http://www.w3.org/2000/01/rdf-schema#label)
-language
-    *(optional)* The language (e.g. 'en'). If it's not specified, the shortcode looks for a value without a language.
-Display an image (using the *img* tag)::
-    [wl_entity_image name=...]
-It must be used inside a *wl_entity_view*.
-name
-    The full property name (e.g. http://schema.org/image)
-Display a date::
-    [wl_entity_date name=... format=...]
-name
-    The full property name (e.g. http://www.w3.org/2002/12/cal#dtstart)
-format
-    *(optional, default 'Y m d')* The format to apply to the date (follows the PHP convention, see `PHP date`_ for more information).
-Display a duration::
-    [wl_entity_duration name=... format=...]
-name
-    The full property name (e.g. http://www.w3.org/2002/12/cal#dtstart)
-format
-    *(optional, default '%d day(s), %h hour(s)')* The format to apply to the duration (follows the PHP convention, see `PHP DateInterval format`_ for more information).
-Example::
-    [wl_entity_view uri="http://data.redlink.io/353/salzburgerland/"]
-        [wl_entity_property name="http://www.w3.org/2000/01/rdf-schema#label" language="en" /]
-        [wl_entity_property name="http://linkedevents.org/ontology/atPlace&gt;http://www.w3.org/2000/01/rdf-schema#label" language="en" /]
-        [wl_entity_property name="http://linkedevents.org/ontology/atPlace&gt;http://www.geonames.org/ontology#parentFeature&gt;http://www.w3.org/2000/01/rdf-schema#label" language="en" /]
-        [wl_entity_date name="http://www.w3.org/2002/12/cal#dtstart" format="d/m/Y H:i" /]
-        [wl_entity_date name="http://www.w3.org/2002/12/cal#dtend" format="d/m/Y" /]
-        [wl_entity_duration name="http://schema.org/duration" /]
-        [wl_entity_property name="http://www.w3.org/2002/12/cal#location" language="en" /]
-        [wl_entity_property name="http://www.w3.org/2000/01/rdf-schema#comment" language="en"]
-        [wl_entity_image name="http://schema.org/image" /]
-    [/wl_entity_view]
-
 ## Widget Shortcodes
 
 WordLift widgets can be inserted in a post or page to give a rich visual presentation of the entities populating the blog. As the blog grows and entities are created and mentioned, the widgets update their content without intervention from the editor.
@@ -59,33 +13,33 @@ WordLift widgets can be inserted in a post or page to give a rich visual present
 ```
 
 The Navigator widget offers links to **semantic-related posts** in the blog.
-The search is made by considering the entities mentioned in the current post and by finding other blog posts that mentions the same entities. It is useful for [content discovery](discover.html#the-faceted-search-widget).
+The search is made by considering the entities mentioned in the current post and by finding other blog posts that mentions the same entities. It is useful for [content discovery](discover#the-faceted-search-widget).
 
 ![image](./images/wordlift-discover-navigator.png)
 
 Here follows the list of the supported parameters:
 
-title
+**title**
 
 *(optional)* Title to be displayed above navigator. Defaults to 'Related articles'.
 
-limit
+**limit**
 
 *(optional)* The total number of posts to display. Defaults to 4.
 
-offset
+**offset**
 
 *(optional)* Offset for posts to display. It helps you break the list of recommended articles in different blocks (to add advertising and/or CTAs). Defaults to 0. Defaults to 4.
 
-template_id
+**template_id**
 
 *(optional)* The id of the script element which has mustache template. For example if the template is in `<script id="wordlift_navigator_sidebar_template" type="text/mustache">...</script>` then `template_id` would be `wordlift_navigator_sidebar_template`.
 
-post_id
+**post_id**
 
 *(optional)* The post ID of a post of which navigator you want to display. Defaults to the current post. This is helpful if you want to display the navigator of post 'A' on post 'B' or add the navigator shortcode for a specific post in a non-post page.
 
-uniqid
+**uniqid**
 
 *(optional)* The Unique ID for the navigator. This can be used to style or to apply navigator filters that are specific to an instance of the navigator (instead of acting on multiple navigators).
 
@@ -116,7 +70,7 @@ The filters available for the navigator widget are:
 [wl_faceted_search]
 ```
 
-The Faceted Search widget can be used on entity pages to display and filter the posts related to the current and other entities. It is useful for [content discovery](discover.html#the-navigator-widget).
+The Faceted Search widget can be used on entity pages to display and filter the posts related to the current and other entities. It is useful for [content discovery](discover#the-navigator-widget).
 
 ![image](./images/wordlift-edit-entity-faceted-search-widget-frontend.gif)
 
@@ -131,27 +85,27 @@ The Faceted Search widget can be used on entity pages to display and filter the 
 The Timeline widget displays a navigable list of chronologically ordered Event entities. The window on top shows details of the selected Events.
 Here follows the list of the supported parameters:
 
-width
+**width**
 
 *(optional)* Width of the timeline. Can be expressed in pixels or percentages (e.g. *120px* or *70%*).
 
-height
+**height**
 
 *(optional)* Height of the timeline. Can be expressed in pixels or percentages (e.g. *120px* or *70%*).
 
-global
+**global**
 
 *(optional)* By default the timeline displays events (or events related to places) mentioned in the current post. When *global=true* the timeline displays events mentioned in the latest posts.
 
-display_images_as
+**display_images_as**
 
 *(optional)* When *display_images_as='background'* the timeline displays for each event the featured image of the entity as background.
 
-excerpt_length
+**excerpt_length**
 
 *(optional)* Allows you to set the number of words that appear in the the excerpts of the timeline.
 
-:::note
+:::info Note
 When you create a timeline with WordLift you can pass in the shortcode optional parameters to set a variety of presentation options. These are derived from the TimelineJS library [read more here](https://timeline.knightlab.com/docs/options.html).
 :::
 
@@ -165,15 +119,15 @@ When you create a timeline with WordLift you can pass in the shortcode optional 
 
 The Geomap widget displays "Place" entities on a map. Each Place has its own marker with a popup containing a thumbnail and links of the place. Here are the parameters:
 
-width
+**width**
 
 *(optional)* Width of the geomap. Can be expressed in pixels or percentages (e.g. *120px* or *70%*).
 
-height
+**height**
 
 *(optional)* Height of the geomap. Can be expressed in pixels or percentages (e.g. *120px* or *70%*).
 
-global
+**global**
 
 *(optional)* By default the geomap displays places mentioned in the current post. When *global=true* the geomap displays all places mentioned in the blog.
 
@@ -187,23 +141,23 @@ global
 
 The Chord widget visualizes relations between entities, starting from the current post and the entities mentioned in it.
 
-width
+**width**
 
 *(optional)* Width of the chord. Can be expressed in pixels or percentages (e.g. *120px* or *70%*).
 
-height
+**height**
 
 *(optional)* Height of the chord. Can be expressed in pixels or percentages (e.g. *120px* or *70%*).
 
-main_color
+**main_color**
 
 *(optional)* The chord's *base* color.
 
-depth
+**depth**
 
 *(optional)* Maximum distance to travel in the entity graph in order to populate the chord. A small number limits the exploration of the main entity.
 
-global
+**global**
 
 *(optional)* When *global=true* the main entity of the chord is not the current post, but the most mentioned entity in the latest posts.
 
@@ -230,15 +184,15 @@ The **Glossary** is a site-wide Widget that displays all the entities in alphabe
 By default the widget takes into account the latest 100 entities from all types (i.e. Person, Place, Organization, ...).
 The following paramenters can be used to personalise the entities beind displayed in the vocabulary:
 
-limit
+**limit**
 
 the total number of entities to displaye (*100* is the defualt value). Use `-1` to remove the limit.
 
-type
+**type**
 
 the type of entities to display (*all* is the default value). Use Person\`to display only entities of type Person.
 
-orderby
+**orderby**
 
 the selection is by default related to the alphabetical order (*title* is the default value). Selected entities can be ordered using different parameters. [Read more here](https://developer.wordpress.org/reference/classes/WP_Query/parse_query/)
 
