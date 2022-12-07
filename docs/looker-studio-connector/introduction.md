@@ -1,3 +1,8 @@
+---
+sidebar_position: 10
+title: Introduction
+---
+
 # WordLift Looker Studio Connector
 
 With the [WordLift Looker Studio Connector](https://wordlift.io/blog/en/wordlift-data-studio-connector/), you can **create semantic SEO reports** by loading data from your Knowledge Graph directly into Looker Studio and merging it with Search Console or any other web analytics platform.
@@ -8,7 +13,7 @@ With the [WordLift Looker Studio Connector](https://wordlift.io/blog/en/wordlift
 
 The first step to start creating your semantic SEO report is to search for WordLift on the [Google Looker Studio connectors page](https://datastudio.google.com/datasources).
 
-![image](./images/wordlift-datastudio-connector-get-started.png)
+![image](../images/wordlift-datastudio-connector-get-started.png)
 
 ```{raw} html <video controls src="https://wordlift.io/blog/en/wp-content/uploads/sites/3/2022/08/semantic-seo-report.mp4"></video>
 ```
@@ -19,7 +24,7 @@ We have a GraphQL query ready for you, so you don’t need to do anything to get
 
 Then click **Connect**. Here you can see the fields that come from the report. Finally, click **Create Report**.
 
-![image](./images/wordlift-datastudio-connector-create-report.png)
+![image](../images/wordlift-datastudio-connector-create-report.png)
 
 ### 2. Add GSC as a data source and check the blend
 
@@ -28,7 +33,7 @@ At this point, you are close to creating your report, but two more steps are nee
 1. To go to the managed data sources and add your Search Console data source: choose your website, choose URL Impressions anche choose Web Type, and then click on Create.
 2. Check the blends to verify that the data is merged from the Knowledge Graph and GSC.
 
-![image](./images/wordlift-datastudio-connector-check.png)
+![image](../images/wordlift-datastudio-connector-check.png)
 
 You can filter the data for EntityType and choose the period of time you prefer.
 

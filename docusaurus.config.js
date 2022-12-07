@@ -67,18 +67,13 @@ const config = {
             label: 'Start Here',
           },
           {
-            label: "API",
-            position: "left",
-            to: "/category/api"
-          },
-          {
             type: 'dropdown',
             label: 'Products',
             position: 'left',
             items: [ {
-              label: 'SEO Automation',
-              to: '/wordpress-plugin/getting-started'
-            }, {
+            //   label: 'SEO Automation',
+            //   to: '/wordpress-plugin/getting-started'
+            // }, {
               label: 'WordPress Plugin',
               to: '/wordpress-plugin/getting-started#installation'
             }, {
@@ -89,8 +84,13 @@ const config = {
               to: '/wordpress-plugin/seo-add-on-google-sheets'
             }, {
               label: 'Looker Studio Connector',
-              to: '/wordpress-plugin/looker-studio-connector'
+              to: '/looker-studio-connector/introduction'
             } ]
+          },
+          {
+            label: "API",
+            position: "left",
+            to: "/category/api"
           },
           {
             href: 'https://github.com/wordlift',
