@@ -38,7 +38,7 @@ Once you’ve finished annotating and curating the article's metadata, publish a
 
 WordLift uses state of the art [Natural Language Processing](https://wordlift.io/blog/en/entity/natural-language-processing/) to summarize the content that you write. You can use the summarization for writing the meta description, for promoting your article on social networks and a lot more!
 
-:::note
+:::info Note
 :::
 
 Automatic Text Summarization is available on all Business and Enterprises licenses. [Contact our sales team](https://wordlift.io/contact-us/) to upgrade your subscription.

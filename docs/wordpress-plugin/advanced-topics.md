@@ -11,7 +11,7 @@ They are not limited to abstract concepts and relations (as with a vocabulary) b
 
 Using WordLift as new entities are added in the vocabulary, properties for these entities are populated using the
 *ease-to-use* WordPress editing interfaces and new posts are enriched with these entities a knowledge graph is
-created and published as [RDF] graph in the cloud.
+created and published as [RDF](#rdf) graph in the cloud.
 
 ### Linked Data
 
@@ -20,11 +20,11 @@ Large linked open datasets (or [Knowledge Graph](#knowledge-graph)) include DBpe
 
 ### Reconciliation
 
-**Reconciling** entities we store in our own [vocabulary] with entities available elsewhere provides computers with an unambiguous way to identify the things we're talking about.
+**Reconciling** entities we store in our own [vocabulary](#system-message-1) with entities available elsewhere provides computers with an unambiguous way to identify the things we're talking about.
 
 *\[Apple\]* in a specific article might refer to a rather typical British psychedelic-pop band rather than to a World famous computer company or the forbidden fruit. This becomes important when third party applications like search engines need to provide valuable content for users searching for articles on *\[Apple\]* the psychedelic-pop band and not the other two *Apples*.
 
-[Reconciling](key-concepts.html#reconciliation) entities means providing computers with unambiguous identifications of the *entities* we talk about.
+[Reconciling](key-concepts#reconciliation) entities means providing computers with unambiguous identifications of the *entities* we talk about.
 
 ## RDF
 
@@ -37,13 +37,13 @@ RDF is a W3C standard language for representing information.
 The result of semantic annotation of a text is a *unique linked identifier* added to the HTML code. This identifier is known as **semantic fingerprint**.
 
 Annotating contents, also known as *semantic enrichment* or *lifting*, creates metadata that computers can understand.
-Just like in forensic science human fingerprints are used to identify humans appearing on a crime scene, in computer science we use semantic fingerprints to tell computers what [entities](key-concepts.html#entity) we're referring to.
+Just like in forensic science human fingerprints are used to identify humans appearing on a crime scene, in computer science we use semantic fingerprints to tell computers what [entities](key-concepts#entity) we're referring to.
 
-WordLift re-uses these semantic fingerprints for adding Schema.org markup and for re-purposing contents using [Widgets](key-concepts.html#widget).
+WordLift re-uses these semantic fingerprints for adding Schema.org markup and for re-purposing contents using [Widgets](key-concepts#widget).
 
 ## Dereferencing HTTP URIs
 
-**URI Dereferencing** is the process of looking up a URI on the Web in order to get information about the referenced resource. WordLift uses dereferencing to obtain a snapshot of the properties describing a [named entity](key-concepts.html#entity).
+**URI Dereferencing** is the process of looking up a URI on the Web in order to get information about the referenced resource. WordLift uses dereferencing to obtain a snapshot of the properties describing a [named entity](key-concepts#entity).
 
 ## Semantic Analytics
 

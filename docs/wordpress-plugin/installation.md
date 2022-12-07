@@ -1,6 +1,6 @@
 # Installation
 
-:::note
+:::info Note
 We **suggest** our users to make a full back-up of their website data before installing WordLift.
 :::
 
@@ -34,13 +34,13 @@ More information on the manual installation are available on the [WordPress Code
 
 ## Activation
 
-To activate the plugin you need a [WordLift key](key-concepts.html#wordlift-key). You receive this key after [purchasing a subscription plan](https://wordlift.io/pricing/) the [WordLift] website. An automatic email will be then sent to you containing your key and account information.
+To activate the plugin you need a [WordLift key](key-concepts#wordlift-key). You receive this key after [purchasing a subscription plan](https://wordlift.io/pricing/) the [WordLift] website. An automatic email will be then sent to you containing your key and account information.
 
 You can use the setup Wizard upon startup to activate your subscription.
 
 ![image](./images/wordlift-setup-wizard.gif)
 
-When doing so you are able to configure the [key](key-concepts.html#wordlift-key), the entity base path (the URL pattern of the WordLift internal vocabulary), the languange used on the website and the publisher of the website.
+When doing so you are able to configure the [key](key-concepts#wordlift-key), the entity base path (the URL pattern of the WordLift internal vocabulary), the languange used on the website and the publisher of the website.
 
 Alternatively, from the WordPress administration menu, click on *Plugins* / *Installed Plugins*. Then click on *Settings* on the
 WordLift plugin.
@@ -56,7 +56,7 @@ From *Settings* screen, as from the Wizard, you can configure:
 
 WordLift Key
 
-The [WordLift Key](key-concepts.html#wordlift-key), required to activate the plug-in that can be purchased from the [website](https://wordlift.io/pricing/).
+The [WordLift Key](key-concepts#wordlift-key), required to activate the plug-in that can be purchased from the [website](https://wordlift.io/pricing/).
 
 Entity Base Path
 
@@ -74,11 +74,11 @@ Publisher
 
 The person or the organization publishing the content of the website. This is also an entity that can be created directly from this setting screen. This information is used to enrich the metadata on your website.
 
-:::note
-For more information on the multilingual support of WordLift [read here](faq.html#what-are-the-languages-supported-by-wordlift).
+:::info Note
+For more information on the multilingual support of WordLift [read here](faq#what-are-the-languages-supported-by-wordlift).
 :::
 
-You can now continue to the (key-concepts` page or head directly to the {doc}`analysis)[key-concepts` page or head directly to the {doc}`analysis.md] page.
+You can now continue to the [Key Concepts](key-concepts) page or head directly to the [Analysis](analysis).
 
 [join.wordlift.it]: https://join.wordlift.it/
 [my.redlink.io]: https://my.redlink.io

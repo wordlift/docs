@@ -2,7 +2,7 @@
 
 This section is dedicated to the latest *versions* of the plugin. Here you can keep track of everything that is happening with the developemnt of the plugin: read the *changelog* and discover *fixes and enhancements*.
 
-**WordLift** developement is **open source** and we love to have you as contributor to both source code and issues; with your help we can make WordLift even better 🎉. Here is the link to [GitHub](https://github.com/insideout10/wordlift-plugin) and here you can find [the guidelines for contributing](https://github.com/insideout10/wordlift-plugin/blob/develop/CONTRIBUTING.md) to the repository.
+**WordLift** developement is **open source** and we love to have you as contributor to both source code and issues; with your help we can make WordLift even better 🎉. Here is the link to [GitHub](https://github.com/insideout10/wordlift-plugin) and here you can find [the guidelines for contributing](https://github.com/insideout10/wordlift-plugin/blob/develop/CONTRIBUTING) to the repository.
 
 Just spotted any *creeping bug* or some *bothering issue*? Help us to smash it down: [report bugs and issues to us in detail on GitHub](https://github.com/insideout10/wordlift-plugin/issues/new). Thank you 💙
 
@@ -14,7 +14,7 @@ The WordLift 3.19 release has been published in May 2018 and we had minor sub-re
 
 ## WordLift 3.18 (2018-03-20)
 
-The WordLift 3.18 release is now available. We have introduced the new entity type for [Offer](http://docs.wordlift.io/en/latest/edit-entity.html#edit-a-offer) and the support for the property `performer` on the entity type [Event](http://docs.wordlift.io/en/latest/edit-entity.html#edit-an-event). The [glossary widget](http://docs.wordlift.io/en/latest/discover.html#the-glossary-widget) has also been improved and it now supports a new option to let you display all the entities that belong to a specific WordPress Category. Above all, WordLift's Knowledge Graph got better 😉 the plugin now stores in RDF the link between entities and articles.
+The WordLift 3.18 release is now available. We have introduced the new entity type for [Offer](edit-entity#edit-a-offer) and the support for the property `performer` on the entity type [Event](edit-entity#edit-an-event). The [glossary widget](discover#the-glossary-widget) has also been improved and it now supports a new option to let you display all the entities that belong to a specific WordPress Category. Above all, WordLift's Knowledge Graph got better 😉 the plugin now stores in RDF the link between entities and articles.
 
 [Download the latest release](https://wordpress.org/plugins/wordlift/) now from WordPress.org or update it automatically from the administration panel of your website.
 
@@ -51,7 +51,7 @@ Have a look to the full [changelog on GitHub](https://github.com/insideout10/wor
 ## Helpful links
 
 - [WordLift Plugin on GitHub](https://github.com/insideout10/wordlift-plugin)
-- [Contributing guidelines of the repository](https://github.com/insideout10/wordlift-plugin/blob/develop/CONTRIBUTING.md)
+- [Contributing guidelines of the repository](https://github.com/insideout10/wordlift-plugin/blob/develop/CONTRIBUTING)
 - [WordLift official website](https://wordlift.io)
 - [The Plugin in the WordPress repository](https://wordpress.org/plugins/wordlift/#developers)
 - [Translate WordLift in other languages](https://translate.wordpress.org/projects/wp-plugins/wordlift)

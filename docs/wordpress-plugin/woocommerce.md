@@ -21,11 +21,8 @@ WooCommerce SEO by WordLift enhances your Content Management System adding new f
 
 In this video you will learn how to add schema markup to your WooCommerce store with E-commerce SEO by WordLift.
 
-```{raw} html
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-    <iframe src="https://www.youtube-nocookie.com/embed/om8wgy7IXfk" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-</div>
-```
+
+<iframe src="https://www.youtube-nocookie.com/embed/om8wgy7IXfk" width="100%" height="540" frameborder="0" scrolling="auto"></iframe>
 
 ## Editors
 
@@ -82,12 +79,12 @@ The Product Navigator widget supports the same parameters as the Navigator.
 
 ### Product Card
 
-The Product Card allows the customers to see a preview of your product just placing their mouse over the link to the product itself. To activate the link and the Product Card just annotate the Product on your articles and pages. Learn more about [how to anotate your content](https://docs.wordlift.io/en/latest/analysis.html#wordlift-edit-post-widget)
+The Product Card allows the customers to see a preview of your product just placing their mouse over the link to the product itself. To activate the link and the Product Card just annotate the Product on your articles and pages. Learn more about [how to anotate your content](analysis#wordlift-edit-post-widget)
 
 ![image](./images/product-card-woocommerce.png)
 
 *How The Product Card of WordLift looks like on articles and other pages*
 
-:::note
+:::info Note
 Read from our blog how to [improve your WooCommerce product pages](https://wordlift.io/blog/en/woocommerce-product-pages/) to increase your sales.
 :::

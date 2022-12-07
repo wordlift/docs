@@ -2,9 +2,9 @@
 
 **WordLift** brings to the readers of your site multiple means of **content discovery**.
 
-**WordLift** leverages on the semantic network of concepts (or [entities](key-concepts.html#entity)) being created to help users explore the content of your site.
+**WordLift** leverages on the semantic network of concepts (or [entities](key-concepts#entity)) being created to help users explore the content of your site.
 
-Using the [graph](key-concepts.html#knowledge-graph) created by **WordLift** innovative ways of navigating the contents can be implemented (this is particularly true if you are a developer.)
+Using the [graph](key-concepts#knowledge-graph) created by **WordLift** innovative ways of navigating the contents can be implemented (this is particularly true if you are a developer.)
 
 **WordLift** helps users discover content in **eight different ways**:
 
@@ -34,7 +34,7 @@ These links can be personalised using the CSS class `wl-entity-page-link`. As se
 **Context Cards** provide an immediate preview of an entity. If the entity has been annotated and, if links are active,
 WordLift will show a preview of the annotated entity.
 
-By default context cards will show up on *hovering* if [Links to Entity Pages](discover.html?highlight=navigator#links-to-entity-pages) are enabled.
+By default context cards will show up on *hovering* if [Links to Entity Pages](discover?highlight=navigator#links-to-entity-pages) are enabled.
 To disable context cards, add the following code to your theme:
 
 ```php
@@ -44,11 +44,8 @@ add_filter('wl_context_cards_show' '__return_false')
 ```{image} https://user-images.githubusercontent.com/5725682/60662170-f4ee9600-9e5b-11e9-8a06-368eede8b89e.png
 ```
 
-:::note
+:::info Note
 Based on the original work of [Wikipedia Context Cards](https://github.com/joakin/context-cards).
-:::
-
-:::note
 :::
 
 ## The Navigator Widget
@@ -77,17 +74,14 @@ The default title for this widget - when it is added to a page - is "**Related a
 ## The Timeline Widget
 
 **WordLift** uses the powerful [TimelineJS](https://timeline.knightlab.com/) to create beautiful, interactive timelines.
-The timeline widget in **WordLift** uses nothing more than [entities of type event](edit-entity.html#edit-an-event) mentioned and annotated in the article.
+The timeline widget in **WordLift** uses nothing more than [entities of type event](edit-entity#edit-an-event) mentioned and annotated in the article.
 
-[Entities of type event](edit-entity.html#edit-an-event) can be linked to entities of type place via the property *location* (this describe where the event is taking place). If a place is mentioned in the article and it is linked to an event the timeline will display this event also.
+[Entities of type event](edit-entity#edit-an-event) can be linked to entities of type place via the property *location* (this describe where the event is taking place). If a place is mentioned in the article and it is linked to an event the timeline will display this event also.
 
 ![image](./images/wordlift-shortcodes-timeline.png)
 
-:::note
-In order for an event to appear in the timeline the event property *startDate* shall be present as illustrated [here](edit-entity.html#edit-an-event).
-:::
-
-:::note
+:::info Note
+In order for an event to appear in the timeline the event property *startDate* shall be present as illustrated [here](edit-entity#edit-an-event).
 :::
 
 It is possible to personalise the layout of the timeline using any of [the presentation options of TimelineJS](https://timeline.knightlab.com/docs/options.html) plus three additional parameters provided by WordLift:
@@ -96,7 +90,7 @@ It is possible to personalise the layout of the timeline using any of [the prese
 2. **display_images_as** the default value is *media*, alternatively you can use *background* and the fetured image of the entity will be used as background
 3. **global** when set to *true* the timeline displays events mentioned in the latest posts (no need to add mentions to places or events in this case).
 
-:::note
+:::info Note
 When you create a timeline with WordLift you can pass in the shortcode optional parameters to set a variety of presentation options. These are derived from the TimelineJS library [read more here](https://timeline.knightlab.com/docs/options.html).
 :::
 
@@ -110,7 +104,7 @@ This shortcode above produces the following result:
 
 ### The Timeline WordPress Widget
 
-The **Timeline WordPress Widget** is a site-wide Widget that displays events being saved as entities (type event) using the [interactive timeline](discover.html#the-timeline-widget).
+The **Timeline WordPress Widget** is a site-wide Widget that displays events being saved as entities (type event) using the [interactive timeline](discover#the-timeline-widget).
 
 ![image](./images/wordlift-timeline-wordpress-widget.png)
 
@@ -163,4 +157,4 @@ The following paramenters can be used to personalise the entities beind displaye
 
 Here you can see an example of the [Semantic SEO Glossary](https://wordlift.io/blog/en/glossary).
 
-In the next section, you can read all about the parameters that you can use to personalize each widget using [shortcodes](shortcodes.html).
+In the next section, you can read all about the parameters that you can use to personalize each widget using [shortcodes](shortcodes).

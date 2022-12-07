@@ -28,7 +28,7 @@ With WordLift, users can create their own custom vocabulary by creating entities
 
 When linking entities to each other, WordLift uses the `owl:sameAs` property; this means that we're talking about the same *thing* (or simply that both entities share the same "identity"): "Yes, I'm talking about that same *\[Europe Day\]* that Freebase describes with machine id **m/04f6ymq**".
 
-This linking process is also called [reconciliation] or disambiguation. Find out more on [how to import and export the user vocabulary](import-export-vocabulary.html).
+This linking process is also called [reconciliation] or disambiguation. Find out more on [how to import and export the user vocabulary](import-export-vocabulary).
 
 ## Knowledge Graph
 
@@ -48,7 +48,7 @@ RDF is a W3C standard language for representing information.
 ## Linked Open Data
 
 **Linked Open Data** is [Linked Data](http://en.wikipedia.org/wiki/Linked_data) that is made available as **open content**.
-Large linked open datasets (or [Knowledge Graph]) include DBpedia and Freebase.
+Large linked open datasets (or [Knowledge Graph](key-concepts#knowledge-graph)) include DBpedia and Freebase.
 
 ## Reconciliation
 
@@ -56,32 +56,32 @@ Large linked open datasets (or [Knowledge Graph]) include DBpedia and Freebase.
 
 *\[Apple\]* in a specific article might refer to a rather typical British psychedelic-pop band rather than to a World famous computer company or the forbidden fruit. This becomes important when third party applications like search engines need to provide valuable content for users searching for articles on *\[Apple\]* the psychedelic-pop band and not the other two *Apples*.
 
-[Reconciling](key-concepts.html#reconciliation) entities means providing computers with unambiguous identifications of the *entities* we talk about.
+[Reconciling](key-concepts#reconciliation) entities means providing computers with unambiguous identifications of the *entities* we talk about.
 
 ## Semantic Fingerprint
 
 The result of semantic annotation of a text is a *unique linked identifier* added to the HTML code. This identifier is known as **semantic fingerprint**.
 
 Annotating contents, also known as *semantic enrichment* or *lifting*, creates metadata that computers can understand.
-Just like in forensic science human fingerprints are used to identify humans appearing on a crime scene, in computer science we use semantic fingerprints to tell computers what [entities](key-concepts.html#entity) we're referring to.
+Just like in forensic science human fingerprints are used to identify humans appearing on a crime scene, in computer science we use semantic fingerprints to tell computers what [entities](key-concepts#entity) we're referring to.
 
-WordLift re-uses these semantic fingerprints for adding Schema.org markup and for re-purposing contents using [Widgets](key-concepts.html#widget).
+WordLift re-uses these semantic fingerprints for adding Schema.org markup and for re-purposing contents using [Widgets](key-concepts#widget).
 
 ## Dereferencing HTTP URIs
 
-**URI Dereferencing** is the process of looking up a URI on the Web in order to get information about the referenced resource. WordLift uses dereferencing to obtain a snapshot of the properties describing a [named entity](key-concepts.html#entity).
+**URI Dereferencing** is the process of looking up a URI on the Web in order to get information about the referenced resource. WordLift uses dereferencing to obtain a snapshot of the properties describing a [named entity](key-concepts#entity).
 
 ## Widget
 
 A **widget** in WordLift is a dynamic visualisation that can be added by the editors to a page via [Shortcode](http://codex.wordpress.org/Shortcode) or using the WordLift menu.
 
 A Widget is executed by the end-user's browser when accessing a page.
-A Widget typically displays informations being stored in the [knowledge graph] and creates dynamic connections between different posts or provides additional information about entities in the post.
+A Widget typically displays informations being stored in the [knowledge graph](key-concepts#knowledge-graph) and creates dynamic connections between different posts or provides additional information about entities in the post.
 
 ## WordLift Edit Post Widget
 
 Contents editors using WordLift can identify the basic '*who*, *what*, *when* and *where*' of an
-article and structure information around it by creating new entities in the [custom vocabulary](key-concepts.html#vocabulary). These annotations are added to the posts using the **WordLift Edit Post Widget**.
+article and structure information around it by creating new entities in the [custom vocabulary](key-concepts#vocabulary). These annotations are added to the posts using the **WordLift Edit Post Widget**.
 
 ### Top down post annotation
 
@@ -99,7 +99,7 @@ The content editor has choosen the “Expo 2015” occurence in the text. In thi
 ### Edit Entity Properties
 
 The content editor is editing the main properties for the entity "Expo 2015" while writing the post.
-The complete list of properties can be edited from the (edit-entity)[edit-entity.md] page.
+The complete list of properties can be edited from the [Edit Entity](edit-entity) page.
 
 ![image](./images/wordlift-edit-post-widget-03.png)
 
@@ -113,4 +113,4 @@ Images for each entity appear in the WordLift Edit Post Widget and can be dragge
 
 The **WordLift key** is a *unique value* that is assigned to each user after he/she has subscribed to the WordLift service.
 
-You can now continue to the (analysis)[analysis.md] page.
+You can now continue to the [Analysis](analysis) page.
