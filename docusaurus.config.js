@@ -69,7 +69,7 @@ const config = {
           {
             label: "API",
             position: "left",
-            to: "/category/wordlift-api"
+            to: "/category/api"
           },
           {
             type: 'dropdown',
@@ -181,17 +181,33 @@ const config = {
         id: "openapi",
         docsPluginId: "classic", // e.g. "classic" or the plugin-content-docs id
         config: {
-          "analysis": { // "petstore" is considered the <id> that you will reference in the CLI
-            specPath: "api/analysis.json", // path or URL to the OpenAPI spec
+          "analysis": {
+            specPath: "api/analysis.yaml", // path or URL to the OpenAPI spec
             outputDir: "docs/api/analysis", // output directory for generated *.mdx and sidebar.js files
             sidebarOptions: {
               groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
               categoryLinkSource: "tag"
             },
           },
-          "content-generation": { // "petstore" is considered the <id> that you will reference in the CLI
-            specPath: "openapi.yaml", // path or URL to the OpenAPI spec
+          "content-generation": {
+            specPath: "api/content-generation.yaml", // path or URL to the OpenAPI spec
             outputDir: "docs/api/content-generation", // output directory for generated *.mdx and sidebar.js files
+            sidebarOptions: {
+              groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
+              categoryLinkSource: "tag"
+            },
+          },
+          "inspector": {
+            specPath: "api/inspector.yaml", // path or URL to the OpenAPI spec
+            outputDir: "docs/api/inspector", // output directory for generated *.mdx and sidebar.js files
+            sidebarOptions: {
+              groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
+              categoryLinkSource: "tag"
+            },
+          },
+          "long-tail": {
+            specPath: "api/long-tail.yaml", // path or URL to the OpenAPI spec
+            outputDir: "docs/api/long-tail", // output directory for generated *.mdx and sidebar.js files
             sidebarOptions: {
               groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
               categoryLinkSource: "tag"

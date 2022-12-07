@@ -1,1 +1,331 @@
-{"timestamp":"2022-12-04T13:49:17.242+00:00","path":"/v3/api-docs.yaml","status":404,"error":"Not Found","requestId":"c891b92f-273283"}
+openapi: 3.0.1
+info:
+  title: Analysis
+  description: Analyse content using Linked Data and Knowledge Graphs.
+  termsOfService: https://wordlift.io/terms-of-service/
+  contact:
+    name: WordLift
+    url: https://wordlift.io
+    email: hello@wordlift.io
+  license:
+    name: (c) copyright 2022-present WordLift
+    url: https://wordlift.io
+  version: "1.0"
+servers:
+- url: https://api.wordlift.io/analysis
+tags:
+- name: Analyses
+  description: Analyse content and extract entities from Linked Data and Knowledge
+    Graphs.
+paths:
+  /v2/analyze:
+    post:
+      tags:
+      - Analyses
+      summary: Analyse Web Page
+      description: Analyse the content of a webpage by using the `url` property of
+        the request.
+      operationId: v2Analysis
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Request'
+        required: true
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        "500":
+          description: Server Error
+        "401":
+          description: Authentication Failure
+      security:
+      - ApiKey: []
+  /single:
+    post:
+      tags:
+      - Analyses
+      summary: Analyse content
+      description: Analyze the content provided with the request.
+      operationId: analyse
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Request'
+        required: true
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        "500":
+          description: Server Error
+        "401":
+          description: Authentication Failure
+      security:
+      - ApiKey: []
+  /merge:
+    post:
+      tags:
+      - Analyses
+      summary: Analyse and Merge
+      description: Analyze content and return the results merged as HTML code.
+      operationId: merge
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Request'
+        required: true
+      responses:
+        "200":
+          description: Success
+          content:
+            text/html:
+              schema:
+                type: string
+        "500":
+          description: Server Error
+        "401":
+          description: Authentication Failure
+      security:
+      - ApiKey: []
+components:
+  schemas:
+    Html:
+      type: object
+      properties:
+        fragment:
+          type: string
+          description: The html fragment to analyze.
+        page:
+          type: string
+          description: "The html page to analyze, either fragment or page should be\
+            \ present"
+      description: The html fragment or html page to analyze.
+    Request:
+      required:
+      - language
+      - scope
+      type: object
+      properties:
+        html:
+          $ref: '#/components/schemas/Html'
+        url:
+          type: string
+          description: The url of the page to analyze.
+          format: url
+        language:
+          maxLength: 2
+          minLength: 2
+          type: string
+          description: "The content language, 2 letters code, e.g. 'en'."
+        text:
+          type: string
+          description: A textual fragment.
+        exclude:
+          type: array
+          description: An array of item IDs to exclude from the analysis results.
+          items:
+            type: string
+            description: An array of item IDs to exclude from the analysis results.
+            format: url
+        scope:
+          type: string
+          description: "The scope of the analysis, one of 'local', 'network' or 'all'."
+        matches:
+          type: integer
+          description: Filter out results that don't have at least the specified number
+            of occurrences. By default 1.
+          format: int32
+        links:
+          type: string
+          description: "When returning an interpolated HTML results, matches should\
+            \ have the 'wl-link' class. By default 'no'."
+      description: The request
+    Annotation:
+      type: object
+      properties:
+        annotationId:
+          type: string
+          description: An unique id.
+        start:
+          type: integer
+          description: The starting posistion of annotation in content (zero-indexed
+            & non negative ).
+          format: int32
+        end:
+          type: integer
+          description: The ending posistion of annotation in content (zero-indexed
+            & non negative ).
+          format: int32
+        text:
+          type: string
+          description: The annotated text.
+        entityMatches:
+          type: array
+          description: The list of entities which the annotation matches.
+          items:
+            $ref: '#/components/schemas/EntityMatch'
+      description: Object representing single annotation.
+    Entity:
+      type: object
+      properties:
+        entityId:
+          type: string
+          description: The entity URI.
+          format: url
+        confidence:
+          type: number
+          description: Confidence score representing the entity match level.
+          format: double
+        mainType:
+          type: string
+          description: The main schema type for the current entity.
+        types:
+          type: array
+          description: The list of schema types which the entity can be classified
+            to.
+          items:
+            type: string
+            description: The list of schema types which the entity can be classified
+              to.
+        label:
+          type: string
+          description: The title of the entity.
+        description:
+          type: string
+          description: The description about the entity.
+        images:
+          type: array
+          description: The list of entity image URIs.
+          items:
+            type: string
+            description: The list of entity image URIs.
+            format: url
+        sameAs:
+          type: array
+          description: The list of entity sameas URIs.
+          items:
+            type: string
+            description: The list of entity sameas URIs.
+            format: url
+        properties:
+          $ref: '#/components/schemas/Properties'
+        synonyms:
+          type: array
+          items:
+            type: string
+      description: Entity
+    EntityMatch:
+      type: object
+      properties:
+        confidence:
+          type: number
+          description: Confidence score for the current entity.
+          format: double
+        entityId:
+          type: string
+          description: The entity URI.
+          format: url
+      description: Entity Match
+    Image:
+      type: object
+      properties:
+        label:
+          type: string
+          description: The title of the image.
+        url:
+          type: string
+          description: The image URI.
+          format: url
+      description: Image
+    Properties:
+      type: object
+      properties:
+        latitude:
+          type: number
+          description: The latitude.
+          format: double
+        longitude:
+          type: number
+          description: The longitude.
+          format: double
+      description: The entity properties.
+    Response:
+      type: object
+      properties:
+        entities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Entity'
+          description: A map of entity URI to the respective entity.
+        annotations:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Annotation'
+          description: A map of annotation id to the respective annotation.
+        images:
+          type: array
+          description: A list of images.
+          items:
+            $ref: '#/components/schemas/Image'
+        languages:
+          type: array
+          description: A list of languages.
+          items:
+            type: string
+            description: A list of languages.
+        topics:
+          type: array
+          description: A list of topics.
+          items:
+            $ref: '#/components/schemas/Topic'
+        content:
+          type: string
+          description: The text supplied for analysis.
+      description: Response
+    Topic:
+      type: object
+      properties:
+        label:
+          type: string
+          description: The topic title.
+        description:
+          type: string
+          description: The topic description.
+        uri:
+          type: string
+          description: The topic URI.
+          format: url
+        confidence:
+          type: number
+          description: The topic confidence score.
+          format: double
+        images:
+          type: array
+          description: A list of image URIs.
+          items:
+            type: string
+            description: A list of image URIs.
+            format: url
+        sameAs:
+          type: array
+          description: A list of sameas URIs.
+          items:
+            type: string
+            description: A list of sameas URIs.
+            format: url
+      description: Topic
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      name: Authorization
+      in: header
