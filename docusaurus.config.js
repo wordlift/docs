@@ -80,16 +80,16 @@ const config = {
               to: '/wordpress-plugin/getting-started'
             }, {
               label: 'WordPress Plugin',
-              to: '/wordpress-plugin/getting-started'
+              to: '/wordpress-plugin/getting-started#installation'
             }, {
               label: 'WooCommerce Plugin',
-              to: '/wordpress-plugin/getting-started'
+              to: '/wordpress-plugin/woocommerce'
             }, {
               label: 'Google Sheets Add-on',
-              to: '/wordpress-plugin/getting-started'
+              to: '/wordpress-plugin/seo-add-on-google-sheets'
             }, {
               label: 'Looker Studio Connector',
-              to: '/wordpress-plugin/getting-started'
+              to: '/wordpress-plugin/looker-studio-connector'
             } ]
           },
           {
