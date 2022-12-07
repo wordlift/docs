@@ -1,0 +1,41 @@
+---
+id: stop
+title: "Stop"
+description: "Stop a merchant synchronization."
+sidebar_label: "Stop"
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["Merchant Syncs"],"description":"Stop a merchant synchronization.","operationId":"stop","parameters":[{"name":"url","in":"query","description":"The merchant url.","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success","content":{"*/*":{"schema":{"type":"string"}}}},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"OAuth2":[]}],"method":"delete","path":"/websites/merchant-syncs","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"OAuth2":{"type":"oauth2","flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","tokenUrl":"https://s.wordlift.io/oauth/token/","scopes":{"basic":"basic scope"}}}}},"info":{"title":"Manager","description":"Subscription management and related services.","termsOfService":"https://wordlift.io/terms-of-service/","contact":{"name":"WordLift","url":"https://wordlift.io","email":"hello@wordlift.io"},"license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"version":"1.0"},"postman":{"name":"Stop","description":{"content":"Stop a merchant synchronization.","type":"text/plain"},"url":{"path":["websites","merchant-syncs"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) The merchant url.","type":"text/plain"},"key":"url","value":""}],"variable":[]},"header":[{"key":"Accept","value":"*/*"}],"method":"DELETE","auth":{"type":"oauth2","oauth2":[]}}}
+sidebar_class_name: "delete api-method"
+info_path: api/manager/manager
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Stop
+
+
+
+Stop a merchant synchronization.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"url","in":"query","description":"The merchant url.","required":true,"schema":{"type":"string"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Success
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>string</strong></div></li></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Authentication Failure
+
+</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div></div></TabItem></ApiTabs></div>
+      

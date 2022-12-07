@@ -1,0 +1,53 @@
+---
+id: classify-using-post
+title: "Create"
+description: "Classify the text to provided categories"
+sidebar_label: "Create"
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["Classifications"],"description":"Classify the text to provided categories","operationId":"classifyUsingPost","parameters":[{"name":"lang","in":"query","description":"Language code","schema":{"type":"string","default":"en"}},{"name":"multi_class","in":"query","description":"When set to true the scores will be independent, each will fall between 0 and 1","schema":{"type":"boolean","default":false}}],"requestBody":{"description":"body","content":{"application/json":{"schema":{"title":"ClassificationRequest","type":"object","properties":{"classes":{"type":"array","example":["indian","thai","chinese","italian"],"items":{"type":"string"}},"text":{"type":"string","example":"This dish is a deli egg-bacon-and-cheese-on-a-roll that has been pasta-fied, fancified, fetishized and turned into an Italian tradition that, like many inviolate Italian traditions, is actually far less old than the Mayflower."}}}}},"required":true},"responses":{"200":{"description":"OK","content":{"application/ld+json":{"schema":{"title":"ClassificationResponse","type":"object","properties":{"labels":{"type":"array","items":{"type":"string"}},"scores":{"type":"array","items":{"type":"number","format":"float"}}}}}}},"201":{"description":"Created","content":{}},"401":{"description":"Unauthorized","content":{}},"403":{"description":"Forbidden","content":{}},"404":{"description":"Not Found","content":{}}},"x-codegen-request-body-name":"body","security":[{"ApiKey":[]}],"method":"post","path":"/classification/classify","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"type":"apiKey","name":"Authorization","in":"header"}},"jsonRequestBodyExample":{"classes":["indian","thai","chinese","italian"],"text":"This dish is a deli egg-bacon-and-cheese-on-a-roll that has been pasta-fied, fancified, fetishized and turned into an Italian tradition that, like many inviolate Italian traditions, is actually far less old than the Mayflower."},"info":{"title":"Classification","description":"Generic text classification","termsOfService":"https://wordlift.io/terms-of-service/","contact":{"name":"WordLift","url":"https://wordlift.io","email":"hello@wordlift.io"},"license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"version":"1.0"},"postman":{"name":"Create","description":{"content":"Classify the text to provided categories","type":"text/plain"},"url":{"path":["classification","classify"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"Language code","type":"text/plain"},"key":"lang","value":""},{"disabled":false,"description":{"content":"When set to true the scores will be independent, each will fall between 0 and 1","type":"text/plain"},"key":"multi_class","value":""}],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"application/ld+json"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+sidebar_class_name: "post api-method"
+info_path: api/classification/classification
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Create
+
+
+
+Classify the text to provided categories
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"lang","in":"query","description":"Language code","schema":{"type":"string","default":"en"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"multi_class","in":"query","description":"When set to true the scores will be independent, each will fall between 0 and 1","schema":{"type":"boolean","default":false}}}></ParamsItem></ul></div></details><MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+body
+
+</div></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"classes"} required={false} schemaDescription={undefined} schemaName={"string[]"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem><SchemaItem collapsible={false} name={"text"} required={false} schemaDescription={undefined} schemaName={"string"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/ld+json"} value={"application/ld+json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"labels"} required={false} schemaDescription={undefined} schemaName={"string[]"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem><SchemaItem collapsible={false} name={"scores"} required={false} schemaDescription={undefined} schemaName={"float[]"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"labels\": [\n    \"string\"\n  ],\n  \"scores\": [\n    0\n  ]\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"201"} value={"201"}><div>
+
+Created
+
+</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div></div></TabItem></ApiTabs></div>
+      

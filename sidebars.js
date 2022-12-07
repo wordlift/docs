@@ -102,8 +102,18 @@ const sidebars = {
         },
         {
           type: "category",
+          label: "Classification",
+          items: require("./docs/api/classification/sidebar.js"),
+        },
+        {
+          type: "category",
           label: "Content Generation",
           items: require("./docs/api/content-generation/sidebar.js"),
+        },
+        {
+          type: "category",
+          label: "GraphQL",
+          items: require("./docs/api/graphql/sidebar.js"),
         },
         {
           type: "category",
@@ -117,8 +127,18 @@ const sidebars = {
         },
         {
           type: "category",
+          label: "Manager",
+          items: require("./docs/api/manager/sidebar.js"),
+        },
+        {
+          type: "category",
           label: "Middleware",
           items: require("./docs/api/middleware/sidebar.js"),
+        },
+        {
+          type: "category",
+          label: "Summarization",
+          items: require("./docs/api/summarizer/sidebar.js"),
         },
       ],
     }
