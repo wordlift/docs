@@ -1,0 +1,38 @@
+---
+id: get
+title: "Get the Web Data URI for a Web Page URL."
+description: "The service will return a Web Data URI only for existing datasets. The Web Data URI is not guaranteed to exist (i.e. it may return 404)."
+sidebar_label: "Get the Web Data URI for a Web Page URL."
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["Data URI"],"description":"The service will return a Web Data URI only for existing datasets. The Web Data URI is not guaranteed to exist (i.e. it may return 404).\n","operationId":"get","parameters":[{"name":"u","in":"query","description":"The Web Page URL.","required":true,"schema":{"type":"string","format":"url"}}],"responses":{"303":{"description":"See Other","headers":{"Location":{"description":"${api.data-uri-controller.get.headers.location.description}","style":"simple","schema":{}}}}},"method":"get","path":"/data-uri","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"OAuth2":{"type":"oauth2","flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","tokenUrl":"https://s.wordlift.io/oauth/token/","scopes":{"basic":"basic scope"}}}}},"info":{"title":"Manager","description":"Subscription management and related services.","termsOfService":"https://wordlift.io/terms-of-service/","contact":{"name":"WordLift","url":"https://wordlift.io","email":"hello@wordlift.io"},"license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"version":"1.0"},"postman":{"name":"Get the Web Data URI for a Web Page URL.","description":{"content":"The service will return a Web Data URI only for existing datasets. The Web Data URI is not guaranteed to exist (i.e. it may return 404).\n","type":"text/plain"},"url":{"path":["data-uri"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) The Web Page URL.","type":"text/plain"},"key":"u","value":""}],"variable":[]},"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: api/manager/manager
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get the Web Data URI for a Web Page URL.
+
+
+
+The service will return a Web Data URI only for existing datasets. The Web Data URI is not guaranteed to exist (i.e. it may return 404).
+
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"u","in":"query","description":"The Web Page URL.","required":true,"schema":{"type":"string","format":"url"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"303"} value={"303"}><div>
+
+See Other
+
+</div><details style={{"textAlign":"left","marginBottom":"1rem"}} data-collaposed={true} open={false}><summary style={{}}><strong>Response Headers</strong></summary><ul style={{"marginLeft":"1rem"}}><li className={"schemaItem"}><summary style={{}}><strong>Location</strong></summary><div><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+${api.data-uri-controller.get.headers.location.description}
+
+</div></div></li></ul></details><div></div></TabItem></ApiTabs></div>
+      

@@ -1,0 +1,379 @@
+openapi: 3.0.1
+info:
+  title: Manager
+  description: Subscription management and related services.
+  termsOfService: https://wordlift.io/terms-of-service/
+  contact:
+    name: WordLift
+    url: https://wordlift.io
+    email: hello@wordlift.io
+  license:
+    name: (c) copyright 2022-present WordLift
+    url: https://wordlift.io
+  version: "1.0"
+servers:
+- url: https://api.wordlift.io
+tags:
+- name: Data URI
+  description: Data URI for a Web page URL.
+- name: Merchant Syncs
+  description: Manage merchant synchronizations.
+- name: Merchants
+  description: Manage merchants.
+- name: Include Excludes (WordPress plugin)
+  description: The list of included or excluded URLs from the WordPress configuration
+paths:
+  /accounts/me/include-excludes:
+    get:
+      tags:
+      - Include Excludes (WordPress plugin)
+      summary: List
+      description: List the include and exclude configurations.
+      operationId: get_1
+      parameters:
+      - name: account
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Account'
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IncludeExclude'
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IncludeExclude'
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IncludeExclude'
+    put:
+      tags:
+      - Include Excludes (WordPress plugin)
+      summary: Update
+      description: Update the include and exclude configurations.
+      operationId: create
+      parameters:
+      - name: account
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Account'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/IncludeExcludeRequest'
+        required: true
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IncludeExclude'
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IncludeExclude'
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IncludeExclude'
+  /websites/merchants:
+    get:
+      tags:
+      - Merchants
+      summary: List
+      description: List the merchant configurations.
+      operationId: list
+      responses:
+        "200":
+          description: Success
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MerchantInfo'
+        "401":
+          description: Authentication Failure
+      security:
+      - OAuth2: []
+    post:
+      tags:
+      - Merchants
+      summary: Create
+      description: Create a merchant configuration.
+      operationId: create_1
+      parameters:
+      - name: url
+        in: query
+        description: The website URL
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Merchant'
+        required: true
+      responses:
+        "200":
+          description: Success
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Merchant'
+        "404":
+          description: Not Found
+        "401":
+          description: Authentication Failure
+      security:
+      - OAuth2: []
+    delete:
+      tags:
+      - Merchants
+      summary: Delete
+      description: Delete the merchant configuration associated with the specified
+        URL.
+      operationId: delete
+      parameters:
+      - name: url
+        in: query
+        description: The merchant URL.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Success
+        "404":
+          description: Not Found
+        "401":
+          description: Authentication Failure
+      security:
+      - OAuth2: []
+  /websites/merchant-syncs:
+    post:
+      tags:
+      - Merchant Syncs
+      summary: Start
+      description: Start a merchant synchronization.
+      operationId: start
+      parameters:
+      - name: url
+        in: query
+        description: The merchant url.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            '*/*':
+              schema:
+                type: string
+        "404":
+          description: Not Found
+        "401":
+          description: Authentication Failure
+      security:
+      - OAuth2: []
+    delete:
+      tags:
+      - Merchant Syncs
+      summary: Stop
+      description: Stop a merchant synchronization.
+      operationId: stop
+      parameters:
+      - name: url
+        in: query
+        description: The merchant url.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            '*/*':
+              schema:
+                type: string
+        "404":
+          description: Not Found
+        "401":
+          description: Authentication Failure
+      security:
+      - OAuth2: []
+  /data-uri:
+    get:
+      tags:
+      - Data URI
+      summary: Get the Web Data URI for a Web Page URL.
+      description: |
+        The service will return a Web Data URI only for existing datasets. The Web Data URI is not guaranteed to exist (i.e. it may return 404).
+      operationId: get
+      parameters:
+      - name: u
+        in: query
+        description: The Web Page URL.
+        required: true
+        schema:
+          type: string
+          format: url
+      responses:
+        "303":
+          description: See Other
+          headers:
+            Location:
+              description: "${api.data-uri-controller.get.headers.location.description}"
+              style: simple
+              schema: {}
+components:
+  schemas:
+    Account:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        datasetId:
+          type: string
+        key:
+          type: string
+        analyzerId:
+          type: integer
+          format: int64
+        indexed:
+          type: boolean
+        domainUri:
+          type: string
+        url:
+          type: string
+        resolvedUrl:
+          type: string
+        country:
+          type: string
+        language:
+          type: string
+        ngDatasetId:
+          type: string
+        wpAdmin:
+          type: string
+        wpJson:
+          type: string
+        subscriptionId:
+          type: integer
+          format: int64
+    IncludeExcludeRequest:
+      required:
+      - Include or Exclude
+      - The URL
+      type: object
+      properties:
+        The URL:
+          type: string
+        Include or Exclude:
+          type: string
+          description: A flag which determines whether the URL is `INCLUDE` or `EXCLUDE`.
+          enum:
+          - INCLUDE
+          - EXCLUDE
+      description: A request to create an IncludeExclude.
+    IncludeExclude:
+      required:
+      - Account unique identifier
+      - Include or Exclude
+      - The URL
+      type: object
+      properties:
+        Unique identifier:
+          type: integer
+          format: int64
+          readOnly: true
+        The URL:
+          type: string
+        Include or Exclude:
+          type: string
+          description: A flag which determines whether the URL is `INCLUDE` or `EXCLUDE`.
+          enum:
+          - INCLUDE
+          - EXCLUDE
+        Account unique identifier:
+          type: integer
+          format: int64
+          readOnly: true
+    Merchant:
+      required:
+      - accessToken
+      - merchantId
+      - refreshToken
+      type: object
+      properties:
+        accessToken:
+          type: string
+          description: The Google merchant access token.
+        refreshToken:
+          type: string
+          description: The Google merchant refresh token.
+        url:
+          type: string
+          description: The target URL.
+        merchantId:
+          type: string
+          description: The merchant id.
+      description: The merchant configuration
+    MerchantInfo:
+      type: object
+      properties:
+        url:
+          type: string
+          description: The merchant URL.
+        products:
+          type: string
+          description: The number of products.
+        lastSync:
+          type: string
+          description: Last synchronization date-time.
+        status:
+          type: string
+          description: The synchronization status.
+      description: Merchant metadata.
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://s.wordlift.io/oauth/authorize/
+          tokenUrl: https://s.wordlift.io/oauth/token/
+          scopes:
+            basic: basic scope

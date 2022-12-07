@@ -1,0 +1,53 @@
+---
+id: microdata-to-json-ld-using-post
+title: "Create"
+description: "Create"
+sidebar_label: "Create"
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["Summarizations"],"operationId":"microdataToJsonLdUsingPOST","parameters":[{"name":"max_length","in":"query","description":"Maximum text length","schema":{"type":"integer","format":"int32","default":500}},{"name":"min_length","in":"query","description":"Minimum text length","schema":{"type":"integer","format":"int32","default":25}},{"name":"ratio","in":"query","description":"Ratio","schema":{"type":"number","format":"float","default":0.2}}],"requestBody":{"description":"body","content":{"text/plain":{"schema":{"type":"string"}}},"required":true},"responses":{"200":{"description":"OK","content":{"application/ld+json":{"schema":{"type":"object","additionalProperties":{"type":"string"}}}}},"201":{"description":"Created","content":{}},"401":{"description":"Unauthorized","content":{}},"403":{"description":"Forbidden","content":{}},"404":{"description":"Not Found","content":{}}},"x-codegen-request-body-name":"body","security":[{"ApiKey":[]}],"description":"Create","method":"post","path":"/summarize","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"type":"apiKey","name":"Authorization","in":"header"}},"info":{"title":"Summarizer","description":"Generic text summarization","termsOfService":"https://wordlift.io/terms-of-service/","contact":{"name":"WordLift","url":"https://wordlift.io","email":"hello@wordlift.io"},"license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"version":"1.0"},"postman":{"name":"Create","description":{"type":"text/plain"},"url":{"path":["summarize"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"Maximum text length","type":"text/plain"},"key":"max_length","value":""},{"disabled":false,"description":{"content":"Minimum text length","type":"text/plain"},"key":"min_length","value":""},{"disabled":false,"description":{"content":"Ratio","type":"text/plain"},"key":"ratio","value":""}],"variable":[]},"header":[{"key":"Content-Type","value":"text/plain"},{"key":"Accept","value":"application/ld+json"}],"method":"POST","body":{"mode":"raw","raw":"\"\""},"auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+sidebar_class_name: "post api-method"
+info_path: api/summarizer/summarizer
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Create
+
+
+
+Create
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"max_length","in":"query","description":"Maximum text length","schema":{"type":"integer","format":"int32","default":500}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"min_length","in":"query","description":"Minimum text length","schema":{"type":"integer","format":"int32","default":25}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"ratio","in":"query","description":"Ratio","schema":{"type":"number","format":"float","default":0.2}}}></ParamsItem></ul></div></details><MimeTabs><TabItem label={"text/plain"} value={"text/plain-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+body
+
+</div></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>string</strong></div></li></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/ld+json"} value={"application/ld+json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><code>property name*</code><span style={{"opacity":"0.6"}}> string</span></div></li></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"201"} value={"201"}><div>
+
+Created
+
+</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div></div></TabItem></ApiTabs></div>
+      

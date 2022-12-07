@@ -54,7 +54,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Developer',
+        title: 'Guide',
         logo: {
           alt: 'WordLift',
           src: 'https://wordlift.io/wp-content/uploads/2022/12/logo.svg',
@@ -189,9 +189,25 @@ const config = {
               categoryLinkSource: "tag"
             },
           },
+          "classification": {
+            specPath: "api/classification.yaml", // path or URL to the OpenAPI spec
+            outputDir: "docs/api/classification", // output directory for generated *.mdx and sidebar.js files
+            sidebarOptions: {
+              groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
+              categoryLinkSource: "tag"
+            },
+          },
           "content-generation": {
             specPath: "api/content-generation.yaml", // path or URL to the OpenAPI spec
             outputDir: "docs/api/content-generation", // output directory for generated *.mdx and sidebar.js files
+            sidebarOptions: {
+              groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
+              categoryLinkSource: "tag"
+            },
+          },
+          "graphql": {
+            specPath: "api/graphql.yaml", // path or URL to the OpenAPI spec
+            outputDir: "docs/api/graphql", // output directory for generated *.mdx and sidebar.js files
             sidebarOptions: {
               groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
               categoryLinkSource: "tag"
@@ -213,9 +229,25 @@ const config = {
               categoryLinkSource: "tag"
             },
           },
+          "manager": {
+            specPath: "api/manager.yaml", // path or URL to the OpenAPI spec
+            outputDir: "docs/api/manager", // output directory for generated *.mdx and sidebar.js files
+            sidebarOptions: {
+              groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
+              categoryLinkSource: "tag"
+            },
+          },
           "middleware": {
             specPath: "api/middleware.yaml", // path or URL to the OpenAPI spec
             outputDir: "docs/api/middleware", // output directory for generated *.mdx and sidebar.js files
+            sidebarOptions: {
+              groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
+              categoryLinkSource: "tag"
+            },
+          },
+          "summarizer": {
+            specPath: "api/summarizer.yaml", // path or URL to the OpenAPI spec
+            outputDir: "docs/api/summarizer", // output directory for generated *.mdx and sidebar.js files
             sidebarOptions: {
               groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
               categoryLinkSource: "tag"
