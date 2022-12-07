@@ -91,6 +91,11 @@ const sidebars = {
           label: "Long Tail",
           items: require("./docs/api/long-tail/sidebar.js"),
         },
+        {
+          type: "category",
+          label: "Middleware",
+          items: require("./docs/api/middleware/sidebar.js"),
+        },
       ],
     }
   ],

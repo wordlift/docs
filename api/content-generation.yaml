@@ -12,7 +12,7 @@ info:
   title: Content Generation
   version: "1.0"
 servers:
-- url: https://api.wordlift.io/content-generation/
+- url: https://api.wordlift.io
 tags:
 - description: Get Prompts' completions.
   name: Completions
@@ -26,37 +26,16 @@ tags:
   name: Word biases
 paths:
   /content-generations:
-    delete:
-      operationId: delete
-      parameters:
-      - in: query
-        name: id
-        required: true
-        schema:
-          type: integer
-          format: int64
-      responses:
-        "200":
-          description: Deleted
-        "401":
-          description: Authentication Failure
-      security:
-      - security_oauth2: []
-      summary: Delete
-      tags:
-      - Content Generations
     get:
       operationId: listByCursor_3
       parameters:
-      - description: The cursor
-        in: query
-        name: cursor
+      - in: query
+        name: The cursor
         required: false
         schema:
           type: string
-      - description: The maximum number of results
-        in: query
-        name: limit
+      - in: query
+        name: The maximum number of results
         required: false
         schema:
           type: integer
@@ -73,7 +52,7 @@ paths:
           description: Authentication Failure
       security:
       - security_oauth2: []
-      summary: List
+      summary: List objects according to the cursor specifications and limit.
       tags:
       - Content Generations
     post:
@@ -95,36 +74,32 @@ paths:
           description: Authentication Failure
       security:
       - security_oauth2: []
-      summary: Create
+      summary: Create a new Content Generation project.
       tags:
       - Content Generations
   /content-generations/{contentGenerationId}/prompts/{promptId}/words:
     get:
       operationId: listByCursor_2
       parameters:
-      - description: The Content Generation id.
-        in: path
-        name: contentGenerationId
+      - in: path
+        name: The Content Generation id.
         required: true
         schema:
           type: integer
           format: int64
-      - description: The Prompt id.
-        in: path
-        name: promptId
+      - in: path
+        name: The Prompt id.
         required: true
         schema:
           type: integer
           format: int64
-      - description: The cursor.
-        in: query
-        name: cursor
+      - in: query
+        name: The cursor.
         required: false
         schema:
           type: string
-      - description: The maximum number of results.
-        in: query
-        name: limit
+      - in: query
+        name: The maximum number of results.
         required: false
         schema:
           type: integer
@@ -143,22 +118,20 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: List
+      summary: List the Word biases associated with the specified Prompt.
       tags:
       - Word biases
     post:
       operationId: create_1
       parameters:
-      - description: The Content Generation id.
-        in: path
-        name: contentGenerationId
+      - in: path
+        name: The Content Generation id.
         required: true
         schema:
           type: integer
           format: int64
-      - description: The Prompt id.
-        in: path
-        name: promptId
+      - in: path
+        name: The Prompt id.
         required: true
         schema:
           type: integer
@@ -182,7 +155,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Create
+      summary: Create a Word bias.
       tags:
       - Word biases
     put:
@@ -190,16 +163,14 @@ paths:
         will be deleted.
       operationId: update_2
       parameters:
-      - description: The Content Generation id.
-        in: path
-        name: contentGenerationId
+      - in: path
+        name: The Content Generation id.
         required: true
         schema:
           type: integer
           format: int64
-      - description: The Prompt id.
-        in: path
-        name: promptId
+      - in: path
+        name: The Prompt id.
         required: true
         schema:
           type: integer
@@ -209,7 +180,6 @@ paths:
           application/json:
             schema:
               type: array
-              description: The Word to create.
               items:
                 $ref: '#/components/schemas/WordRequest'
       responses:
@@ -227,30 +197,27 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Create many
+      summary: Create Word biases for the specified Prompt.
       tags:
       - Word biases
   /content-generations/{contentGenerationId}/prompts/{promptId}/words/{id}:
     delete:
       operationId: delete_1
       parameters:
-      - description: The Content Generation id.
-        in: path
-        name: contentGenerationId
+      - in: path
+        name: The Content Generation id.
         required: true
         schema:
           type: integer
           format: int64
-      - description: The Prompt id.
-        in: path
-        name: promptId
+      - in: path
+        name: The Prompt id.
         required: true
         schema:
           type: integer
           format: int64
-      - description: The Word to create.
-        in: path
-        name: id
+      - in: path
+        name: The Word to create.
         required: true
         schema:
           type: integer
@@ -264,29 +231,26 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Delete
+      summary: Delete a Word bias.
       tags:
       - Word biases
     put:
       operationId: update_1
       parameters:
-      - description: The Content Generation id.
-        in: path
-        name: contentGenerationId
+      - in: path
+        name: The Content Generation id.
         required: true
         schema:
           type: integer
           format: int64
-      - description: The Prompt id.
-        in: path
-        name: promptId
+      - in: path
+        name: The Prompt id.
         required: true
         schema:
           type: integer
           format: int64
-      - description: The Word bias to update.
-        in: path
-        name: id
+      - in: path
+        name: The Word bias to update.
         required: true
         schema:
           type: integer
@@ -310,10 +274,30 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Update
+      summary: Update a Word bias.
       tags:
       - Word biases
   /content-generations/{id}:
+    delete:
+      operationId: delete
+      parameters:
+      - description: The Content Generation id.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Deleted
+        "401":
+          description: Authentication Failure
+      security:
+      - security_oauth2: []
+      summary: Delete a Content Generation project.
+      tags:
+      - Content Generations
     get:
       operationId: get_2
       parameters:
@@ -337,7 +321,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Get by id
+      summary: Get a Content Generation project by its id.
       tags:
       - Content Generations
     put:
@@ -367,7 +351,7 @@ paths:
           description: Authentication Failure
       security:
       - security_oauth2: []
-      summary: Update
+      summary: Update a Content Generation project.
       tags:
       - Content Generations
   /content-generations/{id}/completions:
@@ -376,9 +360,8 @@ paths:
         Generation
       operationId: get_1
       parameters:
-      - description: Content Generation id.
-        in: path
-        name: id
+      - in: path
+        name: Content Generation id.
         required: true
         schema:
           type: integer
@@ -398,29 +381,28 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Get all
+      summary: Get all the completions.
       tags:
       - Completions
   /content-generations/{parentId}/prompts:
     get:
       operationId: listByCursor_1
       parameters:
-      - description: The Content Generation id.
-        in: path
-        name: parentId
+      - in: path
+        name: The Content Generation id.
         required: true
         schema:
           type: integer
           format: int64
-      - description: A value or empty to start from the first page.
+      - description: An value or empty to start from the first page.
         in: query
-        name: cursor
+        name: The cursor.
         required: false
         schema:
           type: string
       - description: The maximum number of results.
         in: query
-        name: limit
+        name: The limit.
         required: false
         schema:
           type: integer
@@ -439,15 +421,14 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: List
+      summary: Get a list of Prompts.
       tags:
       - Prompts
     post:
       operationId: create
       parameters:
-      - description: The Content Generation id.
-        in: path
-        name: parentId
+      - in: path
+        name: The Content Generation id.
         required: true
         schema:
           type: integer
@@ -457,7 +438,6 @@ paths:
           text/plain:
             schema:
               type: string
-              description: "A payload with prompts, one per line."
         required: true
       responses:
         "201":
@@ -468,23 +448,21 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Create
+      summary: Create a Prompt.
       tags:
       - Prompts
   /content-generations/{parentId}/prompts/{id}:
     get:
       operationId: get
       parameters:
-      - description: The Content Generation id.
-        in: path
-        name: parentId
+      - in: path
+        name: The Content Generation id.
         required: true
         schema:
           type: integer
           format: int64
-      - description: The Prompt id.
-        in: path
-        name: id
+      - in: path
+        name: The Prompt id.
         required: true
         schema:
           type: integer
@@ -502,23 +480,21 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Get by id
+      summary: Get a Prompt.
       tags:
       - Prompts
   /content-generations/{parentId}/prompts/{id}/completion:
     get:
       operationId: getCompletion
       parameters:
-      - description: The Content Generation id.
-        in: path
-        name: parentId
+      - in: path
+        name: The Content Generation id.
         required: true
         schema:
           type: integer
           format: int64
-      - description: The Prompt id.
-        in: path
-        name: id
+      - in: path
+        name: The Prompt id.
         required: true
         schema:
           type: integer
@@ -536,22 +512,20 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Get completion by id
+      summary: Get a Prompt completion.
       tags:
       - Prompts
   /models:
     get:
       operationId: listByCursor
       parameters:
-      - description: The cursor
-        in: query
-        name: cursor
+      - in: query
+        name: The cursor
         required: false
         schema:
           type: string
-      - description: The maximum number of results
-        in: query
-        name: limit
+      - in: query
+        name: The maximum number of results
         required: false
         schema:
           type: integer
@@ -566,9 +540,7 @@ paths:
           description: Found.
         "401":
           description: Authentication Failure
-      security:
-      - security_oauth2: []
-      summary: List
+      summary: List objects according to the cursor specifications and limit.
       tags:
       - Models
 components:
@@ -612,12 +584,15 @@ components:
         penalty:
           type: number
           format: double
-          default: 0.0
+          default: 0.5
           description: The penalty score.
           exclusiveMaximum: false
           exclusiveMinimum: false
-          maximum: 2.0
-          minimum: -2.0
+          maximum: 1.9
+          minimum: 0.5
+        stop:
+          type: string
+          description: The stop sequence.
         temperature:
           type: number
           format: double
@@ -625,11 +600,12 @@ components:
           description: The temperature score.
           exclusiveMaximum: false
           exclusiveMinimum: false
-          maximum: 1.0
-          minimum: 0.0
+          maximum: 0.8
+          minimum: 0.4
       required:
       - model
       - name
+      - stop
     ContentGenerationRequest:
       type: object
       description: The Content Generation request.
@@ -654,12 +630,15 @@ components:
         penalty:
           type: number
           format: double
-          default: 0.0
+          default: 0.5
           description: The penalty score.
           exclusiveMaximum: false
           exclusiveMinimum: false
-          maximum: 2.0
-          minimum: -2.0
+          maximum: 1.9
+          minimum: 0.5
+        stop:
+          type: string
+          description: The stop sequence.
         temperature:
           type: number
           format: double
@@ -667,11 +646,12 @@ components:
           description: The temperature score.
           exclusiveMaximum: false
           exclusiveMinimum: false
-          maximum: 1.0
-          minimum: 0.0
+          maximum: 0.8
+          minimum: 0.4
       required:
       - model
       - name
+      - stop
     Model:
       type: object
       description: A linguistic model.
@@ -840,7 +820,6 @@ components:
       - word
     WordRequest:
       type: object
-      description: The Word to create.
       properties:
         bias:
           type: integer
@@ -861,5 +840,4 @@ components:
           scopes:
             basic: basic scope
           tokenUrl: https://s.wordlift.io/oauth/token/
-      openIdConnectUrl: https://s.wordlift.io/.well-known/openid-configuration/
       type: oauth2
