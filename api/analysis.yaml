@@ -17,6 +17,8 @@ tags:
 - name: Analyses
   description: Analyse content and extract entities from Linked Data and Knowledge
     Graphs.
+- name: Analyses
+  description: Perform content analysis.
 paths:
   /v2/analyze:
     post:
@@ -97,6 +99,40 @@ paths:
           description: Authentication Failure
       security:
       - ApiKey: []
+  /analysis/analyses:
+    post:
+      tags:
+      - Analyses
+      summary: Create
+      description: Create an analysis request
+      operationId: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnalysesRequest'
+        required: true
+      responses:
+        "200":
+          description: Success
+          content:
+            application/x.wordlift.analysis+json;version=3:
+              schema:
+                $ref: '#/components/schemas/AnalysesResponse'
+        "401":
+          description: Unauthorized
+          content:
+            application/x.wordlift.analysis+json;version=3:
+              schema:
+                $ref: '#/components/schemas/AnalysesResponse'
+        "500":
+          description: "Uh oh, something went wrong"
+          content:
+            application/x.wordlift.analysis+json;version=3:
+              schema:
+                $ref: '#/components/schemas/AnalysesResponse'
+      security:
+      - ApiKey: []
 components:
   schemas:
     Html:
@@ -122,6 +158,14 @@ components:
           type: string
           description: The url of the page to analyze.
           format: url
+        urlClient:
+          type: string
+          description: "The client which the analysis should use to extract the content,\
+            \ by default chrome is used."
+          enum:
+          - CHROME
+          - PLAIN_HTTP
+          - "CHROME, PLAIN_HTTP"
         language:
           maxLength: 2
           minLength: 2
@@ -324,6 +368,64 @@ components:
             description: A list of sameas URIs.
             format: url
       description: Topic
+    AnalysesRequest:
+      type: object
+      properties:
+        text:
+          type: string
+          description: The text to analyse.
+        url:
+          type: string
+          description: The URL to analyse.
+        query:
+          type: string
+          description: The query string to analyse.
+        query_location_name:
+          type: string
+          description: "The location name for the query, e.g. United Kingdom."
+          example: United Kingdom
+          default: United States
+        query_language_code:
+          type: string
+          description: "The language code for the query, e.g. `en`."
+          example: en
+          default: en
+        query_search_engine:
+          type: string
+          description: "The search engine domain for the query, if not set will be\
+            \ chosen according to `query_location_name`"
+          example: google.co.uk
+      description: The analysis request.
+    AnalysesResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnalysesResponseItem'
+    AnalysesResponseItem:
+      type: object
+      properties:
+        text:
+          type: string
+          description: The text matching the entity.
+        confidence:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          description: The confidence score this is the right entity.
+          format: double
+        occurrences:
+          type: integer
+          description: The number of occurrences.
+          format: int32
+        serp_position:
+          type: integer
+          description: The position of the entity in SERP. `null` if not applicable.
+          format: int32
+        entity_id:
+          type: string
+          description: The entity id (URI).
   securitySchemes:
     ApiKey:
       type: apiKey
