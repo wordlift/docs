@@ -1,7 +1,7 @@
 ---
 sidebar_position: 50
 ---
-import FAQ from "../pages/faq.md";
+import FAQ from "../../pages/faq.md";
 
 # Support
 

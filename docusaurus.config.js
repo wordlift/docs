@@ -1,50 +1,55 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'WordLift Developer Documentation',
-  tagline: 'Take advantage of the API powering the WordLift platform, build new workflow and win the SEO battle.',
-  url: 'https://docs.wordlift.io',
-  baseUrl: '/',
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  title: "WordLift Developer Documentation",
+  tagline:
+    "Take advantage of the API powering the WordLift platform, build new workflow and win the SEO battle.",
+  url: "https://docs.wordlift.io",
+  baseUrl: "/",
+  onBrokenLinks: "warn",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/favicon.ico",
+  trailingSlash: true,
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'wordlift', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
+  organizationName: "wordlift", // Usually your GitHub org/user name.
+  projectName: "docs", // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        googleAnalytics: {
+          trackingID: "UA-28168921-4",
+          anonymizeIP: true,
+        },
         docs: {
           routeBasePath: "/",
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/wordlift/docs/tree/main',
+          editUrl: "https://github.com/wordlift/docs/tree/main",
           docLayoutComponent: "@theme/DocPage",
-          docItemComponent: "@theme/ApiItem" // add @theme/ApiItem here
+          docItemComponent: "@theme/ApiItem", // add @theme/ApiItem here
         },
         blog: false,
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       }),
     ],
@@ -54,48 +59,53 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Guide',
+        title: "Guide",
         logo: {
-          alt: 'WordLift',
-          src: 'https://wordlift.io/wp-content/uploads/2022/12/logo.svg',
+          alt: "WordLift",
+          src: "https://wordlift.io/wp-content/uploads/2022/12/logo.svg",
         },
         items: [
           {
-            type: 'doc',
-            docId: 'introduction',
-            position: 'left',
-            label: 'Start Here',
+            type: "doc",
+            docId: "introduction",
+            position: "left",
+            label: "Start Here",
           },
           {
-            type: 'dropdown',
-            label: 'Products',
-            position: 'left',
-            items: [ {
-            //   label: 'SEO Automation',
-            //   to: '/wordpress-plugin/getting-started'
-            // }, {
-              label: 'WordPress Plugin',
-              to: '/wordpress-plugin/getting-started'
-            }, {
-              label: 'WooCommerce Plugin',
-              to: 'woocommerce/introduction'
-            }, {
-              label: 'Google Sheets Add-on',
-              to: 'seo-add-on-google-sheets/introduction'
-            }, {
-              label: 'Looker Studio Connector',
-              to: 'looker-studio-connector/introduction'
-            } ]
+            type: "dropdown",
+            label: "Products",
+            position: "left",
+            items: [
+              {
+                //   label: 'SEO Automation',
+                //   to: '/en/latest/getting-started'
+                // }, {
+                label: "WordPress Plugin",
+                to: "/en/latest",
+              },
+              {
+                label: "WooCommerce Plugin",
+                to: "woocommerce/introduction",
+              },
+              {
+                label: "Google Sheets Add-on",
+                to: "seo-add-on-google-sheets/introduction",
+              },
+              {
+                label: "Looker Studio Connector",
+                to: "looker-studio-connector/introduction",
+              },
+            ],
           },
           {
             label: "API",
             position: "left",
-            to: "/category/api"
+            to: "/category/api",
           },
           {
-            href: 'https://github.com/wordlift',
-            label: 'GitHub',
-            position: 'right',
+            href: "https://github.com/wordlift",
+            label: "GitHub",
+            position: "right",
           },
         ],
       },
@@ -147,7 +157,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ["ruby", "python", "php"]
+        additionalLanguages: ["ruby", "python", "php"],
       },
       languageTabs: [
         {
@@ -173,7 +183,6 @@ const config = {
       ],
     }),
 
-
   plugins: [
     [
       "docusaurus-plugin-openapi-docs",
@@ -181,20 +190,20 @@ const config = {
         id: "openapi",
         docsPluginId: "classic", // e.g. "classic" or the plugin-content-docs id
         config: {
-          "analysis": {
+          analysis: {
             specPath: "api/analysis.yaml", // path or URL to the OpenAPI spec
             outputDir: "docs/api/analysis", // output directory for generated *.mdx and sidebar.js files
             sidebarOptions: {
               groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
-              categoryLinkSource: "tag"
+              categoryLinkSource: "tag",
             },
           },
-          "classification": {
+          classification: {
             specPath: "api/classification.yaml", // path or URL to the OpenAPI spec
             outputDir: "docs/api/classification", // output directory for generated *.mdx and sidebar.js files
             sidebarOptions: {
               groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
-              categoryLinkSource: "tag"
+              categoryLinkSource: "tag",
             },
           },
           "content-generation": {
@@ -202,23 +211,23 @@ const config = {
             outputDir: "docs/api/content-generation", // output directory for generated *.mdx and sidebar.js files
             sidebarOptions: {
               groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
-              categoryLinkSource: "tag"
+              categoryLinkSource: "tag",
             },
           },
-          "graphql": {
+          graphql: {
             specPath: "api/graphql.yaml", // path or URL to the OpenAPI spec
             outputDir: "docs/api/graphql", // output directory for generated *.mdx and sidebar.js files
             sidebarOptions: {
               groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
-              categoryLinkSource: "tag"
+              categoryLinkSource: "tag",
             },
           },
-          "inspector": {
+          inspector: {
             specPath: "api/inspector.yaml", // path or URL to the OpenAPI spec
             outputDir: "docs/api/inspector", // output directory for generated *.mdx and sidebar.js files
             sidebarOptions: {
               groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
-              categoryLinkSource: "tag"
+              categoryLinkSource: "tag",
             },
           },
           "long-tail": {
@@ -226,39 +235,39 @@ const config = {
             outputDir: "docs/api/long-tail", // output directory for generated *.mdx and sidebar.js files
             sidebarOptions: {
               groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
-              categoryLinkSource: "tag"
+              categoryLinkSource: "tag",
             },
           },
-          "manager": {
+          manager: {
             specPath: "api/manager.yaml", // path or URL to the OpenAPI spec
             outputDir: "docs/api/manager", // output directory for generated *.mdx and sidebar.js files
             sidebarOptions: {
               groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
-              categoryLinkSource: "tag"
+              categoryLinkSource: "tag",
             },
           },
-          "middleware": {
+          middleware: {
             specPath: "api/middleware.yaml", // path or URL to the OpenAPI spec
             outputDir: "docs/api/middleware", // output directory for generated *.mdx and sidebar.js files
             sidebarOptions: {
               groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
-              categoryLinkSource: "tag"
+              categoryLinkSource: "tag",
             },
           },
-          "summarizer": {
+          summarizer: {
             specPath: "api/summarizer.yaml", // path or URL to the OpenAPI spec
             outputDir: "docs/api/summarizer", // output directory for generated *.mdx and sidebar.js files
             sidebarOptions: {
               groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
-              categoryLinkSource: "tag"
+              categoryLinkSource: "tag",
             },
           },
-        }
+        },
       },
-    ]
+    ],
   ],
 
-  themes: ["docusaurus-theme-openapi-docs"]
+  themes: ["docusaurus-theme-openapi-docs"],
 };
 
 module.exports = config;

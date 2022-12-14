@@ -35,7 +35,7 @@ WordLift currently supports 32 languages: Chinese, Danish, German, English, Fren
 
 :::info Note
 WordLift supports one language at the time. The main language of the website can be configured from the WordLift settings.
-Review the [configuration settings](../wordpress-plugin/getting-started##configuration) for more information.
+Review the [configuration settings](../en/latest/getting-started##configuration) for more information.
 :::
 
 ## Is there a free trial?
