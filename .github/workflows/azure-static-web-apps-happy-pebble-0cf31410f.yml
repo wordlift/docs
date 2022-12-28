@@ -49,5 +49,13 @@ jobs:
     runs-on: ubuntu-latest
     name: Run DocSearch
     steps:
-      - name: Indexing
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - 
+        name: Indexing
         run: docker run -e "APPLICATION_ID=${{secrets.APPLICATION_ID}}" -e "API_KEY=${{secrets.API_KEY}}" -e "CONFIG={\"index_name\":\"docs_wordlift_io\",\"start_urls\":[\"https://docs-dev.wordlift.it\"],\"selectors\":{\"lvl0\":\"article h1\",\"lvl1\":\"article h2\",\"lvl2\":\"article h3\",\"lvl3\":\"article h4\",\"lvl4\":\"article h5\",\"lvl5\":\"article h6\",\"text\":\"article p\"}}" algolia/docsearch-scraper:v1.16
