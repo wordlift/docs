@@ -181,6 +181,16 @@ const config = {
           logoClass: "php",
         },
       ],
+
+      algolia: {
+        // The application ID provided by Algolia
+        appId: "KT7EPQGS5A",
+
+        // Public API key: it is safe to commit it
+        apiKey: "4443307bcba39f1d7cc5c4d492411b6e",
+
+        indexName: "docs_wordlift_io",
+      },
     }),
 
   plugins: [
