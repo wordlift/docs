@@ -48,12 +48,10 @@ jobs:
     needs: ["build_and_deploy_job"]
     runs-on: ubuntu-latest
     name: Run DocSearch
-    container:
-      image: algolia/docsearch-scraper:v1.16.0
-      env:
-        APPLICATION_ID: ${ secrets.APPLICATION_ID }
-        API_KEY: ${ secrets.API_KEY }
-        CONFIG: "{\"index_name\":\"docs_wordlift_io\",\"start_urls\":[\"https://docs-dev.wordlift.it\"],\"selectors\":{\"lvl0\":\"article h1\",\"lvl1\":\"article h2\",\"lvl2\":\"article h3\",\"lvl3\":\"article h4\",\"lvl4\":\"article h5\",\"lvl5\":\"article h6\",\"text\":\"article p\"}}"
     steps:
       - name: Indexing
-        run: "pipenv run python -m src.index"
+        uses: docker://algolia/docsearch-scraper:v1.16.0
+        env:
+          APPLICATION_ID: ${ secrets.APPLICATION_ID }
+          API_KEY: ${ secrets.API_KEY }
+          CONFIG: "{\"index_name\":\"docs_wordlift_io\",\"start_urls\":[\"https://docs-dev.wordlift.it\"],\"selectors\":{\"lvl0\":\"article h1\",\"lvl1\":\"article h2\",\"lvl2\":\"article h3\",\"lvl3\":\"article h4\",\"lvl4\":\"article h5\",\"lvl5\":\"article h6\",\"text\":\"article p\"}}"
