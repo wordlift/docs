@@ -190,6 +190,8 @@ const config = {
         apiKey: "4443307bcba39f1d7cc5c4d492411b6e",
 
         indexName: "docs_wordlift_io",
+
+        contextualSearch: false,
       },
     }),
 
