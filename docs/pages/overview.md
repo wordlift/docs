@@ -118,4 +118,4 @@ Internal linking based on semantic concepts more than anchor texts will increase
 A properly curated vocabulary will act as search magnet on higher traffic queries to be then connected to your blog posts and your pages;
 Connecting your content semantically has a terrific effect on engagement metrics as well and good engagement metrics are of course an important signal for Google as well. Thanks to the contextual info added to your content and the connections between pages and posts that can be made through the 5 visualization widgets available, you will enjoy double digit growth for all your usability metrics.
 
-You can now continue to the [Getting Started](../en/latest/getting-started) page.
+You can now continue to the [Getting Started](../wordpress-plugin/getting-started) page.

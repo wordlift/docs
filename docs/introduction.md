@@ -11,7 +11,7 @@ Welcome to the WordLift documentation.
 
 Choose the product you need help with here:
 
-* [WordPress plugin](/en/latest)
+* [WordPress plugin](/wordpress-plugin)
 * [WooCommerce SEO](/woocommerce-seo)
 * [Google Sheets Add-on](/google-sheets-add-on)
 * [Looker Studio Connector](/looker-studio-connector)

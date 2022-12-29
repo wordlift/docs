@@ -78,10 +78,10 @@ const config = {
             items: [
               {
                 //   label: 'SEO Automation',
-                //   to: '/en/latest/getting-started'
+                //   to: '/wordpress-plugin/getting-started'
                 // }, {
                 label: "WordPress Plugin",
-                to: "/en/latest",
+                to: "wordpress-plugin",
               },
               {
                 label: "WooCommerce Plugin",
