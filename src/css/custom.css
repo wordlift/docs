@@ -31,6 +31,7 @@
 
 h2.text--truncate.cardTitle_rnsV::first-letter {
   font-size: 0;
+  text-transform: capitalize;
 }
 
 h2[title="Analysis"] {
