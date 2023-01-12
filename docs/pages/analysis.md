@@ -14,7 +14,7 @@ WordLift creates and publishes annotations as [linked open data](key-concepts#li
 
 ## Content Writing
 
-To start working with WordLift (once the plugin has been properly [installed](../en/latest/getting-started#installation) and [configured](../en/latest/getting-started#configuration)) you can simply start writing a blog post using the [standard visual editor of WordPress](https://en.support.wordpress.com/visual-editor).
+To start working with WordLift (once the plugin has been properly [installed](../wordpress-plugin/getting-started#installation) and [configured](../wordpress-plugin/getting-started#configuration)) you can simply start writing a blog post using the [standard visual editor of WordPress](https://en.support.wordpress.com/visual-editor).
 
 WordLift adds to the visual editor the Widgets Menu to embed [widgets](key-concepts#widget) in page.
 

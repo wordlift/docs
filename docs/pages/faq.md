@@ -35,7 +35,7 @@ WordLift currently supports 32 languages: Chinese, Danish, German, English, Fren
 
 :::info Note
 WordLift supports one language at the time. The main language of the website can be configured from the WordLift settings.
-Review the [configuration settings](../en/latest/getting-started##configuration) for more information.
+Review the [configuration settings](../wordpress-plugin/getting-started##configuration) for more information.
 :::
 
 ## Is there a free trial?
@@ -53,7 +53,7 @@ In addition, with the purchase of our 12-month packages, we offer 20% discount. 
 2. if you deactivate the plugin instead, the vocabulary (metadata, entity and pages) will disappear from your dashboard, but everything you created is stored in your website Database in WordPress, and you will be able to download it, transfer it or re-activate it again anytime from the plugin menu.
 3. Turning off WordLift on our side, it would be like turning off all the keys and un-publish all the linked data you’ve created, not the plug-in itself, so it will be like ##1 - you could get the data back from us and re-publish it as [linked data](https://wordlift.io/blog/en/entity/linked-data/) on your own infrastructure.
 4. WordLift's technology is entirely open source: it takes development skills, infrastructure and some wisdom to nicely bring all the pieces together without our support.
-5. Your vocabulary (article metadata and entities) are published as [linked data](http://docs.wordlift.it/en/latest/key-concepts##linked-open-data) and you can always request a data dump in any of the following formats: RDF/XML, Turtle, N3, JSON-LD.
+5. Your vocabulary (article metadata and entities) are published as [linked data](http://docs.wordlift.it/wordpress-plugin/key-concepts##linked-open-data) and you can always request a data dump in any of the following formats: RDF/XML, Turtle, N3, JSON-LD.
 
 ## Is WordLift Secure?
 

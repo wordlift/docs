@@ -78,10 +78,10 @@ const config = {
             items: [
               {
                 //   label: 'SEO Automation',
-                //   to: '/en/latest/getting-started'
+                //   to: '/wordpress-plugin/getting-started'
                 // }, {
                 label: "WordPress Plugin",
-                to: "/en/latest",
+                to: "wordpress-plugin",
               },
               {
                 label: "WooCommerce Plugin",
@@ -181,6 +181,18 @@ const config = {
           logoClass: "php",
         },
       ],
+
+      algolia: {
+        // The application ID provided by Algolia
+        appId: "KT7EPQGS5A",
+
+        // Public API key: it is safe to commit it
+        apiKey: "4443307bcba39f1d7cc5c4d492411b6e",
+
+        indexName: "docs_wordlift_io",
+
+        contextualSearch: false,
+      },
     }),
 
   plugins: [
@@ -263,6 +275,27 @@ const config = {
             },
           },
         },
+      },
+    ],
+    [
+      "./src/plugins/qa-bot",
+      {
+        token:
+          "mVhWS6wV8SwiO98vtnc_Jd98_T05PtgkqXUhJN5x9TEwP4Fx9jslZch6-isnKoJ_8DY3Zc18tg==",
+        title: "WordLift",
+        avatar:
+          "https://wordlift.io/wp-content/uploads/2022/07/chatbot-round.png",
+        description:
+          "Organize your Content, Publish Linked Data, Boost your Traffic",
+        site: "https://docs.wordlift.io",
+        template: `
+                  <dl>
+                    <dt>You can ask questions about WordLift. Try</dt>
+                    <dd>Why shall I use WordLift?</dd>
+                    <dd>What are the languages supported by WordLift?</dd>
+                    <dd>Is WordLift Secure?</dd>
+                  </dl>
+                  `,
       },
     ],
   ],

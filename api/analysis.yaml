@@ -183,7 +183,8 @@ components:
             format: url
         scope:
           type: string
-          description: "The scope of the analysis, one of 'local', 'network' or 'all'."
+          description: "The scope of the analysis, one of 'local', 'network', 'cloud-only',\
+            \ 'network-only' or 'all'."
         matches:
           type: integer
           description: Filter out results that don't have at least the specified number
@@ -380,16 +381,16 @@ components:
         query:
           type: string
           description: The query string to analyse.
+        language_code:
+          type: string
+          description: "The language code used for content analysis, e.g. `en`."
+          example: en
+          default: en
         query_location_name:
           type: string
           description: "The location name for the query, e.g. United Kingdom."
           example: United Kingdom
           default: United States
-        query_language_code:
-          type: string
-          description: "The language code for the query, e.g. `en`."
-          example: en
-          default: en
         query_search_engine:
           type: string
           description: "The search engine domain for the query, if not set will be\
