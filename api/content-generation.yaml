@@ -27,20 +27,28 @@ tags:
 paths:
   /content-generations:
     get:
-      operationId: listByCursor_3
+      operationId: list
       parameters:
-      - in: query
-        name: The cursor
+      - description: The cursor
+        in: query
+        name: cursor
         required: false
         schema:
           type: string
-      - in: query
-        name: The maximum number of results
+      - description: The maximum number of results
+        in: query
+        name: limit
         required: false
         schema:
-          type: integer
-          format: int32
-          default: 10
+          type: string
+          default: "10"
+      - description: Filter for the deleted flag
+        in: query
+        name: deleted
+        required: false
+        schema:
+          type: string
+          default: Any
       responses:
         "200":
           content:
@@ -52,7 +60,7 @@ paths:
           description: Authentication Failure
       security:
       - security_oauth2: []
-      summary: List objects according to the cursor specifications and limit.
+      summary: List objects according to the parameters and limit.
       tags:
       - Content Generations
     post:
@@ -161,7 +169,7 @@ paths:
     put:
       description: Send a list of word biases for this prompt. Existing words they
         will be deleted.
-      operationId: update_2
+      operationId: update_2_1
       parameters:
       - in: path
         name: The Content Generation id.
@@ -175,6 +183,11 @@ paths:
         schema:
           type: integer
           format: int64
+      - in: header
+        name: content-type
+        required: false
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -182,6 +195,10 @@ paths:
               type: array
               items:
                 $ref: '#/components/schemas/WordRequest'
+          text/csv:
+            schema:
+              type: string
+        required: true
       responses:
         "201":
           content:
@@ -191,13 +208,15 @@ paths:
                 items:
                   $ref: '#/components/schemas/Word'
           description: Created
+        "204":
+          description: No Content
         "401":
           description: Authentication Failure
         "404":
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Create Word biases for the specified Prompt.
+      summary: Update words from csv file.
       tags:
       - Word biases
   /content-generations/{contentGenerationId}/prompts/{promptId}/words/{id}:
@@ -554,6 +573,15 @@ components:
           format: date-time
           description: The create date-time.
           readOnly: true
+        deleted:
+          type: boolean
+          default: false
+          description: True if the project has been deleted.
+        deleted_at:
+          type: string
+          format: date-time
+          description: The delete date-time.
+          readOnly: true
         id:
           type: integer
           format: int64
@@ -603,6 +631,7 @@ components:
           maximum: 0.8
           minimum: 0.4
       required:
+      - deleted
       - model
       - name
       - stop
@@ -610,6 +639,9 @@ components:
       type: object
       description: The Content Generation request.
       properties:
+        deleted:
+          type: boolean
+          description: The deleted flag.
         max_tokens:
           type: integer
           format: int32
@@ -649,6 +681,7 @@ components:
           maximum: 0.8
           minimum: 0.4
       required:
+      - deleted
       - model
       - name
       - stop

@@ -39,3 +39,8 @@ $ GIT_USER=<Your GitHub username> yarn deploy
 ```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+
+
+# How to regenerate the API docs
+
+npm run docusaurus clean-api-docs analysis && npm run docusaurus gen-api-docs analysis

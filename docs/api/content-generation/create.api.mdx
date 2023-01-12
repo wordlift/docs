@@ -1,11 +1,11 @@
 ---
 id: create
-title: "Create"
-description: "Create"
-sidebar_label: "Create"
+title: "Create a Prompt."
+description: "Create a Prompt."
+sidebar_label: "Create a Prompt."
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"create","parameters":[{"description":"The Content Generation id.","in":"path","name":"parentId","required":true,"schema":{"type":"integer","format":"int64"}}],"requestBody":{"content":{"text/plain":{"schema":{"type":"string","description":"A payload with prompts, one per line."}}},"required":true},"responses":{"201":{"description":"Created"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"security_oauth2":[]}],"tags":["Prompts"],"description":"Create","method":"post","path":"/content-generations/{parentId}/prompts","servers":[{"url":"https://api.wordlift.io/content-generation/"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"openIdConnectUrl":"https://s.wordlift.io/.well-known/openid-configuration/","type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"Create","description":{"type":"text/plain"},"url":{"path":["content-generations",":parentId","prompts"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) The Content Generation id.","type":"text/plain"},"type":"any","value":"","key":"parentId"}]},"header":[{"key":"Content-Type","value":"text/plain"}],"method":"POST","body":{"mode":"raw","raw":"\"\""},"auth":{"type":"oauth2","oauth2":[]}}}
+api: {"operationId":"create","parameters":[{"in":"path","name":"The Content Generation id.","required":true,"schema":{"type":"integer","format":"int64"}}],"requestBody":{"content":{"text/plain":{"schema":{"type":"string"}}},"required":true},"responses":{"201":{"description":"Created"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"security_oauth2":[]}],"tags":["Prompts"],"description":"Create a Prompt.","method":"post","path":"/content-generations/{parentId}/prompts","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"Create a Prompt.","description":{"type":"text/plain"},"url":{"path":["content-generations",":parentId","prompts"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"The Content Generation id."}]},"header":[{"key":"Content-Type","value":"text/plain"}],"method":"POST","body":{"mode":"raw","raw":"\"\""},"auth":{"type":"oauth2","oauth2":[]}}}
 sidebar_class_name: "post api-method"
 info_path: api/content-generation/content-generation
 ---
@@ -19,17 +19,13 @@ import SchemaTabs from "@theme/SchemaTabs";
 import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import TabItem from "@theme/TabItem";
 
-## Create
+## Create a Prompt.
 
 
 
-Create
+Create a Prompt.
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The Content Generation id.","in":"path","name":"parentId","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><MimeTabs><TabItem label={"text/plain"} value={"text/plain-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>string</strong><div style={{"marginTop":"var(--ifm-table-cell-padding)"}}>
-
-A payload with prompts, one per line.
-
-</div></div></li></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"201"} value={"201"}><div>
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"path","name":"The Content Generation id.","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><MimeTabs><TabItem label={"text/plain"} value={"text/plain-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>string</strong></div></li></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"201"} value={"201"}><div>
 
 Created
 
