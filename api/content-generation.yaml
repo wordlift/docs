@@ -439,11 +439,11 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Get a list of Prompts
+      summary: List by Content Generation id
       tags:
       - Prompts
     post:
-      operationId: createPrompt
+      operationId: uploadPrompts
       parameters:
       - in: path
         name: The Content Generation id.
@@ -466,7 +466,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Create a Prompt
+      summary: Upload a Prompt's file
       tags:
       - Prompts
   /content-generations/{parentId}/prompts/{id}:
@@ -498,7 +498,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Get a Prompt
+      summary: Get by id
       tags:
       - Prompts
   /content-generations/{parentId}/prompts/{id}/completion:
@@ -530,7 +530,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Get a Prompt completion
+      summary: Get completion by id
       tags:
       - Prompts
   /models:
@@ -641,6 +641,7 @@ components:
       properties:
         deleted:
           type: boolean
+          default: false
           description: The deleted flag.
         max_tokens:
           type: integer
@@ -681,7 +682,6 @@ components:
           maximum: 0.8
           minimum: 0.4
       required:
-      - deleted
       - model
       - name
       - stop
