@@ -553,7 +553,7 @@ paths:
       responses:
         "200":
           content:
-            '*/*':
+            application/json:
               schema:
                 $ref: '#/components/schemas/PageModel'
           description: Found.
