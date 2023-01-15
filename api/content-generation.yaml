@@ -447,7 +447,7 @@ paths:
       parameters:
       - description: The Content Generation id.
         in: path
-        name: contentGenerationId
+        name: parentId
         required: true
         schema:
           type: integer
