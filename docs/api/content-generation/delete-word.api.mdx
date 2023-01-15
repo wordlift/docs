@@ -1,11 +1,11 @@
 ---
 id: delete-word
-title: "Delete a Word bias."
-description: "Delete a Word bias."
-sidebar_label: "Delete a Word bias."
+title: "Delete a Word bias"
+description: "Delete a Word bias"
+sidebar_label: "Delete a Word bias"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"deleteWord","parameters":[{"in":"path","name":"The Content Generation id.","required":true,"schema":{"type":"integer","format":"int64"}},{"in":"path","name":"The Prompt id.","required":true,"schema":{"type":"integer","format":"int64"}},{"in":"path","name":"The Word to create.","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"description":"Created"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"security_oauth2":[]}],"tags":["Word biases"],"description":"Delete a Word bias.","method":"delete","path":"/content-generations/{contentGenerationId}/prompts/{promptId}/words/{id}","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"Delete a Word bias.","description":{"type":"text/plain"},"url":{"path":["content-generations",":contentGenerationId","prompts",":promptId","words",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"The Content Generation id."},{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"The Prompt id."},{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"The Word to create."}]},"method":"DELETE","auth":{"type":"oauth2","oauth2":[]}}}
+api: {"operationId":"deleteWord","parameters":[{"in":"path","name":"The Content Generation id.","required":true,"schema":{"type":"integer","format":"int64"}},{"in":"path","name":"The Prompt id.","required":true,"schema":{"type":"integer","format":"int64"}},{"in":"path","name":"The Word to create.","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"description":"Created"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"security_oauth2":[]}],"tags":["Word biases"],"description":"Delete a Word bias","method":"delete","path":"/content-generations/{contentGenerationId}/prompts/{promptId}/words/{id}","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"Delete a Word bias","description":{"type":"text/plain"},"url":{"path":["content-generations",":contentGenerationId","prompts",":promptId","words",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"The Content Generation id."},{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"The Prompt id."},{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"The Word to create."}]},"method":"DELETE","auth":{"type":"oauth2","oauth2":[]}}}
 sidebar_class_name: "delete api-method"
 info_path: api/content-generation/content-generation
 ---
@@ -19,11 +19,11 @@ import SchemaTabs from "@theme/SchemaTabs";
 import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import TabItem from "@theme/TabItem";
 
-## Delete a Word bias.
+## Delete a Word bias
 
 
 
-Delete a Word bias.
+Delete a Word bias
 
 <details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"path","name":"The Content Generation id.","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"path","name":"The Prompt id.","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"path","name":"The Word to create.","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
 

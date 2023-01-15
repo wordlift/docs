@@ -59,7 +59,7 @@ paths:
           description: Authentication Failure
       security:
       - security_oauth2: []
-      summary: "List objects according to the cursor, parameters and limit."
+      summary: List projects
       tags:
       - Content Generations
     post:
@@ -81,7 +81,7 @@ paths:
           description: Authentication Failure
       security:
       - security_oauth2: []
-      summary: Create a new Content Generation project.
+      summary: Create new
       tags:
       - Content Generations
   /content-generations/{contentGenerationId}/prompts/{promptId}/words:
@@ -125,7 +125,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: List the Word biases associated with the specified Prompt.
+      summary: List the Word biases associated with the specified Prompt
       tags:
       - Word biases
     post:
@@ -162,7 +162,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Create a Word bias.
+      summary: Create a Word bias
       tags:
       - Word biases
     put:
@@ -215,7 +215,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Update words from csv file.
+      summary: Update words from csv file
       tags:
       - Word biases
   /content-generations/{contentGenerationId}/prompts/{promptId}/words/{id}:
@@ -249,7 +249,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Delete a Word bias.
+      summary: Delete a Word bias
       tags:
       - Word biases
     put:
@@ -292,7 +292,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Update a Word bias.
+      summary: Update a Word bias
       tags:
       - Word biases
   /content-generations/{id}:
@@ -313,7 +313,7 @@ paths:
           description: Authentication Failure
       security:
       - security_oauth2: []
-      summary: Delete a Content Generation project.
+      summary: Delete by id
       tags:
       - Content Generations
     get:
@@ -339,7 +339,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Get a Content Generation project by its id.
+      summary: Get by id
       tags:
       - Content Generations
     put:
@@ -369,7 +369,7 @@ paths:
           description: Authentication Failure
       security:
       - security_oauth2: []
-      summary: Update a Content Generation project.
+      summary: Update
       tags:
       - Content Generations
   /content-generations/{id}/completions:
@@ -399,7 +399,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Get all the completions.
+      summary: Get all the completions
       tags:
       - Completions
   /content-generations/{parentId}/prompts:
@@ -439,7 +439,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Get a list of Prompts.
+      summary: Get a list of Prompts
       tags:
       - Prompts
     post:
@@ -466,7 +466,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Create a Prompt.
+      summary: Create a Prompt
       tags:
       - Prompts
   /content-generations/{parentId}/prompts/{id}:
@@ -498,7 +498,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Get a Prompt.
+      summary: Get a Prompt
       tags:
       - Prompts
   /content-generations/{parentId}/prompts/{id}/completion:
@@ -530,7 +530,7 @@ paths:
           description: Not Found
       security:
       - security_oauth2: []
-      summary: Get a Prompt completion.
+      summary: Get a Prompt completion
       tags:
       - Prompts
   /models:
@@ -559,7 +559,7 @@ paths:
           description: Found.
         "401":
           description: Authentication Failure
-      summary: List objects according to the cursor specifications and limit.
+      summary: List objects according to the cursor specifications and limit
       tags:
       - Models
 components:
