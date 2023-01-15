@@ -8,13 +8,14 @@ hide_table_of_contents: true
 api: {"operationId":"getPromptCompletion","parameters":[{"description":"The Content Generation id.","in":"path","name":"parentId","required":true,"schema":{"type":"integer","format":"int64"}},{"description":"The Prompt id.","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"content":{"text/plain":{"schema":{"type":"string"}}},"description":"Success"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"security_oauth2":[]}],"tags":["Prompts"],"description":"Get completion by id","method":"get","path":"/content-generations/{parentId}/prompts/{id}/completion","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"Get completion by id","description":{"type":"text/plain"},"url":{"path":["content-generations",":parentId","prompts",":id","completion"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) The Content Generation id.","type":"text/plain"},"type":"any","value":"","key":"parentId"},{"disabled":false,"description":{"content":"(Required) The Prompt id.","type":"text/plain"},"type":"any","value":"","key":"id"}]},"header":[{"key":"Accept","value":"text/plain"}],"method":"GET","auth":{"type":"oauth2","oauth2":[]}}}
 sidebar_class_name: "get api-method"
 info_path: api/content-generation/content-generation
+custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem"
+import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
 import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import TabItem from "@theme/TabItem";
