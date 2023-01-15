@@ -406,21 +406,22 @@ paths:
     get:
       operationId: listPrompts
       parameters:
-      - in: path
-        name: The Content Generation id.
+      - description: The Content Generation id.
+        in: path
+        name: parentId
         required: true
         schema:
           type: integer
           format: int64
       - description: An value or empty to start from the first page.
         in: query
-        name: The cursor.
+        name: cursor
         required: false
         schema:
           type: string
       - description: The maximum number of results.
         in: query
-        name: The limit.
+        name: limit
         required: false
         schema:
           type: integer
@@ -475,14 +476,16 @@ paths:
     get:
       operationId: getPrompt
       parameters:
-      - in: path
-        name: The Content Generation id.
+      - description: The Content Generation id.
+        in: path
+        name: parentId
         required: true
         schema:
           type: integer
           format: int64
-      - in: path
-        name: The Prompt id.
+      - description: The Prompt id.
+        in: path
+        name: id
         required: true
         schema:
           type: integer
@@ -507,14 +510,16 @@ paths:
     get:
       operationId: getPromptCompletion
       parameters:
-      - in: path
-        name: The Content Generation id.
+      - description: The Content Generation id.
+        in: path
+        name: parentId
         required: true
         schema:
           type: integer
           format: int64
-      - in: path
-        name: The Prompt id.
+      - description: The Prompt id.
+        in: path
+        name: id
         required: true
         schema:
           type: integer
