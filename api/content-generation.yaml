@@ -27,7 +27,7 @@ tags:
 paths:
   /content-generations:
     get:
-      operationId: list
+      operationId: listContentGenerations
       parameters:
       - description: The cursor
         in: query
@@ -40,15 +40,14 @@ paths:
         name: limit
         required: false
         schema:
-          type: string
-          default: "10"
+          type: integer
+          default: 10
       - description: Filter for the deleted flag
         in: query
         name: deleted
         required: false
         schema:
-          type: string
-          default: Any
+          type: boolean
       responses:
         "200":
           content:
@@ -60,11 +59,11 @@ paths:
           description: Authentication Failure
       security:
       - security_oauth2: []
-      summary: List objects according to the parameters and limit.
+      summary: "List objects according to the cursor, parameters and limit."
       tags:
       - Content Generations
     post:
-      operationId: create_2
+      operationId: createContentGeneration
       requestBody:
         content:
           application/json:
@@ -87,7 +86,7 @@ paths:
       - Content Generations
   /content-generations/{contentGenerationId}/prompts/{promptId}/words:
     get:
-      operationId: listByCursor_2
+      operationId: listWords
       parameters:
       - in: path
         name: The Content Generation id.
@@ -130,7 +129,7 @@ paths:
       tags:
       - Word biases
     post:
-      operationId: create_1
+      operationId: createWord
       parameters:
       - in: path
         name: The Content Generation id.
@@ -169,7 +168,7 @@ paths:
     put:
       description: Send a list of word biases for this prompt. Existing words they
         will be deleted.
-      operationId: update_2_1
+      operationId: createWordsFromCSV_1
       parameters:
       - in: path
         name: The Content Generation id.
@@ -221,7 +220,7 @@ paths:
       - Word biases
   /content-generations/{contentGenerationId}/prompts/{promptId}/words/{id}:
     delete:
-      operationId: delete_1
+      operationId: deleteWord
       parameters:
       - in: path
         name: The Content Generation id.
@@ -254,7 +253,7 @@ paths:
       tags:
       - Word biases
     put:
-      operationId: update_1
+      operationId: updateWord
       parameters:
       - in: path
         name: The Content Generation id.
@@ -298,7 +297,7 @@ paths:
       - Word biases
   /content-generations/{id}:
     delete:
-      operationId: delete
+      operationId: deleteContentGeneration
       parameters:
       - description: The Content Generation id.
         in: path
@@ -318,7 +317,7 @@ paths:
       tags:
       - Content Generations
     get:
-      operationId: get_2
+      operationId: getContentGeneration
       parameters:
       - description: The Content Generation id.
         in: path
@@ -344,7 +343,7 @@ paths:
       tags:
       - Content Generations
     put:
-      operationId: update
+      operationId: updateContentGeneration
       parameters:
       - description: The Content Generation id.
         in: path
@@ -377,7 +376,7 @@ paths:
     get:
       description: Get all the completions for the Prompts of the specified Content
         Generation
-      operationId: get_1
+      operationId: listCompletions
       parameters:
       - in: path
         name: Content Generation id.
@@ -405,7 +404,7 @@ paths:
       - Completions
   /content-generations/{parentId}/prompts:
     get:
-      operationId: listByCursor_1
+      operationId: listPrompts
       parameters:
       - in: path
         name: The Content Generation id.
@@ -444,7 +443,7 @@ paths:
       tags:
       - Prompts
     post:
-      operationId: create
+      operationId: createPrompt
       parameters:
       - in: path
         name: The Content Generation id.
@@ -472,7 +471,7 @@ paths:
       - Prompts
   /content-generations/{parentId}/prompts/{id}:
     get:
-      operationId: get
+      operationId: getPrompt
       parameters:
       - in: path
         name: The Content Generation id.
@@ -504,7 +503,7 @@ paths:
       - Prompts
   /content-generations/{parentId}/prompts/{id}/completion:
     get:
-      operationId: getCompletion
+      operationId: getPromptCompletion
       parameters:
       - in: path
         name: The Content Generation id.
@@ -536,19 +535,20 @@ paths:
       - Prompts
   /models:
     get:
-      operationId: listByCursor
+      operationId: listModels
       parameters:
-      - in: query
-        name: The cursor
+      - description: The cursor
+        in: query
+        name: cursor
         required: false
         schema:
           type: string
-      - in: query
-        name: The maximum number of results
+      - description: The maximum number of results
+        in: query
+        name: limit
         required: false
         schema:
           type: integer
-          format: int32
           default: 10
       responses:
         "200":
@@ -689,7 +689,7 @@ components:
       type: object
       description: A linguistic model.
       properties:
-        Unique identifier:
+        id:
           type: string
           description: A string which uniquely identifies a linguistic model. Please
             note that this may become a number in the future.
