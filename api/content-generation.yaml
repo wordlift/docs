@@ -445,8 +445,9 @@ paths:
     post:
       operationId: uploadPrompts
       parameters:
-      - in: path
-        name: The Content Generation id.
+      - description: The Content Generation id.
+        in: path
+        name: contentGenerationId
         required: true
         schema:
           type: integer
@@ -456,6 +457,7 @@ paths:
           text/plain:
             schema:
               type: string
+              description: "A payload with prompts, one per line."
         required: true
       responses:
         "201":
