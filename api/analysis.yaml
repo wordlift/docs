@@ -427,6 +427,9 @@ components:
         entity_id:
           type: string
           description: The entity id (URI).
+        entity_label:
+          type: string
+          description: The entity label).
   securitySchemes:
     ApiKey:
       type: apiKey
