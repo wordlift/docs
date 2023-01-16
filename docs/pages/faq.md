@@ -35,7 +35,7 @@ WordLift currently supports 32 languages: Chinese, Danish, German, English, Fren
 
 :::info Note
 WordLift supports one language at the time. The main language of the website can be configured from the WordLift settings.
-Review the [configuration settings](../wordpress-plugin/getting-started##configuration) for more information.
+Review the [configuration settings](/wordpress-plugin/getting-started#configuration) for more information.
 :::
 
 ## Is there a free trial?
@@ -53,7 +53,7 @@ In addition, with the purchase of our 12-month packages, we offer 20% discount. 
 2. if you deactivate the plugin instead, the vocabulary (metadata, entity and pages) will disappear from your dashboard, but everything you created is stored in your website Database in WordPress, and you will be able to download it, transfer it or re-activate it again anytime from the plugin menu.
 3. Turning off WordLift on our side, it would be like turning off all the keys and un-publish all the linked data you’ve created, not the plug-in itself, so it will be like ##1 - you could get the data back from us and re-publish it as [linked data](https://wordlift.io/blog/en/entity/linked-data/) on your own infrastructure.
 4. WordLift's technology is entirely open source: it takes development skills, infrastructure and some wisdom to nicely bring all the pieces together without our support.
-5. Your vocabulary (article metadata and entities) are published as [linked data](http://docs.wordlift.it/wordpress-plugin/key-concepts##linked-open-data) and you can always request a data dump in any of the following formats: RDF/XML, Turtle, N3, JSON-LD.
+5. Your vocabulary (article metadata and entities) are published as [linked data](/pages/key-concepts#linked-open-data) and you can always request a data dump in any of the following formats: RDF/XML, Turtle, N3, JSON-LD.
 
 ## Is WordLift Secure?
 
@@ -101,7 +101,7 @@ Content enrichment is a processes used to refine and improve textual content by 
 ## What entity types are supported and how they map to Schema.org?
 
 *Thing*, *Person*, *Place*, *Event*, *Organization*, *LocalBusiness*, *Creative Work* and *Recipe* are the supported types.
-Review the [Edit Entity page](edit-entity##entity-types-and-properties-table) for more information.
+Review the [Edit Entity page](/pages/edit-entity##entity-types-and-properties-table) for more information.
 
 ## When should I create a new entity?
 
@@ -188,7 +188,7 @@ The entity rating in WordLift takes under account the following factors:
 
 - Every entity should be linked to one or more related posts.
 - Every entity should have its own description.
-- Every entity should link to other entities - when we select other entities to enrich the description of an entity we create relationships in the site's [knowledge graph](key-concepts##knowledge-graph).
+- Every entity should link to other entities - when we select other entities to enrich the description of an entity we create relationships in the site's [knowledge graph](/pages/key-concepts##knowledge-graph).
 - Entities, just like any post in WordPress, can be kept as draft. Only when we publish them they become available in the analysis and we can use them to classify our contents.
 - Entities shall have a featured image. When we add a featured image to an entity we’re adding the `schema-org:image` attribute to it.
 - Every entity (unless we’re creating something completely new) should be interlinked with the same entity contained in at least one other dataset. This is called data interlinking and can be done by adding a link to the equivalent entity using the `sameAs` attribute.
@@ -207,7 +207,7 @@ Now we need to consider the following:
 
 ## When should I link one entity to another?
 
-By running the analysis on the property description text of an entity you can *link* it to other entities. WordLift will store these relationships between one entity and other entities in the [graph](key-concepts##knowledge-graph) using the Dublin Core property `dct:related`. This information will be used to suggest new connections between the contents of your site. Creating links among relevant entities will create more structure for your content, even though it is not mandatory to do so. You should always link entities that can help other users discover relevant contents (i.e. the entity *\[Berners-Lee\]* shall be linked to entity *\[Web\]* as the two concepts are strictly related.)
+By running the analysis on the property description text of an entity you can *link* it to other entities. WordLift will store these relationships between one entity and other entities in the [graph](/pages/key-concepts##knowledge-graph) using the Dublin Core property `dct:related`. This information will be used to suggest new connections between the contents of your site. Creating links among relevant entities will create more structure for your content, even though it is not mandatory to do so. You should always link entities that can help other users discover relevant contents (i.e. the entity *\[Berners-Lee\]* shall be linked to entity *\[Web\]* as the two concepts are strictly related.)
 
 ## How can I enable or disable links to entities?
 
@@ -229,7 +229,7 @@ Read [this article](http://www.wpbeginner.com/wp-tutorials/how-to-fix-wordpress-
 
 ## What are the datasets WordLift uses for named entity recognition?
 
-WordLift by default uses DBpedia and Freebase to detect and link named entities. With a custom configuration, the content analysis services provided by [Redlink](http://www.redlink.co) and available via our professional services, can use any RDF-based [graph](key-concepts##knowledge-graph). It is also possible to use *multiple graphs* for named entity recognition and [dereferencing](key-concepts##dereferencing-http-uris).
+WordLift by default uses DBpedia and Freebase to detect and link named entities. With a custom configuration, the content analysis services provided by [Redlink](http://www.redlink.co) and available via our professional services, can use any RDF-based [graph](/pages/key-concepts##knowledge-graph). It is also possible to use *multiple graphs* for named entity recognition and [dereferencing](/pages/key-concepts##dereferencing-http-uris).
 
 ## How can I prevent WordLift from creating new entity pages?
 
@@ -237,7 +237,7 @@ The best soution is to convert existing posts, pages and taxonomy terms to entit
 
 ## What is a triple?
 
-A triple is a set of three elements: a subject, a predicate, and an object. Triples are linked together to form a [graph](key-concepts##knowledge-graph) that is without hierarchy, is machine readable, and can be used to infer new facts. Triples in WordLift describe facts as metadata about an article or an entity.
+A triple is a set of three elements: a subject, a predicate, and an object. Triples are linked together to form a [graph](/pages/key-concepts##knowledge-graph) that is without hierarchy, is machine readable, and can be used to infer new facts. Triples in WordLift describe facts as metadata about an article or an entity.
 
 ## Are there any integrations with Neo4j?
 

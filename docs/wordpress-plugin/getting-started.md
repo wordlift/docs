@@ -44,13 +44,13 @@ More information on the manual installation are available on the [WordPress Code
 
 ### Activation
 
-To activate the plugin you need a [WordLift key](../pages/key-concepts#wordlift-key). You receive this key after [purchasing a subscription plan](https://wordlift.io/pricing/) the [WordLift] website. An automatic email will be then sent to you containing your key and account information.
+To activate the plugin you need a [WordLift key](/pages/key-concepts#wordlift-key). You receive this key after [purchasing a subscription plan](https://wordlift.io/pricing/) the [WordLift] website. An automatic email will be then sent to you containing your key and account information.
 
 You can use the setup Wizard upon startup to activate your subscription.
 
 ![image](./images/wordlift-setup-wizard.gif)
 
-When doing so you are able to configure the [key](../pages/key-concepts#wordlift-key), the entity base path (the URL pattern of the WordLift internal vocabulary), the languange used on the website and the publisher of the website.
+When doing so you are able to configure the [key](/pages/key-concepts#wordlift-key), the entity base path (the URL pattern of the WordLift internal vocabulary), the languange used on the website and the publisher of the website.
 
 Alternatively, from the WordPress administration menu, click on *Plugins* / *Installed Plugins*. Then click on *Settings* on the
 WordLift plugin.
@@ -71,7 +71,7 @@ From *Settings* screen, as from the Wizard, you can configure:
 
 **WordLift Key**
 
-The [WordLift Key](../pages/key-concepts#wordlift-key), required to activate the plug-in that can be purchased from the [website](https://wordlift.io/pricing/).
+The [WordLift Key](/pages/key-concepts#wordlift-key), required to activate the plug-in that can be purchased from the [website](https://wordlift.io/pricing/).
 
 **Entity Base Path**
 
@@ -102,7 +102,7 @@ You can choose if you want WordLift to add links to the entities you create by d
 You can choose if you want to send diagnostic data to WordLift. This data is used to improve the plugin and to provide support.
 
 :::info Note
-For more information on the multilingual support of WordLift [read here](../pages/faq#what-are-the-languages-supported-by-wordlift).
+For more information on the multilingual support of WordLift [read here](/pages/faq#what-are-the-languages-supported-by-wordlift).
 :::
 
 ### Tutorial
@@ -147,7 +147,7 @@ Creating an entity with WordLift is simple. To learn how to do it and start buil
 
 **WordLift** brings the power of *Artificial Intelligence* to web publishers around the World.
 
-**WordLift** is a plugin for WordPress designed to help you create, structure and visualize your content and to publish it as [Linked Open Data](../pages/key-concepts#linked-open-data) following **Tim Berners-Lee**'s [Linked Data Principles](http://www.w3.org/DesignIssues/LinkedData.html).
+**WordLift** is a plugin for WordPress designed to help you create, structure and visualize your content and to publish it as [Linked Open Data](/pages/key-concepts#linked-open-data) following **Tim Berners-Lee**'s [Linked Data Principles](http://www.w3.org/DesignIssues/LinkedData.html).
 
 Linked Data is the language machines can read and understand in order to seamlessly analyze content, index it and fetch answers back to users.
 Linked Data technologies allow software agents and search crawlers find, share and integrate information across different resources.
@@ -168,11 +168,11 @@ Linked Data technologies allow software agents and search crawlers find, share a
 **WordLift** is a **semantic editor** for WordPress to help writing, organizing, tagging and sharing content online.
 **WordLift** is designed for bloggers, journalists and content creators to inspire and make writing more productive.
 
-**WordLift** adds [semantic annotation](../pages/key-concepts#semantic-fingerprint) and combines information publicly available as [linked open data](../pages/key-concepts#linked-open-data) to support the editorial workflow by suggesting relevant information, images and links.
+**WordLift** adds [semantic annotation](/pages/key-concepts#semantic-fingerprint) and combines information publicly available as [linked open data](/pages/key-concepts#linked-open-data) to support the editorial workflow by suggesting relevant information, images and links.
 
 ### WordLift brings to content editors
 
-- support for **self-organising** (or structuring) **content** using publicly (or privately) available [knowledge graphs](../pages/key-concepts#knowledge-graph) ([linked open data](../pages/key-concepts#linked-open-data))
+- support for **self-organising** (or structuring) **content** using publicly (or privately) available [knowledge graphs](/pages/key-concepts#knowledge-graph) ([linked open data](/pages/key-concepts#linked-open-data))
 - an easy way to **build your own dataset** made of *web content*, *semantic annotations* and a *custom vocabulary*
 - support for creating web content using **contextually relevant fact-based information**
 - valued and **free to use photos and illustrations** from the Commons community ranging from maps to astronomical imagery to photographs, artworks and more
@@ -187,7 +187,7 @@ Linked Data technologies allow software agents and search crawlers find, share a
 - an **intuitive overview of all content being written** *on the site* and *around a specific topic* or graph of topics
 - meaningful **content recommendations**
 
-You can now continue to the [Key Concepts](../pages/key-concepts) page or head directly to the [Analysis](../pages/analysis).
+You can now continue to the [Key Concepts](/pages/key-concepts) page or head directly to the [Analysis](/pages/analysis).
 
 [join.wordlift.it]: https://join.wordlift.it/
 [my.redlink.io]: https://my.redlink.io

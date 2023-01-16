@@ -6,7 +6,7 @@ displayed_sidebar: wordpress-plugin
 
 ## Context Cards
 
-[Context Cards](discover#context-cards) provide an immediate preview of an entity. If the entity has been annotated and, if links are active, WordLift will show a preview of the annotated entity.
+[Context Cards](/pages/discover#context-cards) provide an immediate preview of an entity. If the entity has been annotated and, if links are active, WordLift will show a preview of the annotated entity.
 
 By default context cards will show up on hovering if Links to Entity Pages are enabled. To disable context cards, add the following code to your theme:
 
@@ -82,7 +82,7 @@ add_filter( 'wl_anchor_data_attributes', function ( $attributes, $post_id ) {
 ## Faceted Search
 
 **Entity pages** can be used for helping users browse the content of your website. This is done using the **Faceted Search Widget**.
-The Widget can be added on the entity page using the **Faceted Search** option from the [Widgets Dropodown Menu](analysis#wordlift-widgets-menu)
+The Widget can be added on the entity page using the **Faceted Search** option from the [Widgets Dropodown Menu](/pages/analysis#wordlift-widgets-menu)
 
 ![image](./images/wordlift-edit-entity-faceted-search-widget.png)
 
@@ -97,7 +97,7 @@ The example above represents the widget displayed in the front-end. The reader c
 
 ## Navigator
 
-The [Navigator widget](discover#the-navigator-widget) by default is wrapped in a `wl-navigator` class. You can style this class and the child element classes using CSS.
+The [Navigator widget](/pages/discover#the-navigator-widget) by default is wrapped in a `wl-navigator` class. You can style this class and the child element classes using CSS.
 
 Optionally, while using the navigator, you can also specify a `template_id` to style a specific instance with its own template.
 The template can be written using [Mustache](https://github.com/Mustache/Mustache): a framework-agnostic way to style web components.
@@ -118,13 +118,13 @@ Here's a sample code that you can use as reference:
 ```
 
 As a theme developer you have complete flexibility on both: the contents of these templates and the CSS styling.
-Read here the [parameters supported](shortcodes#navigator-widget) by the Navigator widget.
+Read here the [parameters supported](/pages/shortcodes#navigator-widget) by the Navigator widget.
 
 ## Examples
 
 ### Personalization of the Navigator Widget
 
-The [Navigator widget](discover#the-navigator-widget) by default is wrapped in a `wl-navigator` class. You can style this class and the child element classes using CSS.
+The [Navigator widget](/pages/discover#the-navigator-widget) by default is wrapped in a `wl-navigator` class. You can style this class and the child element classes using CSS.
 
 Optionally, while using the navigator, you can also specify a `template_id` to style a specific instance with its own template.
 The template can be written using [Mustache](https://github.com/Mustache/Mustache): a framework-agnostic way to style web components.
@@ -145,11 +145,11 @@ Here's a sample code that you can use as reference:
 ```
 
 As a theme developer you have complete flexibility on both: the contents of these templates and the CSS styling.
-Read here the [parameters supported](shortcodes#navigator-widget) by the Navigator widget.
+Read here the [parameters supported](/pages/shortcodes#navigator-widget) by the Navigator widget.
 
 ### Personalization of the Context Cards
 
-[Context Cards](discover#context-cards) provide an immediate preview of an entity. If the entity has been annotated and, if links are active, WordLift will show a preview of the annotated entity.
+[Context Cards](/pages/discover#context-cards) provide an immediate preview of an entity. If the entity has been annotated and, if links are active, WordLift will show a preview of the annotated entity.
 
 By default context cards will show up on hovering if Links to Entity Pages are enabled. To disable context cards, add the following code to your theme:
 

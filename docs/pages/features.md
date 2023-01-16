@@ -9,11 +9,11 @@ displayed_sidebar: wordpress-plugin
 **WordLift** is a **semantic editor** for WordPress to help writing, organizing, tagging and sharing content online.
 **WordLift** is designed for bloggers, journalists and content creators to inspire and make writing more productive.
 
-**WordLift** adds [semantic annotation](key-concepts#semantic-fingerprint) and combines information publicly available as [linked open data](key-concepts#linked-open-data) to support the editorial workflow by suggesting relevant information, images and links.
+**WordLift** adds [semantic annotation](/pages/key-concepts#semantic-fingerprint) and combines information publicly available as [linked open data](/pages/key-concepts#linked-open-data) to support the editorial workflow by suggesting relevant information, images and links.
 
 ## WordLift brings to content editors
 
-- support for **self-organising** (or structuring) **content** using publicly (or privately) available [knowledge graphs](key-concepts#knowledge-graph) ([linked open data](key-concepts#linked-open-data))
+- support for **self-organising** (or structuring) **content** using publicly (or privately) available [knowledge graphs](/pages/key-concepts#knowledge-graph) ([linked open data](/pages/key-concepts#linked-open-data))
 - an easy way to **build your own dataset** made of *web content*, *semantic annotations* and a *custom vocabulary*
 - support for creating web content using **contextually relevant fact-based information**
 - valued and **free to use photos and illustrations** from the Commons community ranging from maps to astronomical imagery to photographs, artworks and more

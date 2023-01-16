@@ -17,7 +17,7 @@ WordLift widgets can be inserted in a post or page to give a rich visual present
 ```
 
 The Navigator widget offers links to **semantic-related posts** in the blog.
-The search is made by considering the entities mentioned in the current post and by finding other blog posts that mentions the same entities. It is useful for [content discovery](discover#the-faceted-search-widget).
+The search is made by considering the entities mentioned in the current post and by finding other blog posts that mentions the same entities. It is useful for [content discovery](/pages/discover#the-faceted-search-widget).
 
 ![image](./images/wordlift-discover-navigator.png)
 
@@ -74,7 +74,7 @@ The filters available for the navigator widget are:
 [wl_faceted_search]
 ```
 
-The Faceted Search widget can be used on entity pages to display and filter the posts related to the current and other entities. It is useful for [content discovery](discover#the-navigator-widget).
+The Faceted Search widget can be used on entity pages to display and filter the posts related to the current and other entities. It is useful for [content discovery](/pages/discover#the-navigator-widget).
 
 ![image](./images/wordlift-edit-entity-faceted-search-widget-frontend.gif)
 

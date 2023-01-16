@@ -4,8 +4,8 @@ displayed_sidebar: wordpress-plugin
 
 # Edit Entity
 
-**WordLift** uses [entities](key-concepts#entity) to annotate and organize blog posts and pages.
-All entities can be edited using the [WordLift Edit Post widget](analysis#wordLift-edit-post-widget) or from the **Entity Page** itself. To access all entities or add a new entity click on the **Vocabolary** icon on the dashboard menu.
+**WordLift** uses [entities](/pages/key-concepts#entity) to annotate and organize blog posts and pages.
+All entities can be edited using the [WordLift Edit Post widget](/pages/analysis#wordLift-edit-post-widget) or from the **Entity Page** itself. To access all entities or add a new entity click on the **Vocabolary** icon on the dashboard menu.
 
 ![image](./images/wordlift-edit-entity-vocabulary.png)
 
@@ -88,12 +88,12 @@ When we have something meanigful to say on a specific concept **we shall curate 
 
 Entity pages can be annotated just like you would do with a blog posts.
 
-After saving the new description you wrote, WordLift will analyze the text and suggest related entities. You can now *link* an entity with other entities. WordLift will store these relationships between one entity and other entities in the [graph](key-concepts#knowledge-graph) using the Dublin Core property `dct:related`. This information will be used to infer new connections between the contents of the site. For more information on *entity linking* [read the faq](faq#when-should-i-link-one-entity-to-another).
+After saving the new description you wrote, WordLift will analyze the text and suggest related entities. You can now *link* an entity with other entities. WordLift will store these relationships between one entity and other entities in the [graph](/pages/key-concepts#knowledge-graph) using the Dublin Core property `dct:related`. This information will be used to infer new connections between the contents of the site. For more information on *entity linking* [read the faq](/pages/faq#when-should-i-link-one-entity-to-another).
 
 ## The Faceted Search Widget
 
 **Entity pages** can be used for helping users browse the content of your website. This is done using the **Faceted Search Widget**.
-The Widget can be added on the entity page using the **Faceted Search** option from the [Widgets Dropodown Menu](analysis#wordlift-widgets-menu)
+The Widget can be added on the entity page using the **Faceted Search** option from the [Widgets Dropodown Menu](/pages/analysis#wordlift-widgets-menu)
 
 ![image](./images/wordlift-edit-entity-faceted-search-widget.png)
 
@@ -109,9 +109,9 @@ The example above represents the widget displayed in the front-end. The reader c
 ## Save data
 
 In order to save the information on the entity press the "Publish" button.
-When making changes to an already existing entity press the "Update" button. In both cases data will be stored simultaneously on the WordPress site as well as in the [graph](key-concepts#knowledge-graph).
+When making changes to an already existing entity press the "Update" button. In both cases data will be stored simultaneously on the WordPress site as well as in the [graph](/pages/key-concepts#knowledge-graph).
 
-You can now continue to the [publish](publish) page.
+You can now continue to the [publish](/pages/publish) page.
 
 [creativework]: http://schema.org/CreativeWork
 [event]: http://schema.org/Event
