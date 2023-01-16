@@ -6,7 +6,7 @@ displayed_sidebar: wordpress-plugin
 
 ## Publish Entity
 
-When saved, entities are created as `custom posts` in the local WordPress installation and are accessible from the [WordLift vocabulary](key-concepts#vocabulary).
+When saved, entities are created as `custom posts` in the local WordPress installation and are accessible from the [WordLift vocabulary](/pages/key-concepts#vocabulary).
 
 :::info Note
 The URL for an entity page is as follows::
@@ -24,7 +24,7 @@ By clicking on the **View Linked Data** button (right after the *Permalink* in t
 
 ![image](./images/wordlift-publish-entity-lodview.png)
 
-In this example you can see the relation being created between the entity *\[Mars\]* and the entity *\[Solar System\]* (`dcterms:relation`). This relation has been created from the [entity page](edit-entity#linking-other-entities) page by annotating the description of the entity.
+In this example you can see the relation being created between the entity *\[Mars\]* and the entity *\[Solar System\]* (`dcterms:relation`). This relation has been created from the [entity page](/pages/edit-entity#linking-other-entities) page by annotating the description of the entity.
 
 ![image](./images/wordlift-publish-entity-lodlive.png)
 
@@ -68,4 +68,4 @@ In the RDF representation of the posts you can find all entities related to a po
 
 The attributes describing the posts can be browsed. In this example by clicking on the entity *\[Solar System\]* you will be able (directly from [LodView](http://lodview.it/)) to consult and read the data publish on that entity by **WordLift**.
 
-You can now continue to the [Discover](discover) page.
+You can now continue to the [Discover](/pages/discover) page.

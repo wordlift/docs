@@ -6,9 +6,9 @@ displayed_sidebar: wordpress-plugin
 
 **WordLift** brings to the readers of your site multiple means of **content discovery**.
 
-**WordLift** leverages on the semantic network of concepts (or [entities](key-concepts#entity)) being created to help users explore the content of your site.
+**WordLift** leverages on the semantic network of concepts (or [entities](/pages/key-concepts#entity)) being created to help users explore the content of your site.
 
-Using the [graph](key-concepts#knowledge-graph) created by **WordLift** innovative ways of navigating the contents can be implemented (this is particularly true if you are a developer.)
+Using the [graph](/pages/key-concepts#knowledge-graph) created by **WordLift** innovative ways of navigating the contents can be implemented (this is particularly true if you are a developer.)
 
 **WordLift** helps users discover content in **eight different ways**:
 
@@ -38,7 +38,7 @@ These links can be personalised using the CSS class `wl-entity-page-link`. As se
 **Context Cards** provide an immediate preview of an entity. If the entity has been annotated and, if links are active,
 WordLift will show a preview of the annotated entity.
 
-By default context cards will show up on *hovering* if [Links to Entity Pages](discover?highlight=navigator#links-to-entity-pages) are enabled.
+By default context cards will show up on *hovering* if [Links to Entity Pages](#links-to-entity-pages) are enabled.
 To disable context cards, add the following code to your theme:
 
 ```php
@@ -78,14 +78,14 @@ The default title for this widget - when it is added to a page - is "**Related a
 ## The Timeline Widget
 
 **WordLift** uses the powerful [TimelineJS](https://timeline.knightlab.com/) to create beautiful, interactive timelines.
-The timeline widget in **WordLift** uses nothing more than [entities of type event](edit-entity#edit-an-event) mentioned and annotated in the article.
+The timeline widget in **WordLift** uses nothing more than [entities of type event](/pages/edit-entity#edit-an-event) mentioned and annotated in the article.
 
-[Entities of type event](edit-entity#edit-an-event) can be linked to entities of type place via the property *location* (this describe where the event is taking place). If a place is mentioned in the article and it is linked to an event the timeline will display this event also.
+[Entities of type event](/pages/edit-entity#edit-an-event) can be linked to entities of type place via the property *location* (this describe where the event is taking place). If a place is mentioned in the article and it is linked to an event the timeline will display this event also.
 
 ![image](./images/wordlift-shortcodes-timeline.png)
 
 :::info Note
-In order for an event to appear in the timeline the event property *startDate* shall be present as illustrated [here](edit-entity#edit-an-event).
+In order for an event to appear in the timeline the event property *startDate* shall be present as illustrated [here](/pages/edit-entity#edit-an-event).
 :::
 
 It is possible to personalise the layout of the timeline using any of [the presentation options of TimelineJS](https://timeline.knightlab.com/docs/options.html) plus three additional parameters provided by WordLift:
@@ -108,7 +108,7 @@ This shortcode above produces the following result:
 
 ### The Timeline WordPress Widget
 
-The **Timeline WordPress Widget** is a site-wide Widget that displays events being saved as entities (type event) using the [interactive timeline](discover#the-timeline-widget).
+The **Timeline WordPress Widget** is a site-wide Widget that displays events being saved as entities (type event) using the [interactive timeline](#the-timeline-widget).
 
 ![image](./images/wordlift-timeline-wordpress-widget.png)
 
@@ -161,4 +161,4 @@ The following paramenters can be used to personalise the entities beind displaye
 
 Here you can see an example of the [Semantic SEO Glossary](https://wordlift.io/blog/en/glossary).
 
-In the next section, you can read all about the parameters that you can use to personalize each widget using [shortcodes](shortcodes).
+In the next section, you can read all about the parameters that you can use to personalize each widget using [shortcodes](/pages/shortcodes).

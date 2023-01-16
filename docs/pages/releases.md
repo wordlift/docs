@@ -18,7 +18,7 @@ The WordLift 3.19 release has been published in May 2018 and we had minor sub-re
 
 ## WordLift 3.18 (2018-03-20)
 
-The WordLift 3.18 release is now available. We have introduced the new entity type for [Offer](edit-entity#edit-a-offer) and the support for the property `performer` on the entity type [Event](edit-entity#edit-an-event). The [glossary widget](discover#the-glossary-widget) has also been improved and it now supports a new option to let you display all the entities that belong to a specific WordPress Category. Above all, WordLift's Knowledge Graph got better 😉 the plugin now stores in RDF the link between entities and articles.
+The WordLift 3.18 release is now available. We have introduced the new entity type for [Offer](/pages/edit-entity#edit-a-offer) and the support for the property `performer` on the entity type [Event](/pages/edit-entity#edit-an-event). The [glossary widget](/pages/discover#the-glossary-widget) has also been improved and it now supports a new option to let you display all the entities that belong to a specific WordPress Category. Above all, WordLift's Knowledge Graph got better 😉 the plugin now stores in RDF the link between entities and articles.
 
 [Download the latest release](https://wordpress.org/plugins/wordlift/) now from WordPress.org or update it automatically from the administration panel of your website.
 

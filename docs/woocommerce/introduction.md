@@ -84,7 +84,7 @@ The Product Navigator widget supports the same parameters as the Navigator.
 
 ### Product Card
 
-The Product Card allows the customers to see a preview of your product just placing their mouse over the link to the product itself. To activate the link and the Product Card just annotate the Product on your articles and pages. Learn more about [how to anotate your content](../pages/analysis#wordlift-edit-post-widget)
+The Product Card allows the customers to see a preview of your product just placing their mouse over the link to the product itself. To activate the link and the Product Card just annotate the Product on your articles and pages. Learn more about [how to anotate your content](/pages/analysis#wordlift-edit-post-widget)
 
 ![image](../images/product-card-woocommerce.png)
 

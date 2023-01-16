@@ -16,9 +16,9 @@ In addition to providing instructions on how to use WordLift, this documentation
 This documentation is organized into the following sections: 
 
 * [WordPress plugin](/wordpress-plugin)
-* [WooCommerce SEO](/woocommerce-seo)
-* [Google Sheets Add-on](/google-sheets-add-on)
-* [Looker Studio Connector](/looker-studio-connector)
+* [WooCommerce SEO](/woocommerce/introduction)
+* [Google Sheets Add-on](/seo-add-on-google-sheets/introduction)
+* [Looker Studio Connector](/looker-studio-connector/introduction)
 * [API Reference](/category/api)
 
 Each section covers a specific topic and includes detailed instructions and information on that topic. To navigate the documentation, you can use the table of contents or the search function to find the information you need.
