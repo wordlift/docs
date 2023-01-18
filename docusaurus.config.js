@@ -77,9 +77,6 @@ const config = {
             position: "left",
             items: [
               {
-                //   label: 'SEO Automation',
-                //   to: '/wordpress-plugin/getting-started'
-                // }, {
                 label: "WordPress Plugin",
                 to: "wordpress-plugin",
               },
@@ -94,6 +91,10 @@ const config = {
               {
                 label: "Looker Studio Connector",
                 to: "looker-studio-connector/introduction",
+              },
+              {
+                label: "Product Knowledge Graph Builder",
+                to: "product-knowledge-graph-builder/introduction",
               },
             ],
           },
