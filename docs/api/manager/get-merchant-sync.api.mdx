@@ -1,0 +1,42 @@
+---
+id: get-merchant-sync
+title: "Get by id"
+description: "Get by id"
+sidebar_label: "Get by id"
+hide_title: true
+hide_table_of_contents: true
+api: {"operationId":"getMerchantSync","parameters":[{"description":"The Merchant's `id`","in":"path","name":"merchantId","required":true,"schema":{"type":"integer","format":"int64"}},{"description":"The Merchant Sync `id`.","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"content":{"application/json":{"schema":{"type":"object","description":"A Merchant products data synchronization.","properties":{"created_at":{"type":"string","format":"date-time","description":"The create date-time.","readOnly":true},"has_errors":{"type":"boolean","description":"Whether the sync encountered errors.","readOnly":true},"id":{"type":"integer","format":"int64","description":"The unique id.","readOnly":true},"merchant_id":{"type":"integer","format":"int64","description":"The parent Merchant id.","readOnly":true},"modified_at":{"type":"string","format":"date-time","description":"The last modified date-time.","readOnly":true},"products":{"type":"integer","format":"int64","description":"The number of synced products.","readOnly":true},"started_at":{"type":"string","format":"date-time","description":"The started date-time.","readOnly":true},"stopped_at":{"type":"string","format":"date-time","description":"The stopped date-time.","readOnly":true}},"required":["merchant_id"]}}},"description":"Found."},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"OAuth2":[]}],"tags":["Merchant Syncs"],"description":"Get by id","method":"get","path":"/merchants/{merchantId}/syncs/{id}","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Get by id","description":{"type":"text/plain"},"url":{"path":["merchants",":merchantId","syncs",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) The Merchant's `id`","type":"text/plain"},"type":"any","value":"","key":"merchantId"},{"disabled":false,"description":{"content":"(Required) The Merchant Sync `id`.","type":"text/plain"},"type":"any","value":"","key":"id"}]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"oauth2","oauth2":[]}}}
+sidebar_class_name: "get api-method"
+info_path: api/manager/manager
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get by id
+
+
+
+Get by id
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The Merchant's `id`","in":"path","name":"merchantId","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"The Merchant Sync `id`.","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Found.
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"created_at"} required={false} deprecated={undefined} schemaDescription={"The create date-time."} schemaName={"date-time"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem><SchemaItem collapsible={false} name={"has_errors"} required={false} deprecated={undefined} schemaDescription={"Whether the sync encountered errors."} schemaName={"boolean"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem><SchemaItem collapsible={false} name={"id"} required={false} deprecated={undefined} schemaDescription={"The unique id."} schemaName={"int64"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem><SchemaItem collapsible={false} name={"merchant_id"} required={false} deprecated={undefined} schemaDescription={"The parent Merchant id."} schemaName={"int64"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem><SchemaItem collapsible={false} name={"modified_at"} required={false} deprecated={undefined} schemaDescription={"The last modified date-time."} schemaName={"date-time"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem><SchemaItem collapsible={false} name={"products"} required={false} deprecated={undefined} schemaDescription={"The number of synced products."} schemaName={"int64"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem><SchemaItem collapsible={false} name={"started_at"} required={false} deprecated={undefined} schemaDescription={"The started date-time."} schemaName={"date-time"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem><SchemaItem collapsible={false} name={"stopped_at"} required={false} deprecated={undefined} schemaDescription={"The stopped date-time."} schemaName={"date-time"} qualifierMessage={undefined} defaultValue={undefined}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"created_at\": \"2023-02-02\",\n  \"has_errors\": true,\n  \"id\": 0,\n  \"merchant_id\": 0,\n  \"modified_at\": \"2023-02-02\",\n  \"products\": 0,\n  \"started_at\": \"2023-02-02\",\n  \"stopped_at\": \"2023-02-02\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Authentication Failure
+
+</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div></div></TabItem></ApiTabs></div>
+      
