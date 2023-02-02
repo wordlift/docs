@@ -1,75 +1,72 @@
 openapi: 3.0.1
 info:
-  title: Manager
-  description: Subscription management and related services.
-  termsOfService: https://wordlift.io/terms-of-service/
   contact:
+    email: hello@wordlift.io
     name: WordLift
     url: https://wordlift.io
-    email: hello@wordlift.io
+  description: Subscription management and related services.
   license:
     name: (c) copyright 2022-present WordLift
     url: https://wordlift.io
+  termsOfService: https://wordlift.io/terms-of-service/
+  title: Manager
   version: "1.0"
 servers:
 - url: https://api.wordlift.io
 tags:
-- name: Data URI
-  description: Data URI for a Web page URL.
-- name: Merchant Syncs
-  description: Manage merchant synchronizations.
-- name: Merchants
-  description: Manage merchants.
-- name: Include Excludes (WordPress plugin)
-  description: The list of included or excluded URLs from the WordPress configuration
+- description: Data URI for a Web page URL.
+  name: Data URI
+- description: The list of included or excluded URLs from the WordPress configuration
+  name: Include Excludes (WordPress plugin)
+- description: Manage Merchants
+  name: Merchants
+- description: Synchronize Products from the Merchant Feed
+  name: Merchant Syncs
 paths:
   /accounts/me/include-excludes:
     get:
-      tags:
-      - Include Excludes (WordPress plugin)
-      summary: List
       description: List the include and exclude configurations.
-      operationId: get_1
+      operationId: listIncludeExcludes
       parameters:
-      - name: account
-        in: query
+      - in: query
+        name: account
         required: true
         schema:
           $ref: '#/components/schemas/Account'
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IncludeExclude'
           description: Success
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/IncludeExclude'
-        "404":
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/IncludeExclude'
         "401":
-          description: Unauthorized
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/IncludeExclude'
-    put:
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IncludeExclude'
+          description: Not Found
+      summary: List
       tags:
       - Include Excludes (WordPress plugin)
-      summary: Update
+    put:
       description: Update the include and exclude configurations.
-      operationId: create
+      operationId: updateIncludeExcludes
       parameters:
-      - name: account
-        in: query
+      - in: query
+        name: account
         required: true
         schema:
           $ref: '#/components/schemas/Account'
@@ -83,169 +80,41 @@ paths:
         required: true
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IncludeExclude'
           description: Success
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/IncludeExclude'
-        "404":
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/IncludeExclude'
         "401":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IncludeExclude'
           description: Unauthorized
+        "404":
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/IncludeExclude'
-  /websites/merchants:
-    get:
-      tags:
-      - Merchants
-      summary: List
-      description: List the merchant configurations.
-      operationId: list
-      responses:
-        "200":
-          description: Success
-          content:
-            '*/*':
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/MerchantInfo'
-        "401":
-          description: Authentication Failure
-      security:
-      - OAuth2: []
-    post:
-      tags:
-      - Merchants
-      summary: Create
-      description: Create a merchant configuration.
-      operationId: create_1
-      parameters:
-      - name: url
-        in: query
-        description: The website URL
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Merchant'
-        required: true
-      responses:
-        "200":
-          description: Success
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/Merchant'
-        "404":
           description: Not Found
-        "401":
-          description: Authentication Failure
-      security:
-      - OAuth2: []
-    delete:
+      summary: Update
       tags:
-      - Merchants
-      summary: Delete
-      description: Delete the merchant configuration associated with the specified
-        URL.
-      operationId: delete
-      parameters:
-      - name: url
-        in: query
-        description: The merchant URL.
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: Success
-        "404":
-          description: Not Found
-        "401":
-          description: Authentication Failure
-      security:
-      - OAuth2: []
-  /websites/merchant-syncs:
-    post:
-      tags:
-      - Merchant Syncs
-      summary: Start
-      description: Start a merchant synchronization.
-      operationId: start
-      parameters:
-      - name: url
-        in: query
-        description: The merchant url.
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: Success
-          content:
-            '*/*':
-              schema:
-                type: string
-        "404":
-          description: Not Found
-        "401":
-          description: Authentication Failure
-      security:
-      - OAuth2: []
-    delete:
-      tags:
-      - Merchant Syncs
-      summary: Stop
-      description: Stop a merchant synchronization.
-      operationId: stop
-      parameters:
-      - name: url
-        in: query
-        description: The merchant url.
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: Success
-          content:
-            '*/*':
-              schema:
-                type: string
-        "404":
-          description: Not Found
-        "401":
-          description: Authentication Failure
-      security:
-      - OAuth2: []
+      - Include Excludes (WordPress plugin)
   /data-uri:
     get:
-      tags:
-      - Data URI
-      summary: Get the Web Data URI for a Web Page URL.
       description: |
         The service will return a Web Data URI only for existing datasets. The Web Data URI is not guaranteed to exist (i.e. it may return 404).
       operationId: get
       parameters:
-      - name: u
+      - description: The Web Page URL.
         in: query
-        description: The Web Page URL.
+        name: u
         required: true
         schema:
           type: string
@@ -256,124 +125,523 @@ paths:
           headers:
             Location:
               description: "${api.data-uri-controller.get.headers.location.description}"
-              style: simple
               schema: {}
+              style: simple
+      summary: Get the Web Data URI for a Web Page URL.
+      tags:
+      - Data URI
+  /merchants:
+    get:
+      description: "List the Merchants, optionally filtering by the `deleted` flag"
+      operationId: listMerchants
+      parameters:
+      - description: The cursor
+        in: query
+        name: cursor
+        required: false
+        schema:
+          type: string
+      - description: The maximum number of results
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+          default: 10
+      - description: Filter by the `deleted` flag
+        in: query
+        name: deleted
+        required: false
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageMerchantView'
+          description: Found
+        "401":
+          description: Authentication Failure
+      security:
+      - OAuth2: []
+      summary: List
+      tags:
+      - Merchants
+    post:
+      description: Create a Merchant
+      operationId: createMerchant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Merchant'
+          description: Success
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - OAuth2: []
+      summary: Create
+      tags:
+      - Merchants
+  /merchants/{id}:
+    delete:
+      description: Delete a Merchant by its `id`.
+      operationId: deleteMerchant
+      parameters:
+      - description: The Merchant id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Deleted
+        "401":
+          description: Authentication Failure
+      security:
+      - OAuth2: []
+      summary: Delete by id
+      tags:
+      - Merchants
+  /merchants/{merchantId}/syncs:
+    get:
+      description: List the Merchants Syncs
+      operationId: listMerchantSyncs
+      parameters:
+      - description: The Merchant's `id`
+        in: path
+        name: merchantId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - description: The cursor
+        in: query
+        name: cursor
+        required: false
+        schema:
+          type: string
+      - description: The maximum number of results
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+          default: 10
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageMerchantSync'
+          description: Found
+        "401":
+          description: Authentication Failure
+      security:
+      - OAuth2: []
+      summary: List
+      tags:
+      - Merchant Syncs
+    post:
+      operationId: createSync
+      parameters:
+      - description: The Merchant's `id`
+        in: path
+        name: merchantId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MerchantSync'
+          description: Found.
+        "401":
+          description: Authentication Failure
+      security:
+      - OAuth2: []
+      summary: Start
+      tags:
+      - Merchant Syncs
+  /merchants/{merchantId}/syncs/{id}:
+    get:
+      operationId: getMerchantSync
+      parameters:
+      - description: The Merchant's `id`
+        in: path
+        name: merchantId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - description: The Merchant Sync `id`.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MerchantSync'
+          description: Found.
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - OAuth2: []
+      summary: Get by id
+      tags:
+      - Merchant Syncs
 components:
   schemas:
     Account:
       type: object
       properties:
-        id:
+        analyzerId:
           type: integer
           format: int64
+        country:
+          type: string
         datasetId:
           type: string
-        key:
+        domainUri:
           type: string
-        analyzerId:
+        id:
           type: integer
           format: int64
         indexed:
           type: boolean
-        domainUri:
-          type: string
-        url:
-          type: string
-        resolvedUrl:
-          type: string
-        country:
+        key:
           type: string
         language:
           type: string
         ngDatasetId:
           type: string
-        wpAdmin:
-          type: string
-        wpJson:
+        resolvedUrl:
           type: string
         subscriptionId:
           type: integer
           format: int64
-    IncludeExcludeRequest:
-      required:
-      - Include or Exclude
-      - The URL
-      type: object
-      properties:
-        The URL:
+        url:
           type: string
-        Include or Exclude:
+        wpAdmin:
           type: string
-          description: A flag which determines whether the URL is `INCLUDE` or `EXCLUDE`.
-          enum:
-          - INCLUDE
-          - EXCLUDE
-      description: A request to create an IncludeExclude.
+        wpJson:
+          type: string
     IncludeExclude:
-      required:
-      - Account unique identifier
-      - Include or Exclude
-      - The URL
       type: object
       properties:
-        Unique identifier:
-          type: integer
-          format: int64
-          readOnly: true
-        The URL:
-          type: string
-        Include or Exclude:
-          type: string
-          description: A flag which determines whether the URL is `INCLUDE` or `EXCLUDE`.
-          enum:
-          - INCLUDE
-          - EXCLUDE
         Account unique identifier:
           type: integer
           format: int64
           readOnly: true
-    Merchant:
+        Include or Exclude:
+          type: string
+          description: A flag which determines whether the URL is `INCLUDE` or `EXCLUDE`.
+          enum:
+          - INCLUDE
+          - EXCLUDE
+        The URL:
+          type: string
+        Unique identifier:
+          type: integer
+          format: int64
+          readOnly: true
       required:
-      - accessToken
-      - merchantId
-      - refreshToken
+      - Account unique identifier
+      - Include or Exclude
+      - The URL
+    IncludeExcludeRequest:
       type: object
+      description: A request to create an IncludeExclude.
       properties:
-        accessToken:
+        Include or Exclude:
           type: string
-          description: The Google merchant access token.
-        refreshToken:
+          description: A flag which determines whether the URL is `INCLUDE` or `EXCLUDE`.
+          enum:
+          - INCLUDE
+          - EXCLUDE
+        The URL:
           type: string
-          description: The Google merchant refresh token.
+      required:
+      - Include or Exclude
+      - The URL
+    Merchant:
+      type: object
+      description: A Merchant project.
+      properties:
+        access_token:
+          type: string
+          description: The Google merchant access token
+        account_id:
+          type: integer
+          format: int64
+          description: The account id
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          description: The create date-time
+          readOnly: true
+        deleted:
+          type: boolean
+          default: false
+          description: True if the merchant has been deleted
+        deleted_at:
+          type: string
+          format: date-time
+          description: The delete date-time
+          readOnly: true
+        google_merchant_id:
+          type: integer
+          format: int64
+          description: The Google Merchant id
+        id:
+          type: integer
+          format: int64
+          description: The unique id
+          readOnly: true
+        modified_at:
+          type: string
+          format: date-time
+          description: The last modified date-time
+          readOnly: true
+        refresh_token:
+          type: string
+          description: The Google merchant refresh token
         url:
           type: string
-          description: The target URL.
-        merchantId:
-          type: string
-          description: The merchant id.
-      description: The merchant configuration
-    MerchantInfo:
+          description: The website URL
+      required:
+      - access_token
+      - deleted
+      - google_merchant_id
+      - refresh_token
+    MerchantSync:
       type: object
+      description: A Merchant products data synchronization.
       properties:
-        url:
+        created_at:
           type: string
-          description: The merchant URL.
+          format: date-time
+          description: The create date-time.
+          readOnly: true
+        has_errors:
+          type: boolean
+          description: Whether the sync encountered errors.
+          readOnly: true
+        id:
+          type: integer
+          format: int64
+          description: The unique id.
+          readOnly: true
+        merchant_id:
+          type: integer
+          format: int64
+          description: The parent Merchant id.
+          readOnly: true
+        modified_at:
+          type: string
+          format: date-time
+          description: The last modified date-time.
+          readOnly: true
         products:
+          type: integer
+          format: int64
+          description: The number of synced products.
+          readOnly: true
+        started_at:
           type: string
-          description: The number of products.
-        lastSync:
+          format: date-time
+          description: The started date-time.
+          readOnly: true
+        stopped_at:
           type: string
-          description: Last synchronization date-time.
-        status:
+          format: date-time
+          description: The stopped date-time.
+          readOnly: true
+      required:
+      - merchant_id
+    MerchantView:
+      type: object
+      description: An array of objects.
+      properties:
+        access_token:
           type: string
-          description: The synchronization status.
-      description: Merchant metadata.
+          description: The Google merchant access token
+        account_id:
+          type: integer
+          format: int64
+          description: The account id
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          description: The create date-time
+          readOnly: true
+        deleted:
+          type: boolean
+          default: false
+          description: True if the merchant has been deleted
+        deleted_at:
+          type: string
+          format: date-time
+          description: The delete date-time
+          readOnly: true
+        google_merchant_id:
+          type: integer
+          format: int64
+          description: The Google Merchant id
+        id:
+          type: integer
+          format: int64
+          description: The unique id
+          readOnly: true
+        modified_at:
+          type: string
+          format: date-time
+          description: The last modified date-time
+          readOnly: true
+        refresh_token:
+          type: string
+          description: The Google merchant refresh token
+        sid:
+          type: string
+        sync_has_errors:
+          type: boolean
+        sync_id:
+          type: integer
+          format: int64
+        sync_products:
+          type: integer
+          format: int64
+        sync_started_at:
+          type: string
+          format: date-time
+          description: The started date-time.
+          readOnly: true
+        sync_stopped_at:
+          type: string
+          format: date-time
+          description: The stopped date-time.
+          readOnly: true
+        url:
+          type: string
+          description: The website URL
+      required:
+      - access_token
+      - deleted
+      - google_merchant_id
+      - refresh_token
+    PageMerchantSync:
+      type: object
+      description: A page object with links to move to other pages and the list of
+        objects.
+      properties:
+        first:
+          type: string
+          description: The link to the first page.
+        items:
+          type: array
+          description: An array of objects.
+          items:
+            $ref: '#/components/schemas/MerchantSync'
+        last:
+          type: string
+          description: The link to the last page.
+        next:
+          type: string
+          description: The link to the next page or `null` if there's no page.
+        prev:
+          type: string
+          description: The link to the previous page or `null` if there's no page.
+        self:
+          type: string
+          description: The link to the current page.
+    PageMerchantView:
+      type: object
+      description: A page object with links to move to other pages and the list of
+        objects.
+      properties:
+        first:
+          type: string
+          description: The link to the first page.
+        items:
+          type: array
+          description: An array of objects.
+          items:
+            $ref: '#/components/schemas/MerchantView'
+        last:
+          type: string
+          description: The link to the last page.
+        next:
+          type: string
+          description: The link to the next page or `null` if there's no page.
+        prev:
+          type: string
+          description: The link to the previous page or `null` if there's no page.
+        self:
+          type: string
+          description: The link to the current page.
+    Request:
+      type: object
+      description: The Merchant request
+      properties:
+        access_token:
+          type: string
+          description: Google Merchant access token
+        deleted:
+          type: boolean
+          default: false
+          description: True if the merchant has been deleted
+        google_merchant_id:
+          type: integer
+          format: int64
+          description: The Google Merchant id
+        publisher_name:
+          type: string
+          description: The publisher name (shows in schema publisher)
+        refresh_token:
+          type: string
+          description: Google Merchant refresh token
+        url:
+          type: string
+          description: The website URL
+      required:
+      - google_merchant_id
+      - publisher_name
+      - refresh_token
+      - url
   securitySchemes:
+    ApiKey:
+      in: header
+      name: Authorization
+      type: apiKey
     OAuth2:
-      type: oauth2
       flows:
         authorizationCode:
           authorizationUrl: https://s.wordlift.io/oauth/authorize/
-          tokenUrl: https://s.wordlift.io/oauth/token/
           scopes:
             basic: basic scope
+          tokenUrl: https://s.wordlift.io/oauth/token/
+      type: oauth2

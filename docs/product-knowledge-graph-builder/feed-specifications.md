@@ -5,7 +5,8 @@ sidebar_position: 20
 ---
 
 Field separator: `\t`
-Array separator: `|`
+Array separator: `,`
+To use comma not as a separator, encode it to `%2C`
 
 | Field                    | Required    | Schema.org Equivalent                   | Description                                                                                                                                                                                  |
 | ------------------------ | ----------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
