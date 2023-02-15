@@ -281,6 +281,7 @@ const config = {
     [
       "./src/plugins/qa-bot",
       {
+        server: "https://wordlift-docs.docsqa.jina.ai/",
         token:
           "mVhWS6wV8SwiO98vtnc_Jd98_T05PtgkqXUhJN5x9TEwP4Fx9jslZch6-isnKoJ_8DY3Zc18tg==",
         title: "WordLift",
@@ -288,7 +289,7 @@ const config = {
           "https://wordlift.io/wp-content/uploads/2022/07/chatbot-round.png",
         description:
           "Organize your Content, Publish Linked Data, Boost your Traffic",
-        site: "https://wordlift-docs.docsqa.jina.ai",
+        site: "https://docs.wordlift.io",
         template: `
                   <dl>
                     <dt>You can ask questions about WordLift. Try</dt>

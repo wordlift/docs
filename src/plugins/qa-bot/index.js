@@ -16,6 +16,7 @@ module.exports = function (context, options) {
           });
         </script>
         <qa-bot
+            server="${options.server}"
             token="${options.token}"
             title="${options.title}"
             avatar-src="${options.avatar}"
