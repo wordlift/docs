@@ -288,7 +288,7 @@ const config = {
           "https://wordlift.io/wp-content/uploads/2022/07/chatbot-round.png",
         description:
           "Organize your Content, Publish Linked Data, Boost your Traffic",
-        site: "https://docs.wordlift.io",
+        site: "https://wordlift-docs.docsqa.jina.ai",
         template: `
                   <dl>
                     <dt>You can ask questions about WordLift. Try</dt>
