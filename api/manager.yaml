@@ -14,14 +14,8 @@ info:
 servers:
 - url: https://api.wordlift.io
 tags:
-- description: Retrieve Add-ons data
-  name: AddOns
 - description: Data URI for a Web page URL.
   name: Data URI
-- description: Access Google Search Console data
-  name: Google Search Console
-- description: Manage Google Merchants
-  name: Google Merchants
 - description: The list of included or excluded URLs from the WordPress configuration
   name: Include Excludes (WordPress plugin)
 - description: Manage Merchants
@@ -112,42 +106,6 @@ paths:
       summary: Update
       tags:
       - Include Excludes (WordPress plugin)
-  /addon/configurations:
-    get:
-      description: List the Add-ons configurations
-      operationId: listConfigurations
-      parameters:
-      - description: The access token
-        in: query
-        name: token
-        required: false
-        schema:
-          type: string
-      - description: The key
-        in: query
-        name: key
-        required: false
-        schema:
-          type: string
-      - description: The maximum number of results
-        in: query
-        name: limit
-        required: false
-        schema:
-          type: integer
-          default: 10
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PageAddOnConfiguration'
-          description: Found
-        "401":
-          description: Authentication Failure
-      summary: List
-      tags:
-      - AddOns
   /data-uri:
     get:
       description: |
@@ -172,60 +130,6 @@ paths:
       summary: Get the Web Data URI for a Web Page URL.
       tags:
       - Data URI
-  /ext/google/searchconsole/websites:
-    get:
-      description: List the Websites
-      operationId: listWebsites
-      parameters:
-      - description: The access token
-        in: query
-        name: token
-        required: false
-        schema:
-          type: string
-      - description: The maximum number of results
-        in: query
-        name: limit
-        required: false
-        schema:
-          type: integer
-          default: 10
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PageWebsite'
-          description: Found
-        "401":
-          description: Authentication Failure
-      summary: List
-      tags:
-      - Google Search Console
-  /ext/google/shopping/merchants:
-    get:
-      description: List the Google Merchants
-      operationId: listGoogleMerchants
-      parameters:
-      - in: query
-        name: token
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PageMerchantEntry'
-          description: Found
-        "401":
-          description: Authentication Failure
-      security:
-      - OAuth2: []
-      summary: List
-      tags:
-      - Google Merchants
   /merchants:
     get:
       description: "List the Merchants, optionally filtering by the `deleted` flag"
@@ -451,13 +355,6 @@ components:
           type: string
         wpJson:
           type: string
-    AddOnConfiguration:
-      type: object
-      description: An Add-On configuration
-      properties:
-        key:
-          type: string
-          description: A key
     IncludeExclude:
       type: object
       properties:
@@ -547,14 +444,6 @@ components:
       - deleted
       - google_merchant_id
       - refresh_token
-    MerchantEntry:
-      type: object
-      description: An array of objects.
-      properties:
-        merchant_id:
-          type: string
-        website_url:
-          type: string
     MerchantSync:
       type: object
       description: A Merchant products data synchronization.
@@ -583,10 +472,36 @@ components:
           format: date-time
           description: The last modified date-time.
           readOnly: true
-        products:
+        products_created:
           type: integer
-          format: int64
-          description: The number of synced products.
+          format: int32
+          description: The number of created products
+          readOnly: true
+        products_deleted:
+          type: integer
+          format: int32
+          description: The number of deleted products
+          readOnly: true
+        products_errored:
+          type: integer
+          format: int32
+          description: The number of errored products
+          readOnly: true
+        products_skipped:
+          type: integer
+          format: int32
+          description: The number of skipped products
+          readOnly: true
+        products_total:
+          type: integer
+          format: int32
+          description: "The total number of processed products, including the skipped\
+            \ and errored."
+          readOnly: true
+        products_updated:
+          type: integer
+          format: int32
+          description: The number of update products
           readOnly: true
         started_at:
           type: string
@@ -650,7 +565,22 @@ components:
         sync_id:
           type: integer
           format: int64
-        sync_products:
+        sync_products_created:
+          type: integer
+          format: int64
+        sync_products_deleted:
+          type: integer
+          format: int64
+        sync_products_errored:
+          type: integer
+          format: int64
+        sync_products_skipped:
+          type: integer
+          format: int64
+        sync_products_total:
+          type: integer
+          format: int64
+        sync_products_updated:
           type: integer
           format: int64
         sync_started_at:
@@ -671,56 +601,6 @@ components:
       - deleted
       - google_merchant_id
       - refresh_token
-    PageAddOnConfiguration:
-      type: object
-      description: A page object with links to move to other pages and the list of
-        objects.
-      properties:
-        first:
-          type: string
-          description: The link to the first page.
-        items:
-          type: array
-          description: An array of objects.
-          items:
-            $ref: '#/components/schemas/AddOnConfiguration'
-        last:
-          type: string
-          description: The link to the last page.
-        next:
-          type: string
-          description: The link to the next page or `null` if there's no page.
-        prev:
-          type: string
-          description: The link to the previous page or `null` if there's no page.
-        self:
-          type: string
-          description: The link to the current page.
-    PageMerchantEntry:
-      type: object
-      description: A page object with links to move to other pages and the list of
-        objects.
-      properties:
-        first:
-          type: string
-          description: The link to the first page.
-        items:
-          type: array
-          description: An array of objects.
-          items:
-            $ref: '#/components/schemas/MerchantEntry'
-        last:
-          type: string
-          description: The link to the last page.
-        next:
-          type: string
-          description: The link to the next page or `null` if there's no page.
-        prev:
-          type: string
-          description: The link to the previous page or `null` if there's no page.
-        self:
-          type: string
-          description: The link to the current page.
     PageMerchantSync:
       type: object
       description: A page object with links to move to other pages and the list of
@@ -771,31 +651,6 @@ components:
         self:
           type: string
           description: The link to the current page.
-    PageWebsite:
-      type: object
-      description: A page object with links to move to other pages and the list of
-        objects.
-      properties:
-        first:
-          type: string
-          description: The link to the first page.
-        items:
-          type: array
-          description: An array of objects.
-          items:
-            $ref: '#/components/schemas/Website'
-        last:
-          type: string
-          description: The link to the last page.
-        next:
-          type: string
-          description: The link to the next page or `null` if there's no page.
-        prev:
-          type: string
-          description: The link to the previous page or `null` if there's no page.
-        self:
-          type: string
-          description: The link to the current page.
     Request:
       type: object
       description: The Merchant request
@@ -825,13 +680,6 @@ components:
       - publisher_name
       - refresh_token
       - url
-    Website:
-      type: object
-      description: A Website
-      properties:
-        url:
-          type: string
-          description: The Website URL
   securitySchemes:
     ApiKey:
       in: header
