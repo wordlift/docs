@@ -198,6 +198,17 @@ const config = {
 
   plugins: [
     [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            to: '/',
+            from: '/:any*', // this will match any path
+          },
+        ],
+      },
+    ],
+    [
       "docusaurus-plugin-openapi-docs",
       {
         id: "openapi",
