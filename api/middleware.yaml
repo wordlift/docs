@@ -14,21 +14,26 @@ info:
 servers:
 - url: https://api.wordlift.io/middleware
 tags:
-- name: Dataset
-  description: Perform operations on the Knowledge Graph.
 - name: Autocomplete
   description: Find entities in Linked Data or Knowledge Graph by partial match.
+- name: Entities
+  description: Manage Entities
 paths:
   /dataset/batch:
     post:
       tags:
-      - Dataset
+      - Entities
       summary: Create or update many
       description: Create or update many entities in the Knowledge Graph.
-      operationId: postBatch
+      operationId: createOrUpdateEntities
       requestBody:
         content:
-          application/json: {}
+          application/json:
+            schema:
+              type: array
+              description: A list of requests
+              items:
+                $ref: '#/components/schemas/BatchRequest'
         required: true
       responses:
         "200":
@@ -46,10 +51,10 @@ paths:
   /dataset:
     post:
       tags:
-      - Dataset
+      - Entities
       summary: Create or update one
       description: Create or update an entity in the Knowledge Graph.
-      operationId: post
+      operationId: createOrUpdateEntity
       parameters:
       - name: uri
         in: query
@@ -67,7 +72,10 @@ paths:
         example: true
       requestBody:
         content:
-          application/ld+json: {}
+          application/ld+json:
+            schema:
+              type: string
+              description: A string containing the Structured Data.
         required: true
       responses:
         "200":
@@ -80,10 +88,10 @@ paths:
       - ApiKey: []
     delete:
       tags:
-      - Dataset
+      - Entities
       summary: Delete one
       description: Delete an entity from the Knowledge Graph.
-      operationId: delete
+      operationId: deleteEntity
       parameters:
       - name: uri
         in: query
@@ -162,10 +170,10 @@ paths:
   /dataset/all:
     delete:
       tags:
-      - Dataset
+      - Entities
       summary: Delete all
       description: Delete all the entities in the Knowledge Graph.
-      operationId: deleteAll
+      operationId: deleteAllEntities
       responses:
         "200":
           description: Success
@@ -177,6 +185,23 @@ paths:
       - ApiKey: []
 components:
   schemas:
+    BatchRequest:
+      required:
+      - model
+      - uri
+      type: object
+      properties:
+        uri:
+          type: string
+          description: The entity URI.
+        model:
+          type: string
+          description: A string containing the Structured Data.
+        private:
+          type: boolean
+          description: Whether the entity should be hidden from Linked Data and GraphQL.
+          example: true
+      description: A request part of a batch.
     AutocompleteResult:
       type: object
       properties:
@@ -243,5 +268,5 @@ components:
     ApiKey:
       type: apiKey
       description: "`Key {your key}`"
-      name: Authorization
+      name: ApiKey
       in: header
