@@ -206,6 +206,10 @@ const config = {
       {
         redirects: [
           {
+            to: '/cloud',
+            from: '/en/latest/wordlift-cloud.html'
+          },
+          {
             to: '/',
             from: '/:any*', // this will match any path
           },
