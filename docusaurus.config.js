@@ -247,7 +247,7 @@ const config = {
           },
           {
             to: '/',
-            from: ['/en/latest/about.html', '/en/latest/wordlift-theme-development.html', '/en/latest/?utm_source=&utm_medium=&utm_campaign=&utm_channel=' ],
+            from: ['/en/latest/about.html', '/en/latest/wordlift-theme-development.html', '/en/latest/' ],
           },
           {
             to: '/',
