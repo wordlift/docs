@@ -210,43 +210,43 @@ const config = {
             from: '/en/latest/wordlift-cloud.html'
           },
           {
-            to: '/wordpress-plugin/troubleshooting/'
+            to: '/wordpress-plugin/troubleshooting/',
             from: '/en/latest/troubleshooting.html'
           },
           {
-            to: '/pages/key-concepts/'
+            to: '/pages/key-concepts/',
             from: '/en/latest/key-concepts.html'
           },
           {
-            to: '/pages/edit-entity/'
+            to: '/pages/edit-entity/',
             from: '/en/latest/edit-entity.html'
           },
           {
-            to: '/pages/import-export-vocabulary/''
+            to: '/pages/import-export-vocabulary/',
             from: '/en/latest/import-export-vocabulary.html'
           },
           {
-            to: '/looker-studio-connector/introduction/'
+            to: '/looker-studio-connector/introduction/',
             from: '/en/latest/data-studio-connector.html'
           },
           {
-            to: '/wordpress-plugin/customization-and-development/'
+            to: '/wordpress-plugin/customization-and-development/',
             from: '/en/latest/customization-and-development.html'
           },
           {
-            to: '/pages/publishing/'
+            to: '/pages/publishing/',
             from: '/en/latest/publishing.html'
           },
           {
-            to: '/pages/editors/'
+            to: '/pages/editors/',
             from: '/en/latest/editors.html'
           },
           {
-            to: '/pages/publish/'
+            to: '/pages/publish/',
             from: '/en/latest/publish.html'
           },
           {
-            to: '/'
+            to: '/',
             from" ['/en/latest/about.html', '/en/latest/wordlift-theme-development.html', '/en/latest/?utm_source=&utm_medium=&utm_campaign=&utm_channel=' ]
           }
           {
