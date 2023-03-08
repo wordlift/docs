@@ -246,6 +246,26 @@ const config = {
             from: '/en/latest/publish.html',
           },
           {
+            to: '/pages/analysis/',
+            from: '/en/latest/analysis.html',
+          },
+          {
+            to: '/pages/discover/',
+            from: '/en/latest/discover.html',
+          },
+          {
+            to: '/pages/mappings/',
+            from: '/en/latest/mappings.html',
+          },
+          {
+            to: '/wordpress-plugin/support/',
+            from: '/en/latest/support.html',
+          },
+          {
+            to: '/wordpress-plugin/advanced-topics/',
+            from: '/en/latest/advanced-topics.html',
+          },
+          {
             to: '/',
             from: ['/en/latest/about.html', '/en/latest/wordlift-theme-development.html', '/en/latest/' ],
           },
