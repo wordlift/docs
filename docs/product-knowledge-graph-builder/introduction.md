@@ -4,11 +4,11 @@ displayed_sidebar: product-knowledge-graph-builder
 sidebar_position: 10
 ---
 # Product Knowledge Graph Builder
-**Product KG Builder** is the feature for e-commerce that allows you to automate your SEO and **[create a product knowledge graph](https://wordlift.io/blog/en/how-build-product-knowledge-graph/) with your Google Merchant Feed.**
+**Product KG Builder** is the feature for e-commerce that allows you to automate your SEO and **[create a Product Knowledge Graph](https://wordlift.io/blog/en/how-build-product-knowledge-graph/) with your Google Merchant Feed.**
 
 This helps e-commerce to **communicate with Google’s Shopping Graph and get free listings in Google Shopping**. At the same time, it **improves the user experience** by providing your customers with information that is relevant to their search.
 
-WordLift Product KG Builder can make a difference in your e-commerce and positively **impact both organic traffic and sales.**
+WordLift [Product Knowledge Graph Builder](https://wordlift.io/seo-for-non-wordpress-ecommerce/) can make a difference in your e-commerce and positively **impact both organic traffic and sales.**
 
 ## Get Started
 Once you have purchased the WordLift [Business+E-Commerce subscription](https://wordlift.io/business/) you will receive a key and then you will be able to access your dashboard.
@@ -37,3 +37,11 @@ Link the website and import the data from the Merchant Feed to the website. To *
 Click **Finish**. Once you have completed these 3 steps, you will see that the **products** have been imported into the backend of your e-commerce website and **already enriched with structured data.**
 
 From the WordLift dashboard, you can open the backend of your website and see the products imported and you can synchronize the data (it takes about 1 hour).
+
+### Last Update 
+
+The update of [Product Knowledge Graph Builder](https://wordlift.io/seo-for-non-wordpress-ecommerce/) added important elements to this feature:
+- You can **reassign an existing merchant feed configuration to another Google account** that is not the same as the originally configured account. This way you have control over your data even if the platform was configured by someone else;
+- In the PKG Builder configuration, you can **add a custom domain** and specify the dataset you want to use;
+- You can check the **inport synchronization** at any time;
+- **Change the "Seller Name."** This element, which cannot be edited in the Merchant Feed, is customizable in our Builder.
