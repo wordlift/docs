@@ -14,10 +14,14 @@ info:
 servers:
 - url: https://api.wordlift.io
 tags:
+- description: Manage Custom Domains
+  name: Custom Domains
+- description: Retrieve Add-ons data
+  name: AddOns
 - description: Data URI for a Web page URL.
   name: Data URI
-- description: Manage Cnames
-  name: Cnames
+- description: Access Google Search Console data
+  name: Google Search Console
 - description: Manage Google Merchants
   name: Google Merchants
 - description: The list of included or excluded URLs from the WordPress configuration
@@ -110,6 +114,42 @@ paths:
       summary: Update
       tags:
       - Include Excludes (WordPress plugin)
+  /addon/configurations:
+    get:
+      description: List the Add-ons configurations
+      operationId: listConfigurations
+      parameters:
+      - description: The access token
+        in: query
+        name: token
+        required: false
+        schema:
+          type: string
+      - description: The key
+        in: query
+        name: key
+        required: false
+        schema:
+          type: string
+      - description: The maximum number of results
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+          default: 10
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageAddOnConfiguration'
+          description: Found
+        "401":
+          description: Authentication Failure
+      summary: List
+      tags:
+      - AddOns
   /data-uri:
     get:
       description: |
@@ -134,30 +174,101 @@ paths:
       summary: Get the Web Data URI for a Web Page URL.
       tags:
       - Data URI
-  /ext/dns/cnames/{host}:
+  /ext/google/searchconsole/websites:
     get:
-      description: Get the cname record for the provided host
-      operationId: getCname
+      description: List the Websites
+      operationId: listWebsites
       parameters:
-      - in: path
-        name: host
+      - description: "The Google access token, must have access to the Google Search\
+          \ Console scope"
+        in: query
+        name: google_access_token
         required: true
         schema:
           type: string
+      - description: The maximum number of results
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+          default: 10
       responses:
         "200":
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/PageWebsite'
           description: Found
         "401":
           description: Authentication Failure
-      security:
-      - OAuth2: []
-      summary: Get
+      summary: List
       tags:
-      - Cnames
+      - Google Search Console
+  /ext/google/searchconsole/websites/{website}/searches:
+    get:
+      description: List the Website Search performance data
+      operationId: listWebsiteSearch
+      parameters:
+      - description: "The website URL, url-encoded."
+        in: path
+        name: website
+        required: true
+        schema:
+          type: string
+      - description: The cursor
+        in: query
+        name: cursor
+        required: false
+        schema:
+          type: string
+      - description: "The start date, inclusive, in yyyy-MM-dd format."
+        in: query
+        name: since
+        required: true
+        schema:
+          type: string
+      - description: "The end date, inclusive, in yyyy-MM-dd format."
+        in: query
+        name: until
+        required: true
+        schema:
+          type: string
+      - description: "The dimensions, e.g. `query`, `page`. Must repeat for each dimension."
+        in: query
+        name: dimensions
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+      - description: "The Google access token, must have access to the Google Search\
+          \ Console scope"
+        in: query
+        name: google_access_token
+        required: true
+        schema:
+          type: string
+      - description: The maximum number of results
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+          default: 10
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageWebsiteSearch'
+          description: Found
+        "401":
+          description: Authentication Failure
+      summary: List
+      tags:
+      - Google Search Console
   /ext/google/shopping/merchants:
     get:
       description: List the Google Merchants
@@ -292,6 +403,39 @@ paths:
       summary: Get by id
       tags:
       - Merchants
+    put:
+      description: Update a Merchant
+      operationId: updateMerchant
+      parameters:
+      - description: The Merchant id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Merchant'
+          description: Success
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - OAuth2: []
+      summary: Update
+      tags:
+      - Merchants
   /merchants/{merchantId}/syncs:
     get:
       description: List the Merchants Syncs
@@ -396,6 +540,30 @@ paths:
       summary: Get by id
       tags:
       - Merchant Syncs
+  /validations:
+    post:
+      description: Check if the provided custom domain can be set for the account
+      operationId: validate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DomainValidationRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/vnd.wordlift.custom-domain-validation+json;version-1: {}
+          description: Success
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - OAuth2: []
+      summary: Validate
+      tags:
+      - Custom Domains
 components:
   schemas:
     Account:
@@ -432,6 +600,38 @@ components:
           type: string
         wpJson:
           type: string
+    AddOnConfiguration:
+      type: object
+      description: An Add-On configuration
+      properties:
+        can_import_to_wordpress:
+          type: boolean
+          description: Whether this Add-on can import to WordPress.
+          readOnly: true
+        key:
+          type: string
+          description: A key
+          readOnly: true
+        wp_admin:
+          type: string
+          description: The wp-admin endpoint for a website using the key.
+          readOnly: true
+        wp_json:
+          type: string
+          description: The wp-json endpoint for a website using the key.
+          readOnly: true
+    DomainValidationRequest:
+      type: object
+      properties:
+        dataset_domain:
+          type: string
+          description: "The dataset domain, e.g. data.example.org"
+        dataset_name:
+          type: string
+          description: "The dataset name, e.g. my-dataset-name"
+      required:
+      - dataset_domain
+      - dataset_name
     IncludeExclude:
       type: object
       properties:
@@ -487,6 +687,12 @@ components:
           format: date-time
           description: The create date-time
           readOnly: true
+        dataset_domain:
+          type: string
+          description: The custom domain ( for example data.example.org)
+        dataset_name:
+          type: string
+          description: The dataset path ( for example /data)
         deleted:
           type: boolean
           default: false
@@ -510,6 +716,9 @@ components:
           format: date-time
           description: The last modified date-time
           readOnly: true
+        publisher_name:
+          type: string
+          description: The publisher name (shows in schema publisher)
         refresh_token:
           type: string
           description: The Google merchant refresh token
@@ -520,6 +729,7 @@ components:
       - access_token
       - deleted
       - google_merchant_id
+      - publisher_name
       - refresh_token
     MerchantEntry:
       type: object
@@ -623,6 +833,12 @@ components:
           format: date-time
           description: The create date-time
           readOnly: true
+        dataset_domain:
+          type: string
+          description: The custom domain ( for example data.example.org)
+        dataset_name:
+          type: string
+          description: The dataset path ( for example /data)
         deleted:
           type: boolean
           default: false
@@ -646,6 +862,9 @@ components:
           format: date-time
           description: The last modified date-time
           readOnly: true
+        publisher_name:
+          type: string
+          description: The publisher name (shows in schema publisher)
         refresh_token:
           type: string
           description: The Google merchant refresh token
@@ -691,7 +910,45 @@ components:
       - access_token
       - deleted
       - google_merchant_id
+      - publisher_name
       - refresh_token
+    PageAddOnConfiguration:
+      type: object
+      description: A page object with links to move to other pages and the list of
+        objects.
+      properties:
+        first:
+          type: string
+          description: The link to the first page.
+          nullable: true
+        items:
+          type: array
+          description: An array of objects.
+          items:
+            $ref: '#/components/schemas/AddOnConfiguration'
+        last:
+          type: string
+          description: The link to the last page.
+          nullable: true
+        next:
+          type: string
+          description: The link to the next page or `null` if there's no page.
+          nullable: true
+        prev:
+          type: string
+          description: The link to the previous page or `null` if there's no page.
+          nullable: true
+        self:
+          type: string
+          description: The link to the current page.
+          nullable: true
+      required:
+      - first
+      - items
+      - last
+      - next
+      - prev
+      - self
     PageMerchantEntry:
       type: object
       description: A page object with links to move to other pages and the list of
@@ -700,6 +957,7 @@ components:
         first:
           type: string
           description: The link to the first page.
+          nullable: true
         items:
           type: array
           description: An array of objects.
@@ -708,15 +966,26 @@ components:
         last:
           type: string
           description: The link to the last page.
+          nullable: true
         next:
           type: string
           description: The link to the next page or `null` if there's no page.
+          nullable: true
         prev:
           type: string
           description: The link to the previous page or `null` if there's no page.
+          nullable: true
         self:
           type: string
           description: The link to the current page.
+          nullable: true
+      required:
+      - first
+      - items
+      - last
+      - next
+      - prev
+      - self
     PageMerchantSync:
       type: object
       description: A page object with links to move to other pages and the list of
@@ -725,6 +994,7 @@ components:
         first:
           type: string
           description: The link to the first page.
+          nullable: true
         items:
           type: array
           description: An array of objects.
@@ -733,15 +1003,26 @@ components:
         last:
           type: string
           description: The link to the last page.
+          nullable: true
         next:
           type: string
           description: The link to the next page or `null` if there's no page.
+          nullable: true
         prev:
           type: string
           description: The link to the previous page or `null` if there's no page.
+          nullable: true
         self:
           type: string
           description: The link to the current page.
+          nullable: true
+      required:
+      - first
+      - items
+      - last
+      - next
+      - prev
+      - self
     PageMerchantView:
       type: object
       description: A page object with links to move to other pages and the list of
@@ -750,6 +1031,7 @@ components:
         first:
           type: string
           description: The link to the first page.
+          nullable: true
         items:
           type: array
           description: An array of objects.
@@ -758,15 +1040,100 @@ components:
         last:
           type: string
           description: The link to the last page.
+          nullable: true
         next:
           type: string
           description: The link to the next page or `null` if there's no page.
+          nullable: true
         prev:
           type: string
           description: The link to the previous page or `null` if there's no page.
+          nullable: true
         self:
           type: string
           description: The link to the current page.
+          nullable: true
+      required:
+      - first
+      - items
+      - last
+      - next
+      - prev
+      - self
+    PageWebsite:
+      type: object
+      description: A page object with links to move to other pages and the list of
+        objects.
+      properties:
+        first:
+          type: string
+          description: The link to the first page.
+          nullable: true
+        items:
+          type: array
+          description: An array of objects.
+          items:
+            $ref: '#/components/schemas/Website'
+        last:
+          type: string
+          description: The link to the last page.
+          nullable: true
+        next:
+          type: string
+          description: The link to the next page or `null` if there's no page.
+          nullable: true
+        prev:
+          type: string
+          description: The link to the previous page or `null` if there's no page.
+          nullable: true
+        self:
+          type: string
+          description: The link to the current page.
+          nullable: true
+      required:
+      - first
+      - items
+      - last
+      - next
+      - prev
+      - self
+    PageWebsiteSearch:
+      type: object
+      description: A page object with links to move to other pages and the list of
+        objects.
+      properties:
+        first:
+          type: string
+          description: The link to the first page.
+          nullable: true
+        items:
+          type: array
+          description: An array of objects.
+          items:
+            $ref: '#/components/schemas/WebsiteSearch'
+        last:
+          type: string
+          description: The link to the last page.
+          nullable: true
+        next:
+          type: string
+          description: The link to the next page or `null` if there's no page.
+          nullable: true
+        prev:
+          type: string
+          description: The link to the previous page or `null` if there's no page.
+          nullable: true
+        self:
+          type: string
+          description: The link to the current page.
+          nullable: true
+      required:
+      - first
+      - items
+      - last
+      - next
+      - prev
+      - self
     Request:
       type: object
       description: The Merchant request
@@ -774,6 +1141,12 @@ components:
         access_token:
           type: string
           description: Google Merchant access token
+        dataset_domain:
+          type: string
+          description: The custom domain (for example data.example.org)
+        dataset_name:
+          type: string
+          description: The dataset path (for example "data")
         deleted:
           type: boolean
           default: false
@@ -796,8 +1169,64 @@ components:
       - publisher_name
       - refresh_token
       - url
+    Website:
+      type: object
+      description: A Website
+      properties:
+        url:
+          type: string
+          description: "The Website URL, it may also start with thew `sc-domain:`\
+            \ prefix."
+      required:
+      - url
+    WebsiteSearch:
+      type: object
+      description: Search Data
+      properties:
+        clicks:
+          type: integer
+          format: int32
+          description: Number of clicks.
+        ctr:
+          type: number
+          format: double
+          description: CTR.
+        id:
+          type: integer
+          format: int64
+          description: "The id: it's now a unique id, but a row index."
+        impressions:
+          type: integer
+          format: int32
+          description: Number of impressions.
+        keys:
+          type: array
+          description: "The keys for the current data, matching the provided `dimensions`\
+            \ in the query."
+          items:
+            type: string
+            description: "The keys for the current data, matching the provided `dimensions`\
+              \ in the query."
+        position:
+          type: number
+          format: double
+          description: Position.
+        score:
+          type: number
+          format: double
+          description: "A score to spot traffic opportunities, from 0.0 to 1.0 (the\
+            \ higher the better). The score is based on the traffic data."
+      required:
+      - clicks
+      - ctr
+      - id
+      - impressions
+      - keys
+      - position
+      - score
   securitySchemes:
     ApiKey:
+      description: "`Key {your key}`"
       in: header
       name: Authorization
       type: apiKey

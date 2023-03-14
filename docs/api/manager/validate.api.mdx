@@ -1,0 +1,42 @@
+---
+id: validate
+title: "Validate"
+description: "Check if the provided custom domain can be set for the account"
+sidebar_label: "Validate"
+hide_title: true
+hide_table_of_contents: true
+api: {"description":"Check if the provided custom domain can be set for the account","operationId":"validate","requestBody":{"content":{"application/json":{"schema":{"type":"object","properties":{"dataset_domain":{"type":"string","description":"The dataset domain, e.g. data.example.org"},"dataset_name":{"type":"string","description":"The dataset name, e.g. my-dataset-name"}},"required":["dataset_domain","dataset_name"],"title":"DomainValidationRequest"}}},"required":true},"responses":{"200":{"content":{"application/vnd.wordlift.custom-domain-validation+json;version-1":{}},"description":"Success"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"OAuth2":[]}],"tags":["Custom Domains"],"method":"post","path":"/validations","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"jsonRequestBodyExample":{"dataset_domain":"string","dataset_name":"string"},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Validate","description":{"content":"Check if the provided custom domain can be set for the account","type":"text/plain"},"url":{"path":["validations"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"application/vnd.wordlift.custom-domain-validation+json;version-1"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"oauth2","oauth2":[]}}}
+sidebar_class_name: "post api-method"
+info_path: api/manager/manager
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Validate
+
+
+
+Check if the provided custom domain can be set for the account
+
+<MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"dataset_domain"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The dataset domain, e.g. data.example.org"}}></SchemaItem><SchemaItem collapsible={false} name={"dataset_name"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The dataset name, e.g. my-dataset-name"}}></SchemaItem></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Success
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/vnd.wordlift.custom-domain-validation+json;version-1"} value={"application/vnd.wordlift.custom-domain-validation+json;version-1"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}>any</ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Authentication Failure
+
+</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div></div></TabItem></ApiTabs></div>
+      
