@@ -24,9 +24,8 @@ To install the SEO Add-on, open the Google Marketplace by clicking on the follow
 
 <a href="https://workspace.google.com/marketplace/app/wordlift/785668802292">https://workspace.google.com/marketplace/app/wordlift/785668802292</a>
 
-![image](../images/seo-add-on-google-sheets-step1.gif)
-
 Then click on the *Install* button, then the *Continue* button, and then click on *Allow* when requested.
+
 
 ### 2. Create Google Sheets
 
@@ -34,7 +33,6 @@ Once the SEO Add-on is installed, you can create a new Google Sheets™ document
 
 When in Google Sheets, open the SEO Add-on by clicking on the *Extensions* menu, the *WordLift*, and finally *Open*: the sidebar will show.
 
-![image](../images/seo-add-on-google-sheets-step2.gif)
 
 ### 3. Configure Settings
 
@@ -42,6 +40,7 @@ Next step is to configure the **SEO Add-on settings**, click on the Next button 
 You'll need a key for the SEO Add-on to work. Normally we prefill the key based on your e-mail address, but if you're using a different e-mail address with Google, you'll need to insert the key yourself.
 
 You can also configure your **target geo market**, **language** and the **Google domain** to use for SERP analysis.
+
 
 ### 4. Run the Entity Analysis 
 
@@ -54,6 +53,7 @@ The result includes:
 - The **number of occurrences** in the text (i.e., how often the entity appears in the mentioned content).
 
 You can select the most relevant entities, and the SEO Add-on will automatically create the JSON-LD that you need to copy and past into your website. 
+
 
 ### 5. Get Traffic Data 
 
