@@ -266,7 +266,7 @@ paths:
           description: Found
         "401":
           description: Authentication Failure
-      summary: List
+      summary: List Website Search data
       tags:
       - Google Search Console
   /ext/google/shopping/merchants:
@@ -576,6 +576,7 @@ components:
           type: string
         datasetId:
           type: string
+          deprecated: true
         domainUri:
           type: string
         id:
