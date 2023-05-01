@@ -6,7 +6,7 @@ displayed_sidebar: wordpress-plugin
 
 The plugin generates JSON-LD markup to improve the visibility of web pages in search engine results pages (SERPs). It uses natural language processing and machine learning algorithms to identify important concepts within the content and map them to relevant schema.org entities, creating a semantically rich representation of the page. This structured data provides search engines with more information about the content of the page, leading to better rankings and a richer search experience for users.
 
-## Post with one term
+## Post linked with term
 If the post has a single term assigned to it, it will be added to mentions if your post has schema.org type
 set to CreativeWork or a subtype of CreativeWork, you can find the full list [here](https://schema.org/CreativeWork#subtypes).
 
@@ -63,7 +63,7 @@ set to CreativeWork or a subtype of CreativeWork, you can find the full list [he
 ]
 ```
 
-## Post linked with entity which matches the complete or a part of title.
+## Post linked with entity which matches the complete or a part of title
 If you have a post about apple titled `Apples: Benefits, nutrition, and tips` and have entity linked
 via annotation or term it will be added to [about](https://schema.org/about) when the title of entity matches the part (or) complete  post title.
 
