@@ -17,6 +17,7 @@ The main documentation for getting started with WordLift is organized in the fol
   * [Sidebar](/pages/sidebar)
   * [Publishing](/pages/publishing)
   * [Mappings](/pages/mappings)
+  * [JSON-LD](/pages/jsonld)
   * [WooCommerce SEO by WordLift](/woocommerce/introduction)
   * [SEO Add-On for Google Sheets](/seo-add-on-google-sheets/introduction)
   * [WordLift Looker Studio Connector](/looker-studio-connector/introduction)
