@@ -23,6 +23,19 @@ sidebar_position: 20
     - [Supported Schema types](/pages/mappings#supported-schema-types)
     - [Advanced Schema types](/pages/mappings#advanced-schema-types)
     - [Advanced Custom Fields](/pages/mappings#advanced-custom-fields-1)
+  - [Terms](/pages/terms)
+    - [Post Tag](/pages/terms/post-tag)
+
+[//]: # (    - [Term with Entity Type Place referencing a location entity]&#40;/pages/terms/&#41;)
+
+[//]: # (    - [1x term with sameAs set and Entity Type set to Thing]&#40;/pages/terms/&#41;)
+
+[//]: # (    - [1x annotation in content Thing]&#40;/pages/terms/&#41;)
+
+[//]: # (    - [1x annotation in content Event referencing the same location entity as #4]&#40;/pages/terms/&#41;)
+
+[//]: # (    - []&#40;/pages/mappings#supported-schema-types&#41;)
+
 - [WooCommerce SEO by WordLift](/woocommerce/introduction)
     - [Editors](/woocommerce/introduction#editors)
     - [Categories](/woocommerce/introduction#categories)
