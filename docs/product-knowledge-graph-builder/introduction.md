@@ -45,3 +45,6 @@ The update of [Product Knowledge Graph Builder](https://wordlift.io/seo-for-non-
 - In the PKG Builder configuration, you can **add a custom domain** and specify the dataset you want to use;
 - You can check the **inport synchronization** at any time;
 - **Change the "Seller Name."** This element, which cannot be edited in the Merchant Feed, is customizable in our Builder.
+
+## IMPORTANT 
+To ensure the proper implementation of structured data and Knowledge Graph, **it is crucial to effectively manage canonical links for products within the Google Merchant Center**. To gain a comprehensive understanding of how to accomplish this task, we highly recommend referring to Google's official documentation available at the [following link.](https://support.google.com/merchants/answer/9340054?hl=en)
