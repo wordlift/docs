@@ -100,6 +100,10 @@ const config = {
                 label: "Cloud",
                 to: "cloud",
               },
+              {
+                label: "LLM Connectors",
+                to: "llm-connectors/wordlift-reader",
+              },
             ],
           },
           {
@@ -202,76 +206,80 @@ const config = {
 
   plugins: [
     [
-      '@docusaurus/plugin-client-redirects',
+      "@docusaurus/plugin-client-redirects",
       {
         redirects: [
           {
-            to: '/cloud',
-            from: '/en/latest/wordlift-cloud.html',
+            to: "/cloud",
+            from: "/en/latest/wordlift-cloud.html",
           },
           {
-            to: '/wordpress-plugin/troubleshooting/',
-            from: '/en/latest/troubleshooting.html',
+            to: "/wordpress-plugin/troubleshooting/",
+            from: "/en/latest/troubleshooting.html",
           },
           {
-            to: '/pages/key-concepts/',
-            from: '/en/latest/key-concepts.html',
+            to: "/pages/key-concepts/",
+            from: "/en/latest/key-concepts.html",
           },
           {
-            to: '/pages/edit-entity/',
-            from: '/en/latest/edit-entity.html',
+            to: "/pages/edit-entity/",
+            from: "/en/latest/edit-entity.html",
           },
           {
-            to: '/pages/import-export-vocabulary/',
-            from: '/en/latest/import-export-vocabulary.html',
+            to: "/pages/import-export-vocabulary/",
+            from: "/en/latest/import-export-vocabulary.html",
           },
           {
-            to: '/looker-studio-connector/introduction/',
-            from: '/en/latest/data-studio-connector.html',
+            to: "/looker-studio-connector/introduction/",
+            from: "/en/latest/data-studio-connector.html",
           },
           {
-            to: '/wordpress-plugin/customization-and-development/',
-            from: '/en/latest/customization-and-development.html',
+            to: "/wordpress-plugin/customization-and-development/",
+            from: "/en/latest/customization-and-development.html",
           },
           {
-            to: '/pages/publishing/',
-            from: '/en/latest/publishing.html',
+            to: "/pages/publishing/",
+            from: "/en/latest/publishing.html",
           },
           {
-            to: '/pages/editors/',
-            from: '/en/latest/editors.html',
+            to: "/pages/editors/",
+            from: "/en/latest/editors.html",
           },
           {
-            to: '/pages/publish/',
-            from: '/en/latest/publish.html',
+            to: "/pages/publish/",
+            from: "/en/latest/publish.html",
           },
           {
-            to: '/pages/analysis/',
-            from: '/en/latest/analysis.html',
+            to: "/pages/analysis/",
+            from: "/en/latest/analysis.html",
           },
           {
-            to: '/pages/discover/',
-            from: '/en/latest/discover.html',
+            to: "/pages/discover/",
+            from: "/en/latest/discover.html",
           },
           {
-            to: '/pages/mappings/',
-            from: '/en/latest/mappings.html',
+            to: "/pages/mappings/",
+            from: "/en/latest/mappings.html",
           },
           {
-            to: '/wordpress-plugin/support/',
-            from: '/en/latest/support.html',
+            to: "/wordpress-plugin/support/",
+            from: "/en/latest/support.html",
           },
           {
-            to: '/wordpress-plugin/advanced-topics/',
-            from: '/en/latest/advanced-topics.html',
+            to: "/wordpress-plugin/advanced-topics/",
+            from: "/en/latest/advanced-topics.html",
           },
           {
-            to: '/',
-            from: ['/en/latest/about.html', '/en/latest/wordlift-theme-development.html', '/en/latest/' ],
+            to: "/",
+            from: [
+              "/en/latest/about.html",
+              "/en/latest/wordlift-theme-development.html",
+              "/en/latest/",
+            ],
           },
           {
-            to: '/',
-            from: '/:any*', // this will match any path
+            to: "/",
+            from: "/:any*", // this will match any path
           },
         ],
       },

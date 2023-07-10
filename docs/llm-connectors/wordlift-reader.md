@@ -1,6 +1,6 @@
 ---
-title: Introduction
-displayed_sidebar: wordpress-plugin
+title: LLM Connectors
+sidebar_position: 1
 ---
 
 # WordLift Reader
