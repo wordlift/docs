@@ -108,7 +108,7 @@ Here are a few examples of queries that you can use to get started:
 Once you have constructed the query, you can submit it to the WordLift Reader, which will retrieve the specified data from the knowledge graph and pass it to LlamaIndex for creating the indices. 
 
 ## Additional Resources
-For more information on using WordLift Reader, check out our [Colab Notebook](https://chat.openai.com/c/link-to-notebook), our blog post about [utilizing knowledge graph for conversational experience and SEO](https://wordlift.io/blog/en/utilizing-knowledge-graph-for-conversational-experience-and-seo/) and the [official documentation from LlamaIndex](https://gpt-index.readthedocs.io/en/latest/index.html). 
+For more information on using WordLift Reader, check out our [Colab Notebook]([https://chat.openai.com/c/link-to-notebook](https://wor.ai/wl-reader-demo)), our blog post about [utilizing knowledge graph for conversational experience and SEO](https://wordlift.io/blog/en/utilizing-knowledge-graph-for-conversational-experience-and-seo/) and the [official documentation from LlamaIndex](https://gpt-index.readthedocs.io/en/latest/index.html). 
 
 ## Conclusion
 **WordLift Reader** represents a significant step in our mission to make the web more intelligent and accessible. By **transforming your knowledge graph into interactive conversations**, we're enhancing the user experience and paving the way for **more effective SEO strategies**.
