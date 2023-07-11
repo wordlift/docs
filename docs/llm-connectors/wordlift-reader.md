@@ -3,7 +3,7 @@ title: LLM Connectors
 sidebar_position: 1
 ---
 
-# WordLift Reader
+# WordLift Reader for LlamaIndex 🦙
 [WordLift Reader](https://llama-hub-ui.vercel.app/l/wordlift) is a robust **connector for the LlamaHub library**, compatible with LlamaIndex and LangChain. The **WordLift Reader** interacts explicitly with any knowledge graph built using WordLift, **transforming semantically structured data into engaging conversations** by bringing data into LlamaIndex and LangChain, two popular frameworks for developing Large Language Model (LLM) applications. 
 
 ## Getting Started
@@ -108,7 +108,12 @@ Here are a few examples of queries that you can use to get started:
 Once you have constructed the query, you can submit it to the WordLift Reader, which will retrieve the specified data from the knowledge graph and pass it to LlamaIndex for creating the indices. 
 
 ## Additional Resources
-For more information on using WordLift Reader, check out our [Colab Notebook]([https://chat.openai.com/c/link-to-notebook](https://wor.ai/wl-reader-demo)), our blog post about [utilizing knowledge graph for conversational experience and SEO](https://wordlift.io/blog/en/utilizing-knowledge-graph-for-conversational-experience-and-seo/) and the [official documentation from LlamaIndex](https://gpt-index.readthedocs.io/en/latest/index.html). 
+For more information on using WordLift Reader, check out:
+- our [Colab Notebook]([https://chat.openai.com/c/link-to-notebook](https://wor.ai/wl-reader-demo)),
+- our blog post about [utilizing knowledge graph for conversational experience and SEO]([https://wordlift.io/blog/en/utilizing-knowledge-graph-for-conversational-experience-and-seo/](https://wordlift.io/blog/en/knowledge-graph-and-llm/)),
+- the [official documentation from LlamaIndex](https://gpt-index.readthedocs.io/en/latest/index.html),
+- the page of [WordLift reader on LlamaHub](https://llama-hub-ui.vercel.app/l/wordlift),
+- how to use [LlamaIndex with LangChain](https://gpt-index.readthedocs.io/en/latest/community/integrations/using_with_langchain.html) 
 
 ## Conclusion
 **WordLift Reader** represents a significant step in our mission to make the web more intelligent and accessible. By **transforming your knowledge graph into interactive conversations**, we're enhancing the user experience and paving the way for **more effective SEO strategies**.
