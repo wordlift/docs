@@ -110,7 +110,7 @@ Once you have constructed the query, you can submit it to the WordLift Reader, w
 ## Additional Resources
 For more information on using WordLift Reader, check out:
 - our [Colab Notebook]([https://chat.openai.com/c/link-to-notebook](https://wor.ai/wl-reader-demo)),
-- our blog post about [utilizing knowledge graph for conversational experience and SEO]([https://wordlift.io/blog/en/utilizing-knowledge-graph-for-conversational-experience-and-seo/](https://wordlift.io/blog/en/knowledge-graph-and-llm/)),
+- our blog post about [utilizing knowledge graph for conversational experience and SEO](https://wordlift.io/blog/en/knowledge-graph-and-llm/),
 - the [official documentation from LlamaIndex](https://gpt-index.readthedocs.io/en/latest/index.html),
 - the page of [WordLift reader on LlamaHub](https://llama-hub-ui.vercel.app/l/wordlift),
 - how to use [LlamaIndex with LangChain](https://gpt-index.readthedocs.io/en/latest/community/integrations/using_with_langchain.html) 
