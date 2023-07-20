@@ -1,0 +1,42 @@
+---
+id: get-stats
+title: "Get Stats"
+description: "Get Stats"
+sidebar_label: "Get Stats"
+hide_title: true
+hide_table_of_contents: true
+api: {"operationId":"get stats","parameters":[{"description":"The Content Generation id.","in":"path","name":"contentGenerationId","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"content":{"application/json":{"schema":{"type":"object","properties":{"total_accepted":{"type":"integer","format":"int64"},"total_errors":{"type":"integer","format":"int64"},"total_valid":{"type":"integer","format":"int64"},"total_warnings":{"type":"integer","format":"int64"}},"title":"Stats"}}},"description":"Found."},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"security_oauth2":[]}],"tags":["ContentGeneration Record Stats"],"description":"Get Stats","method":"get","path":"/content-generations/{contentGenerationId}/record-stats","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"Get Stats","description":{"type":"text/plain"},"url":{"path":["content-generations",":contentGenerationId","record-stats"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) The Content Generation id.","type":"text/plain"},"type":"any","value":"","key":"contentGenerationId"}]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"oauth2","oauth2":[]}}}
+sidebar_class_name: "get api-method"
+info_path: api/content-generation/content-generation
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get Stats
+
+
+
+Get Stats
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The Content Generation id.","in":"path","name":"contentGenerationId","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Found.
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"total_accepted"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"total_errors"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"total_valid"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"total_warnings"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"total_accepted\": 0,\n  \"total_errors\": 0,\n  \"total_valid\": 0,\n  \"total_warnings\": 0\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Authentication Failure
+
+</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div></div></TabItem></ApiTabs></div>
+      
