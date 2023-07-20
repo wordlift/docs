@@ -21,6 +21,7 @@ This documentation is organized into the following sections:
 * [Looker Studio Connector](/looker-studio-connector/introduction)
 * [Product Knowledge Graph Builder](/product-knowledge-graph-builder/introduction/)
 * [WordLift Cloud](/cloud/)
+* [LLM Connectors](docs/llm-connectors/wordlift-reader.md)
 * [API Reference](/category/api)
 
 Each section covers a specific topic and includes detailed instructions and information on that topic. To navigate the documentation, you can use the table of contents or the search function to find the information you need.
