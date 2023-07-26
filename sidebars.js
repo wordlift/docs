@@ -110,6 +110,11 @@ const sidebars = {
         },
         {
           type: "category",
+          label: "KPI Events",
+          items: require("./docs/api/events/sidebar.js"),
+        },
+        {
+          type: "category",
           label: "Long Tail",
           items: require("./docs/api/long-tail/sidebar.js"),
         },

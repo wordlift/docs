@@ -44,3 +44,4 @@ If you are using GitHub pages for hosting, this command is a convenient way to b
 # How to regenerate the API docs
 
 npm run docusaurus clean-api-docs analysis && npm run docusaurus gen-api-docs analysis
+npm run docusaurus clean-api-docs events && npm run docusaurus gen-api-docs events
