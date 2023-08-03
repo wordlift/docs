@@ -2,6 +2,7 @@
 title: Content Generation
 sidebar_position: 1
 ---
+
 # Content Generation Tool
 Welcome to the world of content creation at scale, where challenges abound in harnessing the potential of Large Language Models (LLMs). These powerful language models possess vast knowledge but also suffer from a critical flaw: **they don't know what they know**. However, a solution lies within the data-rich landscape of knowledge graphs. **By leveraging the data within these graphs built using WordLift, we can steer the model's knowledge, curtail hallucinations, and establish a robust validation pipeline**.
 
