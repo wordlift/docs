@@ -104,6 +104,10 @@ const config = {
                 label: "LLM Connectors",
                 to: "llm-connectors/wordlift-reader",
               },
+              {
+                label: "Content Generation",
+                to: "content-generation",
+              },
             ],
           },
           {
