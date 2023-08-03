@@ -21,6 +21,7 @@ This documentation is organized into the following sections:
 * [Looker Studio Connector](/looker-studio-connector/introduction)
 * [Product Knowledge Graph Builder](/product-knowledge-graph-builder/introduction/)
 * [WordLift Cloud](/cloud/)
+* [Content Generation](docs/content-generation/content-generation.md)
 * [LLM Connectors](docs/llm-connectors/wordlift-reader.md)
 * [API Reference](/category/api)
 
