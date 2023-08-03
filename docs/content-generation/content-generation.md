@@ -63,7 +63,8 @@ Here below is an example query that will extract the following attributes from a
 
 We can also see that in **the query below** we’re only getting the top 10 products as we’re limiting the results by passing the page (0) and the number of rows (10) at the beginning of the query. 
 
-```query{
+```
+query {
   products(page:0, rows:10) {
     id: iri
 	url: strings(name: "schema:url")
