@@ -40,7 +40,7 @@ To get started, log into your dashboard and you'll find '*Content Generation*' o
 # How it works
 Once you click '*Content Generation*' and create the '*New project*', you will arrive at the step-by-step wizard. 
 
-![image](../images/content-generation-dashboard.png)
+![image](../images/content-generation-dashboard_new.png)
 
 
 ## Step 1 - Selecting Data Source
