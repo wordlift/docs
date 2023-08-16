@@ -42,12 +42,19 @@ paths:
       description: List the accounts
       operationId: listAccounts
       parameters:
+      - description: The cursor
+        in: query
+        name: cursor
+        required: false
+        schema:
+          type: string
       - in: query
         name: limit
         required: false
         schema:
           type: integer
           format: int32
+          default: 10
       - in: query
         name: can_content_generation
         required: false
@@ -58,7 +65,7 @@ paths:
           content:
             application/vnd.wordlift.accounts+json;version=1:
               schema:
-                $ref: '#/components/schemas/PageAccount'
+                $ref: '#/components/schemas/PageActiveAccount'
           description: Found
         "401":
           description: Authentication Failure
@@ -259,44 +266,13 @@ paths:
       summary: List
       tags:
       - Entities
-  /ext/google/searchconsole/websites:
-    get:
-      description: List the Websites
-      operationId: listWebsites
-      parameters:
-      - description: "The Google access token, must have access to the Google Search\
-          \ Console scope"
-        in: query
-        name: google_access_token
-        required: true
-        schema:
-          type: string
-      - description: The maximum number of results
-        in: query
-        name: limit
-        required: false
-        schema:
-          type: integer
-          default: 10
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PageWebsite'
-          description: Found
-        "401":
-          description: Authentication Failure
-      summary: List
-      tags:
-      - Google Search Console
-  /ext/google/searchconsole/websites/{website}/searches:
+  /ext/google/searchconsole/searches:
     get:
       description: List the Website Search performance data
       operationId: listWebsiteSearch
       parameters:
-      - description: "The website URL, url-encoded."
-        in: path
+      - description: The website URL
+        in: query
         name: website
         required: true
         schema:
@@ -352,6 +328,37 @@ paths:
         "401":
           description: Authentication Failure
       summary: List Website Search data
+      tags:
+      - Google Search Console
+  /ext/google/searchconsole/websites:
+    get:
+      description: List the Websites
+      operationId: listWebsites
+      parameters:
+      - description: "The Google access token, must have access to the Google Search\
+          \ Console scope"
+        in: query
+        name: google_access_token
+        required: true
+        schema:
+          type: string
+      - description: The maximum number of results
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+          default: 10
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageWebsite'
+          description: Found
+        "401":
+          description: Authentication Failure
+      summary: List
       tags:
       - Google Search Console
   /ext/google/shopping/merchants:
@@ -723,6 +730,41 @@ components:
           type: string
         wpJson:
           type: string
+        wp_include_exclude_default:
+          type: string
+    ActiveAccount:
+      type: object
+      description: An array of objects.
+      properties:
+        country:
+          type: string
+        domain_uri:
+          type: string
+        id:
+          type: integer
+          format: int64
+        key:
+          type: string
+        language:
+          type: string
+        ng_dataset_id:
+          type: string
+        package_type:
+          type: string
+        subscription_id:
+          type: integer
+          format: int64
+        url:
+          type: string
+        user_id:
+          type: integer
+          format: int64
+        wp_admin:
+          type: string
+        wp_include_exclude_default:
+          type: string
+        wp_json:
+          type: string
     AddOnConfiguration:
       type: object
       description: An Add-On configuration
@@ -1059,7 +1101,7 @@ components:
       - google_merchant_id
       - publisher_name
       - refresh_token
-    PageAccount:
+    PageActiveAccount:
       type: object
       description: A page object with links to move to other pages and the list of
         objects.
@@ -1072,7 +1114,7 @@ components:
           type: array
           description: An array of objects.
           items:
-            $ref: '#/components/schemas/Account'
+            $ref: '#/components/schemas/ActiveAccount'
         last:
           type: string
           description: The link to the last page.
