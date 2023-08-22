@@ -45,58 +45,35 @@ WordLift re-uses these semantic fingerprints for adding Schema.org markup and fo
 
 **URI Dereferencing** is the process of looking up a URI on the Web in order to get information about the referenced resource. WordLift uses dereferencing to obtain a snapshot of the properties describing a [named entity](/pages/key-concepts#entity).
 
-## Semantic Analytics
+## Semantic Analytics with WordLift Looker Studio Connector
 
-You can use **WordLift** to create an *entity-based* [Web Analytics Dashboard](https://wordlift.io/blog/en/semantic-web-analytics/) using Google Data Studio and traffic data from Google Analytics.
+![Semantic Analytics Connector 1](./images/semantics-analytics-connector-1.png)
 
-### How to configure Semantics Analytics
+WordLift's Looker Studio Connector offers a powerful way to create semantic SEO reports. It allows you to blend data from various sources like Google Analytics, Google Search Console, and your own proprietary databases to create informative dashboards and reports. Below is how you can leverage it for semantic analytics:
 
-#### Step One
+#### What is Google Looker Studio?
 
-Copy the Web Analytics Dashboard from [here](https://datastudio.google.com/u/0/reporting/1_Hu7hcfMhzE5EXDrZi3RTInZQcUjkiWt?s=l_0Vbo5t_bs).
+[Google Looker Studio](https://support.google.com/datastudio/answer/6283323?hl=en) is a free data visualization tool that allows you to collect data in easy-to-read, shareable, and fully customizable dashboards and reports.
 
-![image](./images/semantics-analytics-step-1.png)
+#### How to Create Semantic SEO Reports
 
-#### Step Two
+1. **Structured Data**: Adding structured data to your website enriches your content, allowing search engines to better understand it. This can lead to better rankings and more organic traffic.
 
-On the pop-up window select “create new data source”.
+2. **Entities and Concepts**: Google is shifting its focus from just keywords to concepts and entities. With WordLift, you can work with entities on your website to improve your semantic SEO strategy.
 
-![image](./images/semantics-analytics-step-2.png)
+![Semantic Analytics Connector 2](./images/semantics-analytics-connector-2.png)
 
-#### Step Three
+3. **WordLift Looker Studio Connector**: Use the Looker Studio Connector to blend data from your Knowledge Graph with other analytics platforms like Google Search Console.
+    - **Getting Started**: Search for WordLift on the [Google Looker Studio connectors page](https://datastudio.google.com/datasources/create?connectorId=AKfycbwxx5Jf1KKHeKItCkwzJsrW2iOhodliNcud1vk5HKimj1lUQLuVfcAD4K9oSFmqW8v-). Follow the instructions to connect.
+    - **Data Blending**: Blend data from the Knowledge Graph and Google Search Console to create comprehensive reports.
 
-Click on “select” under Google Analytics.
+#### Benefits
 
-![image](./images/semantics-analytics-step-3.png)
+- **Single Source of Truth**: Create a unified dashboard for all your SEO and business performance metrics.
+- **Audience Insights**: Gain meaningful data about your content and audience.
+- **SEO Reporting**: Take your SEO reporting to the next level with insights into keyword rankings, traffic, and more.
 
-#### Step Four
-
-You will see a list of your current sites associated with your Google Analytics. Select the one you want to connect.
-
-![image](./images/semantics-analytics-step-4.png)
-
-#### Step Five
-
-Go to the top right and click on “connect”.
-
-![image](./images/semantics-analytics-step-5.png)
-
-#### Step Six
-
-Go to the top right and click on “add to report”.
-
-![image](./images/semantics-analytics-step-6.png)
-
-#### Step Seven
-
-On the pop-up window click on “copy report”.
-
-![image](./images/semantics-analytics-step-7.png)
-
-That’s it!
-
-You will see showing up your Semantic Analytics visualization with the semantic data WordLift is sending to it.
-Read this article on our blog ([Web Analytics Dashboard](https://wordlift.io/blog/en/semantic-web-analytics/)) to learn more about it.
+For more details, you can read the [WordLift Looker Studio Connector blog post](https://wordlift.io/blog/en/wordlift-looker-studio-connector/).
 
 ## Automatic Pagination and Table of Contents
 
