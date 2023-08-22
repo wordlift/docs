@@ -63,7 +63,7 @@ WordLift's Looker Studio Connector offers a powerful way to create semantic SEO 
 
 ![Semantic Analytics Connector 2](./images/semantics-analytics-connector-2.png)
 
-3. **WordLift Looker Studio Connector**: Use the Looker Studio Connector to blend data from your Knowledge Graph with other analytics platforms like Google Search Console.
+3. **WordLift Looker Studio Connector**: Use the [Looker Studio Connector](https://docs.wordlift.io/looker-studio-connector/introduction/) to blend data from your Knowledge Graph with other analytics platforms like Google Search Console.
     - **Getting Started**: Search for WordLift on the [Google Looker Studio connectors page](https://datastudio.google.com/datasources/create?connectorId=AKfycbwxx5Jf1KKHeKItCkwzJsrW2iOhodliNcud1vk5HKimj1lUQLuVfcAD4K9oSFmqW8v-). Follow the instructions to connect.
     - **Data Blending**: Blend data from the Knowledge Graph and Google Search Console to create comprehensive reports.
 
