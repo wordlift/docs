@@ -19,6 +19,8 @@ tags:
     Graphs.
 - name: Analyses
   description: Perform content analysis.
+- name: Content Expansions
+  description: Expand Content.
 paths:
   /v2/analyze:
     post:
@@ -99,13 +101,47 @@ paths:
           description: Authentication Failure
       security:
       - ApiKey: []
+  /content-expansions:
+    post:
+      tags:
+      - Content Expansions
+      summary: Create
+      description: Create a Content Expansion
+      operationId: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Content Expansion Request'
+        required: true
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Content Expansion Response'
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Content Expansion Response'
+        "500":
+          description: "Uh oh, something went wrong"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Content Expansion Response'
+      security:
+      - ApiKey: []
   /analysis/analyses:
     post:
       tags:
       - Analyses
       summary: Create
       description: Create an analysis request
-      operationId: create
+      operationId: create_1
       requestBody:
         content:
           application/json:
@@ -369,6 +405,34 @@ components:
             description: A list of sameas URIs.
             format: url
       description: Topic
+    Content Expansion Request:
+      required:
+      - entities
+      - openai_key
+      - url
+      type: object
+      properties:
+        url:
+          type: string
+          description: The target URL.
+          format: url
+        entities:
+          uniqueItems: true
+          type: array
+          description: A list of entity labels.
+          items:
+            type: string
+            description: A list of entity labels.
+        openai_key:
+          type: string
+          description: The OpenAI key.
+      description: The Content Expansion request.
+    Content Expansion Response:
+      type: object
+      properties:
+        completion:
+          type: string
+          description: The completion.
     AnalysesRequest:
       type: object
       properties:
