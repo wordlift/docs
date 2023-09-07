@@ -107,12 +107,12 @@ paths:
       - Content Expansions
       summary: Create
       description: Create a Content Expansion
-      operationId: create
+      operationId: createContentExpansion
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Content Expansion Request'
+              $ref: '#/components/schemas/ContentExpansionRequest'
         required: true
       responses:
         "200":
@@ -120,19 +120,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Content Expansion Response'
+                $ref: '#/components/schemas/ContentExpansionResponse'
         "401":
           description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Content Expansion Response'
+                $ref: '#/components/schemas/ContentExpansionResponse'
         "500":
           description: "Uh oh, something went wrong"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Content Expansion Response'
+                $ref: '#/components/schemas/ContentExpansionResponse'
       security:
       - ApiKey: []
   /analysis/analyses:
@@ -141,7 +141,7 @@ paths:
       - Analyses
       summary: Create
       description: Create an analysis request
-      operationId: create_1
+      operationId: create
       requestBody:
         content:
           application/json:
@@ -405,7 +405,7 @@ components:
             description: A list of sameas URIs.
             format: url
       description: Topic
-    Content Expansion Request:
+    ContentExpansionRequest:
       required:
       - entities
       - openai_key
@@ -427,12 +427,13 @@ components:
           type: string
           description: The OpenAI key.
       description: The Content Expansion request.
-    Content Expansion Response:
+    ContentExpansionResponse:
       type: object
       properties:
         completion:
           type: string
           description: The completion.
+      description: A Content Expansion response.
     AnalysesRequest:
       type: object
       properties:
@@ -445,6 +446,9 @@ components:
         query:
           type: string
           description: The query string to analyse.
+        html:
+          type: string
+          description: The html to analyse.
         language_code:
           type: string
           description: "The language code used for content analysis, e.g. `en`."
@@ -509,6 +513,12 @@ components:
         entity_label:
           type: string
           description: The entity label.
+        entity_type:
+          type: string
+          description: The entity type.
+        entity_description:
+          type: string
+          description: The entity description.
   securitySchemes:
     ApiKey:
       type: apiKey
