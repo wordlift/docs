@@ -61,7 +61,7 @@ With the **Content Expander**, you can enrich your content by integrating releva
 
 First, from the main schemata click on **"Expand Content."** Note that you need an OpenAI key to configure this feature. To find out how to get one, you can visit [this link](https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key)
 
-![image](images/step1-content-expander-homepage.png)
+![image](docs/seo-add-on-google-sheets/images/step1-content-expander-homepage.png)
 
 
 #### Step 1: Choose a URL
