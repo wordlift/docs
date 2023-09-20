@@ -59,7 +59,7 @@ You can select the most relevant entities, and the SEO Add-on will automatically
 
 With the **Content Expander**, you can enrich your content by integrating relevant entities. Here's how you can make the most of it in just three simple steps.
 
-First, from the main schemata click on **"Expand Content."** Note that you need an OpenAI key to configure this feature. To find out how to get one, you can visit [this link](https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key)
+First, from the main schemata click on **"Expand Content."** Note that you need an OpenAI key to configure this feature. To find out how to get one, you can visit [this link](https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key).
 
 ![image](docs/seo-add-on-google-sheets/images/step1-content-expander-homepage.png)
 
@@ -68,25 +68,25 @@ First, from the main schemata click on **"Expand Content."** Note that you need 
 
 Begin by selecting the URL of the page you're working on. This could be a blog post, article, or any web page that you're looking to enhance. The Content Expander will analyze this page to understand its context and existing content.
 
-![image](images/step3-content-expander-URL.png)
+![image](docs/seo-add-on-google-sheets/images/step3-content-expander-URL.png)
 
 
 #### Step 2: Write Entities
 
 Next, compile a **list of entities that you want to incorporate into your content**. These entities can be essential keywords, concepts, or topics related to your content. This step ensures that the generated content seamlessly integrates with your existing material.
 
-![image](images/step4-content-expander-entities.png)
+![image](docs/seo-add-on-google-sheets/images/step4-content-expander-entities.png)
 
 
 #### Step 3: Expand the Content
 
 With the URL and entities in place, **it's time to let the Content Expander do its job**. With a single click, the Add-on will dynamically generate text that weaves these entities into your content, ready to enhance your page's relevance and search engine visibility.
 
-![image](images/step5-content-expander-results.png)
+![image](docs/seo-add-on-google-sheets/images/step5-content-expander-results.png)
 
 You can **expand the window to read the text better**. You can decide to add entities or remove them from the list. By clicking on “Expand Content”, **you can regenerate the text**. 
 
-![image](images/step-6-content-expander-results-expanded.png)
+![image](docs/seo-add-on-google-sheets/images/step-6-content-expander-results-expanded.png)
 
 
 #### Step 4: Copy and Paste Into Your Page
