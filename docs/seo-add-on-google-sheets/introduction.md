@@ -55,7 +55,48 @@ The result includes:
 You can select the most relevant entities, and the SEO Add-on will automatically create the JSON-LD that you need to copy and past into your website. 
 
 
-### 5. Get Traffic Data 
+### 5. Expand Your Content
+
+With the **Content Expander**, you can enrich your content by integrating relevant entities. Here's how you can make the most of it in just three simple steps.
+
+First, from the main schemata click on **"Expand Content."** Note that you need an OpenAI key to configure this feature. To find out how to get one, you can visit [this link](https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key)
+
+![image](images/step1-content-expander-homepage.png)
+
+
+#### Step 1: Choose a URL
+
+Begin by selecting the URL of the page you're working on. This could be a blog post, article, or any web page that you're looking to enhance. The Content Expander will analyze this page to understand its context and existing content.
+
+![image](images/step3-content-expander-URL.png)
+
+
+#### Step 2: Write Entities
+
+Next, compile a **list of entities that you want to incorporate into your content**. These entities can be essential keywords, concepts, or topics related to your content. This step ensures that the generated content seamlessly integrates with your existing material.
+
+![image](images/step4-content-expander-entities.png)
+
+
+#### Step 3: Expand the Content
+
+With the URL and entities in place, **it's time to let the Content Expander do its job**. With a single click, the Add-on will dynamically generate text that weaves these entities into your content, ready to enhance your page's relevance and search engine visibility.
+
+![image](images/step5-content-expander-results.png)
+
+You can **expand the window to read the text better**. You can decide to add entities or remove them from the list. By clicking on “Expand Content”, **you can regenerate the text**. 
+
+![image](images/step-6-content-expander-results-expanded.png)
+
+
+#### Step 4: Copy and Paste Into Your Page
+
+Once the content is generated, simply **copy and paste the content generated directly into your website**. It's that easy! You'll immediately notice how the expanded content elevates the depth and relevance of your page.
+
+And there you have it! With just three straightforward steps, you can significantly **improve your content's performance on search engines**.
+
+
+### 6. Get Traffic Data 
 
 To know which search queries you should boost, you can connect the SEO add-on to your Google Search Console and sort the analysis based on your traffic data. Here you will also find a column with the **Opportunity Score**, which suggests which search queries you should target to choose the best ones for your content.
 
@@ -67,7 +108,7 @@ Learn how to use the SEO Add-on for Google Sheets, watching this demo👇
 
 
 :::info Note
-You can buy [SEO Add-On for Google Sheets](https://deals.thenextweb.com/sales/lifetime-subscription-wordlift-standard?aid=&utm_campaign=feed&utm_medium=RSS&utm_source=thenextweb) from TNW website.
+The **SEO add-on for Google Sheets™ is included in the [Business+E-commerce plan](https://wordlift.io/business/)**, and only by purchasing this plan you can use the content expander. Alternatively, you can buy the [SEO Add-On for Google Sheets](https://deals.thenextweb.com/sales/lifetime-subscription-wordlift-standard?aid=&utm_campaign=feed&utm_medium=RSS&utm_source=thenextweb) from TNW website (in this case, the content expander is not included). 
 :::
 
 ## Why is it asking for the country to be added?
