@@ -17,6 +17,8 @@ tags:
 - name: Analyses
   description: Analyse content and extract entities from Linked Data and Knowledge
     Graphs.
+- name: Entity Gaps
+  description: Analyze entity gaps.
 - name: Analyses
   description: Perform content analysis.
 - name: Content Expansions
@@ -99,6 +101,40 @@ paths:
           description: Server Error
         "401":
           description: Authentication Failure
+      security:
+      - ApiKey: []
+  /entity-gaps:
+    post:
+      tags:
+      - Entity Gaps
+      summary: Create
+      description: Create an Entity Gaps analysis.
+      operationId: createEntityGap
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EntityGapRequest'
+        required: true
+      responses:
+        "200":
+          description: Found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysesResponse'
+        "401":
+          description: Authentication Failure
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysesResponse'
+        "500":
+          description: "Uh oh, something went wrong"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysesResponse'
       security:
       - ApiKey: []
   /content-expansions:
@@ -405,6 +441,76 @@ components:
             description: A list of sameas URIs.
             format: url
       description: Topic
+    EntityGapRequest:
+      required:
+      - query
+      - url
+      type: object
+      properties:
+        url:
+          type: string
+          description: The URL to analyze.
+        query:
+          type: string
+          description: The search query to analyze.
+        model:
+          type: string
+          description: The model
+        number_of_entities:
+          type: integer
+          description: Number of entities to highlight.
+          format: int32
+          default: 5
+        query_location_name:
+          type: string
+          description: "The location name for the query, e.g. United Kingdom."
+          example: United Kingdom
+          default: United States
+        query_search_engine:
+          type: string
+          description: "The search engine domain for the query, if not set will be\
+            \ chosen according to `query_location_name`"
+          example: google.co.uk
+          default: google.com
+    AnalysesResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnalysesResponseItem'
+    AnalysesResponseItem:
+      type: object
+      properties:
+        text:
+          type: string
+          description: The text matching the entity.
+        confidence:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+          description: The confidence score this is the right entity.
+          format: double
+        occurrences:
+          type: integer
+          description: The number of occurrences.
+          format: int32
+        serp_position:
+          type: integer
+          description: The position of the entity in SERP. `null` if not applicable.
+          format: int32
+        entity_id:
+          type: string
+          description: The entity id (URI).
+        entity_label:
+          type: string
+          description: The entity label.
+        entity_type:
+          type: string
+          description: The entity type.
+        entity_description:
+          type: string
+          description: The entity description.
     ContentExpansionRequest:
       required:
       - entities
@@ -480,45 +586,6 @@ components:
             \ by default true."
           default: true
       description: The analysis request.
-    AnalysesResponse:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/AnalysesResponseItem'
-    AnalysesResponseItem:
-      type: object
-      properties:
-        text:
-          type: string
-          description: The text matching the entity.
-        confidence:
-          maximum: 1.0
-          minimum: 0.0
-          type: number
-          description: The confidence score this is the right entity.
-          format: double
-        occurrences:
-          type: integer
-          description: The number of occurrences.
-          format: int32
-        serp_position:
-          type: integer
-          description: The position of the entity in SERP. `null` if not applicable.
-          format: int32
-        entity_id:
-          type: string
-          description: The entity id (URI).
-        entity_label:
-          type: string
-          description: The entity label.
-        entity_type:
-          type: string
-          description: The entity type.
-        entity_description:
-          type: string
-          description: The entity description.
   securitySchemes:
     ApiKey:
       type: apiKey
