@@ -14,6 +14,34 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
+
+      - name: Rebuild API docs
+        run: npm run docusaurus clean-api-docs sitemap-generator && npm run docusaurus gen-api-docs sitemap-generator
+
+
+      - name: Rebuild 'analysis' API docs
+        run: npm run docusaurus clean-api-docs analysis && npm run docusaurus gen-api-docs analysis
+      - name: Rebuild 'classification' API docs
+        run: npm run docusaurus clean-api-docs classification && npm run docusaurus gen-api-docs classification
+      - name: Rebuild 'content-generation' API docs
+        run: npm run docusaurus clean-api-docs content-generation && npm run docusaurus gen-api-docs content-generation
+      - name: Rebuild 'events' API docs
+        run: npm run docusaurus clean-api-docs events && npm run docusaurus gen-api-docs events
+      - name: Rebuild 'graphql' API docs
+        run: npm run docusaurus clean-api-docs graphql && npm run docusaurus gen-api-docs graphql
+      - name: Rebuild 'inspector' API docs
+        run: npm run docusaurus clean-api-docs inspector && npm run docusaurus gen-api-docs inspector
+      - name: Rebuild 'long-tail' API docs
+        run: npm run docusaurus clean-api-docs long-tail && npm run docusaurus gen-api-docs long-tail
+      - name: Rebuild 'manager' API docs
+        run: npm run docusaurus clean-api-docs manager && npm run docusaurus gen-api-docs manager
+      - name: Rebuild 'middleware' API docs
+        run: npm run docusaurus clean-api-docs middleware && npm run docusaurus gen-api-docs middleware
+      - name: Rebuild 'sitemap-generator' API docs
+        run: npm run docusaurus clean-api-docs sitemap-generator && npm run docusaurus gen-api-docs sitemap-generator
+      - name: Rebuild 'summarizer' API docs
+        run: npm run docusaurus clean-api-docs summarizer && npm run docusaurus gen-api-docs summarizer
+
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
