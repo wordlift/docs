@@ -139,6 +139,11 @@ const sidebars = {
           label: "Summarization",
           items: require("./docs/api/summarizer/sidebar.js"),
         },
+        {
+          type: "category",
+          label: "Sitemap Generator",
+          items: require("./docs/api/sitemap-generator/sidebar.js"),
+        },
       ],
     },
   ],

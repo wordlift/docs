@@ -374,6 +374,14 @@ const config = {
               categoryLinkSource: "tag",
             },
           },
+          "sitemap-generator": {
+            specPath: "api/sitemap-generator.yaml", // path or URL to the OpenAPI spec
+            outputDir: "docs/api/sitemap-generator", // output directory for generated *.mdx and sidebar.js files
+            sidebarOptions: {
+              groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
+              categoryLinkSource: "tag",
+            },
+          },
         },
       },
     ],
