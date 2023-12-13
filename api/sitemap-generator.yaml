@@ -1,13 +1,30 @@
-openapi: 3.0.0
+openapi: 3.0.1
 info:
   title: WordLift Sitemap Generator API
-  version: 1.0.0
-  description: Generate a sitemap from a GraphQL query to a WordLift Knowledge Graph.
+  description: Generate a sitemap from a GraphQL query to WordLift KG.
+  termsOfService: https://wordlift.io/terms-of-service/
+  contact:
+    name: WordLift
+    url: https://wordlift.io
+    email: hello@wordlift.io
+  license:
+    name: (c) copyright 2023-present WordLift
+    url: https://wordlift.io
+  version: "1.0"
+servers:
+- url: https://wl-sitemap-generator.azurewebsites.net
+tags:
+- name: Sitemap Generator
+  description: Generate sitemaps using GraphQL queries to WordLift KG.
 paths:
-  /sitemap/generator:
+  /build:
     post:
+      tags:
+      - Sitemap Generator
       summary: Generate Sitemap
-      description: Generates a sitemap from a GraphQL query to a WordLift Knowledge Graph.
+      description: |
+        Generates a sitemap from a GraphQL query to WordLift KG. You must provide a valid GraphQL query as the request body.
+      operationId: generateSitemap
       requestBody:
         required: true
         content:
