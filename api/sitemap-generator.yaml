@@ -4,7 +4,7 @@ info:
   version: 1.0.0
   description: Generate a sitemap from a GraphQL query to a WordLift Knowledge Graph.
 paths:
-  /build:
+  /sitemap/generator:
     post:
       summary: Generate Sitemap
       description: Generates a sitemap from a GraphQL query to a WordLift Knowledge Graph.
