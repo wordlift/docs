@@ -15,12 +15,9 @@ jobs:
         with:
           submodules: true
 
-      - name: Rebuild API docs
-        run: npm run docusaurus clean-api-docs sitemap-generator && npm run docusaurus gen-api-docs sitemap-generator
-
       - name: Install Node deps
         run: npm i
-        
+
       - name: Rebuild 'analysis' API docs
         run: npm run docusaurus clean-api-docs analysis && npm run docusaurus gen-api-docs analysis
       - name: Rebuild 'classification' API docs
