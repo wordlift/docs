@@ -1,5 +1,7 @@
 ---
 sidebar_position: 10
+toc_min_heading_level: 2
+toc_max_heading_level: 5
 ---
 
 # API Guide
@@ -39,7 +41,7 @@ curl -X "POST" "https://s.wordlift.io/oauth/token/" \
      --data-urlencode "client_id=W8sGqXvefG9XgnMXJYzk6nTiV6MWc3N8TyQJQJcO"
 ```
 
-The server will reply with an Access Token (which expires after one hour) and refresh token to request a new Access Token:
+The server will reply with an Access Token (which expires after one hour) and Refresh Token to request a new Access Token:
 
 ```json
 {
@@ -75,7 +77,7 @@ The server will reply with an Access Token (which expires after one hour) and re
 }
 ```
 
-:::note
+:::caution
 
 Please note that also the Refresh Token is updated.
 
@@ -172,7 +174,59 @@ The JSON Request Payload looks like this:
 }
 ```
 
-#### GraphQL Query
+#### Knowledge Graph Account ID {#account-id}
+
+The Account ID is used to connect to a Knowledge Graph. To retrive the list of Accounts use the List Accounts API:
+
+```sh
+curl 'https://api.wordlift.io/accounts?limit=2147483647&can_content_generation=true' \
+    -H 'Accept: application/vnd.wordlift.accounts+json;version=1' \
+    -H 'Authorization: Bearer <your-oauth2-access-token>'
+```
+
+:::note
+
+The `content_generation` query parameter must be set to `true` in order to retrieve only Accounts that support Content Generation.
+
+:::
+
+This is an example response:
+
+```json
+{
+  "self": "eyJwb3NpdGlvbiI6eyJpZCI6MH0sImNvbmRpdGlvbiI6IkdSRUFURVJfVEhBTl9PUl9FUVVBTF9UTyIsInNvcnQiOiIraWQiLCJsaW1pdCI6MjE0NzQ4MzY0NywiZmlsdGVycyI6W3sicGFyYW1ldGVyIjoicGFja2FnZV90eXBlIiwib3BlcmF0b3IiOiJJTiIsInZhbHVlIjpbImJ1c2luZXNzICsgZWNvbW1lcmNlIl19XX0=",
+  "first": "eyJwb3NpdGlvbiI6eyJpZCI6MH0sImNvbmRpdGlvbiI6IkdSRUFURVJfVEhBTl9PUl9FUVVBTF9UTyIsInNvcnQiOiIraWQiLCJsaW1pdCI6MjE0NzQ4MzY0NywiZmlsdGVycyI6W3sicGFyYW1ldGVyIjoicGFja2FnZV90eXBlIiwib3BlcmF0b3IiOiJJTiIsInZhbHVlIjpbImJ1c2luZXNzICsgZWNvbW1lcmNlIl19XX0=",
+  "prev": null,
+  "next": null,
+  "last": "eyJwb3NpdGlvbiI6eyJpZCI6OTIyMzM3MjAzNjg1NDc3NTgwN30sImNvbmRpdGlvbiI6IkxFU1NfVEhBTl9PUl9FUVVBTF9UTyIsInNvcnQiOiIraWQiLCJsaW1pdCI6MjE0NzQ4MzY0NywiZmlsdGVycyI6W3sicGFyYW1ldGVyIjoicGFja2FnZV90eXBlIiwib3BlcmF0b3IiOiJJTiIsInZhbHVlIjpbImJ1c2luZXNzICsgZWNvbW1lcmNlIl19XX0=",
+  "items": [
+    {
+      "id": 1,
+      "key": "...wordlift-key...",
+      "url": "https://example.org",
+      "country": "us",
+      "language": "en",
+      "domain_uri": "https://data.example.org/example-dataset/",
+      "ng_dataset_id": "abc123",
+      "wp_admin": null,
+      "wp_json": null,
+      "wp_include_exclude_default": null,
+      "subscription_id": 123,
+      "user_id": 123,
+      "package_type": "business + ecommerce",
+      "diagnostic_plugins": []
+    },
+    ...
+```
+
+:::info
+
+The `key` contains the WordLift Key that can be used with the [GraphQL API](#graphql-api).
+
+:::
+
+
+#### GraphQL Query {#graphql-api}
 
 The GraphQL Query runs against the Knowledge Graph to query and select the data. This is an example GraphQL Query to retrieve the default Products' data:
 
@@ -201,20 +255,20 @@ It is possible to retrieve other GraphQL sample queryies by using the [GraphQL Q
 ```sh
 curl 'https://api.wordlift.io/graphql' -X POST \
     -H 'Accept: application/json' \
-    -H 'Authorization: Key <your-account-key>' \
+    -H 'Authorization: Key <wordlift-key>' \
     -H 'Content-Type: application/json' \
      --data-raw '...graphql-query...'
 ```
 
 :::tip
 
-Before creating a Project it is advised to test the GraphQL query using the GraphQL Query endpoint, e.g.
+Before creating a Project it is advised to test the GraphQL query using the GraphQL Query endpoint.
 
 :::
 
 :::caution
 
-The GraphQL query requires to use the WordLift Key associated with a Knowledge Graph. The key can be found in the [Dashboard](https://my.wordlift.io).
+The GraphQL query requires to use the WordLift Key associated with a Knowledge Graph (Account). The key can be found in the [Dashboard](https://my.wordlift.io) or by calling the [Accounts API](#account-id).
 
 :::
 
@@ -267,6 +321,197 @@ Almost all of the list API use cursor-based navigation.
 
 :::
 
+#### Prompt Template
+
+The Prompt Template is used to dynamically create the Prompts by replacing placeholders with actual values from the selected records. Templates use the [Liquid template language](https://shopify.github.io/liquid/) which allows to build an extensive logic into the template.
+
+In order to retrieve the list of available fields it is possible to use the [Fields API](fields-api@@todo).
+
+A template can be as simple as this:
+
+```liquid
+{{names.0}} is a {{types.0}}.
+The material is {{material.0}} and it can be found in the {{category.0}}.
+Its color is {{color.0}} and its targeted at {{audience.audienceType.0}}.
+The price tag is {{offers.price.0}}.
+
+More information can be found at {{urls.0}}.
+```
+
+Or as complex as this:
+
+```liquid
+{%- case genderType -%}
+  {%- when 'MAN' or 'man' -%}
+  {%- assign genderTypeFixed = 'men' -%}
+  {%- when 'WOMAN' or 'woman' -%}
+  {%- assign genderTypeFixed = 'women' -%}
+  {%- when 'UNISEX' -%}
+  {%- assign genderTypeFixed = 'unisex' -%}
+{%- else -%}
+  {%- assign genderTypeFixed = genderType | downcase -%}
+{%- endcase -%}
+{%- case macroAgeRange -%}
+  {%- when 'Children' or 'children' -%}
+  {%- assign genderTypeFixed = 'children' -%}
+{%- endcase -%}
+{%- case lensTreatment %}
+  {% when lensTreatment.blank? %}
+  {%- assign caseLensTreatment = false -%}
+  {%- when 'classic' -%}
+  {%- assign caseLensTreatment = false -%}
+{%- else -%}
+  {%- assign caseLensTreatment = lensTreatment | downcase -%}
+{%- endcase -%}
+{%- case isLensPolar %}
+  {% when isLensPolar.blank? %}
+  {%- assign caseIsLensPolar = false -%}
+  {%- when 'False' -%}
+  {%- assign caseIsLensPolar = false -%}
+{%- else -%}
+  {%- assign caseIsLensPolar = isLensPolar -%}
+{%- endcase -%}
+{%- case productGroup %}
+  {%- when 'pptical' -%}
+  {%- assign productGroupFixed = 'eyeglasses' -%}
+  {%- assign lensColor = false -%}
+  {%- assign caseLensTreatment = false -%}
+  {%- assign isLensPolar = false -%}
+  {%- when 'sun' -%}
+  {%- assign productGroupFixed = 'sunglasses' -%}
+{%- else -%}
+  {%- assign productGroupFixed = productGroup -%}
+{%- endcase -%}
+{%- case frameTypeDowncase %}
+  {%- when 'progressive eligible' -%}
+  {%- assign frameTypeDowncase = false -%}
+  {%- when 'full rim' -%}
+  {%- assign frameTypeDowncase = false -%}
+  {%- when 'semi rim' -%}
+  {%- assign frameTypeDowncase = 'semi-rimless' -%}
+{%- endcase -%}
+{%- case templeColor %}
+  {%- when frontColor -%}
+  {%- assign templeColor = false -%}
+{%- else -%}
+  {%- assign templeColor = templeColor | downcase -%}
+{%- endcase -%}
+{%- case lensContrastEnhancement %}
+  {% when lensContrastEnhancement.blank? %}
+  {%- assign caseLensContrastEnhancement = false -%}
+  {% when "False" %}
+  {%- assign caseLensContrastEnhancement = false -%}
+{%- else -%}
+  {%- assign caseLensContrastEnhancement = lensContrastEnhancement -%}
+{%- endcase -%}
+{%- case strassPresence %}
+  {% when "False" %}
+  {%- assign caseStrassPresence = false -%}
+{%- else -%}
+  {%- assign caseStrassPresence = strassPresence -%}
+  {%- case strassPosition %}
+    {% when "not present" %}
+    {%- assign caseStrassPosition = false -%}
+    {%- assign caseStrassPresence = false -%}
+  {%- else -%}
+    {%- assign caseStrassPresence = strassPosition -%}
+    {%- assign caseStrassPosition = strassPresence -%}
+  {%- endcase -%}
+{%- endcase -%}
+{%- case bridgeType %}
+  {% when bridgeType.blank? %}
+  {%- assign caseBridgeType = false -%}
+  {%- when 'standard' -%}
+  {%- assign caseBridgeType = false -%}
+{%- else -%}
+  {%- assign caseBridgeType = bridgeType -%}
+{%- endcase -%}
+{%- case specialProjectType %}
+  {% when specialProjectType.blank? %}
+  {%- assign caseSpecialProjectType = false -%}
+  {% when "collaboration" %}
+  {%- assign caseSpecialProjectType = specialProjectType -%}
+  {%- case specialProjectCollection %}
+    {% when specialProjectCollection.blank? %}
+    {%- assign caseSpecialProjectCollection = false -%}
+  {%- else -%}
+    {%- assign caseSpecialProjectCollection = specialProjectCollection -%}
+  {%- endcase -%}
+{%- else -%}
+  {%- assign caseSpecialProjectType = false -%}
+{%- endcase -%}
+{%- case frontMaterial %}
+  {% when frontMaterial.blank? %}
+  {%- assign caseFrontMaterial = false -%}
+  {%- when 'nylon' -%}
+  {%- assign caseFrontMaterial = false -%}
+  {%- when 'injected' -%}
+  {%- assign caseFrontMaterial = false -%}
+  {%- when 'o_matter' -%}
+  {%- assign caseFrontMaterial = 'o matter' -%}
+{%- else -%}
+  {%- assign caseFrontMaterial = frontMaterial | downcase -%}
+{%- endcase -%}
+{%- case frameShape %}
+  {% when frameShape.blank? %}
+  {%- assign caseFrameShape = false -%}
+{%- else -%}
+  {%- assign caseFrameShape = frameShape | downcase -%}
+{%- endcase -%}
+{%- case frontColor %}
+  {% when frontColor.blank? %}
+  {%- assign caseFrontColor = false -%}
+{%- else -%}
+  {%- assign caseFrontColor = frontColor | downcase -%}
+{%- endcase -%}
+{%- case frontColorFinish %}
+  {% when frontColorFinish.blank? %}
+  {%- assign caseFrontColorFinish = false -%}
+  {%- when 'NOT APPLICABLE' -%}
+  {%- assign caseFrontColorFinish = false -%}
+{%- else -%}
+  {%- assign caseFrontColorFinish = frontColorFinish | downcase -%}
+{%- endcase -%}
+
+{%- case modelName %}
+  {%- when modelName.blank? %}
+  {%- assign caseModelName = false -%}
+{%- else %}
+  {%- assign caseModelName = modelName | append: ' ' | append: productGroupFixed -%}
+{%- endcase -%}
+
+{%- if caseModelName == false %}
+  {%- if modelCodeDisplay = blank %}
+    {%- assign caseModelName = modelCodeDisplay | append: ' ' | append: productGroupFixed -%}
+  {%- endif %}
+{%- endif -%}
+
+{% if caseModelName %}
+  {%- assign brandAndModelName = brand | append: ' ' | append: modelName -%}
+  {{ brandAndModelName }} is a pair of {{ productGroupFixed }}. {{ modelNameFix }}
+  {% if caseSpecialProjectCollection %}These {{ productGroupFixed }} are part of the special collaboration with {{ caseSpecialProjectCollection }}.{% endif %}
+  {%- if modelName -%}
+    {{ brandAndModelName }} are designed for {{ genderTypeFixed }}.{% endif %}
+  {% if caseLensTreatment %}The lens treatment is {{ caseLensTreatment }}.{% endif %}
+  {% if lensColor %}The lens color facet is {{ lensColor | downcase }}.{% endif %}
+  {% if caseIsLensPolar %}The lenses are polarized.{% endif %}
+  {% if templeColor %}The color of the temples is {{ templeColor }}.{% endif %}
+  {% if caseFrontMaterial %}The frame material is {{ caseFrontMaterial }}.{% endif %}
+  {% if caseFrameShape %}The shape is {{ caseFrameShape }}.{% endif %}
+  {% if caseFrontColorFinish %}The frame color finish is {{ frontColorFinish }}.{% endif %}
+  {% if caseFrontColor %}The frame color is {{ caseFrontColor }}.{% endif %}
+  {% if caseBridgeType %}It features a {{ caseBridgeType | downcase }}.{% endif %}
+  {% if frameTypeDowncase %}The type of the frame is {{ frameTypeDowncase | downcase }}.{% endif %}
+  {% if caseLensContrastEnhancement %}This pair of sunglasses feature lens contrast enhancements.{% endif %}
+  {% if caseStrassPosition %}There are strass on these {{ productGroupFixed }}.{% endif %}
+  {% if caseStrassPresence %}These sunglasses feature strass on {{ strassPosition | downcase }}.{% endif %}
+  {% if frameFoldability %}It is foldable.{% endif %}
+  ####
+{% endif %}
+```
+
+
+
 ### List Projects
 
 To retrieve the list of existing projects, use the following request:
@@ -286,11 +531,6 @@ The following query parameter are accepted:
 
 ### List Accounts' Knowledge Graphs
 
-```sh
-curl 'https://api.wordlift.io/accounts?limit=2147483647&can_content_generation=true' \
-    -H 'Accept: application/vnd.wordlift.accounts+json;version=1' \
-    -H 'Authorization: Bearer <your-oauth2-access-token>'
-```
 
 * List GraphQL Presets
 
