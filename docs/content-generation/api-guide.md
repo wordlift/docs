@@ -83,43 +83,11 @@ Please note that also the Refresh Token is updated.
 
 :::
 
-## Content Generation Projects
+## Create a Project
 
 A the very core of the Content Generation API, there are Projects which define the configuration.
 
-### Project Structure
-
-A Content Generation Project contains the required configuration. Each Content Generation Project is assigned a unique ID. It is possible to retrieve the configuration for a Project by using the following request:
-
-```sh
-curl "https://api.wordlift.io/content-generation/content-generations/123" \
-     -H 'Authorization: Bearer <access-token>'
-```
-
-This is an example response:
-
-```json
-{
-  "id": 123,
-  "name": "My Project 1",
-  "penalty": 0.7,
-  "temperature": 0.6,
-  "stop": "###",
-  "deleted": false,
-  "model_id": 162,
-  "max_tokens": 110,
-  "created_at": "2023-12-15T16:22:19.095204Z",
-  "modified_at": "2023-12-15T16:22:19.095204Z",
-  "deleted_at": null,
-  "min_words": 45,
-  "graphql_query": "...a graphql query...",
-  "prompt_template": "...a liquid template...",
-  "account_id": 123,
-  "words_to_ignore": [
-    ...array of words to ignore...
-  ]
-}
-```
+### Project Model
 
 Following is a brief explanation of the properties of a Content Generation Project:
 
@@ -143,7 +111,7 @@ Following is a brief explanation of the properties of a Content Generation Proje
 | deleted         | Whether the project is deleted                                                                 | true/false |
 
 
-### Create a Project
+### New Project
 
 To create a Project the following parameters are required:
 
@@ -325,7 +293,7 @@ Almost all of the list API use cursor-based navigation.
 
 The Prompt Template is used to dynamically create the Prompts by replacing placeholders with actual values from the selected records. Templates use the [Liquid template language](https://shopify.github.io/liquid/) which allows to build an extensive logic into the template.
 
-In order to retrieve the list of available fields it is possible to use the [Fields API](#list-fields).
+In order to retrieve the list of available fields it is possible to use the [Fields API](#list-fields). A template can be tested with actual data by calling the [Template Render API](#render-template).
 
 A template can be as simple as this:
 
@@ -510,6 +478,472 @@ Or as complex as this:
 {% endif %}
 ```
 
+
+## Run the Project
+
+### Load the KG Data into the Project's Records
+
+This will finally load the data from the Knowledge Graph based on the GraphQL query into the Project's records.
+
+:::info
+
+This step is required in order to create the completions.
+
+:::
+
+```sh
+curl 'https://api.wordlift.io/content-generation/content-generations/<project-id>/syncs' -X POST \
+    -H 'Accept: */*' \
+    -H 'Authorization: Bearer <your-oauth2-access-token>'
+```
+
+### List Completions
+
+Once the Records have been imported, it is possible to access them along with their completion. This endpoint returns a JSONL formatted response which allows client to read the response as it loads without waiting for all the completions to be generated.
+
+:::info
+
+JSONL means JSON lines, that is one self-standing JSON per line.
+
+:::
+
+```sh
+curl 'https://api.wordlift.io/content-generation/content-generations/<project-id>/records-sse' \
+    -H 'Accept: */*' \
+    -H 'Authorization: Bearer <your-oauth2-access-token>'
+```
+
+###  Get Stats
+
+Once the Project runs, the completions are generated and they're validated against the [Rules](#rules). For each completion a state is assigned: error, warning, valid and accepted. The Stats endpoint will provide a summary of these states for the Project:
+
+```sh
+curl 'https://api.wordlift.io/content-generation/content-generations/<project-id>/stats' \
+    -H 'Accept: application/json' \
+    -H 'Authorization: Bearer <your-oauth2-access-token>'
+```
+
+### Regenerate a Record Completion
+
+To regenerate a Completion, just update it by setting the `completion` to `null`. The API will then regenerate and return the Record with the new Completion.
+
+```sh
+curl 'https://api.wordlift.io/content-generation/content-generations/608/records/253191' -X PUT \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer <your-oauth2-access-token>' \
+     --data-raw '...json payload...'
+```
+
+Example JSON Payload, note the `completion` set to `null`:
+
+```json
+{
+  "id": 253191,
+  "prompt": "Acme Glasses is a pair of sunglasses. Costa Diego are designed for men. The lens treatment is mirror. The lens color facet is gray silver mirror. The lenses are polarized. The shape is rectangle. The frame color finish is matte. The frame color is matte black. This pair of sunglasses feature lens contrast enhancements. ####",
+  "completion": null,
+  "data": {
+    "id": "https://data.example.org/example-dataset/gtin",
+    "name": "gtin",
+    "type": "http://schema.org/Product",
+    "brand": "Brand",
+    "release": null,
+    "category": "Optical",
+    "modelFit": "high bridge fit",
+    "faceShape": "Oval-Round",
+    "frameType": "full rim",
+    "lensColor": "gray silver mirror",
+    "modelName": "Las Vegas",
+    "bridgeType": "standard",
+    "frameShape": "rectangle",
+    "frontColor": "matte black",
+    "genderType": "man",
+    "maskShield": "False",
+    "roXability": "True",
+    "isLensPolar": "True",
+    "nosepadType": "plastic standard",
+    "templeColor": "matte black",
+    "frameFitting": "wide",
+    "isLensMirror": "True",
+    "materialType": "zpfn",
+    "productGroup": "sun",
+    "frontMaterial": "injected",
+    "lensBaseCurve": "base 8 decentered",
+    "lensTreatment": "mirror",
+    "macroAgeRange": "adult",
+    "isLensGradient": "False",
+    "lensProtection": null,
+    "strassPosition": "not present",
+    "strassPresence": "False",
+    "frameFoldability": null,
+    "frontColorFinish": "matte",
+    "modelCodeDisplay": "123",
+    "productStyleName": null,
+    "channelAttributes": [
+      { "channel": "AB - ABC", "styleName": "MyStyleName" },
+      { "channel": "AB - ABC", "styleName": "MyStyleName" }
+    ],
+    "isLensPhotochromic": "False",
+    "productFamilyModel": "Las Vegas",
+    "specialProjectType": "collaboration",
+    "ageGroupEnumeration": null,
+    "eyewearLensMaterial": "polycarbonate",
+    "progressiveFriendly": "classic",
+    "eyewearTempleMaterial": "injected",
+    "specialProjectSponsor": null,
+    "isLensBlueLightFiltered": "False",
+    "lensAssemblyTypeOnFrame": "full rim",
+    "lensContrastEnhancement": "True",
+    "specialProjectCollection": null,
+    "specialProjectFeaturesFlag": "True"
+  },
+  "errors": null,
+  "warnings": null,
+  "content_generation_id": 123,
+  "not_in_prompt_words": [],
+  "is_accepted": false,
+  "has_upvote": false,
+  "modified_at": "2023-12-19T09:26:03.605418090Z",
+  "validated_at": "2023-12-19T09:26:03.605287189Z",
+  "status": "valid"
+}
+```
+
+### Get a Record Validation Report
+
+Get a Record validation report with details about the Rules that failed:
+
+```sh
+curl 'https://api.wordlift.io/content-generation/content-generations/<project-id>/records/<record-id>/validations' -X POST \
+    -H 'Accept: application/json' \
+    -H 'Authorization: Bearer <your-oauth2-access-token>'
+```
+
+### Bulk Operations on Record: Regenerate Completions
+
+It is also possible to regenerate completions in bulk:
+
+```sh
+curl 'https://api.wordlift.io/content-generation/content-generations/<project-id>/records-collection' -X PUT \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer <your-oauth2-access-token>' \
+     --data-raw '[...json payload 1...,...json payload 2...,...,...json payload n....]'
+```
+
+### Accept a Record
+
+To mark a Record as Accepted, set `is_accepted` to `true`:
+
+```sh
+curl 'https://api.wordlift.io/content-generation/content-generations/<project-id>/records/<record-id>' -X PUT \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer <your-oauth2-access-token>' \
+     --data-raw '...json payload...'
+```
+
+Example JSON Payload:
+
+```json
+{
+  "prompt": "Acme Glasses is a pair of sunglasses. Costa Diego are designed for men. The lens treatment is mirror. The lens color facet is gray silver mirror. The lenses are polarized. The shape is rectangle. The frame color finish is matte. The frame color is matte black. This pair of sunglasses feature lens contrast enhancements. ####",
+  "completion": "...example completion...",
+  "data": {
+    "id": "https://data.example.org/example-dataset/gtin",
+    "name": "gtin",
+    "type": "http://schema.org/Product",
+    "brand": "Brand",
+    "release": null,
+    "category": "Optical",
+    "modelFit": "high bridge fit",
+    "faceShape": "Oval-Round",
+    "frameType": "full rim",
+    "lensColor": "gray silver mirror",
+    "modelName": "Las Vegas",
+    "bridgeType": "standard",
+    "frameShape": "rectangle",
+    "frontColor": "matte black",
+    "genderType": "man",
+    "maskShield": "False",
+    "roXability": "True",
+    "isLensPolar": "True",
+    "nosepadType": "plastic standard",
+    "templeColor": "matte black",
+    "frameFitting": "wide",
+    "isLensMirror": "True",
+    "materialType": "zpfn",
+    "productGroup": "sun",
+    "frontMaterial": "injected",
+    "lensBaseCurve": "base 8 decentered",
+    "lensTreatment": "mirror",
+    "macroAgeRange": "adult",
+    "isLensGradient": "False",
+    "lensProtection": null,
+    "strassPosition": "not present",
+    "strassPresence": "False",
+    "frameFoldability": null,
+    "frontColorFinish": "matte",
+    "modelCodeDisplay": "123",
+    "productStyleName": null,
+    "channelAttributes": [
+      { "channel": "AB - ABC", "styleName": "MyStyleName" },
+      { "channel": "AB - ABC", "styleName": "MyStyleName" }
+    ],
+    "isLensPhotochromic": "False",
+    "productFamilyModel": "Las Vegas",
+    "specialProjectType": "collaboration",
+    "ageGroupEnumeration": null,
+    "eyewearLensMaterial": "polycarbonate",
+    "progressiveFriendly": "classic",
+    "eyewearTempleMaterial": "injected",
+    "specialProjectSponsor": null,
+    "isLensBlueLightFiltered": "False",
+    "lensAssemblyTypeOnFrame": "full rim",
+    "lensContrastEnhancement": "True",
+    "specialProjectCollection": null,
+    "specialProjectFeaturesFlag": "True"
+  },
+  "errors": null,
+  "warnings": null,
+  "content_generation_id": 123,
+  "not_in_prompt_words": [],
+  "is_accepted": true,
+  "has_upvote": false,
+  "modified_at": "2023-12-19T09:26:03.605418090Z",
+  "validated_at": "2023-12-19T09:26:03.605287189Z",
+  "status": "valid"
+}
+```
+
+### Upvote a Completion
+
+```sh
+curl 'https://api.wordlift.io/content-generation/content-generations/<project-id>/records/<record-id>' -X PUT \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer <your-oauth2-access-token>' \
+     --data-raw '...json payload...'
+```
+
+Example JSON Payload:
+
+```json
+{
+  "prompt": "Acme Glasses is a pair of sunglasses. Costa Diego are designed for men. The lens treatment is mirror. The lens color facet is gray silver mirror. The lenses are polarized. The shape is rectangle. The frame color finish is matte. The frame color is matte black. This pair of sunglasses feature lens contrast enhancements. ####",
+  "completion": "...example completion...",
+  "data": {
+    "id": "https://data.example.org/example-dataset/gtin",
+    "name": "gtin",
+    "type": "http://schema.org/Product",
+    "brand": "Brand",
+    "release": null,
+    "category": "Optical",
+    "modelFit": "high bridge fit",
+    "faceShape": "Oval-Round",
+    "frameType": "full rim",
+    "lensColor": "gray silver mirror",
+    "modelName": "Las Vegas",
+    "bridgeType": "standard",
+    "frameShape": "rectangle",
+    "frontColor": "matte black",
+    "genderType": "man",
+    "maskShield": "False",
+    "roXability": "True",
+    "isLensPolar": "True",
+    "nosepadType": "plastic standard",
+    "templeColor": "matte black",
+    "frameFitting": "wide",
+    "isLensMirror": "True",
+    "materialType": "zpfn",
+    "productGroup": "sun",
+    "frontMaterial": "injected",
+    "lensBaseCurve": "base 8 decentered",
+    "lensTreatment": "mirror",
+    "macroAgeRange": "adult",
+    "isLensGradient": "False",
+    "lensProtection": null,
+    "strassPosition": "not present",
+    "strassPresence": "False",
+    "frameFoldability": null,
+    "frontColorFinish": "matte",
+    "modelCodeDisplay": "123",
+    "productStyleName": null,
+    "channelAttributes": [
+      { "channel": "AB - ABC", "styleName": "MyStyleName" },
+      { "channel": "AB - ABC", "styleName": "MyStyleName" }
+    ],
+    "isLensPhotochromic": "False",
+    "productFamilyModel": "Las Vegas",
+    "specialProjectType": "collaboration",
+    "ageGroupEnumeration": null,
+    "eyewearLensMaterial": "polycarbonate",
+    "progressiveFriendly": "classic",
+    "eyewearTempleMaterial": "injected",
+    "specialProjectSponsor": null,
+    "isLensBlueLightFiltered": "False",
+    "lensAssemblyTypeOnFrame": "full rim",
+    "lensContrastEnhancement": "True",
+    "specialProjectCollection": null,
+    "specialProjectFeaturesFlag": "True"
+  },
+  "errors": null,
+  "warnings": null,
+  "content_generation_id": 123,
+  "not_in_prompt_words": [],
+  "is_accepted": true,
+  "has_upvote": true,
+  "modified_at": "2023-12-19T09:26:03.605418090Z",
+  "validated_at": "2023-12-19T09:26:03.605287189Z",
+  "status": "valid"
+}
+```
+
+### Manually set and accept a Completion
+
+It is also possible to manually update and accept a completion by setting the `completion` property to the desired value and `is_accepted` to `true`:
+
+```sh
+curl 'https://api.wordlift.io/content-generation/content-generations/<project-id>/records/<record-id>' -X PUT \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer <your-oauth2-access-token>' \
+     --data-raw '...json payload...'
+```
+
+Example JSON Payload:
+
+```json
+{
+  "prompt": "Acme Glasses is a pair of sunglasses. Costa Diego are designed for men. The lens treatment is mirror. The lens color facet is gray silver mirror. The lenses are polarized. The shape is rectangle. The frame color finish is matte. The frame color is matte black. This pair of sunglasses feature lens contrast enhancements. ####",
+  "completion": "...manually set completion...",
+  "data": {
+    "id": "https://data.example.org/example-dataset/gtin",
+    "name": "gtin",
+    "type": "http://schema.org/Product",
+    "brand": "Brand",
+    "release": null,
+    "category": "Optical",
+    "modelFit": "high bridge fit",
+    "faceShape": "Oval-Round",
+    "frameType": "full rim",
+    "lensColor": "gray silver mirror",
+    "modelName": "Las Vegas",
+    "bridgeType": "standard",
+    "frameShape": "rectangle",
+    "frontColor": "matte black",
+    "genderType": "man",
+    "maskShield": "False",
+    "roXability": "True",
+    "isLensPolar": "True",
+    "nosepadType": "plastic standard",
+    "templeColor": "matte black",
+    "frameFitting": "wide",
+    "isLensMirror": "True",
+    "materialType": "zpfn",
+    "productGroup": "sun",
+    "frontMaterial": "injected",
+    "lensBaseCurve": "base 8 decentered",
+    "lensTreatment": "mirror",
+    "macroAgeRange": "adult",
+    "isLensGradient": "False",
+    "lensProtection": null,
+    "strassPosition": "not present",
+    "strassPresence": "False",
+    "frameFoldability": null,
+    "frontColorFinish": "matte",
+    "modelCodeDisplay": "123",
+    "productStyleName": null,
+    "channelAttributes": [
+      { "channel": "AB - ABC", "styleName": "MyStyleName" },
+      { "channel": "AB - ABC", "styleName": "MyStyleName" }
+    ],
+    "isLensPhotochromic": "False",
+    "productFamilyModel": "Las Vegas",
+    "specialProjectType": "collaboration",
+    "ageGroupEnumeration": null,
+    "eyewearLensMaterial": "polycarbonate",
+    "progressiveFriendly": "classic",
+    "eyewearTempleMaterial": "injected",
+    "specialProjectSponsor": null,
+    "isLensBlueLightFiltered": "False",
+    "lensAssemblyTypeOnFrame": "full rim",
+    "lensContrastEnhancement": "True",
+    "specialProjectCollection": null,
+    "specialProjectFeaturesFlag": "True"
+  },
+  "errors": null,
+  "warnings": null,
+  "content_generation_id": 123,
+  "not_in_prompt_words": [],
+  "is_accepted": true,
+  "has_upvote": false,
+  "modified_at": "2023-12-19T09:26:03.605418090Z",
+  "validated_at": "2023-12-19T09:26:03.605287189Z",
+  "status": "valid"
+}
+```
+
+### Bulk Operations
+
+It is always possible to combine several updates in one call:
+
+```sh
+curl 'https://api.wordlift.io/content-generation/content-generations/<project-id>/records-collection' -X PUT \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer <your-oauth2-access-token>' \
+     --data-raw '[...json payload 1...,...json payload 2...,...,...json payload n...]'
+```
+
+### Export
+
+Finally it is possible to export the Records:
+
+```sh
+curl https://api.wordlift.io/content-generation/content-generations/<project-id>/records.tsv \
+    -H 'Authorization: Bearer <your-oauth2-access-token>' \
+```
+
+This will export a tabulated file with all the Records.
+
+
+## Rules
+
+### List Rules
+
+List the Rules connected to a Project:
+
+```sh
+curl 'https://api.wordlift.io/content-generation/content-generations/<project-id>/rules?limit=2147483647' \
+    -H 'Accept: application/json' \
+    -H 'Authorization: Bearer <your-oauth2-access-token>'
+```
+
+### Create a Field Rule
+
+Create a Field Rule for the Project:
+
+```sh
+curl 'https://api.wordlift.io/content-generation/content-generations/<project-id>/rules' -X POST \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer <your-oauth2-access-token>' \
+     --data-raw '{"name":"Frame Material is Required","level":"REQUIRED","what_operand_lhs":"EVERYWHERE","what_operator":"CONTAINS","what_operand_rhs":"{{frontMaterial}}","when_operand_lhs":"frontMaterial","when_operator":"NOT_EQUALS","when_operand_rhs":"plastic,nylon,injected,propionate","fixes":[{"type":"OPEN_AI","what":"As {{brand}} content editor, read the following sentence and rewrite it by adding a reference to frame material being {{frontMaterial}}: \"{{completion}}\"."}],"type":"field"}'
+```
+
+### Create a Word Rule
+
+Create a Word Rule for the Project:
+
+```sh
+curl 'https://api.wordlift.io/content-generation/content-generations/<project-id>/rules' -X POST \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer <your-oauth2-access-token>' \
+     --data-raw '{"name":"Logo words are not present","level":"RECOMMENDED","what_operand_lhs":"EVERYWHERE","what_operator":"DOESNT_CONTAIN","what_operand_rhs":"values:logo,signature,embleme,branding","when_operand_lhs":"","when_operator":"ALWAYS","when_operand_rhs":"","fixes":[{"type":"OPEN_AI","what":"As {{brand}} content editor, read the following sentence and rewrite it by removing any reference to the {{value}}: \"{{completion}}\""}],"type":"word"}'
+```
+
 ## Other useful API
 
 ### List Projects
@@ -529,6 +963,40 @@ The following query parameter are accepted:
 | limit           | The maximum number of results                                                                  |            |
 | deleted         | When `false` deleted projects are not returned                                                 | true/false |
 
+
+### Get an existing Project
+
+A Content Generation Project contains the required configuration. Each Content Generation Project is assigned a unique ID. It is possible to retrieve the configuration for a Project by using the following request:
+
+```sh
+curl "https://api.wordlift.io/content-generation/content-generations/123" \
+     -H 'Authorization: Bearer <access-token>'
+```
+
+This is an example response:
+
+```json
+{
+  "id": 123,
+  "name": "My Project 1",
+  "penalty": 0.7,
+  "temperature": 0.6,
+  "stop": "###",
+  "deleted": false,
+  "model_id": 162,
+  "max_tokens": 110,
+  "created_at": "2023-12-15T16:22:19.095204Z",
+  "modified_at": "2023-12-15T16:22:19.095204Z",
+  "deleted_at": null,
+  "min_words": 45,
+  "graphql_query": "...a graphql query...",
+  "prompt_template": "...a liquid template...",
+  "account_id": 123,
+  "words_to_ignore": [
+    ...array of words to ignore...
+  ]
+}
+```
 
 ### List GraphQL Presets {#graphql-presets}
 
@@ -611,215 +1079,152 @@ Example response:
 ]
 ```
 
-* GraphQL
+### GraphQL Queries and Pagination
+
+Following are a couple of GraphQL sample queries using pagination (`page` and `rows` parameters).
+
+:::danger
+
+On large datasets, GraphQL queries may take time to load and may timeout. In this case we recommend to use pagination like in the following examples.
+
+:::
+
+Page 0:
 
 ```sh
-curl 'https://wordlift.stellate.sh/graphql' -X POST \
-    -H 'Accept: application/json, text/plain, */*' \
-    -H 'Authorization: Key VDkWn6RZqJfjvP8xkfH5tpqP9XQ6GC6MRSTMNe1ZHDxoCI7Rek3ankyaqFJsxILF' \
+curl 'https://api.wordlift.io/graphql' -X POST \
+    -H 'Accept: application/json' \
+    -H 'Authorization: Key <wordlift-key>' \
     -H 'Content-Type: application/json' \
      --data-raw '{"variables":{},"query":"{\n  products(\n    query: {nameConstraint: {in: [\"0AR6123B__30028E\", \"0AR8107__5017R5\", \"0AR8110__501787\", \"06S9034__903417\"]}}\n    page: 0\n    rows: 1000\n  ) {\n    id: iri\n    brand: string(name: \"schema:brand\")\n    name: string(name: \"schema:name\")\n    type: string(name: \"rdf:type\")\n    category: string(name: \"eyewear:category\")\n    productGroup: string(name: \"eyewear:eyewearProductGroup\")\n    bridgeType: string(name: \"eyewear:bridgeType\")\n    frameShape: string(name: \"eyewear:frameShape\")\n    faceShape: string(name: \"eyewear:faceShape\")\n    frameFitting: string(name: \"eyewear:frameFitting\")\n    frontColorFinish: string(name: \"eyewear:frontColorFinish\")\n    macroAgeRange: string(name: \"eyewear:macroAgeRange\")\n    ageGroupEnumeration: string(name: \"eyewear:ageGroupEnumeration\")\n    lensAssemblyTypeOnFrame: string(name: \"eyewear:lensAssemblyTypeOnFrame\")\n    frameType: string(name: \"eyewear:frameType\")\n    eyewearLensMaterial: string(name: \"eyewear:eyewearLensMaterial\")\n    eyewearTempleMaterial: string(name: \"eyewear:eyewearTempleMaterial\")\n    nosepadType: string(name: \"eyewear:nosepadType\")\n    release: string(name: \"eyewear:release\")\n    specialProjectCollection: string(name: \"eyewear:specialProjectCollection\")\n    specialProjectSponsor: string(name: \"eyewear:specialProjectSponsor\")\n    specialProjectType: string(name: \"eyewear:specialProjectType\")\n    specialProjectFeaturesFlag: string(name: \"eyewear:specialProjectFeaturesFlag\")\n    lensTreatment: string(name: \"eyewear:lensTreatment\")\n    lensColor: string(name: \"eyewear:lensColor\")\n    productStyleName: string(name: \"eyewear:productStyleName\")\n    productFamilyModel: string(name: \"eyewear:productFamilyModel\")\n    frameFoldability: string(name: \"eyewear:frameFoldability\")\n    roXability: string(name: \"eyewear:roXability\")\n    isLensPhotochromic: string(name: \"eyewear:isLensPhotochromic\")\n    isLensPolar: string(name: \"eyewear:isLensPolar\")\n    modelCodeDisplay: string(name: \"eyewear:modelCodeDisplay\")\n    progressiveFriendly: string(name: \"eyewear:progressiveFriendly\")\n    materialType: string(name: \"eyewear:materialType\")\n    maskShield: string(name: \"eyewear:maskShield\")\n    strassPresence: string(name: \"eyewear:strassPresence\")\n    strassPosition: string(name: \"eyewear:strassPosition\")\n    lensContrastEnhancement: string(name: \"eyewear:lensContrastEnhancement\")\n    lensBaseCurve: string(name: \"eyewear:lensBaseCurve\")\n    isLensGradient: string(name: \"eyewear:isLensGradient\")\n    isLensMirror: string(name: \"eyewear:isLensMirror\")\n    modelFit: string(name: \"eyewear:modelFit\")\n    modelName: string(name: \"eyewear:modelName\")\n    frontMaterial: string(name: \"eyewear:frontMaterial\")\n    lensProtection: string(name: \"eyewear:lensProtection\")\n    templeColor: string(name: \"eyewear:templeColor\")\n    frontColor: string(name: \"eyewear:frontColor\")\n    isLensBlueLightFiltered: string(name: \"eyewear:isLensBlueLightFiltered\")\n    genderType: string(name: \"eyewear:genderType\")\n    lensProtection: string(name: \"eyewear:lensProtection\")\n    channelAttributes: resources(name: \"eyewear:channelAttributes\") {\n      channel: string(name: \"eyewear:channel\")\n      styleName: string(name: \"eyewear:styleName\")\n      __typename\n    }\n    __typename\n  }\n}"}'
 ```
 
+Page 1:
+
 ```sh
-curl 'https://wordlift.stellate.sh/graphql' -X POST \
-    -H 'Accept: application/json, text/plain, */*' \
-    -H 'Authorization: Key VDkWn6RZqJfjvP8xkfH5tpqP9XQ6GC6MRSTMNe1ZHDxoCI7Rek3ankyaqFJsxILF' \
+curl 'https://api.wordlift.io/graphql' -X POST \
+    -H 'Accept: application/json' \
+    -H 'Authorization: Key <wordlift-key>' \
     -H 'Content-Type: application/json' \
      --data-raw '{"variables":{},"query":"{\n  products(\n    query: {nameConstraint: {in: [\"0AR6123B__30028E\", \"0AR8107__5017R5\", \"0AR8110__501787\", \"06S9034__903417\"]}}\n    page: 1\n    rows: 1000\n  ) {\n    id: iri\n    brand: string(name: \"schema:brand\")\n    name: string(name: \"schema:name\")\n    type: string(name: \"rdf:type\")\n    category: string(name: \"eyewear:category\")\n    productGroup: string(name: \"eyewear:eyewearProductGroup\")\n    bridgeType: string(name: \"eyewear:bridgeType\")\n    frameShape: string(name: \"eyewear:frameShape\")\n    faceShape: string(name: \"eyewear:faceShape\")\n    frameFitting: string(name: \"eyewear:frameFitting\")\n    frontColorFinish: string(name: \"eyewear:frontColorFinish\")\n    macroAgeRange: string(name: \"eyewear:macroAgeRange\")\n    ageGroupEnumeration: string(name: \"eyewear:ageGroupEnumeration\")\n    lensAssemblyTypeOnFrame: string(name: \"eyewear:lensAssemblyTypeOnFrame\")\n    frameType: string(name: \"eyewear:frameType\")\n    eyewearLensMaterial: string(name: \"eyewear:eyewearLensMaterial\")\n    eyewearTempleMaterial: string(name: \"eyewear:eyewearTempleMaterial\")\n    nosepadType: string(name: \"eyewear:nosepadType\")\n    release: string(name: \"eyewear:release\")\n    specialProjectCollection: string(name: \"eyewear:specialProjectCollection\")\n    specialProjectSponsor: string(name: \"eyewear:specialProjectSponsor\")\n    specialProjectType: string(name: \"eyewear:specialProjectType\")\n    specialProjectFeaturesFlag: string(name: \"eyewear:specialProjectFeaturesFlag\")\n    lensTreatment: string(name: \"eyewear:lensTreatment\")\n    lensColor: string(name: \"eyewear:lensColor\")\n    productStyleName: string(name: \"eyewear:productStyleName\")\n    productFamilyModel: string(name: \"eyewear:productFamilyModel\")\n    frameFoldability: string(name: \"eyewear:frameFoldability\")\n    roXability: string(name: \"eyewear:roXability\")\n    isLensPhotochromic: string(name: \"eyewear:isLensPhotochromic\")\n    isLensPolar: string(name: \"eyewear:isLensPolar\")\n    modelCodeDisplay: string(name: \"eyewear:modelCodeDisplay\")\n    progressiveFriendly: string(name: \"eyewear:progressiveFriendly\")\n    materialType: string(name: \"eyewear:materialType\")\n    maskShield: string(name: \"eyewear:maskShield\")\n    strassPresence: string(name: \"eyewear:strassPresence\")\n    strassPosition: string(name: \"eyewear:strassPosition\")\n    lensContrastEnhancement: string(name: \"eyewear:lensContrastEnhancement\")\n    lensBaseCurve: string(name: \"eyewear:lensBaseCurve\")\n    isLensGradient: string(name: \"eyewear:isLensGradient\")\n    isLensMirror: string(name: \"eyewear:isLensMirror\")\n    modelFit: string(name: \"eyewear:modelFit\")\n    modelName: string(name: \"eyewear:modelName\")\n    frontMaterial: string(name: \"eyewear:frontMaterial\")\n    lensProtection: string(name: \"eyewear:lensProtection\")\n    templeColor: string(name: \"eyewear:templeColor\")\n    frontColor: string(name: \"eyewear:frontColor\")\n    isLensBlueLightFiltered: string(name: \"eyewear:isLensBlueLightFiltered\")\n    genderType: string(name: \"eyewear:genderType\")\n    lensProtection: string(name: \"eyewear:lensProtection\")\n    channelAttributes: resources(name: \"eyewear:channelAttributes\") {\n      channel: string(name: \"eyewear:channel\")\n      styleName: string(name: \"eyewear:styleName\")\n      __typename\n    }\n    __typename\n  }\n}"}'
 ```
 
-* Render Template
+### Render Template {#render-template}
+
+When writing a Liquid template, it is helpful to test it with actual data. By providig a `template` and a `data` map, this API will return the rendered prompt:
 
 ```sh
 curl 'https://api.wordlift.io/content-generation/content-generations/renders' -X POST \
     -H 'Accept: text/plain' \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer <your-oauth2-access-token>' \
-     --data-raw $'{"template":"{%- case genderType -%}\\n  {%- when \'MAN\' or \'man\' -%}\\n  {%- assign genderTypeFixed = \'men\' -%}\\n  {%- when \'WOMAN\' or \'woman\' -%}\\n  {%- assign genderTypeFixed = \'women\' -%}\\n  {%- when \'UNISEX\' -%}\\n  {%- assign genderTypeFixed = \'unisex\' -%}\\n{%- else -%}\\n  {%- assign genderTypeFixed = genderType | downcase -%}\\n{%- endcase -%}\\n{%- case macroAgeRange -%}\\n  {%- when \'Children\' or \'children\' -%}\\n  {%- assign genderTypeFixed = \'children\' -%}\\n{%- endcase -%}\\n{%- case lensTreatment %}\\n  {% when lensTreatment.blank? %}\\n  {%- assign caseLensTreatment = false -%}\\n  {%- when \'classic\' -%}\\n  {%- assign caseLensTreatment = false -%}\\n{%- else -%}\\n  {%- assign caseLensTreatment = lensTreatment | downcase -%}\\n{%- endcase -%}\\n{%- case isLensPolar %}\\n  {% when isLensPolar.blank? %}\\n  {%- assign caseIsLensPolar = false -%}\\n  {%- when \'False\' -%}\\n  {%- assign caseIsLensPolar = false -%}\\n{%- else -%}\\n  {%- assign caseIsLensPolar = isLensPolar -%}\\n{%- endcase -%}\\n{%- case productGroup %}\\n  {%- when \'pptical\' -%}\\n  {%- assign productGroupFixed = \'eyeglasses\' -%}\\n  {%- assign lensColor = false -%}\\n  {%- assign caseLensTreatment = false -%}\\n  {%- assign isLensPolar = false -%}\\n  {%- when \'sun\' -%}\\n  {%- assign productGroupFixed = \'sunglasses\' -%}\\n{%- else -%}\\n  {%- assign productGroupFixed = productGroup -%}\\n{%- endcase -%}\\n{%- case frameTypeDowncase %}\\n  {%- when \'progressive eligible\' -%}\\n  {%- assign frameTypeDowncase = false -%}\\n  {%- when \'full rim\' -%}\\n  {%- assign frameTypeDowncase = false -%}\\n  {%- when \'semi rim\' -%}\\n  {%- assign frameTypeDowncase = \'semi-rimless\' -%}\\n{%- endcase -%}\\n{%- case templeColor %}\\n  {%- when frontColor -%}\\n  {%- assign templeColor = false -%}\\n{%- else -%}\\n  {%- assign templeColor = templeColor | downcase -%}\\n{%- endcase -%}\\n{%- case lensContrastEnhancement %}\\n  {% when lensContrastEnhancement.blank? %}\\n  {%- assign caseLensContrastEnhancement = false -%}\\n  {% when \\"False\\" %}\\n  {%- assign caseLensContrastEnhancement = false -%}\\n{%- else -%}\\n  {%- assign caseLensContrastEnhancement = lensContrastEnhancement -%}\\n{%- endcase -%}\\n{%- case strassPresence %}\\n  {% when \\"False\\" %}\\n  {%- assign caseStrassPresence = false -%}\\n{%- else -%}\\n  {%- assign caseStrassPresence = strassPresence -%}\\n  {%- case strassPosition %}\\n    {% when \\"not present\\" %}\\n    {%- assign caseStrassPosition = false -%}\\n    {%- assign caseStrassPresence = false -%}\\n  {%- else -%}\\n    {%- assign caseStrassPresence = strassPosition -%}\\n    {%- assign caseStrassPosition = strassPresence -%}\\n  {%- endcase -%}\\n{%- endcase -%}\\n{%- case bridgeType %}\\n  {% when bridgeType.blank? %}\\n  {%- assign caseBridgeType = false -%}\\n  {%- when \'standard\' -%}\\n  {%- assign caseBridgeType = false -%}\\n{%- else -%}\\n  {%- assign caseBridgeType = bridgeType -%}\\n{%- endcase -%}\\n{%- case specialProjectType %}\\n  {% when specialProjectType.blank? %}\\n  {%- assign caseSpecialProjectType = false -%}\\n  {% when \\"collaboration\\" %}\\n  {%- assign caseSpecialProjectType = specialProjectType -%}\\n  {%- case specialProjectCollection %}\\n    {% when specialProjectCollection.blank? %}\\n    {%- assign caseSpecialProjectCollection = false -%}\\n  {%- else -%}\\n    {%- assign caseSpecialProjectCollection = specialProjectCollection -%}\\n  {%- endcase -%}\\n{%- else -%}\\n  {%- assign caseSpecialProjectType = false -%}\\n{%- endcase -%}\\n{%- case frontMaterial %}\\n  {% when frontMaterial.blank? %}\\n  {%- assign caseFrontMaterial = false -%}\\n  {%- when \'nylon\' -%}\\n  {%- assign caseFrontMaterial = false -%}\\n  {%- when \'injected\' -%}\\n  {%- assign caseFrontMaterial = false -%}\\n  {%- when \'o_matter\' -%}\\n  {%- assign caseFrontMaterial = \'o matter\' -%}\\n{%- else -%}\\n  {%- assign caseFrontMaterial = frontMaterial | downcase -%}\\n{%- endcase -%}\\n{%- case frameShape %}\\n  {% when frameShape.blank? %}\\n  {%- assign caseFrameShape = false -%}\\n{%- else -%}\\n  {%- assign caseFrameShape = frameShape | downcase -%}\\n{%- endcase -%}\\n{%- case frontColor %}\\n  {% when frontColor.blank? %}\\n  {%- assign caseFrontColor = false -%}\\n{%- else -%}\\n  {%- assign caseFrontColor = frontColor | downcase -%}\\n{%- endcase -%}\\n{%- case frontColorFinish %}\\n  {% when frontColorFinish.blank? %}\\n  {%- assign caseFrontColorFinish = false -%}\\n  {%- when \'NOT APPLICABLE\' -%}\\n  {%- assign caseFrontColorFinish = false -%}\\n{%- else -%}\\n  {%- assign caseFrontColorFinish = frontColorFinish | downcase -%}\\n{%- endcase -%}\\n\\n{%- case modelName %}\\n  {%- when modelName.blank? %}\\n  {%- assign caseModelName = false -%}\\n{%- else %}\\n  {%- assign caseModelName = modelName | append: \' \' | append: productGroupFixed -%}\\n{%- endcase -%}\\n\\n{%- if caseModelName == false %}\\n  {%- if modelCodeDisplay \041= blank %}\\n    {%- assign caseModelName = modelCodeDisplay | append: \' \' | append: productGroupFixed -%}\\n  {%- endif %}\\n{%- endif -%}\\n\\n{% if caseModelName %}\\n  {%- assign brandAndModelName = brand | append: \' \' | append: modelName -%}\\n  {{ brandAndModelName }} is a pair of {{ productGroupFixed }}. {{ modelNameFix }}\\n  {% if caseSpecialProjectCollection %}These {{ productGroupFixed }} are part of the special collaboration with {{ caseSpecialProjectCollection }}.{% endif %}\\n  {%- if modelName -%}\\n    {{ brandAndModelName }} are designed for {{ genderTypeFixed }}.{% endif %}\\n  {% if caseLensTreatment %}The lens treatment is {{ caseLensTreatment }}.{% endif %}\\n  {% if lensColor %}The lens color facet is {{ lensColor | downcase }}.{% endif %}\\n  {% if caseIsLensPolar %}The lenses are polarized.{% endif %}\\n  {% if templeColor %}The color of the temples is {{ templeColor }}.{% endif %}\\n  {% if caseFrontMaterial %}The frame material is {{ caseFrontMaterial }}.{% endif %}\\n  {% if caseFrameShape %}The shape is {{ caseFrameShape }}.{% endif %}\\n  {% if caseFrontColorFinish %}The frame color finish is {{ frontColorFinish }}.{% endif %}\\n  {% if caseFrontColor %}The frame color is {{ caseFrontColor }}.{% endif %}\\n  {% if caseBridgeType %}It features a {{ caseBridgeType | downcase }}.{% endif %}\\n  {% if frameTypeDowncase %}The type of the frame is {{ frameTypeDowncase | downcase }}.{% endif %}\\n  {% if caseLensContrastEnhancement %}This pair of sunglasses feature lens contrast enhancements.{% endif %}\\n  {% if caseStrassPosition %}There are strass on these {{ productGroupFixed }}.{% endif %}\\n  {% if caseStrassPresence %}These sunglasses feature strass on {{ strassPosition | downcase }}.{% endif %}\\n  {% if frameFoldability %}It is foldable.{% endif %}\\n  ####\\n{% endif %}","data":{"__typename":"Entity","id":"https://data.luxottica.com/eyewear-sun/06S9034__903417","brand":"Costa","name":"06S9034__903417","type":"http://schema.org/Product","category":"Optical","productGroup":"sun","bridgeType":"standard","frameShape":"rectangle","faceShape":"Oval-Round","frameFitting":"wide","frontColorFinish":"matte","macroAgeRange":"adult","ageGroupEnumeration":null,"lensAssemblyTypeOnFrame":"full rim","frameType":"full rim","eyewearLensMaterial":"polycarbonate","eyewearTempleMaterial":"injected","nosepadType":"plastic standard","release":null,"specialProjectCollection":null,"specialProjectSponsor":null,"specialProjectType":"collaboration","specialProjectFeaturesFlag":"True","lensTreatment":"mirror","lensColor":"gray silver mirror","productStyleName":null,"productFamilyModel":"Diego","frameFoldability":null,"roXability":"True","isLensPhotochromic":"False","isLensPolar":"True","modelCodeDisplay":"6S9034","progressiveFriendly":"classic","materialType":"zpfn","maskShield":"False","strassPresence":"False","strassPosition":"not present","lensContrastEnhancement":"True","lensBaseCurve":"base 8 decentered","isLensGradient":"False","isLensMirror":"True","modelFit":"high bridge fit","modelName":"Diego","frontMaterial":"injected","lensProtection":null,"templeColor":"matte black","frontColor":"matte black","isLensBlueLightFiltered":"False","genderType":"man","channelAttributes":[{"__typename":"Entity","channel":"DC - David Clulow","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"LC - Lens Crafters","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"AN - Arnette","styleName":"Diego"},{"__typename":"Entity","channel":"VO - Vogue","styleName":"Diego"},{"__typename":"Entity","channel":"OP - Oliver People","styleName":"Diego"},{"__typename":"Entity","channel":"VD - Vision Direct","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"OSI - OSI","styleName":"Diego"},{"__typename":"Entity","channel":"SV - Salmoiraghi e Vigan&#xF2;","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"FD - Frames Direct","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"SS - SmartShopper","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"OPSM - OPSM","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"NA - Native","styleName":"Diego"},{"__typename":"Entity","channel":"CM - Costa Del Mar","styleName":"Diego"},{"__typename":"Entity","channel":"MyLuxottica - MyLuxottica","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"OO - Oakley","styleName":"Diego"},{"__typename":"Entity","channel":"SGH - Sunglasshut","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"SGS - Sunglasses Shop","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"CL - Clearly","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"TO - Target Optical","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"RB - RayBan","styleName":"Diego"},{"__typename":"Entity","channel":"GL - Glasses","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"PO - Persol","styleName":"Diego"},{"__typename":"Entity","channel":"AM - Alain Mikli","styleName":"Diego"}]}}'
+     --data-raw $'...json payload...'
 ```
 
-* Render a Collection of Templates
+This is the example JSON payload:
+
+```json
+{
+  "template": "...liquid template...",
+  "data": {
+    "__typename": "Entity",
+    "id": "https://data.example.org/example-dataset/gtin",
+    "brand": "MyEyeglasses",
+    "name": "ProductCode",
+    "type": "http://schema.org/Product",
+    "category": "Optical",
+    "productGroup": "sun",
+    "bridgeType": "standard",
+    "frameShape": "rectangle",
+    "faceShape": "Oval-Round",
+    "frameFitting": "wide",
+    "frontColorFinish": "matte",
+    "macroAgeRange": "adult",
+    "ageGroupEnumeration": null,
+    "lensAssemblyTypeOnFrame": "full rim",
+    "frameType": "full rim",
+    "eyewearLensMaterial": "polycarbonate",
+    "eyewearTempleMaterial": "injected",
+    "nosepadType": "plastic standard",
+    "release": null,
+    "specialProjectCollection": null,
+    "specialProjectSponsor": null,
+    "specialProjectType": "collaboration",
+    "specialProjectFeaturesFlag": "True",
+    "lensTreatment": "mirror",
+    "lensColor": "gray silver mirror",
+    "productStyleName": null,
+    "productFamilyModel": "Las Vegas",
+    "frameFoldability": null,
+    "roXability": "True",
+    "isLensPhotochromic": "False",
+    "isLensPolar": "True",
+    "modelCodeDisplay": "123",
+    "progressiveFriendly": "classic",
+    "materialType": "zpfn",
+    "maskShield": "False",
+    "strassPresence": "False",
+    "strassPosition": "not present",
+    "lensContrastEnhancement": "True",
+    "lensBaseCurve": "base 8 decentered",
+    "isLensGradient": "False",
+    "isLensMirror": "True",
+    "modelFit": "high bridge fit",
+    "modelName": "Las Vegas",
+    "frontMaterial": "injected",
+    "lensProtection": null,
+    "templeColor": "matte black",
+    "frontColor": "matte black",
+    "isLensBlueLightFiltered": "False",
+    "genderType": "man",
+    "channelAttributes": [
+      {
+        "__typename": "Entity",
+        "channel": "AB - ABC",
+        "styleName": "MyStyleName"
+      },
+      {
+        "__typename": "Entity",
+        "channel": "AB - ABC",
+        "styleName": "MyStyleName"
+      }
+    ]
+  }
+}
+```
+
+#### Render a Collection of Templates
+
+It is also possible to generate multiple renders at once by using the Bulk API:
 
 ```sh
 curl 'https://api.wordlift.io/content-generation/content-generations/renders-collection' -X POST \
     -H 'Accept: application/json' \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer <your-oauth2-access-token>' \
-     --data-raw $'[{"data":{"__typename":"Entity","id":"https://data.luxottica.com/eyewear-sun/06S9034__903417","brand":"Costa","name":"06S9034__903417","type":"http://schema.org/Product","category":"Optical","productGroup":"sun","bridgeType":"standard","frameShape":"rectangle","faceShape":"Oval-Round","frameFitting":"wide","frontColorFinish":"matte","macroAgeRange":"adult","ageGroupEnumeration":null,"lensAssemblyTypeOnFrame":"full rim","frameType":"full rim","eyewearLensMaterial":"polycarbonate","eyewearTempleMaterial":"injected","nosepadType":"plastic standard","release":null,"specialProjectCollection":null,"specialProjectSponsor":null,"specialProjectType":"collaboration","specialProjectFeaturesFlag":"True","lensTreatment":"mirror","lensColor":"gray silver mirror","productStyleName":null,"productFamilyModel":"Diego","frameFoldability":null,"roXability":"True","isLensPhotochromic":"False","isLensPolar":"True","modelCodeDisplay":"6S9034","progressiveFriendly":"classic","materialType":"zpfn","maskShield":"False","strassPresence":"False","strassPosition":"not present","lensContrastEnhancement":"True","lensBaseCurve":"base 8 decentered","isLensGradient":"False","isLensMirror":"True","modelFit":"high bridge fit","modelName":"Diego","frontMaterial":"injected","lensProtection":null,"templeColor":"matte black","frontColor":"matte black","isLensBlueLightFiltered":"False","genderType":"man","channelAttributes":[{"__typename":"Entity","channel":"DC - David Clulow","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"LC - Lens Crafters","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"AN - Arnette","styleName":"Diego"},{"__typename":"Entity","channel":"VO - Vogue","styleName":"Diego"},{"__typename":"Entity","channel":"OP - Oliver People","styleName":"Diego"},{"__typename":"Entity","channel":"VD - Vision Direct","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"OSI - OSI","styleName":"Diego"},{"__typename":"Entity","channel":"SV - Salmoiraghi e Vigan&#xF2;","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"FD - Frames Direct","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"SS - SmartShopper","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"OPSM - OPSM","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"NA - Native","styleName":"Diego"},{"__typename":"Entity","channel":"CM - Costa Del Mar","styleName":"Diego"},{"__typename":"Entity","channel":"MyLuxottica - MyLuxottica","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"OO - Oakley","styleName":"Diego"},{"__typename":"Entity","channel":"SGH - Sunglasshut","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"SGS - Sunglasses Shop","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"CL - Clearly","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"TO - Target Optical","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"RB - RayBan","styleName":"Diego"},{"__typename":"Entity","channel":"GL - Glasses","styleName":"6S9034 Diego"},{"__typename":"Entity","channel":"PO - Persol","styleName":"Diego"},{"__typename":"Entity","channel":"AM - Alain Mikli","styleName":"Diego"}]},"template":"{%- case genderType -%}\\n  {%- when \'MAN\' or \'man\' -%}\\n  {%- assign genderTypeFixed = \'men\' -%}\\n  {%- when \'WOMAN\' or \'woman\' -%}\\n  {%- assign genderTypeFixed = \'women\' -%}\\n  {%- when \'UNISEX\' -%}\\n  {%- assign genderTypeFixed = \'unisex\' -%}\\n{%- else -%}\\n  {%- assign genderTypeFixed = genderType | downcase -%}\\n{%- endcase -%}\\n{%- case macroAgeRange -%}\\n  {%- when \'Children\' or \'children\' -%}\\n  {%- assign genderTypeFixed = \'children\' -%}\\n{%- endcase -%}\\n{%- case lensTreatment %}\\n  {% when lensTreatment.blank? %}\\n  {%- assign caseLensTreatment = false -%}\\n  {%- when \'classic\' -%}\\n  {%- assign caseLensTreatment = false -%}\\n{%- else -%}\\n  {%- assign caseLensTreatment = lensTreatment | downcase -%}\\n{%- endcase -%}\\n{%- case isLensPolar %}\\n  {% when isLensPolar.blank? %}\\n  {%- assign caseIsLensPolar = false -%}\\n  {%- when \'False\' -%}\\n  {%- assign caseIsLensPolar = false -%}\\n{%- else -%}\\n  {%- assign caseIsLensPolar = isLensPolar -%}\\n{%- endcase -%}\\n{%- case productGroup %}\\n  {%- when \'pptical\' -%}\\n  {%- assign productGroupFixed = \'eyeglasses\' -%}\\n  {%- assign lensColor = false -%}\\n  {%- assign caseLensTreatment = false -%}\\n  {%- assign isLensPolar = false -%}\\n  {%- when \'sun\' -%}\\n  {%- assign productGroupFixed = \'sunglasses\' -%}\\n{%- else -%}\\n  {%- assign productGroupFixed = productGroup -%}\\n{%- endcase -%}\\n{%- case frameTypeDowncase %}\\n  {%- when \'progressive eligible\' -%}\\n  {%- assign frameTypeDowncase = false -%}\\n  {%- when \'full rim\' -%}\\n  {%- assign frameTypeDowncase = false -%}\\n  {%- when \'semi rim\' -%}\\n  {%- assign frameTypeDowncase = \'semi-rimless\' -%}\\n{%- endcase -%}\\n{%- case templeColor %}\\n  {%- when frontColor -%}\\n  {%- assign templeColor = false -%}\\n{%- else -%}\\n  {%- assign templeColor = templeColor | downcase -%}\\n{%- endcase -%}\\n{%- case lensContrastEnhancement %}\\n  {% when lensContrastEnhancement.blank? %}\\n  {%- assign caseLensContrastEnhancement = false -%}\\n  {% when \\"False\\" %}\\n  {%- assign caseLensContrastEnhancement = false -%}\\n{%- else -%}\\n  {%- assign caseLensContrastEnhancement = lensContrastEnhancement -%}\\n{%- endcase -%}\\n{%- case strassPresence %}\\n  {% when \\"False\\" %}\\n  {%- assign caseStrassPresence = false -%}\\n{%- else -%}\\n  {%- assign caseStrassPresence = strassPresence -%}\\n  {%- case strassPosition %}\\n    {% when \\"not present\\" %}\\n    {%- assign caseStrassPosition = false -%}\\n    {%- assign caseStrassPresence = false -%}\\n  {%- else -%}\\n    {%- assign caseStrassPresence = strassPosition -%}\\n    {%- assign caseStrassPosition = strassPresence -%}\\n  {%- endcase -%}\\n{%- endcase -%}\\n{%- case bridgeType %}\\n  {% when bridgeType.blank? %}\\n  {%- assign caseBridgeType = false -%}\\n  {%- when \'standard\' -%}\\n  {%- assign caseBridgeType = false -%}\\n{%- else -%}\\n  {%- assign caseBridgeType = bridgeType -%}\\n{%- endcase -%}\\n{%- case specialProjectType %}\\n  {% when specialProjectType.blank? %}\\n  {%- assign caseSpecialProjectType = false -%}\\n  {% when \\"collaboration\\" %}\\n  {%- assign caseSpecialProjectType = specialProjectType -%}\\n  {%- case specialProjectCollection %}\\n    {% when specialProjectCollection.blank? %}\\n    {%- assign caseSpecialProjectCollection = false -%}\\n  {%- else -%}\\n    {%- assign caseSpecialProjectCollection = specialProjectCollection -%}\\n  {%- endcase -%}\\n{%- else -%}\\n  {%- assign caseSpecialProjectType = false -%}\\n{%- endcase -%}\\n{%- case frontMaterial %}\\n  {% when frontMaterial.blank? %}\\n  {%- assign caseFrontMaterial = false -%}\\n  {%- when \'nylon\' -%}\\n  {%- assign caseFrontMaterial = false -%}\\n  {%- when \'injected\' -%}\\n  {%- assign caseFrontMaterial = false -%}\\n  {%- when \'o_matter\' -%}\\n  {%- assign caseFrontMaterial = \'o matter\' -%}\\n{%- else -%}\\n  {%- assign caseFrontMaterial = frontMaterial | downcase -%}\\n{%- endcase -%}\\n{%- case frameShape %}\\n  {% when frameShape.blank? %}\\n  {%- assign caseFrameShape = false -%}\\n{%- else -%}\\n  {%- assign caseFrameShape = frameShape | downcase -%}\\n{%- endcase -%}\\n{%- case frontColor %}\\n  {% when frontColor.blank? %}\\n  {%- assign caseFrontColor = false -%}\\n{%- else -%}\\n  {%- assign caseFrontColor = frontColor | downcase -%}\\n{%- endcase -%}\\n{%- case frontColorFinish %}\\n  {% when frontColorFinish.blank? %}\\n  {%- assign caseFrontColorFinish = false -%}\\n  {%- when \'NOT APPLICABLE\' -%}\\n  {%- assign caseFrontColorFinish = false -%}\\n{%- else -%}\\n  {%- assign caseFrontColorFinish = frontColorFinish | downcase -%}\\n{%- endcase -%}\\n\\n{%- case modelName %}\\n  {%- when modelName.blank? %}\\n  {%- assign caseModelName = false -%}\\n{%- else %}\\n  {%- assign caseModelName = modelName | append: \' \' | append: productGroupFixed -%}\\n{%- endcase -%}\\n\\n{%- if caseModelName == false %}\\n  {%- if modelCodeDisplay \041= blank %}\\n    {%- assign caseModelName = modelCodeDisplay | append: \' \' | append: productGroupFixed -%}\\n  {%- endif %}\\n{%- endif -%}\\n\\n{% if caseModelName %}\\n  {%- assign brandAndModelName = brand | append: \' \' | append: modelName -%}\\n  {{ brandAndModelName }} is a pair of {{ productGroupFixed }}. {{ modelNameFix }}\\n  {% if caseSpecialProjectCollection %}These {{ productGroupFixed }} are part of the special collaboration with {{ caseSpecialProjectCollection }}.{% endif %}\\n  {%- if modelName -%}\\n    {{ brandAndModelName }} are designed for {{ genderTypeFixed }}.{% endif %}\\n  {% if caseLensTreatment %}The lens treatment is {{ caseLensTreatment }}.{% endif %}\\n  {% if lensColor %}The lens color facet is {{ lensColor | downcase }}.{% endif %}\\n  {% if caseIsLensPolar %}The lenses are polarized.{% endif %}\\n  {% if templeColor %}The color of the temples is {{ templeColor }}.{% endif %}\\n  {% if caseFrontMaterial %}The frame material is {{ caseFrontMaterial }}.{% endif %}\\n  {% if caseFrameShape %}The shape is {{ caseFrameShape }}.{% endif %}\\n  {% if caseFrontColorFinish %}The frame color finish is {{ frontColorFinish }}.{% endif %}\\n  {% if caseFrontColor %}The frame color is {{ caseFrontColor }}.{% endif %}\\n  {% if caseBridgeType %}It features a {{ caseBridgeType | downcase }}.{% endif %}\\n  {% if frameTypeDowncase %}The type of the frame is {{ frameTypeDowncase | downcase }}.{% endif %}\\n  {% if caseLensContrastEnhancement %}This pair of sunglasses feature lens contrast enhancements.{% endif %}\\n  {% if caseStrassPosition %}There are strass on these {{ productGroupFixed }}.{% endif %}\\n  {% if caseStrassPresence %}These sunglasses feature strass on {{ strassPosition | downcase }}.{% endif %}\\n  {% if frameFoldability %}It is foldable.{% endif %}\\n  ####\\n{% endif %}"},{"data":{"__typename":"Entity","id":"https://data.luxottica.com/eyewear-sun/0AR6123B__30028E","brand":"Giorgio Armani","name":"0AR6123B__30028E","type":"http://schema.org/Product","category":"Optical","productGroup":"sun","bridgeType":"standard","frameShape":"square","faceShape":"Round-Oval-Square","frameFitting":"regular","frontColorFinish":"polished","macroAgeRange":"adult","ageGroupEnumeration":null,"lensAssemblyTypeOnFrame":"rimless","frameType":"rimless","eyewearLensMaterial":"polyamide","eyewearTempleMaterial":"metal","nosepadType":"metal standard","release":null,"specialProjectCollection":null,"specialProjectSponsor":null,"specialProjectType":"event","specialProjectFeaturesFlag":"True","lensTreatment":"gradient","lensColor":"gradient green","productStyleName":null,"productFamilyModel":null,"frameFoldability":null,"roXability":"False","isLensPhotochromic":"False","isLensPolar":"False","modelCodeDisplay":"AR6123B","progressiveFriendly":"classic","materialType":"zpfn","maskShield":"False","strassPresence":"True","strassPosition":"strass on metal component and","lensContrastEnhancement":"False","lensBaseCurve":"base 4","isLensGradient":"True","isLensMirror":"False","modelFit":"adjustable nosepads","modelName":null,"frontMaterial":"metal","lensProtection":null,"templeColor":"pale gold","frontColor":"pale gold","isLensBlueLightFiltered":"False","genderType":"woman","channelAttributes":[{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":"PO - Persol","styleName":"AR6123B"},{"__typename":"Entity","channel":"MyLuxottica - MyLuxottica","styleName":"AR6123B"},{"__typename":"Entity","channel":"SGH - Sunglasshut","styleName":"AR6123B"},{"__typename":"Entity","channel":"OP - Oliver People","styleName":"AR6123B"},{"__typename":"Entity","channel":"OPSM - OPSM","styleName":"AR6123B"},{"__typename":"Entity","channel":"TO - Target Optical","styleName":"AR6123B"},{"__typename":"Entity","channel":"FD - Frames Direct","styleName":"AR6123B"},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":"CM - Costa Del Mar","styleName":"AR6123B"},{"__typename":"Entity","channel":"VO - Vogue","styleName":"AR6123B"},{"__typename":"Entity","channel":"SS - SmartShopper","styleName":"AR6123B"},{"__typename":"Entity","channel":"LC - Lens Crafters","styleName":"AR6123B"},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":"OSI - OSI","styleName":"AR6123B"},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":"DC - David Clulow","styleName":"AR6123B"},{"__typename":"Entity","channel":"OO - Oakley","styleName":"AR6123B"},{"__typename":"Entity","channel":"AN - Arnette","styleName":"AR6123B"},{"__typename":"Entity","channel":"NA - Native","styleName":"AR6123B"},{"__typename":"Entity","channel":"RB - RayBan","styleName":"AR6123B"},{"__typename":"Entity","channel":"GL - Glasses","styleName":"AR6123B"},{"__typename":"Entity","channel":"AM - Alain Mikli","styleName":"AR6123B"}]},"template":"{%- case genderType -%}\\n  {%- when \'MAN\' or \'man\' -%}\\n  {%- assign genderTypeFixed = \'men\' -%}\\n  {%- when \'WOMAN\' or \'woman\' -%}\\n  {%- assign genderTypeFixed = \'women\' -%}\\n  {%- when \'UNISEX\' -%}\\n  {%- assign genderTypeFixed = \'unisex\' -%}\\n{%- else -%}\\n  {%- assign genderTypeFixed = genderType | downcase -%}\\n{%- endcase -%}\\n{%- case macroAgeRange -%}\\n  {%- when \'Children\' or \'children\' -%}\\n  {%- assign genderTypeFixed = \'children\' -%}\\n{%- endcase -%}\\n{%- case lensTreatment %}\\n  {% when lensTreatment.blank? %}\\n  {%- assign caseLensTreatment = false -%}\\n  {%- when \'classic\' -%}\\n  {%- assign caseLensTreatment = false -%}\\n{%- else -%}\\n  {%- assign caseLensTreatment = lensTreatment | downcase -%}\\n{%- endcase -%}\\n{%- case isLensPolar %}\\n  {% when isLensPolar.blank? %}\\n  {%- assign caseIsLensPolar = false -%}\\n  {%- when \'False\' -%}\\n  {%- assign caseIsLensPolar = false -%}\\n{%- else -%}\\n  {%- assign caseIsLensPolar = isLensPolar -%}\\n{%- endcase -%}\\n{%- case productGroup %}\\n  {%- when \'pptical\' -%}\\n  {%- assign productGroupFixed = \'eyeglasses\' -%}\\n  {%- assign lensColor = false -%}\\n  {%- assign caseLensTreatment = false -%}\\n  {%- assign isLensPolar = false -%}\\n  {%- when \'sun\' -%}\\n  {%- assign productGroupFixed = \'sunglasses\' -%}\\n{%- else -%}\\n  {%- assign productGroupFixed = productGroup -%}\\n{%- endcase -%}\\n{%- case frameTypeDowncase %}\\n  {%- when \'progressive eligible\' -%}\\n  {%- assign frameTypeDowncase = false -%}\\n  {%- when \'full rim\' -%}\\n  {%- assign frameTypeDowncase = false -%}\\n  {%- when \'semi rim\' -%}\\n  {%- assign frameTypeDowncase = \'semi-rimless\' -%}\\n{%- endcase -%}\\n{%- case templeColor %}\\n  {%- when frontColor -%}\\n  {%- assign templeColor = false -%}\\n{%- else -%}\\n  {%- assign templeColor = templeColor | downcase -%}\\n{%- endcase -%}\\n{%- case lensContrastEnhancement %}\\n  {% when lensContrastEnhancement.blank? %}\\n  {%- assign caseLensContrastEnhancement = false -%}\\n  {% when \\"False\\" %}\\n  {%- assign caseLensContrastEnhancement = false -%}\\n{%- else -%}\\n  {%- assign caseLensContrastEnhancement = lensContrastEnhancement -%}\\n{%- endcase -%}\\n{%- case strassPresence %}\\n  {% when \\"False\\" %}\\n  {%- assign caseStrassPresence = false -%}\\n{%- else -%}\\n  {%- assign caseStrassPresence = strassPresence -%}\\n  {%- case strassPosition %}\\n    {% when \\"not present\\" %}\\n    {%- assign caseStrassPosition = false -%}\\n    {%- assign caseStrassPresence = false -%}\\n  {%- else -%}\\n    {%- assign caseStrassPresence = strassPosition -%}\\n    {%- assign caseStrassPosition = strassPresence -%}\\n  {%- endcase -%}\\n{%- endcase -%}\\n{%- case bridgeType %}\\n  {% when bridgeType.blank? %}\\n  {%- assign caseBridgeType = false -%}\\n  {%- when \'standard\' -%}\\n  {%- assign caseBridgeType = false -%}\\n{%- else -%}\\n  {%- assign caseBridgeType = bridgeType -%}\\n{%- endcase -%}\\n{%- case specialProjectType %}\\n  {% when specialProjectType.blank? %}\\n  {%- assign caseSpecialProjectType = false -%}\\n  {% when \\"collaboration\\" %}\\n  {%- assign caseSpecialProjectType = specialProjectType -%}\\n  {%- case specialProjectCollection %}\\n    {% when specialProjectCollection.blank? %}\\n    {%- assign caseSpecialProjectCollection = false -%}\\n  {%- else -%}\\n    {%- assign caseSpecialProjectCollection = specialProjectCollection -%}\\n  {%- endcase -%}\\n{%- else -%}\\n  {%- assign caseSpecialProjectType = false -%}\\n{%- endcase -%}\\n{%- case frontMaterial %}\\n  {% when frontMaterial.blank? %}\\n  {%- assign caseFrontMaterial = false -%}\\n  {%- when \'nylon\' -%}\\n  {%- assign caseFrontMaterial = false -%}\\n  {%- when \'injected\' -%}\\n  {%- assign caseFrontMaterial = false -%}\\n  {%- when \'o_matter\' -%}\\n  {%- assign caseFrontMaterial = \'o matter\' -%}\\n{%- else -%}\\n  {%- assign caseFrontMaterial = frontMaterial | downcase -%}\\n{%- endcase -%}\\n{%- case frameShape %}\\n  {% when frameShape.blank? %}\\n  {%- assign caseFrameShape = false -%}\\n{%- else -%}\\n  {%- assign caseFrameShape = frameShape | downcase -%}\\n{%- endcase -%}\\n{%- case frontColor %}\\n  {% when frontColor.blank? %}\\n  {%- assign caseFrontColor = false -%}\\n{%- else -%}\\n  {%- assign caseFrontColor = frontColor | downcase -%}\\n{%- endcase -%}\\n{%- case frontColorFinish %}\\n  {% when frontColorFinish.blank? %}\\n  {%- assign caseFrontColorFinish = false -%}\\n  {%- when \'NOT APPLICABLE\' -%}\\n  {%- assign caseFrontColorFinish = false -%}\\n{%- else -%}\\n  {%- assign caseFrontColorFinish = frontColorFinish | downcase -%}\\n{%- endcase -%}\\n\\n{%- case modelName %}\\n  {%- when modelName.blank? %}\\n  {%- assign caseModelName = false -%}\\n{%- else %}\\n  {%- assign caseModelName = modelName | append: \' \' | append: productGroupFixed -%}\\n{%- endcase -%}\\n\\n{%- if caseModelName == false %}\\n  {%- if modelCodeDisplay \041= blank %}\\n    {%- assign caseModelName = modelCodeDisplay | append: \' \' | append: productGroupFixed -%}\\n  {%- endif %}\\n{%- endif -%}\\n\\n{% if caseModelName %}\\n  {%- assign brandAndModelName = brand | append: \' \' | append: modelName -%}\\n  {{ brandAndModelName }} is a pair of {{ productGroupFixed }}. {{ modelNameFix }}\\n  {% if caseSpecialProjectCollection %}These {{ productGroupFixed }} are part of the special collaboration with {{ caseSpecialProjectCollection }}.{% endif %}\\n  {%- if modelName -%}\\n    {{ brandAndModelName }} are designed for {{ genderTypeFixed }}.{% endif %}\\n  {% if caseLensTreatment %}The lens treatment is {{ caseLensTreatment }}.{% endif %}\\n  {% if lensColor %}The lens color facet is {{ lensColor | downcase }}.{% endif %}\\n  {% if caseIsLensPolar %}The lenses are polarized.{% endif %}\\n  {% if templeColor %}The color of the temples is {{ templeColor }}.{% endif %}\\n  {% if caseFrontMaterial %}The frame material is {{ caseFrontMaterial }}.{% endif %}\\n  {% if caseFrameShape %}The shape is {{ caseFrameShape }}.{% endif %}\\n  {% if caseFrontColorFinish %}The frame color finish is {{ frontColorFinish }}.{% endif %}\\n  {% if caseFrontColor %}The frame color is {{ caseFrontColor }}.{% endif %}\\n  {% if caseBridgeType %}It features a {{ caseBridgeType | downcase }}.{% endif %}\\n  {% if frameTypeDowncase %}The type of the frame is {{ frameTypeDowncase | downcase }}.{% endif %}\\n  {% if caseLensContrastEnhancement %}This pair of sunglasses feature lens contrast enhancements.{% endif %}\\n  {% if caseStrassPosition %}There are strass on these {{ productGroupFixed }}.{% endif %}\\n  {% if caseStrassPresence %}These sunglasses feature strass on {{ strassPosition | downcase }}.{% endif %}\\n  {% if frameFoldability %}It is foldable.{% endif %}\\n  ####\\n{% endif %}"},{"data":{"__typename":"Entity","id":"https://data.luxottica.com/eyewear-sun/0AR8107__5017R5","brand":"Giorgio Armani","name":"0AR8107__5017R5","type":"http://schema.org/Product","category":"Optical","productGroup":"sun","bridgeType":"key bridge","frameShape":"square","faceShape":"Oval-Round","frameFitting":"regular","frontColorFinish":"polished","macroAgeRange":"adult","ageGroupEnumeration":null,"lensAssemblyTypeOnFrame":"full rim","frameType":"full rim","eyewearLensMaterial":"crystal","eyewearTempleMaterial":"acetate","nosepadType":"standard","release":null,"specialProjectCollection":null,"specialProjectSponsor":null,"specialProjectType":null,"specialProjectFeaturesFlag":"False","lensTreatment":"solid color","lensColor":"blue","productStyleName":null,"productFamilyModel":null,"frameFoldability":null,"roXability":"True","isLensPhotochromic":"False","isLensPolar":"False","modelCodeDisplay":"AR8107","progressiveFriendly":"classic","materialType":"zpfn","maskShield":"False","strassPresence":"False","strassPosition":null,"lensContrastEnhancement":"False","lensBaseCurve":"base 6","isLensGradient":"False","isLensMirror":"False","modelFit":"high bridge fit","modelName":null,"frontMaterial":"acetate","lensProtection":null,"templeColor":"black","frontColor":"black","isLensBlueLightFiltered":"False","genderType":"man","channelAttributes":[{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null},{"__typename":"Entity","channel":null,"styleName":null}]},"template":"{%- case genderType -%}\\n  {%- when \'MAN\' or \'man\' -%}\\n  {%- assign genderTypeFixed = \'men\' -%}\\n  {%- when \'WOMAN\' or \'woman\' -%}\\n  {%- assign genderTypeFixed = \'women\' -%}\\n  {%- when \'UNISEX\' -%}\\n  {%- assign genderTypeFixed = \'unisex\' -%}\\n{%- else -%}\\n  {%- assign genderTypeFixed = genderType | downcase -%}\\n{%- endcase -%}\\n{%- case macroAgeRange -%}\\n  {%- when \'Children\' or \'children\' -%}\\n  {%- assign genderTypeFixed = \'children\' -%}\\n{%- endcase -%}\\n{%- case lensTreatment %}\\n  {% when lensTreatment.blank? %}\\n  {%- assign caseLensTreatment = false -%}\\n  {%- when \'classic\' -%}\\n  {%- assign caseLensTreatment = false -%}\\n{%- else -%}\\n  {%- assign caseLensTreatment = lensTreatment | downcase -%}\\n{%- endcase -%}\\n{%- case isLensPolar %}\\n  {% when isLensPolar.blank? %}\\n  {%- assign caseIsLensPolar = false -%}\\n  {%- when \'False\' -%}\\n  {%- assign caseIsLensPolar = false -%}\\n{%- else -%}\\n  {%- assign caseIsLensPolar = isLensPolar -%}\\n{%- endcase -%}\\n{%- case productGroup %}\\n  {%- when \'pptical\' -%}\\n  {%- assign productGroupFixed = \'eyeglasses\' -%}\\n  {%- assign lensColor = false -%}\\n  {%- assign caseLensTreatment = false -%}\\n  {%- assign isLensPolar = false -%}\\n  {%- when \'sun\' -%}\\n  {%- assign productGroupFixed = \'sunglasses\' -%}\\n{%- else -%}\\n  {%- assign productGroupFixed = productGroup -%}\\n{%- endcase -%}\\n{%- case frameTypeDowncase %}\\n  {%- when \'progressive eligible\' -%}\\n  {%- assign frameTypeDowncase = false -%}\\n  {%- when \'full rim\' -%}\\n  {%- assign frameTypeDowncase = false -%}\\n  {%- when \'semi rim\' -%}\\n  {%- assign frameTypeDowncase = \'semi-rimless\' -%}\\n{%- endcase -%}\\n{%- case templeColor %}\\n  {%- when frontColor -%}\\n  {%- assign templeColor = false -%}\\n{%- else -%}\\n  {%- assign templeColor = templeColor | downcase -%}\\n{%- endcase -%}\\n{%- case lensContrastEnhancement %}\\n  {% when lensContrastEnhancement.blank? %}\\n  {%- assign caseLensContrastEnhancement = false -%}\\n  {% when \\"False\\" %}\\n  {%- assign caseLensContrastEnhancement = false -%}\\n{%- else -%}\\n  {%- assign caseLensContrastEnhancement = lensContrastEnhancement -%}\\n{%- endcase -%}\\n{%- case strassPresence %}\\n  {% when \\"False\\" %}\\n  {%- assign caseStrassPresence = false -%}\\n{%- else -%}\\n  {%- assign caseStrassPresence = strassPresence -%}\\n  {%- case strassPosition %}\\n    {% when \\"not present\\" %}\\n    {%- assign caseStrassPosition = false -%}\\n    {%- assign caseStrassPresence = false -%}\\n  {%- else -%}\\n    {%- assign caseStrassPresence = strassPosition -%}\\n    {%- assign caseStrassPosition = strassPresence -%}\\n  {%- endcase -%}\\n{%- endcase -%}\\n{%- case bridgeType %}\\n  {% when bridgeType.blank? %}\\n  {%- assign caseBridgeType = false -%}\\n  {%- when \'standard\' -%}\\n  {%- assign caseBridgeType = false -%}\\n{%- else -%}\\n  {%- assign caseBridgeType = bridgeType -%}\\n{%- endcase -%}\\n{%- case specialProjectType %}\\n  {% when specialProjectType.blank? %}\\n  {%- assign caseSpecialProjectType = false -%}\\n  {% when \\"collaboration\\" %}\\n  {%- assign caseSpecialProjectType = specialProjectType -%}\\n  {%- case specialProjectCollection %}\\n    {% when specialProjectCollection.blank? %}\\n    {%- assign caseSpecialProjectCollection = false -%}\\n  {%- else -%}\\n    {%- assign caseSpecialProjectCollection = specialProjectCollection -%}\\n  {%- endcase -%}\\n{%- else -%}\\n  {%- assign caseSpecialProjectType = false -%}\\n{%- endcase -%}\\n{%- case frontMaterial %}\\n  {% when frontMaterial.blank? %}\\n  {%- assign caseFrontMaterial = false -%}\\n  {%- when \'nylon\' -%}\\n  {%- assign caseFrontMaterial = false -%}\\n  {%- when \'injected\' -%}\\n  {%- assign caseFrontMaterial = false -%}\\n  {%- when \'o_matter\' -%}\\n  {%- assign caseFrontMaterial = \'o matter\' -%}\\n{%- else -%}\\n  {%- assign caseFrontMaterial = frontMaterial | downcase -%}\\n{%- endcase -%}\\n{%- case frameShape %}\\n  {% when frameShape.blank? %}\\n  {%- assign caseFrameShape = false -%}\\n{%- else -%}\\n  {%- assign caseFrameShape = frameShape | downcase -%}\\n{%- endcase -%}\\n{%- case frontColor %}\\n  {% when frontColor.blank? %}\\n  {%- assign caseFrontColor = false -%}\\n{%- else -%}\\n  {%- assign caseFrontColor = frontColor | downcase -%}\\n{%- endcase -%}\\n{%- case frontColorFinish %}\\n  {% when frontColorFinish.blank? %}\\n  {%- assign caseFrontColorFinish = false -%}\\n  {%- when \'NOT APPLICABLE\' -%}\\n  {%- assign caseFrontColorFinish = false -%}\\n{%- else -%}\\n  {%- assign caseFrontColorFinish = frontColorFinish | downcase -%}\\n{%- endcase -%}\\n\\n{%- case modelName %}\\n  {%- when modelName.blank? %}\\n  {%- assign caseModelName = false -%}\\n{%- else %}\\n  {%- assign caseModelName = modelName | append: \' \' | append: productGroupFixed -%}\\n{%- endcase -%}\\n\\n{%- if caseModelName == false %}\\n  {%- if modelCodeDisplay \041= blank %}\\n    {%- assign caseModelName = modelCodeDisplay | append: \' \' | append: productGroupFixed -%}\\n  {%- endif %}\\n{%- endif -%}\\n\\n{% if caseModelName %}\\n  {%- assign brandAndModelName = brand | append: \' \' | append: modelName -%}\\n  {{ brandAndModelName }} is a pair of {{ productGroupFixed }}. {{ modelNameFix }}\\n  {% if caseSpecialProjectCollection %}These {{ productGroupFixed }} are part of the special collaboration with {{ caseSpecialProjectCollection }}.{% endif %}\\n  {%- if modelName -%}\\n    {{ brandAndModelName }} are designed for {{ genderTypeFixed }}.{% endif %}\\n  {% if caseLensTreatment %}The lens treatment is {{ caseLensTreatment }}.{% endif %}\\n  {% if lensColor %}The lens color facet is {{ lensColor | downcase }}.{% endif %}\\n  {% if caseIsLensPolar %}The lenses are polarized.{% endif %}\\n  {% if templeColor %}The color of the temples is {{ templeColor }}.{% endif %}\\n  {% if caseFrontMaterial %}The frame material is {{ caseFrontMaterial }}.{% endif %}\\n  {% if caseFrameShape %}The shape is {{ caseFrameShape }}.{% endif %}\\n  {% if caseFrontColorFinish %}The frame color finish is {{ frontColorFinish }}.{% endif %}\\n  {% if caseFrontColor %}The frame color is {{ caseFrontColor }}.{% endif %}\\n  {% if caseBridgeType %}It features a {{ caseBridgeType | downcase }}.{% endif %}\\n  {% if frameTypeDowncase %}The type of the frame is {{ frameTypeDowncase | downcase }}.{% endif %}\\n  {% if caseLensContrastEnhancement %}This pair of sunglasses feature lens contrast enhancements.{% endif %}\\n  {% if caseStrassPosition %}There are strass on these {{ productGroupFixed }}.{% endif %}\\n  {% if caseStrassPresence %}These sunglasses feature strass on {{ strassPosition | downcase }}.{% endif %}\\n  {% if frameFoldability %}It is foldable.{% endif %}\\n  ####\\n{% endif %}"},{"data":{"__typename":"Entity","id":"https://data.luxottica.com/eyewear-sun/0AR8110__501787","brand":"Giorgio Armani","name":"0AR8110__501787","type":"http://schema.org/Product","category":"Optical","productGroup":"sun","bridgeType":"standard","frameShape":"square","faceShape":"Oval-Round","frameFitting":"wide","frontColorFinish":"polished","macroAgeRange":"adult","ageGroupEnumeration":null,"lensAssemblyTypeOnFrame":"full rim","frameType":"full rim","eyewearLensMaterial":"polyamide","eyewearTempleMaterial":"acetate","nosepadType":"standard","release":null,"specialProjectCollection":null,"specialProjectSponsor":null,"specialProjectType":null,"specialProjectFeaturesFlag":"False","lensTreatment":"solid color","lensColor":"grey","productStyleName":null,"productFamilyModel":null,"frameFoldability":null,"roXability":"True","isLensPhotochromic":"False","isLensPolar":"False","modelCodeDisplay":"AR8110","progressiveFriendly":"classic","materialType":"zpfn","maskShield":"False","strassPresence":"False","strassPosition":null,"lensContrastEnhancement":"False","lensBaseCurve":"base 6","isLensGradient":"False","isLensMirror":"False","modelFit":"high bridge fit","modelName":null,"frontMaterial":"acetate","lensProtection":null,"templeColor":"havana","frontColor":"black","isLensBlueLightFiltered":"False","genderType":"woman","channelAttributes":[{"__typename":"Entity","channel":"SGS - Sunglasses Shop","styleName":"AR8110"},{"__typename":"Entity","channel":"TO - Target Optical","styleName":"AR8110"},{"__typename":"Entity","channel":"VO - Vogue","styleName":"AR8110"},{"__typename":"Entity","channel":"AN - Arnette","styleName":"AR8110"},{"__typename":"Entity","channel":"OO - Oakley","styleName":"AR8110"},{"__typename":"Entity","channel":"FD - Frames Direct","styleName":"AR8110"},{"__typename":"Entity","channel":"SS - SmartShopper","styleName":"AR8110"},{"__typename":"Entity","channel":"AM - Alain Mikli","styleName":"AR8110"},{"__typename":"Entity","channel":"NA - Native","styleName":"AR8110"},{"__typename":"Entity","channel":"SV - Salmoiraghi e Vigan&#xF2;","styleName":"AR8110"},{"__typename":"Entity","channel":"SGH - Sunglasshut","styleName":"AR8110"},{"__typename":"Entity","channel":"OPSM - OPSM","styleName":"AR8110"},{"__typename":"Entity","channel":"LC - Lens Crafters","styleName":"AR8110"},{"__typename":"Entity","channel":"GL - Glasses","styleName":"AR8110"},{"__typename":"Entity","channel":"OSI - OSI","styleName":"AR8110"},{"__typename":"Entity","channel":"CM - Costa Del Mar","styleName":"AR8110"},{"__typename":"Entity","channel":"MyLuxottica - MyLuxottica","styleName":"AR8110"},{"__typename":"Entity","channel":"PO - Persol","styleName":"AR8110"},{"__typename":"Entity","channel":"OP - Oliver People","styleName":"AR8110"},{"__typename":"Entity","channel":"RB - RayBan","styleName":"AR8110"},{"__typename":"Entity","channel":"VD - Vision Direct","styleName":"AR8110"},{"__typename":"Entity","channel":"CL - Clearly","styleName":"AR8110"},{"__typename":"Entity","channel":"DC - David Clulow","styleName":"AR8110"}]},"template":"{%- case genderType -%}\\n  {%- when \'MAN\' or \'man\' -%}\\n  {%- assign genderTypeFixed = \'men\' -%}\\n  {%- when \'WOMAN\' or \'woman\' -%}\\n  {%- assign genderTypeFixed = \'women\' -%}\\n  {%- when \'UNISEX\' -%}\\n  {%- assign genderTypeFixed = \'unisex\' -%}\\n{%- else -%}\\n  {%- assign genderTypeFixed = genderType | downcase -%}\\n{%- endcase -%}\\n{%- case macroAgeRange -%}\\n  {%- when \'Children\' or \'children\' -%}\\n  {%- assign genderTypeFixed = \'children\' -%}\\n{%- endcase -%}\\n{%- case lensTreatment %}\\n  {% when lensTreatment.blank? %}\\n  {%- assign caseLensTreatment = false -%}\\n  {%- when \'classic\' -%}\\n  {%- assign caseLensTreatment = false -%}\\n{%- else -%}\\n  {%- assign caseLensTreatment = lensTreatment | downcase -%}\\n{%- endcase -%}\\n{%- case isLensPolar %}\\n  {% when isLensPolar.blank? %}\\n  {%- assign caseIsLensPolar = false -%}\\n  {%- when \'False\' -%}\\n  {%- assign caseIsLensPolar = false -%}\\n{%- else -%}\\n  {%- assign caseIsLensPolar = isLensPolar -%}\\n{%- endcase -%}\\n{%- case productGroup %}\\n  {%- when \'pptical\' -%}\\n  {%- assign productGroupFixed = \'eyeglasses\' -%}\\n  {%- assign lensColor = false -%}\\n  {%- assign caseLensTreatment = false -%}\\n  {%- assign isLensPolar = false -%}\\n  {%- when \'sun\' -%}\\n  {%- assign productGroupFixed = \'sunglasses\' -%}\\n{%- else -%}\\n  {%- assign productGroupFixed = productGroup -%}\\n{%- endcase -%}\\n{%- case frameTypeDowncase %}\\n  {%- when \'progressive eligible\' -%}\\n  {%- assign frameTypeDowncase = false -%}\\n  {%- when \'full rim\' -%}\\n  {%- assign frameTypeDowncase = false -%}\\n  {%- when \'semi rim\' -%}\\n  {%- assign frameTypeDowncase = \'semi-rimless\' -%}\\n{%- endcase -%}\\n{%- case templeColor %}\\n  {%- when frontColor -%}\\n  {%- assign templeColor = false -%}\\n{%- else -%}\\n  {%- assign templeColor = templeColor | downcase -%}\\n{%- endcase -%}\\n{%- case lensContrastEnhancement %}\\n  {% when lensContrastEnhancement.blank? %}\\n  {%- assign caseLensContrastEnhancement = false -%}\\n  {% when \\"False\\" %}\\n  {%- assign caseLensContrastEnhancement = false -%}\\n{%- else -%}\\n  {%- assign caseLensContrastEnhancement = lensContrastEnhancement -%}\\n{%- endcase -%}\\n{%- case strassPresence %}\\n  {% when \\"False\\" %}\\n  {%- assign caseStrassPresence = false -%}\\n{%- else -%}\\n  {%- assign caseStrassPresence = strassPresence -%}\\n  {%- case strassPosition %}\\n    {% when \\"not present\\" %}\\n    {%- assign caseStrassPosition = false -%}\\n    {%- assign caseStrassPresence = false -%}\\n  {%- else -%}\\n    {%- assign caseStrassPresence = strassPosition -%}\\n    {%- assign caseStrassPosition = strassPresence -%}\\n  {%- endcase -%}\\n{%- endcase -%}\\n{%- case bridgeType %}\\n  {% when bridgeType.blank? %}\\n  {%- assign caseBridgeType = false -%}\\n  {%- when \'standard\' -%}\\n  {%- assign caseBridgeType = false -%}\\n{%- else -%}\\n  {%- assign caseBridgeType = bridgeType -%}\\n{%- endcase -%}\\n{%- case specialProjectType %}\\n  {% when specialProjectType.blank? %}\\n  {%- assign caseSpecialProjectType = false -%}\\n  {% when \\"collaboration\\" %}\\n  {%- assign caseSpecialProjectType = specialProjectType -%}\\n  {%- case specialProjectCollection %}\\n    {% when specialProjectCollection.blank? %}\\n    {%- assign caseSpecialProjectCollection = false -%}\\n  {%- else -%}\\n    {%- assign caseSpecialProjectCollection = specialProjectCollection -%}\\n  {%- endcase -%}\\n{%- else -%}\\n  {%- assign caseSpecialProjectType = false -%}\\n{%- endcase -%}\\n{%- case frontMaterial %}\\n  {% when frontMaterial.blank? %}\\n  {%- assign caseFrontMaterial = false -%}\\n  {%- when \'nylon\' -%}\\n  {%- assign caseFrontMaterial = false -%}\\n  {%- when \'injected\' -%}\\n  {%- assign caseFrontMaterial = false -%}\\n  {%- when \'o_matter\' -%}\\n  {%- assign caseFrontMaterial = \'o matter\' -%}\\n{%- else -%}\\n  {%- assign caseFrontMaterial = frontMaterial | downcase -%}\\n{%- endcase -%}\\n{%- case frameShape %}\\n  {% when frameShape.blank? %}\\n  {%- assign caseFrameShape = false -%}\\n{%- else -%}\\n  {%- assign caseFrameShape = frameShape | downcase -%}\\n{%- endcase -%}\\n{%- case frontColor %}\\n  {% when frontColor.blank? %}\\n  {%- assign caseFrontColor = false -%}\\n{%- else -%}\\n  {%- assign caseFrontColor = frontColor | downcase -%}\\n{%- endcase -%}\\n{%- case frontColorFinish %}\\n  {% when frontColorFinish.blank? %}\\n  {%- assign caseFrontColorFinish = false -%}\\n  {%- when \'NOT APPLICABLE\' -%}\\n  {%- assign caseFrontColorFinish = false -%}\\n{%- else -%}\\n  {%- assign caseFrontColorFinish = frontColorFinish | downcase -%}\\n{%- endcase -%}\\n\\n{%- case modelName %}\\n  {%- when modelName.blank? %}\\n  {%- assign caseModelName = false -%}\\n{%- else %}\\n  {%- assign caseModelName = modelName | append: \' \' | append: productGroupFixed -%}\\n{%- endcase -%}\\n\\n{%- if caseModelName == false %}\\n  {%- if modelCodeDisplay \041= blank %}\\n    {%- assign caseModelName = modelCodeDisplay | append: \' \' | append: productGroupFixed -%}\\n  {%- endif %}\\n{%- endif -%}\\n\\n{% if caseModelName %}\\n  {%- assign brandAndModelName = brand | append: \' \' | append: modelName -%}\\n  {{ brandAndModelName }} is a pair of {{ productGroupFixed }}. {{ modelNameFix }}\\n  {% if caseSpecialProjectCollection %}These {{ productGroupFixed }} are part of the special collaboration with {{ caseSpecialProjectCollection }}.{% endif %}\\n  {%- if modelName -%}\\n    {{ brandAndModelName }} are designed for {{ genderTypeFixed }}.{% endif %}\\n  {% if caseLensTreatment %}The lens treatment is {{ caseLensTreatment }}.{% endif %}\\n  {% if lensColor %}The lens color facet is {{ lensColor | downcase }}.{% endif %}\\n  {% if caseIsLensPolar %}The lenses are polarized.{% endif %}\\n  {% if templeColor %}The color of the temples is {{ templeColor }}.{% endif %}\\n  {% if caseFrontMaterial %}The frame material is {{ caseFrontMaterial }}.{% endif %}\\n  {% if caseFrameShape %}The shape is {{ caseFrameShape }}.{% endif %}\\n  {% if caseFrontColorFinish %}The frame color finish is {{ frontColorFinish }}.{% endif %}\\n  {% if caseFrontColor %}The frame color is {{ caseFrontColor }}.{% endif %}\\n  {% if caseBridgeType %}It features a {{ caseBridgeType | downcase }}.{% endif %}\\n  {% if frameTypeDowncase %}The type of the frame is {{ frameTypeDowncase | downcase }}.{% endif %}\\n  {% if caseLensContrastEnhancement %}This pair of sunglasses feature lens contrast enhancements.{% endif %}\\n  {% if caseStrassPosition %}There are strass on these {{ productGroupFixed }}.{% endif %}\\n  {% if caseStrassPresence %}These sunglasses feature strass on {{ strassPosition | downcase }}.{% endif %}\\n  {% if frameFoldability %}It is foldable.{% endif %}\\n  ####\\n{% endif %}"}]'
+     --data-raw $'[...json payload 1...,...json payload 2...,...,...json payload n...]'
 ```
 
-* Generate a Preview Completion
+### Generate a Preview Completion
+
+It is possible to test different settings by create a completion on the fly:
 
 ```sh
 curl 'https://api.wordlift.io/content-generation/completions' -X POST \
     -H 'Accept: text/plain' \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer <your-oauth2-access-token>' \
-     --data-raw '{"frequency_penalty":0.5,"stop":"###","prompt":"Giorgio Armani is a pair of sunglasses. The lens treatment is gradient. The lens color facet is gradient green. The frame material is metal. The shape is square. The frame color finish is polished. The frame color is pale gold. There are strass on these sunglasses. These sunglasses feature strass on strass on metal component and. ####","max_tokens":110,"temperature":0.7,"model_id":162,"presence_penalty":0.5,"min_words":45,"logit_bias":{}}'
+     --data-raw '{"frequency_penalty":0.5,"stop":"###","prompt":"John Smith is a pair of sunglasses. The lens treatment is gradient. The lens color facet is gradient green. The frame material is metal. The shape is square. The frame color finish is polished. The frame color is pale gold. There are strass on these sunglasses. These sunglasses feature strass on strass on metal component and. ####","max_tokens":110,"temperature":0.7,"model_id":162,"presence_penalty":0.5,"min_words":45,"logit_bias":{}}'
 ```
 
+### Add Word Biases to a Content Generation Project
 
-* Add Word Biases to a Content Generation Project
+Once the Project is created and its ID is known, to add Word Biases to a Project use the following API:
 
 ```sh
-curl 'https://api.wordlift.io/content-generation/content-generations/608/words/imports' -X PUT \
+curl 'https://api.wordlift.io/content-generation/content-generations/<project-id>/words/imports' -X PUT \
     -H 'Accept: */*' \
     -H 'content-type: text/csv' \
     -H 'Authorization: Bearer <your-oauth2-access-token>' \
      --data-raw 'penalize,clear,2867,-3'
-```
-
-* List Rules
-
-```sh
-curl 'https://api.wordlift.io/content-generation/content-generations/608/rules?limit=2147483647' \
-    -H 'Accept: application/json' \
-    -H 'Authorization: Bearer <your-oauth2-access-token>'
-```
-
-* Create Field Rule
-
-```sh
-curl 'https://api.wordlift.io/content-generation/content-generations/608/rules' -X POST \
-    -H 'Accept: application/json' \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer <your-oauth2-access-token>' \
-     --data-raw '{"name":"Frame Material is Required","level":"REQUIRED","what_operand_lhs":"EVERYWHERE","what_operator":"CONTAINS","what_operand_rhs":"{{frontMaterial}}","when_operand_lhs":"frontMaterial","when_operator":"NOT_EQUALS","when_operand_rhs":"plastic,nylon,injected,propionate","fixes":[{"type":"OPEN_AI","what":"As {{brand}} content editor, read the following sentence and rewrite it by adding a reference to frame material being {{frontMaterial}}: \"{{completion}}\"."}],"type":"field"}'
-```
-
-* Create a Word Rule
-
-```sh
-curl 'https://api.wordlift.io/content-generation/content-generations/608/rules' -X POST \
-    -H 'Accept: application/json' \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer <your-oauth2-access-token>' \
-     --data-raw '{"name":"Logo words are not present","level":"RECOMMENDED","what_operand_lhs":"EVERYWHERE","what_operator":"DOESNT_CONTAIN","what_operand_rhs":"values:logo,signature,embleme,branding","when_operand_lhs":"","when_operator":"ALWAYS","when_operand_rhs":"","fixes":[{"type":"OPEN_AI","what":"As {{brand}} content editor, read the following sentence and rewrite it by removing any reference to the {{value}}: \"{{completion}}\""}],"type":"word"}'
-```
-
-* Sync
-
-```sh
-curl 'https://api.wordlift.io/content-generation/content-generations/608/syncs' -X POST \
-    -H 'Accept: */*' \
-    -H 'Authorization: Bearer <your-oauth2-access-token>' \
-    -H 'Content-Length: 0'
-```
-
-* Load a Content Generation Project
-
-```sh
-curl 'https://api.wordlift.io/content-generation/content-generations/608' \
-    -H 'Accept: application/json' \
-    -H 'Authorization: Bearer <your-oauth2-access-token>'
-```
-
-* List Rules
-
-```sh
-curl 'https://api.wordlift.io/content-generation/content-generations/608/rules?limit=2147483647' \
-    -H 'Accept: application/json' \
-    -H 'Authorization: Bearer <your-oauth2-access-token>'
-```
-
-* List Content Generation Project's Record
-
-```sh
-curl 'https://api.wordlift.io/content-generation/content-generations/608/records-sse' \
-    -H 'Accept: */*' \
-    -H 'Authorization: Bearer <your-oauth2-access-token>'
-```
-
-* Get Project's Stats
-
-```sh
-curl 'https://api.wordlift.io/content-generation/content-generations/608/stats' \
-    -H 'Accept: application/json' \
-    -H 'Authorization: Bearer <your-oauth2-access-token>'
-```
-
-* Regenerate One Record Completion
-
-```sh
-curl 'https://api.wordlift.io/content-generation/content-generations/608/records/253191' -X PUT \
-    -H 'Accept: application/json' \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer <your-oauth2-access-token>' \
-     --data-raw '{"id":253191,"prompt":"Costa Diego is a pair of sunglasses. Costa Diego are designed for men. The lens treatment is mirror. The lens color facet is gray silver mirror. The lenses are polarized. The shape is rectangle. The frame color finish is matte. The frame color is matte black. This pair of sunglasses feature lens contrast enhancements. ####","completion":null,"data":{"id":"https://data.luxottica.com/eyewear-sun/06S9034__903417","name":"06S9034__903417","type":"http://schema.org/Product","brand":"Costa","release":null,"category":"Optical","modelFit":"high bridge fit","faceShape":"Oval-Round","frameType":"full rim","lensColor":"gray silver mirror","modelName":"Diego","bridgeType":"standard","frameShape":"rectangle","frontColor":"matte black","genderType":"man","maskShield":"False","roXability":"True","isLensPolar":"True","nosepadType":"plastic standard","templeColor":"matte black","frameFitting":"wide","isLensMirror":"True","materialType":"zpfn","productGroup":"sun","frontMaterial":"injected","lensBaseCurve":"base 8 decentered","lensTreatment":"mirror","macroAgeRange":"adult","isLensGradient":"False","lensProtection":null,"strassPosition":"not present","strassPresence":"False","frameFoldability":null,"frontColorFinish":"matte","modelCodeDisplay":"6S9034","productStyleName":null,"channelAttributes":[{"channel":"DC - David Clulow","styleName":"6S9034 Diego"},{"channel":"LC - Lens Crafters","styleName":"6S9034 Diego"},{"channel":"AN - Arnette","styleName":"Diego"},{"channel":"VO - Vogue","styleName":"Diego"},{"channel":"OP - Oliver People","styleName":"Diego"},{"channel":"VD - Vision Direct","styleName":"6S9034 Diego"},{"channel":"OSI - OSI","styleName":"Diego"},{"channel":"SV - Salmoiraghi e Vigan&#xF2;","styleName":"6S9034 Diego"},{"channel":"FD - Frames Direct","styleName":"6S9034 Diego"},{"channel":"SS - SmartShopper","styleName":"6S9034 Diego"},{"channel":"OPSM - OPSM","styleName":"6S9034 Diego"},{"channel":"NA - Native","styleName":"Diego"},{"channel":"CM - Costa Del Mar","styleName":"Diego"},{"channel":"MyLuxottica - MyLuxottica","styleName":"6S9034 Diego"},{"channel":"OO - Oakley","styleName":"Diego"},{"channel":"SGH - Sunglasshut","styleName":"6S9034 Diego"},{"channel":"SGS - Sunglasses Shop","styleName":"6S9034 Diego"},{"channel":"CL - Clearly","styleName":"6S9034 Diego"},{"channel":"TO - Target Optical","styleName":"6S9034 Diego"},{"channel":"RB - RayBan","styleName":"Diego"},{"channel":"GL - Glasses","styleName":"6S9034 Diego"},{"channel":"PO - Persol","styleName":"Diego"},{"channel":"AM - Alain Mikli","styleName":"Diego"}],"isLensPhotochromic":"False","productFamilyModel":"Diego","specialProjectType":"collaboration","ageGroupEnumeration":null,"eyewearLensMaterial":"polycarbonate","progressiveFriendly":"classic","eyewearTempleMaterial":"injected","specialProjectSponsor":null,"isLensBlueLightFiltered":"False","lensAssemblyTypeOnFrame":"full rim","lensContrastEnhancement":"True","specialProjectCollection":null,"specialProjectFeaturesFlag":"True"},"errors":null,"warnings":null,"content_generation_id":608,"not_in_prompt_words":[],"is_accepted":false,"has_upvote":false,"modified_at":"2023-12-19T09:26:03.605418090Z","validated_at":"2023-12-19T09:26:03.605287189Z","status":"valid"}'
-```
-
-* Get a Record Validation Report
-
-```sh
-curl 'https://api.wordlift.io/content-generation/content-generations/608/records/253191/validations' -X POST \
-    -H 'Accept: application/json' \
-    -H 'Authorization: Bearer <your-oauth2-access-token>' \
-    -H 'Content-Length: 0'
-```
-
-* Bulk Operations on Record: Regenerate Completions
-
-```sh
-curl 'https://api.wordlift.io/content-generation/content-generations/608/records-collection' -X PUT \
-    -H 'Accept: application/json' \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer <your-oauth2-access-token>' \
-     --data-raw '[{"id":253191,"prompt":"Costa Diego is a pair of sunglasses. Costa Diego are designed for men. The lens treatment is mirror. The lens color facet is gray silver mirror. The lenses are polarized. The shape is rectangle. The frame color finish is matte. The frame color is matte black. This pair of sunglasses feature lens contrast enhancements. ####","completion":null,"data":{"id":"https://data.luxottica.com/eyewear-sun/06S9034__903417","name":"06S9034__903417","type":"http://schema.org/Product","brand":"Costa","release":null,"category":"Optical","modelFit":"high bridge fit","faceShape":"Oval-Round","frameType":"full rim","lensColor":"gray silver mirror","modelName":"Diego","bridgeType":"standard","frameShape":"rectangle","frontColor":"matte black","genderType":"man","maskShield":"False","roXability":"True","isLensPolar":"True","nosepadType":"plastic standard","templeColor":"matte black","frameFitting":"wide","isLensMirror":"True","materialType":"zpfn","productGroup":"sun","frontMaterial":"injected","lensBaseCurve":"base 8 decentered","lensTreatment":"mirror","macroAgeRange":"adult","isLensGradient":"False","lensProtection":null,"strassPosition":"not present","strassPresence":"False","frameFoldability":null,"frontColorFinish":"matte","modelCodeDisplay":"6S9034","productStyleName":null,"channelAttributes":[{"channel":"DC - David Clulow","styleName":"6S9034 Diego"},{"channel":"LC - Lens Crafters","styleName":"6S9034 Diego"},{"channel":"AN - Arnette","styleName":"Diego"},{"channel":"VO - Vogue","styleName":"Diego"},{"channel":"OP - Oliver People","styleName":"Diego"},{"channel":"VD - Vision Direct","styleName":"6S9034 Diego"},{"channel":"OSI - OSI","styleName":"Diego"},{"channel":"SV - Salmoiraghi e Vigan&#xF2;","styleName":"6S9034 Diego"},{"channel":"FD - Frames Direct","styleName":"6S9034 Diego"},{"channel":"SS - SmartShopper","styleName":"6S9034 Diego"},{"channel":"OPSM - OPSM","styleName":"6S9034 Diego"},{"channel":"NA - Native","styleName":"Diego"},{"channel":"CM - Costa Del Mar","styleName":"Diego"},{"channel":"MyLuxottica - MyLuxottica","styleName":"6S9034 Diego"},{"channel":"OO - Oakley","styleName":"Diego"},{"channel":"SGH - Sunglasshut","styleName":"6S9034 Diego"},{"channel":"SGS - Sunglasses Shop","styleName":"6S9034 Diego"},{"channel":"CL - Clearly","styleName":"6S9034 Diego"},{"channel":"TO - Target Optical","styleName":"6S9034 Diego"},{"channel":"RB - RayBan","styleName":"Diego"},{"channel":"GL - Glasses","styleName":"6S9034 Diego"},{"channel":"PO - Persol","styleName":"Diego"},{"channel":"AM - Alain Mikli","styleName":"Diego"}],"isLensPhotochromic":"False","productFamilyModel":"Diego","specialProjectType":"collaboration","ageGroupEnumeration":null,"eyewearLensMaterial":"polycarbonate","progressiveFriendly":"classic","eyewearTempleMaterial":"injected","specialProjectSponsor":null,"isLensBlueLightFiltered":"False","lensAssemblyTypeOnFrame":"full rim","lensContrastEnhancement":"True","specialProjectCollection":null,"specialProjectFeaturesFlag":"True"},"errors":null,"warnings":null,"content_generation_id":608,"not_in_prompt_words":[],"is_accepted":false,"has_upvote":false,"modified_at":"2023-12-19T09:28:07.255285469Z","validated_at":"2023-12-19T09:28:06.817717Z","status":"valid"},{"id":253192,"prompt":"Giorgio Armani is a pair of sunglasses. The lens treatment is gradient. The lens color facet is gradient green. The frame material is metal. The shape is square. The frame color finish is polished. The frame color is pale gold. There are strass on these sunglasses. These sunglasses feature strass on strass on metal component and. ####","completion":null,"data":{"id":"https://data.luxottica.com/eyewear-sun/0AR6123B__30028E","name":"0AR6123B__30028E","type":"http://schema.org/Product","brand":"Giorgio Armani","release":null,"category":"Optical","modelFit":"adjustable nosepads","faceShape":"Round-Oval-Square","frameType":"rimless","lensColor":"gradient green","modelName":null,"bridgeType":"standard","frameShape":"square","frontColor":"pale gold","genderType":"woman","maskShield":"False","roXability":"False","isLensPolar":"False","nosepadType":"metal standard","templeColor":"pale gold","frameFitting":"regular","isLensMirror":"False","materialType":"zpfn","productGroup":"sun","frontMaterial":"metal","lensBaseCurve":"base 4","lensTreatment":"gradient","macroAgeRange":"adult","isLensGradient":"True","lensProtection":null,"strassPosition":"strass on metal component and","strassPresence":"True","frameFoldability":null,"frontColorFinish":"polished","modelCodeDisplay":"AR6123B","productStyleName":null,"channelAttributes":[{"channel":null,"styleName":null},{"channel":"PO - Persol","styleName":"AR6123B"},{"channel":"MyLuxottica - MyLuxottica","styleName":"AR6123B"},{"channel":"SGH - Sunglasshut","styleName":"AR6123B"},{"channel":"OP - Oliver People","styleName":"AR6123B"},{"channel":"OPSM - OPSM","styleName":"AR6123B"},{"channel":"TO - Target Optical","styleName":"AR6123B"},{"channel":"FD - Frames Direct","styleName":"AR6123B"},{"channel":null,"styleName":null},{"channel":"CM - Costa Del Mar","styleName":"AR6123B"},{"channel":"VO - Vogue","styleName":"AR6123B"},{"channel":"SS - SmartShopper","styleName":"AR6123B"},{"channel":"LC - Lens Crafters","styleName":"AR6123B"},{"channel":null,"styleName":null},{"channel":"OSI - OSI","styleName":"AR6123B"},{"channel":null,"styleName":null},{"channel":"DC - David Clulow","styleName":"AR6123B"},{"channel":"OO - Oakley","styleName":"AR6123B"},{"channel":"AN - Arnette","styleName":"AR6123B"},{"channel":"NA - Native","styleName":"AR6123B"},{"channel":"RB - RayBan","styleName":"AR6123B"},{"channel":"GL - Glasses","styleName":"AR6123B"},{"channel":"AM - Alain Mikli","styleName":"AR6123B"}],"isLensPhotochromic":"False","productFamilyModel":null,"specialProjectType":"event","ageGroupEnumeration":null,"eyewearLensMaterial":"polyamide","progressiveFriendly":"classic","eyewearTempleMaterial":"metal","specialProjectSponsor":null,"isLensBlueLightFiltered":"False","lensAssemblyTypeOnFrame":"rimless","lensContrastEnhancement":"False","specialProjectCollection":null,"specialProjectFeaturesFlag":"True"},"errors":null,"warnings":null,"content_generation_id":608,"not_in_prompt_words":[],"is_accepted":false,"has_upvote":false,"modified_at":"2023-12-19T09:26:03.688369862Z","validated_at":"2023-12-19T09:26:03.688220461Z","status":"valid"},{"id":253193,"prompt":"Giorgio Armani is a pair of sunglasses. The lens treatment is solid color. The lens color facet is blue. The frame material is acetate. The shape is square. The frame color finish is polished. The frame color is black. It features a key bridge. ####","completion":null,"data":{"id":"https://data.luxottica.com/eyewear-sun/0AR8107__5017R5","name":"0AR8107__5017R5","type":"http://schema.org/Product","brand":"Giorgio Armani","release":null,"category":"Optical","modelFit":"high bridge fit","faceShape":"Oval-Round","frameType":"full rim","lensColor":"blue","modelName":null,"bridgeType":"key bridge","frameShape":"square","frontColor":"black","genderType":"man","maskShield":"False","roXability":"True","isLensPolar":"False","nosepadType":"standard","templeColor":"black","frameFitting":"regular","isLensMirror":"False","materialType":"zpfn","productGroup":"sun","frontMaterial":"acetate","lensBaseCurve":"base 6","lensTreatment":"solid color","macroAgeRange":"adult","isLensGradient":"False","lensProtection":null,"strassPosition":null,"strassPresence":"False","frameFoldability":null,"frontColorFinish":"polished","modelCodeDisplay":"AR8107","productStyleName":null,"channelAttributes":[{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null}],"isLensPhotochromic":"False","productFamilyModel":null,"specialProjectType":null,"ageGroupEnumeration":null,"eyewearLensMaterial":"crystal","progressiveFriendly":"classic","eyewearTempleMaterial":"acetate","specialProjectSponsor":null,"isLensBlueLightFiltered":"False","lensAssemblyTypeOnFrame":"full rim","lensContrastEnhancement":"False","specialProjectCollection":null,"specialProjectFeaturesFlag":"False"},"errors":null,"warnings":null,"content_generation_id":608,"not_in_prompt_words":[],"is_accepted":false,"has_upvote":false,"modified_at":"2023-12-19T09:26:04.080491142Z","validated_at":"2023-12-19T09:26:04.080346940Z","status":"valid"},{"id":253194,"prompt":"Giorgio Armani is a pair of sunglasses. The lens treatment is solid color. The lens color facet is grey. The color of the temples is havana. The frame material is acetate. The shape is square. The frame color finish is polished. The frame color is black. ####","completion":null,"data":{"id":"https://data.luxottica.com/eyewear-sun/0AR8110__501787","name":"0AR8110__501787","type":"http://schema.org/Product","brand":"Giorgio Armani","release":null,"category":"Optical","modelFit":"high bridge fit","faceShape":"Oval-Round","frameType":"full rim","lensColor":"grey","modelName":null,"bridgeType":"standard","frameShape":"square","frontColor":"black","genderType":"woman","maskShield":"False","roXability":"True","isLensPolar":"False","nosepadType":"standard","templeColor":"havana","frameFitting":"wide","isLensMirror":"False","materialType":"zpfn","productGroup":"sun","frontMaterial":"acetate","lensBaseCurve":"base 6","lensTreatment":"solid color","macroAgeRange":"adult","isLensGradient":"False","lensProtection":null,"strassPosition":null,"strassPresence":"False","frameFoldability":null,"frontColorFinish":"polished","modelCodeDisplay":"AR8110","productStyleName":null,"channelAttributes":[{"channel":"SGS - Sunglasses Shop","styleName":"AR8110"},{"channel":"TO - Target Optical","styleName":"AR8110"},{"channel":"VO - Vogue","styleName":"AR8110"},{"channel":"AN - Arnette","styleName":"AR8110"},{"channel":"OO - Oakley","styleName":"AR8110"},{"channel":"FD - Frames Direct","styleName":"AR8110"},{"channel":"SS - SmartShopper","styleName":"AR8110"},{"channel":"AM - Alain Mikli","styleName":"AR8110"},{"channel":"NA - Native","styleName":"AR8110"},{"channel":"SV - Salmoiraghi e Vigan&#xF2;","styleName":"AR8110"},{"channel":"SGH - Sunglasshut","styleName":"AR8110"},{"channel":"OPSM - OPSM","styleName":"AR8110"},{"channel":"LC - Lens Crafters","styleName":"AR8110"},{"channel":"GL - Glasses","styleName":"AR8110"},{"channel":"OSI - OSI","styleName":"AR8110"},{"channel":"CM - Costa Del Mar","styleName":"AR8110"},{"channel":"MyLuxottica - MyLuxottica","styleName":"AR8110"},{"channel":"PO - Persol","styleName":"AR8110"},{"channel":"OP - Oliver People","styleName":"AR8110"},{"channel":"RB - RayBan","styleName":"AR8110"},{"channel":"VD - Vision Direct","styleName":"AR8110"},{"channel":"CL - Clearly","styleName":"AR8110"},{"channel":"DC - David Clulow","styleName":"AR8110"}],"isLensPhotochromic":"False","productFamilyModel":null,"specialProjectType":null,"ageGroupEnumeration":null,"eyewearLensMaterial":"polyamide","progressiveFriendly":"classic","eyewearTempleMaterial":"acetate","specialProjectSponsor":null,"isLensBlueLightFiltered":"False","lensAssemblyTypeOnFrame":"full rim","lensContrastEnhancement":"False","specialProjectCollection":null,"specialProjectFeaturesFlag":"False"},"errors":null,"warnings":null,"content_generation_id":608,"not_in_prompt_words":[],"is_accepted":false,"has_upvote":false,"modified_at":"2023-12-19T09:26:05.677712692Z","validated_at":"2023-12-19T09:26:05.677532790Z","status":"valid"}]'
-```
-
-* Accept a Record
-
-```sh
-curl 'https://api.wordlift.io/content-generation/content-generations/608/records/253191' -X PUT \
-    -H 'Accept: application/json' \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer <your-oauth2-access-token>' \
-     --data-raw '{"id":253191,"prompt":"Costa Diego is a pair of sunglasses. Costa Diego are designed for men. The lens treatment is mirror. The lens color facet is gray silver mirror. The lenses are polarized. The shape is rectangle. The frame color finish is matte. The frame color is matte black. This pair of sunglasses feature lens contrast enhancements. ####","completion":"Costa Diego are a stylish choice for those seeking a versatile everyday accessory. The matte black frames exude sophistication and feature lens contrast enhancement, while the gray silver mirror lenses offer a distinctive touch of style. These rectangle-shaped shades are designed for optimal comfort and feature polarized lenses that provide optimal protection from harmful UV rays and reduce glare.","data":{"id":"https://data.luxottica.com/eyewear-sun/06S9034__903417","name":"06S9034__903417","type":"http://schema.org/Product","brand":"Costa","release":null,"category":"Optical","modelFit":"high bridge fit","faceShape":"Oval-Round","frameType":"full rim","lensColor":"gray silver mirror","modelName":"Diego","bridgeType":"standard","frameShape":"rectangle","frontColor":"matte black","genderType":"man","maskShield":"False","roXability":"True","isLensPolar":"True","nosepadType":"plastic standard","templeColor":"matte black","frameFitting":"wide","isLensMirror":"True","materialType":"zpfn","productGroup":"sun","frontMaterial":"injected","lensBaseCurve":"base 8 decentered","lensTreatment":"mirror","macroAgeRange":"adult","isLensGradient":"False","lensProtection":null,"strassPosition":"not present","strassPresence":"False","frameFoldability":null,"frontColorFinish":"matte","modelCodeDisplay":"6S9034","productStyleName":null,"channelAttributes":[{"channel":"DC - David Clulow","styleName":"6S9034 Diego"},{"channel":"LC - Lens Crafters","styleName":"6S9034 Diego"},{"channel":"AN - Arnette","styleName":"Diego"},{"channel":"VO - Vogue","styleName":"Diego"},{"channel":"OP - Oliver People","styleName":"Diego"},{"channel":"VD - Vision Direct","styleName":"6S9034 Diego"},{"channel":"OSI - OSI","styleName":"Diego"},{"channel":"SV - Salmoiraghi e Vigan&#xF2;","styleName":"6S9034 Diego"},{"channel":"FD - Frames Direct","styleName":"6S9034 Diego"},{"channel":"SS - SmartShopper","styleName":"6S9034 Diego"},{"channel":"OPSM - OPSM","styleName":"6S9034 Diego"},{"channel":"NA - Native","styleName":"Diego"},{"channel":"CM - Costa Del Mar","styleName":"Diego"},{"channel":"MyLuxottica - MyLuxottica","styleName":"6S9034 Diego"},{"channel":"OO - Oakley","styleName":"Diego"},{"channel":"SGH - Sunglasshut","styleName":"6S9034 Diego"},{"channel":"SGS - Sunglasses Shop","styleName":"6S9034 Diego"},{"channel":"CL - Clearly","styleName":"6S9034 Diego"},{"channel":"TO - Target Optical","styleName":"6S9034 Diego"},{"channel":"RB - RayBan","styleName":"Diego"},{"channel":"GL - Glasses","styleName":"6S9034 Diego"},{"channel":"PO - Persol","styleName":"Diego"},{"channel":"AM - Alain Mikli","styleName":"Diego"}],"isLensPhotochromic":"False","productFamilyModel":"Diego","specialProjectType":"collaboration","ageGroupEnumeration":null,"eyewearLensMaterial":"polycarbonate","progressiveFriendly":"classic","eyewearTempleMaterial":"injected","specialProjectSponsor":null,"isLensBlueLightFiltered":"False","lensAssemblyTypeOnFrame":"full rim","lensContrastEnhancement":"True","specialProjectCollection":null,"specialProjectFeaturesFlag":"True"},"errors":null,"warnings":null,"content_generation_id":608,"not_in_prompt_words":[],"is_accepted":true,"has_upvote":false,"modified_at":"2023-12-19T09:28:29.669159280Z","validated_at":"2023-12-19T09:28:29.663376034Z","status":"valid"}'
-```
-
-* Upvote a Completion
-
-```sh
-curl 'https://api.wordlift.io/content-generation/content-generations/608/records/253192' -X PUT \
-    -H 'Accept: application/json' \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer <your-oauth2-access-token>' \
-     --data-raw '{"id":253192,"prompt":"Giorgio Armani is a pair of sunglasses. The lens treatment is gradient. The lens color facet is gradient green. The frame material is metal. The shape is square. The frame color finish is polished. The frame color is pale gold. There are strass on these sunglasses. These sunglasses feature strass on strass on metal component and. ####","completion":"Elevating the square metal frame to new heights of sophistication, Giorgio Armani presents a cutting-edge design with strass on metal component and strass on metal component embellishment. The sunglasses are crafted in a striking pale gold metal color and feature gradient green lenses for an extra dose of style. With its square shape and unique design details, this pair is sure to turn heads wherever you go.","data":{"id":"https://data.luxottica.com/eyewear-sun/0AR6123B__30028E","name":"0AR6123B__30028E","type":"http://schema.org/Product","brand":"Giorgio Armani","release":null,"category":"Optical","modelFit":"adjustable nosepads","faceShape":"Round-Oval-Square","frameType":"rimless","lensColor":"gradient green","modelName":null,"bridgeType":"standard","frameShape":"square","frontColor":"pale gold","genderType":"woman","maskShield":"False","roXability":"False","isLensPolar":"False","nosepadType":"metal standard","templeColor":"pale gold","frameFitting":"regular","isLensMirror":"False","materialType":"zpfn","productGroup":"sun","frontMaterial":"metal","lensBaseCurve":"base 4","lensTreatment":"gradient","macroAgeRange":"adult","isLensGradient":"True","lensProtection":null,"strassPosition":"strass on metal component and","strassPresence":"True","frameFoldability":null,"frontColorFinish":"polished","modelCodeDisplay":"AR6123B","productStyleName":null,"channelAttributes":[{"channel":null,"styleName":null},{"channel":"PO - Persol","styleName":"AR6123B"},{"channel":"MyLuxottica - MyLuxottica","styleName":"AR6123B"},{"channel":"SGH - Sunglasshut","styleName":"AR6123B"},{"channel":"OP - Oliver People","styleName":"AR6123B"},{"channel":"OPSM - OPSM","styleName":"AR6123B"},{"channel":"TO - Target Optical","styleName":"AR6123B"},{"channel":"FD - Frames Direct","styleName":"AR6123B"},{"channel":null,"styleName":null},{"channel":"CM - Costa Del Mar","styleName":"AR6123B"},{"channel":"VO - Vogue","styleName":"AR6123B"},{"channel":"SS - SmartShopper","styleName":"AR6123B"},{"channel":"LC - Lens Crafters","styleName":"AR6123B"},{"channel":null,"styleName":null},{"channel":"OSI - OSI","styleName":"AR6123B"},{"channel":null,"styleName":null},{"channel":"DC - David Clulow","styleName":"AR6123B"},{"channel":"OO - Oakley","styleName":"AR6123B"},{"channel":"AN - Arnette","styleName":"AR6123B"},{"channel":"NA - Native","styleName":"AR6123B"},{"channel":"RB - RayBan","styleName":"AR6123B"},{"channel":"GL - Glasses","styleName":"AR6123B"},{"channel":"AM - Alain Mikli","styleName":"AR6123B"}],"isLensPhotochromic":"False","productFamilyModel":null,"specialProjectType":"event","ageGroupEnumeration":null,"eyewearLensMaterial":"polyamide","progressiveFriendly":"classic","eyewearTempleMaterial":"metal","specialProjectSponsor":null,"isLensBlueLightFiltered":"False","lensAssemblyTypeOnFrame":"rimless","lensContrastEnhancement":"False","specialProjectCollection":null,"specialProjectFeaturesFlag":"True"},"errors":null,"warnings":null,"content_generation_id":608,"not_in_prompt_words":[],"is_accepted":false,"has_upvote":true,"modified_at":"2023-12-19T09:28:29.951139704Z","validated_at":"2023-12-19T09:28:29.947073572Z","status":"valid"}'
-```
-
-* Manually set and accept a Completion
-
-```sh
-curl 'https://api.wordlift.io/content-generation/content-generations/608/records/253192' -X PUT \
-    -H 'Accept: application/json' \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer <your-oauth2-access-token>' \
-     --data-raw '{"id":253192,"prompt":"Giorgio Armani is a pair of sunglasses. The lens treatment is gradient. The lens color facet is gradient green. The frame material is metal. The shape is square. The frame color finish is polished. The frame color is pale gold. There are strass on these sunglasses. These sunglasses feature strass on strass on metal component and. ####","completion":"AAA Elevating the square metal frame to new heights of sophistication, Giorgio Armani presents a cutting-edge design with strass on metal component and strass on metal component embellishment. The sunglasses are crafted in a striking pale gold metal color and feature gradient green lenses for an extra dose of style. With its square shape and unique design details, this pair is sure to turn heads wherever you go.","data":{"id":"https://data.luxottica.com/eyewear-sun/0AR6123B__30028E","name":"0AR6123B__30028E","type":"http://schema.org/Product","brand":"Giorgio Armani","release":null,"category":"Optical","modelFit":"adjustable nosepads","faceShape":"Round-Oval-Square","frameType":"rimless","lensColor":"gradient green","modelName":null,"bridgeType":"standard","frameShape":"square","frontColor":"pale gold","genderType":"woman","maskShield":"False","roXability":"False","isLensPolar":"False","nosepadType":"metal standard","templeColor":"pale gold","frameFitting":"regular","isLensMirror":"False","materialType":"zpfn","productGroup":"sun","frontMaterial":"metal","lensBaseCurve":"base 4","lensTreatment":"gradient","macroAgeRange":"adult","isLensGradient":"True","lensProtection":null,"strassPosition":"strass on metal component and","strassPresence":"True","frameFoldability":null,"frontColorFinish":"polished","modelCodeDisplay":"AR6123B","productStyleName":null,"channelAttributes":[{"channel":null,"styleName":null},{"channel":"PO - Persol","styleName":"AR6123B"},{"channel":"MyLuxottica - MyLuxottica","styleName":"AR6123B"},{"channel":"SGH - Sunglasshut","styleName":"AR6123B"},{"channel":"OP - Oliver People","styleName":"AR6123B"},{"channel":"OPSM - OPSM","styleName":"AR6123B"},{"channel":"TO - Target Optical","styleName":"AR6123B"},{"channel":"FD - Frames Direct","styleName":"AR6123B"},{"channel":null,"styleName":null},{"channel":"CM - Costa Del Mar","styleName":"AR6123B"},{"channel":"VO - Vogue","styleName":"AR6123B"},{"channel":"SS - SmartShopper","styleName":"AR6123B"},{"channel":"LC - Lens Crafters","styleName":"AR6123B"},{"channel":null,"styleName":null},{"channel":"OSI - OSI","styleName":"AR6123B"},{"channel":null,"styleName":null},{"channel":"DC - David Clulow","styleName":"AR6123B"},{"channel":"OO - Oakley","styleName":"AR6123B"},{"channel":"AN - Arnette","styleName":"AR6123B"},{"channel":"NA - Native","styleName":"AR6123B"},{"channel":"RB - RayBan","styleName":"AR6123B"},{"channel":"GL - Glasses","styleName":"AR6123B"},{"channel":"AM - Alain Mikli","styleName":"AR6123B"}],"isLensPhotochromic":"False","productFamilyModel":null,"specialProjectType":"event","ageGroupEnumeration":null,"eyewearLensMaterial":"polyamide","progressiveFriendly":"classic","eyewearTempleMaterial":"metal","specialProjectSponsor":null,"isLensBlueLightFiltered":"False","lensAssemblyTypeOnFrame":"rimless","lensContrastEnhancement":"False","specialProjectCollection":null,"specialProjectFeaturesFlag":"True"},"errors":null,"warnings":null,"content_generation_id":608,"not_in_prompt_words":[],"is_accepted":false,"has_upvote":false,"modified_at":"2023-12-19T09:28:29.951139704Z","validated_at":"2023-12-19T09:28:29.947073572Z","status":"valid"}'
-```
-
-* Bulk Accept
-
-```sh
-curl 'https://api.wordlift.io/content-generation/content-generations/608/records-collection' -X PUT \
-    -H 'Accept: application/json' \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer <your-oauth2-access-token>' \
-     --data-raw '[{"id":253191,"prompt":"Costa Diego is a pair of sunglasses. Costa Diego are designed for men. The lens treatment is mirror. The lens color facet is gray silver mirror. The lenses are polarized. The shape is rectangle. The frame color finish is matte. The frame color is matte black. This pair of sunglasses feature lens contrast enhancements. ####","completion":"Costa Diego are a stylish choice for those seeking a versatile everyday accessory. The matte black frames exude sophistication and feature lens contrast enhancement, while the gray silver mirror lenses offer a distinctive touch of style. These rectangle-shaped shades are designed for optimal comfort and feature polarized lenses that provide optimal protection from harmful UV rays and reduce glare.","data":{"id":"https://data.luxottica.com/eyewear-sun/06S9034__903417","name":"06S9034__903417","type":"http://schema.org/Product","brand":"Costa","release":null,"category":"Optical","modelFit":"high bridge fit","faceShape":"Oval-Round","frameType":"full rim","lensColor":"gray silver mirror","modelName":"Diego","bridgeType":"standard","frameShape":"rectangle","frontColor":"matte black","genderType":"man","maskShield":"False","roXability":"True","isLensPolar":"True","nosepadType":"plastic standard","templeColor":"matte black","frameFitting":"wide","isLensMirror":"True","materialType":"zpfn","productGroup":"sun","frontMaterial":"injected","lensBaseCurve":"base 8 decentered","lensTreatment":"mirror","macroAgeRange":"adult","isLensGradient":"False","lensProtection":null,"strassPosition":"not present","strassPresence":"False","frameFoldability":null,"frontColorFinish":"matte","modelCodeDisplay":"6S9034","productStyleName":null,"channelAttributes":[{"channel":"DC - David Clulow","styleName":"6S9034 Diego"},{"channel":"LC - Lens Crafters","styleName":"6S9034 Diego"},{"channel":"AN - Arnette","styleName":"Diego"},{"channel":"VO - Vogue","styleName":"Diego"},{"channel":"OP - Oliver People","styleName":"Diego"},{"channel":"VD - Vision Direct","styleName":"6S9034 Diego"},{"channel":"OSI - OSI","styleName":"Diego"},{"channel":"SV - Salmoiraghi e Vigan&#xF2;","styleName":"6S9034 Diego"},{"channel":"FD - Frames Direct","styleName":"6S9034 Diego"},{"channel":"SS - SmartShopper","styleName":"6S9034 Diego"},{"channel":"OPSM - OPSM","styleName":"6S9034 Diego"},{"channel":"NA - Native","styleName":"Diego"},{"channel":"CM - Costa Del Mar","styleName":"Diego"},{"channel":"MyLuxottica - MyLuxottica","styleName":"6S9034 Diego"},{"channel":"OO - Oakley","styleName":"Diego"},{"channel":"SGH - Sunglasshut","styleName":"6S9034 Diego"},{"channel":"SGS - Sunglasses Shop","styleName":"6S9034 Diego"},{"channel":"CL - Clearly","styleName":"6S9034 Diego"},{"channel":"TO - Target Optical","styleName":"6S9034 Diego"},{"channel":"RB - RayBan","styleName":"Diego"},{"channel":"GL - Glasses","styleName":"6S9034 Diego"},{"channel":"PO - Persol","styleName":"Diego"},{"channel":"AM - Alain Mikli","styleName":"Diego"}],"isLensPhotochromic":"False","productFamilyModel":"Diego","specialProjectType":"collaboration","ageGroupEnumeration":null,"eyewearLensMaterial":"polycarbonate","progressiveFriendly":"classic","eyewearTempleMaterial":"injected","specialProjectSponsor":null,"isLensBlueLightFiltered":"False","lensAssemblyTypeOnFrame":"full rim","lensContrastEnhancement":"True","specialProjectCollection":null,"specialProjectFeaturesFlag":"True"},"errors":null,"warnings":null,"content_generation_id":608,"not_in_prompt_words":[],"is_accepted":true,"has_upvote":false,"modified_at":"2023-12-19T09:28:29.669159280Z","validated_at":"2023-12-19T09:28:29.663376034Z","status":"valid"},{"id":253192,"prompt":"Giorgio Armani is a pair of sunglasses. The lens treatment is gradient. The lens color facet is gradient green. The frame material is metal. The shape is square. The frame color finish is polished. The frame color is pale gold. There are strass on these sunglasses. These sunglasses feature strass on strass on metal component and. ####","completion":"AAA Elevating the square metal frame to new heights of sophistication, Giorgio Armani presents a cutting-edge design with strass on metal component and strass on metal component embellishment. The sunglasses are crafted in a striking pale gold metal color and feature gradient green lenses for an extra dose of style. With its square shape and unique design details, this pair is sure to turn heads wherever you go.","data":{"id":"https://data.luxottica.com/eyewear-sun/0AR6123B__30028E","name":"0AR6123B__30028E","type":"http://schema.org/Product","brand":"Giorgio Armani","release":null,"category":"Optical","modelFit":"adjustable nosepads","faceShape":"Round-Oval-Square","frameType":"rimless","lensColor":"gradient green","modelName":null,"bridgeType":"standard","frameShape":"square","frontColor":"pale gold","genderType":"woman","maskShield":"False","roXability":"False","isLensPolar":"False","nosepadType":"metal standard","templeColor":"pale gold","frameFitting":"regular","isLensMirror":"False","materialType":"zpfn","productGroup":"sun","frontMaterial":"metal","lensBaseCurve":"base 4","lensTreatment":"gradient","macroAgeRange":"adult","isLensGradient":"True","lensProtection":null,"strassPosition":"strass on metal component and","strassPresence":"True","frameFoldability":null,"frontColorFinish":"polished","modelCodeDisplay":"AR6123B","productStyleName":null,"channelAttributes":[{"channel":null,"styleName":null},{"channel":"PO - Persol","styleName":"AR6123B"},{"channel":"MyLuxottica - MyLuxottica","styleName":"AR6123B"},{"channel":"SGH - Sunglasshut","styleName":"AR6123B"},{"channel":"OP - Oliver People","styleName":"AR6123B"},{"channel":"OPSM - OPSM","styleName":"AR6123B"},{"channel":"TO - Target Optical","styleName":"AR6123B"},{"channel":"FD - Frames Direct","styleName":"AR6123B"},{"channel":null,"styleName":null},{"channel":"CM - Costa Del Mar","styleName":"AR6123B"},{"channel":"VO - Vogue","styleName":"AR6123B"},{"channel":"SS - SmartShopper","styleName":"AR6123B"},{"channel":"LC - Lens Crafters","styleName":"AR6123B"},{"channel":null,"styleName":null},{"channel":"OSI - OSI","styleName":"AR6123B"},{"channel":null,"styleName":null},{"channel":"DC - David Clulow","styleName":"AR6123B"},{"channel":"OO - Oakley","styleName":"AR6123B"},{"channel":"AN - Arnette","styleName":"AR6123B"},{"channel":"NA - Native","styleName":"AR6123B"},{"channel":"RB - RayBan","styleName":"AR6123B"},{"channel":"GL - Glasses","styleName":"AR6123B"},{"channel":"AM - Alain Mikli","styleName":"AR6123B"}],"isLensPhotochromic":"False","productFamilyModel":null,"specialProjectType":"event","ageGroupEnumeration":null,"eyewearLensMaterial":"polyamide","progressiveFriendly":"classic","eyewearTempleMaterial":"metal","specialProjectSponsor":null,"isLensBlueLightFiltered":"False","lensAssemblyTypeOnFrame":"rimless","lensContrastEnhancement":"False","specialProjectCollection":null,"specialProjectFeaturesFlag":"True"},"errors":null,"warnings":null,"content_generation_id":608,"not_in_prompt_words":[],"is_accepted":true,"has_upvote":false,"modified_at":"2023-12-19T09:28:29.951139704Z","validated_at":"2023-12-19T09:28:29.947073572Z","status":"valid"},{"id":253193,"prompt":"Giorgio Armani is a pair of sunglasses. The lens treatment is solid color. The lens color facet is blue. The frame material is acetate. The shape is square. The frame color finish is polished. The frame color is black. It features a key bridge. ####","completion":"A modern take on a timeless square shape, Giorgio Armani sunglasses are perfect for those who want to make a statement without being too loud. The solid blue lenses and black acetate frames add a touch of sophistication, while the key bridge adds an extra dimension of style. These shades are ideal for those who want to make a fashionable yet understated statement.","data":{"id":"https://data.luxottica.com/eyewear-sun/0AR8107__5017R5","name":"0AR8107__5017R5","type":"http://schema.org/Product","brand":"Giorgio Armani","release":null,"category":"Optical","modelFit":"high bridge fit","faceShape":"Oval-Round","frameType":"full rim","lensColor":"blue","modelName":null,"bridgeType":"key bridge","frameShape":"square","frontColor":"black","genderType":"man","maskShield":"False","roXability":"True","isLensPolar":"False","nosepadType":"standard","templeColor":"black","frameFitting":"regular","isLensMirror":"False","materialType":"zpfn","productGroup":"sun","frontMaterial":"acetate","lensBaseCurve":"base 6","lensTreatment":"solid color","macroAgeRange":"adult","isLensGradient":"False","lensProtection":null,"strassPosition":null,"strassPresence":"False","frameFoldability":null,"frontColorFinish":"polished","modelCodeDisplay":"AR8107","productStyleName":null,"channelAttributes":[{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null},{"channel":null,"styleName":null}],"isLensPhotochromic":"False","productFamilyModel":null,"specialProjectType":null,"ageGroupEnumeration":null,"eyewearLensMaterial":"crystal","progressiveFriendly":"classic","eyewearTempleMaterial":"acetate","specialProjectSponsor":null,"isLensBlueLightFiltered":"False","lensAssemblyTypeOnFrame":"full rim","lensContrastEnhancement":"False","specialProjectCollection":null,"specialProjectFeaturesFlag":"False"},"errors":null,"warnings":null,"content_generation_id":608,"not_in_prompt_words":[],"is_accepted":true,"has_upvote":false,"modified_at":"2023-12-19T09:28:32.049780860Z","validated_at":"2023-12-19T09:28:32.045334725Z","status":"valid"},{"id":253194,"prompt":"Giorgio Armani is a pair of sunglasses. The lens treatment is solid color. The lens color facet is grey. The color of the temples is havana. The frame material is acetate. The shape is square. The frame color finish is polished. The frame color is black. ####","completion":"Elevate your style with Giorgio Armani sunglasses. The solid grey lens treatment exudes sophistication, while the square frame and havana temples add a touch of elegance. Made in black color with polished finish on the front and temples, this sophisticated design embodies timeless allure. Crafted from exquisite materials such as acetate, these sunglasses offer both comfort and durability. Experience exceptional quality paired with exquisite craftsmanship that epitomizes the essence of luxury.","data":{"id":"https://data.luxottica.com/eyewear-sun/0AR8110__501787","name":"0AR8110__501787","type":"http://schema.org/Product","brand":"Giorgio Armani","release":null,"category":"Optical","modelFit":"high bridge fit","faceShape":"Oval-Round","frameType":"full rim","lensColor":"grey","modelName":null,"bridgeType":"standard","frameShape":"square","frontColor":"black","genderType":"woman","maskShield":"False","roXability":"True","isLensPolar":"False","nosepadType":"standard","templeColor":"havana","frameFitting":"wide","isLensMirror":"False","materialType":"zpfn","productGroup":"sun","frontMaterial":"acetate","lensBaseCurve":"base 6","lensTreatment":"solid color","macroAgeRange":"adult","isLensGradient":"False","lensProtection":null,"strassPosition":null,"strassPresence":"False","frameFoldability":null,"frontColorFinish":"polished","modelCodeDisplay":"AR8110","productStyleName":null,"channelAttributes":[{"channel":"SGS - Sunglasses Shop","styleName":"AR8110"},{"channel":"TO - Target Optical","styleName":"AR8110"},{"channel":"VO - Vogue","styleName":"AR8110"},{"channel":"AN - Arnette","styleName":"AR8110"},{"channel":"OO - Oakley","styleName":"AR8110"},{"channel":"FD - Frames Direct","styleName":"AR8110"},{"channel":"SS - SmartShopper","styleName":"AR8110"},{"channel":"AM - Alain Mikli","styleName":"AR8110"},{"channel":"NA - Native","styleName":"AR8110"},{"channel":"SV - Salmoiraghi e Vigan&#xF2;","styleName":"AR8110"},{"channel":"SGH - Sunglasshut","styleName":"AR8110"},{"channel":"OPSM - OPSM","styleName":"AR8110"},{"channel":"LC - Lens Crafters","styleName":"AR8110"},{"channel":"GL - Glasses","styleName":"AR8110"},{"channel":"OSI - OSI","styleName":"AR8110"},{"channel":"CM - Costa Del Mar","styleName":"AR8110"},{"channel":"MyLuxottica - MyLuxottica","styleName":"AR8110"},{"channel":"PO - Persol","styleName":"AR8110"},{"channel":"OP - Oliver People","styleName":"AR8110"},{"channel":"RB - RayBan","styleName":"AR8110"},{"channel":"VD - Vision Direct","styleName":"AR8110"},{"channel":"CL - Clearly","styleName":"AR8110"},{"channel":"DC - David Clulow","styleName":"AR8110"}],"isLensPhotochromic":"False","productFamilyModel":null,"specialProjectType":null,"ageGroupEnumeration":null,"eyewearLensMaterial":"polyamide","progressiveFriendly":"classic","eyewearTempleMaterial":"acetate","specialProjectSponsor":null,"isLensBlueLightFiltered":"False","lensAssemblyTypeOnFrame":"full rim","lensContrastEnhancement":"False","specialProjectCollection":null,"specialProjectFeaturesFlag":"False"},"errors":null,"warnings":null,"content_generation_id":608,"not_in_prompt_words":[],"is_accepted":true,"has_upvote":false,"modified_at":"2023-12-19T09:28:32.680935945Z","validated_at":"2023-12-19T09:28:32.675429602Z","status":"valid"}]'
-```
-
-* Export
-
-```sh
-https://my.wordlift.io/assets/service-workers/download/content-generation/content-generations/608/records.tsv?apiUrl=https%3A%2F%2Fapi.wordlift.io&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE2NTk5NDE5NTkifQ.eyJpZCI6InI4bWE4Ymxmc29rZHF4cmhvZzNodzI5eHRwM21wYWZvY2R2cGkyM3UiLCJqdGkiOiJyOG1hOGJsZnNva2RxeHJob2czaHcyOXh0cDNtcGFmb2NkdnBpMjN1IiwiaXNzIjoiaHR0cHM6XC9cL3Mud29yZGxpZnQuaW8iLCJhdWQiOiJaNXZFWmI3RzZVQkZ6OXFjR0kyU0pna0pnSVJValBMMzNrMjRnbHR1Iiwic3ViIjoiMTU4NiIsImV4cCI6MTcwMjk4NDAxNCwiaWF0IjoxNzAyOTgwNDE0LCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJvcGVuaWQgcm9sZTpzdWJzY3JpYmVyIiwicm9sZXMiOiJjb250ZW50LWdlbmVyYXRpb25zIG1lcmNoYW50cyIsInJvbGUiOiJ1c2VyIiwibG9nb3V0X3VybCI6Imh0dHBzOlwvXC9zLndvcmRsaWZ0LmlvXC93cC1sb2dpbi5waHA_YWN0aW9uPWxvZ291dCZhbXA7cmVkaXJlY3RfdG89aHR0cHMlM0ElMkYlMkZzLndvcmRsaWZ0LmlvJTJGd3AtbG9naW4ucGhwJmFtcDtfd3Bub25jZT0wN2JkMDA1NWM2IiwidXNlciI6eyJuYW1lIjoiZmVkZXJpY28gcmViZXNjaGluaSIsImZpcnN0X25hbWUiOiJmZWRlcmljbyIsImxhc3RfbmFtZSI6InJlYmVzY2hpbmkiLCJlbWFpbCI6IkZlZGVyaWNvLnJlYmVzY2hpbmktbHV4b3R0aWNhQHdvcmRsaWZ0LmlvIiwicGljdHVyZSI6Imh0dHBzOlwvXC9zZWN1cmUuZ3JhdmF0YXIuY29tXC9hdmF0YXJcLzA1NTY5ZWI2YTJjN2QyZmJhNTYzNDNlZTZiNTZkNTEyP3M9OTYmZD1tbSZyPWcifX0.eobIqlM-nP-VygdZ6jXJkd-6MbYqPuCZSe9h2d1tqdJJaypqa6ydLGfMbCqttyo8cGw8YMaWIXaWF13sPigZAQ8cQ-8lPz8uOxlIbPRDYB8tw2wzJICMkjsARHaxu1E78M-Jk-e1E608QtdqTfP4RPUGHPYUfd9G37JVRUWHnWJFKQMx1rrINlPdfb0omduH3l1vnuECuZHJRX6bPFm5S-U6hnCtUAf5iaXQFxHgKEA42aczECYlQzEY8G5nXdpPzlSBB9PS1U6zfcO8nlcF58Y4jDgb1Fv7MpZdMcFZvWGz9U244utRwGHydNq9laVEoPV6Lqbek9qvpqP337J7Ew```
-
-* Delete a Project
-
-
-```sh
-curl 'https://api.wordlift.io/content-generation/content-generations/608' -X PUT \
-    -H 'Accept: application/json' \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer <your-oauth2-access-token>' \
-     --data-raw $'{"id":608,"name":"My Test Project (delete me)","penalty":0.5,"temperature":0.7,"stop":"###","deleted":true,"model_id":162,"max_tokens":110,"created_at":"2023-12-19T09:21:21.949851Z","modified_at":"2023-12-19T09:21:21.949851Z","deleted_at":null,"min_words":45,"graphql_query":"query {\\n\\tproducts(\\n\\tquery: {\\n  \\tnameConstraint: {\\n    \\tin: [\\n\\"0AR6123B__30028E\\",\\"0AR8107__5017R5\\",\\"0AR8110__501787\\",\\"06S9034__903417\\"]\\n  \\t}\\n\\t}\\n  ) {\\n\\tid: iri\\n\\tbrand: string(name: \\"schema:brand\\")\\n\\tname: string(name: \\"schema:name\\")\\n\\ttype: string(name: \\"rdf:type\\")\\n\\tcategory: string(name: \\"eyewear:category\\")\\n\\tproductGroup: string(name: \\"eyewear:eyewearProductGroup\\")\\n\\tbridgeType: string(name: \\"eyewear:bridgeType\\")\\n\\tframeShape: string(name: \\"eyewear:frameShape\\")\\n\\tfaceShape: string(name: \\"eyewear:faceShape\\")\\n\\tframeFitting: string(name: \\"eyewear:frameFitting\\")\\n\\tfrontColorFinish: string(name: \\"eyewear:frontColorFinish\\")\\n\\tmacroAgeRange: string(name: \\"eyewear:macroAgeRange\\")\\n\\tageGroupEnumeration: string(name: \\"eyewear:ageGroupEnumeration\\")\\n\\tlensAssemblyTypeOnFrame: string(name: \\"eyewear:lensAssemblyTypeOnFrame\\")\\n\\tframeType: string(name: \\"eyewear:frameType\\")\\n\\teyewearLensMaterial: string(name: \\"eyewear:eyewearLensMaterial\\")\\n\\teyewearTempleMaterial: string(name: \\"eyewear:eyewearTempleMaterial\\")\\n\\tnosepadType: string(name: \\"eyewear:nosepadType\\")\\n\\trelease: string(name: \\"eyewear:release\\")\\n\\tspecialProjectCollection: string(name: \\"eyewear:specialProjectCollection\\")\\n\\tspecialProjectSponsor: string(name: \\"eyewear:specialProjectSponsor\\")\\n\\tspecialProjectType: string(name: \\"eyewear:specialProjectType\\")\\n\\tspecialProjectFeaturesFlag: string(name: \\"eyewear:specialProjectFeaturesFlag\\")\\n\\tlensTreatment: string(name: \\"eyewear:lensTreatment\\")\\n\\tlensColor: string(name: \\"eyewear:lensColor\\")\\n\\tproductStyleName: string(name: \\"eyewear:productStyleName\\")\\n\\tproductFamilyModel: string(name: \\"eyewear:productFamilyModel\\")\\n\\tframeFoldability: string(name: \\"eyewear:frameFoldability\\")\\n\\troXability: string(name: \\"eyewear:roXability\\")\\n\\tisLensPhotochromic: string(name: \\"eyewear:isLensPhotochromic\\")\\n\\tisLensPolar: string(name: \\"eyewear:isLensPolar\\")\\n\\tmodelCodeDisplay: string(name: \\"eyewear:modelCodeDisplay\\")\\n\\tprogressiveFriendly: string(name: \\"eyewear:progressiveFriendly\\")\\n\\tmaterialType: string(name: \\"eyewear:materialType\\")\\n\\tmaskShield: string(name: \\"eyewear:maskShield\\")\\n\\tstrassPresence: string(name: \\"eyewear:strassPresence\\")\\n\\tstrassPosition: string(name: \\"eyewear:strassPosition\\")\\n\\tlensContrastEnhancement: string(name: \\"eyewear:lensContrastEnhancement\\")\\n\\tlensBaseCurve: string(name: \\"eyewear:lensBaseCurve\\")\\n\\tisLensGradient: string(name: \\"eyewear:isLensGradient\\")\\n\\tisLensMirror: string(name: \\"eyewear:isLensMirror\\")\\n\\tmodelFit: string(name: \\"eyewear:modelFit\\")\\n\\tmodelName: string(name: \\"eyewear:modelName\\")\\n\\tfrontMaterial: string(name: \\"eyewear:frontMaterial\\")\\n\\tlensProtection: string(name: \\"eyewear:lensProtection\\")\\n\\ttempleColor: string(name: \\"eyewear:templeColor\\")\\n\\tfrontColor: string(name: \\"eyewear:frontColor\\")\\n\\tisLensBlueLightFiltered: string(name: \\"eyewear:isLensBlueLightFiltered\\")\\n\\tgenderType: string(name: \\"eyewear:genderType\\")\\n\\tlensProtection: string(name: \\"eyewear:lensProtection\\")\\n\\tchannelAttributes: resources(name: \\"eyewear:channelAttributes\\") {\\n  \\tchannel: string(name: \\"eyewear:channel\\")\\n  \\tstyleName: string(name: \\"eyewear:styleName\\")\\n\\t}\\n  }\\n}\\n","prompt_template":"{%- case genderType -%}\\n  {%- when \'MAN\' or \'man\' -%}\\n  {%- assign genderTypeFixed = \'men\' -%}\\n  {%- when \'WOMAN\' or \'woman\' -%}\\n  {%- assign genderTypeFixed = \'women\' -%}\\n  {%- when \'UNISEX\' -%}\\n  {%- assign genderTypeFixed = \'unisex\' -%}\\n{%- else -%}\\n  {%- assign genderTypeFixed = genderType | downcase -%}\\n{%- endcase -%}\\n{%- case macroAgeRange -%}\\n  {%- when \'Children\' or \'children\' -%}\\n  {%- assign genderTypeFixed = \'children\' -%}\\n{%- endcase -%}\\n{%- case lensTreatment %}\\n  {% when lensTreatment.blank? %}\\n  {%- assign caseLensTreatment = false -%}\\n  {%- when \'classic\' -%}\\n  {%- assign caseLensTreatment = false -%}\\n{%- else -%}\\n  {%- assign caseLensTreatment = lensTreatment | downcase -%}\\n{%- endcase -%}\\n{%- case isLensPolar %}\\n  {% when isLensPolar.blank? %}\\n  {%- assign caseIsLensPolar = false -%}\\n  {%- when \'False\' -%}\\n  {%- assign caseIsLensPolar = false -%}\\n{%- else -%}\\n  {%- assign caseIsLensPolar = isLensPolar -%}\\n{%- endcase -%}\\n{%- case productGroup %}\\n  {%- when \'pptical\' -%}\\n  {%- assign productGroupFixed = \'eyeglasses\' -%}\\n  {%- assign lensColor = false -%}\\n  {%- assign caseLensTreatment = false -%}\\n  {%- assign isLensPolar = false -%}\\n  {%- when \'sun\' -%}\\n  {%- assign productGroupFixed = \'sunglasses\' -%}\\n{%- else -%}\\n  {%- assign productGroupFixed = productGroup -%}\\n{%- endcase -%}\\n{%- case frameTypeDowncase %}\\n  {%- when \'progressive eligible\' -%}\\n  {%- assign frameTypeDowncase = false -%}\\n  {%- when \'full rim\' -%}\\n  {%- assign frameTypeDowncase = false -%}\\n  {%- when \'semi rim\' -%}\\n  {%- assign frameTypeDowncase = \'semi-rimless\' -%}\\n{%- endcase -%}\\n{%- case templeColor %}\\n  {%- when frontColor -%}\\n  {%- assign templeColor = false -%}\\n{%- else -%}\\n  {%- assign templeColor = templeColor | downcase -%}\\n{%- endcase -%}\\n{%- case lensContrastEnhancement %}\\n  {% when lensContrastEnhancement.blank? %}\\n  {%- assign caseLensContrastEnhancement = false -%}\\n  {% when \\"False\\" %}\\n  {%- assign caseLensContrastEnhancement = false -%}\\n{%- else -%}\\n  {%- assign caseLensContrastEnhancement = lensContrastEnhancement -%}\\n{%- endcase -%}\\n{%- case strassPresence %}\\n  {% when \\"False\\" %}\\n  {%- assign caseStrassPresence = false -%}\\n{%- else -%}\\n  {%- assign caseStrassPresence = strassPresence -%}\\n  {%- case strassPosition %}\\n    {% when \\"not present\\" %}\\n    {%- assign caseStrassPosition = false -%}\\n    {%- assign caseStrassPresence = false -%}\\n  {%- else -%}\\n    {%- assign caseStrassPresence = strassPosition -%}\\n    {%- assign caseStrassPosition = strassPresence -%}\\n  {%- endcase -%}\\n{%- endcase -%}\\n{%- case bridgeType %}\\n  {% when bridgeType.blank? %}\\n  {%- assign caseBridgeType = false -%}\\n  {%- when \'standard\' -%}\\n  {%- assign caseBridgeType = false -%}\\n{%- else -%}\\n  {%- assign caseBridgeType = bridgeType -%}\\n{%- endcase -%}\\n{%- case specialProjectType %}\\n  {% when specialProjectType.blank? %}\\n  {%- assign caseSpecialProjectType = false -%}\\n  {% when \\"collaboration\\" %}\\n  {%- assign caseSpecialProjectType = specialProjectType -%}\\n  {%- case specialProjectCollection %}\\n    {% when specialProjectCollection.blank? %}\\n    {%- assign caseSpecialProjectCollection = false -%}\\n  {%- else -%}\\n    {%- assign caseSpecialProjectCollection = specialProjectCollection -%}\\n  {%- endcase -%}\\n{%- else -%}\\n  {%- assign caseSpecialProjectType = false -%}\\n{%- endcase -%}\\n{%- case frontMaterial %}\\n  {% when frontMaterial.blank? %}\\n  {%- assign caseFrontMaterial = false -%}\\n  {%- when \'nylon\' -%}\\n  {%- assign caseFrontMaterial = false -%}\\n  {%- when \'injected\' -%}\\n  {%- assign caseFrontMaterial = false -%}\\n  {%- when \'o_matter\' -%}\\n  {%- assign caseFrontMaterial = \'o matter\' -%}\\n{%- else -%}\\n  {%- assign caseFrontMaterial = frontMaterial | downcase -%}\\n{%- endcase -%}\\n{%- case frameShape %}\\n  {% when frameShape.blank? %}\\n  {%- assign caseFrameShape = false -%}\\n{%- else -%}\\n  {%- assign caseFrameShape = frameShape | downcase -%}\\n{%- endcase -%}\\n{%- case frontColor %}\\n  {% when frontColor.blank? %}\\n  {%- assign caseFrontColor = false -%}\\n{%- else -%}\\n  {%- assign caseFrontColor = frontColor | downcase -%}\\n{%- endcase -%}\\n{%- case frontColorFinish %}\\n  {% when frontColorFinish.blank? %}\\n  {%- assign caseFrontColorFinish = false -%}\\n  {%- when \'NOT APPLICABLE\' -%}\\n  {%- assign caseFrontColorFinish = false -%}\\n{%- else -%}\\n  {%- assign caseFrontColorFinish = frontColorFinish | downcase -%}\\n{%- endcase -%}\\n\\n{%- case modelName %}\\n  {%- when modelName.blank? %}\\n  {%- assign caseModelName = false -%}\\n{%- else %}\\n  {%- assign caseModelName = modelName | append: \' \' | append: productGroupFixed -%}\\n{%- endcase -%}\\n\\n{%- if caseModelName == false %}\\n  {%- if modelCodeDisplay \041= blank %}\\n    {%- assign caseModelName = modelCodeDisplay | append: \' \' | append: productGroupFixed -%}\\n  {%- endif %}\\n{%- endif -%}\\n\\n{% if caseModelName %}\\n  {%- assign brandAndModelName = brand | append: \' \' | append: modelName -%}\\n  {{ brandAndModelName }} is a pair of {{ productGroupFixed }}. {{ modelNameFix }}\\n  {% if caseSpecialProjectCollection %}These {{ productGroupFixed }} are part of the special collaboration with {{ caseSpecialProjectCollection }}.{% endif %}\\n  {%- if modelName -%}\\n    {{ brandAndModelName }} are designed for {{ genderTypeFixed }}.{% endif %}\\n  {% if caseLensTreatment %}The lens treatment is {{ caseLensTreatment }}.{% endif %}\\n  {% if lensColor %}The lens color facet is {{ lensColor | downcase }}.{% endif %}\\n  {% if caseIsLensPolar %}The lenses are polarized.{% endif %}\\n  {% if templeColor %}The color of the temples is {{ templeColor }}.{% endif %}\\n  {% if caseFrontMaterial %}The frame material is {{ caseFrontMaterial }}.{% endif %}\\n  {% if caseFrameShape %}The shape is {{ caseFrameShape }}.{% endif %}\\n  {% if caseFrontColorFinish %}The frame color finish is {{ frontColorFinish }}.{% endif %}\\n  {% if caseFrontColor %}The frame color is {{ caseFrontColor }}.{% endif %}\\n  {% if caseBridgeType %}It features a {{ caseBridgeType | downcase }}.{% endif %}\\n  {% if frameTypeDowncase %}The type of the frame is {{ frameTypeDowncase | downcase }}.{% endif %}\\n  {% if caseLensContrastEnhancement %}This pair of sunglasses feature lens contrast enhancements.{% endif %}\\n  {% if caseStrassPosition %}There are strass on these {{ productGroupFixed }}.{% endif %}\\n  {% if caseStrassPresence %}These sunglasses feature strass on {{ strassPosition | downcase }}.{% endif %}\\n  {% if frameFoldability %}It is foldable.{% endif %}\\n  ####\\n{% endif %}","account_id":1504122,"words_to_ignore":["{Presented","Ideal","Break","Equipped","Adorned","Unleash","Capture","Complemented","Design","Made","Elevated","Moreover","Paired","Witness","Unveil","Meticulously","Finished","Enhance","Designed","Constructed","Make","Presenting","Discover","Offering","Perfect","Experience","Streamline","Customized","Get","Elevating","Show","Those","Immerse","Boasting","Lenses","A","Explore","Meet","In","Breathe","Complete","An","Grab","Uncover","Empower","Completing","Additionally","Adding","Stay","Express","Showcase","Complimented","Effortlessly","They","Featuring","When","Uniquely","Choose","Reflect","Comfort","Known","Meanwhile","Your","Standing","Achieve","Add","Take","Embody","Built","Its","Showcasing","Update","Durably","Shades","Enjoy","Introduce","This","To","Look","Plus","Incorporating","UV","Customize","Bring","For","Preserve","Furthermore","Not","These","And","Wear","Perfectly","Fully","Engineered","Drawing","Represent","Embrace","Elevate","Standard","Step","What","Whether","With","Crafted","Bringing","Personalize","Combining","Expertly","Introducing","Rollout","Pair","That","Characterized","Their","From","Commit","Find","Let","You}"]}'
 ```
