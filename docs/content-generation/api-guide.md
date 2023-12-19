@@ -250,7 +250,7 @@ query {
  }
  ```
 
-It is possible to retrieve other GraphQL sample queryies by using the [GraphQL Query presets API](graphql-query-presents-api@@todo).
+It is possible to retrieve other GraphQL sample queryies by using the [GraphQL Query presets API](#graphql-presets).
 
 ```sh
 curl 'https://api.wordlift.io/graphql' -X POST \
@@ -325,7 +325,7 @@ Almost all of the list API use cursor-based navigation.
 
 The Prompt Template is used to dynamically create the Prompts by replacing placeholders with actual values from the selected records. Templates use the [Liquid template language](https://shopify.github.io/liquid/) which allows to build an extensive logic into the template.
 
-In order to retrieve the list of available fields it is possible to use the [Fields API](fields-api@@todo).
+In order to retrieve the list of available fields it is possible to use the [Fields API](#list-fields).
 
 A template can be as simple as this:
 
@@ -510,7 +510,7 @@ Or as complex as this:
 {% endif %}
 ```
 
-
+## Other useful API
 
 ### List Projects
 
@@ -529,10 +529,10 @@ The following query parameter are accepted:
 | limit           | The maximum number of results                                                                  |            |
 | deleted         | When `false` deleted projects are not returned                                                 | true/false |
 
-### List Accounts' Knowledge Graphs
 
+### List GraphQL Presets {#graphql-presets}
 
-* List GraphQL Presets
+The platform can provide some GraphQL Presets for common scenarios:
 
 ```sh
 curl 'https://api.wordlift.io/content-generation/graphql-query-presets?limit=2147483647' \
@@ -540,22 +540,75 @@ curl 'https://api.wordlift.io/content-generation/graphql-query-presets?limit=214
     -H 'Authorization: Bearer <your-oauth2-access-token>'
 ```
 
-* List Models
+This is an example response:
 
-```sh
-curl 'https://api.wordlift.io/content-generation/models?limit=2147483647' \
-    -H 'Accept: application/json' \
-    -H 'Authorization: Bearer <your-oauth2-access-token>'
+```json
+{
+  "self": "eyJwb3NpdGlvbiI6eyJpZCI6MH0sImNvbmRpdGlvbiI6IkdSRUFURVJfVEhBTl9PUl9FUVVBTF9UTyIsInNvcnQiOiIraWQiLCJsaW1pdCI6MjE0NzQ4MzY0NywiZmlsdGVycyI6W119",
+  "first": "eyJwb3NpdGlvbiI6eyJpZCI6MH0sImNvbmRpdGlvbiI6IkdSRUFURVJfVEhBTl9PUl9FUVVBTF9UTyIsInNvcnQiOiIraWQiLCJsaW1pdCI6MjE0NzQ4MzY0NywiZmlsdGVycyI6W119",
+  "prev": null,
+  "next": null,
+  "last": "eyJwb3NpdGlvbiI6eyJpZCI6OTIyMzM3MjAzNjg1NDc3NTgwN30sImNvbmRpdGlvbiI6IkxFU1NfVEhBTl9PUl9FUVVBTF9UTyIsInNvcnQiOiIraWQiLCJsaW1pdCI6MjE0NzQ4MzY0NywiZmlsdGVycyI6W119",
+  "items": [
+    {
+      "label": "Entities",
+      "body": "query {\n   entities(page:0,rows:10) {\n     id: iri\n     names: strings(name:\"schema:name\")\n     headlines: strings(name:\"schema:headline\")\n     types: refs(name:\"rdf:type\")\n     urls: refs(name:\"schema:url\")\n     references: refs(name:\"dct:references\")\n     mentions: resources(name:\"schema:mentions\") {\n       names: strings(name:\"schema:name\")\n     }\n   }\n }",
+      "id": 1
+    },
+    {
+      "label": "Products",
+      "body": "query {\n   p: products(page:0,rows:10) {\n     id: iri\n     names: strings(name:\"schema:name\")\n     types: refs(name:\"rdf:type\")\n     urls: refs(name:\"schema:url\")\n     material: strings(name:\"schema:material\")\n     category: strings(name:\"schema:category\")\n     color: strings(name:\"schema:color\")\n     audience: resources(name:\"schema:audience\") {\n       audienceType: strings(name:\"schema:audienceType\")\n    }\n     offers: resources(name:\"schema:offers\") {\n       price: strings(name:\"schema:price\")\n    }\n   }\n }",
+      "id": 2
+    }
+  ]
+}
 ```
 
-* List Property Fields
+
+### List Property Fields {#list-fields}
+
+By providing a GraphQL Query, this API will return the available fields in the response. The list of fields can be used to determine the placeholders to use in the Liquid template:
 
 ```sh
 curl 'https://api.wordlift.io/content-generation/fields' -X POST \
     -H 'Accept: application/json' \
     -H 'Content-Type: application/graphql' \
     -H 'Authorization: Bearer <your-oauth2-access-token>' \
-     --data-raw $'query {\n\x09products(\n\x09query: {\n  \x09nameConstraint: {\n    \x09in: [\n"0AR6123B__30028E","0AR8107__5017R5","0AR8110__501787","06S9034__903417","06S9002__900211","06E000184__1330L1","06E000184__4920V1","06E000185__1330L1","06S9034__903413","06E000185__1330R1","0AR8118__508973","0AR8118__504281","06E000189__1330L1","06E000190__1330L1","06E000192__4100V1","0AR8120__500187","0AR8120__5026_2","0AR8121__576287","06S9035__903502","06S9035__903507","0AR8121__500187","06S9035__903510","06S9036__903607","0AN3079__706_81","0AN3080__696_6G","06S9003__900309","06S9036__903606","0AN3080__706_81","06E000212__1330L1","0AR8123__500187","0AN3081__501_87","06E000212__1580B1","06S9036__903624" \n        ] }\n    })\n{\n     id: iri\n     names: strings(name:"schema:name")\n     types: refs(name:"rdf:type")\n     urls: refs(name:"schema:url")\n     material: strings(name:"schema:material")\n     category: strings(name:"schema:category")\n     color: strings(name:"schema:color")\n     audience: resources(name:"schema:audience") {\n       audienceType: strings(name:"schema:audienceType")\n    }\n     offers: resources(name:"schema:offers") {\n       price: strings(name:"schema:price")\n    }\n   }\n }'
+     --data-raw $'query {\nproducts(\nquery: {\n  nameConstraint: {\n    in: [\n"0AR6123B__30028E","0AR8107__5017R5","0AR8110__501787","06S9034__903417","06S9002__900211","06E000184__1330L1","06E000184__4920V1","06E000185__1330L1","06S9034__903413","06E000185__1330R1","0AR8118__508973","0AR8118__504281","06E000189__1330L1","06E000190__1330L1","06E000192__4100V1","0AR8120__500187","0AR8120__5026_2","0AR8121__576287","06S9035__903502","06S9035__903507","0AR8121__500187","06S9035__903510","06S9036__903607","0AN3079__706_81","0AN3080__696_6G","06S9003__900309","06S9036__903606","0AN3080__706_81","06E000212__1330L1","0AR8123__500187","0AN3081__501_87","06E000212__1580B1","06S9036__903624" \n        ] }\n    })\n{\n     id: iri\n     names: strings(name:"schema:name")\n     types: refs(name:"rdf:type")\n     urls: refs(name:"schema:url")\n     material: strings(name:"schema:material")\n     category: strings(name:"schema:category")\n     color: strings(name:"schema:color")\n     audience: resources(name:"schema:audience") {\n       audienceType: strings(name:"schema:audienceType")\n    }\n     offers: resources(name:"schema:offers") {\n       price: strings(name:"schema:price")\n    }\n   }\n }'
+```
+
+Example response:
+
+```json
+[
+  {
+    "name": "id"
+  },
+  {
+    "name": "names"
+  },
+  {
+    "name": "types"
+  },
+  {
+    "name": "urls"
+  },
+  {
+    "name": "material"
+  },
+  {
+    "name": "category"
+  },
+  {
+    "name": "color"
+  },
+  {
+    "name": "audience.audienceType"
+  },
+  {
+    "name": "offers.price"
+  }
+]
 ```
 
 * GraphQL
