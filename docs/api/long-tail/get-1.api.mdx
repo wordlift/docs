@@ -8,13 +8,14 @@ hide_table_of_contents: true
 api: {"tags":["Web Asyncs responses"],"description":"Get a Web Async response by id.","operationId":"get_1","parameters":[{"name":"id","in":"path","description":"The Web Async id","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Found.","content":{"application/json":{"schema":{"type":"array","items":{"type":"string","format":"byte"}}}}},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"ApiKey":[]}],"method":"get","path":"/webasyncs/{id}/pull","servers":[{"url":"https://api.wordlift.io/longtail"}],"securitySchemes":{"ApiKey":{"type":"apiKey","description":"`Key {your key}`","name":"Authorization","in":"header"}},"info":{"title":"Long Tail","description":"Provide suggestions for long tail opportunities.","termsOfService":"https://wordlift.io/terms-of-service/","contact":{"name":"WordLift","url":"https://wordlift.io","email":"hello@wordlift.io"},"license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"version":"1.0"},"postman":{"name":"Get by id","description":{"content":"Get a Web Async response by id.","type":"text/plain"},"url":{"path":["webasyncs",":id","pull"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) The Web Async id","type":"text/plain"},"type":"any","value":"","key":"id"}]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
 sidebar_class_name: "get api-method"
 info_path: api/long-tail/long-tail
+custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem"
+import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
 import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import TabItem from "@theme/TabItem";
@@ -29,7 +30,11 @@ Get a Web Async response by id.
 
 Found.
 
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong><span style={{"opacity":"0.6"}}> array</span></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>string</strong><span style={{"opacity":"0.6"}}> byte</span></div></li></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"[\n  \"string\"\n]"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
+
+string
+
+</div><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"[\n  \"string\"\n]"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
 
 Authentication Failure
 

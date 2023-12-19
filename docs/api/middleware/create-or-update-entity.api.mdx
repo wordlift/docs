@@ -26,11 +26,11 @@ import TabItem from "@theme/TabItem";
 
 Create or update an entity in the Knowledge Graph.
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"uri","in":"query","description":"The entity's URI","required":true,"schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"private","in":"query","description":"Whether the entity should be hidden from Linked Data and GraphQL","required":false,"schema":{"type":"boolean","default":true},"example":true}}></ParamsItem></ul></div></details><MimeTabs><TabItem label={"application/ld+json"} value={"application/ld+json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>string</strong><div style={{"marginTop":"var(--ifm-table-cell-padding)"}}>
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"uri","in":"query","description":"The entity's URI","required":true,"schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"private","in":"query","description":"Whether the entity should be hidden from Linked Data and GraphQL","required":false,"schema":{"type":"boolean","default":true},"example":true}}></ParamsItem></ul></div></details><MimeTabs><TabItem label={"application/ld+json"} value={"application/ld+json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
 
-A string containing the Structured Data.
+string
 
-</div></div></li></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+</div></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
 
 Success
 
