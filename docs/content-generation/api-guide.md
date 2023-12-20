@@ -18,6 +18,14 @@ This webpage will provide a step-by-step guide on how to create, configure and r
 
 The API is organized according to the REST principles and in particular the [Zalando's Best Practices](https://opensource.zalando.com/restful-api-guidelines/).
 
+:::tip
+
+[The Content Generation API Reference is available here](https://docs.wordlift.io/api/content-generation/content-generation/).
+
+The [openapi.yaml is available here](https://raw.githubusercontent.com/wordlift/docs/main/api/content-generation.yaml), it can be used to automatically generate clients.
+
+:::
+
 ## Authorization
 
 :::info
