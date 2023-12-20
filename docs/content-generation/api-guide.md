@@ -123,7 +123,7 @@ curl 'https://api.wordlift.io/content-generation/content-generations' -X POST \
      --data-raw $'...json request payload...'
 ```
 
-The JSON Request Payload looks like this:
+This is an example **request** JSON payload:
 
 ```json
 {
@@ -139,6 +139,29 @@ The JSON Request Payload looks like this:
     "min_words": 45,
     "deleted": false,
     "words_to_ignore": [ ...an array of words... ]
+}
+```
+
+This is an example **response** JSON payload:
+
+```json
+{
+  "id": 123,
+  "name": "A Project Label",
+  "penalty": 0.5,
+  "temperature": 0.4,
+  "stop": "###",
+  "deleted": false,
+  "model_id": 123,
+  "max_tokens": 119,
+  "created_at": "2023-12-20T10:25:31.607727576Z",
+  "modified_at": "2023-12-20T10:25:31.607727576Z",
+  "deleted_at": null,
+  "min_words": 45,
+  "graphql_query": "...graphql query...",
+  "prompt_template": "...prompt template...",
+  "account_id": 123,
+  "words_to_ignore": null
 }
 ```
 
@@ -540,7 +563,7 @@ Example JSON Payload, note the `completion` set to `null`:
 ```json
 {
   "id": 253191,
-  "prompt": "Acme Glasses is a pair of sunglasses. Costa Diego are designed for men. The lens treatment is mirror. The lens color facet is gray silver mirror. The lenses are polarized. The shape is rectangle. The frame color finish is matte. The frame color is matte black. This pair of sunglasses feature lens contrast enhancements. ####",
+  "prompt": "Acme Glasses is a pair of sunglasses. Las Vegas are designed for men. The lens treatment is mirror. The lens color facet is gray silver mirror. The lenses are polarized. The shape is rectangle. The frame color finish is matte. The frame color is matte black. This pair of sunglasses feature lens contrast enhancements. ####",
   "completion": null,
   "data": {
     "id": "https://data.example.org/example-dataset/gtin",
@@ -647,7 +670,7 @@ Example JSON Payload:
 
 ```json
 {
-  "prompt": "Acme Glasses is a pair of sunglasses. Costa Diego are designed for men. The lens treatment is mirror. The lens color facet is gray silver mirror. The lenses are polarized. The shape is rectangle. The frame color finish is matte. The frame color is matte black. This pair of sunglasses feature lens contrast enhancements. ####",
+  "prompt": "Acme Glasses is a pair of sunglasses. Las Vegas are designed for men. The lens treatment is mirror. The lens color facet is gray silver mirror. The lenses are polarized. The shape is rectangle. The frame color finish is matte. The frame color is matte black. This pair of sunglasses feature lens contrast enhancements. ####",
   "completion": "...example completion...",
   "data": {
     "id": "https://data.example.org/example-dataset/gtin",
@@ -730,7 +753,7 @@ Example JSON Payload:
 
 ```json
 {
-  "prompt": "Acme Glasses is a pair of sunglasses. Costa Diego are designed for men. The lens treatment is mirror. The lens color facet is gray silver mirror. The lenses are polarized. The shape is rectangle. The frame color finish is matte. The frame color is matte black. This pair of sunglasses feature lens contrast enhancements. ####",
+  "prompt": "Acme Glasses is a pair of sunglasses. Las Vegas are designed for men. The lens treatment is mirror. The lens color facet is gray silver mirror. The lenses are polarized. The shape is rectangle. The frame color finish is matte. The frame color is matte black. This pair of sunglasses feature lens contrast enhancements. ####",
   "completion": "...example completion...",
   "data": {
     "id": "https://data.example.org/example-dataset/gtin",
@@ -815,7 +838,7 @@ Example JSON Payload:
 
 ```json
 {
-  "prompt": "Acme Glasses is a pair of sunglasses. Costa Diego are designed for men. The lens treatment is mirror. The lens color facet is gray silver mirror. The lenses are polarized. The shape is rectangle. The frame color finish is matte. The frame color is matte black. This pair of sunglasses feature lens contrast enhancements. ####",
+  "prompt": "Acme Glasses is a pair of sunglasses. Las Vegas are designed for men. The lens treatment is mirror. The lens color facet is gray silver mirror. The lenses are polarized. The shape is rectangle. The frame color finish is matte. The frame color is matte black. This pair of sunglasses feature lens contrast enhancements. ####",
   "completion": "...manually set completion...",
   "data": {
     "id": "https://data.example.org/example-dataset/gtin",
@@ -1121,7 +1144,7 @@ curl 'https://api.wordlift.io/content-generation/content-generations/renders' -X
      --data-raw $'...json payload...'
 ```
 
-This is the example JSON payload:
+This is the example **request** JSON payload:
 
 ```json
 {
@@ -1193,6 +1216,13 @@ This is the example JSON payload:
 }
 ```
 
+The is an example **response** payload, it is a plain text with the rendition:
+
+```text
+Las Vegas is a pair of sunglasses. Las Vegas are designed for men. The lens treatment is mirror. The lens color facet is gray silver mirror. The lenses are polarized. The shape is rectangle. The frame color finish is matte. The frame color is matte black. This pair of sunglasses feature lens contrast enhancements. ####
+```
+
+
 #### Render a Collection of Templates
 
 It is also possible to generate multiple renders at once by using the Bulk API:
@@ -1205,6 +1235,20 @@ curl 'https://api.wordlift.io/content-generation/content-generations/renders-col
      --data-raw $'[...json payload 1...,...json payload 2...,...,...json payload n...]'
 ```
 
+See [Render Template](#render-template) for the JSON payload structure.
+
+This is an example **response** JSON payload:
+
+```json
+[
+  ...rendition 1...,
+  ...rendition 2...,
+  ...,
+  ...rendition n...
+]
+```
+
+
 ### Generate a Preview Completion
 
 It is possible to test different settings by create a completion on the fly:
@@ -1216,6 +1260,29 @@ curl 'https://api.wordlift.io/content-generation/completions' -X POST \
     -H 'Authorization: Bearer <your-oauth2-access-token>' \
      --data-raw '{"frequency_penalty":0.5,"stop":"###","prompt":"John Smith is a pair of sunglasses. The lens treatment is gradient. The lens color facet is gradient green. The frame material is metal. The shape is square. The frame color finish is polished. The frame color is pale gold. There are strass on these sunglasses. These sunglasses feature strass on strass on metal component and. ####","max_tokens":110,"temperature":0.7,"model_id":162,"presence_penalty":0.5,"min_words":45,"logit_bias":{}}'
 ```
+
+This an example **request** JSON payload:
+
+```json
+{
+  "frequency_penalty": 0.5,
+  "stop": "###",
+  "prompt": "John Smith is a pair of sunglasses. The lens treatment is gradient. The lens color facet is gradient green. The frame material is metal. The shape is square. The frame color finish is polished. The frame color is pale gold. There are strass on these sunglasses. These sunglasses feature strass on strass on metal component and. ####",
+  "max_tokens": 110,
+  "temperature": 0.7,
+  "model_id": 162,
+  "presence_penalty": 0.5,
+  "min_words": 45,
+  "logit_bias": {}
+}
+```
+
+This is an example **response**, it's plain text with the completion:
+
+```text
+ Experience the perfect synergy of style and performance with Las Vegas sunglasses. The rectangle shape and matte black frame offer a sleek, modern look, while the polarized gray silver mirror lenses provide excellent glare reduction and superior clarity. The lens treatment is mirrored for added protection against the sun's rays. These shades also feature contrast enhancements, making them ideal for any outdoor activity.
+ ```
+
 
 ### Add Word Biases to a Content Generation Project
 
