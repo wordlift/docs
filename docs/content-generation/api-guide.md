@@ -520,21 +520,32 @@ curl 'https://api.wordlift.io/content-generation/content-generations/<project-id
     -H 'Authorization: Bearer <your-oauth2-access-token>'
 ```
 
+If successful, the server will return a 200 OK with no content.
+
 ### List Completions
 
 Once the Records have been imported, it is possible to access them along with their completion. This endpoint returns a JSONL formatted response which allows client to read the response as it loads without waiting for all the completions to be generated.
-
-:::info
-
-JSONL means JSON lines, that is one self-standing JSON per line.
-
-:::
 
 ```sh
 curl 'https://api.wordlift.io/content-generation/content-generations/<project-id>/records-sse' \
     -H 'Accept: */*' \
     -H 'Authorization: Bearer <your-oauth2-access-token>'
 ```
+
+This is an example **response**, note that it is a [JSONL (JSON Lines)](https://jsonlines.org/) response, that is one full parsable JSON per line:
+
+```json
+{   "id": 1,   "prompt": "Acme Glasses is a pair of sunglasses. The lens treatment is solid color. The lens color facet is grey. The color of the temples is havana. The frame material is acetate. The shape is square. The frame color finish is polished. The frame color is black. ####",   "completion": "Elevate your fashion while optimizing utility with Acme Glasses. These square-shaped sunglasses feature a polished black acetate frame that is both durable and stylish. The grey solid color lenses add a touch of sophistication, while the havana temples provide a pop of color. The perfect accessory for those who value both design and functionality.",   "data": {     "id": "https://data.example.org/example-dataset/product_sku",     "name": "product_sku",     "type": "http://schema.org/Product",     "brand": "Acme Glasses",     "release": null,     "category": "Optical",     "modelFit": "high bridge fit",     "faceShape": "Oval-Round",     "frameType": "full rim",     "lensColor": "grey",     "productStyleName": null,     "channelAttributes": [       { "channel": "ABC - Abc", "styleName": "MyStyleName" },       { "channel": "ABC - Abc", "styleName": "MyStyleName" }     ]  },   "errors": null,   "warnings": null,   "content_generation_id": 123,   "not_in_prompt_words": [],   "is_accepted": false,   "has_upvote": false,   "modified_at": "2023-12-20T10:40:16.817789417Z",   "validated_at": "2023-12-20T10:40:16.817448914Z",   "status": "valid" } 
+{   "id": 2,   "prompt": "Acme Glasses is a pair of sunglasses. The lens treatment is solid color. The lens color facet is grey. The color of the temples is havana. The frame material is acetate. The shape is square. The frame color finish is polished. The frame color is black. ####",   "completion": "Elevate your fashion while optimizing utility with Acme Glasses. These square-shaped sunglasses feature a polished black acetate frame that is both durable and stylish. The grey solid color lenses add a touch of sophistication, while the havana temples provide a pop of color. The perfect accessory for those who value both design and functionality.",   "data": {     "id": "https://data.example.org/example-dataset/product_sku",     "name": "product_sku",     "type": "http://schema.org/Product",     "brand": "Acme Glasses",     "release": null,     "category": "Optical",     "modelFit": "high bridge fit",     "faceShape": "Oval-Round",     "frameType": "full rim",     "lensColor": "grey",     "productStyleName": null,     "channelAttributes": [       { "channel": "ABC - Abc", "styleName": "MyStyleName" },       { "channel": "ABC - Abc", "styleName": "MyStyleName" }     ]  },   "errors": null,   "warnings": null,   "content_generation_id": 123,   "not_in_prompt_words": [],   "is_accepted": false,   "has_upvote": false,   "modified_at": "2023-12-20T10:40:16.817789417Z",   "validated_at": "2023-12-20T10:40:16.817448914Z",   "status": "valid" } 
+{   "id": 3,   "prompt": "Acme Glasses is a pair of sunglasses. The lens treatment is solid color. The lens color facet is grey. The color of the temples is havana. The frame material is acetate. The shape is square. The frame color finish is polished. The frame color is black. ####",   "completion": "Elevate your fashion while optimizing utility with Acme Glasses. These square-shaped sunglasses feature a polished black acetate frame that is both durable and stylish. The grey solid color lenses add a touch of sophistication, while the havana temples provide a pop of color. The perfect accessory for those who value both design and functionality.",   "data": {     "id": "https://data.example.org/example-dataset/product_sku",     "name": "product_sku",     "type": "http://schema.org/Product",     "brand": "Acme Glasses",     "release": null,     "category": "Optical",     "modelFit": "high bridge fit",     "faceShape": "Oval-Round",     "frameType": "full rim",     "lensColor": "grey",     "productStyleName": null,     "channelAttributes": [       { "channel": "ABC - Abc", "styleName": "MyStyleName" },       { "channel": "ABC - Abc", "styleName": "MyStyleName" }     ]  },   "errors": null,   "warnings": null,   "content_generation_id": 123,   "not_in_prompt_words": [],   "is_accepted": false,   "has_upvote": false,   "modified_at": "2023-12-20T10:40:16.817789417Z",   "validated_at": "2023-12-20T10:40:16.817448914Z",   "status": "valid" } 
+{   "id": 4,   "prompt": "Acme Glasses is a pair of sunglasses. The lens treatment is solid color. The lens color facet is grey. The color of the temples is havana. The frame material is acetate. The shape is square. The frame color finish is polished. The frame color is black. ####",   "completion": "Elevate your fashion while optimizing utility with Acme Glasses. These square-shaped sunglasses feature a polished black acetate frame that is both durable and stylish. The grey solid color lenses add a touch of sophistication, while the havana temples provide a pop of color. The perfect accessory for those who value both design and functionality.",   "data": {     "id": "https://data.example.org/example-dataset/product_sku",     "name": "product_sku",     "type": "http://schema.org/Product",     "brand": "Acme Glasses",     "release": null,     "category": "Optical",     "modelFit": "high bridge fit",     "faceShape": "Oval-Round",     "frameType": "full rim",     "lensColor": "grey",     "productStyleName": null,     "channelAttributes": [       { "channel": "ABC - Abc", "styleName": "MyStyleName" },       { "channel": "ABC - Abc", "styleName": "MyStyleName" }     ]  },   "errors": null,   "warnings": null,   "content_generation_id": 123,   "not_in_prompt_words": [],   "is_accepted": false,   "has_upvote": false,   "modified_at": "2023-12-20T10:40:16.817789417Z",   "validated_at": "2023-12-20T10:40:16.817448914Z",   "status": "valid" }
+```
+
+:::info
+
+The API uses JSONL (JSON Lines) in order to provide fast access to the completions results as they're generated.
+
+:::
 
 ###  Get Stats
 
@@ -546,7 +557,24 @@ curl 'https://api.wordlift.io/content-generation/content-generations/<project-id
     -H 'Authorization: Bearer <your-oauth2-access-token>'
 ```
 
-### Regenerate a Record Completion
+This is an example **response**:
+
+```json
+{ "total": 4, "accepted": 0, "valid": 0, "warnings": 4, "errors": 4 }
+```
+
+This is an explation of the properties in the response:
+
+| Property | Description                                                            |
+|----------|------------------------------------------------------------------------|
+| total    | The total number of records                                            |
+| accepted | The number of accepted records                                         |
+| valid    | The number of valid records, i.e. records without warnings or errors   |
+| warnings | The number of records with warnings (but no errors)                    |
+| errors   | The number of records with errors                                      |
+
+
+### Regenerate a Record Completion {#regenerate-record-completion}
 
 To regenerate a Completion, just update it by setting the `completion` to `null`. The API will then regenerate and return the Record with the new Completion.
 
@@ -641,6 +669,8 @@ curl 'https://api.wordlift.io/content-generation/content-generations/<project-id
     -H 'Accept: application/json' \
     -H 'Authorization: Bearer <your-oauth2-access-token>'
 ```
+
+Calling this API will force the platform to revalidate the completion against the configured rules. The response format is the same as the [Regenerate Completion API](#regenerate-record-completion).
 
 ### Bulk Operations on Record: Regenerate Completions
 
@@ -943,7 +973,7 @@ curl 'https://api.wordlift.io/content-generation/content-generations/<project-id
     -H 'Authorization: Bearer <your-oauth2-access-token>'
 ```
 
-### Create a Field Rule
+### Create a Field Rule {#create-field-rule}
 
 Create a Field Rule for the Project:
 
@@ -953,6 +983,56 @@ curl 'https://api.wordlift.io/content-generation/content-generations/<project-id
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer <your-oauth2-access-token>' \
      --data-raw '{"name":"Frame Material is Required","level":"REQUIRED","what_operand_lhs":"EVERYWHERE","what_operator":"CONTAINS","what_operand_rhs":"{{frontMaterial}}","when_operand_lhs":"frontMaterial","when_operator":"NOT_EQUALS","when_operand_rhs":"plastic,nylon,injected,propionate","fixes":[{"type":"OPEN_AI","what":"As {{brand}} content editor, read the following sentence and rewrite it by adding a reference to frame material being {{frontMaterial}}: \"{{completion}}\"."}],"type":"field"}'
+```
+
+This is an example **request** JSON payload:
+
+```json
+{
+  "name": "Frame Material is Required",
+  "level": "REQUIRED",
+  "what_operand_lhs": "EVERYWHERE",
+  "what_operator": "CONTAINS",
+  "what_operand_rhs": "{{frontMaterial}}",
+  "when_operand_lhs": "frontMaterial",
+  "when_operator": "NOT_EQUALS",
+  "when_operand_rhs": "plastic,nylon,injected,propionate",
+  "fixes": [
+    {
+      "type": "OPEN_AI",
+      "what": "As {{brand}} content editor, read the following sentence and rewrite it by adding a reference to frame material being {{frontMaterial}}: \"{{completion}}\"."
+    }
+  ],
+  "type": "field"
+}
+```
+
+This is an example **response** JSON:
+
+```json
+{
+  "id": 123,
+  "name": "Frame Material is Required",
+  "level": "REQUIRED",
+  "type": "field",
+  "fixes": [
+    {
+      "type": "OPEN_AI",
+      "what": "As {{brand}} content editor, read the following sentence and rewrite it by adding a reference to frame material being {{frontMaterial}}: \"{{completion}}\".",
+      "with": null
+    }
+  ],
+  "description": "",
+  "content_generation_id": 123,
+  "what_operand_lhs": "EVERYWHERE",
+  "what_operator": "CONTAINS",
+  "what_operand_rhs": "{{frontMaterial}}",
+  "when_operand_lhs": "frontMaterial",
+  "when_operator": "NOT_EQUALS",
+  "when_operand_rhs": "plastic,nylon,injected,propionate",
+  "created_at": "2023-12-20T10:37:32.927042427Z",
+  "modified_at": "2023-12-20T10:37:32.927042427Z"
+}
 ```
 
 ### Create a Word Rule
@@ -966,6 +1046,8 @@ curl 'https://api.wordlift.io/content-generation/content-generations/<project-id
     -H 'Authorization: Bearer <your-oauth2-access-token>' \
      --data-raw '{"name":"Logo words are not present","level":"RECOMMENDED","what_operand_lhs":"EVERYWHERE","what_operator":"DOESNT_CONTAIN","what_operand_rhs":"values:logo,signature,embleme,branding","when_operand_lhs":"","when_operator":"ALWAYS","when_operand_rhs":"","fixes":[{"type":"OPEN_AI","what":"As {{brand}} content editor, read the following sentence and rewrite it by removing any reference to the {{value}}: \"{{completion}}\""}],"type":"word"}'
 ```
+
+For the example **request** and **response** payloads see the [Create Field Rule](#create-field-rule).
 
 ## Other useful API
 
