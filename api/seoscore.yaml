@@ -1,0 +1,66 @@
+openapi: 3.0.0
+info:
+  title: SEO Content Analysis API
+  version: 1.0.0
+  description: This API assesses the match between a URL or text content, a query, and an intent, using advanced SEO techniques.
+
+servers:
+  - url: https://api.wordlift.io
+
+paths:
+  /score:
+    post:
+      summary: Analyze SEO relevance and trustworthiness
+      operationId: analyzeSEO
+      tags:
+        - SEO Analysis
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              oneOf:
+                - required: [url]
+                - required: [text]
+              properties:
+                url:
+                  type: string
+                  description: URL of the content to be analyzed. Mutually exclusive with text.
+                text:
+                  type: string
+                  description: A paragraph of text content to be analyzed. Mutually exclusive with URL.
+                keyword:
+                  type: string
+                  description: Keyword or query related to the content.
+                description_narrative:
+                  type: string
+                  description: Narrative description of the intent behind the query.
+      responses:
+        '200':
+          description: Analysis result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  analyze:
+                    type: string
+                    example: '[{"M": 2, "T": 2, "O": 2}]'
+                    description: Traffic light system indicating the match. M for match, T for trustworthiness, O for overall score.
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+
+security:
+  - ApiKeyAuth: []
