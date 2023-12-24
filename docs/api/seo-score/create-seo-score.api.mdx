@@ -1,0 +1,50 @@
+---
+id: create-seo-score
+title: "Create"
+description: "Create"
+sidebar_label: "Create"
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["SEO Scores"],"operationId":"createSEOScore","requestBody":{"description":"body","required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"url":{"type":"string","description":"URL of the content to be analyzed. Mutually exclusive with text."},"text":{"type":"string","description":"A paragraph of text content to be analyzed. Mutually exclusive with URL."},"keyword":{"type":"string","description":"Keyword or query related to the content."},"description_narrative":{"type":"string","description":"Narrative description of the intent behind the query."}}}}}},"responses":{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{"analyze":{"type":"string","example":"[{\"M\": 2, \"T\": 2, \"O\": 2}]","description":"Traffic light system indicating the match. M for match, T for trustworthiness, O for overall score."}}}}}},"400":{"description":"Bad request","content":{}},"401":{"description":"Unauthorized","content":{}},"500":{"description":"Internal server error","content":{}}},"security":[{"ApiKey":[]}],"description":"Create","method":"post","path":"/score","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"type":"apiKey","name":"Authorization","in":"header"}},"jsonRequestBodyExample":{"url":"string","text":"string","keyword":"string","description_narrative":"string"},"info":{"title":"SEO Content Analysis API","version":"1.0","description":"This API assesses the match between a URL or text content, a query, and an intent, using advanced SEO techniques.","termsOfService":"https://wordlift.io/terms-of-service/","contact":{"name":"WordLift","url":"https://wordlift.io","email":"hello@wordlift.io"},"license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"}},"postman":{"name":"Create","description":{"type":"text/plain"},"url":{"path":["score"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"application/json"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+sidebar_class_name: "post api-method"
+info_path: api/seo-score/seo-content-analysis-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Create
+
+
+
+Create
+
+<MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+
+body
+
+</div></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"url"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"URL of the content to be analyzed. Mutually exclusive with text."}}></SchemaItem><SchemaItem collapsible={false} name={"text"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"A paragraph of text content to be analyzed. Mutually exclusive with URL."}}></SchemaItem><SchemaItem collapsible={false} name={"keyword"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Keyword or query related to the content."}}></SchemaItem><SchemaItem collapsible={false} name={"description_narrative"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Narrative description of the intent behind the query."}}></SchemaItem></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"analyze"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","example":"[{\"M\": 2, \"T\": 2, \"O\": 2}]","description":"Traffic light system indicating the match. M for match, T for trustworthiness, O for overall score."}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"analyze\": \"[{\\\"M\\\": 2, \\\"T\\\": 2, \\\"O\\\": 2}]\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad request
+
+</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div></div></TabItem><TabItem label={"500"} value={"500"}><div>
+
+Internal server error
+
+</div><div></div></TabItem></ApiTabs></div>
+      

@@ -144,6 +144,11 @@ const sidebars = {
           label: "Sitemap Generator",
           items: require("./docs/api/sitemap-generator/sidebar.js"),
         },
+        {
+          type: "category",
+          label: "SEO Score",
+          items: require("./docs/api/seo-score/sidebar.js"),
+        },
       ],
     },
   ],

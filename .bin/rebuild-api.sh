@@ -11,3 +11,4 @@ npm run docusaurus clean-api-docs manager && npm run docusaurus gen-api-docs man
 npm run docusaurus clean-api-docs middleware && npm run docusaurus gen-api-docs middleware
 npm run docusaurus clean-api-docs sitemap-generator && npm run docusaurus gen-api-docs sitemap-generator
 npm run docusaurus clean-api-docs summarizer && npm run docusaurus gen-api-docs summarizer
+npm run docusaurus clean-api-docs seo-score && npm run docusaurus gen-api-docs seo-score

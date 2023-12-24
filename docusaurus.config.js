@@ -382,6 +382,14 @@ const config = {
               categoryLinkSource: "tag",
             },
           },
+          "seo-score": {
+            specPath: "api/seo-score.yaml", // path or URL to the OpenAPI spec
+            outputDir: "docs/api/seo-score", // output directory for generated *.mdx and sidebar.js files
+            sidebarOptions: {
+              groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
+              categoryLinkSource: "tag",
+            },
+          },
         },
       },
     ],

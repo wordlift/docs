@@ -1,0 +1,1 @@
+module.exports = [{"type":"doc","id":"api/seo-score/seo-content-analysis-api"},{"type":"category","label":"SEO Scores","link":{"type":"doc","id":"api/seo-score/seo-scores"},"items":[{"type":"doc","id":"api/seo-score/create-seo-score","label":"Create","className":"api-method post"}]}];

@@ -1,28 +1,40 @@
-openapi: 3.0.0
+openapi: 3.0.1
 info:
   title: SEO Content Analysis API
-  version: 1.0.0
+  version: "1.0"
   description: This API assesses the match between a URL or text content, a query, and an intent, using advanced SEO techniques.
-
+  termsOfService: https://wordlift.io/terms-of-service/
+  contact:
+    name: WordLift
+    url: https://wordlift.io
+    email: hello@wordlift.io
+  license:
+    name: (c) copyright 2022-present WordLift
+    url: https://wordlift.io
 servers:
   - url: https://api.wordlift.io
+
+tags:
+  - name: SEO Scores
+    description: Create a SEO Score
 
 paths:
   /score:
     post:
-      summary: Analyze SEO relevance and trustworthiness
-      operationId: analyzeSEO
       tags:
-        - SEO Analysis
+        - SEO Scores
+      summary: Create
+      operationId: createSEOScore
       requestBody:
+        description: body
         required: true
         content:
           application/json:
             schema:
               type: object
-              oneOf:
-                - required: [url]
-                - required: [text]
+              # oneOf:
+              #   - required: [url]
+              #   - required: [text]
               properties:
                 url:
                   type: string
@@ -38,7 +50,7 @@ paths:
                   description: Narrative description of the intent behind the query.
       responses:
         '200':
-          description: Analysis result
+          description: OK
           content:
             application/json:
               schema:
@@ -50,17 +62,19 @@ paths:
                     description: Traffic light system indicating the match. M for match, T for trustworthiness, O for overall score.
         '400':
           description: Bad request
+          content: { }
         '401':
           description: Unauthorized
+          content: { }
         '500':
           description: Internal server error
+          content: { }
+      security:
+        - ApiKey: []
 
 components:
   securitySchemes:
-    ApiKeyAuth:
+    ApiKey:
       type: apiKey
-      in: header
       name: Authorization
-
-security:
-  - ApiKeyAuth: []
+      in: header
