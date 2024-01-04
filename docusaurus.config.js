@@ -77,6 +77,10 @@ const config = {
             position: "left",
             items: [
               {
+                label: "Knowledge Graph",
+                to: "knowledge-graph/analytics-api-guide",
+              },
+              {
                 label: "WordPress Plugin",
                 to: "wordpress-plugin",
               },
@@ -96,7 +100,7 @@ const config = {
                 label: "Product Knowledge Graph Builder",
                 to: "product-knowledge-graph-builder/introduction",
               },
-              {
+              { 
                 label: "Cloud",
                 to: "cloud",
               },
