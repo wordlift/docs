@@ -14,28 +14,37 @@ info:
 servers:
 - url: https://api.wordlift.io
 tags:
+- description: Get Account Information
+  name: Account
+- description: Configure a Google Search Console access.
+  name: Google Search Console OAuth2 Authorized Client Configuration
 - description: Manage Custom Domains
   name: Custom Domains
 - description: Retrieve Add-ons data
   name: AddOns
 - description: Data URI for a Web page URL.
   name: Data URI
-- description: Quickly Retrieve entities and their Structured Data.
-  name: Entities
+- description: Import sitemaps to the KG
+  name: Sitemap Imports
+- description: Retrieve analytics data from Google Search Console
+  name: Google Search Console Searches
 - description: Access Google Search Console data
   name: Google Search Console
 - description: Manage Google Merchants
   name: Google Merchants
+- description: Manage OAuth2 Authorized Clients
+  name: OAuth2 Authorized Clients
+- description: "Import Analytics data to the KG using different sources, e.g. Google\
+    \ Search Console."
+  name: Analytics Imports
 - description: Manage redeem codes.
   name: Redeem Codes
 - description: The list of included or excluded URLs from the WordPress configuration
   name: Include Excludes (WordPress plugin)
 - description: Manage Accounts
   name: Accounts
-- description: Manage Merchants
-  name: Merchants
-- description: Synchronize Products from the Merchant Feed
-  name: Merchant Syncs
+- description: Update Plugin Diagnostics data for WordPress clients.
+  name: Plugin Diagnostics
 paths:
   /accounts:
     get:
@@ -55,11 +64,39 @@ paths:
           type: integer
           format: int32
           default: 10
-      - in: query
+      - description: Filter accounts that can or cannot do Content Generation
+        in: query
         name: can_content_generation
         required: false
         schema:
           type: boolean
+      - description: Add entity count data
+        in: query
+        name: include_entity_count
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - description: Include all the accounts the user has access to
+        in: query
+        name: include_all_accounts
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - description: Include the subscription data
+        in: query
+        name: include_subscription
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - description: The URL
+        in: query
+        name: url
+        required: false
+        schema:
+          type: string
       responses:
         "200":
           content:
@@ -74,6 +111,88 @@ paths:
       summary: List
       tags:
       - Accounts
+  /accounts/me:
+    get:
+      description: Get the account data for the current account identified by its
+        key.
+      operationId: getMe
+      responses:
+        "200":
+          content:
+            application/vnd.wordlift.account-info.v2+json:
+              schema:
+                $ref: '#/components/schemas/AccountInfo'
+          description: Found
+        "401":
+          description: Authentication Failure
+      summary: Get
+      tags:
+      - Account
+  /accounts/me/google/searches:
+    get:
+      description: List the Website Search performance data
+      operationId: listWebsiteSearch_1
+      parameters:
+      - description: The cursor
+        in: query
+        name: cursor
+        required: false
+        schema:
+          type: string
+      - description: "The start date, inclusive, in yyyy-MM-dd format."
+        in: query
+        name: since
+        required: true
+        schema:
+          type: string
+      - description: "The end date, inclusive, in yyyy-MM-dd format."
+        in: query
+        name: until
+        required: true
+        schema:
+          type: string
+      - description: "The dimensions, e.g. `query`, `page`. Must repeat for each dimension."
+        in: query
+        name: dimensions
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+      - description: "If \"all\" (case-insensitive), data will include fresh data.\
+          \ If \"final\" (case-insensitive) or if this parameter is omitted, the returned\
+          \ data will include only finalized data."
+        in: query
+        name: data_state
+        required: false
+        schema:
+          type: string
+          enum:
+          - all
+          - final
+      - description: The maximum number of results
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+          default: 10
+          maximum: 25000
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageWebsiteSearch'
+          description: Found
+        "401":
+          description: Authentication Failure
+      security:
+      - ApiKey: []
+      summary: List Website Search data
+      tags:
+      - Google Search Console Searches
   /accounts/me/include-excludes:
     get:
       description: List the include and exclude configurations.
@@ -157,6 +276,39 @@ paths:
       summary: Update
       tags:
       - Include Excludes (WordPress plugin)
+  /accounts/me/plugin/diagnostics/plugins-collection:
+    put:
+      description: Replace the list of the plugins for the current account with the
+        one provided by the client
+      operationId: updateDiagnosticPluginCollection
+      parameters:
+      - in: query
+        name: account
+        required: true
+        schema:
+          $ref: '#/components/schemas/Account'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/DiagnosticPluginRequest'
+        required: true
+      responses:
+        "200":
+          description: Found.
+        "204":
+          description: No Content
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - ApiKey: []
+      summary: Update
+      tags:
+      - Plugin Diagnostics
   /addon/configurations:
     get:
       description: List the Add-ons configurations
@@ -193,6 +345,21 @@ paths:
       summary: List
       tags:
       - AddOns
+  /analytics-imports:
+    post:
+      description: Create a Analytics Import using Google Search Console or Botify
+        depending on the Account configuration.
+      operationId: createAnalyticsImport
+      responses:
+        "201":
+          description: Success
+        "401":
+          description: Authentication Failure
+      security:
+      - apiKey: []
+      summary: Create
+      tags:
+      - Analytics Imports
   /data-uri:
     get:
       description: |
@@ -217,55 +384,6 @@ paths:
       summary: Get the Web Data URI for a Web Page URL.
       tags:
       - Data URI
-  /entities:
-    get:
-      description: List the Entities
-      operationId: listEntities
-      parameters:
-      - description: The dataset URI to search
-        in: query
-        name: dataset_uri_in
-        required: true
-        schema:
-          type: array
-          items:
-            type: string
-          uniqueItems: true
-        style: form
-      - description: The name regex
-        in: query
-        name: name_match
-        required: true
-        schema:
-          type: string
-      - description: The maximum number of results
-        in: query
-        name: limit
-        required: false
-        schema:
-          type: integer
-          default: 10
-      - description: "The sorting, only `+name` is supported"
-        in: query
-        name: sort
-        required: false
-        schema:
-          type: string
-          default: +name
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PageEntity'
-          description: Found
-        "401":
-          description: Authentication Failure
-      security:
-      - ApiKey: []
-      summary: List
-      tags:
-      - Entities
   /ext/google/searchconsole/searches:
     get:
       description: List the Website Search performance data
@@ -385,231 +503,144 @@ paths:
       summary: List
       tags:
       - Google Merchants
-  /merchants:
-    get:
-      description: "List the Merchants, optionally filtering by the `deleted` flag"
-      operationId: listMerchants
-      parameters:
-      - description: The cursor
-        in: query
-        name: cursor
-        required: false
-        schema:
-          type: string
-      - description: The maximum number of results
-        in: query
-        name: limit
-        required: false
-        schema:
-          type: integer
-          default: 10
-      - description: Filter by the `deleted` flag
-        in: query
-        name: deleted
-        required: false
-        schema:
-          type: boolean
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PageMerchantView'
-          description: Found
-        "401":
-          description: Authentication Failure
-      security:
-      - OAuth2: []
-      summary: List
-      tags:
-      - Merchants
+  /google-search-console/oauth2/build-authorize-uri:
     post:
-      description: Create a Merchant
-      operationId: createMerchant
+      description: Call this API to get an authorization URI needed to interactively
+        get an authorization token. Then call the `exchangeAuthCode` to exchange it
+        with an authorization token.
+      operationId: buildAuthorizeUri
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Request'
+              $ref: '#/components/schemas/BuildAuthorizeUriRequest'
         required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Merchant'
-          description: Success
-        "401":
-          description: Authentication Failure
-        "404":
-          description: Not Found
-      security:
-      - OAuth2: []
-      summary: Create
-      tags:
-      - Merchants
-  /merchants/{id}:
-    delete:
-      description: Delete a Merchant by its `id`.
-      operationId: deleteMerchant
-      parameters:
-      - description: The Merchant id
-        in: path
-        name: id
-        required: true
-        schema:
-          type: integer
-          format: int64
-      responses:
-        "200":
-          description: Deleted
-        "401":
-          description: Authentication Failure
-      security:
-      - OAuth2: []
-      summary: Delete by id
-      tags:
-      - Merchants
-    get:
-      description: Get a Merchant by its `id`.
-      operationId: getMerchant
-      parameters:
-      - description: The Merchant id
-        in: path
-        name: id
-        required: true
-        schema:
-          type: integer
-          format: int64
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Merchant'
-          description: Success
-        "401":
-          description: Authentication Failure
-      security:
-      - OAuth2: []
-      summary: Get by id
-      tags:
-      - Merchants
-    put:
-      description: Update a Merchant
-      operationId: updateMerchant
-      parameters:
-      - description: The Merchant id
-        in: path
-        name: id
-        required: true
-        schema:
-          type: integer
-          format: int64
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Request'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Merchant'
-          description: Success
-        "401":
-          description: Authentication Failure
-        "404":
-          description: Not Found
-      security:
-      - OAuth2: []
-      summary: Update
-      tags:
-      - Merchants
-  /merchants/{merchantId}/syncs:
-    get:
-      description: List the Merchants Syncs
-      operationId: listMerchantSyncs
-      parameters:
-      - description: The Merchant's `id`
-        in: path
-        name: merchantId
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - description: The cursor
-        in: query
-        name: cursor
-        required: false
-        schema:
-          type: string
-      - description: The maximum number of results
-        in: query
-        name: limit
-        required: false
-        schema:
-          type: integer
-          default: 10
-      - description: "The sorting, `+id` or `-id`"
-        in: query
-        name: sort
-        required: false
-        schema:
-          type: string
-          default: +id
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PageMerchantSync'
-          description: Found
-        "401":
-          description: Authentication Failure
-      security:
-      - OAuth2: []
-      summary: List
-      tags:
-      - Merchant Syncs
-    post:
-      operationId: createSync
-      parameters:
-      - description: The Merchant's `id`
-        in: path
-        name: merchantId
-        required: true
-        schema:
-          type: integer
-          format: int64
       responses:
         "200":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/MerchantSync'
-          description: Found.
+                $ref: '#/components/schemas/BuildAuthorizeUriResponse'
+          description: Found
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - apiKey: []
+      summary: Returns an Authorization URI for the current account.
+      tags:
+      - Google Search Console OAuth2 Authorized Client Configuration
+  /google-search-console/oauth2/exchange-auth-code:
+    post:
+      description: Call this API to have the Platform receive an Authentication Token
+        to access the Analytics data via Google Search Console.
+      operationId: exchangeAuthCode
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExchangeAuthCodeRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExchangeAuthCodeResponse'
+          description: Found
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - apiKey: []
+      summary: Exchange an Authorization Code with an Authentication Token.
+      tags:
+      - Google Search Console OAuth2 Authorized Client Configuration
+  /oauth2/authorized-clients:
+    get:
+      description: List OAuth2 Authorized Clients
+      operationId: listOAuth2AuthorizedClients
+      parameters:
+      - description: The cursor
+        in: query
+        name: cursor
+        required: false
+        schema:
+          type: string
+      - description: The maximum number of results
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+          default: 10
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageOAuth2AuthorizedClient'
+          description: Found
         "401":
           description: Authentication Failure
       security:
       - OAuth2: []
-      summary: Start
+      summary: List
       tags:
-      - Merchant Syncs
-  /merchants/{merchantId}/syncs/{id}:
-    get:
-      operationId: getMerchantSync
+      - OAuth2 Authorized Clients
+    post:
+      description: Create a OAuth2 Authorized Client
+      operationId: createOAuth2AuthorizedClient
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuth2AuthorizedClient'
+          description: Found
+        "401":
+          description: Authentication Failure
+      security:
+      - OAuth2: []
+      summary: Create
+      tags:
+      - OAuth2 Authorized Clients
+  /oauth2/authorized-clients/{id}:
+    delete:
+      description: Delete a OAuth2 Authorized Client given its client registration
+        id
+      operationId: deleteOAuth2AuthorizedClient
       parameters:
-      - description: The Merchant's `id`
+      - description: The Id
         in: path
-        name: merchantId
+        name: id
         required: true
         schema:
           type: integer
           format: int64
-      - description: The Merchant Sync `id`.
+      responses:
+        "200":
+          description: Found
+        "401":
+          description: Authentication Failure
+      security:
+      - OAuth2: []
+      summary: Delete
+      tags:
+      - OAuth2 Authorized Clients
+    get:
+      description: Get a OAuth2 Authorized Client given its client registration id
+      operationId: getOAuth2AuthorizedClient
+      parameters:
+      - description: The Id
         in: path
         name: id
         required: true
@@ -621,17 +652,47 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MerchantSync'
-          description: Found.
+                $ref: '#/components/schemas/OAuth2AuthorizedClient'
+          description: Found
         "401":
           description: Authentication Failure
-        "404":
-          description: Not Found
       security:
       - OAuth2: []
-      summary: Get by id
+      summary: Get
       tags:
-      - Merchant Syncs
+      - OAuth2 Authorized Clients
+    put:
+      description: Update a OAuth2 Authorized Client given its client registration
+        id
+      operationId: updateOAuth2AuthorizedClient
+      parameters:
+      - description: The Id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuth2AuthorizedClient'
+          description: Found
+        "401":
+          description: Authentication Failure
+      security:
+      - OAuth2: []
+      summary: Update
+      tags:
+      - OAuth2 Authorized Clients
   /redeem-codes:
     post:
       operationId: redeemCode
@@ -652,23 +713,43 @@ paths:
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Problem'
+                $ref: '#/components/schemas/ProblemDetail'
           description: Not Found.
         "409":
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Problem'
+                $ref: '#/components/schemas/ProblemDetail'
           description: Code already redeemed.
         "500":
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Problem'
+                $ref: '#/components/schemas/ProblemDetail'
           description: Configuration error.
       summary: Redeem the provided code and get a key
       tags:
       - Redeem Codes
+  /sitemap-imports:
+    post:
+      description: Create a Sitemap Import
+      operationId: createSitemapImport
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Request'
+        required: true
+      responses:
+        "200":
+          description: Success
+        "401":
+          description: Authentication Failure
+      security:
+      - apiKey: []
+      summary: Create
+      tags:
+      - Sitemap Imports
   /validations:
     post:
       description: Check if the provided custom domain can be set for the account
@@ -698,15 +779,27 @@ components:
     Account:
       type: object
       properties:
+        analytics_client_factory:
+          type: string
         analyzerId:
           type: integer
           format: int64
+        botify_project:
+          type: string
+        botify_token:
+          type: string
+        botify_username:
+          type: string
         country:
           type: string
         datasetId:
           type: string
           deprecated: true
+        datasetUri:
+          type: string
         domainUri:
+          type: string
+        google_search_console_site_url:
           type: string
         id:
           type: integer
@@ -732,13 +825,100 @@ components:
           type: string
         wp_include_exclude_default:
           type: string
+    AccountInfo:
+      type: object
+      description: Account Information
+      properties:
+        accountId:
+          type: integer
+          format: int64
+          description: The Account Id
+          readOnly: true
+        datasetId:
+          type: string
+          description: The Dataset Id
+          readOnly: true
+        datasetUri:
+          type: string
+          description: The dataset URI
+          readOnly: true
+        features:
+          type: object
+          additionalProperties:
+            type: boolean
+            description: A list of features enabled or disabled for the account
+            readOnly: true
+          description: A list of features enabled or disabled for the account
+          readOnly: true
+        googleSearchConsoleSiteUrl:
+          type: string
+          description: Google Search Console Site URL
+          readOnly: true
+        key:
+          type: string
+          description: The Key
+          readOnly: true
+        language:
+          type: string
+          description: The language code
+          readOnly: true
+        networks:
+          type: array
+          description: A list of connected Account Information
+          items:
+            $ref: '#/components/schemas/NetworkAccountInfo'
+          readOnly: true
+        ngDatasetId:
+          type: string
+        subscriptionId:
+          type: integer
+          format: int64
+          description: The Subscription Id
+          readOnly: true
+        url:
+          type: string
+          description: The website URL
+          readOnly: true
+        wpAdmin:
+          type: string
+          description: "If WordPress, the WP-ADMIN URL"
+          readOnly: true
+        wpJson:
+          type: string
+          description: "If WordPress, the WP-JSON end-point"
+          readOnly: true
+      required:
+      - accountId
+      - datasetUri
+      - networks
+      - subscriptionId
+    AccountSubscription:
+      type: object
+      properties:
+        email:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        order_id:
+          type: integer
+          format: int64
+        sku:
+          type: string
     ActiveAccount:
       type: object
       description: An array of objects.
       properties:
         country:
           type: string
+        diagnostic_plugins:
+          type: array
+          items:
+            $ref: '#/components/schemas/DiagnosticPlugin'
         domain_uri:
+          type: string
+        google_search_console_site_url:
           type: string
         id:
           type: integer
@@ -751,7 +931,15 @@ components:
           type: string
         package_type:
           type: string
+        subscription:
+          $ref: '#/components/schemas/AccountSubscription'
         subscription_id:
+          type: integer
+          format: int64
+        total_entities:
+          type: integer
+          format: int64
+        total_entities_with_schema_url:
           type: integer
           format: int64
         url:
@@ -789,6 +977,67 @@ components:
           type: string
           description: The wp-json endpoint for a website using the key.
           readOnly: true
+    BuildAuthorizeUriRequest:
+      type: object
+      description: The request of the `buildAuthorizeUri` endpoint.
+      properties:
+        redirect_uri:
+          type: string
+          description: The Redirect URI to where redirect the Client after successful
+            authentication.
+      required:
+      - redirect_uri
+    BuildAuthorizeUriResponse:
+      type: object
+      description: The response of the `buildAuthorizeUri` endpoint.
+      properties:
+        authorize_uri:
+          type: string
+          description: The Authorization URI. The Client should be redirected to this
+            URI.
+      required:
+      - authorize_uri
+    DiagnosticPlugin:
+      type: object
+      description: Plugin Data used for diagnostics
+      properties:
+        account_id:
+          type: integer
+          format: int64
+          description: The account id.
+          readOnly: true
+        active:
+          type: boolean
+          description: Whether the plugin is active.
+        created_at:
+          type: string
+          format: date-time
+          description: The create date-time
+          readOnly: true
+        id:
+          type: integer
+          format: int64
+          description: The record id.
+          readOnly: true
+        name:
+          type: string
+          description: The plugin name.
+        version:
+          type: string
+          description: The plugin version.
+    DiagnosticPluginRequest:
+      type: object
+      description: Diagnostic Plugin Data Request
+      properties:
+        active:
+          type: boolean
+          description: Whether the plugin is active.
+        name:
+          type: string
+          description: The plugin name.
+        version:
+          type: string
+          description: The plugin version.
     DomainValidationRequest:
       type: object
       properties:
@@ -801,16 +1050,19 @@ components:
       required:
       - dataset_domain
       - dataset_name
-    Entity:
+    ExchangeAuthCodeRequest:
       type: object
-      description: An array of objects.
+      description: The request of the `exchangeAuthCode` endpoint.
       properties:
-        structured_data:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              type: object
+        code:
+          type: string
+          description: The Authorization Code. The API will use the Authorization
+            Code to exchange it with an Access Token.
+      required:
+      - code
+    ExchangeAuthCodeResponse:
+      type: object
+      description: The response of the `buildAuthorizeUri` endpoint.
     IncludeExclude:
       type: object
       properties:
@@ -853,70 +1105,6 @@ components:
       required:
       - Include or Exclude
       - The URL
-    Merchant:
-      type: object
-      description: A Merchant project.
-      properties:
-        access_token:
-          type: string
-          description: The Google merchant access token
-        account_id:
-          type: integer
-          format: int64
-          description: The account id
-          readOnly: true
-        automatic_synchronization:
-          type: boolean
-          description: Whether the Merchant data will be synchronized automatically
-        created_at:
-          type: string
-          format: date-time
-          description: The create date-time
-          readOnly: true
-        dataset_domain:
-          type: string
-          description: The custom domain (for example data.example.org)
-        dataset_name:
-          type: string
-          description: The dataset path (for example /data)
-        deleted:
-          type: boolean
-          default: false
-          description: True if the merchant has been deleted
-        deleted_at:
-          type: string
-          format: date-time
-          description: The delete date-time
-          readOnly: true
-        google_merchant_id:
-          type: integer
-          format: int64
-          description: The Google Merchant id
-        id:
-          type: integer
-          format: int64
-          description: The unique id
-          readOnly: true
-        modified_at:
-          type: string
-          format: date-time
-          description: The last modified date-time
-          readOnly: true
-        publisher_name:
-          type: string
-          description: The publisher name (shows in schema publisher)
-        refresh_token:
-          type: string
-          description: The Google merchant refresh token
-        url:
-          type: string
-          description: The website URL
-      required:
-      - access_token
-      - deleted
-      - google_merchant_id
-      - publisher_name
-      - refresh_token
     MerchantEntry:
       type: object
       description: A Merchant Entry with the Google Merchant Id and the Website URL
@@ -931,176 +1119,58 @@ components:
       required:
       - google_merchant_id
       - website_url
-    MerchantSync:
+    NetworkAccountInfo:
       type: object
-      description: A Merchant products data synchronization.
+      description: Network Account Information
       properties:
-        created_at:
-          type: string
-          format: date-time
-          description: The create date-time.
-          readOnly: true
-        has_errors:
-          type: boolean
-          description: Whether the sync encountered errors.
-          readOnly: true
-        id:
+        accountId:
           type: integer
           format: int64
-          description: The unique id.
+          description: The Account Id
           readOnly: true
-        merchant_id:
-          type: integer
-          format: int64
-          description: The parent Merchant id.
-          readOnly: true
-        modified_at:
+        datasetId:
           type: string
-          format: date-time
-          description: The last modified date-time.
+          description: The Dataset Id
           readOnly: true
-        products_created:
-          type: integer
-          format: int32
-          description: The number of created products
-          readOnly: true
-        products_deleted:
-          type: integer
-          format: int32
-          description: The number of deleted products
-          readOnly: true
-        products_errored:
-          type: integer
-          format: int32
-          description: The number of errored products
-          readOnly: true
-        products_skipped:
-          type: integer
-          format: int32
-          description: The number of skipped products
-          readOnly: true
-        products_total:
-          type: integer
-          format: int32
-          description: "The total number of processed products, including the skipped\
-            \ and errored."
-          readOnly: true
-        products_updated:
-          type: integer
-          format: int32
-          description: The number of update products
-          readOnly: true
-        started_at:
+        datasetUri:
           type: string
-          format: date-time
-          description: The started date-time.
-          readOnly: true
-        stopped_at:
-          type: string
-          format: date-time
-          description: The stopped date-time.
-          readOnly: true
-      required:
-      - merchant_id
-    MerchantView:
-      type: object
-      description: An array of objects.
-      properties:
-        access_token:
-          type: string
-          description: The Google merchant access token
-        account_id:
-          type: integer
-          format: int64
-          description: The account id
-          readOnly: true
-        automatic_synchronization:
-          type: boolean
-          description: Whether the Merchant data will be synchronized automatically
-        created_at:
-          type: string
-          format: date-time
-          description: The create date-time
-          readOnly: true
-        dataset_domain:
-          type: string
-          description: The custom domain (for example data.example.org)
-        dataset_name:
-          type: string
-          description: The dataset path (for example /data)
-        deleted:
-          type: boolean
-          default: false
-          description: True if the merchant has been deleted
-        deleted_at:
-          type: string
-          format: date-time
-          description: The delete date-time
-          readOnly: true
-        google_merchant_id:
-          type: integer
-          format: int64
-          description: The Google Merchant id
-        id:
-          type: integer
-          format: int64
-          description: The unique id
-          readOnly: true
-        modified_at:
-          type: string
-          format: date-time
-          description: The last modified date-time
-          readOnly: true
-        publisher_name:
-          type: string
-          description: The publisher name (shows in schema publisher)
-        refresh_token:
-          type: string
-          description: The Google merchant refresh token
-        sid:
-          type: string
-        sync_has_errors:
-          type: boolean
-        sync_id:
-          type: integer
-          format: int64
-        sync_products_created:
-          type: integer
-          format: int32
-        sync_products_deleted:
-          type: integer
-          format: int32
-        sync_products_errored:
-          type: integer
-          format: int32
-        sync_products_skipped:
-          type: integer
-          format: int32
-        sync_products_total:
-          type: integer
-          format: int32
-        sync_products_updated:
-          type: integer
-          format: int32
-        sync_started_at:
-          type: string
-          format: date-time
-          description: The started date-time.
-          readOnly: true
-        sync_stopped_at:
-          type: string
-          format: date-time
-          description: The stopped date-time.
+          description: The Dataset URI
           readOnly: true
         url:
           type: string
           description: The website URL
+          readOnly: true
+      readOnly: true
       required:
-      - access_token
-      - deleted
-      - google_merchant_id
-      - publisher_name
-      - refresh_token
+      - datasetUri
+    OAuth2AuthorizedClient:
+      type: object
+      description: A OAuth2 Authorized Client
+      properties:
+        access_token_expires_at:
+          type: string
+          format: date-time
+        access_token_issued_at:
+          type: string
+          format: date-time
+        access_token_scopes:
+          type: string
+        access_token_type:
+          type: string
+        access_token_value:
+          type: string
+        client_registration_id:
+          type: string
+        id:
+          type: integer
+          format: int64
+        principal_name:
+          type: string
+        refresh_token_issued_at:
+          type: string
+          format: date-time
+        refresh_token_value:
+          type: string
     PageActiveAccount:
       type: object
       description: A page object with links to move to other pages and the list of
@@ -1175,43 +1245,6 @@ components:
       - next
       - prev
       - self
-    PageEntity:
-      type: object
-      description: A page object with links to move to other pages and the list of
-        objects.
-      properties:
-        first:
-          type: string
-          description: The link to the first page.
-          nullable: true
-        items:
-          type: array
-          description: An array of objects.
-          items:
-            $ref: '#/components/schemas/Entity'
-        last:
-          type: string
-          description: The link to the last page.
-          nullable: true
-        next:
-          type: string
-          description: The link to the next page or `null` if there's no page.
-          nullable: true
-        prev:
-          type: string
-          description: The link to the previous page or `null` if there's no page.
-          nullable: true
-        self:
-          type: string
-          description: The link to the current page.
-          nullable: true
-      required:
-      - first
-      - items
-      - last
-      - next
-      - prev
-      - self
     PageMerchantEntry:
       type: object
       description: A page object with links to move to other pages and the list of
@@ -1249,7 +1282,7 @@ components:
       - next
       - prev
       - self
-    PageMerchantSync:
+    PageOAuth2AuthorizedClient:
       type: object
       description: A page object with links to move to other pages and the list of
         objects.
@@ -1262,44 +1295,7 @@ components:
           type: array
           description: An array of objects.
           items:
-            $ref: '#/components/schemas/MerchantSync'
-        last:
-          type: string
-          description: The link to the last page.
-          nullable: true
-        next:
-          type: string
-          description: The link to the next page or `null` if there's no page.
-          nullable: true
-        prev:
-          type: string
-          description: The link to the previous page or `null` if there's no page.
-          nullable: true
-        self:
-          type: string
-          description: The link to the current page.
-          nullable: true
-      required:
-      - first
-      - items
-      - last
-      - next
-      - prev
-      - self
-    PageMerchantView:
-      type: object
-      description: A page object with links to move to other pages and the list of
-        objects.
-      properties:
-        first:
-          type: string
-          description: The link to the first page.
-          nullable: true
-        items:
-          type: array
-          description: An array of objects.
-          items:
-            $ref: '#/components/schemas/MerchantView'
+            $ref: '#/components/schemas/OAuth2AuthorizedClient'
         last:
           type: string
           description: The link to the last page.
@@ -1397,7 +1393,7 @@ components:
       - next
       - prev
       - self
-    Problem:
+    ProblemDetail:
       type: object
       properties:
         detail:
@@ -1405,12 +1401,13 @@ components:
         instance:
           type: string
           format: uri
-        parameters:
+        properties:
           type: object
           additionalProperties:
             type: object
         status:
-          $ref: '#/components/schemas/StatusType'
+          type: integer
+          format: int32
         title:
           type: string
         type:
@@ -1418,52 +1415,43 @@ components:
           format: uri
     Request:
       type: object
-      description: The Merchant request
+      description: The OAuth2 Authorized Client request
       properties:
-        access_token:
+        access_token_expires_at:
           type: string
-          description: Google Merchant access token
-        dataset_domain:
+          format: date-time
+          description: When the Access Token expires
+        access_token_issued_at:
           type: string
-          description: The custom domain (for example data.example.org)
-        dataset_name:
+          format: date-time
+          description: When the Access Token was issued
+        access_token_scopes:
           type: string
-          description: The dataset path (for example "data")
-        deleted:
-          type: boolean
-          default: false
-          description: True if the merchant has been deleted
-        google_merchant_id:
-          type: integer
-          format: int64
-          description: The Google Merchant id
-        publisher_name:
+          description: The Access Token scopes
+        access_token_type:
           type: string
-          description: The publisher name (shows in schema publisher)
-        refresh_token:
+          description: The Access Token Type
+        access_token_value:
           type: string
-          description: Google Merchant refresh token
-        url:
+          description: The Access Token Value
+        client_registration_id:
           type: string
-          description: The website URL
-      required:
-      - google_merchant_id
-      - publisher_name
-      - refresh_token
-      - url
+          description: The Client Registration Id
+        principal_name:
+          type: string
+          description: The Principal Name
+        refresh_token_issued_at:
+          type: string
+          format: date-time
+          description: When the Access Token was issued
+        refresh_token_value:
+          type: string
+          description: The Refresh Token Value
     Response:
       type: object
       properties:
         key:
           type: string
-    StatusType:
-      type: object
-      properties:
-        reasonPhrase:
-          type: string
-        statusCode:
-          type: integer
-          format: int32
     Website:
       type: object
       description: A Website
