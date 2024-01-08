@@ -16,8 +16,6 @@ servers:
 tags:
 - description: Get Account Information
   name: Account
-- description: Configure a Google Search Console access.
-  name: Google Search Console OAuth2 Authorized Client Configuration
 - description: Manage Custom Domains
   name: Custom Domains
 - description: Retrieve Add-ons data
@@ -43,6 +41,8 @@ tags:
   name: Include Excludes (WordPress plugin)
 - description: Manage Accounts
   name: Accounts
+- description: Configure Google Search Console OAuth2 authorized access codes.
+  name: Google Search Console OAuth2
 - description: Update Plugin Diagnostics data for WordPress clients.
   name: Plugin Diagnostics
 paths:
@@ -503,39 +503,11 @@ paths:
       summary: List
       tags:
       - Google Merchants
-  /google-search-console/oauth2/build-authorize-uri:
-    post:
-      description: Call this API to get an authorization URI needed to interactively
-        get an authorization token. Then call the `exchangeAuthCode` to exchange it
-        with an authorization token.
-      operationId: buildAuthorizeUri
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/BuildAuthorizeUriRequest'
-        required: true
-      responses:
-        "200":
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/BuildAuthorizeUriResponse'
-          description: Found
-        "401":
-          description: Authentication Failure
-        "404":
-          description: Not Found
-      security:
-      - apiKey: []
-      summary: Returns an Authorization URI for the current account.
-      tags:
-      - Google Search Console OAuth2 Authorized Client Configuration
-  /google-search-console/oauth2/exchange-auth-code:
+  /google-search-console/oauth2/auth-code-exchanges:
     post:
       description: Call this API to have the Platform receive an Authentication Token
         to access the Analytics data via Google Search Console.
-      operationId: exchangeAuthCode
+      operationId: createAuthCodeExchange
       requestBody:
         content:
           application/json:
@@ -555,9 +527,37 @@ paths:
           description: Not Found
       security:
       - apiKey: []
-      summary: Exchange an Authorization Code with an Authentication Token.
+      summary: Get an Access Code
       tags:
-      - Google Search Console OAuth2 Authorized Client Configuration
+      - Google Search Console OAuth2
+  /google-search-console/oauth2/authorize-uris:
+    post:
+      description: Call this API to get an authorization URI needed to interactively
+        get an authorization token. Then call the `exchangeAuthCode` to exchange it
+        with an authorization token.
+      operationId: createAuthorizeUri
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BuildAuthorizeUriRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BuildAuthorizeUriResponse'
+          description: Found
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - apiKey: []
+      summary: Create an Authorization URI
+      tags:
+      - Google Search Console OAuth2
   /oauth2/authorized-clients:
     get:
       description: List OAuth2 Authorized Clients
@@ -1063,6 +1063,23 @@ components:
     ExchangeAuthCodeResponse:
       type: object
       description: The response of the `buildAuthorizeUri` endpoint.
+      properties:
+        access_token:
+          type: string
+          description: The access token
+        expires_in:
+          type: integer
+          format: int32
+          description: The number of seconds for the access token to expire
+        refresh_token:
+          type: string
+          description: The refresh token
+        scope:
+          type: string
+          description: The scope
+        token_type:
+          type: string
+          description: "The token type, usually Bearer"
     IncludeExclude:
       type: object
       properties:
