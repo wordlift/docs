@@ -25,12 +25,12 @@ Using the Analytics API requires a WordLift Key. If you're unsure which one is t
 
 In order to connect the Google Search Console to your Knowledge Graph, a client needs to perform an interactive authentication and authorization process with Google by using a Web Browser.
 
-### Build Authorization URL
+### Create an Authorization URI
 
 The process starts using a specially crafted URL. To get the URL use the "Build Authorization URI" API (replace `<key>` with your WordLift Key):
 
 ```sh
-curl -X "POST" "https://api.wordlift.io/google-search-console/oauth2/build-authorize-uri" \
+curl -X "POST" "https://api.wordlift.io/google-search-console/oauth2/authorize-uris" \
      -H 'Authorization: Key <key>' \
      -H 'Content-Type: application/json; charset=utf-8' \
      -d $'{
@@ -80,4 +80,28 @@ https://developers.google.com/oauthplayground/?code=<authorization-code>&scope=h
 
 Copy the value in `code=<authorization-code>` (the `<authorization-code>` part) to use it with the Exchange Authorization Code API.
 
-### 
+### Create an Authorization Code Exchange
+
+Send the `authorization-code` to the Exchange Authorization Code API:
+
+```sh
+curl -X "POST" "https://api.wordlift.io/google-search-console/oauth2/auth-code-exchanges" \
+     -H 'Authorization: Key <key>' \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'{
+  "code": "<authorization-code>"
+}'
+
+```
+
+If successful, the access token will be stored in the platform and the API will return an empty JSON object:
+
+```json
+{
+  "scope": "https://www.googleapis.com/auth/webmasters.readonly",
+  "access_token": "<access-token>",
+  "expires_in": 3599,
+  "token_type": "Bearer",
+  "refresh_token": "<refresh-token>"
+}
+```
