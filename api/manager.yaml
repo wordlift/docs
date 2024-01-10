@@ -738,7 +738,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Request'
+              $ref: '#/components/schemas/SitemapImportRequest'
         required: true
       responses:
         "200":
@@ -1060,8 +1060,13 @@ components:
           type: string
           description: The Authorization Code. The API will use the Authorization
             Code to exchange it with an Access Token.
+        google_search_console_resource_id:
+          type: string
+          description: "The Google Search Console Resource Id as it shows in the Google\
+            \ Search Console, e.g. sc-domain:example.org."
       required:
       - code
+      - google_search_console_resource_id
     ExchangeAuthCodeResponse:
       type: object
       description: The response of the `buildAuthorizeUri` endpoint.
@@ -1471,6 +1476,24 @@ components:
       properties:
         key:
           type: string
+    SitemapImportRequest:
+      type: object
+      description: The Sitemap Import request
+      properties:
+        analytics:
+          type: boolean
+          description: "If true, import also analytics from GSC (requires existing\
+            \ GSC configuration in backend)"
+        sitemap_url:
+          type: string
+          description: The sitemap URL
+        urls:
+          type: array
+          description: The URLs
+          items:
+            type: string
+            description: The URLs
+          uniqueItems: true
     Website:
       type: object
       description: A Website
