@@ -356,7 +356,7 @@ paths:
         "401":
           description: Authentication Failure
       security:
-      - apiKey: []
+      - ApiKey: []
       summary: Create
       tags:
       - Analytics Imports
@@ -526,7 +526,7 @@ paths:
         "404":
           description: Not Found
       security:
-      - apiKey: []
+      - ApiKey: []
       summary: Get an Access Code
       tags:
       - Google Search Console OAuth2
@@ -554,7 +554,7 @@ paths:
         "404":
           description: Not Found
       security:
-      - apiKey: []
+      - ApiKey: []
       summary: Create an Authorization URI
       tags:
       - Google Search Console OAuth2
@@ -746,7 +746,7 @@ paths:
         "401":
           description: Authentication Failure
       security:
-      - apiKey: []
+      - ApiKey: []
       summary: Create
       tags:
       - Sitemap Imports
