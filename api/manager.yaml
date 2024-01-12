@@ -607,7 +607,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Request'
+              $ref: '#/components/schemas/MerchantRequest'
         required: true
       responses:
         "200":
@@ -687,7 +687,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Request'
+              $ref: '#/components/schemas/MerchantRequest'
         required: true
       responses:
         "200":
@@ -848,7 +848,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Request'
+              $ref: '#/components/schemas/OAuth2AuthorizedClientRequest'
         required: true
       responses:
         "200":
@@ -928,7 +928,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Request'
+              $ref: '#/components/schemas/OAuth2AuthorizedClientRequest'
         required: true
       responses:
         "200":
@@ -1464,6 +1464,47 @@ components:
       required:
       - google_merchant_id
       - website_url
+    MerchantRequest:
+      type: object
+      description: The Merchant request
+      properties:
+        access_token:
+          type: string
+          description: Google Merchant access token
+        dataset_domain:
+          type: string
+          description: The custom domain (for example data.example.org)
+        dataset_name:
+          type: string
+          description: The dataset path (for example "data")
+        deleted:
+          type: boolean
+          default: false
+          description: True if the merchant has been deleted
+        google_merchant_id:
+          type: integer
+          format: int64
+          description: The Google Merchant id
+        ignore_brand:
+          type: boolean
+          description: Whether to ignore the `brand` property during validation
+        ignore_image:
+          type: boolean
+          description: Whether to ignore the `image` property during validation
+        publisher_name:
+          type: string
+          description: The publisher name (shows in schema publisher)
+        refresh_token:
+          type: string
+          description: Google Merchant refresh token
+        url:
+          type: string
+          description: The website URL
+      required:
+      - google_merchant_id
+      - publisher_name
+      - refresh_token
+      - url
     MerchantSync:
       type: object
       description: A Merchant products data synchronization.
@@ -1692,6 +1733,40 @@ components:
           format: date-time
         refresh_token_value:
           type: string
+    OAuth2AuthorizedClientRequest:
+      type: object
+      description: The OAuth2 Authorized Client request
+      properties:
+        access_token_expires_at:
+          type: string
+          format: date-time
+          description: When the Access Token expires
+        access_token_issued_at:
+          type: string
+          format: date-time
+          description: When the Access Token was issued
+        access_token_scopes:
+          type: string
+          description: The Access Token scopes
+        access_token_type:
+          type: string
+          description: The Access Token Type
+        access_token_value:
+          type: string
+          description: The Access Token Value
+        client_registration_id:
+          type: string
+          description: The Client Registration Id
+        principal_name:
+          type: string
+          description: The Principal Name
+        refresh_token_issued_at:
+          type: string
+          format: date-time
+          description: When the Access Token was issued
+        refresh_token_value:
+          type: string
+          description: The Refresh Token Value
     PageActiveAccount:
       type: object
       description: A page object with links to move to other pages and the list of
@@ -2010,38 +2085,9 @@ components:
           format: uri
     Request:
       type: object
-      description: The Merchant request
       properties:
-        access_token_expires_at:
+        redeem_code:
           type: string
-          format: date-time
-          description: When the Access Token expires
-        access_token_issued_at:
-          type: string
-          format: date-time
-          description: When the Access Token was issued
-        access_token_scopes:
-          type: string
-          description: The Access Token scopes
-        access_token_type:
-          type: string
-          description: The Access Token Type
-        access_token_value:
-          type: string
-          description: The Access Token Value
-        client_registration_id:
-          type: string
-          description: The Client Registration Id
-        principal_name:
-          type: string
-          description: The Principal Name
-        refresh_token_issued_at:
-          type: string
-          format: date-time
-          description: When the Access Token was issued
-        refresh_token_value:
-          type: string
-          description: The Refresh Token Value
     Response:
       type: object
       properties:
