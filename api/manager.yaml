@@ -2097,10 +2097,6 @@ components:
       type: object
       description: The Sitemap Import request
       properties:
-        analytics:
-          type: boolean
-          description: "If true, import also analytics from GSC (requires existing\
-            \ GSC configuration in backend)"
         sitemap_url:
           type: string
           description: The sitemap URL
