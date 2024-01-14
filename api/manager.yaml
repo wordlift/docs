@@ -993,6 +993,12 @@ paths:
         required: true
       responses:
         "200":
+          content:
+            application/x-ndjson:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WebPage'
           description: Success
         "401":
           description: Authentication Failure
@@ -2107,6 +2113,23 @@ components:
             type: string
             description: The URLs
           uniqueItems: true
+    WebPage:
+      type: object
+      properties:
+        abstract:
+          type: string
+        date_published:
+          type: string
+          format: date
+        headline:
+          type: string
+        image:
+          type: string
+          format: url
+        text:
+          type: string
+        url:
+          type: string
     Website:
       type: object
       description: A Website
