@@ -6,7 +6,7 @@ displayed_sidebar: wordpress-plugin
 
 ## Classic Editors
 
-WordLift works on the Classic Editor in WordPress. Attention: the WordLift plugin works only in Visual mode. 
+WordLift works on the Classic Editor in WordPress. **Attention**: the WordLift plugin works only in Visual mode. 
 
 **New post**
 
@@ -22,7 +22,7 @@ Once you’ve finished annotating and curating the article's metadata publish an
 
 ## Block Editors
 
-WordLift works on the Block Editor in WordPress. Attention: the WordLift plugin works only in Visual mode. 
+WordLift works on the Block Editor in WordPress. **Attention**: the WordLift plugin works only in Visual mode. 
 
 **New post**
 
