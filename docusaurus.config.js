@@ -78,7 +78,7 @@ const config = {
             items: [
               {
                 label: "Knowledge Graph",
-                to: "knowledge-graph/analytics-api-guide",
+                to: "knowledge-graph",
               },
               {
                 label: "WordPress Plugin",
