@@ -16,7 +16,7 @@ We **suggest** our users to make a full back-up of their website data before ins
 
 ### Requirements
 
-WordLift is currently available on [WordPress] 4.9 and later.
+WordLift is currently available on [WordPress] 5.3 and later.
 
 ### Installation
 
