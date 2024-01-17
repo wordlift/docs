@@ -1,0 +1,38 @@
+---
+id: create-sitemap-import
+title: "Create"
+description: "Create a Sitemap Import"
+sidebar_label: "Create"
+hide_title: true
+hide_table_of_contents: true
+api: {"description":"Create a Sitemap Import","operationId":"createSitemapImport","requestBody":{"content":{"application/json":{"schema":{"type":"object","description":"The Sitemap Import request","properties":{"sitemap_url":{"type":"string","description":"The sitemap URL"},"urls":{"type":"array","description":"The URLs","items":{"type":"string","description":"The URLs"},"uniqueItems":true}},"title":"SitemapImportRequest"}}},"required":true},"responses":{"200":{"content":{"application/x-ndjson":{"schema":{"type":"array","items":{"type":"object","properties":{"abstract":{"type":"string"},"date_published":{"type":"string","format":"date"},"headline":{"type":"string"},"image":{"type":"string","format":"url"},"text":{"type":"string"},"url":{"type":"string"}},"title":"WebPage"}}}},"description":"Success"},"401":{"description":"Authentication Failure"}},"security":[{"ApiKey":[]}],"tags":["Sitemap Imports"],"method":"post","path":"/sitemap-imports","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"jsonRequestBodyExample":{"sitemap_url":"string","urls":["string"]},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Create","description":{"content":"Create a Sitemap Import","type":"text/plain"},"url":{"path":["sitemap-imports"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"application/x-ndjson"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+sidebar_class_name: "post api-method"
+info_path: api/manager/manager
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Create
+
+
+
+Create a Sitemap Import
+
+<MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"sitemap_url"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The sitemap URL"}}></SchemaItem><SchemaItem collapsible={false} name={"urls"} required={false} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","description":"The URLs","items":{"type":"string","description":"The URLs"},"uniqueItems":true}}></SchemaItem></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Success
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/x-ndjson"} value={"application/x-ndjson"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"abstract"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"date_published"} required={false} schemaName={"date"} qualifierMessage={undefined} schema={{"type":"string","format":"date"}}></SchemaItem><SchemaItem collapsible={false} name={"headline"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"image"} required={false} schemaName={"url"} qualifierMessage={undefined} schema={{"type":"string","format":"url"}}></SchemaItem><SchemaItem collapsible={false} name={"text"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"url"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"[\n  {\n    \"abstract\": \"string\",\n    \"date_published\": \"2024-01-17\",\n    \"headline\": \"string\",\n    \"image\": \"string\",\n    \"text\": \"string\",\n    \"url\": \"string\"\n  }\n]"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Authentication Failure
+
+</div><div></div></TabItem></ApiTabs></div>
+      

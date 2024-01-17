@@ -330,6 +330,14 @@ const config = {
               categoryLinkSource: "tag",
             },
           },
+          "fact-check": {
+            specPath: "api/fact-check.yaml", // path or URL to the OpenAPI spec
+            outputDir: "docs/api/fact-check", // output directory for generated *.mdx and sidebar.js files
+            sidebarOptions: {
+              groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
+              categoryLinkSource: "tag",
+            },
+          },
           graphql: {
             specPath: "api/graphql.yaml", // path or URL to the OpenAPI spec
             outputDir: "docs/api/graphql", // output directory for generated *.mdx and sidebar.js files

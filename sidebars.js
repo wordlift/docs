@@ -112,6 +112,11 @@ const sidebars = {
         },
         {
           type: "category",
+          label: "Fact Check",
+          items: require("./docs/api/fact-check/sidebar.js"),
+        },
+        {
+          type: "category",
           label: "GraphQL",
           items: require("./docs/api/graphql/sidebar.js"),
         },

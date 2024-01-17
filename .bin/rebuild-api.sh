@@ -4,6 +4,7 @@ npm run docusaurus clean-api-docs analysis && npm run docusaurus gen-api-docs an
 npm run docusaurus clean-api-docs classification && npm run docusaurus gen-api-docs classification
 npm run docusaurus clean-api-docs content-generation && npm run docusaurus gen-api-docs content-generation
 npm run docusaurus clean-api-docs events && npm run docusaurus gen-api-docs events
+npm run docusaurus clean-api-docs fact-check && npm run docusaurus gen-api-docs fact-check
 npm run docusaurus clean-api-docs graphql && npm run docusaurus gen-api-docs graphql
 npm run docusaurus clean-api-docs inspector && npm run docusaurus gen-api-docs inspector
 npm run docusaurus clean-api-docs long-tail && npm run docusaurus gen-api-docs long-tail

@@ -1,0 +1,46 @@
+---
+id: update-diagnostic-plugin-collection
+title: "Update"
+description: "Replace the list of the plugins for the current account with the one provided by the client"
+sidebar_label: "Update"
+hide_title: true
+hide_table_of_contents: true
+api: {"description":"Replace the list of the plugins for the current account with the one provided by the client","operationId":"updateDiagnosticPluginCollection","parameters":[{"in":"query","name":"account","required":true,"schema":{"type":"object","properties":{"analytics_client_factory":{"type":"string"},"analyzerId":{"type":"integer","format":"int64"},"botify_project":{"type":"string"},"botify_token":{"type":"string"},"botify_username":{"type":"string"},"country":{"type":"string"},"datasetId":{"type":"string","deprecated":true},"datasetUri":{"type":"string"},"domainUri":{"type":"string"},"google_search_console_site_url":{"type":"string"},"id":{"type":"integer","format":"int64"},"indexed":{"type":"boolean"},"key":{"type":"string"},"language":{"type":"string"},"ngDatasetId":{"type":"string"},"resolvedUrl":{"type":"string"},"subscriptionId":{"type":"integer","format":"int64"},"url":{"type":"string"},"wpAdmin":{"type":"string"},"wpJson":{"type":"string"},"wp_include_exclude_default":{"type":"string"}},"title":"Account"}}],"requestBody":{"content":{"application/json":{"schema":{"type":"array","items":{"type":"object","description":"Diagnostic Plugin Data Request","properties":{"active":{"type":"boolean","description":"Whether the plugin is active."},"name":{"type":"string","description":"The plugin name."},"version":{"type":"string","description":"The plugin version."}},"title":"DiagnosticPluginRequest"}}}},"required":true},"responses":{"200":{"description":"Found."},"204":{"description":"No Content"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"ApiKey":[]}],"tags":["Plugin Diagnostics"],"method":"put","path":"/accounts/me/plugin/diagnostics/plugins-collection","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"jsonRequestBodyExample":[{"active":true,"name":"string","version":"string"}],"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Update","description":{"content":"Replace the list of the plugins for the current account with the one provided by the client","type":"text/plain"},"url":{"path":["accounts","me","plugin","diagnostics","plugins-collection"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"key":"account","value":""}],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"}],"method":"PUT","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+sidebar_class_name: "put api-method"
+info_path: api/manager/manager
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Update
+
+
+
+Replace the list of the plugins for the current account with the one provided by the client
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"query","name":"account","required":true,"schema":{"type":"object","properties":{"analytics_client_factory":{"type":"string"},"analyzerId":{"type":"integer","format":"int64"},"botify_project":{"type":"string"},"botify_token":{"type":"string"},"botify_username":{"type":"string"},"country":{"type":"string"},"datasetId":{"type":"string","deprecated":true},"datasetUri":{"type":"string"},"domainUri":{"type":"string"},"google_search_console_site_url":{"type":"string"},"id":{"type":"integer","format":"int64"},"indexed":{"type":"boolean"},"key":{"type":"string"},"language":{"type":"string"},"ngDatasetId":{"type":"string"},"resolvedUrl":{"type":"string"},"subscriptionId":{"type":"integer","format":"int64"},"url":{"type":"string"},"wpAdmin":{"type":"string"},"wpJson":{"type":"string"},"wp_include_exclude_default":{"type":"string"}},"title":"Account"}}}></ParamsItem></ul></div></details><MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><span style={{"opacity":"0.6"}}> array</span><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"active"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","description":"Whether the plugin is active."}}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The plugin name."}}></SchemaItem><SchemaItem collapsible={false} name={"version"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The plugin version."}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Found.
+
+</div><div></div></TabItem><TabItem label={"204"} value={"204"}><div>
+
+No Content
+
+</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Authentication Failure
+
+</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div></div></TabItem></ApiTabs></div>
+      

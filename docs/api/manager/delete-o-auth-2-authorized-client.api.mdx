@@ -1,0 +1,38 @@
+---
+id: delete-o-auth-2-authorized-client
+title: "Delete"
+description: "Delete a OAuth2 Authorized Client given its client registration id"
+sidebar_label: "Delete"
+hide_title: true
+hide_table_of_contents: true
+api: {"description":"Delete a OAuth2 Authorized Client given its client registration id","operationId":"deleteOAuth2AuthorizedClient","parameters":[{"description":"The Id","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"description":"Found"},"401":{"description":"Authentication Failure"}},"security":[{"OAuth2":[]}],"tags":["OAuth2 Authorized Clients"],"method":"delete","path":"/oauth2/authorized-clients/{id}","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Delete","description":{"content":"Delete a OAuth2 Authorized Client given its client registration id","type":"text/plain"},"url":{"path":["oauth2","authorized-clients",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) The Id","type":"text/plain"},"type":"any","value":"","key":"id"}]},"method":"DELETE","auth":{"type":"oauth2","oauth2":[]}}}
+sidebar_class_name: "delete api-method"
+info_path: api/manager/manager
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Delete
+
+
+
+Delete a OAuth2 Authorized Client given its client registration id
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The Id","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Found
+
+</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Authentication Failure
+
+</div><div></div></TabItem></ApiTabs></div>
+      
