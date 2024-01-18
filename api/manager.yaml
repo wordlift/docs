@@ -2125,7 +2125,6 @@ components:
           type: string
         image:
           type: string
-          format: url
         text:
           type: string
         url:
