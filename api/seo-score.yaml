@@ -12,7 +12,7 @@ info:
     name: (c) copyright 2023-present WordLift
     url: https://wordlift.io
 servers:
-  - url: https://api.wordlift.io/quality-rating
+  - url: https://api.wordlift.io/quality-rating/score
 
 tags:
   - name: SEO Scores
