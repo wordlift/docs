@@ -383,6 +383,12 @@ paths:
       operationId: createAnalyticsImport
       responses:
         "201":
+          content:
+            application/x-ndjson:
+              schema:
+                type: array
+                items:
+                  type: string
           description: Success
         "401":
           description: Authentication Failure
