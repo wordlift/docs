@@ -313,6 +313,33 @@ paths:
       summary: Update
       tags:
       - Plugin Diagnostics
+  /accounts/{id}:
+    get:
+      description: Get the account
+      operationId: getAccount
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+          description: Found
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - OAuth2: []
+      summary: Get an account.
+      tags:
+      - Accounts
   /addon/configurations:
     get:
       description: List the Add-ons configurations
