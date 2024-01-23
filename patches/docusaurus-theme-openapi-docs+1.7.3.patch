@@ -24,3 +24,16 @@ index d0ea10a..906289f 100644
    return Promise.race([fetch(url, options), new Promise((_, reject) => setTimeout(() => reject(new Error("Request timed out")), timeout))]);
  }
  async function loadImage(content) {
+diff --git a/node_modules/docusaurus-theme-openapi-docs/src/theme/ApiDemoPanel/Execute/makeRequest.ts b/node_modules/docusaurus-theme-openapi-docs/src/theme/ApiDemoPanel/Execute/makeRequest.ts
+index ed991be..1bf6bda 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/src/theme/ApiDemoPanel/Execute/makeRequest.ts
++++ b/node_modules/docusaurus-theme-openapi-docs/src/theme/ApiDemoPanel/Execute/makeRequest.ts
+@@ -11,7 +11,7 @@ import { Body } from "@theme/ApiDemoPanel/Body/slice";
+ function fetchWithtimeout(
+   url: string,
+   options: RequestInit,
+-  timeout = 5000
++  timeout = 30000
+ ): any {
+   return Promise.race([
+     fetch(url, options),
