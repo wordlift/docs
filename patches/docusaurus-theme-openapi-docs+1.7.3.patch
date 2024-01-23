@@ -1,3 +1,16 @@
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib-next/theme/ApiDemoPanel/Execute/makeRequest.js b/node_modules/docusaurus-theme-openapi-docs/lib-next/theme/ApiDemoPanel/Execute/makeRequest.js
+index 1693eaa..59cebca 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib-next/theme/ApiDemoPanel/Execute/makeRequest.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib-next/theme/ApiDemoPanel/Execute/makeRequest.js
+@@ -5,7 +5,7 @@
+  * LICENSE file in the root directory of this source tree.
+  * ========================================================================== */
+ 
+-function fetchWithtimeout(url, options, timeout = 5000) {
++function fetchWithtimeout(url, options, timeout = 30000) {
+   return Promise.race([
+     fetch(url, options),
+     new Promise((_, reject) =>
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiDemoPanel/Execute/makeRequest.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiDemoPanel/Execute/makeRequest.js
 index d0ea10a..906289f 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiDemoPanel/Execute/makeRequest.js
