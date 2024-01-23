@@ -381,6 +381,12 @@ paths:
       description: Create a Analytics Import using Google Search Console or Botify
         depending on the Account configuration.
       operationId: createAnalyticsImport
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnalyticsImportRequest'
+        required: true
       responses:
         "201":
           content:
@@ -1269,6 +1275,17 @@ components:
           type: string
           description: The wp-json endpoint for a website using the key.
           readOnly: true
+    AnalyticsImportRequest:
+      type: object
+      description: An Analytics Import request.
+      properties:
+        urls:
+          type: array
+          description: An array of URLs.
+          items:
+            type: string
+            description: An array of URLs.
+          uniqueItems: true
     BuildAuthorizeUriRequest:
       type: object
       description: The request of the `buildAuthorizeUri` endpoint.
