@@ -1,0 +1,42 @@
+---
+id: get-account
+title: "Get an account."
+description: "Get the account"
+sidebar_label: "Get an account."
+hide_title: true
+hide_table_of_contents: true
+api: {"description":"Get the account","operationId":"getAccount","parameters":[{"in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"content":{"application/json":{"schema":{"type":"object","properties":{"analytics_client_factory":{"type":"string"},"analyzerId":{"type":"integer","format":"int64"},"botify_project":{"type":"string"},"botify_token":{"type":"string"},"botify_username":{"type":"string"},"country":{"type":"string"},"datasetId":{"type":"string","deprecated":true},"datasetUri":{"type":"string"},"domainUri":{"type":"string"},"google_search_console_site_url":{"type":"string"},"id":{"type":"integer","format":"int64"},"indexed":{"type":"boolean"},"key":{"type":"string"},"language":{"type":"string"},"ngDatasetId":{"type":"string"},"resolvedUrl":{"type":"string"},"subscriptionId":{"type":"integer","format":"int64"},"url":{"type":"string"},"wpAdmin":{"type":"string"},"wpJson":{"type":"string"},"wp_include_exclude_default":{"type":"string"}},"title":"Account"}}},"description":"Found"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"OAuth2":[]}],"tags":["Accounts"],"method":"get","path":"/accounts/{id}","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Get an account.","description":{"content":"Get the account","type":"text/plain"},"url":{"path":["accounts",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"id"}]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"oauth2","oauth2":[]}}}
+sidebar_class_name: "get api-method"
+info_path: api/manager/manager
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get an account.
+
+
+
+Get the account
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Found
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"analytics_client_factory"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"analyzerId"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"botify_project"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"botify_token"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"botify_username"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"country"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"datasetId"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","deprecated":true}}></SchemaItem><SchemaItem collapsible={false} name={"datasetUri"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"domainUri"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"google_search_console_site_url"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"id"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"indexed"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean"}}></SchemaItem><SchemaItem collapsible={false} name={"key"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"language"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"ngDatasetId"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"resolvedUrl"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"subscriptionId"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"url"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"wpAdmin"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"wpJson"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"wp_include_exclude_default"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"analytics_client_factory\": \"string\",\n  \"analyzerId\": 0,\n  \"botify_project\": \"string\",\n  \"botify_token\": \"string\",\n  \"botify_username\": \"string\",\n  \"country\": \"string\",\n  \"datasetUri\": \"string\",\n  \"domainUri\": \"string\",\n  \"google_search_console_site_url\": \"string\",\n  \"id\": 0,\n  \"indexed\": true,\n  \"key\": \"string\",\n  \"language\": \"string\",\n  \"ngDatasetId\": \"string\",\n  \"resolvedUrl\": \"string\",\n  \"subscriptionId\": 0,\n  \"url\": \"string\",\n  \"wpAdmin\": \"string\",\n  \"wpJson\": \"string\",\n  \"wp_include_exclude_default\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Authentication Failure
+
+</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div></div></TabItem></ApiTabs></div>
+      

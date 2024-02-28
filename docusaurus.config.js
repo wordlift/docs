@@ -322,14 +322,15 @@ const config = {
               categoryLinkSource: "tag",
             },
           },
-          embeddings: {
-            specPath: "api/embeddings.yaml", // path or URL to the OpenAPI spec
-            outputDir: "docs/api/embeddings", // output directory for generated *.mdx and sidebar.js files
-            sidebarOptions: {
-              groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
-              categoryLinkSource: "tag",
-            },
-          },
+          // This API is deprecated.
+          // embeddings: {
+          //   specPath: "api/embeddings.yaml", // path or URL to the OpenAPI spec
+          //   outputDir: "docs/api/embeddings", // output directory for generated *.mdx and sidebar.js files
+          //   sidebarOptions: {
+          //     groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
+          //     categoryLinkSource: "tag",
+          //   },
+          // },
           events: {
             specPath: "api/events.yaml", // path or URL to the OpenAPI spec
             outputDir: "docs/api/events", // output directory for generated *.mdx and sidebar.js files

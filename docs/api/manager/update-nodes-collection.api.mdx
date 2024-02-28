@@ -1,0 +1,46 @@
+---
+id: update-nodes-collection
+title: "Update"
+description: "Update"
+sidebar_label: "Update"
+hide_title: true
+hide_table_of_contents: true
+api: {"operationId":"updateNodesCollection","requestBody":{"content":{"application/json":{"schema":{"type":"array","description":"A list of node requests.","items":{"type":"object","description":"A node request.","properties":{"embeddings":{"type":"array","description":"A list of embeddings.","items":{"type":"number","format":"double","description":"A list of embeddings."}},"entity_id":{"type":"string","description":"The entity id in the form on an IRI, e.g. https://data.example.org/dataset/entity."},"metadata":{"type":"object","additionalProperties":{"type":"object","description":"A map of metadata properties."},"description":"A map of metadata properties."},"node_id":{"type":"string","description":"The node id generally expressed in the form of a UUID."},"text":{"type":"string","description":"The original text."}},"required":["entity_id","node_id"],"title":"NodeRequest"}}}},"required":true},"responses":{"200":{"description":"Found."},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"ApiKey":[]}],"tags":["Vector Search Nodes"],"description":"Update","method":"put","path":"/vector-search/nodes-collection","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"jsonRequestBodyExample":[{"embeddings":[0],"entity_id":"string","metadata":{},"node_id":"string","text":"string"}],"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Update","description":{"type":"text/plain"},"url":{"path":["vector-search","nodes-collection"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"}],"method":"PUT","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+sidebar_class_name: "put api-method"
+info_path: api/manager/manager
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Update
+
+
+
+Update
+
+<MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><span style={{"opacity":"0.6"}}> array</span><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"embeddings"} required={false} schemaName={"double[]"} qualifierMessage={undefined} schema={{"type":"array","description":"A list of embeddings.","items":{"type":"number","format":"double","description":"A list of embeddings."}}}></SchemaItem><SchemaItem collapsible={false} name={"entity_id"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The entity id in the form on an IRI, e.g. https://data.example.org/dataset/entity."}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>metadata</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+A map of metadata properties.
+
+</div><SchemaItem name={"property name*"} required={false} schemaName={"object"} qualifierMessage={undefined} schema={{"type":"object","description":"A map of metadata properties."}} collapsible={false} discriminator={false}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={false} name={"node_id"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The node id generally expressed in the form of a UUID."}}></SchemaItem><SchemaItem collapsible={false} name={"text"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The original text."}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Found.
+
+</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Authentication Failure
+
+</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div></div></TabItem></ApiTabs></div>
+      
