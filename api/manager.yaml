@@ -37,8 +37,6 @@ tags:
 - description: "Import Analytics data to the KG using different sources, e.g. Google\
     \ Search Console."
   name: Analytics Imports
-- description: Manage vector search nodes embeddings.
-  name: Vector Search Nodes
 - description: Manage redeem codes.
   name: Redeem Codes
 - description: Create vector search queries.
@@ -1108,30 +1106,6 @@ paths:
       summary: Validate
       tags:
       - Custom Domains
-  /vector-search/nodes-collection:
-    put:
-      operationId: updateNodesCollection
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: array
-              description: A list of node requests.
-              items:
-                $ref: '#/components/schemas/NodeRequest'
-        required: true
-      responses:
-        "200":
-          description: Found.
-        "401":
-          description: Authentication Failure
-        "404":
-          description: Not Found
-      security:
-      - ApiKey: []
-      summary: Update
-      tags:
-      - Vector Search Nodes
   /vector-search/queries:
     put:
       operationId: createQuery
@@ -1915,35 +1889,6 @@ components:
       readOnly: true
       required:
       - datasetUri
-    NodeRequest:
-      type: object
-      description: A node request.
-      properties:
-        embeddings:
-          type: array
-          description: A list of embeddings.
-          items:
-            type: number
-            format: double
-            description: A list of embeddings.
-        entity_id:
-          type: string
-          description: "The entity id in the form on an IRI, e.g. https://data.example.org/dataset/entity."
-        metadata:
-          type: object
-          additionalProperties:
-            type: object
-            description: A map of metadata properties.
-          description: A map of metadata properties.
-        node_id:
-          type: string
-          description: The node id generally expressed in the form of a UUID.
-        text:
-          type: string
-          description: The original text.
-      required:
-      - entity_id
-      - node_id
     OAuth2AuthorizedClient:
       type: object
       description: A OAuth2 Authorized Client
