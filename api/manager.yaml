@@ -1371,8 +1371,6 @@ components:
         offset:
           type: integer
           format: int32
-        regex:
-          type: string
         request_embeddings:
           type: array
           items:
