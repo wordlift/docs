@@ -1365,12 +1365,6 @@ components:
             $ref: '#/components/schemas/Filter'
         headline:
           type: string
-        limit:
-          type: integer
-          format: int32
-        offset:
-          type: integer
-          format: int32
         request_embeddings:
           type: array
           items:
