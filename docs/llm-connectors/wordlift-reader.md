@@ -4,7 +4,7 @@ sidebar_position: 1
 ---
 
 # WordLift Reader for LlamaIndex 🦙
-[WordLift Reader](https://llama-hub-ui.vercel.app/l/wordlift) is a robust **connector for the LlamaHub library**, compatible with LlamaIndex and LangChain. The **WordLift Reader** interacts explicitly with any knowledge graph built using WordLift, **transforming semantically structured data into engaging conversations** by bringing data into LlamaIndex and LangChain, two popular frameworks for developing Large Language Model (LLM) applications. 
+[WordLift Reader](https://llamahub.ai/l/readers/llama-index-readers-wordlift) is a robust **connector for the LlamaHub library**, compatible with LlamaIndex and LangChain. The **WordLift Reader** interacts explicitly with any Knowledge Graph built using WordLift, **transforming semantically structured data into engaging conversations** by bringing data into LlamaIndex and LangChain, two popular frameworks for developing Large Language Model (LLM) applications. 
 
 ## Getting Started
 To start using WordLift Reader, you need to configure your LlamaIndex project. Please read the documentation on the LlamaIndex website. 
@@ -13,9 +13,15 @@ To use the WordLift Reader, you will need your WordLift Key, and you can  GraphQ
 ## Usage
 WordLift Reader works seamlessly with LlamaIndex and LangChain, two orchestration frameworks for developing LLM-powered applications. See the example below to set up your first project.
 
-``` import json
-from llama_index import VectorStoreIndex 
-from llama_index.readers.schema.base import Document 
+```
+!pip install llama-index
+!pip install llama-index-readers-wordlift # this will import WordLiftLoader
+
+# Make the imports
+from llama_index.core import settings
+from llama_index.core import VectorStoreIndex, StorageContext, load_index_from_storage
+from llama_index.llms.openai import OpenAI
+from llama_index.readers.wordlift import WordLiftLoader
 
 # Set up the necessary configuration options 
 endpoint = "https://api.wordlift.io/graphql/graphql" 
@@ -24,18 +30,26 @@ fields = "<YOUR_FIELDS>"
 config_options = { 'text_fields': ['[ADD_HERE_THE_FIELDS_TO_BE_INDEXED]'], 'metadata_fields': ['[ADD_HERE_THE_FIELDS_TO_BE_USED_AS_METADATA]'] } 
 
 # Create an instance of the WordLiftLoader 
-reader = WordLiftLoader(endpoint, headers, query, fields, config_options) 
+reader = WordLiftLoader(
+    endpoint, headers, query, "products", config_options)
 
 # Load the data 
 documents = reader.load_data()
 
-# Convert the documents
-converted_doc = [] 
-for doc in documents: 
-converted_doc_id = json.dumps(doc.doc_id) converted_doc.append(Document(text=doc.text, doc_id=converted_doc_id,embedding=doc.embedding, doc_hash=doc.doc_hash, extra_info=doc.extra_info)) 
+# Build the index
+try:
+# initialize storage context
+  storage_context = StorageContext.from_defaults(persist_dir="./")
+  index = load_index_from_storage(storage_context)
 
-# Create the index and query engine 
-index = GPTVectorStoreIndex.from_documents(converted_doc) 
+# If the index is not present on the disk, create the storage context and add the documents
+except FileNotFoundError:
+  storage_context = StorageContext.from_defaults()
+  index = VectorStoreIndex.from_documents(
+                documents)
+  index.storage_context.persist(persist_dir="./")
+
+# Create the query engine 
 query_engine = index.as_query_engine() 
 
 # Ask your question
@@ -49,6 +63,7 @@ WordLift Reader uses GraphQL, a query language introduced by Facebook, to load d
 To load data from the knowledge graph, you need to construct a GraphQL query. 
 
 Here are a few examples of queries that you can use to get started:
+
 ### Products
 ```query{
     products(page: 0, rows: 100){
@@ -110,6 +125,7 @@ Once you have constructed the query, you can submit it to the WordLift Reader, w
 ## Additional Resources
 For more information on using WordLift Reader, check out:
 - our [Colab Notebook](https://wor.ai/wl-reader-demo),
+- a variant [Colab Notebook](https://wor.ai/matryoshka) using Matryoshka embeddings by Nomic 
 - our blog post about [utilizing knowledge graph for conversational experience and SEO](https://wordlift.io/blog/en/knowledge-graph-and-llm/),
 - the [official documentation from LlamaIndex](https://gpt-index.readthedocs.io/en/latest/index.html),
 - the page of [WordLift reader on LlamaHub](https://llama-hub-ui.vercel.app/l/wordlift),
