@@ -5,7 +5,7 @@ sidebar_position: 1
 
 # Keyword Discovery with WordLift AI SEO Agent
 
-Let’s work together on keyword research with WordLift AI SEO Agent. Keyword research provides valuable insight into how a target audience searches on Google. The insight from these queries helps us inform the content strategy and can also be applied to our day-to-day marketing efforts.
+Let’s work together on **keyword research** with WordLift AI SEO Agent. Keyword research provides valuable insight into **how a target audience searches on Google**. The insight from these queries helps us inform the content strategy and can also be applied to our day-to-day marketing efforts.
 
 ## Query Analysis for Entity Extraction
 
@@ -16,6 +16,8 @@ Let’s combine the query analysis tool to extract the main entities behind each
 > "Analyze the query “natural shower gel” on google.com."
 
 WordLift AI SEO Agent will now use WordLift Content Analysis to understand top-ranking results on google.com. This will shed some light on the context behind this query.
+
+![image](../images/agent-wordlift-query-analysis.png)
 
 ## Deep Dive into Keyword Suggestions
 
