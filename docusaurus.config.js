@@ -77,6 +77,10 @@ const config = {
             position: "left",
             items: [
               {
+                label: "Agent WordLift",
+                to: "agent-wordlift",
+              },
+              {
                 label: "Knowledge Graph",
                 to: "knowledge-graph",
               },
@@ -100,7 +104,7 @@ const config = {
                 label: "Product Knowledge Graph Builder",
                 to: "product-knowledge-graph-builder/introduction",
               },
-              { 
+              {
                 label: "Cloud",
                 to: "cloud",
               },
