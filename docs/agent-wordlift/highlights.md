@@ -5,11 +5,11 @@ sidebar_position: 2
 
 ## Unmatched Accuracy with Knowledge Graph
 
-Unlike traditional tools, WordLift AI SEO Agent utilizes a curated Knowledge Graph, offering deeper insights and more accurate results for data-driven SEO strategies.
+Unlike traditional tools, WordLift AI SEO Agent utilizes a curated [Knowledge Graph](https://wordlift.io/blog/en/entity/knowledge-graph/), offering **deeper insights and more accurate results** for data-driven SEO strategies.
 
 ## Next-Gen AI with Multi-Agent Teamwork
 
-Imagine a team of experts working together to tackle your SEO challenges. Agent WordLift's neuro-symbolic AI acts like that team, using a Multi-Agent System (MAS) to combine:
+Imagine a team of experts working together to tackle your SEO challenges. Agent WordLift's [neuro-symbolic AI](https://wordlift.io/blog/en/neuro-symbolic-ai/) acts like that team, using a Multi-Agent System (MAS) to combine:
 
 - **Powerful language understanding:** Analyzes vast amounts of information like a team of researchers.
 - **Multiple specialists:** Works with various "mini-experts" to handle specific tasks efficiently, similar to how a team collaborates.
@@ -30,6 +30,6 @@ This unique approach leads to:
 
 - **User-friendly interface:** Easy access and use for all technical backgrounds.
 - **Scalable for growth:** Accommodates your evolving website and SEO needs.
-- **Privacy and security:** We run Agent WordLift on secure Microsoft Azure infrastructure, protecting user privacy and data security. Your conversations are safe with us – we don't track conversations for improvement, only usage data.
+- **Privacy and security:** We run Agent WordLift on secure Microsoft Azure infrastructure, protecting user privacy and data security. Your conversations are safe with us – **we don't track conversations for improvement, only usage data**.
 
-WordLift AI SEO Agent empowers you to take your SEO efforts to the next level with its unique blend of AI, Knowledge Graph accuracy, and comprehensive, user-friendly features. We prioritize your privacy and data security, ensuring a safe and practical experience.
+WordLift AI SEO Agent empowers you to take your SEO efforts to the next level with its unique blend of AI, Knowledge Graph accuracy, and comprehensive, user-friendly features. **We prioritize your privacy and data security, ensuring a safe and practical experience**.
