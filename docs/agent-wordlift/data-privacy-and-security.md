@@ -5,7 +5,7 @@ sidebar_position: 3
 
 # Our Commitment to Your Data
 
-At WordLift, we take data privacy and security very seriously. We are committed to safeguarding any data entrusted to us and have implemented robust security measures to ensure its protection.
+At WordLift, we take data privacy and security very seriously. We are committed to **safeguarding any data entrusted to us** and have implemented **robust security measures** to ensure its protection.
 
 ## Our Security Measures
 
@@ -14,7 +14,7 @@ At WordLift, we take data privacy and security very seriously. We are committed 
 
 ## Our Service Provider's Data Security
 
-We partner with Microsoft, which adheres to the following data privacy principles for the Azure OpenAI Service:
+We partner with Microsoft, which adheres to the following data privacy principles for the [Azure OpenAI Service](https://azure.microsoft.com/en-us/products/ai-services/openai-service):
 
 - **No data usage for model training:** Azure OpenAI does not use any data you submit (prompts, completions, embeddings, or training data) to train or improve its models. This ensures your data is used solely for the intended purpose within WordLift's functionalities.
 - **Limited data retention:** Azure OpenAI stores your prompts and completions for up to 30 days solely for abuse monitoring and human review. This data is deleted unless legal requirements dictate otherwise. Customers can also apply to disable abuse monitoring, in which case their data is not stored. WordLift doesn’t have access to your prompts and completions at all unless we mutually agree to do so to improve the service.
