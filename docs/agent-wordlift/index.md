@@ -2,7 +2,7 @@
 sidebar_position: 0
 ---
 
-🚀 Welcome to WordLift AI SEO Agent
+Welcome to WordLift AI SEO Agent
 ====================================
 
 The main documentation for getting started with **Agent WordLift** is organized in the following sections:
