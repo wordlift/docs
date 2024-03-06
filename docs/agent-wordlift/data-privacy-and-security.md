@@ -1,6 +1,6 @@
 ---
 title: 🛡️ Data Privacy and Security
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Our Commitment to Your Data

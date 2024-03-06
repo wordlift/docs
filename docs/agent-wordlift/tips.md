@@ -1,6 +1,6 @@
 ---
 title: ✨ Tips for using WordLift AI SEO Agent
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 Talk to the Agent as your SEO assistant: Provide it with step-by-step instructions.
