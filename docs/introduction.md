@@ -13,8 +13,9 @@ This documentation was created to help users **understand and use WordLift effec
 
 In addition to providing instructions on how to use WordLift, this documentation also includes **information on related products and APIs** that developers may find useful. It includes explanations of the system's API and integration with other products, as well as details on how to use these tools to create custom solutions.
 
-This documentation is organized into the following sections: 
+This documentation is organized into the following sections:
 
+* [Agent WordLift](/agent-wordlift)
 * [WordPress plugin](/wordpress-plugin)
 * [WooCommerce SEO](/woocommerce/introduction)
 * [Google Sheets Add-on](/seo-add-on-google-sheets/introduction)
