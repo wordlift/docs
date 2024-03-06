@@ -12,3 +12,7 @@ The main documentation for getting started with **Agent WordLift** is organized 
 * [Highlights 💫](highlights.md)
 * [Data Privacy and Security 🛡️](data-privacy-and-security.md)
 * [Workflows 🛠️](workflows.md)
+  * [Run a keyword research](./workflows/keyword-discovery.md)
+  * [Create Social Media Posts](./workflows/create-social-media-posts.md)
+  * [Ideas for Newsletters](./workflows/ideas-for-newsletters.md)
+  * [Entity Gap Analysis](./workflows/entity-gap-analysis.md)
