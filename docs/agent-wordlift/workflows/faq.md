@@ -1,9 +1,9 @@
 ---
-title: FAQ
+title: Generate FAQ
 sidebar_position: 4
 ---
 
-# FAQ
+# Generate FAQ
 
 This workflow is designed to help us **answer frequently asked questions** based on the entity gap analysis performed with WordLift's AI SEO Agent. 
 
