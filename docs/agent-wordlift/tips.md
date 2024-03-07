@@ -1,5 +1,5 @@
 ---
-title: ✨ Tips for using WordLift AI SEO Agent
+title: ✨ Tips for using WordLift Agent
 sidebar_position: 2
 ---
 
