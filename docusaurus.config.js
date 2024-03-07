@@ -76,46 +76,21 @@ const config = {
             label: "Products",
             position: "left",
             items: [
-              {
-                label: "Agent WordLift",
-                to: "agent-wordlift",
-              },
-              {
-                label: "Knowledge Graph",
-                to: "knowledge-graph",
-              },
-              {
-                label: "WordPress Plugin",
-                to: "wordpress-plugin",
-              },
-              {
-                label: "WooCommerce Plugin",
-                to: "woocommerce/introduction",
-              },
-              {
-                label: "Google Sheets Add-on",
-                to: "seo-add-on-google-sheets/introduction",
-              },
-              {
-                label: "Looker Studio Connector",
-                to: "looker-studio-connector/introduction",
-              },
-              {
-                label: "Product Knowledge Graph Builder",
-                to: "product-knowledge-graph-builder/introduction",
-              },
-              {
-                label: "Cloud",
-                to: "cloud",
-              },
-              {
-                label: "LLM Connectors",
-                to: "llm-connectors/wordlift-reader",
-              },
-              {
-                label: "Content Generation",
-                to: "content-generation",
-              },
+              { type: 'label', label: 'Search Demand', },
+              { label: "Google Sheets Add-on", to: "seo-add-on-google-sheets/introduction" },
+
+              { type: 'label', label: 'Knowledge Graph', },
+              { label: "Product Knowledge Graph Builder", to: "product-knowledge-graph-builder/introduction" },
+              { label: "WordPress Plugin", to: "wordpress-plugin" },
+              { label: "WooCommerce Plugin", to: "woocommerce/introduction" },
+
+              { type: 'label', label: 'Smart Content', },
+              { label: "Agent WordLift", to: "agent-wordlift" },
+              { label: "Content Generation", to: "content-generation" },
+              { label: "LLM Connectors", to: "llm-connectors/wordlift-reader" },
+
+              { type: 'label', label: 'Semantic Reporting', },
+              { label: "Looker Studio Connector", to: "looker-studio-connector/introduction" },
             ],
           },
           {

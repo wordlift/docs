@@ -35,7 +35,7 @@ We can also venture into a more sophisticated prompt that will automatically run
 
 > "Now, propose three keyword ideas for 'Natural Shower Gel' for each keyword, provide suggestions, extract the topics, and present all the data in a table highlighting the opportunities. I need in the end the outline for a blog post on the keyword that has the highest chance."
 
-![image](docs/agent-wordlift/images/agent-wordlift-outline-ideas.png)
+![image](../images/agent-wordlift-outline-ideas.png)
 
 This prompt not only seeks keyword opportunities but also aims at creating actionable content strategy outputs, like drafting a blog post outline based on the keyword with the highest potential.
 
