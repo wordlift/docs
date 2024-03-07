@@ -15,15 +15,20 @@ In addition to providing instructions on how to use WordLift, this documentation
 
 This documentation is organized into the following sections:
 
-* [Agent WordLift](/agent-wordlift)
-* [WordPress plugin](/wordpress-plugin)
-* [WooCommerce SEO](/woocommerce/introduction)
-* [Google Sheets Add-on](/seo-add-on-google-sheets/introduction)
-* [Looker Studio Connector](/looker-studio-connector/introduction)
-* [Product Knowledge Graph Builder](/product-knowledge-graph-builder/introduction/)
-* [WordLift Cloud](/cloud/)
-* [Content Generation](docs/content-generation/content-generation.md)
-* [LLM Connectors](docs/llm-connectors/wordlift-reader.md)
+* **Search Demand**
+  * [Google Sheets Add-on](/seo-add-on-google-sheets/introduction)
+* **Knowledge Graph**
+  * [Product Knowledge Graph Builder](/product-knowledge-graph-builder/introduction/)
+  * [WordPress plugin](/wordpress-plugin)
+  * [WooCommerce SEO](/woocommerce/introduction)
+  * [WordLift Cloud](/cloud/)
+* **Smart Content**
+  * [Agent WordLift](/agent-wordlift)
+  * [Content Generation](docs/content-generation/content-generation.md)
+  * [LLM Connectors](docs/llm-connectors/wordlift-reader.md)
+* **Semantic Reporting**
+  * [Looker Studio Connector](/looker-studio-connector/introduction)
+* **APIs**
 * [API Reference](/category/api)
 
 Each section covers a specific topic and includes detailed instructions and information on that topic. To navigate the documentation, you can use the table of contents or the search function to find the information you need.
