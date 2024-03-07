@@ -13,7 +13,9 @@ Let’s combine the query analysis tool to extract the main entities behind each
 
 ### Example Prompt for Analyzing a Query
 
-> "Analyze the query “natural shower gel” on google.com."
+```md
+Analyze the query “natural shower gel” on google.com.
+```
 
 WordLift AI SEO Agent will now use WordLift Content Analysis to understand top-ranking results on google.com. This will shed some light on the context behind this query.
 
@@ -23,7 +25,9 @@ WordLift AI SEO Agent will now use WordLift Content Analysis to understand top-r
 
 Let’s now dive deeper into keywords (how people are searching on Google) with a different prompt:
 
-> "Now, propose three keyword ideas for 'Natural Shower Gel' for each keyword, provide suggestions, extract the topics, and present all the data in a table highlighting the opportunities."
+```md
+Now, propose three keyword ideas for 'Natural Shower Gel' for each keyword, provide suggestions, extract the topics, and present all the data in a table highlighting the opportunities.
+```
 
 ![image](../images/agent-wordlift-keyword-ideas.png)
 
@@ -33,10 +37,12 @@ This approach helps us explore the search landscape more comprehensively, identi
 
 We can also venture into a more sophisticated prompt that will automatically run the analysis and draft the outline of a blog post:
 
-> "Now, propose three keyword ideas for 'Natural Shower Gel' for each keyword, provide suggestions, extract the topics, and present all the data in a table highlighting the opportunities. I need in the end the outline for a blog post on the keyword that has the highest chance."
+```md
+Now, propose three keyword ideas for 'Natural Shower Gel' for each keyword, provide suggestions, extract the topics, and present all the data in a table highlighting the opportunities. I need in the end the outline for a blog post on the keyword that has the highest chance.
+```
 
 ![image](../images/agent-wordlift-outline-ideas.png)
 
 This prompt not only seeks keyword opportunities but also aims at creating actionable content strategy outputs, like drafting a blog post outline based on the keyword with the highest potential.
 
-By employing WordLift AI SEO Agent for keyword discovery, we can **gain a competitive edge in content creation**, ensuring that our strategies align with actual search behaviors and audience needs.
+By employing WordLift **AI SEO Agent for keyword discovery**, we can **gain a competitive edge in content creation**, ensuring that our strategies align with actual search behaviors and audience needs.
