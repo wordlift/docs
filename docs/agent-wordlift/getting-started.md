@@ -17,7 +17,7 @@ This guide will walk you through the initial steps of using **WordLift AI SEO Ag
 
 - **Set up your key:** To start using the AI SEO Agent, go to [agent.wordlift.io](http://agent.wordlift.io) and enter your WordLift key in the “Settings panel”.
 
-![image](../images/agent-wordlift-set-up-your-key.gif)
+![image](docs/agent-wordlift/images/agent-wordlift-set-up-your-key.gif)
 
 - **Explore Queries:** Uncover the hidden potential of search queries. Understand how users search for topics related to your content and discover keywords you may want to target. Start simple and ask to the SEO Agent to <i>“analyze the query ‘semantic seo’ on google.com”</i> or <i>“show me the entity gap between the query ‘linked data’ and https://wordlift.io/blog/en/entity/linked-data/”</i>
 
