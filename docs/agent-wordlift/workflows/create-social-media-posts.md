@@ -5,7 +5,7 @@ sidebar_position: 2
 
 ## Introduction
 
-Today, our goal is to create, with the help of WordLift, compelling posts for LinkedIn using the content we have on our website. In this example, we will use the agent’s multifunctional capability to perform several tasks based on a single prompt. WordLift AI SEO Agent will analyze content, extract entities, suggest keywords, and generate SEO-optimized posts for a specific audience on LinkedIn.
+Today, our goal is to **create, with the help of WordLift, compelling posts for LinkedIn** using the content we have on our website. In this example, we will use the agent’s multifunctional capability to **perform several tasks based on a single prompt**. WordLift AI SEO Agent will analyze content, extract entities, suggest keywords, and generate SEO-optimized posts for a specific audience on LinkedIn.
 
 ## Writing Posts for LinkedIn
 
@@ -16,6 +16,7 @@ We will start with a first example related to our website to write content aroun
 ```md
 Search for 'neuro-symbolic AI' and carefully analyze the writing style on my website, then extract entities and suggest keywords, and, with this in mind, write three SEO-optimized LinkedIn posts to promote the topic to a business audience in the publishing sector. Always add links back to the website to help users discover additional information.
 ```
+![image](../images/agent-wordlift-social-media-posts-ideas.png)
 
 ## How Things Work Behind the Scenes
 
@@ -34,6 +35,7 @@ Finally, we can review the key concepts behind the generated posts for LinkedIn 
 ```md
 Draw a mind map of the key concepts behind each post.
 ```
+![image](../images/agent-wordlift-mind-map-social-media-posts.png)
 
 This will produce the following result.
 
