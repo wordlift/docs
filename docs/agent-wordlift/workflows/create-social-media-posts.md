@@ -13,7 +13,9 @@ We will start with a first example related to our website to write content aroun
 
 ### Here goes the prompt:
 
-> "Search for 'neuro-symbolic AI' and carefully analyze the writing style on my website, then extract entities and suggest keywords, and, with this in mind, write three SEO-optimized LinkedIn posts to promote the topic to a business audience in the publishing sector. Always add links back to the website to help users discover additional information."
+```md
+Search for 'neuro-symbolic AI' and carefully analyze the writing style on my website, then extract entities and suggest keywords, and, with this in mind, write three SEO-optimized LinkedIn posts to promote the topic to a business audience in the publishing sector. Always add links back to the website to help users discover additional information.
+```
 
 ## How Things Work Behind the Scenes
 
@@ -29,7 +31,9 @@ Understanding these steps helps you trust the process and ensures the generated 
 
 Finally, we can review the key concepts behind the generated posts for LinkedIn with a new prompt:
 
-> "Draw a mind map of the key concepts behind each post."
+```md
+Draw a mind map of the key concepts behind each post.
+```
 
 This will produce the following result.
 
