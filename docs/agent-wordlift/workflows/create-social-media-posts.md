@@ -39,4 +39,4 @@ Draw a mind map of the key concepts behind each post.
 
 This will produce the following result.
 
-By following this workflow, you can efficiently produce targeted, SEO-optimized social media content that resonates with your audience, leveraging the comprehensive capabilities of the WordLift AI SEO Agent.
+By following this workflow, you can efficiently produce targeted, **SEO-optimized social media content** that resonates with your audience, leveraging the comprehensive capabilities of the WordLift AI SEO Agent.
