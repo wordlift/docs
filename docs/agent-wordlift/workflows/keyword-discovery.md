@@ -25,7 +25,7 @@ Let’s now dive deeper into keywords (how people are searching on Google) with 
 
 > "Now, propose three keyword ideas for 'Natural Shower Gel' for each keyword, provide suggestions, extract the topics, and present all the data in a table highlighting the opportunities."
 
-![image](docs/agent-wordlift/images/agent-wordlift-keyword-ideas.png)
+![image](../images/agent-wordlift-keyword-ideas.png)
 
 This approach helps us explore the search landscape more comprehensively, identifying opportunities and understanding user intent.
 
