@@ -1,6 +1,6 @@
 ---
 title: 📚 Prompt Reference
-sidebar_position: 6
+sidebar_position: 5
 ---
 
 # Unleash the Power of Agent WordLift: Explore a Range of Capabilities
