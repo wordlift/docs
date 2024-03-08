@@ -37,10 +37,10 @@ tags:
 - description: "Import Analytics data to the KG using different sources, e.g. Google\
     \ Search Console."
   name: Analytics Imports
+- description: Manage vector search nodes embeddings.
+  name: Vector Search Nodes
 - description: Manage redeem codes.
   name: Redeem Codes
-- description: Create vector search queries.
-  name: Vector Search Queries
 - description: The list of included or excluded URLs from the WordPress configuration
   name: Include Excludes (WordPress plugin)
 - description: Manage Accounts
@@ -121,6 +121,7 @@ paths:
         "401":
           description: Authentication Failure
       security:
+      - BasicAuth: []
       - OAuth2: []
       summary: List
       tags:
@@ -346,6 +347,7 @@ paths:
         "404":
           description: Not Found
       security:
+      - BasicAuth: []
       - OAuth2: []
       summary: Get an account.
       tags:
@@ -1106,23 +1108,20 @@ paths:
       summary: Validate
       tags:
       - Custom Domains
-  /vector-search/queries:
+  /vector-search/nodes-collection:
     put:
-      operationId: createQuery
+      operationId: updateNodesCollection
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/QueryRequest'
+              type: array
+              description: A list of node requests.
+              items:
+                $ref: '#/components/schemas/NodeRequest'
         required: true
       responses:
         "200":
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
           description: Found.
         "401":
           description: Authentication Failure
@@ -1130,9 +1129,9 @@ paths:
           description: Not Found
       security:
       - ApiKey: []
-      summary: Create
+      summary: Update
       tags:
-      - Vector Search Queries
+      - Vector Search Nodes
 components:
   schemas:
     Account:
@@ -1489,31 +1488,24 @@ components:
           description: "The token type, usually Bearer"
     Filter:
       type: object
-      description: A query request filter.
       properties:
-        key:
+        field:
           type: string
-          description: The filter key.
-        operator:
+        predicate:
           type: string
-          description: A query request filter operator.
           enum:
-          - EQ
-          - GT
-          - LT
-          - NE
-          - GTE
-          - LTE
-          - IN
-          - NIN
-          - TEXT_MATCH
+          - eq
+          - contains
+          - starts
+          - ends
+          - re
+          - lt
+          - lte
+          - gt
+          - gte
+          - between
         value:
           type: string
-          description: The filter value.
-      required:
-      - key
-      - operator
-      - value
     IncludeExclude:
       type: object
       properties:
@@ -1881,6 +1873,35 @@ components:
       readOnly: true
       required:
       - datasetUri
+    NodeRequest:
+      type: object
+      description: A node request.
+      properties:
+        embeddings:
+          type: array
+          description: A list of embeddings.
+          items:
+            type: number
+            format: double
+            description: A list of embeddings.
+        entity_id:
+          type: string
+          description: "The entity id in the form on an IRI, e.g. https://data.example.org/dataset/entity."
+        metadata:
+          type: object
+          additionalProperties:
+            type: object
+            description: A map of metadata properties.
+          description: A map of metadata properties.
+        node_id:
+          type: string
+          description: The node id generally expressed in the form of a UUID.
+        text:
+          type: string
+          description: The original text.
+      required:
+      - entity_id
+      - node_id
     OAuth2AuthorizedClient:
       type: object
       description: A OAuth2 Authorized Client
@@ -2259,30 +2280,6 @@ components:
         type:
           type: string
           format: uri
-    QueryRequest:
-      type: object
-      description: A query request.
-      properties:
-        filters:
-          type: array
-          description: A list of prefilters.
-          items:
-            $ref: '#/components/schemas/Filter'
-        query_embedding:
-          type: array
-          description: The list of embeddings.
-          items:
-            type: number
-            format: double
-            description: The list of embeddings.
-        similarity_top_k:
-          type: integer
-          format: int32
-          description: The similarity top K.
-          minimum: 1
-      required:
-      - query_embedding
-      - similarity_top_k
     Request:
       type: object
       properties:
@@ -2384,6 +2381,12 @@ components:
       in: header
       name: Authorization
       type: apiKey
+    BasicAuth:
+      description: "`Basic {encoded username:password}`"
+      in: header
+      name: Authorization
+      scheme: basic
+      type: http
     OAuth2:
       flows:
         authorizationCode:
