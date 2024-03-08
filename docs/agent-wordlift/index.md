@@ -15,4 +15,12 @@ The main documentation for getting started with **Agent WordLift** is organized 
   * [Run a keyword research](./workflows/keyword-discovery.md)
   * [Create Social Media Posts](./workflows/create-social-media-posts.md)
   * [Ideas for Newsletters](./workflows/ideas-for-newsletters.md)
-  * [Entity Gap Analysis](./workflows/entity-gap-analysis.md)
+  * [Creating frequently asked questions (FAQs)](./workflows/faq.md)
+
+:::info
+
+### Still Under Development
+
+We're constantly working to improve the accuracy and reliability of **Agent WordLift**.  Keep in mind that the information it provides might not always be perfect and shouldn't be considered professional advice.  It's always best to double-check any critical information before relying on it.
+
+:::

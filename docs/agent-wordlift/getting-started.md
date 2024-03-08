@@ -19,8 +19,30 @@ This guide will walk you through the initial steps of using **WordLift AI SEO Ag
 
 ![image](images/agent-wordlift-set-up-your-key.gif)
 
-- **Explore Queries:** Uncover the hidden potential of search queries. Understand how users search for topics related to your content and discover keywords you may want to target. Start simple and ask to the SEO Agent to <i>“analyze the query ‘semantic seo’ on google.com”</i> or <i>“show me the entity gap between the query ‘linked data’ and https://wordlift.io/blog/en/entity/linked-data/”</i>
+- **Explore Queries:** Uncover the hidden potential of search queries. Understand how users search for topics related to your content and discover keywords you may want to target. Start simple and ask to the SEO Agent to:
 
-- **Create Content:** Leverage your website content for new article creation: As mentioned, ask the Agent to <i>“search the website for ‘the impact of blockchain technology on finance’ and using this insights, analyze the entities behind this query and create the outline for a new article.”</i> This will allow the Agent to analyze your website's content related to blockchain and finance, analyze the entities behind the top-ranking results on Google, and use all of this information to generate a new, informative article.
+```md
+analyze the query "semantic SEO" on google.com
+```
 
-- **Expand Existing Content:** Enhance your existing content by automatically identifying and suggesting relevant entities that can be integrated seamlessly. This can improve the depth and context of your content, making it more engaging for readers and search engines. It is as simple as asking to <i>“expand the content on https://wordlift.io/blog/en/entity/linked-data/ with entities like Google and Semantic Web”</i>.
+or
+
+```md
+show me the entity gap between "linked data" and https://wordlift.io/blog/en/entity/linked-data/
+```
+
+- **Create Content:** Leverage your website content for new article creation: As mentioned, ask the Agent to:
+
+```md
+search the website for "the impact of blockchain technology on finance."
+Analyze the entities associated with this query.
+Generate an outline for a new, informative article based on the combined insights.
+```
+
+ This will allow the Agent to analyze your website's content related to blockchain and finance, analyze the entities behind the top-ranking results on Google, and use all of this information to generate a new, informative article.
+
+- **Expand Existing Content:** Enhance your existing content by automatically identifying and suggesting relevant entities that can be integrated seamlessly. This can improve the depth and context of your content, making it more engaging for readers and search engines. It is as simple as asking to:
+
+```md
+expand the content on https://wordlift.io/ by integrating entities like Google and Semantic Web.
+```
