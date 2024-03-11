@@ -1,5 +1,5 @@
 ---
-title: 📚 Prompt Reference
+title: 📚 Prompt Library
 sidebar_position: 5
 ---
 
@@ -22,3 +22,4 @@ This table showcases some of the valuable functionalities available within Agent
 | **Generate Diagram** | Visualize information such as entity relationships or topic clusters using diagrams. | `generate a mind map to visualize the topic clusters for 'sustainable farming practices' ` |
 | **Fact-Checking** | Assess the accuracy of statements or claims using the WordLift Fact-Checking tool. | `fact-check this statement: 'Drinking two liters of water a day can significantly reduce the risk of kidney stones' ` |
 | **Keyword Suggestions** | Generate keyword suggestions based on a given keyword to assist with SEO and content strategy. | `generate keyword suggestions based on 'sustainable living' to refine content focus and enhance discoverability online' `|
+| **Content Buckets** | Create content buckets for Social Media. | `Search for content related to 'GS1', 'GS1 Digital Link' and create content buckets from Social Media.` |
