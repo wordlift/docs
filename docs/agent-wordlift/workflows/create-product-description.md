@@ -18,7 +18,7 @@ Analyze the "Creamy Concealer" by ACME, using its description and product catego
 - Brand and product name
 - Relevant keywords
 - A tone that matches the brand's identity
-- Characteristics that highlight the product's unique selling points## Crafting Product Descriptions
+- Characteristics that highlight the product's unique selling points
 ```
 
 ![image](../images/agent-wordlift-product-description.png)
