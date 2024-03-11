@@ -20,7 +20,7 @@ Search for 'neuro-symbolic AI' and carefully analyze the writing style on my web
 
 ## Creating a Thread on X
 
-Let's do a similar excercise now for creating Twittr thread.
+Let's craft now a similar prompt for creating *a Twitter thread*.
 
 ### Here goes the prompt for X:
 
