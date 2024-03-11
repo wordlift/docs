@@ -9,8 +9,6 @@ sidebar_position: 3
 
 Content buckets are not topics. They are types of content. The buckets you use can vary depending on our business goals.
 
-## Writing Posts for LinkedIn
-
 We will start with a first example to build content buckets for social media around the topics “GS1” and "GS1 Digital Link" using the content from our company's blog.
 
 ### Here goes the prompt:

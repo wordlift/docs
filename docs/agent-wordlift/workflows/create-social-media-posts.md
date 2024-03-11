@@ -18,13 +18,25 @@ Search for 'neuro-symbolic AI' and carefully analyze the writing style on my web
 ```
 ![image](../images/agent-wordlift-social-media-posts-ideas.png)
 
+## Creating a Thread on X
+
+Let's do a similar excercise now for creating Twittr thread.
+
+### Here goes the prompt for X:
+
+```md
+Search for 'neuro-symbolic AI' and carefully analyze the writing style on my website and, with this in mind, create a Twitter thread to promote the topic to web publishers. Always add links back to the website to help users discover additional information.
+```
+
+![image](../images/agent-wordlift-x-thread.png)
+
 ## How Things Work Behind the Scenes
 
 Using the prompt above, WordLift effectively assists you by:
 
 - **Analyzing Your Website:** It searches your website for content related to "neuro-symbolic AI" to gather relevant information and understand your writing style. This ensures the generated content aligns with your existing content and voice.
-- **Identifying Key Terms:** It analyzes keywords related to "neuro-symbolic AI" and suggests relevant search terms to enhance your LinkedIn posts. This expands your reach by including trending and related terms.
-- **Crafting Engaging Content:** It leverages the insights from the website analysis and keyword suggestions to create LinkedIn posts highlighting the innovative aspects of neuro-symbolic AI, its relevance to the publishing sector, and its benefits. These posts are designed to engage a business audience on LinkedIn and include links to your website content.
+- **Identifying Key Terms:** It analyzes keywords related to "neuro-symbolic AI" and suggests relevant search terms to enhance your LinkedIn posts (or to create a thread on X). This expands your reach by including trending and related terms.
+- **Crafting Engaging Content:** It leverages the insights from the website analysis and keyword suggestions to create social media posts highlighting the innovative aspects of neuro-symbolic AI, its relevance to the publishing sector, and its benefits. These posts are designed to engage a business audience on LinkedIn or X and include links to your website content.
 
 Understanding these steps helps you trust the process and ensures the generated content aligns with your website's content and target audience.
 
