@@ -15,6 +15,7 @@ The main documentation for getting started with **Agent WordLift** is organized 
 * [Workflows 🛠️](workflows.md)
   * [Run a keyword research](./workflows/keyword-discovery.md)
   * [Create Social Media Posts](./workflows/create-social-media-posts.md)
+  * [Create Content Buckets for Social Media](./workflows/create-social-media-content-buckets.md)
   * [Ideas for Newsletters](./workflows/ideas-for-newsletters.md)
   * [Creating frequently asked questions (FAQs)](./workflows/faq.md)
   * [Create product descriptions using keyword insights](./workflows/create-product-description.md)
