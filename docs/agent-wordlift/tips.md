@@ -11,6 +11,6 @@ Talk to the Agent as your SEO assistant: Provide it with step-by-step instructio
 
 # Optimizing SEO with AI Agents: An Experiment
 
-- **Explore Use Cases:** Learn how different audiences, such as large organizations, editorial teams, and agencies, benefit from the WordLift AI SEO Agent's unique functionalities. Read our Use Cases.
+- **Explore Workflows:** Learn how different audiences, such as large organizations, editorial teams, and agencies, benefit from the WordLift AI SEO Agent's unique functionalities. Read our [Workflows](./workflows.md).
 
 By following these steps and exploring the various features offered by the WordLift AI SEO Agent, you can effectively **streamline your SEO workflow**, **generate data-driven insights**, and **create high-quality content** that resonates with both users and search engines.
