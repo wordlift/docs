@@ -19,7 +19,7 @@ Analyze the "Creamy Concealer" by ACME, using its description and product catego
 - Relevant keywords
 - A tone that matches the brand's identity
 - Characteristics that highlight the product's unique selling points## Crafting Product Descriptions
-
+```
 
 ![image](../images/agent-wordlift-product-description.png)
 
@@ -30,5 +30,11 @@ The WordLift AI SEO Agent assists in this process by:
 - **Analyzing Product Information**: It starts by examining the provided product details, including its description and category. This helps in understanding the product's key features and target audience.
 - **Identifying Key Keywords**: The agent then identifies relevant keywords associated with the product. These keywords are essential for ensuring the product ranks well in search engine results. Agent will analyze keyword data.
 - **Creating Engaging Descriptions**: Leveraging the product insights and identified keywords, WordLift crafts SEO-optimized product descriptions. These descriptions are designed to capture the attention of potential buyers and improve the product's search visibility.
+
+:::info
+
+To address the need for generating content at scale, particularly when businesses require more than just a few descriptions, we have a groundbreaking solution that amplifies this transformative process. With WordLift's advanced [Content Generation](https://wordlift.io/content-generation/) capabilities, you're no longer limited by the constraints of manual content creation. This feature is specifically designed for enterprises looking to produce a vast amount of content without sacrificing quality, relevance, or SEO optimization.
+
+:::
 
 Understanding this workflow allows you to trust the process, ensuring the descriptions are not only aligned with the brand's voice but are also optimized to attract and engage your target audience.
