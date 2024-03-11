@@ -12,5 +12,6 @@ Here is how WordLift AI SEO Agent can help you boost your productivity in differ
     - [Social Media](./workflows/create-social-media-posts.md)
     - [Newsletter](./workflows/ideas-for-newsletters.md)
     - [Generate FAQ](./workflows/faq.md)
+    - [Create Product Descriptions](./workflows/create-product-description.md)
 
 - **Revamp Content**
