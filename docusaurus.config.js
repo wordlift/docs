@@ -76,6 +76,7 @@ const config = {
             label: "Products",
             position: "left",
             items: [
+              { label: "Botify > Knowledge Graph", to: "api-guides/botify" },
               { label: "Search Demand > Google Sheets Add-on", to: "seo-add-on-google-sheets/introduction" },
               { label: "Knowledge Graph > Product Knowledge Graph Builder", to: "product-knowledge-graph-builder/introduction" },
               { label: "Knowledge Graph > WordPress Plugin", to: "wordpress-plugin" },
