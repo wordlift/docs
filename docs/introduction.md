@@ -18,6 +18,9 @@ This documentation is organized into the following sections:
 * **Search Demand**
   * [Google Sheets Add-on](/seo-add-on-google-sheets/introduction)
 * **Knowledge Graph**
+  * [Botify Connector](/api-guides/botify)
+  * [Sitemap Import](/knowledge-graph/sitemap-import/)
+  * [Analytics Import](/knowledge-graph/analytics-api/)
   * [Product Knowledge Graph Builder](/product-knowledge-graph-builder/introduction/)
   * [WordPress plugin](/wordpress-plugin)
   * [WooCommerce SEO](/woocommerce/introduction)
