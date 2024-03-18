@@ -12,6 +12,7 @@ The main documentation for getting started with **Agent WordLift** is organized 
 * [Highlights 💫](highlights.md)
 * [Data Privacy and Security 🛡️](data-privacy-and-security.md)
 * [Prompt Library 📚](prompt-reference.md)
+* [FAQ 🙋🏽‍♀️](faq.md)
 * [Workflows 🛠️](workflows.md)
   * [Run a keyword research](./workflows/keyword-discovery.md)
   * [Create Social Media Posts](./workflows/create-social-media-posts.md)
@@ -19,7 +20,6 @@ The main documentation for getting started with **Agent WordLift** is organized 
   * [Ideas for Newsletters](./workflows/ideas-for-newsletters.md)
   * [Creating frequently asked questions (FAQs)](./workflows/faq.md)
   * [Create product descriptions using keyword insights](./workflows/create-product-description.md)
-* [FAQ 🙋🏽‍♀️](faq.md)
 
 :::info
 
