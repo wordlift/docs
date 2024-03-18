@@ -1,8 +1,10 @@
 ---
-title: Botify Crawl Imports
+sidebar_position: 40
+toc_min_heading_level: 2
+toc_max_heading_level: 5
 ---
 
-# Botify
+# Botify Crawl Imports
 
 Use the Botify Crawl Imports endpoint (`https://api.wordlift.io/botify-crawl-imports`) to populate a Knowledge Graph with data from Botify.
 
@@ -72,7 +74,7 @@ With this request we tell the API to:
 1. Use the Botify collection called `crawl.20240127`.
 1. Filter the data by the field `crawl.20240127.extract.plp_header_description_extracted_text_part_1`. The Botify filters can be used here.
 1. We ask the API to generate embeddings by using the resulting `headline` and `text` properties from the schema.org namespace.
-1. We tell the API to generate the `text` property by joining the data present in the `{collection}.extract.plp_header_description_extracted_text_part_...` Botify property. 
+1. We tell the API to generate the `text` property by joining the data present in the `{collection}.extract.plp_header_description_extracted_text_part_...` Botify property.
 
 :::tip
 `{collection}` is a placeholder, it is replaced with the value set in `collection`.
