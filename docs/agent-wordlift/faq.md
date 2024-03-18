@@ -1,5 +1,4 @@
 ---
-sidebar_position: 8
+title: 🙋🏽‍♀️ Frequently Asked Questions
+sidebar_position: 6
 ---
-
-## Frequently Asked Questions

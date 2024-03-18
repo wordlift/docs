@@ -1,6 +1,6 @@
 ---
 title: 🛠️ Workflows
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 Here is how WordLift AI SEO Agent can help you boost your productivity in different editorial workflows:
