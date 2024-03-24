@@ -2504,6 +2504,9 @@ components:
       type: object
       description: One or more questions.
       properties:
+        language:
+          type: string
+          description: The desired language of the answer.
         questions:
           type: array
           description: The list of questions.
