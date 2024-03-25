@@ -10,10 +10,10 @@ Use the Botify Crawl Imports endpoint (`https://api.wordlift.io/botify-crawl-imp
 
 The import will create Web Pages extracting basic data:
 
-* Headline
-* Abstract
-* Text
-* Url
+- Headline
+- Abstract
+- Text
+- Url
 
 :::tip
 
@@ -27,10 +27,10 @@ See the [reference](/api/manager/create-botify-crawl-import/) for this API.
 
 Prepare the following data:
 
-* Botify Username
-* Botify Project
-* Botify Token
-* WordLift Key
+- Botify Username
+- Botify Project
+- Botify Token
+- WordLift Key
 
 The Botify data can be found at [botify.com](https://app.botify.com), the folder structure provides the username and the project, e.g. if the project is located at https://app.botify.com/my-user-name/my-project-name/, it means that the Botify Username is _my-user-name_ and that the Botify Project is _my-project-name_. The Botify Token is located in the User Profile screen.
 
@@ -47,6 +47,7 @@ Create a POST request to https://api.wordlift.io/botify-crawl-imports. The `Auth
 ```json
 {
   "collection": "crawl.20240127",
+  "types": ["CollectionPage"],
   "filters": [
     {
       "field": "crawl.20240127.extract.plp_header_description_extracted_text_part_1",
@@ -75,6 +76,7 @@ With this request we tell the API to:
 1. Filter the data by the field `crawl.20240127.extract.plp_header_description_extracted_text_part_1`. The Botify filters can be used here.
 1. We ask the API to generate embeddings by using the resulting `headline` and `text` properties from the schema.org namespace.
 1. We tell the API to generate the `text` property by joining the data present in the `{collection}.extract.plp_header_description_extracted_text_part_...` Botify property.
+1. We also set the target `@type` to `CollectionPage` (the default being `WebPage`).
 
 :::tip
 `{collection}` is a placeholder, it is replaced with the value set in `collection`.
@@ -89,6 +91,7 @@ curl -X "POST" "https://api.wordlift.io/botify-crawl-imports" \
      -H 'Content-Type: application/json; charset=utf-8' \
      -d $'{
   "collection": "crawl.20240127",
+  "types": ["CollectionPage"],
   "filters": [
     {
       "field": "crawl.20240127.extract.plp_header_description_extracted_text_part_1",
@@ -134,15 +137,15 @@ The API maps the source data in Botify to semantic data in Knowledge Graph, base
 
 Following are the default mappings:
 
-* `{collection}.metadata.title.content` is mapped to schema.org/headline.
-* `{collection}.metadata.description.content` is mapped to schema.org/description.
-* `url` is mapped to schema.org/url.
+- `{collection}.metadata.title.content` is mapped to schema.org/headline.
+- `{collection}.metadata.description.content` is mapped to schema.org/description.
+- `url` is mapped to schema.org/url.
 
 It is possible to customize the default and additional map Botify properties to schema.org/text, to customize:
 
-* schema.org/headline, use the request `headline` property, only one value is accepted.
-* schema.org/description, use the request `description` property. An array is provided, the values from the specified properties are joined together.
-* schema.org/text, use the request `text` property. As for `description`, an array is provided, the values from the specified properties are joined together.
+- schema.org/headline, use the request `headline` property, only one value is accepted.
+- schema.org/description, use the request `description` property. An array is provided, the values from the specified properties are joined together.
+- schema.org/text, use the request `text` property. As for `description`, an array is provided, the values from the specified properties are joined together.
 
 Moreover by default the generated entity in KG is assigned the `WebPage` type. It is possibile to customize the type by passing it in `types`. An array is provided, all the specified types will be assigned.
 
