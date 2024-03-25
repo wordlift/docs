@@ -2537,6 +2537,10 @@ components:
           type: string
         text:
           type: string
+        types:
+          type: array
+          items:
+            type: string
         url:
           type: string
     Website:
