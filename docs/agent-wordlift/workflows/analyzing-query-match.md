@@ -50,10 +50,6 @@ analyze the SEO score for the keyword 'Future-Proof Your Content From Google AI 
 
 :::info
 
-Certainly! Here's a more concise version in markdown:
-
----
-
 The [SEO Score API](https://docs.wordlift.io/api/seo-score/create-seo-score/) behind this workflow is still experimental and represents an advanced solution meticulously designed to evaluate page relevance with the precision of a quality rater. This advanced tool demands editors to exert considerable effort to achieve the highest match scores, mirroring the rigorous standards of search engine optimization. Read the full details from WordLift's blog on [search intent optimization](https://wordlift.io/blog/en/search-intent-optimization/).
 
 :::
