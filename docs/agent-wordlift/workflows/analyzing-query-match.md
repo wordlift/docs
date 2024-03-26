@@ -5,14 +5,16 @@ sidebar_position: 7
 
 # Search Intent Match
 
-This workflow is designed to help us **align our content with the intended search query** to ensure maximum relevance and engagement from our target audience. By understanding and (matching the search intent)[https://wordlift.io/blog/en/search-intent-optimization/], we can create content that not only ranks well but also satisfies the user's informational needs.
+This workflow is designed to help us **align our content with the intended search query** to ensure maximum relevance and engagement from our target audience. By understanding and [matching the search intent](https://wordlift.io/blog/en/search-intent-optimization/), we can create content that not only ranks well but also satisfies the user's informational needs.
 
 
 ## Here are the steps:
 
 To ensure your webpage aligns perfectly with the intended search query, follow this streamlined workflow:
 
-1. Identify the Core Query and Intent: Start by pinpointing the exact query you aim to target. Understand the intent behind the search - is it informational, navigational, transactional, or investigational? You can try a prompt like the one below:
+## 1. Identify the Core Query and Intent
+
+Start by pinpointing the exact query you aim to target. Understand the intent behind the search - is it informational, navigational, transactional, or investigational? You can try a prompt like the one below:
 
 ```md
 analyze the SEO score for the keyword 'Future-Proof Your Content From Google Core Updates' in relation to the content on 'https://wordlift.io/blog/en/google-core-update-ai-interview/' the intent is to gain information on how to improve existing content.
@@ -24,7 +26,7 @@ With this prompt, we define the **query**, the **url** as well as the narrative 
 
 ![image](../images/agent-wordlift-query-match.png)
 
-2. Expand the content based on the analysis
+## 2. Expand the content based on the analysis
 
 Within the first response, we can now proceed with the following step to gain new insights on how to improve the article in order to match the provided query and search intent:
 
