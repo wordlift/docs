@@ -32,6 +32,8 @@ tags:
   name: Google Search Console
 - description: Manage Google Merchants
   name: Google Merchants
+- description: Get answers to questions.
+  name: Vector Search Questions
 - description: Manage OAuth2 Authorized Clients
   name: OAuth2 Authorized Clients
 - description: "Import Analytics data to the KG using different sources, e.g. Google\
@@ -41,6 +43,8 @@ tags:
   name: Vector Search Nodes
 - description: Manage redeem codes.
   name: Redeem Codes
+- description: Create vector search queries.
+  name: Vector Search Queries
 - description: The list of included or excluded URLs from the WordPress configuration
   name: Include Excludes (WordPress plugin)
 - description: Manage Accounts
@@ -1132,6 +1136,56 @@ paths:
       summary: Update
       tags:
       - Vector Search Nodes
+  /vector-search/queries:
+    post:
+      operationId: createQuery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VectorSearchQueryRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageVectorSearchQueryResponseItem'
+          description: Found.
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - ApiKey: []
+      summary: Create
+      tags:
+      - Vector Search Queries
+  /vector-search/questions-collection:
+    post:
+      operationId: createVectorSearchQuestion
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VectorSearchQuestionRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageVectorSearchQuestionResponseItem'
+          description: Found.
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - ApiKey: []
+      summary: Create
+      tags:
+      - Vector Search Questions
 components:
   schemas:
     Account:
@@ -1488,24 +1542,30 @@ components:
           description: "The token type, usually Bearer"
     Filter:
       type: object
+      description: A query request filter.
       properties:
-        field:
+        key:
           type: string
-        predicate:
+          description: The filter key.
+        operator:
           type: string
+          description: A query request filter operator.
           enum:
-          - eq
-          - contains
-          - starts
-          - ends
-          - re
-          - lt
-          - lte
-          - gt
-          - gte
-          - between
+          - EQ
+          - GT
+          - LT
+          - NE
+          - GTE
+          - LTE
+          - IN
+          - NIN
         value:
           type: string
+          description: The filter value.
+      required:
+      - key
+      - operator
+      - value
     IncludeExclude:
       type: object
       properties:
@@ -2186,6 +2246,80 @@ components:
       - next
       - prev
       - self
+    PageVectorSearchQueryResponseItem:
+      type: object
+      description: A page object with links to move to other pages and the list of
+        objects.
+      properties:
+        first:
+          type: string
+          description: The link to the first page.
+          nullable: true
+        items:
+          type: array
+          description: An array of objects.
+          items:
+            $ref: '#/components/schemas/VectorSearchQueryResponseItem'
+        last:
+          type: string
+          description: The link to the last page.
+          nullable: true
+        next:
+          type: string
+          description: The link to the next page or `null` if there's no page.
+          nullable: true
+        prev:
+          type: string
+          description: The link to the previous page or `null` if there's no page.
+          nullable: true
+        self:
+          type: string
+          description: The link to the current page.
+          nullable: true
+      required:
+      - first
+      - items
+      - last
+      - next
+      - prev
+      - self
+    PageVectorSearchQuestionResponseItem:
+      type: object
+      description: A page object with links to move to other pages and the list of
+        objects.
+      properties:
+        first:
+          type: string
+          description: The link to the first page.
+          nullable: true
+        items:
+          type: array
+          description: An array of objects.
+          items:
+            $ref: '#/components/schemas/VectorSearchQuestionResponseItem'
+        last:
+          type: string
+          description: The link to the last page.
+          nullable: true
+        next:
+          type: string
+          description: The link to the next page or `null` if there's no page.
+          nullable: true
+        prev:
+          type: string
+          description: The link to the previous page or `null` if there's no page.
+          nullable: true
+        self:
+          type: string
+          description: The link to the current page.
+          nullable: true
+      required:
+      - first
+      - items
+      - last
+      - next
+      - prev
+      - self
     PageWebsite:
       type: object
       description: A page object with links to move to other pages and the list of
@@ -2304,6 +2438,91 @@ components:
             type: string
             description: The URLs
           uniqueItems: true
+    VectorSearchQueryRequest:
+      type: object
+      description: A query request.
+      properties:
+        filters:
+          type: array
+          description: A list of prefilters.
+          items:
+            $ref: '#/components/schemas/Filter'
+        query_embedding:
+          type: array
+          description: "The list of embeddings, not required if `query_string` is\
+            \ provided."
+          items:
+            type: number
+            format: double
+            description: "The list of embeddings, not required if `query_string` is\
+              \ provided."
+        query_string:
+          type: string
+          description: "The query string, not required if the `query_embeddings` are\
+            \ provided. Please note that the `query_string` is ignored if the `query_embeddings`\
+            \ are provided."
+        similarity_top_k:
+          type: integer
+          format: int32
+          default: 2
+          description: The similarity top K.
+          minimum: 1
+    VectorSearchQueryResponseItem:
+      type: object
+      description: An array of objects.
+      properties:
+        embeddings:
+          type: array
+          description: The embeddings for the text.
+          items:
+            type: number
+            format: double
+            description: The embeddings for the text.
+        id:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: object
+            description: A nodes extra metadata.
+          description: A nodes extra metadata.
+        node_id:
+          type: string
+          description: A nodes id.
+        score:
+          type: number
+          format: double
+          description: The similarity score between the node and the query embeddings.
+        text:
+          type: string
+          description: The text of a node from which the embeddings were generated.
+      required:
+      - node_id
+      - score
+      - text
+    VectorSearchQuestionRequest:
+      type: object
+      description: One or more questions.
+      properties:
+        language:
+          type: string
+          description: The desired language of the answer.
+        questions:
+          type: array
+          description: The list of questions.
+          items:
+            type: string
+            description: The list of questions.
+      required:
+      - questions
+    VectorSearchQuestionResponseItem:
+      type: object
+      description: An array of objects.
+      properties:
+        answer:
+          type: string
+        question:
+          type: string
     WebPage:
       type: object
       properties:
@@ -2318,6 +2537,10 @@ components:
           type: string
         text:
           type: string
+        types:
+          type: array
+          items:
+            type: string
         url:
           type: string
     Website:
