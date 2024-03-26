@@ -20,6 +20,7 @@ The main documentation for getting started with **Agent WordLift** is organized 
   * [Ideas for Newsletters](./workflows/ideas-for-newsletters.md)
   * [Creating frequently asked questions (FAQs)](./workflows/faq.md)
   * [Create product descriptions using keyword insights](./workflows/create-product-description.md)
+  * [Analyze the query match of a web page](./workflows/analyzing-query-match.md)
 
 :::info
 
