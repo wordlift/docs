@@ -144,6 +144,8 @@ paths:
           description: Found
         "401":
           description: Authentication Failure
+      security:
+      - ApiKey: []
       summary: Get
       tags:
       - Account

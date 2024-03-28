@@ -23,6 +23,16 @@ Agent WordLift is [a smart assistant for SEO](https://wordlift.io/blog/en/autono
 
 By automating these tasks, Agent WordLift significantly streamlines the SEO and content optimization process, making it easier for content creators and marketers to achieve their goals.
 
+## What is the technology behind the Agent? Which AI model are you using here?
+**Agent WordLift leverages a Multi-Agent System (MAS) powered by Azure OpenAI Service**. This innovative architecture allows us to dynamically select the most suitable model for each task.
+
+We utilize a diverse set of models, including the latest versions of the GPT-4 family (both 8k and 32k parameter versions) and GPT-3.5 family. This flexibility offers several advantages:
+- **Tailored Performance**: We can match the model to your specific needs, considering factors like performance, size, and cost.
+- **Vendor Independence**: The MAS architecture avoids vendor lock-in, allowing us to seamlessly integrate future advancements across the AI landscape.
+- **Rapid Innovation**: We can quickly incorporate cutting-edge models into Agent WordLift, ensuring you benefit from the latest breakthroughs.
+
+Additionally, we actively explore the potential of open-source models for future integration.
+
 ## How much does Agent WordLift cost?
 **Agent WordLift is included in our Professional and Business + E-commerce plans**. Buying the license will give you access to the Agent with a certain number of interactions. [Go to the pricing and get started](https://wordlift.io/pricing/)!
 
