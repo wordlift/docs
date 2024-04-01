@@ -412,7 +412,9 @@ paths:
               schema:
                 type: array
                 items:
-                  type: string
+                  type: object
+                  additionalProperties:
+                    type: string
           description: Success
         "401":
           description: Authentication Failure
