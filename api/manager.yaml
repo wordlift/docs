@@ -43,12 +43,16 @@ tags:
   name: Analytics Imports
 - description: Manage vector search nodes embeddings.
   name: Vector Search Nodes
+- description: Manage Platform Consumptions
+  name: Platform Limits
 - description: Manage redeem codes.
   name: Redeem Codes
 - description: Create vector search queries.
   name: Vector Search Queries
 - description: The list of included or excluded URLs from the WordPress configuration
   name: Include Excludes (WordPress plugin)
+- description: Manage Platform Limits
+  name: Platform Limits
 - description: Manage Accounts
   name: Accounts
 - description: Manage Merchants
@@ -1059,6 +1063,248 @@ paths:
       summary: Update
       tags:
       - OAuth2 Authorized Clients
+  /platform-limit/consumptions/me:
+    get:
+      description: Get the Platform Consumption for the authenticated user.
+      operationId: getMyPlatformConsumption
+      parameters:
+      - in: query
+        name: applies_to
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: include_subscription
+        required: false
+        schema:
+          type: boolean
+      - in: query
+        name: include_limit
+        required: false
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageWithLimits'
+          description: Found
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - ApiKey: []
+      - OAuth2: []
+      summary: Get the Platform Consumption
+      tags:
+      - Platform Limits
+    put:
+      description: Create or update the Platform Consumption for the authenticated
+        user.
+      operationId: createOrUpdateMyPlatformConsumption
+      parameters:
+      - in: query
+        name: applies_to
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: consumption_to_add
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageWithLimits'
+          description: Found
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - ApiKey: []
+      - OAuth2: []
+      summary: Create or update the Platform Consumption
+      tags:
+      - Platform Limits
+  /platform-limit/limits:
+    get:
+      description: List the platform limits.
+      operationId: listPlatformLimits
+      parameters:
+      - description: "The type of based on, e.g. `sku`."
+        in: query
+        name: based_on_in
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - SKU
+          uniqueItems: true
+      - description: The based on values.
+        in: query
+        name: based_on_value_in
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+      - description: The applies to (e.g. API name).
+        in: query
+        name: applies_to_in
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+      - description: The scope.
+        in: query
+        name: scope_in
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - ACCOUNT
+            - SUBSCRIPTION
+          uniqueItems: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagePlatformLimit'
+          description: Found
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - BasicAuth: []
+      summary: List Platform Limits
+      tags:
+      - Platform Limits
+    post:
+      description: Create a platform limit.
+      operationId: createPlatformLimit
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlatformLimitRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlatformLimit'
+          description: Found
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - BasicAuth: []
+      summary: Create Platform Limit
+      tags:
+      - Platform Limits
+  /platform-limit/limits/{id}:
+    delete:
+      description: Delete a platform limit.
+      operationId: deletePlatformLimit
+      parameters:
+      - description: Platform Limit id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Found
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - BasicAuth: []
+      summary: Delete Platform Limit
+      tags:
+      - Platform Limits
+    get:
+      description: Get a platform limit.
+      operationId: getPlatformLimit
+      parameters:
+      - description: Platform Limit id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlatformLimit'
+          description: Found
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - BasicAuth: []
+      summary: Get Platform Limit
+      tags:
+      - Platform Limits
+    put:
+      description: Update a platform limit.
+      operationId: updatePlatformLimit
+      parameters:
+      - description: Platform Limit id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlatformLimitRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlatformLimit'
+          description: Found
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - BasicAuth: []
+      summary: Update Platform Limit
+      tags:
+      - Platform Limits
   /redeem-codes:
     post:
       operationId: redeemCode
@@ -2292,6 +2538,43 @@ components:
       - next
       - prev
       - self
+    PagePlatformLimit:
+      type: object
+      description: A page object with links to move to other pages and the list of
+        objects.
+      properties:
+        first:
+          type: string
+          description: The link to the first page.
+          nullable: true
+        items:
+          type: array
+          description: An array of objects.
+          items:
+            $ref: '#/components/schemas/PlatformLimit'
+        last:
+          type: string
+          description: The link to the last page.
+          nullable: true
+        next:
+          type: string
+          description: The link to the next page or `null` if there's no page.
+          nullable: true
+        prev:
+          type: string
+          description: The link to the previous page or `null` if there's no page.
+          nullable: true
+        self:
+          type: string
+          description: The link to the current page.
+          nullable: true
+      required:
+      - first
+      - items
+      - last
+      - next
+      - prev
+      - self
     PageVectorSearchQueryResponseItem:
       type: object
       description: A page object with links to move to other pages and the list of
@@ -2440,6 +2723,113 @@ components:
       - next
       - prev
       - self
+    PageWithLimits:
+      type: object
+      description: A page object with links to move to other pages and the list of
+        objects.
+      properties:
+        first:
+          type: string
+          description: The link to the first page.
+          nullable: true
+        items:
+          type: array
+          description: An array of objects.
+          items:
+            $ref: '#/components/schemas/WithLimits'
+        last:
+          type: string
+          description: The link to the last page.
+          nullable: true
+        next:
+          type: string
+          description: The link to the next page or `null` if there's no page.
+          nullable: true
+        prev:
+          type: string
+          description: The link to the previous page or `null` if there's no page.
+          nullable: true
+        self:
+          type: string
+          description: The link to the current page.
+          nullable: true
+      required:
+      - first
+      - items
+      - last
+      - next
+      - prev
+      - self
+    PlatformLimit:
+      type: object
+      properties:
+        applies_to:
+          type: string
+        based_on:
+          type: string
+          enum:
+          - SKU
+        based_on_value:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+          description: The create date-time.
+          readOnly: true
+        description:
+          type: string
+        id:
+          type: integer
+          format: int64
+        limits:
+          type: integer
+          format: int32
+          minimum: 1
+        modified_at:
+          type: string
+          format: date-time
+          description: The last modified date-time.
+          readOnly: true
+        scope:
+          type: string
+          enum:
+          - ACCOUNT
+          - SUBSCRIPTION
+      required:
+      - applies_to
+      - based_on
+      - based_on_value
+      - limits
+      - scope
+    PlatformLimitRequest:
+      type: object
+      description: Platform Limit request
+      properties:
+        applies_to:
+          type: string
+        based_on:
+          type: string
+          enum:
+          - SKU
+        based_on_value:
+          type: string
+        description:
+          type: string
+        limits:
+          type: integer
+          format: int32
+          minimum: 1
+        scope:
+          type: string
+          enum:
+          - ACCOUNT
+          - SUBSCRIPTION
+      required:
+      - applies_to
+      - based_on
+      - based_on_value
+      - limits
+      - scope
     ProblemDetail:
       type: object
       properties:
@@ -2644,6 +3034,38 @@ components:
       - keys
       - position
       - score
+    WithLimits:
+      type: object
+      description: An array of objects.
+      properties:
+        account_limits:
+          type: integer
+          format: int32
+        applies_to:
+          type: string
+        consumption:
+          type: integer
+          format: int32
+          minimum: 1
+        id:
+          type: integer
+          format: int64
+        limits:
+          type: integer
+          format: int32
+        reference_id:
+          type: integer
+          format: int64
+        reference_type:
+          type: string
+          enum:
+          - SUBSCRIPTION
+          - ACCOUNT
+        subscription_limits:
+          type: integer
+          format: int32
+      required:
+      - applies_to
   securitySchemes:
     ApiKey:
       description: "`Key {your key}`"
