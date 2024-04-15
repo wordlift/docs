@@ -364,6 +364,39 @@ paths:
       summary: Get an account.
       tags:
       - Accounts
+    put:
+      description: Update the account
+      operationId: updateAccount
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccountRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+          description: Found
+        "401":
+          description: Authentication Failure
+        "404":
+          description: Not Found
+      security:
+      - BasicAuth: []
+      - OAuth2: []
+      summary: Update an account.
+      tags:
+      - Accounts
   /addon/configurations:
     get:
       description: List the Add-ons configurations
@@ -2874,6 +2907,15 @@ components:
             type: string
             description: The URLs
           uniqueItems: true
+    UpdateAccountRequest:
+      type: object
+      properties:
+        country:
+          type: string
+        language:
+          type: string
+        url:
+          type: string
     VectorSearchQueryRequest:
       type: object
       description: A query request.
