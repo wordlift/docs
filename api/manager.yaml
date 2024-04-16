@@ -3085,6 +3085,8 @@ components:
           format: int32
         applies_to:
           type: string
+        block:
+          type: boolean
         consumption:
           type: integer
           format: int32
@@ -3103,6 +3105,12 @@ components:
           enum:
           - SUBSCRIPTION
           - ACCOUNT
+        remaining:
+          type: integer
+          format: int32
+        resets_in_seconds:
+          type: integer
+          format: int64
         subscription_limits:
           type: integer
           format: int32
