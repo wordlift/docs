@@ -1997,6 +1997,10 @@ components:
         url:
           type: string
           description: The website URL
+        writer_service:
+          type: string
+          description: "How to write the merchant data to the graph, if unsure, do\
+            \ not set anything (by default `wordpressMerchantWriter`)."
       required:
       - access_token
       - deleted
@@ -2053,6 +2057,10 @@ components:
         url:
           type: string
           description: The website URL
+        writer_service:
+          type: string
+          description: "How to write the merchant data to the graph, if unsure, do\
+            \ not set anything (by default `wordpressMerchantWriter`)."
       required:
       - google_merchant_id
       - publisher_name
@@ -2228,6 +2236,10 @@ components:
         url:
           type: string
           description: The website URL
+        writer_service:
+          type: string
+          description: "How to write the merchant data to the graph, if unsure, do\
+            \ not set anything (by default `wordpressMerchantWriter`)."
       required:
       - access_token
       - deleted
