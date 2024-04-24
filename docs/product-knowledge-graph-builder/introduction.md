@@ -10,6 +10,9 @@ This helps e-commerce to **communicate with Google’s Shopping Graph and get fr
 
 WordLift [Product Knowledge Graph Builder](https://wordlift.io/seo-for-non-wordpress-ecommerce/) can make a difference in your e-commerce and positively **impact both organic traffic and sales.**
 
+## Compatibility Across Platforms
+Our Product Knowledge Graph Builder is designed **for e-commerce platforms no WordPress**. It's the perfect solution **for any CMS, including Shopify, Magento, Joomla, and Drupal**. This means no matter what technology powers your e-commerce site, you can easily integrate our tool to enhance your SEO and visibility on Google Shopping. It's simple, straightforward, and ensures no one is left out.
+
 ## Get Started
 Once you have purchased the WordLift [Business+E-Commerce subscription](https://wordlift.io/business/) you will receive a key and then you will be able to access your dashboard.
 
