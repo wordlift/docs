@@ -30,7 +30,7 @@ Then click **Connect**. Here you can see the fields that come from the report. F
 
 At this point, you are close to creating your report, but two more steps are needed:
 
-1. To go to the managed data sources and add your Search Console data source: choose your website, choose URL Impressions anche choose Web Type, and then click on Create.
+1. To go to the managed data sources and add your Search Console data source: choose your website, choose URL Impressions and choose Web Type, and then click on Create.
 2. Check the blends to verify that the data is merged from the Knowledge Graph and GSC.
 
 ![image](../images/wordlift-datastudio-connector-check.png)
