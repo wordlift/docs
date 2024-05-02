@@ -110,19 +110,6 @@ paths:
       responses:
         "200":
           description: Success
-          content:
-            application/ld+json:
-              schema:
-                type: string
-                description: A string containing the Structured Data.
-            application/rdf+xml:
-              schema:
-                type: string
-                description: A string containing the Structured Data.
-            text/turtle:
-              schema:
-                type: string
-                description: A string containing the Structured Data.
         "412":
           description: Invalid request parameters
       security:
