@@ -69,16 +69,22 @@ paths:
           content:
             application/ld+json:
               schema:
-                type: string
-                description: A string containing the Structured Data.
+                type: array
+                description: A model containing the Structured Data.
+                items:
+                  type: object
             application/rdf+xml:
               schema:
-                type: string
-                description: A string containing the Structured Data.
+                type: array
+                description: A model containing the Structured Data.
+                items:
+                  type: object
             text/turtle:
               schema:
-                type: string
-                description: A string containing the Structured Data.
+                type: array
+                description: A model containing the Structured Data.
+                items:
+                  type: object
         "412":
           description: Invalid request parameters
       security:
@@ -89,23 +95,26 @@ paths:
       summary: Update (or create)
       description: Create or update entities by using the provided ids.
       operationId: createOrUpdateEntities
-      parameters:
-      - in: query
-        description: Create or update entities by using the provided ids.
       requestBody:
         content:
           application/ld+json:
             schema:
-              type: string
-              description: "The entity request, containing the actual semantic data."
+              type: array
+              description: A model containing the Structured Data.
+              items:
+                type: object
           application/rdf+xml:
             schema:
-              type: string
-              description: "The entity request, containing the actual semantic data."
+              type: array
+              description: A model containing the Structured Data.
+              items:
+                type: object
           text/turtle:
             schema:
-              type: string
-              description: "The entity request, containing the actual semantic data."
+              type: array
+              description: A model containing the Structured Data.
+              items:
+                type: object
         required: true
       responses:
         "200":
@@ -141,16 +150,22 @@ paths:
           content:
             application/ld+json:
               schema:
-                type: string
-                description: A string containing the Structured Data.
+                type: array
+                description: A model containing the Structured Data.
+                items:
+                  type: object
             application/rdf+xml:
               schema:
-                type: string
-                description: A string containing the Structured Data.
+                type: array
+                description: A model containing the Structured Data.
+                items:
+                  type: object
             text/turtle:
               schema:
-                type: string
-                description: A string containing the Structured Data.
+                type: array
+                description: A model containing the Structured Data.
+                items:
+                  type: object
         "412":
           description: Invalid request parameters
       security:
@@ -250,8 +265,10 @@ paths:
         content:
           application/ld+json:
             schema:
-              type: string
-              description: A string containing the Structured Data.
+              type: array
+              description: A model containing the Structured Data.
+              items:
+                type: object
         required: true
       responses:
         "200":
@@ -371,8 +388,10 @@ components:
           type: string
           description: The entity URI.
         model:
-          type: string
-          description: A string containing the Structured Data.
+          type: array
+          description: A model containing the Structured Data.
+          items:
+            type: object
         private:
           type: boolean
           description: Whether the entity should be hidden from Linked Data and GraphQL.
