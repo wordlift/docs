@@ -34,6 +34,8 @@ tags:
   name: Google Search Console
 - description: Manage Google Merchants
   name: Google Merchants
+- description: Manage Platform Consumptions
+  name: Platform Consumptions
 - description: Get answers to questions.
   name: Vector Search Questions
 - description: Manage OAuth2 Authorized Clients
@@ -43,8 +45,6 @@ tags:
   name: Analytics Imports
 - description: Manage vector search nodes embeddings.
   name: Vector Search Nodes
-- description: Manage Platform Consumptions
-  name: Platform Limits
 - description: Manage redeem codes.
   name: Redeem Codes
 - description: Create vector search queries.
@@ -1132,7 +1132,7 @@ paths:
       - OAuth2: []
       summary: Get the Platform Consumption
       tags:
-      - Platform Limits
+      - Platform Consumptions
     put:
       description: Create or update the Platform Consumption for the authenticated
         user.
@@ -1166,7 +1166,7 @@ paths:
       - OAuth2: []
       summary: Create or update the Platform Consumption
       tags:
-      - Platform Limits
+      - Platform Consumptions
   /platform-limit/limits:
     get:
       description: List the platform limits.
@@ -2951,6 +2951,11 @@ components:
           description: "The query string, not required if the `query_embeddings` are\
             \ provided. Please note that the `query_string` is ignored if the `query_embeddings`\
             \ are provided."
+        query_url:
+          type: string
+          format: url
+          description: Perform a Vector Search based on similarities with an entity
+            with the specified URL (schema:url).
         similarity_top_k:
           type: integer
           format: int32
