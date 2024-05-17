@@ -25,7 +25,7 @@ curl -X "POST" "https://api.wordlift.io/sitemap-imports" \
 }'
 ```
 
-The response is of type [NDJSON](https://ndjson.org/). Each line is a valid JSON with the details about the imported web page.
+The response is of type [NDJSON](https://en.wikipedia.org/wiki/JSON_streaming#Newline-delimited_JSON). Each line is a valid JSON with the details about the imported web page.
 
 ### Import URLs by providing them to the request
 
@@ -44,7 +44,7 @@ curl -X "POST" "https://api.wordlift.io/sitemap-imports" \
 }'
 ```
 
-The response is of type [NDJSON](https://ndjson.org/). Each line is a valid JSON with the details about the imported web page.
+The response is of type [NDJSON](https://en.wikipedia.org/wiki/JSON_streaming#Newline-delimited_JSON). Each line is a valid JSON with the details about the imported web page.
 
 ## Import Analytics data
 
