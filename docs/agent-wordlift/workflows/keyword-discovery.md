@@ -14,19 +14,29 @@ Let’s combine the query analysis tool to extract the main entities behind each
 ### Example Prompt for Analyzing a Query
 
 ```md
-Analyze the query “natural shower gel” on google.com.
+Analyze the query “aromatherapy” on google.com.
 ```
 
 WordLift AI SEO Agent will now use WordLift Content Analysis to understand top-ranking results on google.com. This will shed some light on the context behind this query.
 
 ![image](../images/agent-wordlift-query-analysis.png)
 
+To gain a deeper understanding of the interest patterns for this query, we can analyze the seasonal trends using the WordLift Google Trends API:
+
+```md
+Thanks, now analyze the seasonal trends in the US for "aromatherapy".
+```
+
+By examining seasonal trends, we can identify peak times for interest in “natural shower gel,” which can help us plan our content marketing efforts more effectively.
+
+![image](../images/agent-wordlift-keyword-seasonal-trends.png)
+
 ## Deep Dive into Keyword Suggestions
 
 Let’s now dive deeper into keywords (how people are searching on Google) with a different prompt:
 
 ```md
-Now, propose three keyword ideas for 'Natural Shower Gel' for each keyword, provide suggestions, extract the topics, and present all the data in a table highlighting the opportunities.
+Now, propose three keyword ideas for "aromatherapy" for each keyword, provide suggestions, extract the topics, and present all the data in a table highlighting the opportunities.
 ```
 
 ![image](../images/agent-wordlift-keyword-ideas.png)
@@ -38,7 +48,7 @@ This approach helps us explore the search landscape more comprehensively, identi
 We can also venture into a more sophisticated prompt that will automatically run the analysis and draft the outline of a blog post:
 
 ```md
-Now, propose three keyword ideas for 'Natural Shower Gel' for each keyword, provide suggestions, extract the topics, and present all the data in a table highlighting the opportunities. I need in the end the outline for a blog post on the keyword that has the highest chance.
+Propose three keyword ideas for "aromatherapy". For each keyword, provide suggestions, extract the topics, and present all the data in a table highlighting the opportunities. Then provide me with the outline for a blog post on the keyword that has the highest chance, keeping in mind the seasonality of the main keyword.
 ```
 
 ![image](../images/agent-wordlift-outline-ideas.png)
