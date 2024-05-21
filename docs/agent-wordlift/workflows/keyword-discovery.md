@@ -27,7 +27,7 @@ To gain a deeper understanding of the interest patterns for this query, we can a
 Thanks, now analyze the seasonal trends in the US for "aromatherapy".
 ```
 
-By examining seasonal trends, we can identify peak times for interest in “natural shower gel,” which can help us plan our content marketing efforts more effectively.
+By examining seasonal trends, we can identify peak times for interest in “aromatherapy” which can help us plan our content marketing efforts more effectively.
 
 ![image](../images/agent-wordlift-keyword-seasonal-trends.png)
 
