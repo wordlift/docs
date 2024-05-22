@@ -63,6 +63,7 @@ const config = {
         logo: {
           alt: "WordLift",
           src: "https://wordlift.io/wp-content/uploads/2022/12/logo.svg",
+          srcDark: "https://wordlift.io/wp-content/uploads/2024/05/logo-dark.svg"
         },
         items: [
           {
