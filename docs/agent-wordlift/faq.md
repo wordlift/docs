@@ -20,6 +20,7 @@ Agent WordLift is [a smart assistant for SEO](https://wordlift.io/blog/en/autono
 6. **Entity Gap Analysis**: Agent WordLift can identify the gap between entities in your content and those in top-ranking content for specific queries, guiding content enhancement.
 7. **Content Creation**: Leveraging insights from domain-specific searches and broad analyses, Agent WordLift can assist in creating new content that is optimized for both users and search engines.
 8. **Fact-Checking**: The agent can check statements or claims, assessing their accuracy and providing a factuality score.
+9. **Google Trends Analysis**: Agent WordLift integrates with the WordLift Google Trends API to analyze the seasonality of keywords. This feature allows the agent to understand and leverage the seasonality of search terms, providing insights into peak times and trends for better content planning and optimization.
 
 By automating these tasks, Agent WordLift significantly streamlines the SEO and content optimization process, making it easier for content creators and marketers to achieve their goals.
 
@@ -34,7 +35,7 @@ We utilize a diverse set of models, including the latest versions of the GPT-4 f
 Additionally, we actively explore the potential of open-source models for future integration.
 
 ## How much does Agent WordLift cost?
-**Agent WordLift is included in our Professional and Business + E-commerce plans**. Buying the license will give you access to the Agent with a certain number of interactions. [Go to the pricing and get started](https://wordlift.io/pricing/)!
+**Agent WordLift is included in our Professional, Business, and Enterprise plans**. Buying the license will give you access to the Agent with a certain number of interactions. [Go to the pricing and get started](https://wordlift.io/pricing/)!
 
 ## Where can I see the interaction limits? 
 **We will notify you over email when you are approaching the end of your credits**. Your subscription will remain active and the number of interactions will be reset at the beginning of the new month.
