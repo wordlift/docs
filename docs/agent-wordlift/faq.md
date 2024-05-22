@@ -38,7 +38,7 @@ Additionally, we actively explore the potential of open-source models for future
 **Agent WordLift is included in our Professional, Business, and Enterprise plans**. Buying the license will give you access to the Agent with a certain number of interactions. [Go to the pricing and get started](https://wordlift.io/pricing/)!
 
 ## Where can I see the interaction limits? 
-**We will notify you over email when you are approaching the end of your credits**. Your subscription will remain active and the number of interactions will be reset at the beginning of the new month.
+**We will notify you within the chat when you have reached your interaction limits.** Your subscription will remain active, and the number of interactions will be reset at the beginning of the new month.
 
 ## What are the ethical implications of using Agent WordLift? 
 The ethical implications of using Agent WordLift revolve around its **commitment to data privacy and security**, ensuring that user information is treated with the utmost care.
