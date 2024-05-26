@@ -2951,6 +2951,11 @@ components:
           description: "The query string, not required if the `query_embeddings` are\
             \ provided. Please note that the `query_string` is ignored if the `query_embeddings`\
             \ are provided."
+        query_uri:
+          type: string
+          format: uri
+          description: Perform a Vector Search based on similarities with an entity
+            with the specified URI.
         query_url:
           type: string
           format: url
