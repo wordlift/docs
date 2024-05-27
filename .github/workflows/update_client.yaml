@@ -5,8 +5,12 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "api/**"
   pull_request:
     types: [closed]
+    paths:
+      - "api/**"
 
 jobs:
   run-commands:
