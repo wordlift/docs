@@ -1,0 +1,70 @@
+name: Update SDK
+
+# Define the events that trigger the workflow
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [closed]
+
+jobs:
+  run-commands:
+    # Define the OS and environment the job will run on
+    runs-on: ubuntu-latest
+
+    # Define the steps in the job
+    steps:
+      # Step 1: Checkout the first repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          repository: wordlift/docs
+          path: "./docs"
+
+      # Step 2: Checkout the second repository
+      - name: Checkout second repository
+        uses: actions/checkout@v3
+        with:
+          repository: wordlift/wordlift-sdk
+          path: "./wordlift-sdk"
+
+      # Step 3: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18" # Specify the Node.js version to use
+
+      # Step 4: Install openapi-merge-cli and openapi-generator-cli
+      - name: Install openapi-merge-cli
+        run: |
+          npm i openapi-merge-cli
+          npm i @openapitools/openapi-generator-cli
+
+      # Step 5: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      # Step 6: Run the Python script to generate json for openApi-merge
+      - name: generate json for openApi-merge
+        run: python3 ./docs/bin/json_merge_generator.py
+
+      # Step 7: Merge the YAML files
+      - name: Merge the yaml files
+        run: npx openapi-merge-cli --config ./openapi-merge.json
+
+      # Step 8: Generate the SDK
+      - name: Generate the SDK
+        run: npx @openapitools/openapi-generator-cli generate -i ./wordliftApiSpec.yaml -o ./wordlift-sdk -g python --package-name 'Wordlift_client' --library 'asyncio' --additional-properties='generateSourceCodeOnly=true'
+
+      # Step 9: Commit and push the changes to the repository
+      - name: Commit and push changes
+        run: |
+          cd wordlift-sdk
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m "Updated SDK"
+          git push origin main
