@@ -13,7 +13,6 @@ jobs:
     # Define the OS and environment the job will run on
     runs-on: ubuntu-latest
 
-    # Define the steps in the job
     steps:
       # Step 1: Checkout the first repository
       - name: Checkout repository
@@ -30,10 +29,10 @@ jobs:
       - name: Apply patch to middleware.yaml
         run: git apply ./patch/fix_middleware_spec.patch
 
-       - name: Copy content from current repo to another repo
+      - name: Copy content from current repo to another repo
         run: cp api/* python-client/api
 
-      # Step 12: Commit and push the changes to the repository
+      # Step 4: Commit and push the changes to the repository
       - name: Commit and push changes
         run: |
           cd python-client
