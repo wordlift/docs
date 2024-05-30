@@ -1894,7 +1894,7 @@ components:
           - IN
           - NIN
         value:
-          type: string
+          type: object
           description: The filter value.
       required:
       - key
