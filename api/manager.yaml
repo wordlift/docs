@@ -2950,6 +2950,13 @@ components:
       type: object
       description: A query request.
       properties:
+        fields:
+          type: array
+          description: List of extra fields to be retrieved.
+          items:
+            type: string
+            description: List of extra fields to be retrieved.
+          uniqueItems: true
         filters:
           type: array
           description: A list of prefilters.
@@ -2989,12 +2996,27 @@ components:
       type: object
       description: An array of objects.
       properties:
-        datasetUri:
-          type: string
+        fields:
+          type: object
+          additionalProperties:
+            type: array
+            description: Map of extra retrieved fields. The values of the requested
+              fields are always returned in an array.If no value is found an empty
+              array is returned.
+            items:
+              type: object
+              description: Map of extra retrieved fields. The values of the requested
+                fields are always returned in an array.If no value is found an empty
+                array is returned.
+          description: Map of extra retrieved fields. The values of the requested
+            fields are always returned in an array.If no value is found an empty array
+            is returned.
         id:
           type: string
         iri:
           type: string
+          deprecated: true
+          description: The IRI of the entity that this node belongs to.
         metadata:
           type: object
           additionalProperties:
@@ -3012,6 +3034,7 @@ components:
           type: string
           description: The text of a node from which the embeddings were generated.
       required:
+      - iri
       - node_id
       - score
       - text
