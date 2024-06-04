@@ -1896,6 +1896,9 @@ components:
         value:
           type: object
           description: The filter value.
+          oneOf:
+          - type: string
+          - type: object
       required:
       - key
       - operator
