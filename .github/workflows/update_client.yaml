@@ -25,9 +25,9 @@ jobs:
           repository: wordlift/python-client
           path: "./python-client"
 
-      # step 3: Patch middleware api specification
-      - name: Apply patch to middleware.yaml
-        run: git apply ./patches/fix_middleware_spec.patch
+      # # step 3: Patch middleware api specification
+      # - name: Apply patch to middleware.yaml
+      #   run: git apply ./patches/fix_middleware_spec.patch
 
       - name: Copy content from current repo to another repo
         run: cp api/* python-client/api
