@@ -383,7 +383,7 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/AutocompleteResultList'
+                $ref: '#/components/schemas/AutocompleteResult'
         "404":
           description: Not Found
         "401":
@@ -499,18 +499,6 @@ components:
           type: string
         displayTypes:
           type: string
-    AutocompleteResultList:
-      type: array
-      properties:
-        empty:
-          type: boolean
-        first:
-          $ref: '#/components/schemas/AutocompleteResult'
-        last:
-          $ref: '#/components/schemas/AutocompleteResult'
-      description: A list of autocomplete results.
-      items:
-        $ref: '#/components/schemas/AutocompleteResult'
   securitySchemes:
     ApiKey:
       type: apiKey
