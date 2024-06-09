@@ -12,6 +12,8 @@ jobs:
   update_api:
     # Define the OS and environment the job will run on
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       # Step 1: Checkout the first repository
@@ -24,6 +26,7 @@ jobs:
         with:
           repository: wordlift/python-client
           path: "./python-client"
+          token: ${{ secrets.GH_PAT }}  
 
       # # step 3: Patch middleware api specification
       # - name: Apply patch to middleware.yaml
