@@ -108,7 +108,7 @@ Learn how to use the SEO Add-on for Google Sheets, watching this demo👇
 
 
 :::info Note
-The **SEO add-on for Google Sheets™ is included in the [Business+E-commerce plan](https://wordlift.io/business/)**, and only by purchasing this plan you can use the content expander. Alternatively, you can buy the [SEO Add-On for Google Sheets](https://deals.thenextweb.com/sales/lifetime-subscription-wordlift-standard?aid=&utm_campaign=feed&utm_medium=RSS&utm_source=thenextweb) from TNW website (in this case, the content expander is not included). 
+The **SEO add-on for Google Sheets™ is included in the [Business plan](https://wordlift.io/pricing/)**, and only by purchasing this plan you can use the content expander. Alternatively, you can buy the [SEO Add-On for Google Sheets](https://deals.thenextweb.com/sales/lifetime-subscription-wordlift-standard?aid=&utm_campaign=feed&utm_medium=RSS&utm_source=thenextweb) from TNW website (in this case, the content expander is not included). 
 :::
 
 ## Why is it asking for the country to be added?
