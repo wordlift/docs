@@ -14,7 +14,7 @@ WordLift [Product Knowledge Graph Builder](https://wordlift.io/seo-for-non-wordp
 Our Product Knowledge Graph Builder is designed **for e-commerce platforms no WordPress**. It's the perfect solution **for any CMS, including Shopify, Magento, Joomla, and Drupal**. This means no matter what technology powers your e-commerce site, you can easily integrate our tool to enhance your SEO and visibility on Google Shopping. It's simple, straightforward, and ensures no one is left out.
 
 ## Get Started
-Once you have purchased the WordLift [Business+E-Commerce subscription](https://wordlift.io/business/) you will receive a key and then you will be able to access your dashboard.
+Once you have purchased the WordLift [Business subscription](https://wordlift.io/pricing/) you will receive a key and then you will be able to access your dashboard.
 
 The first step to start using your PKG Builder is to go to your dashboard and click on **+ Add Merchant** on the left side, then follow the simple steps in the wizard.
 
