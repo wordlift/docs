@@ -249,11 +249,11 @@ Yes. To configure WordLift you will need to have admin privileges.
 
 ## Which Schema Types does WordLift support?
 
-WordLift, using the [business plan](https://wordlift.io/business/), **supports all the schema types** listed in the [Schema.org](https://schema.org/) vocabulary.
+WordLift, using the [Business plan](https://wordlift.io/pricing/), **supports all the schema types** listed in the [Schema.org](https://schema.org/) vocabulary.
 
 ## What is the advantage of using a custom domain for publishing the knowledge graph?
 
-WordLift, includes with the [business plan](https://wordlift.io/business/), the option **to support a custom domain** for linked data publishing.
+WordLift, includes with the [Business plan](https://wordlift.io/pricing/), the option **to support a custom domain** for linked data publishing.
 This means that you can use your own domain name to host the knowledge graph that WordLift creates. The main advantage is that you can use the same domain name for your website (ie `https://www.example.org`) and for the knowledge graph (`https://data.example.org`).
 Moreover if you decide to host the knowledge graph on a different platform you are free to do so without any vendor lock-in.
 WordLift hosts your data in a [Linked Data platform](https://www.w3.org/TR/ldp/), using the custom domain you are free to migrate your data to any other compatible graph platform without the need of changing the URIs of your entities.
