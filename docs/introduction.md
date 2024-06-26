@@ -28,7 +28,7 @@ This documentation is organized into the following sections:
 * **Smart Content**
   * [Agent WordLift](/agent-wordlift)
   * [Content Generation](docs/content-generation/content-generation.md)
-  * [LLM Connectors](docs/llm-connectors/wordlift-reader.md)
+  * [AI & LLM Integrations](docs/llm-connectors/index.md)
 * **Semantic Reporting**
   * [Looker Studio Connector](/looker-studio-connector/introduction)
 * **APIs**
