@@ -87,7 +87,7 @@ const config = {
               { label: "Knowledge Graph / Cloud", to: "cloud" },
               { label: "Smart Content / Agent WordLift", to: "agent-wordlift" },
               { label: "Smart Content / Content Generation", to: "content-generation" },
-              { label: "Smart Content / LLM Connectors", to: "llm-connectors/wordlift-reader" },
+              { label: "Smart Content / AI & LLM Integrations", to: "llm-connectors/wordlift-reader" },
               { label: "Semantic Reporting / Looker Studio Connector ", to: "looker-studio-connector/introduction" },
             ],
           },
