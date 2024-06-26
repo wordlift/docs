@@ -83,7 +83,7 @@ print(response)
 ## Additional Resources
 For more information on using WordLift Reader, check out:
 - our [Python Notebook](https://github.com/run-llama/llama_index/blob/main/llama-index-integrations/vector_stores/llama-index-vector-stores-wordlift/examples/wordlift_vector_store_demo.ipynb)
-- our blog post about [LLMs for SEO & Marketing Automation](https://wordlift.io/blog/en/semantic-search-with-wordlift-vector-store/),
+- our blog post about [LLMs for SEO & Marketing Automation](https://wordlift.io/blog/en/semantic-search-with-wordlift-vector-store/), introducing the WordLift Vectore Store and its advantages,
 - the [official documentation from LlamaIndex](https://docs.llamaindex.ai/en/stable/community/integrations/vector_stores/).
 
 ## Conclusion
