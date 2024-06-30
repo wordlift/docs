@@ -18,3 +18,6 @@ Here is how WordLift AI SEO Agent can help you boost your productivity in differ
 
 - **Revamp Content**
     - [Align existing content with Search Query](./workflows/analyzing-query-match.md)
+
+- **Create links**
+    - [Create internal links](./workflows/create-internal-links.md)
