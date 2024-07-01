@@ -2346,6 +2346,15 @@ components:
           additionalProperties:
             type: object
             description: A map of metadata properties.
+            oneOf:
+            - type: string
+            - type: integer
+              format: int64
+            - type: number
+              format: double
+            - type: number
+              format: float
+            - type: boolean
           description: A map of metadata properties.
         node_id:
           type: string
