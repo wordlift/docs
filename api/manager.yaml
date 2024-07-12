@@ -1886,9 +1886,15 @@ components:
       type: object
       description: A query request filter.
       properties:
+        filters:
+          type: array
+          description: Operational filters such as AND or OR.
+          items:
+            $ref: '#/components/schemas/Filter'
         key:
           type: string
-          description: The filter key.
+          description: "The filter key. Key is required for the filters [EQ, NE, GT,\
+            \ LT, GTE, LTE, IN, NIN]"
         operator:
           type: string
           description: A query request filter operator.
@@ -1901,16 +1907,36 @@ components:
           - LTE
           - IN
           - NIN
+          - AND
+          - OR
         value:
           type: object
           description: The filter value.
           oneOf:
+          - type: array
+            items:
+              type: string
           - type: string
-          - type: object
+          - type: array
+            items:
+              type: integer
+              format: int32
+          - type: integer
+            format: int32
+          - type: array
+            items:
+              type: number
+              format: double
+          - type: number
+            format: double
+          - type: array
+            items:
+              type: integer
+              format: int64
+          - type: integer
+            format: int64
       required:
-      - key
       - operator
-      - value
     IncludeExclude:
       type: object
       properties:
@@ -2346,6 +2372,15 @@ components:
           additionalProperties:
             type: object
             description: A map of metadata properties.
+            oneOf:
+            - type: string
+            - type: integer
+              format: int64
+            - type: number
+              format: double
+            - type: number
+              format: float
+            - type: boolean
           description: A map of metadata properties.
         node_id:
           type: string
