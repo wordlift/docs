@@ -65,29 +65,33 @@ To load data from the knowledge graph, you need to construct a GraphQL query.
 Here are a few examples of queries that you can use to get started:
 
 ### Products
-```query{
-    products(page: 0, rows: 100){
+```
+query {
+  products(page: 0, rows: 100) {
     id: iri
     url: strings(name: "schema:url")
     gtin: strings(name: "schema:gtin")
-    names: strings(name:"schema:name")
-    description: strings(name:"schema:description")
-    brand: resource(name:"schema:brand"){
-        brand: string(name: "schema:name")
-      }
-    price: resource(name:"schema:offers"){
-        price: string(name: "schema:price")}
+    names: strings(name: "schema:name")
+    description: strings(name: "schema:description")
+    brand: resource(name: "schema:brand") {
+      brand: string(name: "schema:name")
+    }
+    price: resource(name: "schema:offers") {
+      price: string(name: "schema:price")
+    }
     image: string(name: "schema:image")
-}
+  }
 }
 ```
 ### FAQs
-```  faqPages{
+```
+query {
+  faqPages {
     url: string(name: "schema:url")
-		title: string(name: "schema:name")
+    title: string(name: "schema:name")
     questions: resources(name: "schema:mainEntity") {
-			question: string(name: "schema:name")
-			answer: resources(name: "schema:acceptedAnswer") {
+      question: string(name: "schema:name")
+      answer: resources(name: "schema:acceptedAnswer") {
         text: string(name: "schema:text")
       }
     }
@@ -95,7 +99,8 @@ Here are a few examples of queries that you can use to get started:
 }
 ```
 ### Articles
-```query {
+```
+query {
   articles(page: 0, rows: 25) {
     id: iri
     title: string(name: "schema:headline")
