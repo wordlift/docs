@@ -16,22 +16,14 @@ servers:
 tags:
 - description: Get Account Information
   name: Account
-- description: Manage Custom Domains
-  name: Custom Domains
 - description: Import Botify Crawl data to KG
   name: Botify Crawl Imports
 - description: Retrieve Add-ons data
   name: AddOns
 - description: Data URI for a Web page URL.
   name: Data URI
-- description: Add embeddings to a Knowledge Graphs.
-  name: Embedding
 - description: Import sitemaps to the KG
   name: Sitemap Imports
-- description: Retrieve analytics data from Google Search Console
-  name: Google Search Console Searches
-- description: Access Google Search Console data
-  name: Google Search Console
 - description: Manage Google Merchants
   name: Google Merchants
 - description: Manage Platform Consumptions
@@ -40,11 +32,27 @@ tags:
   name: Vector Search Questions
 - description: Manage OAuth2 Authorized Clients
   name: OAuth2 Authorized Clients
+- description: Manage Accounts
+  name: Accounts
+- description: Configure Google Search Console OAuth2 authorized access codes.
+  name: Google Search Console OAuth2
+- description: Update Plugin Diagnostics data for WordPress clients.
+  name: Plugin Diagnostics
+- description: Manage Custom Domains
+  name: Custom Domains
+- description: Add embeddings to a Knowledge Graphs.
+  name: Embedding
+- description: Retrieve analytics data from Google Search Console
+  name: Google Search Console Searches
+- description: Access Google Search Console data
+  name: Google Search Console
 - description: "Import Analytics data to the KG using different sources, e.g. Google\
     \ Search Console."
   name: Analytics Imports
 - description: Manage vector search nodes embeddings.
   name: Vector Search Nodes
+- description: Create Internal Links.
+  name: Internal Links
 - description: Manage redeem codes.
   name: Redeem Codes
 - description: Create vector search queries.
@@ -53,16 +61,10 @@ tags:
   name: Include Excludes (WordPress plugin)
 - description: Manage Platform Limits
   name: Platform Limits
-- description: Manage Accounts
-  name: Accounts
 - description: Manage Merchants
   name: Merchants
-- description: Configure Google Search Console OAuth2 authorized access codes.
-  name: Google Search Console OAuth2
 - description: Synchronize Products from the Merchant Feed
   name: Merchant Syncs
-- description: Update Plugin Diagnostics data for WordPress clients.
-  name: Plugin Diagnostics
 paths:
   /accounts:
     get:
@@ -686,6 +688,32 @@ paths:
       summary: Create an Authorization URI
       tags:
       - Google Search Console OAuth2
+  /internal-links:
+    post:
+      description: Create Internal Links.
+      operationId: createInternalLink
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InternalLinkRequest'
+        required: true
+      responses:
+        "201":
+          content:
+            application/x-ndjson:
+              schema:
+                type: array
+                items:
+                  type: string
+          description: Success
+        "401":
+          description: Authentication Failure
+      security:
+      - ApiKey: []
+      summary: Create
+      tags:
+      - Internal Links
   /kg/embeddings:
     post:
       description: Create the embedding for the IRIs for the provided query.
@@ -694,7 +722,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/EmbeddingRequest'
+              $ref: '#/components/schemas/KgEmbeddingRequest'
         required: true
       responses:
         "201":
@@ -1396,12 +1424,7 @@ paths:
         required: true
       responses:
         "200":
-          content:
-            application/x-ndjson:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/WebPage'
+          content: {}
           description: Success
         "401":
           description: Authentication Failure
@@ -1734,6 +1757,29 @@ components:
             type: string
             description: An array of URLs.
           uniqueItems: true
+    AnchorText:
+      type: object
+      description: The Anchor Text request.
+      properties:
+        actual_prompt_template:
+          type: string
+        enabled:
+          type: boolean
+          default: false
+          description: "Whether to enable Anchor Text, by default false."
+        max_characters:
+          type: integer
+          format: int32
+          default: 15
+          description: "The maximum anchor text length, by default 15 characters."
+        model:
+          type: string
+          default: gpt-4
+          description: The model to use.
+        prompt_template:
+          type: string
+          description: "The prompt template, we provide a default. Liquid template\
+            \ language is supported."
     BotifyCrawlImportRequest:
       type: object
       description: The Botify Crawl Import request
@@ -1754,6 +1800,7 @@ components:
           type: array
           items:
             type: string
+          uniqueItems: true
         text:
           type: array
           items:
@@ -1762,6 +1809,7 @@ components:
           type: array
           items:
             type: string
+          uniqueItems: true
         url:
           type: string
     BuildAuthorizeUriRequest:
@@ -1839,13 +1887,18 @@ components:
       - dataset_name
     EmbeddingRequest:
       type: object
+      description: A request to generate the embeddings.
       properties:
-        graphql_query:
+        model:
           type: string
+          default: nomic-ai/nomic-embed-text-v1
+          description: The model used to generate the embeddings.
         properties:
           type: array
+          description: The list of properties to use to generate the embeddings.
           items:
             type: string
+            description: The list of properties to use to generate the embeddings.
           uniqueItems: true
     ExchangeAuthCodeRequest:
       type: object
@@ -1979,6 +2032,48 @@ components:
       required:
       - Include or Exclude
       - The URL
+    InternalLinkRequest:
+      type: object
+      description: An Internal Links request.
+      properties:
+        anchor_text:
+          $ref: '#/components/schemas/AnchorText'
+        items:
+          type: array
+          description: An array of items.
+          items:
+            $ref: '#/components/schemas/Item'
+        template:
+          type: string
+          description: "The output template, not required, we provide a default JSON-LD\
+            \ template"
+      required:
+      - items
+    Item:
+      type: object
+      description: An Internal Link request item.
+      properties:
+        id:
+          type: string
+          format: uri
+          description: "The entity id, reused in the output template."
+        query:
+          $ref: '#/components/schemas/VectorSearchQueryRequest'
+        source_name:
+          type: string
+          description: "The webpage name, reused in the output template."
+      required:
+      - query
+    KgEmbeddingRequest:
+      type: object
+      properties:
+        graphql_query:
+          type: string
+        properties:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
     Merchant:
       type: object
       description: A Merchant project.
@@ -3001,9 +3096,29 @@ components:
       type: object
       description: The Sitemap Import request
       properties:
+        embedding:
+          $ref: '#/components/schemas/EmbeddingRequest'
+        output_types:
+          type: array
+          default:
+          - http://schema.org/WebPage
+          description: "The type of the generated entities, by default `http://schema.org/WebPage`."
+          items:
+            type: string
+            default: "[\"http://schema.org/WebPage\"]"
+            description: "The type of the generated entities, by default `http://schema.org/WebPage`."
+          uniqueItems: true
+        overwrite:
+          type: boolean
+          default: false
+          description: Whether to overwrite existing entities.
         sitemap_url:
           type: string
           description: The sitemap URL
+        sitemap_url_regex:
+          type: string
+          description: "A regex filter to apply to discovered URLs, it only applies\
+            \ to URLs in sitemaps."
         urls:
           type: array
           description: The URLs
@@ -3082,6 +3197,15 @@ components:
               description: Map of extra retrieved fields. The values of the requested
                 fields are always returned in an array.If no value is found an empty
                 array is returned.
+              oneOf:
+              - type: string
+              - type: integer
+                format: int64
+              - type: number
+                format: double
+              - type: number
+                format: float
+              - type: boolean
           description: Map of extra retrieved fields. The values of the requested
             fields are always returned in an array.If no value is found an empty array
             is returned.
@@ -3096,6 +3220,15 @@ components:
           additionalProperties:
             type: object
             description: A nodes extra metadata.
+            oneOf:
+            - type: string
+            - type: integer
+              format: int64
+            - type: number
+              format: double
+            - type: number
+              format: float
+            - type: boolean
           description: A nodes extra metadata.
         node_id:
           type: string
@@ -3153,6 +3286,7 @@ components:
           type: array
           items:
             type: string
+          uniqueItems: true
         url:
           type: string
     Website:
