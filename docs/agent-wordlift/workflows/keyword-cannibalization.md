@@ -50,8 +50,6 @@ For each page, perform the following analyses:
 
 Using this prompt, the WordLift AI SEO Agent will analyze each page and provide insights into potential overlaps and differentiation opportunities.
 
-![image](../images/agent-wordlift-keyword-cannibalization-analysis.png)
-
 ## Understanding the Analysis
 
 The agent's analysis will help you:
@@ -72,10 +70,8 @@ Based on the analysis, you can implement the following strategies:
 ### 2. **Keyword Optimization**
 
 - Assign distinct primary keywords to each page:
-
   - **URL1 Primary Keyword:** "Schema markup for publishers"
   - **URL2 Primary Keyword:** "Structured data for personal branding"
-
 - Use unique secondary keywords that support the main topic of each page.
 
 ### 3. **Enhance Unique Value Propositions**
@@ -107,10 +103,11 @@ Based on the analysis, you can implement the following strategies:
 - **Meta Description:**
   - "Learn how structured data can elevate your personal brand's online presence and improve search engine visibility."
 
----
 
 By following this workflow, you can effectively identify and resolve keyword cannibalization issues. Differentiating your content not only improves SEO performance but also enhances user experience by providing clear, distinct information on each page.
 
----
+:::info
 
-**Note:** Remember to monitor the performance of these pages after making changes to ensure that the strategies are effective and adjust as necessary.
+Remember to monitor the performance of these pages after making changes to ensure that the strategies are effective and adjust as necessary.
+
+:::
