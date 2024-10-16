@@ -1,3 +1,4 @@
+---
 title: Avoid Keyword Cannibalization
 sidebar_position: 9
 ---
