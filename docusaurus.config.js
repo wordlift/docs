@@ -13,7 +13,7 @@ const config = {
   baseUrl: "/",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/logo-round.png",
+  favicon: "img/logo-tile.svg",
   trailingSlash: true,
 
   // GitHub pages deployment config.
@@ -62,8 +62,8 @@ const config = {
         title: "Guide",
         logo: {
           alt: "WordLift",
-          src: "https://wordlift.io/wp-content/uploads/2022/12/logo.svg",
-          srcDark: "https://wordlift.io/wp-content/uploads/2024/05/logo-dark.svg"
+          src: "img/logo.svg",
+          srcDark: "img/logo-dark.svg"
         },
         items: [
           {

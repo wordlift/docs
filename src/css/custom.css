@@ -29,6 +29,16 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 } */
 
+
+/* Navbar */
+
+.navbar .navbar__title {
+  display: none;
+}
+
+
+/* Text */
+
 h2.text--truncate.cardTitle_rnsV::first-letter {
   font-size: 0;
   text-transform: capitalize;
