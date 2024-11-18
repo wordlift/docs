@@ -32,7 +32,7 @@ For example, imagine this workflow is analyzing the entity gap between the blog 
 
 **Question Generation**: Finally, the workflow would use these missing entities to automatically generate three relevant questions users might have about "neuro-symbolic AI."
 
-```md
+```md className=send-to-agent
 Analyze the entity gap between https://wordlift.io/blog/en/neuro-symbolic-ai/ and the query "neuro-symbolic AI", look at the top missing entities and, if they are relevant, generate three questions accordingly.
 ```
 
@@ -42,7 +42,7 @@ Analyze the entity gap between https://wordlift.io/blog/en/neuro-symbolic-ai/ an
 
 Once the questions are generated, we can provide the agent with a new prompt that will automatically search the website and relevant sources to find answers. It will also consider the writing style of the target webpage to ensure the answers are consistent and informative.
 
-```md
+```md className=send-to-agent
 Now, search on the website, read the writing style and prepare the answer for the first question "How does Artificial General Intelligence (AGI) relate to the development of neuro-symbolic AI systems, and what are the potential implications of integrating AGI capabilities into neuro-symbolic models?". Remember to add links back to the sources.
 ```
 This approach allows for efficient generation of FAQs that address potential user queries based on the content of a webpage.
