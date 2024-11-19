@@ -11,7 +11,7 @@ This workflow is designed to help us **create a newsletter that engages the targ
 
 To get things started, we will use this prompt:
 
-```md className=send-to-agent
+```md className=wlx-send-to-agent
 I'm looking for ideas on how to write engaging and informative newsletters that will keep the audience in the e-commerce space informed about structured data. Search my website, gather all the information, and present the ideas and a first draft.
 ```
 

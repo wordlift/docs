@@ -21,7 +21,7 @@ First, identify the pages on your website that you want to enrich by adding inte
 
 In the example below we use as a reference the WordLift blog.
 
-```md className=send-to-agent
+```md className=wlx-send-to-agent
 Find content on my website from the “What is structured data?” page (https://wordlift.io/blog/en/entity/structured-data/). Analyze the text to identify up to 5 related articles. For each article, determine a relevant keyword, generate keyword suggestions for each keyword, and create an anchor text of no more than 30 characters. Finally, compile the HTML for all 5 links with their respective anchor texts.
 ```
 
@@ -33,7 +33,7 @@ If you need to create internal links for multiple pages, you can use a more comp
 
 ### Example Prompt for Batch Processing
 
-```md className=send-to-agent
+```md className=wlx-send-to-agent
 Find content on my website from the “What is structured data?” page (https://wordlift.io/blog/en/entity/structured-data/). Analyze the text to identify up to 5 related articles. For each article, determine a relevant keyword, generate keyword suggestions for each keyword, and create an anchor text of no more than 30 characters. Finally, compile the HTML for all 5 links with their respective anchor texts. Do the same work also for the pages: "The GS1 Digital Link explained for SEO Jedis (and their clients)" (https://wordlift.io/blog/en/gs1-digital-link-seo/), "Dynamic Internal Links in SEO: Your Superhero in the Generative AI Era" (https://wordlift.io/blog/en/dynamic-internal-links-in-seo/), "Understanding LLM Optimization: Ethical AI and Protecting Your Content" (https://wordlift.io/blog/en/understanding-llm-optimization/) and "From Harold Cohen to Modern AI: The Power of Symbolic Reasoning" (https://wordlift.io/blog/en/the-power-of-symbolic-reasoning/). Remember the following rules: never link to the homepage of the blog (https://wordlift.io/blog/en/) choose carefully the anchor based on the content relevancy and keyword opportunity analysis.
 ```
 

@@ -13,7 +13,7 @@ Let’s combine the query analysis tool to extract the main entities behind each
 
 ### Example Prompt for Analyzing a Query
 
-```md className=send-to-agent
+```md className=wlx-send-to-agent
 Analyze the query “aromatherapy” on google.com.
 ```
 
@@ -23,7 +23,7 @@ WordLift AI SEO Agent will now use WordLift Content Analysis to understand top-r
 
 To gain a deeper understanding of the interest patterns for this query, we can analyze the seasonal trends using the WordLift Google Trends API:
 
-```md className=send-to-agent
+```md className=wlx-send-to-agent
 Thanks, now analyze the seasonal trends in the US for "aromatherapy".
 ```
 
@@ -35,7 +35,7 @@ By examining seasonal trends, we can identify peak times for interest in “arom
 
 Let’s now dive deeper into keywords (how people are searching on Google) with a different prompt:
 
-```md className=send-to-agent
+```md className=wlx-send-to-agent
 Now, propose three keyword ideas for "aromatherapy" for each keyword, provide suggestions, extract the topics, and present all the data in a table highlighting the opportunities.
 ```
 
@@ -47,7 +47,7 @@ This approach helps us explore the search landscape more comprehensively, identi
 
 We can also venture into a more sophisticated prompt that will automatically run the analysis and draft the outline of a blog post:
 
-```md className=send-to-agent
+```md className=wlx-send-to-agent
 Propose three keyword ideas for "aromatherapy". For each keyword, provide suggestions, extract the topics, and present all the data in a table highlighting the opportunities. Then provide me with the outline for a blog post on the keyword that has the highest chance, keeping in mind the seasonality of the main keyword.
 ```
 

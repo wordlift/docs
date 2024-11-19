@@ -13,7 +13,7 @@ We will start with a first example to build content buckets for social media aro
 
 ### Here goes the prompt:
 
-```md className=send-to-agent
+```md className=wlx-send-to-agent
 Search for content related to 'GS1', 'GS1 Digital Link' and create content buckets from Social Media.
 ```
 ![image](../images/agent-wordlift-content-buckets.png)

@@ -13,7 +13,7 @@ Our journey begins with an example that illustrates how to create an engaging de
 
 ### Here's the prompt:
 
-```md className=send-to-agent
+```md className=wlx-send-to-agent
 Analyze the "Creamy Concealer" by ACME using the query tool, using its description and product category to extract key insights. Suggest relevant keywords that could enhance its online visibility. Based on these insights, generate 10 SEO-optimized product descriptions in French, each incorporating:
 - Brand and product name
 - Relevant keywords
