@@ -23,6 +23,7 @@ The main documentation for getting started with **Agent WordLift** is organized 
   * [Create product descriptions using keyword insights](./workflows/create-product-description.md)
   * [Analyze the query match of a web page](./workflows/analyzing-query-match.md)
   * [Create internal links](./workflows/create-internal-links.md)
+* [Integrations ⚙️](integrations.md)
 
 :::info
 
