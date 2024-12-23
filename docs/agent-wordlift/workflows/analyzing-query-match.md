@@ -16,7 +16,7 @@ To ensure your webpage aligns perfectly with the intended search query, follow t
 
 Start by pinpointing the exact query you aim to target. Understand the intent behind the search - is it informational, navigational, transactional, or investigational? You can try a prompt like the one below:
 
-```md
+```md className=wlx-send-to-agent
 analyze the SEO score for the keyword 'Future-Proof Your Content From Google Core Updates' in relation to the content on 'https://wordlift.io/blog/en/google-core-update-ai-interview/' the intent is to gain information on how to improve existing content.
 ```
 
@@ -30,7 +30,7 @@ With this prompt, we define the **query**, the **url** as well as the narrative 
 
 Within the first response, we can now proceed with the following step to gain new insights on how to improve the article in order to match the provided query and search intent:
 
-```md
+```md className=wlx-send-to-agent
 Can you help me improve and expand the blog post to match the query?
 ```
 
@@ -42,7 +42,7 @@ Can you help me improve and expand the blog post to match the query?
 
 Of course you can. Here is the prompt:
 
-```md
+```md className=wlx-send-to-agent
 analyze the SEO score for the keyword 'Future-Proof Your Content From Google AI Core Updates' in relation to the content on 'https://wordlift.io/blog/en/google-core-update-ai-interview/' the intent is to gain information on how to improve content. After that help me improve and expand the blog post accordingly.
 ```
 

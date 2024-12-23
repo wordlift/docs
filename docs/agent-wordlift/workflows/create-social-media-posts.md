@@ -13,7 +13,7 @@ We will start with a first example related to our website to write content aroun
 
 ### Here goes the prompt:
 
-```md
+```md className=wlx-send-to-agent
 Search for 'neuro-symbolic AI' and carefully analyze the writing style on my website, then extract entities and suggest keywords, and, with this in mind, write three SEO-optimized LinkedIn posts to promote the topic to a business audience in the publishing sector. Always add links back to the website to help users discover additional information.
 ```
 ![image](../images/agent-wordlift-social-media-posts-ideas.png)
@@ -24,7 +24,7 @@ Let's craft now a similar prompt for creating *a Twitter thread*.
 
 ### Here goes the prompt for X:
 
-```md
+```md className=wlx-send-to-agent
 Search for 'neuro-symbolic AI' and carefully analyze the writing style on my website and, with this in mind, create a Twitter thread to promote the topic to web publishers. Always add links back to the website to help users discover additional information.
 ```
 
@@ -44,7 +44,7 @@ Understanding these steps helps you trust the process and ensures the generated 
 
 Finally, we can review the key concepts behind the generated posts for LinkedIn with a new prompt:
 
-```md
+```md className=wlx-send-to-agent
 Draw a mind map of the key concepts behind each post.
 ```
 ![image](../images/agent-wordlift-mind-map-social-media-posts.png)

@@ -13,7 +13,7 @@ Let's utilize the content analysis tools to extract entities, keywords, and unde
 
 ### Example Prompt for Analyzing and Differentiating Pages
 
-```md
+```md className=wlx-send-to-agent
 Search the following pages from the website using the search tool:
 
 - **URL1:** Article: https://wordlift.io/blog/en/underutilized-schema-markups-for-publishers/

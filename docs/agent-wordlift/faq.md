@@ -40,6 +40,15 @@ Additionally, we actively explore the potential of open-source models for future
 ## Where can I see the interaction limits? 
 **We will notify you within the chat when you have reached your interaction limits.** Your subscription will remain active, and the number of interactions will be reset at the beginning of the new month.
 
+## How do I import the output into a Google Doc?
+To easily import the Agent’s output into a Google Doc, follow these steps:
+
+1. [Enable Markdown support](https://support.google.com/docs/answer/12014036) in Google Drive.
+2. Copy the output by clicking the clipboard icon located below the text.
+3. In your Google Doc, go to **Edit** > **Paste from Markdown** to paste the content in markdown format.
+
+This method ensures the formatting is preserved and seamless.
+
 ## What are the ethical implications of using Agent WordLift? 
 The ethical implications of using Agent WordLift revolve around its **commitment to data privacy and security**, ensuring that user information is treated with the utmost care.
 
