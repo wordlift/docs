@@ -16,6 +16,6 @@ Supercharge your SEO workflow directly in your browser with the **Agent WordLift
 Powered by cutting-edge AI and knowledge graph technology, the Agent WordLift Chrome Extension transforms how you create and optimize content, making it easier than ever to achieve your SEO goals.
 
 Ready to see it in action? Watch this video tutorial.
-<iframe width="100%" height="500" src="https://www.youtube.com/watch?v=Lmz6Kgi6HB0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/Lmz6Kgi6HB0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 [Install the Agent WordLift Chrome Extension here](https://chromewebstore.google.com/detail/agent-wordlift/jegfjceighmfpbklniiakflbhceejddb) and start boosting your SEO today!
