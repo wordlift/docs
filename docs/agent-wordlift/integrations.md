@@ -33,4 +33,4 @@ Key Features of the `/ask` Endpoint:
 
 With the `/ask` endpoint, you can create a chatbot-like feature within your application that provides instant SEO advice, content suggestions, or answers to technical queries based on the WordLift Agent’s expertise.
 
-To get started, check out the [WordLift Agent API documentation]() and explore how the `/ask` endpoint can revolutionize your SEO strategy!
+To get started, check out the [WordLift Agent API documentation](https://docs.wordlift.io/api/agent/agent) and explore how the `/ask` endpoint can revolutionize your SEO strategy!
