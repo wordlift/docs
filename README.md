@@ -40,9 +40,52 @@ $ GIT_USER=<Your GitHub username> yarn deploy
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
 
+# API documentation
 
-# How to regenerate the API docs
+## Adding a new endpoint
 
+1. Add the openapi.yaml to `/api`
+
+2. Update the `docusaurus.config.js` to add the required configuration for the new endpoint.
+
+```
+...
+"agent": {
+    specPath: "api/agent.yaml", // path or URL to the OpenAPI spec
+    outputDir: "docs/api/agent", // output directory for generated *.mdx and sidebar.js files
+    sidebarOptions: {
+        groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
+        categoryLinkSource: "tag",
+    },
+},
+...
+```
+
+3. Generate the API documentation
+`npm run docusaurus gen-api-docs <OpenAPI file name>`
+
+4. Add the generated `sidebars.js` to the main `sidebars.js`. 
+
+```
+...
+{
+    type: "agent",
+    label: "Agent WordLift",
+    items: require("./docs/api/agent/sidebar.js"),
+},
+...
+```
+
+# Regenerating an existing endpoint
+
+1. Add the docusaurus-plugin-openapi-docs
+
+`npm run docusaurus clean-api-docs <OpenAPI file name> && npm run docusaurus gen-api-docs <OpenAPI file name>`
+
+**Examples:**
+
+```
 npm run docusaurus clean-api-docs analysis && npm run docusaurus gen-api-docs analysis
 npm run docusaurus clean-api-docs events && npm run docusaurus gen-api-docs events
 npm run docusaurus clean-api-docs manager && npm run docusaurus gen-api-docs manager
+```
