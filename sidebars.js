@@ -102,6 +102,11 @@ const sidebars = {
       },
       items: [
         {
+          type: "agent",
+          label: "Agent WordLift",
+          items: require("./docs/api/agent/sidebar.js"),
+        },
+        {
           type: "category",
           label: "Analysis",
           items: require("./docs/api/analysis/sidebar.js"),
