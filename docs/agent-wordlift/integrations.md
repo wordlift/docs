@@ -19,3 +19,18 @@ Ready to see it in action? Watch this video tutorial.
 <iframe width="100%" height="500" src="https://www.youtube.com/embed/Lmz6Kgi6HB0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 [Install the Agent WordLift Chrome Extension here](https://chromewebstore.google.com/detail/agent-wordlift/jegfjceighmfpbklniiakflbhceejddb) and start boosting your SEO today!
+
+## Agent WordLift API Integration
+
+The **WordLift Agent API** empowers developers and SEO professionals to programmatically interact with the Agent WordLift’s advanced AI capabilities. The newly introduced `/ask` endpoint allows users to send specific queries to the WordLift Agent and receive tailored responses that enhance their SEO workflows.
+
+Key Features of the `/ask` Endpoint:
+- **Customizable Interactions:** Send a message and specify a model (default: gpt-4o) to receive AI-powered insights tailored to your SEO needs.
+- **Secure Queries:** Enable an optional security parameter to ensure sensitive requests are handled appropriately.
+- **Seamless Integration:** Easily incorporate the endpoint into your existing tools or workflows to automate tasks such as content optimization, keyword research, and entity analysis.
+
+### Example Use Case
+
+With the `/ask` endpoint, you can create a chatbot-like feature within your application that provides instant SEO advice, content suggestions, or answers to technical queries based on the WordLift Agent’s expertise.
+
+To get started, check out the [WordLift Agent API documentation]() and explore how the `/ask` endpoint can revolutionize your SEO strategy!
