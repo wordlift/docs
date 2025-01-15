@@ -4,6 +4,10 @@ id: introduction
 sidebar_position: 1
 ---
 
+import AuthImage from './images/step-1-authentication.png';
+import AgentImage from './images/agent-wordlift.png';
+import GraphQLImage from './images/graphql.png';
+
 # WordLift Zapier Integration
 
 The [WordLift Zapier Integration](https://zapier.com/apps/wordlift/integrations) allows you to **automate your semantic SEO workflows** by connecting WordLift with over 6,000+ apps. You can now leverage the power of Agent WordLift and your Knowledge Graph data across your entire marketing stack.
@@ -19,7 +23,7 @@ To get started with the WordLift Zapier integration, you'll need your WordLift A
 3. Enter your WordLift API Key
 4. Click "Continue" to validate your credentials
 
-![image](images/step-1-authentication.png)
+<img src={AuthImage} style={{width: 600}} alt="Authentication Step" />
 
 ### 2. Available Actions
 
@@ -35,7 +39,7 @@ Send commands or questions to Agent WordLift and receive intelligent responses. 
 - Reuse content from your website
 - Analyze Schema.org markup on a webpage
 
-![image](images/agent-wordlift.png)
+<img src={AgentImage} style={{width: 600}} alt="Agent WordLift" />
 
 #### Query Knowledge Graph
 
@@ -46,7 +50,7 @@ Run GraphQL queries to retrieve specific data from your WordLift Knowledge Graph
 - Track content performance
 - Generate custom reports
 
-![image](images/graphql.png)
+<img src={GraphQLImage} style={{width: 600}} alt="GraphQL Query" />
 
 ### 3. Popular Use Cases
 
@@ -72,7 +76,7 @@ Get started with our pre-built workflows or create your own custom automation:
         sign-up-last-name="last_name_of_your_user"
         client-id="wb9T2yfrV66iC6KFbGRUYcYYGLE06d2NLOQirBPj"
         theme="light"
-        intro-copy-display="show"
+        intro-copy-display="hide"
         manage-zaps-display="hide"
         guess-zap-display="hide"
       ></zapier-workflow>
