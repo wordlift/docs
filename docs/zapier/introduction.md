@@ -80,9 +80,11 @@ Get started with our pre-built workflows or create your own custom automation:
   }}
 />
 
+<!--
 :::info Note
 Watch our tutorial video to learn how to create powerful automation workflows with WordLift and Zapier.
 :::
+-->
 
 ## Examples
 
@@ -99,7 +101,7 @@ Here are some popular workflow templates to get you started:
    - Action: Update Google Sheets dashboard
 
 3. **Content Distribution Workflow**
-   - Trigger: New entity created
+   - Trigger: Daily schedule
    - Action: Query Knowledge Graph for entity data
    - Action: Create social media posts via Buffer
 
