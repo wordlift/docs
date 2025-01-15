@@ -63,22 +63,24 @@ With WordLift's Zapier integration, marketers can:
 
 Get started with our pre-built workflows or create your own custom automation:
 
-<zapier-workflow
-  sign-up-email="<email_of_your_user@example.com>"
-  sign-up-first-name="first_name_of_your_user"
-  sign-up-last-name="last_name_of_your_user"
-  client-id="wb9T2yfrV66iC6KFbGRUYcYYGLE06d2NLOQirBPj"
-  theme="light"
-  intro-copy-display="show"
-  manage-zaps-display="hide"
-  guess-zap-display="hide"
-></zapier-workflow>
+<div>
+  <zapier-workflow
+    sign-up-email="email_of_your_user@example.com"
+    sign-up-first-name="first_name_of_your_user"
+    sign-up-last-name="last_name_of_your_user"
+    client-id="wb9T2yfrV66iC6KFbGRUYcYYGLE06d2NLOQirBPj"
+    theme="light"
+    intro-copy-display="show"
+    manage-zaps-display="hide"
+    guess-zap-display="hide"
+  />
+</div>
 
 :::info Note
 Watch our tutorial video to learn how to create powerful automation workflows with WordLift and Zapier.
 :::
 
-<!-- Add video embed here when available -->
+{/*Add video embed here when available*/}
 
 ## Examples
 
