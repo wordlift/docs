@@ -34,6 +34,6 @@ This documentation is organized into the following sections:
 * **Semantic Reporting**
   * [Looker Studio Connector](/looker-studio-connector/introduction)
 * **APIs**
-* [API Reference](/category/api)
+  * [API Reference](/category/api)
 
 Each section covers a specific topic and includes detailed instructions and information on that topic. To navigate the documentation, you can use the table of contents or the search function to find the information you need.

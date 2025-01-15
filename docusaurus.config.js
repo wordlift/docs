@@ -88,6 +88,7 @@ const config = {
               { label: "Smart Content / Agent WordLift", to: "agent-wordlift" },
               { label: "Smart Content / Content Generation", to: "content-generation" },
               { label: "Smart Content / AI & LLM Integrations", to: "llm-connectors/wordlift-reader" },
+              { label: "Marketing Automation / Zapier", to: "zapier/introduction" },
               { label: "Semantic Reporting / Looker Studio Connector ", to: "looker-studio-connector/introduction" },
             ],
           },
