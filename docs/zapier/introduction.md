@@ -1,6 +1,7 @@
 ---
 title: Introduction
-displayed_sidebar: zapier-integration
+id: introduction
+sidebar_position: 1
 ---
 
 import Head from '@docusaurus/Head';
