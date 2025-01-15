@@ -4,13 +4,6 @@ id: introduction
 sidebar_position: 1
 ---
 
-import Head from '@docusaurus/Head';
-
-<Head>
-  <script type="module" src="https://cdn.zapier.com/packages/partner-sdk/v0/zapier-elements/zapier-elements.esm.js"></script>
-  <link rel="stylesheet" href="https://cdn.zapier.com/packages/partner-sdk/v0/zapier-elements/zapier-elements.css"/>
-</Head>
-
 # WordLift Zapier Integration
 
 The WordLift Zapier Integration allows you to **automate your semantic SEO workflows** by connecting WordLift with over 5,000+ apps. You can now leverage the power of Agent WordLift and your Knowledge Graph data across your entire marketing stack.
@@ -63,24 +56,26 @@ With WordLift's Zapier integration, marketers can:
 
 Get started with our pre-built workflows or create your own custom automation:
 
-<div>
-  <zapier-workflow
-    sign-up-email="email_of_your_user@example.com"
-    sign-up-first-name="first_name_of_your_user"
-    sign-up-last-name="last_name_of_your_user"
-    client-id="wb9T2yfrV66iC6KFbGRUYcYYGLE06d2NLOQirBPj"
-    theme="light"
-    intro-copy-display="show"
-    manage-zaps-display="hide"
-    guess-zap-display="hide"
-  />
-</div>
+<div
+  dangerouslySetInnerHTML={{
+    __html: `
+      <zapier-workflow
+        sign-up-email="email_of_your_user@example.com"
+        sign-up-first-name="first_name_of_your_user"
+        sign-up-last-name="last_name_of_your_user"
+        client-id="wb9T2yfrV66iC6KFbGRUYcYYGLE06d2NLOQirBPj"
+        theme="light"
+        intro-copy-display="show"
+        manage-zaps-display="hide"
+        guess-zap-display="hide"
+      ></zapier-workflow>
+    `
+  }}
+/>
 
 :::info Note
 Watch our tutorial video to learn how to create powerful automation workflows with WordLift and Zapier.
 :::
-
-{/*Add video embed here when available*/}
 
 ## Examples
 

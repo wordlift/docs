@@ -28,7 +28,17 @@ const config = {
     defaultLocale: "en",
     locales: ["en"],
   },
-
+  scripts: [
+    {
+      src: 'https://cdn.zapier.com/packages/partner-sdk/v0/zapier-elements/zapier-elements.esm.js',
+      type: 'module',
+    },
+  ],
+  stylesheets: [
+    {
+      href: 'https://cdn.zapier.com/packages/partner-sdk/v0/zapier-elements/zapier-elements.css',
+    },
+  ],
   presets: [
     [
       "classic",
