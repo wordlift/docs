@@ -6,7 +6,7 @@ sidebar_position: 1
 
 # WordLift Zapier Integration
 
-The WordLift Zapier Integration allows you to **automate your semantic SEO workflows** by connecting WordLift with over 5,000+ apps. You can now leverage the power of Agent WordLift and your Knowledge Graph data across your entire marketing stack.
+The [WordLift Zapier Integration](https://zapier.com/apps/wordlift/integrations) allows you to **automate your semantic SEO workflows** by connecting WordLift with over 6,000+ apps. You can now leverage the power of Agent WordLift and your Knowledge Graph data across your entire marketing stack.
 
 ## Get Started
 
@@ -19,6 +19,8 @@ To get started with the WordLift Zapier integration, you'll need your WordLift A
 3. Enter your WordLift API Key
 4. Click "Continue" to validate your credentials
 
+![image](images/step-1-authentication.png)
+
 ### 2. Available Actions
 
 The WordLift Zapier integration provides two powerful actions:
@@ -30,7 +32,10 @@ Send commands or questions to Agent WordLift and receive intelligent responses. 
 - Extract entities from text
 - Analyze content for SEO optimization
 - Generate content recommendations
-- Research topics within your domain
+- Reuse content from your website
+- Analyze Schema.org markup on a webpage
+
+![image](images/agent-wordlift.png)
 
 #### Query Knowledge Graph
 
@@ -40,6 +45,8 @@ Run GraphQL queries to retrieve specific data from your WordLift Knowledge Graph
 - Monitor entity relationships
 - Track content performance
 - Generate custom reports
+
+![image](images/graphql.png)
 
 ### 3. Popular Use Cases
 
