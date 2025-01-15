@@ -5,7 +5,7 @@ title: Overview
 slug: /
 ---
 
-# Welcome to the WordLift documentation.
+# Welcome to the WordLift documentation
 
 WordLift is the **AI SEO software** that helps you drive more organic traffic to your website by adding structured data and building your Knowledge Graph.
 
@@ -29,6 +29,8 @@ This documentation is organized into the following sections:
   * [Agent WordLift](/agent-wordlift)
   * [Content Generation](docs/content-generation/content-generation.md)
   * [AI & LLM Integrations](docs/llm-connectors/index.md)
+* **Marketing Automation**
+  * [Zapier Integration](/zapier/introduction)
 * **Semantic Reporting**
   * [Looker Studio Connector](/looker-studio-connector/introduction)
 * **APIs**
