@@ -98,7 +98,8 @@ const config = {
               { label: "Smart Content / Agent WordLift", to: "agent-wordlift" },
               { label: "Smart Content / Content Generation", to: "content-generation" },
               { label: "Smart Content / AI & LLM Integrations", to: "llm-connectors/wordlift-reader" },
-              { label: "Marketing Automation / Zapier", to: "zapier/introduction" },
+              { label: "Marketing Automation / Zapier", to: "marketing-automation/zapier/introduction" },
+              { label: "Marketing Automation / Power Automate", to: "marketing-automation/power-automate/introduction" },
               { label: "Semantic Reporting / Looker Studio Connector ", to: "looker-studio-connector/introduction" },
             ],
           },
@@ -272,6 +273,14 @@ const config = {
               "/en/latest/wordlift-theme-development.html",
               "/en/latest/",
             ],
+          },
+          {
+            to: "/marketing-automation/zapier/introduction/",
+            from: "/zapier/introduction/",
+          },
+          {
+            to: "/marketing-automation/zapier/introduction/",
+            from: "/zapier/",
           },
           {
             to: "/",

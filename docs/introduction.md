@@ -27,10 +27,11 @@ This documentation is organized into the following sections:
   * [WordLift Cloud](/cloud/)
 * **Smart Content**
   * [Agent WordLift](/agent-wordlift)
-  * [Content Generation](docs/content-generation/content-generation.md)
-  * [AI & LLM Integrations](docs/llm-connectors/index.md)
+  * [Content Generation](/content-generation)
+  * [AI & LLM Integrations](/llm-connectors/wordlift-reader)
 * **Marketing Automation**
-  * [Zapier Integration](/zapier/introduction)
+  * [Zapier Integration](/marketing-automation/zapier/introduction)
+  * [Power Automate Connector](/marketing-automation/power-automate/introduction)
 * **Semantic Reporting**
   * [Looker Studio Connector](/looker-studio-connector/introduction)
 * **APIs**

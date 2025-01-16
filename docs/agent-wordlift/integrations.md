@@ -20,11 +20,23 @@ Ready to see it in action? Watch this video tutorial.
 
 [Install the Agent WordLift Chrome Extension here](https://chromewebstore.google.com/detail/agent-wordlift/jegfjceighmfpbklniiakflbhceejddb) and start boosting your SEO today!
 
+## Agent WordLift Zapier Integration
+
+Connect Agent WordLift to your favorite apps with our [Zapier integration](/marketing-automation/zapier/introduction/). This powerful integration allows you to:
+
+- **Automate content analysis:** Automatically analyze new content as it's published
+- **Extract entities and insights:** Process content through Agent WordLift and use the results in your workflows
+- **Streamline SEO tasks:** Connect Agent WordLift's capabilities with over 6,000+ apps
+- **Create custom workflows:** Build automated pipelines that leverage Agent WordLift's AI capabilities
+
+Whether you're managing a content team, running an e-commerce site, or optimizing your SEO strategy, the Zapier integration helps you automate and scale your workflows. [Learn more about the Zapier integration](/marketing-automation/zapier/introduction/).
+
 ## Agent WordLift API Integration
 
 The **WordLift Agent API** empowers developers and SEO professionals to programmatically interact with the Agent WordLift’s advanced AI capabilities. The newly introduced `/ask` endpoint allows users to send specific queries to the WordLift Agent and receive tailored responses that enhance their SEO workflows.
 
 Key Features of the `/ask` Endpoint:
+
 - **Customizable Interactions:** Send a message and specify a model (default: gpt-4o) to receive AI-powered insights tailored to your SEO needs.
 - **Secure Queries:** Enable an optional security parameter to ensure sensitive requests are handled appropriately.
 - **Seamless Integration:** Easily incorporate the endpoint into your existing tools or workflows to automate tasks such as content optimization, keyword research, and entity analysis.
