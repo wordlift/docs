@@ -5,7 +5,27 @@ title: Overview
 slug: /
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ThemedImage from '@theme/ThemedImage';
+
+:::info Version Notice
+**Latest Release:** 3.5.0 (January 2024) - Now with enhanced AI capabilities and Microsoft Power Automate support!
+:::
+
 # 👋 Welcome to WordLift
+
+<div style={{textAlign: 'center', margin: '2rem 0'}}>
+<p style={{fontSize: '1.2rem', color: 'var(--ifm-color-emphasis-600)'}}>
+AI-Powered Platform / Knowledge Graph Builder for SEO & Marketing Teams
+</p>
+
+<div style={{display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap'}}>
+<span className="badge badge--success">SEO Automation</span>
+<span className="badge badge--primary">Marketing Automation</span>
+<span className="badge badge--info">AI-Powered</span>
+</div>
+</div>
 
 ## What's WordLift, anyway?
 
@@ -13,35 +33,9 @@ Think of WordLift as your AI-powered marketing companion that turns your content
 
 Imagine you're building with LEGO® blocks. Your content pieces are like individual LEGO® blocks, and WordLift helps you:
 
-- Connect them in meaningful ways (that's the Knowledge Graph part)
-- Make them discoverable by both humans and machines
-- Turn them into automated marketing workflows
-
-## Why people love WordLift
-
-### 🎯 Drive More Traffic & Conversions
-
-No more guessing what works! WordLift helps you:
-
-- Get more organic traffic (hello, Google!)
-- Convert visitors into customers (cha-ching!)
-- Create content that actually performs
-
-### 🤖 Make AI Work For You
-
-Tired of unreliable AI outputs? WordLift helps you:
-
-- Train AI on your actual business knowledge
-- Keep AI outputs consistent and accurate
-- Automate tasks without losing control
-
-### ⚡ Scale Like a Pro
-
-Got big plans? WordLift helps you:
-
-- Automate repetitive SEO tasks
-- Create content faster (without sacrificing quality)
-- Connect all your marketing tools
+- 🔗 Connect them in meaningful ways (that's the Knowledge Graph part)
+- 🔍 Make them discoverable by both humans and machines
+- 🤖 Turn them into automated marketing workflows
 
 ## How does it work?
 
@@ -85,7 +79,7 @@ More into creating great content? Use our:
 
 - [WordPress Plugin](/wordpress-plugin) for easy content optimization
 - [WooCommerce SEO](/woocommerce/introduction) for e-commerce
-- [Agent WordLift - AI SEO Agent](/agent-wordlift) for AI SEO optimization
+- [Agent WordLift](/agent-wordlift) for AI SEO optimization
 - [Google Sheets Add-on](/seo-add-on-google-sheets/introduction) for keyword research
 
 ### 🎯 Marketing Teams
@@ -104,13 +98,81 @@ Looking to scale? Access:
 - [Botify Connector](/knowledge-graph/botify/) for enterprise SEO
 - [Power Automate](/marketing-automation/power-automate/introduction) for Microsoft integration
 
-## Ready to dive in?
+## Quick Start Options
+
+<Tabs>
+  <TabItem value="agent" label="AI SEO Agent" default>
+    ```bash
+    # 1. Start with Agent WordLift
+    # 2. Get instant SEO optimization
+    # 3. Let AI work for you!
+    ```
+    [Start with Agent WordLift →](/agent-wordlift)
+  </TabItem>
+  <TabItem value="api" label="API">
+    ```bash
+    # For developers & custom integrations
+    pip install wordlift-client
+
+    # Python, Node.js, PHP clients available
+    ```
+    [Explore API Documentation →](/category/api)
+  </TabItem>
+  <TabItem value="sheets" label="Google Sheets">
+    ```bash
+    # Start with SEO analysis
+    1. Install the Google Sheets add-on
+    2. Connect your Search Console
+    3. Analyze your search data
+    ```
+    [Start SEO Analysis →](/seo-add-on-google-sheets/introduction)
+  </TabItem>
+</Tabs>
+
+## Key Features
+
+<div className="row">
+<div className="col col--4">
+
+### 🔍 Search Intelligence
+
+- Keyword research & gap analysis
+- Content performance tracking
+- Search intent optimization
+- Analytics integration
+
+</div>
+<div className="col col--4">
+
+### 🏗️ Knowledge Graph
+
+- RDF Knowledge Graph
+- Schema.org markup fully automated
+- Entity management
+- Product catalog enrichment
+
+</div>
+<div className="col col--4">
+
+### 🤖 AI & Automation
+
+- AI SEO Agent
+- Content optimization
+- Workflow automation
+- LLM integration
+
+</div>
+</div>
+
+## Ready to start?
+
+Choose your path:
 
 ### 🚀 Quick Start (No Code)
 
-1. [Install WordPress Plugin](/wordpress-plugin) or
-2. [Try Google Sheets Add-on](/seo-add-on-google-sheets/introduction)
-3. [Let Agent WordLift work for you](/agent-wordlift)
+1. [Try Agent WordLift](/agent-wordlift) for instant SEO optimization
+2. [Use Google Sheets Add-on](/seo-add-on-google-sheets/introduction) for search analysis
+3. [Install WordPress Plugin](/wordpress-plugin) for content optimization
 
 ### 💻 Developer Path
 
@@ -129,4 +191,4 @@ Then [grab your API key](https://wordlift.io/pricing/)
 🎮 **Ready to level up your marketing game?**
 Start by [understanding what your audience wants](/seo-add-on-google-sheets/introduction) →
 
-Need help? We're here! [Drop us a line](mailto:support@wordlift.io) 💌
+Need help? [Drop us a line](mailto:support@wordlift.io) 💌
