@@ -118,7 +118,7 @@ Looking to scale? Access:
 pip install wordlift-client  # It's that simple!
 ```
 
-Then [grab your API key](https://wordlift.io/user/profile)
+Then [grab your API key](https://wordlift.io/pricing/)
 
 ### 🤝 Enterprise Setup
 

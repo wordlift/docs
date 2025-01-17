@@ -16,45 +16,65 @@ const sidebars = {
   docs: [
     {
       type: "html",
-      value: `<p style="color: var(--ifm-color-secondary-darkest)">DOCUMENTATION</p>`, // The HTML to be rendered
-      defaultStyle: true, // Use the default menu item styling
+      value: `<p style="color: var(--ifm-color-secondary-darkest)">DOCUMENTATION</p>`,
+      defaultStyle: true,
     },
     {
       type: "doc",
       id: "introduction",
+      label: "👋 Welcome to WordLift",
     },
-    // {
-    //   type: "doc",
-    //   id: "getting-started",
-    // },
-    // {
-    //   type: "doc",
-    //   id: "authentication-and-security",
-    // },
-    // {
-    //   type: "doc",
-    //   id: "endpoints-and-methods",
-    // },
-    // {
-    //   type: "doc",
-    //   id: "request-and-response-formats",
-    // },
-    // {
-    //   type: "doc",
-    //   id: "error-handling",
-    // },
-    // {
-    //   type: "doc",
-    //   id: "examples",
-    // },
-    // {
-    //   type: "doc",
-    //   id: "frequently-asked-questions",
-    // },
-    // {
-    //   type: "doc",
-    //   id: "additional-resources",
-    // },
+    {
+      type: "category",
+      label: "🔍 Search Demand",
+      items: [
+        "seo-add-on-google-sheets/introduction",
+      ],
+    },
+    {
+      type: "category",
+      label: "🏗️ Knowledge Graph",
+      items: [
+        "knowledge-graph/botify",
+        "knowledge-graph/sitemap-import",
+        "knowledge-graph/analytics-api",
+        "product-knowledge-graph-builder/introduction",
+        "wordpress-plugin",
+        "woocommerce/introduction",
+        "cloud",
+      ],
+    },
+    {
+      type: "category",
+      label: "🤖 Smart Content",
+      items: [
+        "agent-wordlift",
+        "content-generation",
+        "llm-connectors",
+      ],
+    },
+    {
+      type: "category",
+      label: "⚡ Marketing Automation",
+      items: [
+        "marketing-automation/zapier/introduction",
+        "marketing-automation/power-automate/introduction",
+      ],
+    },
+    {
+      type: "category",
+      label: "📊 Semantic Reporting",
+      items: [
+        "looker-studio-connector",
+      ],
+    },
+    {
+      type: "category",
+      label: "🛠️ API Reference",
+      items: [
+        "api",
+      ],
+    },
   ],
   "agent-wordlift": [
     {
