@@ -39,18 +39,18 @@ const sidebars = {
         "knowledge-graph/sitemap-import",
         "knowledge-graph/analytics-api",
         "product-knowledge-graph-builder/introduction",
-        "wordpress-plugin",
+        "wordpress-plugin/index",
         "woocommerce/introduction",
-        "cloud",
+        "cloud/index",
       ],
     },
     {
       type: "category",
       label: "🤖 Smart Content",
       items: [
-        "agent-wordlift",
-        "content-generation",
-        "llm-connectors",
+        "agent-wordlift/index",
+        "content-generation/content-generation",
+        "llm-connectors/index",
       ],
     },
     {
@@ -65,14 +65,14 @@ const sidebars = {
       type: "category",
       label: "📊 Semantic Reporting",
       items: [
-        "looker-studio-connector",
+        "looker-studio-connector/introduction",
       ],
     },
     {
       type: "category",
       label: "🛠️ API Reference",
       items: [
-        "api",
+        "pages/api",
       ],
     },
   ],
