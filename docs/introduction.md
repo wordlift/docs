@@ -102,30 +102,37 @@ Looking to scale? Access:
 
 <Tabs>
   <TabItem value="agent" label="AI SEO Agent" default>
-    ```bash
-    # 1. Start with Agent WordLift
-    # 2. Get instant SEO optimization
-    # 3. Let AI work for you!
-    ```
-    [Start with Agent WordLift →](/agent-wordlift)
+
+```bash
+# Start with Agent WordLift
+1. Open Agent WordLift
+2. Get instant SEO optimization
+3. Let AI work for you!
+```
+
+[Start with Agent WordLift →](/agent-wordlift)
   </TabItem>
   <TabItem value="api" label="API">
-    ```bash
-    # For developers & custom integrations
-    pip install wordlift-client
 
-    # Python, Node.js, PHP clients available
-    ```
-    [Explore API Documentation →](/category/api)
+```bash
+# For developers & custom integrations
+pip install wordlift-client
+
+# Python, Node.js, PHP clients available
+```
+
+[Explore API Documentation →](/category/api)
   </TabItem>
   <TabItem value="sheets" label="Google Sheets">
-    ```bash
-    # Start with SEO analysis
-    1. Install the Google Sheets add-on
-    2. Connect your Search Console
-    3. Analyze your search data
-    ```
-    [Start SEO Analysis →](/seo-add-on-google-sheets/introduction)
+
+```bash
+# Start with SEO analysis
+1. Install the Google Sheets add-on
+2. Connect your Search Console
+3. Analyze your search data
+```
+
+[Start SEO Analysis →](/seo-add-on-google-sheets/introduction)
   </TabItem>
 </Tabs>
 
