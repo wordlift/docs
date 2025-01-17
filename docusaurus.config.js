@@ -150,6 +150,7 @@ const config = {
       //         {
       //           label: 'Blog',
       //           to: '/blog',
+
       //         },
       //         {
       //           label: 'GitHub',
@@ -425,14 +426,14 @@ const config = {
         injectHtmlTags() {
           return {
             postBodyTags: [`
-              <div id="chat-widget">
-                <iframe
-                  src="https://copilotstudio.microsoft.com/environments/Default-efbef5c4-77ac-41d8-800a-2dec22f28e82/bots/Default_agentWordLift/webchat?__version__=2"
-                  frameborder="0"
-                  style="position: fixed; bottom: 20px; right: 20px; width: 400px; height: 600px; z-index: 9999; border: none; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"
-                ></iframe>
-              </div>
-            `],
+        <div id="chat-widget">
+          <iframe
+            src="https://copilotstudio.microsoft.com/environments/Default-efbef5c4-77ac-41d8-800a-2dec22f28e82/bots/Default_agentWordLift/webchat?__version__=2"
+            frameborder="0"
+            style="position: fixed; bottom: 20px; right: 20px; width: 400px; height: 600px; z-index: 9999; border: none; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"
+          ></iframe>
+        </div>
+        `],
           };
         },
       };
@@ -440,14 +441,15 @@ const config = {
   ],
   themes: [
     "docusaurus-theme-openapi-docs",
-    [
-      "@docusaurus/theme-classic",
-      {
-        customCss: [
-          require.resolve("./src/css/custom.css"),
-        ],
-      },
-    ],
+    // Remove this entire block:
+    // [
+    //   "@docusaurus/theme-classic",
+    //   {
+    //     customCss: [
+    //       require.resolve("./src/css/custom.css"),
+    //     ],
+    //   },
+    // ],
   ],
 };
 
