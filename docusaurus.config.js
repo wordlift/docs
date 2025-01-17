@@ -419,31 +419,36 @@ const config = {
         },
       },
     ],
+    function chatWidgetPlugin() {
+      return {
+        name: 'chat-widget-plugin',
+        injectHtmlTags() {
+          return {
+            postBodyTags: [`
+              <div id="chat-widget">
+                <iframe
+                  src="https://copilotstudio.microsoft.com/environments/Default-efbef5c4-77ac-41d8-800a-2dec22f28e82/bots/Default_agentWordLift/webchat?__version__=2"
+                  frameborder="0"
+                  style="position: fixed; bottom: 20px; right: 20px; width: 400px; height: 600px; z-index: 9999; border: none; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"
+                ></iframe>
+              </div>
+            `],
+          };
+        },
+      };
+    },
+  ],
+  themes: [
+    "docusaurus-theme-openapi-docs",
     [
-      "./src/plugins/qa-bot",
+      "@docusaurus/theme-classic",
       {
-        server: "https://wordlift-docs.docsqa.jina.ai/",
-        token:
-          "mVhWS6wV8SwiO98vtnc_Jd98_T05PtgkqXUhJN5x9TEwP4Fx9jslZch6-isnKoJ_8DY3Zc18tg==",
-        title: "WordLift",
-        avatar:
-          "https://wordlift.io/wp-content/uploads/2022/07/chatbot-round.png",
-        description:
-          "Organize your Content, Publish Linked Data, Boost your Traffic",
-        site: "https://docs.wordlift.io",
-        template: `
-                  <dl>
-                    <dt>You can ask questions about WordLift. Try</dt>
-                    <dd>Why shall I use WordLift?</dd>
-                    <dd>What are the languages supported by WordLift?</dd>
-                    <dd>Is WordLift Secure?</dd>
-                  </dl>
-                  `,
+        customCss: [
+          require.resolve("./src/css/custom.css"),
+        ],
       },
     ],
   ],
-
-  themes: ["docusaurus-theme-openapi-docs"],
 };
 
 module.exports = config;
