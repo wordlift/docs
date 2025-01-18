@@ -426,43 +426,17 @@ const config = {
         injectHtmlTags() {
           return {
             preBodyTags: [`
-              <style>
-                #chat-widget-container {
-                  position: fixed;
-                  bottom: 20px;
-                  right: 20px;
-                  z-index: 9999;
-                }
-                #chat-widget-iframe-container {
-                  display: none;
-                  width: 400px;
-                  height: 600px;
-                  border: none;
-                  border-radius: 10px;
-                  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-                  position: relative;
-                  bottom: 70px;
-                }
-                @media (max-width: 768px) {
-                  #chat-widget-container {
-                    right: 10px;
-                  }
-                  #chat-widget-iframe-container {
-                    width: calc(100vw - 20px);
-                    max-width: 350px;
-                    height: 500px;
-                    right: 0;
-                  }
-                }
-              </style>
-              <div id="chat-widget-container">
+              <div id="chat-widget-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
                 <button
                   id="chat-widget-button"
-                  style="background: transparent; border: none; cursor: pointer; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; padding:0; margin:0;"
+                  style="background: transparent; border: none; cursor: pointer; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; padding:0; margin:0;  "
                 >
                  <img src="https://bot-framework-westeurope.azureedge.net/bot-icons-v1/bdb5390f-2312-420b-89b3-6d753841cdb1_5rBBre7UTFlqFlDYPEgqEg56Yk2RP1p76dQwn12FCYZAVr.png" alt="Chat Bot Icon" style="width: 60px; height: 60px; border-radius: 50%;" />
                 </button>
-                <div id="chat-widget-iframe-container">
+                <div
+                  id="chat-widget-iframe-container"
+                  style="display: none; width: 400px; height: 600px; border: none; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: relative;"
+                >
                   <iframe
                     id="chat-widget-iframe"
                     src="https://copilotstudio.microsoft.com/environments/Default-efbef5c4-77ac-41d8-800a-2dec22f28e82/bots/Default_agentWordLift/webchat?__version__=2"
@@ -472,18 +446,29 @@ const config = {
                   ></iframe>
                 </div>
               </div>
+               <style>
+                  @media (max-width: 768px) {
+                    #chat-widget-iframe-container {
+                      width: 100%;
+                       max-width: 350px;
+                      right: 10px;
+                    }
+                  }
+                </style>
             `],
             postBodyTags: [`
               <script>
                 (function() {
                   const chatButton = document.getElementById('chat-widget-button');
                   const chatIframeContainer = document.getElementById('chat-widget-iframe-container');
+
                   chatButton.addEventListener('click', function() {
                     if (chatIframeContainer.style.display === 'none') {
                       chatIframeContainer.style.display = 'block';
                     } else {
                       chatIframeContainer.style.display = 'none';
                     }
+
                   });
                 })();
               </script>
