@@ -425,15 +425,52 @@ const config = {
         name: 'chat-widget-plugin',
         injectHtmlTags() {
           return {
+            preBodyTags: [`
+          <div id="chat-widget-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+            <button
+              id="chat-widget-button"
+              style="background: #2769AA; color: #fff; border: none; border-radius: 50%; width: 60px; height: 60px; cursor: pointer; font-size: 24px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"
+            >
+              💬
+            </button>
+            <div
+                id="chat-widget-iframe-container"
+                style="display: none; width: 400px; height: 600px; border: none; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: relative;"
+            >
+              <iframe
+                id="chat-widget-iframe"
+                src="https://copilotstudio.microsoft.com/environments/Default-efbef5c4-77ac-41d8-800a-2dec22f28e82/bots/Default_agentWordLift/webchat?__version__=2"
+                frameborder="0"
+                style="width: 100%; height: 100%; border-radius: 10px;"
+                title="WordLift Chat"
+              ></iframe>
+                <button
+                  id="chat-widget-close-button"
+                  style="position: absolute; top: 5px; right: 5px; background: #fff; border: none; cursor: pointer; font-size: 20px; padding: 5px;"
+                >
+                  X
+                </button>
+             </div>
+          </div>
+              `,
+            ],
             postBodyTags: [`
-        <div id="chat-widget">
-          <iframe
-            src="https://copilotstudio.microsoft.com/environments/Default-efbef5c4-77ac-41d8-800a-2dec22f28e82/bots/Default_agentWordLift/webchat?__version__=2"
-            frameborder="0"
-            style="position: fixed; bottom: 20px; right: 20px; width: 400px; height: 600px; z-index: 9999; border: none; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"
-          ></iframe>
-        </div>
-        `],
+            <script>
+              (function() {
+                const chatButton = document.getElementById('chat-widget-button');
+                const chatIframeContainer = document.getElementById('chat-widget-iframe-container');
+                const closeButton = document.getElementById('chat-widget-close-button');
+
+                chatButton.addEventListener('click', function() {
+                  chatIframeContainer.style.display = 'block';
+                });
+
+               closeButton.addEventListener('click', function() {
+                  chatIframeContainer.style.display = 'none';
+                });
+              })();
+            </script>
+          `],
           };
         },
       };
