@@ -426,58 +426,58 @@ const config = {
         injectHtmlTags() {
           return {
             preBodyTags: [`
-              <div id="chat-widget-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
-                <button
-                  id="chat-widget-button"
-                  style="background: transparent; border: none; cursor: pointer; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; padding:0; margin:0; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"
-                >
-                  <img src="https://bot-framework-westeurope.azureedge.net/bot-icons-v1/bdb5390f-2312-420b-89b3-6d753841cdb1_5rBBre7UTFlqFlDYPEgqEg56Yk2RP1p76dQwn12FCYZAVr.png" alt="Chat Bot Icon" style="width: 60px; height: 60px; border-radius: 50%;" />
-                </button>
-                <div
-                  id="chat-widget-iframe-container"
-                  style="display: none; width: 400px; height: 600px; border: none; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: relative;"
-                >
-                  <div id="chat-widget-top-bar" style="background: #2769AA; color: #fff; padding: 10px; display: flex; justify-content: flex-end; border-top-left-radius: 10px; border-top-right-radius: 10px; align-items: center;">
-                     <span style="font-size:16px; margin-right: auto;">Agent WordLift</span>
-                    <button
-                      id="chat-widget-close-button"
-                      style="background: transparent; border: none; cursor: pointer; font-size: 24px; color: #fff; padding:0; margin:0;  line-height: 0.8;"
-                    >
-                      X
-                    </button>
-                  </div>
-                  <iframe
-                    id="chat-widget-iframe"
-                    src="https://copilotstudio.microsoft.com/environments/Default-efbef5c4-77ac-41d8-800a-2dec22f28e82/bots/Default_agentWordLift/webchat?__version__=2"
-                    frameborder="0"
-                    style="width: 100%; height: calc(100% - 40px); border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;"
-                    title="WordLift Chat"
-                  ></iframe>
-                 </div>
-              </div>
-            `,
-            ],
+                      <div id="chat-widget-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+                          <button
+                              id="chat-widget-button"
+                              style="background: transparent; border: none; cursor: pointer; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; padding:0; margin:0; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"
+                          >
+                             <img src="https://bot-framework-westeurope.azureedge.net/bot-icons-v1/bdb5390f-2312-420b-89b3-6d753841cdb1_5rBBre7UTFlqFlDYPEgqEg56Yk2RP1p76dQwn12FCYZAVr.png" alt="Chat Bot Icon" style="width: 60px; height: 60px; border-radius: 50%;" />
+                          </button>
+                          <div
+                              id="chat-widget-iframe-container"
+                              style="display: none; width: 400px; height: 600px; border: none; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: relative;"
+                          >
+                              <iframe
+                                  id="chat-widget-iframe"
+                                  src="https://copilotstudio.microsoft.com/environments/Default-efbef5c4-77ac-41d8-800a-2dec22f28e82/bots/Default_agentWordLift/webchat?__version__=2"
+                                  frameborder="0"
+                                  style="width: 100%; height: 100%; border-radius: 10px;"
+                                  title="WordLift Chat"
+                              ></iframe>
+                          </div>
+                      </div>
+                  `],
             postBodyTags: [`
-              <script>
-                (function() {
-                  const chatButton = document.getElementById('chat-widget-button');
-                  const chatIframeContainer = document.getElementById('chat-widget-iframe-container');
-                  const closeButton = document.getElementById('chat-widget-close-button');
+                     <script>
+                          (function() {
+                            const chatButton = document.getElementById('chat-widget-button');
+                            const chatIframeContainer = document.getElementById('chat-widget-iframe-container');
+                            const iframe = document.getElementById('chat-widget-iframe');
 
-                  chatButton.addEventListener('click', function() {
-                    chatIframeContainer.style.display = 'block';
-                  });
+                             chatButton.addEventListener('click', function() {
+                              chatIframeContainer.style.display = 'block';
 
-                  closeButton.addEventListener('click', function() {
-                    chatIframeContainer.style.display = 'none';
-                  });
-                })();
-              </script>
-            `],
+                              // Apply the custom primary color by injecting CSS
+                                      const style = document.createElement('style');
+                                      style.textContent = \`
+                                          .webchat__header {
+                                            background-color: #274bdb !important;
+                                          }
+                                          .webchat__bubble__from-user__background,
+                                          .webchat__bubble__from-bot__background{
+                                              background-color: #274bdb !important;
+                                          }
+                                      \`;
+                                      iframe.contentDocument.head.appendChild(style);
+                              });
+
+                          })();
+                      </script>
+                  `],
           };
         },
       };
-    },
+    }
   ],
   themes: [
     "docusaurus-theme-openapi-docs",
