@@ -35,7 +35,7 @@ Imagine you're building with LEGO® blocks. Your content pieces are like individ
 
 - 🔗 Connect them in meaningful ways (that's the Knowledge Graph part)
 - 🔍 Make them discoverable by both humans and machines
-- 🤖 Turn them into automated marketing workflows
+- 🤖 Turn them into automated marketing workflows and AI applications
 
 ## How does it work?
 
@@ -45,10 +45,10 @@ Remember the LEGO® analogy? Here's what happens behind the scenes:
 
 1. **Analyze Search Demand** 🔍
    - [Google Sheets Add-on](/seo-add-on-google-sheets/introduction/) for keyword research
-   - [Analytics Import](/knowledge-graph/analytics-api/) for performance tracking
-   - [Botify Connector](/knowledge-graph/botify/) for enterprise insights
 
 2. **Build Knowledge Graph** 🏗️
+   - [Analytics Import](/knowledge-graph/analytics-api/) for performance tracking
+   - [Botify Connector](/knowledge-graph/botify/) for enterprise insights
    - [Sitemap Import](/knowledge-graph/sitemap-import/) for existing content
    - [Product Knowledge Graph Builder](/product-knowledge-graph-builder/introduction/) for e-commerce using Google Merchant Center
    - [WordLift Cloud](/cloud/) for entity annotation
@@ -58,7 +58,7 @@ Remember the LEGO® analogy? Here's what happens behind the scenes:
    - [Content Generation](/content-generation) for creating new content at scale
    - [AI & LLM Integrations](/llm-connectors/wordlift-reader) for building AI applications using LlamaIndex 🦙
 
-4. **Automate & Scale** 🚀
+4. **Automate, Scale & Reporting** 🚀
    - [Zapier Integration](/marketing-automation/zapier/introduction) for workflow automation
    - [Power Automate Connector](/marketing-automation/power-automate/introduction) for Microsoft ecosystem
    - [Looker Studio Connector](/looker-studio-connector/introduction) for semantic analytics and dashboarding
@@ -77,9 +77,9 @@ You love APIs, code, and building things? We've got:
 
 More into creating great content? Use our:
 
+- [Agent WordLift](/agent-wordlift) for AI SEO optimization
 - [WordPress Plugin](/wordpress-plugin) for easy content optimization
 - [WooCommerce SEO](/woocommerce/introduction) for e-commerce
-- [Agent WordLift](/agent-wordlift) for AI SEO optimization
 - [Google Sheets Add-on](/seo-add-on-google-sheets/introduction) for keyword research
 
 ### 🎯 Marketing Teams
@@ -143,30 +143,29 @@ pip install wordlift-client
 
 ### 🔍 Search Intelligence
 
-- Keyword research & gap analysis
-- Content performance tracking
-- Search intent optimization
-- Analytics integration
+- Advanced entity-based gap analysis for SEO
+- AI SEO Agent for search intent insights
+- Tailored strategies for content discovery and visibility
 
 </div>
 <div className="col col--4">
 
 ### 🏗️ Knowledge Graph
 
-- RDF Knowledge Graph
-- Schema.org markup fully automated
-- Entity management
-- Product catalog enrichment
+- Fully automated RDF-based Knowledge Graph
+- Schema.org markup for enhanced search visibility
+- Advanced entity creation and management
+- Product catalog enrichment with structured data and support for GS1 Digital Link
 
 </div>
 <div className="col col--4">
 
-### 🤖 AI & Automation
+### 🤖 AI & Content Automation
 
-- AI SEO Agent
-- Content optimization
-- Workflow automation
-- LLM integration
+- Scalable content generation and optimization workflows
+- Neural search and Graph Retrieval Augmented Generation (RAG)
+- AI-powered SEO Agent for smarter workflows
+- End-to-end workflow automation with integrations (Zapier, Power Automate)
 
 </div>
 </div>
