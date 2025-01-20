@@ -470,44 +470,6 @@ const config = {
                 </div>
               </div>
               <style>
-                /* Header customization */
-                .pages-chatbot-header {
-                  background: #2436d4 !important;
-                  color: #ffffff !important;
-                }
-
-                /* Copilot window */
-                .pva-embedded-web-chat-window {
-                  background: white;
-                }
-
-                /* Bubble from the copilot */
-                .webchat__bubble:not(.webchat__bubble--from-user) .webchat__bubble__content {
-                  background-color: #2436d4 !important;
-                  border-radius: 5px !important;
-                }
-
-                .webchat__bubble:not(.webchat__bubble--from-user) p {
-                  color: #ffffff;
-                }
-
-                /* Bubble from the user */
-                .webchat__bubble.webchat__bubble--from-user .webchat__bubble__content {
-                  background-color: #f5f5f5 !important;
-                  border-radius: 5px !important;
-                }
-
-                .webchat__bubble.webchat__bubble--from-user p {
-                  color: #191919;
-                }
-
-                /* Reference links */
-                .webchat__link-definitions__badge,
-                .webchat__link-definitions__list-item-text,
-                .webchat__render-markdown__pure-identifier {
-                  color: #2436d4 !important;
-                }
-
                 /* Mobile responsiveness */
                 @media (max-width: 768px) {
                   #chat-widget-iframe-container {
@@ -530,7 +492,6 @@ const config = {
                     } else {
                       chatIframeContainer.style.display = 'none';
                     }
-
                   });
                 })();
               </script>

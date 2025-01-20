@@ -109,8 +109,8 @@ h2[title="Summarization"] {
 
 /* Footer Customization */
 .footer {
-  background-color: var(--sky-600) !important;
-  /* #2436d4 */
+  --ifm-footer-background-color: #2436d4 !important;
+  background-color: #2436d4 !important;
   font-family: 'Open Sans', sans-serif !important;
   padding: 48px 24px !important;
 }
