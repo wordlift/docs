@@ -115,52 +115,71 @@ const config = {
           },
         ],
       },
-      // footer: {
-      //   style: 'dark',
-      //   links: [
-      //     {
-      //       title: 'Docs',
-      //       items: [
-      //         {
-      //           label: 'Tutorial',
-      //           to: '/docs/intro',
-      //         },
-      //       ],
-      //     },
-      //     {
-      //       title: 'Community',
-      //       items: [
-      //         {
-      //           label: 'Stack Overflow',
-      //           href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-      //         },
-      //         {
-      //           label: 'Discord',
-      //           href: 'https://discordapp.com/invite/docusaurus',
-      //         },
-      //         {
-      //           label: 'Twitter',
-      //           href: 'https://twitter.com/docusaurus',
-      //         },
-      //       ],
-      //     },
-      //     {
-      //       title: 'More',
-      //       items: [
-      //         {
-      //           label: 'Blog',
-      //           to: '/blog',
-
-      //         },
-      //         {
-      //           label: 'GitHub',
-      //           href: 'https://github.com/facebook/docusaurus',
-      //         },
-      //       ],
-      //     },
-      //   ],
-      //   copyright: `Copyright © ${new Date().getFullYear()} WordLift srl`,
-      // },
+      footer: {
+        style: 'dark',
+        links: [
+          {
+            title: 'Social',
+            items: [
+              {
+                label: 'GitHub',
+                href: 'https://github.com/wordlift',
+              },
+              {
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/company/wordlift/',
+              },
+              {
+                label: 'X (Twitter)',
+                href: 'https://twitter.com/wordliftit',
+              },
+              {
+                label: 'Facebook',
+                href: 'https://www.facebook.com/wordlift/',
+              },
+            ],
+          },
+          {
+            title: 'Solutions',
+            items: [
+              {
+                label: 'Visibility Solution',
+                href: 'https://wordlift.io/visibility-solution/',
+              },
+              {
+                label: 'Product Performance',
+                href: 'https://wordlift.io/product-performance-solution/',
+              },
+              {
+                label: 'Agent WordLift',
+                href: 'https://wordlift.io/agent/',
+              },
+              {
+                label: 'Intelligence Service',
+                href: 'https://wordlift.io/intelligence-service/',
+              },
+            ],
+          },
+          {
+            title: 'Get Started',
+            items: [
+              {
+                label: 'Pricing',
+                href: 'https://wordlift.io/pricing/',
+              },
+              {
+                label: 'Documentation',
+                to: '/',
+              },
+              {
+                label: 'API Reference',
+                to: '/category/api',
+              },
+            ],
+          },
+        ],
+        copyright: `Copyright © ${new Date().getFullYear()} WordLift srl`,
+      },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
