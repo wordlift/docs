@@ -38,6 +38,10 @@ const config = {
     {
       href: 'https://cdn.zapier.com/packages/partner-sdk/v0/zapier-elements/zapier-elements.css',
     },
+    {
+      href: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap',
+      type: 'text/css',
+    },
   ],
   presets: [
     [
@@ -448,9 +452,9 @@ const config = {
               <div id="chat-widget-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
                 <button
                   id="chat-widget-button"
-                  style="background: transparent; border: none; cursor: pointer; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; padding:0; margin:0;  "
+                  style="background: transparent; border: none; cursor: pointer; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; padding:0; margin:0;"
                 >
-                 <img src="https://bot-framework-westeurope.azureedge.net/bot-icons-v1/bdb5390f-2312-420b-89b3-6d753841cdb1_5rBBre7UTFlqFlDYPEgqEg56Yk2RP1p76dQwn12FCYZAVr.png" alt="Chat Bot Icon" style="width: 60px; height: 60px; border-radius: 50%;" />
+                  <img src="https://bot-framework-westeurope.azureedge.net/bot-icons-v1/bdb5390f-2312-420b-89b3-6d753841cdb1_5rBBre7UTFlqFlDYPEgqEg56Yk2RP1p76dQwn12FCYZAVr.png" alt="Chat Bot Icon" style="width: 60px; height: 60px; border-radius: 50%;" />
                 </button>
                 <div
                   id="chat-widget-iframe-container"
@@ -465,15 +469,54 @@ const config = {
                   ></iframe>
                 </div>
               </div>
-               <style>
-                  @media (max-width: 768px) {
-                    #chat-widget-iframe-container {
-                      width: 100%;
-                       max-width: 350px;
-                      right: 10px;
-                    }
+              <style>
+                /* Header customization */
+                .pages-chatbot-header {
+                  background: #2436d4 !important;
+                  color: #ffffff !important;
+                }
+
+                /* Copilot window */
+                .pva-embedded-web-chat-window {
+                  background: white;
+                }
+
+                /* Bubble from the copilot */
+                .webchat__bubble:not(.webchat__bubble--from-user) .webchat__bubble__content {
+                  background-color: #2436d4 !important;
+                  border-radius: 5px !important;
+                }
+
+                .webchat__bubble:not(.webchat__bubble--from-user) p {
+                  color: #ffffff;
+                }
+
+                /* Bubble from the user */
+                .webchat__bubble.webchat__bubble--from-user .webchat__bubble__content {
+                  background-color: #f5f5f5 !important;
+                  border-radius: 5px !important;
+                }
+
+                .webchat__bubble.webchat__bubble--from-user p {
+                  color: #191919;
+                }
+
+                /* Reference links */
+                .webchat__link-definitions__badge,
+                .webchat__link-definitions__list-item-text,
+                .webchat__render-markdown__pure-identifier {
+                  color: #2436d4 !important;
+                }
+
+                /* Mobile responsiveness */
+                @media (max-width: 768px) {
+                  #chat-widget-iframe-container {
+                    width: 100%;
+                    max-width: 350px;
+                    right: 10px;
                   }
-                </style>
+                }
+              </style>
             `],
             postBodyTags: [`
               <script>
