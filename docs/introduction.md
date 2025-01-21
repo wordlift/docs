@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-**Latest Release:** 3.5.0 (January 2024) - Now with enhanced AI capabilities and Microsoft Power Automate support!
+**Latest Release:** 3.5.0 (January 2025) - Now with enhanced AI capabilities and Microsoft Power Automate support!
 :::
 
 # 👋 Welcome to WordLift
