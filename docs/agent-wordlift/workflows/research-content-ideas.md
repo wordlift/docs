@@ -21,7 +21,7 @@ The Agent will analyze:
 - Your existing content
 - Content gaps and opportunities
 
-![Reddit Analysis Results](../images/agent-wordlift-reddit-analysis.png)
+![Reddit Analysis Results](../images/agent-wordlift-reddit-analysis-api.png)
 
 ## Understanding the Analysis
 
