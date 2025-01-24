@@ -23,6 +23,8 @@ The Agent will analyze:
 
 ![Reddit Analysis Results](../images/agent-wordlift-reddit-analysis-api.png)
 
+The image above shows Agent WordLift analyzing both Reddit discussions and your website content using specialized APIs to gather comprehensive insights.
+
 ## Understanding the Analysis
 
 Agent WordLift provides structured analysis in several key areas:
