@@ -1,6 +1,6 @@
 ---
 title: Creating Internal Links
-sidebar_position: 8
+sidebar_position: 10
 ---
 
 # Enhancing Internal Linking with WordLift AI SEO Agent

@@ -1,6 +1,6 @@
 ---
 title: Avoid Keyword Cannibalization
-sidebar_position: 9
+sidebar_position: 16
 ---
 
 # Avoiding Keyword Cannibalization with WordLift AI SEO Agent

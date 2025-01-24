@@ -1,6 +1,6 @@
 ---
 title: Create product descriptions using keyword insights
-sidebar_position: 5
+sidebar_position: 11
 ---
 
 ## Introduction
@@ -11,7 +11,7 @@ In this workflow, we'll demonstrate how to leverage **WordLift's AI SEO Agent** 
 
 Our journey begins with an example that illustrates how to create an engaging description for an e-commerce product, using "Creamy Concealer" by Acme as our focal point.
 
-### Here's the prompt:
+### Here's the prompt
 
 ```md className=wlx-send-to-agent
 Analyze the "Creamy Concealer" by ACME using the query tool, using its description and product category to extract key insights. Suggest relevant keywords that could enhance its online visibility. Based on these insights, generate 10 SEO-optimized product descriptions in French, each incorporating:

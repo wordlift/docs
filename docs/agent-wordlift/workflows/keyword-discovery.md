@@ -1,6 +1,6 @@
 ---
 title: Run a keyword research
-sidebar_position: 1
+sidebar_position: 17
 ---
 
 # Keyword Discovery with WordLift AI SEO Agent

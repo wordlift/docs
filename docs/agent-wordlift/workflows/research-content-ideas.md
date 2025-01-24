@@ -1,6 +1,6 @@
 ---
 title: Research Content Ideas Using Reddit Discussions
-sidebar_position: 11
+sidebar_position: 18
 ---
 
 Reddit is a powerful platform for SEO research and content ideation. Learn more about leveraging Reddit for SEO in our guide: [How to use Reddit for SEO: Best Practices, Tips & Strategies](https://wordlift.io/blog/en/reddit-for-seo-best-practices/).

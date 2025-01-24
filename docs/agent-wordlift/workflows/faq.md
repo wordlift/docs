@@ -1,6 +1,6 @@
 ---
 title: Generate FAQs
-sidebar_position: 4
+sidebar_position: 14
 ---
 
 # Creating frequently asked questions (FAQs)
@@ -8,6 +8,7 @@ sidebar_position: 4
 This workflow is designed to help us with the process of creating **frequently asked questions (FAQs)** based on content from our website and insights from WordLift's AI SEO Agent.
 
 # Understanding the Entity Gap
+
 The first step involves analyzing the "*entity gap*" between a specific webpage and a user query. Entities are essentially keywords or concepts that define a topic.
 
 :::info
@@ -45,6 +46,7 @@ Once the questions are generated, we can provide the agent with a new prompt tha
 ```md className=wlx-send-to-agent
 Now, search on the website, read the writing style and prepare the answer for the first question "How does Artificial General Intelligence (AGI) relate to the development of neuro-symbolic AI systems, and what are the potential implications of integrating AGI capabilities into neuro-symbolic models?". Remember to add links back to the sources.
 ```
+
 This approach allows for efficient generation of FAQs that address potential user queries based on the content of a webpage.
 
 ![image](../images/agent-wordlift-answers-faq.png)

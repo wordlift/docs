@@ -1,6 +1,6 @@
 ---
 title: Create social media posts using content on your website
-sidebar_position: 2
+sidebar_position: 13
 ---
 
 ## Introduction
@@ -11,18 +11,19 @@ Today, our goal is to **create, with the help of WordLift, compelling posts for 
 
 We will start with a first example related to our website to write content around “neuro-symbolic AI.”
 
-### Here goes the prompt:
+### Here goes the prompt
 
 ```md className=wlx-send-to-agent
 Search for 'neuro-symbolic AI' and carefully analyze the writing style on my website, then extract entities and suggest keywords, and, with this in mind, write three SEO-optimized LinkedIn posts to promote the topic to a business audience in the publishing sector. Always add links back to the website to help users discover additional information.
 ```
+
 ![image](../images/agent-wordlift-social-media-posts-ideas.png)
 
 ## Creating a Thread on X
 
 Let's craft now a similar prompt for creating *a Twitter thread*.
 
-### Here goes the prompt for X:
+### Here goes the prompt for X
 
 ```md className=wlx-send-to-agent
 Search for 'neuro-symbolic AI' and carefully analyze the writing style on my website and, with this in mind, create a Twitter thread to promote the topic to web publishers. Always add links back to the website to help users discover additional information.
@@ -47,6 +48,7 @@ Finally, we can review the key concepts behind the generated posts for LinkedIn 
 ```md className=wlx-send-to-agent
 Draw a mind map of the key concepts behind each post.
 ```
+
 ![image](../images/agent-wordlift-mind-map-social-media-posts.png)
 
 This will produce the following result.
