@@ -130,9 +130,13 @@ const sidebars = {
       label: "📚 Developer Resources",
       items: [
         {
-          type: "doc",
-          id: "category/api",
-          label: "API Documentation"
+          type: "category",
+          label: "API",
+          link: {
+            type: "generated-index",
+            slug: "/category/api",
+          },
+          items: require("./docs/api/wordlift/sidebar.js"),
         },
       ],
     },
