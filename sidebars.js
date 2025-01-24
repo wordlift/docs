@@ -131,7 +131,7 @@ const sidebars = {
       items: [
         {
           type: "link",
-          id: "category/api",
+          href: "/category/api",
           label: "API Documentation"
         },
       ],
