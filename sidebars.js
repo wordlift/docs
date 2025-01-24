@@ -79,7 +79,7 @@ const sidebars = {
       type: "category",
       label: "📚 Developer Resources",
       items: [
-        "pages/api",
+        "category/api/",
       ],
     },
   ],
