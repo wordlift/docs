@@ -454,7 +454,7 @@ const config = {
                   id="chat-widget-button"
                   style="background: transparent; border: none; cursor: pointer; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; padding:0; margin:0;"
                 >
-                  <img src="https://bot-framework-westeurope.azureedge.net/bot-icons-v1/bdb5390f-2312-420b-89b3-6d753841cdb1_5rBBre7UTFlqFlDYPEgqEg56Yk2RP1p76dQwn12FCYZAVr.png" alt="Chat Bot Icon" style="width: 60px; height: 60px; border-radius: 50%;" />
+                  <img src="https://bot-framework-westeurope.azureedge.net/bot-icons-v1/bdb5390f-2312-420b-89b3-6d753841cdb1_DjAC7MB61QR80uauCeo1sPEve8jqABuAkHEcY8I28t0Dno.png" alt="Chat Bot Icon" style="width: 60px; height: 60px; border-radius: 50%;" />
                 </button>
                 <div
                   id="chat-widget-iframe-container"
