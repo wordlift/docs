@@ -30,29 +30,11 @@ The first step to start using your PKG Builder is to go to your dashboard and cl
 
 ![image](images/PKGBuilder_0.png)
 
-<!-- Mermaid Flowchart -->
-```mermaid
-flowchart TD
-    A[Purchase Business Subscription] --> B[Receive Key & Access Dashboard]
-    B --> C["Click + Add Merchant in Dashboard"]
-    C --> D[Start Setup Wizard]
-    D --> E[Link Your Google Account]
-    E --> F[Choose Merchant Feed]
-    F --> G{Multiple Languages?}
-    G -- Yes --> H[Filter by Language: /en and create separate config]
-    G -- No --> I[Proceed with Selected Feed]
-    H --> I
-    I --> J[Link Website & Add Script]
-    J --> K[Click Finish to Complete Setup]
-    K --> L[Products Imported into E-commerce Backend]
-    L --> M[Data Enriched with Structured Data]
-    M --> N[Data Synchronization (~1 Hour)]
-    N --> O[Dashboard Displays Updated Product Data]
-    O --> P[Optional: Reassign Merchant Feed to Different Google Account]
-    O --> Q[Optional: Add Custom Domain and Specify Dataset]
-    O --> R[Optional: Check Import Synchronization]
-    O --> S[Optional: Customize Seller Name]
-    O --> T[Optional: Import Google Search Console Data]
+### Overview Diagram
+
+Here is an overview of the Product Knowledge Graph Builder setup process:
+
+![Product Knowledge Graph Builder Flow](images/PKGBuilder_workflow.svg)
 
 ### 1. Link your Google Account
 
