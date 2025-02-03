@@ -28,6 +28,10 @@ const config = {
     defaultLocale: "en",
     locales: ["en"],
   },
+  // Enable Mermaid support in markdown.
+  markdown: {
+    mermaid: true,
+  },
   scripts: [
     {
       src: 'https://cdn.zapier.com/packages/partner-sdk/v0/zapier-elements/zapier-elements.esm.js',
@@ -503,6 +507,7 @@ const config = {
   ],
   themes: [
     "docusaurus-theme-openapi-docs",
+    "@docusaurus/theme-mermaid",
     // Remove this entire block:
     // [
     //   "@docusaurus/theme-classic",
