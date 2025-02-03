@@ -28,8 +28,6 @@ Once you have purchased the WordLift [Business subscription](https://wordlift.io
 
 The first step to start using your PKG Builder is to go to your dashboard and click on **+ Add Merchant** on the left side, then follow the simple steps in the wizard.
 
-![image](images/PKGBuilder_0.png)
-
 ### Overview Diagram
 
 Here is an overview of the Product Knowledge Graph Builder setup process:
@@ -62,8 +60,6 @@ At the moment, only one language per import is supported. Therefore, if your fee
 
 **What You Do:**
 Link your website and import the data from the Merchant Feed to the website. To **create your Product Knowledge Graph** you need to add the provided script into your website.
-
-![image](images/PKGBuilder_3.png)
 
 Click **Finish**. Once you have completed these 3 steps, you will see that the **products** have been imported into the backend of your e-commerce website and **already enriched with structured data.**
 
