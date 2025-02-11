@@ -21,20 +21,20 @@ This guide will walk you through the initial steps of using **WordLift AI SEO Ag
 
 - **Explore Queries:** Uncover the hidden potential of search queries. Understand how users search for topics related to your content and discover keywords you may want to target. Start simple and ask to the SEO Agent to:
 
-```md
-analyze the query "semantic SEO" on google.com
+```md className=wlx-send-to-agent
+Analyze the query "semantic SEO" on google.com
 ```
 
 or
 
-```md
-show me the entity gap between "linked data" and https://wordlift.io/blog/en/entity/linked-data/
+```md className=wlx-send-to-agent
+Show me the entity gap between "linked data" and https://wordlift.io/blog/en/entity/linked-data/
 ```
 
 - **Create Content:** Leverage your website content for new article creation: As mentioned, ask the Agent to:
 
-```md
-search the website for "the impact of blockchain technology on finance."
+```md className=wlx-send-to-agent
+Search the website for "the impact of blockchain technology on finance."
 Analyze the entities associated with this query.
 Generate an outline for a new, informative article based on the combined insights.
 ```
@@ -43,8 +43,8 @@ Generate an outline for a new, informative article based on the combined insight
 
 - **Expand Existing Content:** Enhance your existing content by automatically identifying and suggesting relevant entities that can be integrated seamlessly. This can improve the depth and context of your content, making it more engaging for readers and search engines. It is as simple as asking to:
 
-```md
-expand the content on https://wordlift.io/ by integrating entities like Google and Semantic Web.
+```md className=wlx-send-to-agent
+Expand the content on https://wordlift.io/ by integrating entities like Google and Semantic Web.
 ```
 
 :::infoNote
