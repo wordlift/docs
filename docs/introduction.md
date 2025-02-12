@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.6.0 (January 2025) - Now with enhanced AI capabilities, Zapier support, and Reddit content research!
+Latest Release: 3.6.0 (February 2025) - Enhanced with E-E-A-T authorship markup, AI-powered content optimization, Zapier integrations, and Reddit research capabilities!
 :::
 
 # 👋 Welcome to WordLift
