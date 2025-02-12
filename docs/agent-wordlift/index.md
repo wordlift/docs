@@ -93,6 +93,7 @@ Based on the provided workflows and prompt library, I'll help you revise the Qui
 
 * [Query Match Analysis](./workflows/analyzing-query-match.md)
 * [Internal Linking](./workflows/create-internal-links.md)
+* [Authorship Markup](./workflows/adding-authorship-markup.md)
 * [Cannibalization Prevention](./workflows/keyword-cannibalization.md)
 
 </div>

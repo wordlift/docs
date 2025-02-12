@@ -5,6 +5,26 @@ sidebar_position: 18
 
 Reddit is a powerful platform for SEO research and content ideation. Learn more about leveraging Reddit for SEO in our guide: [How to use Reddit for SEO: Best Practices, Tips & Strategies](https://wordlift.io/blog/en/reddit-for-seo-best-practices/).
 
+## Watch the Workflow in Action
+
+Learn how to effectively research content ideas using Reddit discussions with Agent WordLift:
+
+<iframe
+  width="100%"
+  height="500"
+  src="https://www.youtube.com/embed/PApeDYvL5A8"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen>
+</iframe>
+
+In this video, you'll see how to:
+
+- Search and analyze Reddit discussions for your topics
+- Identify user pain points and emerging trends
+- Create content proposals based on Reddit insights
+- Align your content with genuine user needs
+
 ## Quick Topic Research
 
 The most effective way to start is with a comprehensive analysis prompt:
