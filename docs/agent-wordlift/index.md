@@ -1,35 +1,166 @@
 ---
 sidebar_position: 0
+hide_title: true
+title: Overview
 ---
 
-Welcome to WordLift AI SEO Agent
-====================================
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-The main documentation for getting started with **Agent WordLift** is organized in the following sections:
-
-* [Getting Started 🚀](getting-started.md)
-* [Tips for Using WordLift AI SEO Agent ✨](tips.md)
-* [Highlights 💫](highlights.md)
-* [Data Privacy and Security 🛡️](data-privacy-and-security.md)
-* [Prompt Library 📚](prompt-reference.md)
-* [FAQ 🙋🏽‍♀️](faq.md)
-* [Workflows 🛠️](workflows.md)
-  * [Run a keyword research](./workflows/keyword-discovery.md)
-  * [Prevent keyword cannibalization](./workflows/keyword-cannibalization.md)
-  * [Research using Reddit discussions](./workflows/research-content-ideas.md)
-  * [Create Social Media Posts](./workflows/create-social-media-posts.md)
-  * [Create Content Buckets for Social Media](./workflows/create-social-media-content-buckets.md)
-  * [Ideas for Newsletters](./workflows/ideas-for-newsletters.md)
-  * [Creating frequently asked questions (FAQs)](./workflows/faq.md)
-  * [Create product descriptions using keyword insights](./workflows/create-product-description.md)
-  * [Analyze the query match of a web page](./workflows/analyzing-query-match.md)
-  * [Create internal links](./workflows/create-internal-links.md)
-* [Integrations ⚙️](integrations.md)
-
-:::info
-
-### Still Under Development
-
-We're constantly working to improve the accuracy and reliability of **Agent WordLift**.  Keep in mind that the information it provides might not always be perfect and shouldn't be considered professional advice.  It's always best to double-check any critical information before relying on it.
-
+:::info Version Notice
+Latest Release: 3.6.0 (January 2025) - Now with enhanced support for Reddit content research and social media workflows!
 :::
+
+# 🤖 Welcome to Agent WordLift
+
+<div style={{textAlign: 'center', margin: '2rem 0'}}>
+<p style={{fontSize: '1.2rem', color: 'var(--ifm-color-emphasis-600)'}}>
+Your AI-Powered SEO Companion for Smart Content Optimization
+</p>
+
+<div style={{display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap'}}>
+<span className="badge badge--success">SEO Automation</span>
+<span className="badge badge--primary">Content Intelligence</span>
+<span className="badge badge--info">AI-Powered</span>
+</div>
+</div>
+
+## Quick Start Options
+
+<Tabs>
+  <TabItem value="research" label="Content Research" default>
+
+```bash
+# Start with Content Research
+1. Research keywords and topics
+2. Analyze Reddit discussions
+3. Get content recommendations
+```
+
+[Start Researching →](./workflows/keyword-discovery.md)
+  </TabItem>
+  <TabItem value="optimize" label="SEO Optimization">
+
+```bash
+# Optimize Your Content
+1. Check query matches
+2. Create internal links
+3. Prevent cannibalization
+```
+
+[Start Optimizing →](./workflows/analyzing-query-match.md)
+  </TabItem>
+  <TabItem value="create" label="Content Creation">
+
+```bash
+# Create Content at Scale
+1. Generate product descriptions
+2. Create social media content
+3. Build FAQ sections
+```
+
+[Start Creating →](./workflows/create-product-description.md)
+  </TabItem>
+</Tabs>
+
+## Explore Our Tools
+
+### 🎯 Core Features
+
+- [Getting Started Guide](./getting-started.md) - Your first steps with Agent WordLift
+- [Tips & Best Practices](./tips.md) - Get the most out of the AI
+- [Feature Highlights](./highlights.md) - What makes Agent WordLift special
+- [Prompt Library](./prompt-reference.md) - Ready-to-use prompts
+
+### 🛠️ Popular Workflows
+
+<div className="container">
+  <div className="row">
+    <div className="col col--6">
+
+#### Content Strategy
+
+- [Keyword Research](./workflows/keyword-discovery.md)
+- [Reddit Content Research](./workflows/research-content-ideas.md)
+- [Newsletter Ideas](./workflows/ideas-for-newsletters.md)
+
+    </div>
+    <div className="col col--6">
+
+#### Content Optimization
+
+- [Query Match Analysis](./workflows/analyzing-query-match.md)
+- [Internal Linking](./workflows/create-internal-links.md)
+- [Cannibalization Prevention](./workflows/keyword-cannibalization.md)
+
+    </div>
+  </div>
+
+</div>
+
+### 🎨 Content Creation
+
+<div className="container">
+  <div className="row">
+    <div className="col col--6">
+
+#### Product Content
+
+- [Product Descriptions](./workflows/create-product-description.md)
+- [FAQs Generation](./workflows/faq.md)
+
+    </div>
+    <div className="col col--6">
+
+#### Social Media
+
+- [Social Posts](./workflows/create-social-media-posts.md)
+- [Content Buckets](./workflows/create-social-media-content-buckets.md)
+
+    </div>
+  </div>
+
+</div>
+
+## Extended Features
+
+<div className="container">
+  <div className="row">
+    <div className="col col--4">
+
+### 🔌 Integrations
+
+- [Available Integrations](./integrations.md)
+- [Data Privacy & Security](./data-privacy-and-security.md)
+
+    </div>
+    <div className="col col--4">
+
+### 📚 Resources
+
+- [FAQ](./faq.md)
+- [Workflows](./workflows.md)
+
+    </div>
+    <div className="col col--4">
+
+### 💡 Support
+
+- [Getting Help](./getting-started.md#getting-help)
+- [Community](https://wordlift.io/community)
+
+    </div>
+  </div>
+
+</div>
+
+:::note Development Status
+Agent WordLift is constantly evolving. While it's already powerful, we're always working to make it better. Remember to verify critical information and use it as a smart assistant rather than a replacement for human judgment.
+:::
+
+---
+
+🎮 **Ready to supercharge your SEO?**
+[Get started with your first optimization →](./getting-started.md)
+
+Need help? [Check our FAQ](./faq.md) or [drop us a line](mailto:support@wordlift.io) 💌

@@ -108,6 +108,11 @@ const config = {
             ],
           },
           {
+            label: "Agent WordLift",
+            position: "left",
+            to: "/agent-wordlift",
+          },
+          {
             label: "API",
             position: "left",
             to: "/category/api",
