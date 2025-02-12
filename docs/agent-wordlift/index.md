@@ -67,91 +67,88 @@ Your AI-Powered SEO Companion for Smart Content Optimization
 
 ### 🎯 Core Features
 
-- [Getting Started Guide](./getting-started.md) - Your first steps with Agent WordLift
-- [Tips & Best Practices](./tips.md) - Get the most out of the AI
-- [Feature Highlights](./highlights.md) - What makes Agent WordLift special
-- [Prompt Library](./prompt-reference.md) - Ready-to-use prompts
+* [Getting Started Guide](./getting-started.md) - Your first steps with Agent WordLift
+* [Tips & Best Practices](./tips.md) - Get the most out of the AI
+* [Feature Highlights](./highlights.md) - What makes Agent WordLift special
+* [Prompt Library](./prompt-reference.md) - Ready-to-use prompts
 
 ### 🛠️ Popular Workflows
 
 <div className="container">
-  <div className="row">
-    <div className="col col--6">
+<div className="row">
+<div className="col col--6">
 
 #### Content Strategy
 
-- [Keyword Research](./workflows/keyword-discovery.md)
-- [Reddit Content Research](./workflows/research-content-ideas.md)
-- [Newsletter Ideas](./workflows/ideas-for-newsletters.md)
+* [Keyword Research](./workflows/keyword-discovery.md)
+* [Reddit Content Research](./workflows/research-content-ideas.md)
+* [Newsletter Ideas](./workflows/ideas-for-newsletters.md)
 
-    </div>
-    <div className="col col--6">
+</div>
+<div className="col col--6">
 
 #### Content Optimization
 
-- [Query Match Analysis](./workflows/analyzing-query-match.md)
-- [Internal Linking](./workflows/create-internal-links.md)
-- [Cannibalization Prevention](./workflows/keyword-cannibalization.md)
+* [Query Match Analysis](./workflows/analyzing-query-match.md)
+* [Internal Linking](./workflows/create-internal-links.md)
+* [Cannibalization Prevention](./workflows/keyword-cannibalization.md)
 
-    </div>
-  </div>
-
+</div>
+</div>
 </div>
 
 ### 🎨 Content Creation
 
 <div className="container">
-  <div className="row">
-    <div className="col col--6">
+<div className="row">
+<div className="col col--6">
 
 #### Product Content
 
-- [Product Descriptions](./workflows/create-product-description.md)
-- [FAQs Generation](./workflows/faq.md)
+* [Product Descriptions](./workflows/create-product-description.md)
+* [FAQs Generation](./workflows/faq.md)
 
-    </div>
-    <div className="col col--6">
+</div>
+<div className="col col--6">
 
 #### Social Media
 
-- [Social Posts](./workflows/create-social-media-posts.md)
-- [Content Buckets](./workflows/create-social-media-content-buckets.md)
+* [Social Posts](./workflows/create-social-media-posts.md)
+* [Content Buckets](./workflows/create-social-media-content-buckets.md)
 
-    </div>
-  </div>
-
+</div>
+</div>
 </div>
 
 ## Extended Features
 
 <div className="container">
-  <div className="row">
-    <div className="col col--4">
+<div className="row">
+<div className="col col--4">
 
 ### 🔌 Integrations
 
-- [Available Integrations](./integrations.md)
-- [Data Privacy & Security](./data-privacy-and-security.md)
+* [Available Integrations](./integrations.md)
+* [Data Privacy & Security](./data-privacy-and-security.md)
 
-    </div>
-    <div className="col col--4">
+</div>
+<div className="col col--4">
 
 ### 📚 Resources
 
-- [FAQ](./faq.md)
-- [Workflows](./workflows.md)
+* [FAQ](./faq.md)
+* [Workflows](./workflows.md)
 
-    </div>
-    <div className="col col--4">
+</div>
+<div className="col col--4">
 
 ### 💡 Support
 
-- [Getting Help](./getting-started.md#getting-help)
-- [Community](https://wordlift.io/community)
+* [Getting Help](./getting-started.md#getting-help)
+* [Community](https://wordlift.io/community)
 
-    </div>
-  </div>
-
+</div>
+</div>
 </div>
 
 :::note Development Status
