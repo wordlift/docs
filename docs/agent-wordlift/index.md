@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info Version Notice
-Latest Release: 3.6.0 (January 2025) - Now with enhanced support for Reddit content research and social media workflows!
+Latest Release: 3.6.0 (February 2025) - Now with enhanced support for Reddit content research and social media workflows!
 :::
 
 # 🤖 Welcome to Agent WordLift - Your Marketing & AI SEO Agent
