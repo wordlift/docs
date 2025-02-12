@@ -30,17 +30,17 @@ const config = {
   },
   scripts: [
     {
-      src: 'https://cdn.zapier.com/packages/partner-sdk/v0/zapier-elements/zapier-elements.esm.js',
-      type: 'module',
+      src: "https://cdn.zapier.com/packages/partner-sdk/v0/zapier-elements/zapier-elements.esm.js",
+      type: "module",
     },
   ],
   stylesheets: [
     {
-      href: 'https://cdn.zapier.com/packages/partner-sdk/v0/zapier-elements/zapier-elements.css',
+      href: "https://cdn.zapier.com/packages/partner-sdk/v0/zapier-elements/zapier-elements.css",
     },
     {
-      href: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap',
-      type: 'text/css',
+      href: "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap",
+      type: "text/css",
     },
   ],
   presets: [
@@ -77,7 +77,7 @@ const config = {
         logo: {
           alt: "WordLift",
           src: "img/logo.svg",
-          srcDark: "img/logo-dark.svg"
+          srcDark: "img/logo-dark.svg",
         },
         items: [
           {
@@ -91,20 +91,60 @@ const config = {
             label: "Products",
             position: "left",
             items: [
-              { label: "Search Demand / Google Sheets Add-on", to: "seo-add-on-google-sheets/introduction" },
-              { label: "Knowledge Graph / Botify Connector", to: "knowledge-graph/botify/" },
-              { label: "Knowledge Graph / Sitemap Import", to: "knowledge-graph/sitemap-import/" },
-              { label: "Knowledge Graph / Analytics Import", to: "knowledge-graph/analytics-api/" },
-              { label: "Knowledge Graph / Product Knowledge Graph Builder", to: "product-knowledge-graph-builder/introduction" },
-              { label: "Knowledge Graph / WordPress Plugin", to: "wordpress-plugin" },
-              { label: "Knowledge Graph / WooCommerce Plugin", to: "woocommerce/introduction" },
+              {
+                label: "Search Demand / Google Sheets Add-on",
+                to: "seo-add-on-google-sheets/introduction",
+              },
+              {
+                label: "Knowledge Graph / Botify Connector",
+                to: "knowledge-graph/botify/",
+              },
+              {
+                label: "Knowledge Graph / Sitemap Import",
+                to: "knowledge-graph/sitemap-import/",
+              },
+              {
+                label: "Knowledge Graph / Analytics Import",
+                to: "knowledge-graph/analytics-api/",
+              },
+              {
+                label: "Knowledge Graph / Product Knowledge Graph Builder",
+                to: "product-knowledge-graph-builder/introduction",
+              },
+              {
+                label: "Knowledge Graph / WordPress Plugin",
+                to: "wordpress-plugin",
+              },
+              {
+                label: "Knowledge Graph / WooCommerce Plugin",
+                to: "woocommerce/introduction",
+              },
               { label: "Knowledge Graph / Cloud", to: "cloud" },
+              {
+                label: "Knowledge Graph / KG-REST",
+                to: "knowledge-graph/kg-rest",
+              },
               { label: "Smart Content / Agent WordLift", to: "agent-wordlift" },
-              { label: "Smart Content / Content Generation", to: "content-generation" },
-              { label: "Smart Content / AI & LLM Integrations", to: "llm-connectors/wordlift-reader" },
-              { label: "Marketing Automation / Zapier", to: "marketing-automation/zapier/introduction" },
-              { label: "Marketing Automation / Power Automate", to: "marketing-automation/power-automate/introduction" },
-              { label: "Semantic Reporting / Looker Studio Connector ", to: "looker-studio-connector/introduction" },
+              {
+                label: "Smart Content / Content Generation",
+                to: "content-generation",
+              },
+              {
+                label: "Smart Content / AI & LLM Integrations",
+                to: "llm-connectors/wordlift-reader",
+              },
+              {
+                label: "Marketing Automation / Zapier",
+                to: "marketing-automation/zapier/introduction",
+              },
+              {
+                label: "Marketing Automation / Power Automate",
+                to: "marketing-automation/power-automate/introduction",
+              },
+              {
+                label: "Semantic Reporting / Looker Studio Connector ",
+                to: "looker-studio-connector/introduction",
+              },
             ],
           },
           {
@@ -125,64 +165,64 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: "dark",
         links: [
           {
-            title: 'Social',
+            title: "Social",
             items: [
               {
-                label: 'GitHub',
-                href: 'https://github.com/wordlift',
+                label: "GitHub",
+                href: "https://github.com/wordlift",
               },
               {
-                label: 'LinkedIn',
-                href: 'https://www.linkedin.com/company/wordlift/',
+                label: "LinkedIn",
+                href: "https://www.linkedin.com/company/wordlift/",
               },
               {
-                label: 'X (Twitter)',
-                href: 'https://twitter.com/wordliftit',
+                label: "X (Twitter)",
+                href: "https://twitter.com/wordliftit",
               },
               {
-                label: 'Facebook',
-                href: 'https://www.facebook.com/wordlift/',
+                label: "Facebook",
+                href: "https://www.facebook.com/wordlift/",
               },
             ],
           },
           {
-            title: 'Solutions',
+            title: "Solutions",
             items: [
               {
-                label: 'Visibility Solution',
-                href: 'https://wordlift.io/visibility-solution/',
+                label: "Visibility Solution",
+                href: "https://wordlift.io/visibility-solution/",
               },
               {
-                label: 'Product Performance',
-                href: 'https://wordlift.io/product-performance-solution/',
+                label: "Product Performance",
+                href: "https://wordlift.io/product-performance-solution/",
               },
               {
-                label: 'Agent WordLift',
-                href: 'https://wordlift.io/agent/',
+                label: "Agent WordLift",
+                href: "https://wordlift.io/agent/",
               },
               {
-                label: 'Intelligence Service',
-                href: 'https://wordlift.io/intelligence-service/',
+                label: "Intelligence Service",
+                href: "https://wordlift.io/intelligence-service/",
               },
             ],
           },
           {
-            title: 'Get Started',
+            title: "Get Started",
             items: [
               {
-                label: 'Pricing',
-                href: 'https://wordlift.io/pricing/',
+                label: "Pricing",
+                href: "https://wordlift.io/pricing/",
               },
               {
-                label: 'Documentation',
-                to: '/',
+                label: "Documentation",
+                to: "/",
               },
               {
-                label: 'API Reference',
-                to: '/category/api',
+                label: "API Reference",
+                to: "/category/api",
               },
             ],
           },
@@ -437,7 +477,7 @@ const config = {
               categoryLinkSource: "tag",
             },
           },
-          "agent": {
+          agent: {
             specPath: "api/agent.yaml", // path or URL to the OpenAPI spec
             outputDir: "docs/api/agent", // output directory for generated *.mdx and sidebar.js files
             sidebarOptions: {
@@ -450,10 +490,11 @@ const config = {
     ],
     function chatWidgetPlugin() {
       return {
-        name: 'chat-widget-plugin',
+        name: "chat-widget-plugin",
         injectHtmlTags() {
           return {
-            preBodyTags: [`
+            preBodyTags: [
+              `
               <div id="chat-widget-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
                 <button
                   id="chat-widget-button"
@@ -484,8 +525,10 @@ const config = {
                   }
                 }
               </style>
-            `],
-            postBodyTags: [`
+            `,
+            ],
+            postBodyTags: [
+              `
               <script>
                 (function() {
                   const chatButton = document.getElementById('chat-widget-button');
@@ -500,11 +543,12 @@ const config = {
                   });
                 })();
               </script>
-            `],
+            `,
+            ],
           };
         },
       };
-    }
+    },
   ],
   themes: [
     "docusaurus-theme-openapi-docs",
