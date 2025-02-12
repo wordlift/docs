@@ -124,7 +124,7 @@ const config = {
                 label: "Knowledge Graph / KG-REST",
                 to: "knowledge-graph/kg-rest",
               },
-              { label: "Smart Content / Agent WordLift", to: "agent-wordlift" },
+              { label: "Smart Content / AI SEO Agent", to: "agent-wordlift" },
               {
                 label: "Smart Content / Content Generation",
                 to: "content-generation",
@@ -148,7 +148,7 @@ const config = {
             ],
           },
           {
-            label: "Agent WordLift",
+            label: "AI SEO Agent",
             position: "left",
             to: "/agent-wordlift",
           },

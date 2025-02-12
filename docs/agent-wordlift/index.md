@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Latest Release: 3.6.0 (January 2025) - Now with enhanced support for Reddit content research and social media workflows!
 :::
 
-# 🤖 Welcome to Agent WordLift
+# 🤖 Welcome to Agent WordLift - Your Marketing & AI SEO Agent
 
 <div style={{textAlign: 'center', margin: '2rem 0'}}>
 <p style={{fontSize: '1.2rem', color: 'var(--ifm-color-emphasis-600)'}}>
