@@ -25,41 +25,43 @@ Your AI-Powered SEO Companion for Smart Content Optimization
 </div>
 </div>
 
+Based on the provided workflows and prompt library, I'll help you revise the Quick Start Options section to better reflect the actual capabilities and common use cases. Here's a suggested revision for the Tabs section:
+
 ## Quick Start Options
 
 <Tabs>
-  <TabItem value="research" label="Content Research" default>
-
-```bash
-# Start with Content Research
-1. Research keywords and topics
-2. Analyze Reddit discussions
-3. Get content recommendations
-```
-
-[Start Researching →](./workflows/keyword-discovery.md)
-  </TabItem>
-  <TabItem value="optimize" label="SEO Optimization">
+  <TabItem value="optimize" label="Optimize Content" default>
 
 ```bash
 # Optimize Your Content
-1. Check query matches
+1. Check content-query match
 2. Create internal links
-3. Prevent cannibalization
+3. Get SEO optimization tips
 ```
 
 [Start Optimizing →](./workflows/analyzing-query-match.md)
   </TabItem>
-  <TabItem value="create" label="Content Creation">
+  <TabItem value="social" label="Social Media">
 
 ```bash
-# Create Content at Scale
-1. Generate product descriptions
-2. Create social media content
-3. Build FAQ sections
+# Create Social Content
+1. Generate LinkedIn posts
+2. Create Twitter threads
+3. Build content buckets
 ```
 
-[Start Creating →](./workflows/create-product-description.md)
+[Start Creating →](./workflows/create-social-media-posts.md)
+  </TabItem>
+  <TabItem value="product" label="Product Content">
+
+```bash
+# Enhance Product Content
+1. Write SEO descriptions
+2. Generate product highlights
+3. Build internal links
+```
+
+[Start Writing →](./workflows/create-product-description.md)
   </TabItem>
 </Tabs>
 
