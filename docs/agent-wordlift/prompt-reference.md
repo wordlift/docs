@@ -7,148 +7,228 @@ sidebar_position: 5
 
 This comprehensive library contains ready-to-use prompts for Agent WordLift, optimized for both the web interface and Chrome extension. Each prompt is formatted for easy copying and immediate use.
 
-## Content Analysis & Optimization
+## 🔍 Analysis & Research
 
-### Text Analysis
-
-```md className=wlx-send-to-agent
-Analyze this text to identify the main entities and extract the key topics that should be covered: [paste your text here]
-```
-
-### URL Content Analysis
+### Analyze Text
 
 ```md className=wlx-send-to-agent
-Analyze the content of this webpage: [URL]. Focus on:
-1. Main entities and topics
-2. Content structure
-3. Keyword opportunities
-4. Internal linking suggestions
+analyze this text to identify the main entities and keywords: [your text here]
 ```
 
-### Query Analysis & Search Intent
+### Analyze URL
 
 ```md className=wlx-send-to-agent
-Analyze the search intent and SERP features for the query "[your query]" on [google.co.uk]. Identify:
-1. User intent categories
-2. Featured snippets opportunities
-3. Top-ranking content types
-4. Key entities used by competitors
+analyze the entities on this webpage: [URL]
 ```
 
-## Content Creation & Enhancement
+### Analyze Query
+
+```md className=wlx-send-to-agent
+analyze the query '[query]' on [google.co.uk]
+```
+
+### Domain-Specific Search
+
+```md className=wlx-send-to-agent
+perform a domain-specific search for articles related to '[topic]' on my website
+```
+
+### Analyze Google Trends
+
+```md className=wlx-send-to-agent
+analyze the trends for '[keyword1]' and '[keyword2]'
+```
+
+### Search Reddit mentions
+
+```md className=wlx-send-to-agent
+Provide me with insights on the Reddit exposure of the following domains: [URL]
+```
+
+## 📝 Content Creation & Enhancement
 
 ### Content Expansion
 
 ```md className=wlx-send-to-agent
-Expand the content at [URL] by focusing on:
-1. Entity [entity name]
-2. Related topics from our Knowledge Graph
-3. Internal linking opportunities
-Provide specific recommendations for new sections and content.
+expand the content of this URL '[URL]' by focusing on the entities '[entity1]' and '[entity2]'
 ```
 
-### Internal Linking
+### Content Creation
 
 ```md className=wlx-send-to-agent
-Find content on my website from the page [URL]. Identify 5 relevant articles and create internal links by:
-1. Determining relevant keywords
-2. Generating keyword suggestions
-3. Creating anchor texts (max 30 characters)
-Provide HTML with all links and anchor texts.
+create a new article about '[topic]' using insights from our website's existing content
 ```
 
-### Product Highlights Generator
+### Generate AI Overview
 
 ```md className=wlx-send-to-agent
-Generate product highlights for [product name] based on website content. Create:
-1. 4-6 highlights
-2. 1-150 characters per highlight
-3. Focus on key attributes and common questions
-Exclude discounts and ensure privacy compliance.
+run a search on '[topic]' using only the content on this website. Develop an AI-powered snapshot that provides a quick overview, offering links with text anchors to supporting articles. Be extremely concise, using only three sentences. Embed links directly in the key text of each statement.
 ```
 
-## SEO & Technical Analysis
-
-### Schema Markup Analysis
+### Generate Meta Titles and Descriptions
 
 ```md className=wlx-send-to-agent
-Analyze the schema markup at [URL]:
-1. Extract current JSON-LD
-2. Compare with top 3 competitors for "[keyword]"
-3. Identify gaps and opportunities
-4. Recommend improvements based on E-E-A-T
+search the site and generate an SEO-optimized meta title and meta description for this webpage: [URL]. Use the Keyword Suggestion tool to incorporate high-impact keywords relevant to the content, and maintain a clear, concise tone. For the meta description, aim for an informative and engaging tone that aligns with user search intent and encourages clicks. Ensure the meta title is under 60 characters and the description under 160 characters for optimal discoverability.
 ```
+
+## 🎯 SEO & Technical Analysis
 
 ### Entity Gap Analysis
 
 ```md className=wlx-send-to-agent
-Perform an entity gap analysis comparing [URL] with top results for "[keyword]":
-1. Extract entities from our content
-2. Analyze competitor entities
-3. Identify missing opportunities
-4. Suggest content improvements
+perform an entity gap analysis for '[URL]' against the query '[query]'
 ```
 
-## Social Media & Content Distribution
-
-### Twitter Thread Creator
+### SEO Score Analysis
 
 ```md className=wlx-send-to-agent
-Create a Twitter thread about [topic] by:
-1. Analyzing our website's content
-2. Creating 5-7 engaging tweets
-3. Including relevant links to our content
-4. Using appropriate hashtags
-Maintain our brand voice and expertise.
+analyze the SEO score for the keyword '[keyword]' in relation to the content on '[URL]'
 ```
 
-### Content Bucket Generator
+### Generate Diagram
 
 ```md className=wlx-send-to-agent
-Create content buckets for social media about [topic]:
-1. Search website for relevant content
-2. Organize into themes
-3. Generate post ideas for each bucket
-4. Include relevant links and hashtags
+generate a mind map to visualize the topic clusters for '[topic]'
 ```
 
-## Research & Analysis
-
-### Reddit Content Research
+### Fact-Checking
 
 ```md className=wlx-send-to-agent
-Analyze Reddit exposure for [domain/URL]:
-1. Find relevant mentions and discussions
-2. Identify key topics and sentiment
-3. Extract user questions and pain points
-4. Suggest content opportunities
+fact-check this statement: '[statement]'
 ```
 
-### Keyword Research & Content Planning
+### Keyword Suggestions
 
 ```md className=wlx-send-to-agent
-Research keyword opportunities for [topic]:
-1. Generate keyword suggestions
-2. Analyze search intent
-3. Check Google Trends for seasonality
-4. Create content outline for top opportunity
-Include search volume and difficulty metrics.
+generate keyword suggestions based on '[keyword]' to refine content focus and enhance discoverability online
+```
+
+### Analyze and Differentiate Webpages
+
+```md className=wlx-send-to-agent
+analyze the following pages from the website:
+URL1: [URL1], Title1: [Title1]
+URL2: [URL2], Title2: [Title2]
+
+For each page:
+1. Extract Entities
+2. Identify Keywords
+3. Determine Detailed Search Intent
+4. Propose differentiation strategies
+5. Recommend optimizations
+```
+
+### Audit the Markup
+
+```md className=wlx-send-to-agent
+analyze the markup of the page at [URL], focusing on the JSON-LD. Provide a brief review and include your recommendations for improvement. Keep the analysis concise.
+```
+
+### Analyze Schema Types
+
+```md className=wlx-send-to-agent
+1. Analyze the schema types and properties used in the JSON-LD of this article: [URL]
+2. Perform a SERP analysis for the query "[query]"
+3. Extract the URLs of the top 3 results and note their schema types
+4. Analyze differences in markup implementation
+5. Create a comparison table
+6. Write recommendations for improvement
+```
+
+## 🔗 Internal Linking
+
+### Create Internal Links
+
+```md className=wlx-send-to-agent
+find content on my website from the '[title]' page ([URL]). Analyze the text to identify up to 5 related articles. For each article, determine a relevant keyword, generate keyword suggestions, and create an anchor text of no more than 30 characters. Compile the HTML for all 5 links with their respective anchor texts.
+```
+
+### Create Internal Links In Batch
+
+```md className=wlx-send-to-agent
+do the same internal linking work for the following pages:
+- '[Title1]' ([URL1])
+- '[Title2]' ([URL2])
+- '[Title3]' ([URL3])
+Remember: never link to the homepage; choose anchors based on content relevance and keyword opportunity.
+```
+
+## 🛍️ Product Content
+
+### Generate Product Highlights
+
+```md className=wlx-send-to-agent
+find everything on the website about [product]. Based on this information, write short bullet points of the most relevant product highlights. The highlights should help shoppers with easily consumable, quick-to-scan sentence fragments that answer common consumer questions or focus on the most important attributes of the product. Instructions: Limit 1-150 characters per highlight; recommend 4-6 highlights; minimum 2 highlights; do not mention discounts; ensure content complies with data privacy regulations.
+```
+
+## 📱 Social Media
+
+### Content Buckets
+
+```md className=wlx-send-to-agent
+search for content related to '[topic1]', '[topic2]' and create content buckets for social media.
+```
+
+### Create a Thread on X
+
+```md className=wlx-send-to-agent
+search for '[topic]' and analyze the writing style on my website. Create a Twitter thread to promote the topic to [target audience], adding links back to the website to help users discover additional information.
+```
+
+## 🔧 HTML & Technical Analysis
+
+### HTML Analysis
+
+```md className=wlx-send-to-agent
+extract html from '[URL]' and analyze the page focusing on:
+1. visual hierarchy
+2. CTA placement and effectiveness
+3. messaging clarity
+4. user experience
+5. trust signals
+Provide specific recommendations for improving conversion rates.
+```
+
+## 📈 Conversion Rate Optimization
+
+### Comprehensive CRO Analysis
+
+```md className=wlx-send-to-agent
+Please analyze the following URL: [URL]
+
+Tasks:
+1. Extract and examine the full HTML content
+2. Analyze the page design, layout, and structure
+3. Provide conversion optimization recommendations
+
+Key Analysis Points:
+- Visual Hierarchy: Evaluate prominence of important elements
+- CTA Placement: Assess visibility, appeal, and positioning of calls-to-action
+- Copywriting: Evaluate clarity and effectiveness of messaging
+- User Experience: Analyze navigation flow and user guidance
+- Trust Signals: Review presence of testimonials, certifications, and trust elements
+
+Required Deliverables:
+1. Critical review of strengths and weaknesses
+2. Step-by-step improvement recommendations focusing on:
+   - Lead generation optimization
+   - User engagement enhancement
+   - Conversion rate improvement
+   - Implementation of best practices
 ```
 
 ## Tips for Using Prompts
 
-1. **Customize Parameters**: Replace bracketed placeholders ([URL], [topic], etc.) with your specific information
-2. **Be Specific**: The more detailed your prompt, the better the results
-3. **Format Outputs**: Request specific formats (tables, lists, etc.) when needed
-4. **Chain Prompts**: Combine multiple prompts for complex analyses
-5. **Iterate Results**: Use output from one prompt as input for another
-
-## Best Practices
-
-- Always verify generated content and suggestions
-- Use prompts as starting points and customize for your needs
-- Combine different prompt types for comprehensive analysis
-- Keep track of effective prompts for your specific use cases
-- Test prompts with different variations of input to optimize results
+1. **Be Specific**: Include exact URLs, keywords, or text you want to analyze
+2. **Customize**: Modify prompts to match your specific needs
+3. **Combine**: Use multiple prompts together for comprehensive analysis
+4. **Verify**: Always review and verify the generated content
+5. **Iterate**: Refine prompts based on results
 
 Need help? Contact our support team at [support@wordlift.io](mailto:support@wordlift.io)
+
+:::tip
+
+For tasks involving multiple entities, such as products, it is advisable to utilize the [Content Generation Tool](/content-generation/).
+
+:::
