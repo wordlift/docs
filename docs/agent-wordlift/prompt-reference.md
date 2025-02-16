@@ -191,30 +191,77 @@ Provide specific recommendations for improving conversion rates.
 
 ## 📈 Conversion Rate Optimization
 
-### Comprehensive CRO Analysis
+### Comprehensive SEO and CRO Analysis
 
 ```md className=wlx-send-to-agent
-Please analyze the following URL: [URL]
+**Task: Comprehensive HTML Extraction, SEO, and Conversion Optimization Analysis**
 
-Tasks:
-1. Extract and examine the full HTML content
-2. Analyze the page design, layout, and structure
-3. Provide conversion optimization recommendations
+1. **HTML & Metadata Extraction**
+   - **Retrieve Full HTML**:
+     - Extract the complete HTML content from the following URL, ensuring that all dynamic and lazy-loaded content is captured:
+       [https://wordlift.io/book-a-demo/](https://wordlift.io/book-a-demo/)
+   - **Metadata Extraction**:
+     - Extract meta tags (e.g., title, meta description, keywords) to assess SEO alignment.
+     - Identify canonical tags, viewport settings, and robots meta tags to ensure proper indexing and mobile responsiveness.
+   - **Structural Elements & Schema Markup**:
+     - Extract header tags (H1, H2, etc.) to evaluate content hierarchy.
+     - Identify any structured data (schema markup) for potential rich snippet opportunities.
+   - **Resource & Performance Analysis**:
+     - Evaluate external versus inline assets (scripts, CSS, images) to understand their impact on page load speed and overall performance.
+     - Identify any resources that might block rendering or affect mobile responsiveness.
 
-Key Analysis Points:
-- Visual Hierarchy: Evaluate prominence of important elements
-- CTA Placement: Assess visibility, appeal, and positioning of calls-to-action
-- Copywriting: Evaluate clarity and effectiveness of messaging
-- User Experience: Analyze navigation flow and user guidance
-- Trust Signals: Review presence of testimonials, certifications, and trust elements
+2. **On-Page SEO & Content Analysis**
+   - **Content Quality & Keyword Usage**:
+     - Assess keyword density, placement, and relevancy throughout the content.
+     - Evaluate readability factors such as sentence structure, paragraph length, and overall copy quality.
+   - **Link & Anchor Analysis**:
+     - Extract and analyze all internal and external links, including their anchor texts.
+     - Identify any broken or redundant links that could negatively impact SEO.
+   - **Technical SEO Checks**:
+     - Check for duplicate content and missing or broken elements (images, scripts, etc.).
+     - Review embedded scripts and comments for outdated code or potential performance issues.
+   - **Accessibility & Usability**:
+     - Verify the presence and quality of alt text for images and ARIA labels for improved accessibility.
 
-Required Deliverables:
-1. Critical review of strengths and weaknesses
-2. Step-by-step improvement recommendations focusing on:
-   - Lead generation optimization
-   - User engagement enhancement
-   - Conversion rate improvement
-   - Implementation of best practices
+3. **Design, UX, & Conversion Analysis**
+   - **Visual Hierarchy & Layout**:
+     - Examine whether the page design highlights key elements (e.g., product details, benefits) in a way that naturally guides user attention.
+   - **Call-to-Action (CTA) Evaluation**:
+     - Assess the placement, visibility, and effectiveness of CTAs to ensure they are compelling and well-positioned.
+   - **User Experience (UX)**:
+     - Analyze the navigational structure and overall user journey to determine if the page logically guides visitors toward conversion actions.
+   - **Trust Signals & Credibility**:
+     - Identify trust-building elements such as testimonials, certifications, reviews, or security badges that enhance user credibility.
+
+4. **Conversion Optimization Recommendations**
+   - **Actionable Recommendations**:
+     - Provide a prioritized, step-by-step list of improvements addressing technical SEO, design, and UX enhancements.
+     - Suggest optimizations for meta elements, header structures, link strategies, and resource loading.
+   - **Testing & Measurement**:
+     - Recommend A/B testing scenarios and tracking metrics to validate the impact of the proposed changes on user engagement and conversion rates.
+
+5. **Summary of Suggested Changes**
+   - **Prioritization Table**:
+     - Summarize all recommended changes in a table format, ranked from most to least important in terms of their potential impact on conversion rates.
+   - **Table Structure**:
+
+     | Recommendation/Change               | Priority Level (High/Med/Low) | Expected Impact on Conversions         | Notes                                  |
+     |-------------------------------------|-------------------------------|----------------------------------------|----------------------------------------|
+     | Improve CTA placement and design    | High                          | Significant increase in click-throughs | Test with A/B variations               |
+     | Optimize meta tags and header structure | High                          | Better organic ranking, more traffic   | Ensure keyword alignment               |
+     | Enhance page load speed             | High                          | Reduced bounce rate, higher engagement | Optimize external resources            |
+     | Add or improve trust signals (testimonials, certifications) | Medium                        | Increased user confidence, improved conversions | Include visual and textual elements  |
+     | Streamline content for clarity      | Medium                        | Better user understanding, improved conversion funnel | Revise copy for readability          |
+     | Fix broken links and improve internal linking | Low                           | Incremental SEO benefits                | Regular maintenance required           |
+
+**Deliverables**
+- A detailed critical review summarizing the page’s strengths and weaknesses across SEO, technical performance, content quality, design, UX, and conversion optimization.
+- A prioritized, step-by-step roadmap of actionable recommendations, supported by specific examples or benchmarks, based on current best practices.
+
+**Additional Considerations**
+- Ensure insights align with the latest SEO trends and guidelines.
+- Highlight any technical or design issues that could significantly impact user engagement, page speed, and organic search performance.
+- Use both qualitative and quantitative data to support recommendations.
 ```
 
 ## Tips for Using Prompts
