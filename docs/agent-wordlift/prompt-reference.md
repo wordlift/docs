@@ -199,7 +199,7 @@ Provide specific recommendations for improving conversion rates.
 1. **HTML & Metadata Extraction**
    - **Retrieve Full HTML**:
      - Extract the complete HTML content from the following URL, ensuring that all dynamic and lazy-loaded content is captured:
-       [https://wordlift.io/book-a-demo/](https://wordlift.io/book-a-demo/)
+       [URL]
    - **Metadata Extraction**:
      - Extract meta tags (e.g., title, meta description, keywords) to assess SEO alignment.
      - Identify canonical tags, viewport settings, and robots meta tags to ensure proper indexing and mobile responsiveness.
