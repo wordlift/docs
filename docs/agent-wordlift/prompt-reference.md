@@ -212,7 +212,7 @@ Provide specific recommendations for improving conversion rates.
 
 2. **On-Page SEO & Content Analysis**
    - **Content Quality & Keyword Usage**:
-     - Assess keyword density, placement, and relevancy throughout the content.
+     - Assess keyword placement and relevancy throughout the content.
      - Evaluate readability factors such as sentence structure, paragraph length, and overall copy quality.
    - **Link & Anchor Analysis**:
      - Extract and analyze all internal and external links, including their anchor texts.
