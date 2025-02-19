@@ -1,7 +1,7 @@
 ---
 title: Feed Specifications
 displayed_sidebar: product-knowledge-graph-builder
-sidebar_position: 20
+sidebar_position: 100
 ---
 
 Field separator: `\t`
