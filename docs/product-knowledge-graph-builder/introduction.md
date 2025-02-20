@@ -80,9 +80,26 @@ The update of [Product Knowledge Graph Builder](https://wordlift.io/seo-for-non-
 > **Behind the Scenes:**
 > These new features allow for greater flexibility and control. The modular design of our system ensures that updates and customizations are applied seamlessly without disrupting the overall data flow.
 
+### Advanced Integration
+
+For developers looking to customize their product data processing, we offer a powerful [webhooks integration](webhooks). This allows you to modify RDF data from the Merchant Center before it's committed to the Graph store, enabling advanced customization of your Product Knowledge Graph.
+
 ## IMPORTANT
 
 To ensure the proper implementation of structured data and Knowledge Graph, **it is crucial to effectively manage canonical links for products within the Google Merchant Center**. To gain a comprehensive understanding of how to accomplish this task, we highly recommend referring to Google's official documentation available at the [following link.](https://support.google.com/merchants/answer/9340054?hl=en)
 
 > **Behind the Scenes:**
 > Proper management of canonical links prevents duplicate content issues and helps Google correctly identify the master version of your product pages, ultimately boosting your SEO performance.
+
+## Azure Marketplace Integration
+
+> **For Azure Users:** The Product Knowledge Graph Builder is also available through the Azure Marketplace. If you're an Azure customer, you can activate and manage your Product Knowledge Graph directly through your Azure account for seamless integration with your existing infrastructure.
+
+To get started with the Azure Marketplace version:
+
+1. Visit the [Azure Marketplace](https://azuremarketplace.microsoft.com)
+2. Search for "WordLift Product KG Builder"
+3. Select your plan and activate the service
+4. Follow the standard setup process as described above
+
+The Azure Marketplace integration offers the same powerful features while leveraging your existing Azure infrastructure and billing.
