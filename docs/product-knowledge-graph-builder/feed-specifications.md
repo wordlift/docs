@@ -4,40 +4,53 @@ displayed_sidebar: product-knowledge-graph-builder
 sidebar_position: 100
 ---
 
-Field separator: `\t`
-Array separator: `,`
-To use comma not as a separator, encode it to `%2C`
+**Mapping Between Google Merchant Product Properties and Schema.org Properties**
 
-| Field                    | Required    | Schema.org Equivalent                                              | Description                                                                                                                                                                          |
-|--------------------------|-------------|--------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| offerId                  | required    | sku                                                                | The product sku                                                                                                                                                                      |
-| title                    | required    | name                                                               | The product name                                                                                                                                                                     |
-| description              | required    | description                                                        | The product description, html is allowed                                                                                                                                             |
-| link                     | required    | url                                                                | The product URL                                                                                                                                                                      |
-| imageLink                | required    | image                                                              | The product main image, must be one of these ratios: 1x1, 4x3 or 16x9. Minimum 1.600 pixels wide.                                                                                    |
-| availability             | required    | availability                                                       | Allowed values: InStock or in_stock, LimitedAvailability, OnlineOnly, Discontinued, InStoreOnly, OutOfStock or out_of_stock, SoldOut, PreOrder or preorder, PreSale, BackOrder or backorder. |
-| price_value              | required    | price                                                              | The price without currency and thousands separator. Use . (period) to separate decimals                                                                                              |
-| brand                    | recommended | brand                                                              | The brand name                                                                                                                                                                       |
-| price_currency           | required    | priceCurrency                                                      | The currency in 3 letters format (uppercase)                                                                                                                                         |
-| canonicalLink            | recommended | url                                                                | The product canonical page URL                                                                                                                                                       |
-| gtin                     | recommended | gtin (or gtin8, gtin12, gtin13, gtin14)                            | The GITN                                                                                                                                                                             |
-| condition                | recommended | itemCondition                                                      | Allowed values: NewCondition or new, RefurbishedCondition or refurbished, DamagedCondition, UsedCondition or used                                                                    |
-| additionalImageLinks     | recommended | image                                                              | Other product images and ratios. Try to provide at least three ratios: 1x1, 4x3 and 16x9. Use the \                                                                                  | (pipe) character to separate the image URLs                                             |
-| shipping0_price_value    | recommended | shippingRate.value                                                 | The price without currency and thousands separator. Use . (period) to separate decimals                                                                                              |
-| shipping0_price_currency | recommended | shippingRate.currency                                              | The currency in 3 letters format (uppercase)                                                                                                                                         |
-| shipping0_country        | recommended | shippingDestination.addressCountry                                 | 2 letters country code (uppercase)                                                                                                                                                   |
-| shippingWeight_value     | recommended | weight.value                                                       | The weight                                                                                                                                                                           |
-| shippingWeight_unit      | recommended | weight.unitText                                                    | The weight unit                                                                                                                                                                      |
-| id                       | no          | -                                                                  | The merchant id, if available                                                                                                                                                        |
-| source                   | no          | -                                                                  | The feed source                                                                                                                                                                      |
-| contentLanguage          | no          | -                                                                  | The content language (2 letters code, lowercase)                                                                                                                                     |
-| targetCountry            | no          | -                                                                  | The target country (2 letters code, uppercase).                                                                                                                                      |
-| feedLabel                | no          | -                                                                  | The feed name                                                                                                                                                                        |
-| channel                  | no          | -                                                                  | The target channel                                                                                                                                                                   |
-| googleProductCategory    | no          | -                                                                  | Google-defined product category for your product                                                                                                                                                                                     |
-| itemGroupId              | no          | inProductGroupWithID                                               | A parent SKU, required to group all variant products belonging to the same product group together                                                                                    |
-| Age group                | recommended | Product.audience.suggestedMinAge, Product.audience.suggestedMaxAge | The demographic for which your product is intended                                                                                                                                   |
-| Color                    | recommended | Product.color                                                      | Your product’s color(s)                                                                                                                                                                                    |
-| Gender                   | recommended | Product.audience.suggestedGender                                   | The gender for which your product is intended                                                                                                                                                                                     |
-| Material                 | recommended | Product.material                                                   | Your product’s fabric or material                                                                                                                                                                                     |
-| Product type             | recommended | no                                                                 | Product category that you define for your product                                                                                                                                                                                     |
+Customers and integrators can further enhance the Product graphs by using [webhooks](webhooks.md).
+
+| Google Merchant Product Property | Required | Schema.org Property | Description |
+|----------------------------------|----------|---------------------|-------------|
+| offerId                          | required | sku                 | The product SKU |
+| title                            | required | name                | The product name |
+| description                      | required | description         | The product description; HTML is allowed |
+| link                             | required | url                 | The product URL |
+| imageLink                        | required | image               | The main product image; must have a ratio of 1:1, 4:3, or 16:9 and be at least 1,600 pixels wide |
+| additionalImageLinks             | recommended | image              | Other product images; provide at least three ratios: 1:1, 4:3, and 16:9 |
+| availability                     | required | availability        | Allowed values: InStock, LimitedAvailability, OnlineOnly, Discontinued, InStoreOnly, OutOfStock, SoldOut, PreOrder, PreSale, BackOrder |
+| price_value                      | required | price               | The price without currency and thousands separator; use a period (.) to separate decimals |
+| price_currency                   | required | priceCurrency       | The currency in 3-letter uppercase format |
+| brand                            | recommended | brand              | The brand name |
+| canonicalLink                    | recommended | url                | The product's canonical page URL |
+| gtin                             | recommended | gtin (or gtin8, gtin12, gtin13, gtin14) | The Global Trade Item Number |
+| condition                        | recommended | itemCondition      | Allowed values: NewCondition, RefurbishedCondition, DamagedCondition, UsedCondition |
+| shipping0_price_value            | recommended | shippingRate.value | The shipping price without currency and thousands separator; use a period (.) to separate decimals |
+| shipping0_price_currency         | recommended | shippingRate.currency | The currency in 3-letter uppercase format |
+| shipping0_country                | recommended | shippingDestination.addressCountry | 2-letter uppercase country code |
+| shippingWeight_value             | recommended | weight.value       | The product weight |
+| shippingWeight_unit              | recommended | weight.unitText    | The weight unit |
+| id                               | optional  | -                   | The merchant ID, if available |
+| source                           | optional  | -                   | The feed source |
+| contentLanguage                  | optional  | -                   | The content language 2-letter lowercase code |
+| targetCountry                    | optional  | -                   | The target country 2-letter uppercase code |
+| feedLabel                        | optional  | -                   | The feed name |
+| channel                          | optional  | -                   | The target channel |
+| googleProductCategory            | optional  | -                   | Google-defined product category |
+| itemGroupId                      | optional  | inProductGroupWithID | A parent SKU to group variant products |
+| age_group                        | recommended | audience.suggestedMinAge, audience.suggestedMaxAge | The intended demographic age range |
+| gender                           | recommended | audience.suggestedGender | The intended gender |
+| color                            | recommended | color              | The product's color(s) |
+| material                         | recommended | material           | The product's fabric or material |
+| product_type                     | recommended | -                   | The product category defined by you |
+
+**Recent Updates:**
+- **Newly Added Properties:**
+  - `additionalImageLinks` → `image` Additional images for the product, supports multiple image URLs
+  - `canonicalLink` → `url` The canonical URL of the product, ensuring search engines reference the correct page
+  - `itemGroupId` → `inProductGroupWithID` Used to group product variants under a common identifier
+  - `age_group` → `audience.suggestedMinAge, audience.suggestedMaxAge` Defines the intended audience age range: `newborn` 0.0-0.25 years, `infant` 0.25-1.0 years, `toddler` 1.0-5.0 years, `kids` 5.0-13.0 years, `adult` 13.0+ years
+  - `gender` → `audience.suggestedGender` Specifies the gender targeting: `Female`, `Male`, `Unisex`
+  - `shipping0_price_value` → `shippingRate.value` Specifies the shipping cost, using a decimal format
+  - `shipping0_price_currency` → `shippingRate.currency` The currency of the shipping cost in 3-letter uppercase format
+  - `shipping0_country` → `shippingDestination.addressCountry` Indicates the shipping destination using a 2-letter country code
+  - `color` → `color` Defines the color of the product as described by the merchant
+  - `material` → `material` Indicates the fabric or material composition of the product
