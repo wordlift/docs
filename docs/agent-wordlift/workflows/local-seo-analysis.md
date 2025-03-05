@@ -46,7 +46,8 @@ The Agent will return:
 Track your business's position in both Local Pack and organic search results for important keywords:
 
 ```md className=wlx-send-to-agent
-Track the rankings of "Little Owl Coffee" for "coffee shop nearby" in "Denver,Colorado,United States"```
+Track the rankings of "Little Owl Coffee" for "coffee shop nearby" in "Denver,Colorado,United States"
+```
 
 This analysis reveals:
 
@@ -94,7 +95,8 @@ This comprehensive approach delivers a detailed report with actionable insights 
 Compare your business against local competitors to identify strengths, weaknesses, and opportunities:
 
 ```md className=wlx-send-to-agent
-Compare "Mountain View Cafe" with competitors "Little Owl Coffee" and "Mile High Brews" in "Denver,Colorado,United States". Analyze their Google Business Profiles, track their rankings for "coffee shops", and identify competitive advantages.```
+Compare "Mountain View Cafe" with competitors "Little Owl Coffee" and "Mile High Brews" in "Denver,Colorado,United States". Analyze their Google Business Profiles, track their rankings for "coffee shops", and identify competitive advantages.
+```
 
 This analysis helps you understand:
 
