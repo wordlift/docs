@@ -174,9 +174,10 @@ Compare the same business across different locations:
 
 ```md
 Compare the Google Business Profiles and local rankings for:
-1. Starbucks in "Seattle,Washington,United States"
-2. Starbucks in "New York,New York,United States"
-3. Starbucks in "Chicago,Illinois,United States"
+
+1. Holland & Barrett in "London, England, United Kingdom "
+2. Holland & Barrett in "Manchester, England, United Kingdom "
+
 Highlight key differences and location-specific factors.
 ```
 
