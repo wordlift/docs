@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info Version Notice
-Latest Release: 3.6.0 (February 2025) - Now with enhanced support for Reddit content research and social media workflows!
+Latest Release: 3.6.1 (March 2025) - Now with enhanced support for Local SEO workflows!
 :::
 
 # 🤖 Welcome to Agent WordLift - Your Marketing & AI SEO Agent
@@ -85,6 +85,7 @@ Based on the provided workflows and prompt library, I'll help you revise the Qui
 * [Keyword Research](./workflows/keyword-discovery.md)
 * [Reddit Content Research](./workflows/research-content-ideas.md)
 * [Newsletter Ideas](./workflows/ideas-for-newsletters.md)
+* [Local SEO Analysis](./workflows/local-seo-analysis.md)
 
 </div>
 <div className="col col--6">
