@@ -264,6 +264,57 @@ Provide specific recommendations for improving conversion rates.
 - Use both qualitative and quantitative data to support recommendations.
 ```
 
+Here's a section to add to your prompt-reference.md file. This should be placed alongside your other specialized prompt categories:
+
+## 🏪 Local SEO
+
+### Analyze Business Profile
+
+```md className=wlx-send-to-agent
+Analyze the Google Business Profile for "[business name]" in "[City,State,Country]". Identify strengths, weaknesses, and opportunities for optimization.
+```
+
+### Research Local Pack Results
+
+```md className=wlx-send-to-agent
+Show me the Local Pack results for "[keyword]" in "[City,State,Country]". Analyze what factors might be helping these businesses rank in the Local Pack.
+```
+
+### Track Business Rankings
+
+```md className=wlx-send-to-agent
+Track the rankings of "[business name]" for "[keyword]" in "[City,State,Country]".
+```
+
+### Analyze Customer Q&A
+
+```md className=wlx-send-to-agent
+Analyze questions and answers for "[business name]" in "[City,State,Country]". Identify common themes, response patterns, and opportunities for better engagement.
+```
+
+### Comprehensive Local SEO Audit
+
+```md className=wlx-send-to-agent
+Conduct a complete local SEO audit for "[business name]" in "[City,State,Country]":
+1. Analyze their Google Business Profile
+2. Track their rankings for "[primary keyword]" and "[secondary keyword]"
+3. Examine the Local Pack for their main category
+4. Review their customer Q&A
+5. Provide actionable recommendations for improvement
+```
+
+### Compare with Competitors
+
+```md className=wlx-send-to-agent
+Compare the Google Business Profile for "[my business]" with competitors "[competitor 1]" and "[competitor 2]" in "[City,State,Country]". Highlight key differences and competitive advantages.
+```
+
+### Local Business Visibility Strategy
+
+```md className=wlx-send-to-agent
+Create a comprehensive strategy to help "[business name]" in "[City,State,Country]" improve local search visibility for "[target keyword]". Include profile optimization, review management, and Q&A engagement tactics.
+```
+
 ## Tips for Using Prompts
 
 1. **Be Specific**: Include exact URLs, keywords, or text you want to analyze
