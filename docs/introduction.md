@@ -70,7 +70,7 @@ Remember the LEGO® analogy? Here's what happens behind the scenes:
 You love APIs, code, and building things? We've got:
 
 - [API Reference](/category/api) for custom development
-- [GraphQL API](/api/graphql) for flexible queries
+- [GraphQL API](/api/graphql/graphql-support/) for flexible queries
 - Custom integrations and enterprise solutions
 
 ### 📝 Content Teams
