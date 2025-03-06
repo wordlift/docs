@@ -188,6 +188,21 @@ pip install wordlift-client  # It's that simple!
 
 Then [grab your API key](https://wordlift.io/pricing/)
 
+You can also jumpstart a Knowledge Graph using our [getting-started-notebook](https://github.com/wordlift/getting-started-notebook):
+
+```bash
+# Clone the repository
+git clone https://github.com/wordlift/getting-started-notebook.git
+cd getting-started-notebook
+
+# Install dependencies using Poetry
+poetry install
+
+# Configure with your WordLift Key and sitemap URL
+# Then run the notebook
+jupyter notebook getting_started_notebook.ipynb
+```
+
 ### 🤝 Enterprise Setup
 
 [Let's talk!](https://wordlift.io/demo) We'll create a custom plan for you.
