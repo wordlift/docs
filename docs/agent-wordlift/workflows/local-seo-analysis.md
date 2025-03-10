@@ -7,6 +7,19 @@ sidebar_position: 20
 
 Local SEO is critical for businesses that serve specific geographic areas. This workflow demonstrates how to use **Agent WordLift's Local SEO tools** to analyze and optimize your business's local search presence. For more background on local SEO strategies, read our comprehensive guide: [Optimizing Local SEO - How to Create Winning Strategies](https://wordlift.io/blog/en/optimizing-local-seo/).
 
+## Watch the Workflow in Action
+
+Learn how to effectively transform your local search performance with Agent WordLift:
+
+<iframe
+  width="100%"
+  height="500"
+  src="https://www.youtube.com/embed/RfhTZOKT7PE"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen>
+</iframe>
+
 ## Business Profile Analysis
 
 Start by analyzing your Google Business Profile to understand its current state and identify optimization opportunities.
