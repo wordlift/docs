@@ -124,6 +124,10 @@ const config = {
                 label: "Knowledge Graph / KG-REST",
                 to: "knowledge-graph/kg-rest",
               },
+              {
+                label: "Knowledge Graph / Multilingual Graphs",
+                to: "knowledge-graph/multilingual",
+              },
               { label: "Smart Content / AI SEO Agent", to: "agent-wordlift" },
               {
                 label: "Smart Content / Content Generation",
