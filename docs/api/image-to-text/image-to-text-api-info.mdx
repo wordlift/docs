@@ -1,0 +1,37 @@
+---
+id: wordlift-image-to-text-api
+title: "WordLift Image-to-Text API"
+description: "API for converting images into text descriptions. This service allows you to extract textual descriptions from images using AI."
+sidebar_label: Introduction
+sidebar_position: 0
+hide_title: true
+custom_edit_url: null
+---
+
+import ApiLogo from "@theme/ApiLogo";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+import Export from "@theme/ApiDemoPanel/Export";
+
+<span className={"theme-doc-version-badge badge badge--secondary"}>Version: 1.0.0</span>
+
+# WordLift Image-to-Text API
+
+API for converting images into text descriptions. This service allows you to extract textual descriptions from images using AI.
+
+<div style={{"marginBottom":"2rem"}}><h2 id={"authentication"} style={{"marginBottom":"1rem"}}>Authentication</h2><SchemaTabs className={"openapi-tabs__security-schemes"}><TabItem label={"API Key: ApiKeyAuth"} value={"ApiKeyAuth"}><div><table><tbody><tr><th>Security Scheme Type:</th><td>apiKey</td></tr><tr><th>Header parameter name:</th><td>Authorization</td></tr></tbody></table></div></TabItem></SchemaTabs></div>
+
+## Basic Usage
+
+The Image-to-Text API allows you to convert images into descriptive text. Here's a basic example:
+
+```bash
+curl --request POST \
+  --url https://api.wordlift.io/image-2-text-v1 \
+  --header 'Authorization: Key YOUR_API_KEY' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "image_url": "https://example.com/path/to/image.jpg",
+    "prompt_type": "Other",
+    "custom_prompt": "Generate concise and descriptive text for the image"
+}'
