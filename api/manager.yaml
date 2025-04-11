@@ -26,6 +26,8 @@ tags:
   name: Sitemap Imports
 - description: Manage Google Merchants
   name: Google Merchants
+- description: Data about performed search analytics synchronizations to the KG
+  name: Analytics syncs
 - description: Manage Platform Consumptions
   name: Platform Consumptions
 - description: Get answers to questions.
@@ -482,6 +484,76 @@ paths:
       summary: Create
       tags:
       - Analytics Imports
+  /analytics-syncs:
+    get:
+      description: Retrieve the analytics syncs
+      operationId: listAnalyticsSyncs
+      parameters:
+      - in: query
+        name: account_ids
+        required: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+      - in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+          enum:
+          - MOST_RECENT
+      - in: query
+        name: group_by
+        required: false
+        schema:
+          type: string
+          enum:
+          - ACCOUNT_ID
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AnalyticsSync'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AnalyticsSync'
+          description: Bad Request
+      security:
+      - OAuth2: []
+      summary: List
+      tags:
+      - Analytics syncs
+    post:
+      description: Create and run analytics sync
+      operationId: createAnalyticsSync
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnalyticsSyncRequest'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalyticsSync'
+          description: Created
+      security:
+      - OAuth2: []
+      summary: Create
+      tags:
+      - Analytics syncs
   /botify-crawl-imports:
     post:
       description: Create a Botify Crawl Import
@@ -1740,6 +1812,8 @@ components:
           deprecated: true
         datasetUri:
           type: string
+        default_data_formatter:
+          type: string
         domainUri:
           type: string
         google_search_console_site_url:
@@ -1779,6 +1853,10 @@ components:
           format: int64
           description: The Account Id
           readOnly: true
+        country_code:
+          type: string
+          description: The country code
+          readOnly: true
         datasetId:
           type: string
           description: The Dataset Id
@@ -1786,6 +1864,11 @@ components:
         datasetUri:
           type: string
           description: The dataset URI
+          readOnly: true
+        defaultDataFormatter:
+          type: string
+          description: The default data formatter used by the account to format the
+            JSON+LD of the data from the KG.
           readOnly: true
         features:
           type: object
@@ -1969,6 +2052,71 @@ components:
             type: string
             description: An array of URLs.
           uniqueItems: true
+    AnalyticsSync:
+      type: object
+      properties:
+        account_id:
+          type: integer
+          format: int64
+          description: The Account identifier
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          description: The creation date-time.
+          readOnly: true
+        id:
+          type: string
+          format: uuid
+          description: The resource identifier
+          readOnly: true
+        queries_retrieved:
+          type: integer
+          format: int64
+          description: Total number of queries retrieved by the analytics provider.
+          readOnly: true
+        retrievable_urls:
+          type: integer
+          format: int32
+          description: Number of URLs processable by the analytics provider based
+            on the Account URL.
+          readOnly: true
+        started_at:
+          type: string
+          format: date-time
+          description: The started date-time.
+          readOnly: true
+        status:
+          type: string
+          description: Status of the sync process.
+          enum:
+          - SCHEDULED
+          - SYNCING
+          - COMPLETED
+          - ERROR
+          - CANCELLED
+          readOnly: true
+        stopped_at:
+          type: string
+          format: date-time
+          description: The stopped date-time.
+          readOnly: true
+        total_entities_updated:
+          type: integer
+          format: int32
+          description: Number of unique entities updated with analytics by this sync.
+          readOnly: true
+        urls_in_dataset:
+          type: integer
+          format: int32
+          description: Number of total URLs retrieved from dataset entities
+          readOnly: true
+    AnalyticsSyncRequest:
+      type: object
+      properties:
+        account_id:
+          type: integer
+          format: int64
     AnchorText:
       type: object
       description: The Anchor Text request.
@@ -1987,7 +2135,7 @@ components:
           description: "The maximum anchor text length, by default 15 characters."
         model:
           type: string
-          default: gpt-4
+          default: gpt-4o
           description: The model to use.
         prompt_template:
           type: string
