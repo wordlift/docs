@@ -216,6 +216,11 @@ const sidebars = {
         },
         {
           type: "category",
+          label: "Content Evaluations",
+          items: require("./docs/api/content-evaluations/sidebar.js"),
+        },
+        {
+          type: "category",
           label: "Fact Check",
           items: require("./docs/api/fact-check/sidebar.js"),
         },
@@ -258,11 +263,6 @@ const sidebars = {
           type: "category",
           label: "Sitemap Generator",
           items: require("./docs/api/sitemap-generator/sidebar.js"),
-        },
-        {
-          type: "category",
-          label: "SEO Score",
-          items: require("./docs/api/seo-score/sidebar.js"),
         },
       ],
     },
