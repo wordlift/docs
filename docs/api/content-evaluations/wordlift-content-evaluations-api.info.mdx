@@ -33,6 +33,13 @@ curl --request POST \
   --header 'Authorization: Key YOUR_API_KEY' \
   --header 'Content-Type: application/json' \
   --data '{
-    "text": "Your text content goes here..."
+    "text": "Your text content goes here...",
+    "keywords": ["keyword1", "keyword2"]
 }'
 ```
+
+The API evaluates your content and returns detailed quality metrics including:
+- Overall quality score
+- Content assessment (purpose, accuracy, depth)
+- Readability metrics
+- SEO analysis with keyword density and entity recognition
