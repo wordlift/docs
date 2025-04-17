@@ -16,7 +16,7 @@ To ensure your webpage aligns perfectly with the intended search query, follow t
 Start by pinpointing the exact query you aim to target. Understand the intent behind the search - is it informational, navigational, transactional, or investigational? You can try a prompt like the one below:
 
 ```md className=wlx-send-to-agent
-analyze the SEO score for the keyword 'Future-Proof Your Content From Google Core Updates' in relation to the content on 'https://wordlift.io/blog/en/google-core-update-ai-interview/' the intent is to gain information on how to improve existing content.
+evaluate the content quality for the keyword 'Future-Proof Your Content From Google Core Updates' in relation to the content on 'https://wordlift.io/blog/en/google-core-update-ai-interview/' the intent is to gain information on how to improve existing content.
 ```
 
 With this prompt, we define the **query**, the **url** as well as the narrative behind the searcher's intent.
@@ -42,7 +42,7 @@ Can you help me improve and expand the blog post to match the query?
 Of course you can. Here is the prompt:
 
 ```md className=wlx-send-to-agent
-analyze the SEO score for the keyword 'Future-Proof Your Content From Google AI Core Updates' in relation to the content on 'https://wordlift.io/blog/en/google-core-update-ai-interview/' the intent is to gain information on how to improve content. After that help me improve and expand the blog post accordingly.
+evaluate the content quality for the keyword 'Future-Proof Your Content From Google AI Core Updates' in relation to the content on 'https://wordlift.io/blog/en/google-core-update-ai-interview/' the intent is to gain information on how to improve content. After that help me improve and expand the blog post accordingly.
 ```
 
 ### Here is the result
@@ -53,6 +53,6 @@ analyze the SEO score for the keyword 'Future-Proof Your Content From Google AI 
 
 The [Content Evaluations API](https://docs.wordlift.io/api/content-evaluations/wordlift-content-evaluations-api/) powering this workflow provides a comprehensive assessment of your content quality, readability, and SEO performance. This advanced tool evaluates multiple dimensions including content purpose, accuracy, depth, readability metrics, and search optimization factors to provide actionable insights for improvement.
 
-The tool visualizes your content's performance through a radar chart that displays scores across key metrics, making it easy to identify areas for enhancement. By focusing on these metrics, you can create more relevant, engaging, and search-optimized content that better addresses your audience's needs.
+The tool visualizes your content's performance through a radar chart that displays scores across key metrics, making it easy to identify areas for enhancement. By focusing on these metrics, you can create more relevant, engaging, and search-optimized content that better addresses your audience's needs. Read more about [Content Quality Evaluation](./content-evaluation.md) for a comprehensive guide to this feature.
 
 :::
