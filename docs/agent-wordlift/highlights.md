@@ -22,7 +22,7 @@ This unique approach leads to:
 
 ## Comprehensive Features, Simplified
 
-- **Go beyond basic SEO:** Gain a holistic understanding with features like Entity Gap Analysis and SEO Score Analysis.
+- **Go beyond basic SEO:** Gain a holistic understanding with features like Entity Gap Analysis and Content Quality Evaluation.
 - **Effortless content creation:** Generate fresh, relevant content with Content Creation, Content Recycling, & Idea Generation.
 - **Fact-checking for trust:** Ensure content accuracy and build trust with the built-in Fact-Checking tool.
 

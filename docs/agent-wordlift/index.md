@@ -92,6 +92,7 @@ Based on the provided workflows and prompt library, I'll help you revise the Qui
 
 #### Content Optimization
 
+* [Content Quality Evaluation](./workflows/content-evaluation.md)
 * [Query Match Analysis](./workflows/analyzing-query-match.md)
 * [Internal Linking](./workflows/create-internal-links.md)
 * [Authorship Markup](./workflows/adding-authorship-markup.md)

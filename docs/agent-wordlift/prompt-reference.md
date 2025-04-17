@@ -79,10 +79,10 @@ search the site and generate an SEO-optimized meta title and meta description fo
 perform an entity gap analysis for '[URL]' against the query '[query]'
 ```
 
-### SEO Score Analysis
+### Content Evaluation
 
 ```md className=wlx-send-to-agent
-analyze the SEO score for the keyword '[keyword]' in relation to the content on '[URL]'
+evaluate the content quality for the keyword '[keyword]' in relation to the content on '[URL]'
 ```
 
 ### Generate Diagram
