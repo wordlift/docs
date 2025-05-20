@@ -46,3 +46,66 @@ Key Features of the `/ask` Endpoint:
 With the `/ask` endpoint, you can create a chatbot-like feature within your application that provides instant SEO advice, content suggestions, or answers to technical queries based on the WordLift Agent’s expertise.
 
 To get started, check out the [WordLift Agent API documentation](https://docs.wordlift.io/api/agent/wordlift-agent-api/) and explore how the `/ask` endpoint can revolutionize your SEO strategy!
+
+## Agent WordLift Model Context Protocol (MCP) Integration
+
+Your preferred AI models and agents can use our official MCP server to access your Knowledge Graph and leverage Agent WordLift in a simple and secure way.
+
+Connect WordLift to various AI assistants through our **experimental Model Context Protocol (MCP) integration**. This integration enables AI models like Claude to directly interact with your content and knowledge graph, unlocking powerful new workflows.
+
+Our MCP server is reachable at `https://mcp.wordlift.io/sse` and currently supports:
+- Direct calls to Agent WordLift's capabilities
+- Execution of GraphQL queries on your knowledge graph
+- Seamless integration with supported AI assistants
+
+Watch how Claude, integrated with WordLift via Model Context Protocol, analyzes the WordLift Blog to uncover actionable insights around the "Agentic SEO" content cluster:
+
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/6dz_-LbP3eQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+### Setup Instructions
+
+**For Claude:**
+1. Navigate to Settings in Claude
+2. Scroll to Integrations at the bottom and click Add more
+3. In the prompt, enter:
+   - Integration name: WordLift
+   - Integration URL: https://mcp.wordlift.io/sse
+4. Make sure to enable the tools in any new chats
+
+**For Cursor:**
+1. Press CTRL/CMD+Shift+J to open Cursor Settings
+2. Select MCP
+3. Select Add new global MCP server
+4. Add the following configuration:
+```json
+{
+  "mcpServers": {
+    "wordlift": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.wordlift.io/sse"]
+    }
+  }
+}
+```
+
+**For Visual Studio:**
+1. Press CTRL/CMD+P and search for "MCP: Add Server"
+2. Select "Command (stdio)"
+3. Enter the following configuration and hit enter:
+   ```
+   npx mcp-remote https://mcp.wordlift.io/sse
+   ```
+4. Enter the name "WordLift" and hit enter
+5. Activate the server using "MCP: List Servers", selecting "WordLift", and selecting "Start Server"
+
+**For Windsurf:**
+1. Press CTRL/CMD+, to open Windsurf settings
+2. Under Cascade -> MCP servers
+3. Select Add Server -> Add custom server
+4. Add the same JSON configuration as shown above for Cursor
+
+This experimental integration opens up new possibilities by combining the reasoning capabilities of large language models with WordLift's structured knowledge and SEO expertise. From identifying content gaps to suggesting improvements, this integration showcases how symbolic AI and LLMs can work together to power the next generation of marketing strategies.
+
+:::note
+The MCP integration is **currently experimental** and we're actively expanding its capabilities. If you have questions or feedback, please reach out to our support team.
+:::
