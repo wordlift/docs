@@ -51,6 +51,12 @@ To start using the GSC integration:
 2. Complete the authentication flow in your browser
 3. Begin querying your search data with natural language prompts
 
+Below is a demonstration of the first-time activation process:
+
+![Google Search Console Activation Process](../images/agent-wordlift-gsc-activation.gif)
+
+*The animation shows the step-by-step process to connect WordLift Agent with Google Search Console through the authentication flow.*
+
 ## Example Prompts
 
 Here are some example prompts to help you get started with the Google Search Console integration:
