@@ -85,6 +85,24 @@ perform an entity gap analysis for '[URL]' against the query '[query]'
 evaluate the content quality for the keyword '[keyword]' in relation to the content on '[URL]'
 ```
 
+### Google Search Console Analysis
+
+```md className=wlx-send-to-agent
+show me the top 10 queries that have high impressions but low CTR over the last 30 days
+```
+
+### Performance Comparison
+
+```md className=wlx-send-to-agent
+analyze my Google Search Console data and compare desktop vs. mobile performance for my top 20 landing pages in the last 14 days
+```
+
+### Opportunity Discovery
+
+```md className=wlx-send-to-agent
+identify new keyword opportunities from my Google Search Console data where I'm ranking on page 2 (positions 11-20)
+```
+
 ### Generate Diagram
 
 ```md className=wlx-send-to-agent
