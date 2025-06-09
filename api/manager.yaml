@@ -4088,6 +4088,9 @@ components:
       properties:
         embedding:
           $ref: '#/components/schemas/EmbeddingRequest'
+        id:
+          type: string
+          description: The Web Page id (or iri) in Graph when available.
         id_generator:
           type: string
           default: default
@@ -4114,11 +4117,15 @@ components:
       type: object
       description: Web Page Import Response
       properties:
+        id:
+          type: string
+          description: The id/iri of the web page in the Graph.
         model:
           type: string
         web_page:
           $ref: '#/components/schemas/WebPage'
       required:
+      - id
       - model
       - web_page
     Website:
