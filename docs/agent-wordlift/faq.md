@@ -84,21 +84,21 @@ The most powerful aspect of an AI SEO agent is its ability to **continuously lea
 
 [AI SEO agents](https://wordlift.io/agent/) revolutionize keyword research by providing **intelligent discovery and analysis that goes far beyond traditional keyword tools**. With Agent WordLift, keyword research becomes more efficient, strategic, and actionable in several ways:
 
-- **Intelligent traffic drop identification**: Agent WordLift can instantly identify significant traffic drops in Google Search Console data, correlate these with SERP changes, and analyze the impact of AI Overview appearances on your keywords. As shown in the attached image, this intelligent reporting takes just 3 hours of work down to 5 minutes.
+- **Intelligent traffic drop identification**: Agent WordLift can instantly identify significant traffic drops in Google Search Console data, correlate these with SERP changes, and analyze the impact of AI Overview appearances on your keywords. As shown in the attached image, this intelligent reporting takes just 3 hours of work down to 5 minutes. Learn more about [Google Search Console Integration](./workflows/google-search-console.md).
 
-- **Semantic keyword clustering**: Rather than providing isolated keywords, Agent WordLift identifies meaningful relationships between search terms, grouping them by user intent and topical relevance. This helps create content that comprehensively addresses all aspects of a topic.
+- **Semantic keyword clustering**: Rather than providing isolated keywords, Agent WordLift identifies meaningful relationships between search terms, grouping them by user intent and topical relevance. This helps create content that comprehensively addresses all aspects of a topic. Explore our [Keyword Discovery workflow](./workflows/keyword-discovery.md) for detailed guidance.
 
-- **Competitive gap analysis**: The agent analyzes competitor content to discover valuable keyword opportunities you might be missing, providing actionable insights for content creation.
+- **Competitive gap analysis**: The agent analyzes competitor content to discover valuable keyword opportunities you might be missing, providing actionable insights for content creation. Check out our [Keyword Cannibalization workflow](./workflows/keyword-cannibalization.md) to prevent overlap issues.
 
-- **Search intent mapping**: Agent WordLift interprets the underlying intent behind keywords, distinguishing between informational, navigational, commercial, and transactional queries to better align content with user needs.
+- **Search intent mapping**: Agent WordLift interprets the underlying intent behind keywords, distinguishing between informational, navigational, commercial, and transactional queries to better align content with user needs. See how to implement this in our [Query Match Analysis workflow](./workflows/analyzing-query-match.md).
 
-- **Real-time SERP analysis**: The system monitors how search results are changing for your target keywords, including the detection of when AI Overviews appear for your keywords and quantification of potential click loss impact. As highlighted in the image, this AI Overview detection has transformed 2 hours of analysis into just 30 seconds.
+- **Real-time SERP analysis**: The system monitors how search results are changing for your target keywords, including the detection of when AI Overviews appear for your keywords and quantification of potential click loss impact. As highlighted in the image, this AI Overview detection has transformed 2 hours of analysis into just 30 seconds. Get started with [Google Search Console Integration](./workflows/google-search-console.md).
 
-- **Trend forecasting**: Using historical data and machine learning, Agent WordLift predicts emerging keyword trends before they become highly competitive, giving you a first-mover advantage.
+- **Trend forecasting**: Using historical data and machine learning, Agent WordLift predicts emerging keyword trends before they become highly competitive, giving you a first-mover advantage. Discover more in our [Keyword Discovery workflow](./workflows/keyword-discovery.md).
 
-- **Content opportunity identification**: The agent identifies gaps in your existing content and recommends specific keywords and topics to target based on their potential ROI.
+- **Content opportunity identification**: The agent identifies gaps in your existing content and recommends specific keywords and topics to target based on their potential ROI. Learn how to leverage this with our [Content Quality Evaluation workflow](./workflows/content-evaluation.md).
 
-By leveraging these capabilities, [Agent WordLift](https://wordlift.io/agent/) makes keyword research not just faster but significantly more effective, helping you discover and target the most valuable search opportunities for your specific business needs.
+By leveraging these capabilities, [Agent WordLift](https://wordlift.io/agent/) makes keyword research not just faster but significantly more effective, helping you discover and target the most valuable search opportunities for your specific business needs. For a complete overview of all available workflows, visit our [Workflows section](./workflows.md).
 
 ## What are the benefits of using an AI SEO agent for website optimization?
 
