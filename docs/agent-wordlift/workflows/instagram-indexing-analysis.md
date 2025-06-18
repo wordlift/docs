@@ -11,8 +11,6 @@ This workflow leverages Agent WordLift as a specialized SEO sub-agent through th
 
 With Instagram switching from "part-indexed" to "fully indexable" in Google Search on July 10, 2025, every reel, carousel, and highlight can become a valuable search asset. This workflow helps you analyze how well your Instagram content aligns with your website content and organic search rankings.
 
-![Instagram Indexing Analysis Workflow](../images/instagram-indexing-analysis.png)
-
 ## Why This Matters
 
 With **AI Overviews reducing organic CTR by 34–37%**, social media indexing becomes critical for visibility. Instagram accounts are already ranking above medical directories for competitive terms even before the July 10th switch.
