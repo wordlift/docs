@@ -153,7 +153,36 @@ analyze the markup of the page at [URL], focusing on the JSON-LD. Provide a brie
 6. Write recommendations for improvement
 ```
 
-## 🔗 Internal Linking
+## � AI Sub-Agent Workflows
+
+### Instagram Indexing Analysis
+
+```md className=wlx-send-to-agent
+Generate a comprehensive Instagram indexing report for @[instagram_handle]. Please analyze my website's entity structure, audit Instagram content indexing using search operators, and provide content alignment recommendations.
+```
+
+### Instagram Content Audit
+
+```md className=wlx-send-to-agent
+Using search operators, audit my Instagram presence:
+1. site:instagram.com/[handle] - total indexed posts
+2. site:instagram.com/[handle] "[keyword]" - topic-specific visibility
+3. Compare findings with my website's content coverage
+```
+
+### Cross-Platform Content Strategy
+
+```md className=wlx-send-to-agent
+Analyze content alignment between my website and Instagram account @[handle]. Identify entities that are well-covered on Instagram but missing from my website, and suggest content opportunities for both platforms.
+```
+
+### Instagram SERP Monitoring
+
+```md className=wlx-send-to-agent
+Set up monitoring for key search queries where my Instagram content @[handle] could rank. Compare current visibility against main website pages and identify optimization opportunities.
+```
+
+## �🔗 Internal Linking
 
 ### Create Internal Links
 

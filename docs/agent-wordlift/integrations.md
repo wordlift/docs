@@ -106,6 +106,9 @@ Watch how Claude, integrated with WordLift via Model Context Protocol, analyzes 
 
 This experimental integration opens up new possibilities by combining the reasoning capabilities of large language models with WordLift's structured knowledge and SEO expertise. From identifying content gaps to suggesting improvements, this integration showcases how symbolic AI and LLMs can work together to power the next generation of marketing strategies.
 
+**🚀 New: AI Sub-Agent Workflows**
+The MCP integration enables a new category of workflows where Agent WordLift operates as a specialized SEO sub-agent within other AI platforms. These workflows leverage the conversational capabilities of Claude, ChatGPT, Copilot, or Gemini while providing deep SEO expertise through WordLift. Explore our [Instagram Indexing Analysis workflow](./workflows/instagram-indexing-analysis.md) to see this in action.
+
 :::note
 The MCP integration is **currently experimental** and we're actively expanding its capabilities. If you have questions or feedback, please reach out to our support team.
 :::
