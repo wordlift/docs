@@ -1,9 +1,33 @@
 ---
-title: Instagram Indexing Analysis
+title: Instag## How Agent WordLift Works in This Analysis
+
+Agent WordLift automatically uses multiple sophisticated tools to provide comprehensive Instagram indexing analysis that goes far beyond basic social media analytics:
+
+- **Google Search Console Integration** – Pulls real performance data from your website with 2025 search trends
+- **Live SERP Analysis** – Conducts real-time visibility checks showing exact rankings (e.g., "#3 for brand terms")
+- **Google Trends Analysis** – Identifies search spikes and correlates them with content performance (e.g., "100/100 trend spike in May 2025")
+- **Entity Gap Analysis** – Compares content themes between Instagram and website with precision scoring
+- **Advanced Search Operators** – Automatically runs complex queries to audit Instagram exposure across multiple dimensions
+- **Competitive Intelligence** – Benchmarks your visibility against medical authorities and industry competitors
+- **Emerging Keyword Discovery** – Identifies new trending terms like "chad aesthetic" and "chirurgia estetica mandibola"
+- **Cross-Platform Correlation** – Shows how content performance connects across Instagram, website, and search behavior
+
+### What Makes This Analysis Unique
+
+Unlike traditional social media analytics, this workflow provides **verified search performance data** showing exactly how Instagram content performs in Google's organic search results, with insights like:
+
+- Instagram ranking #3 for "ortognatica roma" (above Facebook and YouTube)
+- Instagram ranking #5 for competitive medical terms like "chirurgia ortognatica roma"
+- Correlation between May 2025 search spikes and Instagram content effectiveness
+- 92% content alignment scores between website strategy and indexed social contentng Analysis
 sidebar_position: 8
 ---
 
 # Instagram Indexing Analysis (AI Sub-Agent Workflow)
+
+Watch the complete workflow demonstration:
+
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/qPzidYw0ITA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 :::info MCP-Powered Workflow
 This workflow leverages Agent WordLift as a specialized SEO sub-agent through the [Model Context Protocol (MCP) integration](../integrations.md#agent-wordlift-model-context-protocol-mcp-integration). Agent WordLift provides deep SEO expertise while working seamlessly within Claude, ChatGPT, Copilot, or Gemini.
@@ -11,61 +35,26 @@ This workflow leverages Agent WordLift as a specialized SEO sub-agent through th
 
 With Instagram switching from "part-indexed" to "fully indexable" in Google Search on July 10, 2025, every reel, carousel, and highlight can become a valuable search asset. This workflow helps you analyze how well your Instagram content aligns with your website content and organic search rankings.
 
-Watch the complete workflow demonstration:
+## How Agent WordLift Works in This Analysis
 
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/qPzidYw0ITA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+Agent WordLift automatically uses multiple sophisticated tools to provide comprehensive Instagram indexing analysis:
+
+- **Google Search Console Integration** – Pulls real performance data from your website
+- **Live SERP Analysis** – Conducts real-time visibility checks using verified rankings
+- **Google Trends Analysis** – Validates topics using trending data from Jan–June 2025
+- **Entity Gap Analysis** – Compares content themes between Instagram and website
+- **Search Operators** – Automatically runs advanced search queries to audit Instagram exposure
+- **Competitive Intelligence** – Benchmarks your visibility across platforms
 
 ## Why This Matters
 
 With **AI Overviews reducing organic CTR by 34–37%**, social media indexing becomes critical for visibility. Instagram accounts are already ranking above medical directories for competitive terms even before the July 10th switch.
 
-## What This Workflow Analyzes
-
-- **Live SERP Queries** – Real-time visibility checks using verified rankings
-- **Search Console Integration** – Pull in actual performance data from your website
-- **Trend Analysis** – Use Google Trends (Jan–June 2025) for topical validation
-- **Content Correlation** – Measure alignment between website and Instagram posts
-- **Competitive Intelligence** – Benchmark visibility across platforms
-
 ## Prerequisites
 
 1. **Set up MCP Integration**: Follow our [MCP setup guide](../integrations.md#agent-wordlift-model-context-protocol-mcp-integration) to connect Agent WordLift with your preferred AI assistant
 2. **Google Search Console Access**: Ensure your website is connected to Google Search Console
-3. **Instagram Business Account**: Access to the Instagram account you want to analyze
-
-## Search Operators for Instagram Auditing
-
-Use these search operators to audit your Instagram exposure:
-
-### 1. Total Profile Footprint
-```
-site:instagram.com/{yourhandle}
-```
-**Purpose**: See how many of your posts (reels, tags, stories, etc.) are indexed by Google.
-
-### 2. Posts About a Specific Topic
-```
-site:instagram.com/{yourhandle} "{keyword}"
-```
-**Purpose**: Track exposure for key topics like "chirurgia ortognatica" or any niche term.
-
-### 3. Content Clusters (Synonyms/Multilingual)
-```
-site:instagram.com/{yourhandle} ("{keyword1}" OR "{keyword2}" OR "{keyword3}")
-```
-**Purpose**: Useful for capturing variations: e.g. "impianto" OR "implant" OR "protesi".
-
-### 4. Recent Content Pulse
-```
-site:instagram.com/{yourhandle} ("2024" OR "2025" OR "mesi" OR "giorni")
-```
-**Purpose**: Measure how much recent or time-sensitive content is being indexed.
-
-### 5. Brand-Topic Crossover
-```
-site:instagram.com "{yourhandle}" "{niche_keyword}"
-```
-**Purpose**: Check if your brand is showing up in conversations tied to your niche—even beyond your profile.
+3. **Instagram Account**: Access to the Instagram account you want to analyze
 
 ## Step-by-Step Workflow
 
@@ -157,14 +146,48 @@ I need Agent WordLift to help me understand how my Instagram content @{yourhandl
 
 ## Expected Outcomes
 
-After completing this workflow, you'll have:
+After completing this workflow, you'll receive a comprehensive HTML report that includes:
 
-- **Complete inventory** of your indexed Instagram content
-- **Content gap analysis** between Instagram and website
-- **SERP position insights** for both platforms
-- **Competitive benchmarking** data
-- **Strategic recommendations** for content optimization
-- **Action plan** for leveraging Instagram's full indexing capability
+### 📊 **Executive Summary Dashboard**
+- **Live SERP rankings** for your Instagram content (e.g., "#3 for brand terms", "#5 for medical queries")
+- **Search performance metrics** with actual Google Search Console data
+- **Trending keyword opportunities** with Google Trends correlation
+- **Content alignment score** (0-100%) between website and Instagram
+
+### 🎯 **New Target Keywords Analysis**
+- **Emerging trend identification** with search volume spikes and timing
+- **Competitive landscape analysis** showing who ranks for new opportunities
+- **Content gap identification** where Instagram could capture trending searches
+- **Priority action items** ranked by potential impact and effort required
+
+### 📱 **Live Google Search Performance Data**
+- **Real SERP positions** for all major keyword variations
+- **Competition analysis** showing exactly which sites you're outranking
+- **Search trend correlations** connecting content spikes to search behavior
+- **Cross-platform performance** (Instagram vs Facebook vs YouTube rankings)
+
+### 🔍 **Content Alignment Analysis**
+- **Website vs Instagram topic mapping** with 90%+ alignment scores
+- **High-performing indexed content** with engagement metrics and links
+- **Content performance patterns** identifying what Google prioritizes for indexing
+- **Strategic content recommendations** based on successful patterns
+
+### 📈 **Strategic Action Plan**
+- **90-day content calendar** focused on high-opportunity keywords
+- **Platform-specific strategies** leveraging your strongest performing content types
+- **Cross-promotion opportunities** to maximize search visibility across platforms
+- **Monitoring setup** for ongoing performance tracking
+
+### 🎨 **Professional Report Delivery**
+The analysis is delivered as a **fully-formatted HTML report** with:
+- Interactive metrics dashboard with color-coded performance indicators
+- Embedded links to all indexed Instagram content for easy review
+- Professional styling and branding suitable for client presentations
+- Exportable format for sharing with team members or stakeholders
+
+:::tip Real Client Example
+The report shown above for @ortognaticaroma demonstrates how this workflow identified a **100/100 Google Trends spike** for "chirurgia estetica mandibola" in May 2025, directly correlating with their Instagram content performance and providing immediate strategic opportunities.
+:::
 
 ## Learn More
 
@@ -172,9 +195,3 @@ After completing this workflow, you'll have:
 - [Set up MCP Integration](../integrations.md#agent-wordlift-model-context-protocol-mcp-integration)
 - [Google Search Console Integration](./google-search-console.md)
 - [Content Quality Evaluation](./content-evaluation.md)
-
----
-
-:::tip Pro Tip
-This workflow is particularly powerful when combined with our [Google Search Console Integration](./google-search-console.md) to get real performance data for both your website and Instagram content.
-:::
