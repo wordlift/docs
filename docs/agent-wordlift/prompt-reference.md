@@ -103,6 +103,12 @@ analyze my Google Search Console data and compare desktop vs. mobile performance
 identify new keyword opportunities from my Google Search Console data where I'm ranking on page 2 (positions 11-20)
 ```
 
+### Google Discover Analysis
+
+```md className=wlx-send-to-agent
+analyze my Google Search Console data for the search type "discover". Show me the top 20 pages with the highest clicks over the last 30 days. Include clicks, impressions, and CTR for each page.
+```
+
 ### Generate Diagram
 
 ```md className=wlx-send-to-agent
