@@ -102,24 +102,29 @@ wordlift-cli -p "Analyze the semantic SEO potential of my latest blog post"
 
 ### Example Use Cases
 
-**Content Optimization:**
+**Keyword Research with HTML Output:**
 ```bash
-wordlift-cli -p "Review this article for entity coverage and suggest improvements: [article-url]"
+wordlift-cli -p "run a comprehensive keyword research for 'sustainable fashion' and store the findings in HTML format with competitor analysis"
 ```
 
-**Schema Analysis:**
+**Content Analysis Pipeline:**
 ```bash
-wordlift-cli -p "Generate JSON-LD schema markup for a product page about wireless headphones"
+wordlift-cli -p "analyze the entities on https://example.com/blog-post" | wordlift-cli -p "generate internal linking suggestions based on this analysis"
 ```
 
-**Keyword Research:**
+**Batch SEO Audit:**
 ```bash
-wordlift-cli -p "Find semantic keyword opportunities for the topic 'sustainable fashion'"
+wordlift-cli -p "perform an entity gap analysis for 'https://example.com/product-page' against the query 'eco-friendly clothing'" > seo-audit-report.html
 ```
 
-**Technical SEO:**
+**Schema Generation with Validation:**
 ```bash
-wordlift-cli -p "Audit the structured data implementation on my homepage"
+wordlift-cli -p "generate JSON-LD schema markup for a local business: organic restaurant in Portland" | wordlift-cli -p "validate this schema and suggest improvements"
+```
+
+**Google Search Console Integration:**
+```bash
+wordlift-cli -p "show me the top 10 queries with high impressions but low CTR from my GSC data, then suggest content optimization strategies"
 ```
 
 ### Integration with Development Workflows
