@@ -47,6 +47,106 @@ With the `/ask` endpoint, you can create a chatbot-like feature within your appl
 
 To get started, check out the [WordLift Agent API documentation](https://docs.wordlift.io/api/agent/wordlift-agent-api/) and explore how the `/ask` endpoint can revolutionize your SEO strategy!
 
+## Agent WordLift CLI Integration
+
+Transform your command-line workflow with Agent WordLift CLI! This powerful terminal-based tool brings the full capabilities of Agent WordLift directly to your development environment, making it perfect for developers, content creators, and SEO professionals who prefer working in the command line.
+
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/sXzRclE-6ik" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+**Why CLI Over Web UI for AI Workflows?**
+
+When working with AI-powered SEO tools, the command line offers distinct advantages over web interfaces. CLI provides superior speed with instant input/output, complete system prompt control for precise agent behavior, seamless file I/O for loading instructions and automating pipelines, and the ability to chain commands and build scalable workflows. For professional SEO workflows that demand efficiency, automation, and control, the CLI is where serious work gets done.
+
+**Key Features:**
+
+• **Seamless Development Integration**: Work with Agent WordLift directly from your terminal without switching contexts
+• **Advanced Content Creation**: Generate SEO-optimized content with access to 20+ specialized SEO tools via MCP integration
+• **Gemini Pro 2.5 Powered**: Leverage Google's most advanced language model for superior content analysis and generation
+• **Knowledge Graph Access**: Query and interact with your WordLift knowledge graph directly from the command line
+• **Batch Processing**: Automate content optimization tasks and run bulk SEO analyses
+• **Team Collaboration**: Integrate Agent WordLift capabilities into CI/CD pipelines and development workflows
+
+**Perfect for:**
+- Content teams building automated SEO workflows
+- Developers integrating SEO analysis into applications
+- Technical SEO professionals requiring programmatic access
+- Agencies managing multiple client projects from the command line
+
+### Installation
+
+Install globally for system-wide access:
+
+```bash
+npm install -g wordlift-cli
+```
+
+Or run directly without installation:
+
+```bash
+npx wordlift-cli
+```
+
+### Quick Start
+
+Launch the interactive Agent WordLift session:
+
+```bash
+wordlift-cli
+```
+
+For direct queries, use the prompt mode:
+
+```bash
+wordlift-cli -p "Analyze the semantic SEO potential of my latest blog post"
+```
+
+### Example Use Cases
+
+**Content Optimization:**
+```bash
+wordlift-cli -p "Review this article for entity coverage and suggest improvements: [article-url]"
+```
+
+**Schema Analysis:**
+```bash
+wordlift-cli -p "Generate JSON-LD schema markup for a product page about wireless headphones"
+```
+
+**Keyword Research:**
+```bash
+wordlift-cli -p "Find semantic keyword opportunities for the topic 'sustainable fashion'"
+```
+
+**Technical SEO:**
+```bash
+wordlift-cli -p "Audit the structured data implementation on my homepage"
+```
+
+### Integration with Development Workflows
+
+The WordLift CLI seamlessly integrates with modern development practices:
+
+- **CI/CD Pipelines**: Automate content analysis and SEO scoring in your deployment workflows
+- **Git Hooks**: Run SEO checks on content changes before commits
+- **Build Scripts**: Generate schema markup and optimize content during build processes
+- **Testing Suites**: Include SEO validation as part of your automated testing
+
+### Advanced Features
+
+**Batch Processing:** Process multiple files or URLs in a single command for efficient workflow automation.
+
+**Custom Workflows:** Combine with shell scripts and automation tools to create sophisticated SEO processing pipelines.
+
+**Team Integration:** Share configurations and workflows across development teams for consistent SEO implementation.
+
+**API Integration:** Access the full WordLift Agent API capabilities through command-line interfaces.
+
+Ready to supercharge your command-line SEO workflow? [Install WordLift CLI](https://www.npmjs.com/package/wordlift-cli) and bring Agent WordLift's power directly to your terminal!
+
+---
+
+*The WordLift CLI is powered by the same MCP integration that enables Agent WordLift to work across multiple platforms, ensuring consistent access to your knowledge graph and SEO tools regardless of your preferred development environment.*
+
 ## Agent WordLift Model Context Protocol (MCP) Integration
 
 Your preferred AI models and agents can use our official MCP server to access your Knowledge Graph and leverage Agent WordLift in a simple and secure way.
