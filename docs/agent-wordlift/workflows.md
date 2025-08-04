@@ -12,6 +12,7 @@ Here is how WordLift AI SEO Agent can help you boost your productivity in differ
 
 - **Research Content:**
   - [Research Using Reddit Discussions](./workflows/research-content-ideas.md)
+  - [Enhanced Entity Research](./workflows/enhanced-entity-research.md)
 
 - **Create Content:**
   - [Social Media](./workflows/create-social-media-posts.md)

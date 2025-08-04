@@ -163,8 +163,83 @@ analyze the markup of the page at [URL], focusing on the JSON-LD. Provide a brie
 
 ### Instagram Indexing Analysis
 
+## 🤖 AI Sub-Agent Workflows
+
+### Instagram Indexing Analysis
+
 ```md className=wlx-send-to-agent
 Generate a comprehensive Instagram indexing report for @[instagram_handle]. Please analyze my website's entity structure, audit Instagram content indexing using search operators, and provide content alignment recommendations.
+```
+
+### Instagram Content Audit
+
+```md className=wlx-send-to-agent
+Using search operators, audit my Instagram presence:
+1. site:instagram.com/[handle] - total indexed posts
+2. site:instagram.com/[handle] "[keyword]" - topic-specific visibility
+3. Compare findings with my website's content coverage
+```
+
+### Cross-Platform Content Strategy
+
+```md className=wlx-send-to-agent
+Analyze content alignment between my website and Instagram account @[handle]. Identify entities that are well-covered on Instagram but missing from my website, and suggest content opportunities for both platforms.
+```
+
+### Instagram SERP Monitoring
+
+```md className=wlx-send-to-agent
+Set up monitoring for key search queries where my Instagram content @[handle] could rank. Compare current visibility against main website pages and identify optimization opportunities.
+```
+
+## 🔍 Enhanced Knowledge Graph Research
+
+### Enhanced Entity Lookup
+
+```md className=wlx-send-to-agent
+research comprehensive information about [entity name] using the enhanced Google Knowledge Graph with WordLift semantic enrichment
+```
+
+### Corporate Intelligence Research
+
+```md className=wlx-send-to-agent
+analyze the company [company name] using enhanced knowledge graph data. Include headquarters, key people, industry classification, founding details, and semantic relationships with competitors
+```
+
+### Person Entity Deep Dive
+
+```md className=wlx-send-to-agent
+provide enhanced biographical data for [person name] including occupation, education, nationality, and semantic connections using the enhanced knowledge graph
+```
+
+### Entity Relationship Mapping
+
+```md className=wlx-send-to-agent
+map the semantic relationships between [entity1] and [entity2] using enhanced knowledge graph data. Identify shared attributes, connections, and contextual relationships
+```
+
+### Multi-Entity Comparative Analysis
+
+```md className=wlx-send-to-agent
+compare and analyze the following entities using enhanced knowledge graph data: [entity1], [entity2], [entity3]. Highlight similarities, differences, and competitive positioning
+```
+
+### Content Enhancement Research
+
+```md className=wlx-send-to-agent
+research [entity name] for content creation purposes using enhanced knowledge graph data. Focus on unique details, lesser-known facts, notable achievements, and semantic connections that would enhance article depth and authority
+```
+
+### Corporate Leadership Analysis
+
+```md className=wlx-send-to-agent
+analyze the leadership team of [company name] using enhanced knowledge graph data. Include biographical details, career backgrounds, education, and cross-company relationships
+```
+
+### Geographic Entity Intelligence
+
+```md className=wlx-send-to-agent
+research comprehensive geographic and demographic data for [location name] using enhanced knowledge graph. Include population, administrative divisions, economic data, and regional relationships
 ```
 
 ### Instagram Content Audit

@@ -84,6 +84,7 @@ Based on the provided workflows and prompt library, I'll help you revise the Qui
 
 * [Keyword Research](./workflows/keyword-discovery.md)
 * [GSC Integration](./workflows/google-search-console.md)
+* [Enhanced Entity Research](./workflows/enhanced-entity-research.md)
 * [Instagram Indexing Analysis](./workflows/instagram-indexing-analysis.md)
 * [Reddit Content Research](./workflows/research-content-ideas.md)
 * [Newsletter Ideas](./workflows/ideas-for-newsletters.md)
