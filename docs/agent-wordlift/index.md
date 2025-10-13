@@ -1,12 +1,5 @@
 ---
-siimport Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-:::info Version Notice
-Latest Release: 3.7.0 (October 2025) - Now with Enhanced Google Knowledge Graph integration, AI Sub-Agent workflows via MCP, and Google Discover analytics!
-:::
-
-# 🤖 Welcome to Agent WordLift - Your Marketing & AI SEO Agentsition: 0
+sidebar_position: 0
 hide_title: true
 title: Overview
 ---
@@ -15,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info Version Notice
-Latest Release: 3.7.0 (September 2025) - Now with Enhanced Google Knowledge Graph integration, AI Sub-Agent workflows via MCP, and Google Discover analytics!
+Latest Release: 3.7.0 (October 2025) - Now with Enhanced Google Knowledge Graph integration, AI Sub-Agent workflows via MCP, and Google Discover analytics!
 :::
 
 # 🤖 Welcome to Agent WordLift - Your Marketing & AI SEO Agent
