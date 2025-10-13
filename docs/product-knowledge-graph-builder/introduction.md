@@ -82,7 +82,7 @@ The update of [Product Knowledge Graph Builder](https://wordlift.io/seo-for-non-
 
 ### Advanced Integration
 
-For developers looking to customize their product data processing, we offer a powerful [webhooks integration](webhooks). This allows you to modify RDF data from the Merchant Center before it's committed to the Graph store, enabling advanced customization of your Product Knowledge Graph.
+For developers looking to customize their product data processing, we offer a powerful [webhooks integration](./webhooks.md). This allows you to modify RDF data from the Merchant Center before it's committed to the Graph store, enabling advanced customization of your Product Knowledge Graph.
 
 ## IMPORTANT
 
