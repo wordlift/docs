@@ -30,17 +30,17 @@ Agent WordLift's Enhanced Knowledge Graph tool operates on multiple levels:
 
 ### **Enhanced Entity Types Supported**
 
-**Person Entities**: Enhanced with gender, occupation, nationality, education, biographical details
-**Organization Entities**: Enriched with industry classification, founding dates, key people, corporate structure
-**Location Entities**: Enhanced with population data, administrative divisions, geographic relationships
-**Concept Entities**: Enriched with related concepts, semantic properties, domain classifications
+- **Person Entities**: Enhanced with gender, occupation, nationality, education, biographical details
+- **Organization Entities**: Enriched with industry classification, founding dates, key people, corporate structure
+- **Location Entities**: Enhanced with population data, administrative divisions, geographic relationships
+- **Concept Entities**: Enriched with related concepts, semantic properties, domain classifications
 
 ## Why Enhanced Entity Research Matters
 
-**For Content Creation**: Rich biographical and corporate data creates more authoritative, detailed content
-**For SEO Strategy**: Enhanced entity relationships improve semantic optimization and topic clustering
-**For Competitive Analysis**: Comprehensive corporate intelligence reveals market positioning and opportunities
-**For Fact-Checking**: Multi-source verification ensures accuracy and credibility
+- **Content Creation**: Rich entity data creates more authoritative, detailed content
+- **SEO Strategy**: Enhanced relationships improve semantic optimization and topic clustering
+- **Competitive Analysis**: Corporate intelligence reveals market positioning and opportunities
+- **Fact-Checking**: Multi-source verification ensures accuracy and credibility
 
 ## Prerequisites
 
