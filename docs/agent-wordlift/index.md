@@ -25,8 +25,6 @@ Your AI-Powered SEO Companion for Smart Content Optimization
 </div>
 </div>
 
-Based on the provided workflows and prompt library, I'll help you revise the Quick Start Options section to better reflect the actual capabilities and common use cases. Here's a suggested revision for the Tabs section:
-
 ## Quick Start Options
 
 <Tabs>
