@@ -481,6 +481,14 @@ const config = {
               categoryLinkSource: "tag",
             },
           },
+          audit: {
+            specPath: "api/audit.yaml", // path or URL to the OpenAPI spec
+            outputDir: "docs/api/audit", // output directory for generated *.mdx and sidebar.js files
+            sidebarOptions: {
+              groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
+              categoryLinkSource: "tag",
+            },
+          },
         },
       },
     ],
