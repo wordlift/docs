@@ -196,6 +196,11 @@ const sidebars = {
         },
         {
           type: "category",
+          label: "Audit",
+          items: require("./docs/api/audit/sidebar.js"),
+        },
+        {
+          type: "category",
           label: "Image to Text",
           items: require("./docs/api/image-to-text/sidebar.js"),
         },
