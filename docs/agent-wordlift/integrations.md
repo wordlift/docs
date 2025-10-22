@@ -279,16 +279,9 @@ Follow the MCP integration setup instructions above to connect WordLift to Claud
 
 **Step 2: Download the WordLift SEO Audit Skill**
 
-**Option A: Direct Download** (Recommended)
+**Direct Download**
 
 [📦 Download WordLift SEO Audit Skill v1.0.0](/downloads/claude-skills/wl-seo-audit-competitors-v1.0.0.zip)
-
-**Option B: Clone from GitHub**
-
-```bash
-git clone https://github.com/wordlift/claude-skills.git
-cd claude-skills/wordlift-seo-audit
-```
 
 **Step 3: Upload to Claude**
 
