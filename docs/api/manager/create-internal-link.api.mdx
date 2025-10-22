@@ -1,0 +1,94 @@
+---
+id: create-internal-link
+title: "Create"
+description: "Create Internal Links."
+sidebar_label: "Create"
+hide_title: true
+hide_table_of_contents: true
+api: {"description":"Create Internal Links.","operationId":"createInternalLink","requestBody":{"content":{"application/json":{"schema":{"type":"object","description":"An Internal Links request.","properties":{"anchor_text":{"type":"object","description":"The Anchor Text request.","properties":{"actual_prompt_template":{"type":"string","readOnly":true},"enabled":{"type":"boolean","default":false,"description":"Whether to enable Anchor Text, by default false."},"max_characters":{"type":"integer","format":"int32","default":15,"description":"The maximum anchor text length, by default 15 characters."},"model":{"type":"string","default":"gpt-4o","description":"The model to use."},"prompt_template":{"type":"string","default":"As an SEO and content editor, your task is to create a concise and appropriate anchor text to enhance keyword targeting, using the\nprovided keyword and page title. Ensure to maintain a neutral tone and adhere to the examples below for guidance:\n\n{%- for anchor in anchors -%}\n- Title: {{ anchor.title }}\n- Keyword: {{ anchor.keyword }}\n- Anchor text: {{ anchor.anchor_text }}\n{%- endfor -%}\n","description":"The prompt template, we provide a default. Liquid template language is supported."}},"title":"AnchorText"},"items":{"type":"array","description":"An array of items.","items":{"type":"object","description":"An Internal Link request item.","properties":{"id":{"type":"string","format":"uri","description":"The entity id, reused in the output template."},"query":{"type":"object","description":"A query request.","properties":{"fields":{"type":"array","description":"List of extra fields to be retrieved.","items":{"type":"string","description":"List of extra fields to be retrieved."},"uniqueItems":true},"filters":{"type":"array","description":"A list of prefilters.","items":{"type":"object","description":"A query request filter.","properties":{"filters":{"type":"array","description":"Operational filters such as AND or OR.","items":"circular(Filter)"},"key":{"type":"string","description":"The filter key. Key is required for the filters [EQ, NE, GT, LT, GTE, LTE, IN, NIN]"},"operator":{"type":"string","description":"A query request filter operator.","enum":["EQ","GT","LT","NE","GTE","LTE","IN","NIN","AND","OR"]},"value":{"type":"object","description":"The filter value.","oneOf":[{"type":"array","items":{"type":"string"}},{"type":"string"},{"type":"array","items":{"type":"integer","format":"int32"}},{"type":"integer","format":"int32"},{"type":"array","items":{"type":"number","format":"double"}},{"type":"number","format":"double"},{"type":"array","items":{"type":"integer","format":"int64"}},{"type":"integer","format":"int64"}]},"value_date":{"type":"string","format":"date-time","description":"The filter value as a date, if provided will be preferred over the `value` field."}},"required":["operator"],"title":"Filter"}},"query_embedding":{"type":"array","description":"The list of embeddings, not required if `query_string` is provided.","items":{"type":"number","format":"double","description":"The list of embeddings, not required if `query_string` is provided."}},"query_string":{"type":"string","description":"The query string, not required if the `query_embeddings` are provided. Please note that the `query_string` is ignored if the `query_embeddings` are provided."},"query_uri":{"type":"string","format":"uri","description":"Perform a Vector Search based on similarities with an entity with the specified URI."},"query_url":{"type":"string","format":"url","description":"Perform a Vector Search based on similarities with an entity with the specified URL (schema:url)."},"similarity_top_k":{"type":"integer","format":"int32","default":2,"description":"The similarity top K.","minimum":1}},"title":"VectorSearchQueryRequest"},"source_name":{"type":"string","description":"The webpage name, reused in the output template."}},"required":["query"],"title":"Item"}},"template":{"type":"string","description":"The output template, not required, we provide a default JSON-LD template"}},"required":["items"],"title":"InternalLinkRequest"}}},"required":true},"responses":{"200":{"content":{"application/x-ndjson":{"schema":{"type":"array","items":{"type":"string"}}}},"description":"Created"},"401":{"description":"Authentication Failure"}},"security":[{"ApiKey":[]}],"tags":["Internal Links"],"method":"post","path":"/internal-links","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"BasicAuth":{"description":"`Basic {encoded username:password}`","in":"header","name":"Authorization","scheme":"basic","type":"http"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"jsonRequestBodyExample":{"anchor_text":{"enabled":false,"max_characters":15,"model":"gpt-4o","prompt_template":"As an SEO and content editor, your task is to create a concise and appropriate anchor text to enhance keyword targeting, using the\nprovided keyword and page title. Ensure to maintain a neutral tone and adhere to the examples below for guidance:\n\n{%- for anchor in anchors -%}\n- Title: {{ anchor.title }}\n- Keyword: {{ anchor.keyword }}\n- Anchor text: {{ anchor.anchor_text }}\n{%- endfor -%}\n"},"items":[{"id":"string","query":{"fields":["string"],"filters":[{"filters":[null],"key":"string","operator":"EQ","value":["string"],"value_date":"2025-10-16T08:30:10.501Z"}],"query_embedding":[0],"query_string":"string","query_uri":"string","query_url":"string","similarity_top_k":2},"source_name":"string"}],"template":"string"},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Create","description":{"content":"Create Internal Links.","type":"text/plain"},"url":{"path":["internal-links"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"application/x-ndjson"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+sidebar_class_name: "post api-method"
+info_path: api/manager/manager
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Create
+
+
+
+Create Internal Links.
+
+<MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>anchor_text</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+The Anchor Text request.
+
+</div><SchemaItem collapsible={false} name={"enabled"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","default":false,"description":"Whether to enable Anchor Text, by default false."}}></SchemaItem><SchemaItem collapsible={false} name={"max_characters"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32","default":15,"description":"The maximum anchor text length, by default 15 characters."}}></SchemaItem><SchemaItem collapsible={false} name={"model"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","default":"gpt-4o","description":"The model to use."}}></SchemaItem><SchemaItem collapsible={false} name={"prompt_template"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","default":"As an SEO and content editor, your task is to create a concise and appropriate anchor text to enhance keyword targeting, using the\nprovided keyword and page title. Ensure to maintain a neutral tone and adhere to the examples below for guidance:\n\n{%- for anchor in anchors -%}\n- Title: {{ anchor.title }}\n- Keyword: {{ anchor.keyword }}\n- Anchor text: {{ anchor.anchor_text }}\n{%- endfor -%}\n","description":"The prompt template, we provide a default. Liquid template language is supported."}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>items</strong><span style={{"opacity":"0.6"}}> object[]</span><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+An array of items.
+
+</div><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"id"} required={false} schemaName={"uri"} qualifierMessage={undefined} schema={{"type":"string","format":"uri","description":"The entity id, reused in the output template."}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>query</strong><span style={{"opacity":"0.6"}}> object</span><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+A query request.
+
+</div><SchemaItem collapsible={false} name={"fields"} required={false} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","description":"List of extra fields to be retrieved.","items":{"type":"string","description":"List of extra fields to be retrieved."},"uniqueItems":true}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>filters</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+A list of prefilters.
+
+</div><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"filters"} required={false} schemaName={"undefined[]"} qualifierMessage={undefined} schema={{"type":"array","description":"Operational filters such as AND or OR.","items":"circular(Filter)"}}></SchemaItem><SchemaItem collapsible={false} name={"key"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The filter key. Key is required for the filters [EQ, NE, GT, LT, GTE, LTE, IN, NIN]"}}></SchemaItem><SchemaItem collapsible={false} name={"operator"} required={true} schemaName={"string"} qualifierMessage={"**Possible values:** [`EQ`, `GT`, `LT`, `NE`, `GTE`, `LTE`, `IN`, `NIN`, `AND`, `OR`]"} schema={{"type":"string","description":"A query request filter operator.","enum":["EQ","GT","LT","NE","GTE","LTE","IN","NIN","AND","OR"]}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>value</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+The filter value.
+
+</div></div><div><span className={"badge badge--info"}>oneOf</span><SchemaTabs><TabItem label={"array"} value={"0-property"}><p>array</p><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+The filter value.
+
+</div></TabItem><TabItem label={"string"} value={"1-property"}><p>string</p><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+The filter value.
+
+</div></TabItem><TabItem label={"array"} value={"2-property"}><p>array</p><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+The filter value.
+
+</div></TabItem><TabItem label={"integer"} value={"3-property"}><p>integer</p><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+The filter value.
+
+</div></TabItem><TabItem label={"array"} value={"4-property"}><p>array</p><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+The filter value.
+
+</div></TabItem><TabItem label={"number"} value={"5-property"}><p>number</p><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+The filter value.
+
+</div></TabItem><TabItem label={"array"} value={"6-property"}><p>array</p><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+The filter value.
+
+</div></TabItem><TabItem label={"integer"} value={"7-property"}><p>integer</p><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+The filter value.
+
+</div></TabItem></SchemaTabs></div></details></SchemaItem><SchemaItem collapsible={false} name={"value_date"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The filter value as a date, if provided will be preferred over the `value` field."}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem><SchemaItem collapsible={false} name={"query_embedding"} required={false} schemaName={"double[]"} qualifierMessage={undefined} schema={{"type":"array","description":"The list of embeddings, not required if `query_string` is provided.","items":{"type":"number","format":"double","description":"The list of embeddings, not required if `query_string` is provided."}}}></SchemaItem><SchemaItem collapsible={false} name={"query_string"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The query string, not required if the `query_embeddings` are provided. Please note that the `query_string` is ignored if the `query_embeddings` are provided."}}></SchemaItem><SchemaItem collapsible={false} name={"query_uri"} required={false} schemaName={"uri"} qualifierMessage={undefined} schema={{"type":"string","format":"uri","description":"Perform a Vector Search based on similarities with an entity with the specified URI."}}></SchemaItem><SchemaItem collapsible={false} name={"query_url"} required={false} schemaName={"url"} qualifierMessage={undefined} schema={{"type":"string","format":"url","description":"Perform a Vector Search based on similarities with an entity with the specified URL (schema:url)."}}></SchemaItem><SchemaItem collapsible={false} name={"similarity_top_k"} required={false} schemaName={"int32"} qualifierMessage={"**Possible values:** `>= 1`"} schema={{"type":"integer","format":"int32","default":2,"description":"The similarity top K.","minimum":1}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={false} name={"source_name"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The webpage name, reused in the output template."}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem><SchemaItem collapsible={false} name={"template"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The output template, not required, we provide a default JSON-LD template"}}></SchemaItem></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Created
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/x-ndjson"} value={"application/x-ndjson"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
+
+string
+
+</div><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"[\n  \"string\"\n]"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Authentication Failure
+
+</div><div></div></TabItem></ApiTabs></div>
+      

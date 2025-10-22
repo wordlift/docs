@@ -1,0 +1,38 @@
+---
+id: get-token
+title: "Get"
+description: "Get a token"
+sidebar_label: "Get"
+hide_title: true
+hide_table_of_contents: true
+api: {"description":"Get a token","operationId":"getToken","parameters":[{"description":"The registration id","example":"google-search-console","in":"query","name":"registration_id","required":true,"schema":{"type":"string"}}],"responses":{"200":{"content":{"application/json":{"schema":{"type":"object","description":"The tokens to access a service","properties":{"access_token":{"type":"string","description":"The access token","readOnly":true},"access_token_expires_at":{"type":"string","format":"date-time","description":"The access token expiration","readOnly":true},"refresh_token":{"type":"string","description":"The refresh token","readOnly":true}},"title":"TokenResponse"}}},"description":"Success"},"401":{"description":"Authentication Failure"}},"security":[{"ApiKey":[]}],"tags":["Tokens"],"method":"get","path":"/tokens","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"BasicAuth":{"description":"`Basic {encoded username:password}`","in":"header","name":"Authorization","scheme":"basic","type":"http"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Get","description":{"content":"Get a token","type":"text/plain"},"url":{"path":["tokens"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) The registration id","type":"text/plain"},"key":"registration_id","value":""}],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+sidebar_class_name: "get api-method"
+info_path: api/manager/manager
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get
+
+
+
+Get a token
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The registration id","example":"google-search-console","in":"query","name":"registration_id","required":true,"schema":{"type":"string"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Success
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"access_token"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The access token","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"access_token_expires_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The access token expiration","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"refresh_token"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The refresh token","readOnly":true}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"access_token\": \"string\",\n  \"access_token_expires_at\": \"2025-10-16T08:30:10.520Z\",\n  \"refresh_token\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Authentication Failure
+
+</div><div></div></TabItem></ApiTabs></div>
+      

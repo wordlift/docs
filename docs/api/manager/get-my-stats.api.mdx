@@ -1,0 +1,38 @@
+---
+id: get-my-stats
+title: "Get my Account statistics"
+description: "Get the Account statistics, such the number of products, product groups and urls in the KG."
+sidebar_label: "Get my Account statistics"
+hide_title: true
+hide_table_of_contents: true
+api: {"description":"Get the Account statistics, such the number of products, product groups and urls in the KG.","operationId":"getMyStats","responses":{"200":{"content":{"application/json":{"schema":{"type":"object","description":"The Account statistics","properties":{"entities":{"type":"integer","format":"int64","description":"The number of entities."},"entities_with_url":{"type":"integer","format":"int64","description":"The number of entities with URL."},"product_groups":{"type":"integer","format":"int64","description":"The number of product groups in the KG."},"products":{"type":"integer","format":"int64","description":"The number of products in the KG."}},"required":["entities","entities_with_url","product_groups","products"],"title":"AccountStats"}}},"description":"Found"},"401":{"description":"Authentication Failure"}},"security":[{"ApiKey":[]},{"OAuth2":[]}],"tags":["Account Stats"],"method":"get","path":"/accounts/me/stats","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"BasicAuth":{"description":"`Basic {encoded username:password}`","in":"header","name":"Authorization","scheme":"basic","type":"http"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Get my Account statistics","description":{"content":"Get the Account statistics, such the number of products, product groups and urls in the KG.","type":"text/plain"},"url":{"path":["accounts","me","stats"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+sidebar_class_name: "get api-method"
+info_path: api/manager/manager
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get my Account statistics
+
+
+
+Get the Account statistics, such the number of products, product groups and urls in the KG.
+
+<div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Found
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"entities"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"The number of entities."}}></SchemaItem><SchemaItem collapsible={false} name={"entities_with_url"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"The number of entities with URL."}}></SchemaItem><SchemaItem collapsible={false} name={"product_groups"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"The number of product groups in the KG."}}></SchemaItem><SchemaItem collapsible={false} name={"products"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"The number of products in the KG."}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"entities\": 0,\n  \"entities_with_url\": 0,\n  \"product_groups\": 0,\n  \"products\": 0\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Authentication Failure
+
+</div><div></div></TabItem></ApiTabs></div>
+      

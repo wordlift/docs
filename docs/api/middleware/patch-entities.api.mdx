@@ -1,0 +1,50 @@
+---
+id: patch-entities
+title: "Patch Entity"
+description: "Patch entity"
+sidebar_label: "Patch Entity"
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["Entities"],"description":"Patch entity","operationId":"patchEntities","parameters":[{"name":"id","in":"query","description":"Entity id.","required":true,"schema":{"type":"string","format":"uri"}}],"requestBody":{"content":{"application/json-patch+json":{"schema":{"type":"array","description":"The entity request, containing the actual semantic data.","items":{"type":"object","properties":{"op":{"type":"string","description":"The patch operation, example `add`.","enum":["add","remove","replace","move","copy","test","add","remove","replace"]},"path":{"type":"string","description":"The property to apply the operation, JSONPath formatted (leading slash) on, e.g. `/https://schema.org/image (note the leading slash)."},"value":{"type":"string"}},"title":"EntityPatchRequest"}}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/ld+json":{"schema":{"type":"string"}},"application/rdf+xml":{"schema":{"type":"string"}},"text/turtle":{"schema":{"type":"string"}}}},"412":{"description":"Invalid request parameters"}},"security":[{"ApiKey":[]}],"method":"patch","path":"/entities","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"type":"apiKey","description":"`Key {your key}`","name":"Authorization","in":"header"}},"jsonRequestBodyExample":[{"op":"add","path":"string","value":"string"}],"info":{"title":"Middleware","description":"Knowledge Graph data management.","termsOfService":"https://wordlift.io/terms-of-service/","contact":{"name":"WordLift","url":"https://wordlift.io","email":"hello@wordlift.io"},"license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"version":"1.0"},"postman":{"name":"Patch Entity","description":{"content":"Patch entity","type":"text/plain"},"url":{"path":["entities"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) Entity id.","type":"text/plain"},"key":"id","value":""}],"variable":[]},"header":[{"key":"Content-Type","value":"application/json-patch+json"},{"key":"Accept","value":"application/ld+json"}],"method":"PATCH","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+sidebar_class_name: "patch api-method"
+info_path: api/middleware/middleware
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Patch Entity
+
+
+
+Patch entity
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","in":"query","description":"Entity id.","required":true,"schema":{"type":"string","format":"uri"}}}></ParamsItem></ul></div></details><MimeTabs><TabItem label={"application/json-patch+json"} value={"application/json-patch+json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><span style={{"opacity":"0.6"}}> array</span><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"op"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`add`, `remove`, `replace`, `move`, `copy`, `test`, `add`, `remove`, `replace`]"} schema={{"type":"string","description":"The patch operation, example `add`.","enum":["add","remove","replace","move","copy","test","add","remove","replace"]}}></SchemaItem><SchemaItem collapsible={false} name={"path"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The property to apply the operation, JSONPath formatted (leading slash) on, e.g. `/https://schema.org/image (note the leading slash)."}}></SchemaItem><SchemaItem collapsible={false} name={"value"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Success
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/ld+json"} value={"application/ld+json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem><TabItem label={"application/rdf+xml"} value={"application/rdf+xml"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem><TabItem label={"text/turtle"} value={"text/turtle"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"412"} value={"412"}><div>
+
+Invalid request parameters
+
+</div><div></div></TabItem></ApiTabs></div>
+      

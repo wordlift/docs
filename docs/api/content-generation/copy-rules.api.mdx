@@ -1,0 +1,42 @@
+---
+id: copy-rules
+title: "Copy"
+description: "Copy"
+sidebar_label: "Copy"
+hide_title: true
+hide_table_of_contents: true
+api: {"operationId":"copyRules","parameters":[{"description":"The project type","in":"query","name":"project_type","required":true,"schema":{"type":"string","description":"The project type, if applicable.","enum":["SMART_CONTENT","CONTENT_GENERATION"],"title":"ProjectType"}},{"description":"The source Content Generation id.","in":"query","name":"from_project_id","required":true,"schema":{"type":"integer","format":"int64"}},{"description":"The target Content Generation id.","in":"query","name":"to_project_id","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"201":{"description":"Created"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"security_oauth2":[]}],"tags":["Rules"],"description":"Copy","method":"post","path":"/rules/copies","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"Copy","description":{"type":"text/plain"},"url":{"path":["rules","copies"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) The project type","type":"text/plain"},"key":"project_type","value":""},{"disabled":false,"description":{"content":"(Required) The source Content Generation id.","type":"text/plain"},"key":"from_project_id","value":""},{"disabled":false,"description":{"content":"(Required) The target Content Generation id.","type":"text/plain"},"key":"to_project_id","value":""}],"variable":[]},"method":"POST","auth":{"type":"oauth2","oauth2":[]}}}
+sidebar_class_name: "post api-method"
+info_path: api/content-generation/content-generation
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Copy
+
+
+
+Copy
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The project type","in":"query","name":"project_type","required":true,"schema":{"type":"string","description":"The project type, if applicable.","enum":["SMART_CONTENT","CONTENT_GENERATION"],"title":"ProjectType"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"The source Content Generation id.","in":"query","name":"from_project_id","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"The target Content Generation id.","in":"query","name":"to_project_id","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"201"} value={"201"}><div>
+
+Created
+
+</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Authentication Failure
+
+</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div></div></TabItem></ApiTabs></div>
+      

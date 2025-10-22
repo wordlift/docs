@@ -1,0 +1,38 @@
+---
+id: get-web-page
+title: "Get"
+description: "Get extracted web page content"
+sidebar_label: "Get"
+hide_title: true
+hide_table_of_contents: true
+api: {"description":"Get extracted web page content","operationId":"getWebPage","parameters":[{"description":"Url to extract","in":"query","name":"url","required":true,"schema":{"type":"string"}}],"responses":{"200":{"content":{"application/json":{"schema":{"type":"object","description":"The Web Page data","properties":{"abstract":{"type":"string"},"date_published":{"type":"string","format":"date"},"headline":{"type":"string"},"html":{"type":"string"},"image":{"type":"string"},"markdown":{"type":"string"},"text":{"type":"string"},"types":{"type":"array","items":{"type":"string"},"uniqueItems":true},"url":{"type":"string"}},"title":"WebPage"}}},"description":"Success"},"401":{"description":"Authentication Failure"}},"security":[{"ApiKey":[]}],"tags":["Web pages"],"method":"get","path":"/web-pages","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"BasicAuth":{"description":"`Basic {encoded username:password}`","in":"header","name":"Authorization","scheme":"basic","type":"http"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Get","description":{"content":"Get extracted web page content","type":"text/plain"},"url":{"path":["web-pages"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) Url to extract","type":"text/plain"},"key":"url","value":""}],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+sidebar_class_name: "get api-method"
+info_path: api/manager/manager
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get
+
+
+
+Get extracted web page content
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"Url to extract","in":"query","name":"url","required":true,"schema":{"type":"string"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Success
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"abstract"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"date_published"} required={false} schemaName={"date"} qualifierMessage={undefined} schema={{"type":"string","format":"date"}}></SchemaItem><SchemaItem collapsible={false} name={"headline"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"html"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"image"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"markdown"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"text"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"types"} required={false} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"string"},"uniqueItems":true}}></SchemaItem><SchemaItem collapsible={false} name={"url"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"abstract\": \"string\",\n  \"date_published\": \"2025-10-16\",\n  \"headline\": \"string\",\n  \"html\": \"string\",\n  \"image\": \"string\",\n  \"markdown\": \"string\",\n  \"text\": \"string\",\n  \"types\": [\n    \"string\"\n  ],\n  \"url\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Authentication Failure
+
+</div><div></div></TabItem></ApiTabs></div>
+      
