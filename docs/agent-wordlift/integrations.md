@@ -279,9 +279,12 @@ Follow the MCP integration setup instructions above to connect WordLift to Claud
 
 **Step 2: Download the WordLift SEO Audit Skill**
 
-[Download WordLift SEO Audit Skill v1.0.0](https://github.com/wordlift/claude-skills/releases) (Coming Soon)
+**Option A: Direct Download** (Recommended)
 
-Or clone from GitHub:
+[📦 Download WordLift SEO Audit Skill v1.0.0](/downloads/claude-skills/wl-seo-audit-competitors-v1.0.0.zip)
+
+**Option B: Clone from GitHub**
+
 ```bash
 git clone https://github.com/wordlift/claude-skills.git
 cd claude-skills/wordlift-seo-audit
@@ -358,7 +361,7 @@ Every audit delivers a comprehensive report including:
 - WordLift MCP Server (`https://mcp.wordlift.io/sse`)
 - MCP Tools: `WordLift:agent`, `WordLift:graphql`
 
-**Architecture**: 
+**Architecture**:
 - Built using Anthropic's Agent Skills best practices
 - Progressive disclosure pattern for efficient token usage
 - Versioned and maintainable codebase
@@ -392,8 +395,8 @@ Every audit delivers a comprehensive report including:
 |----------------|-------------------|------------------|-----------|
 | 4 types        | 2 found           | 5 identified     | 8 tests   |
 
-**Assessment**: Your site has solid technical SEO fundamentals with 85/100 
-technical score. However, missing Review and Rating schema is a critical 
+**Assessment**: Your site has solid technical SEO fundamentals with 85/100
+technical score. However, missing Review and Rating schema is a critical
 gap - competitors have 30% higher click-through rates with this markup.
 
 ---
@@ -414,7 +417,7 @@ gap - competitors have 30% higher click-through rates with this markup.
 ### 🔴 [PRIORITY 1] Missing Review & Rating Schema
 **Impact**: HIGH | **Category**: Schema
 
-Your product page lacks Review and AggregateRating structured data. 
+Your product page lacks Review and AggregateRating structured data.
 Products with review markup can achieve 15-35% higher click-through rates.
 
 💡 **Action Required**:
@@ -428,7 +431,7 @@ Products with review markup can achieve 15-35% higher click-through rates.
 
 **Custom Query Hints**:
 ```
-"Audit https://mysite.com with query hints: 'sustainable fashion', 
+"Audit https://mysite.com with query hints: 'sustainable fashion',
 'eco-friendly clothing', 'organic textiles'"
 ```
 
@@ -494,7 +497,7 @@ The WordLift SEO Audit Skill is open source! You can:
 
 ---
 
-🚀 **Ready to transform your SEO workflow?** 
+🚀 **Ready to transform your SEO workflow?**
 
 [Download WordLift SEO Audit Skill](https://github.com/wordlift/claude-skills) and start delivering professional SEO audits in minutes!
 
