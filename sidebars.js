@@ -256,6 +256,11 @@ const sidebars = {
         },
         {
           type: "category",
+          label: "Google Search Console",
+          items: require("./docs/api/gsc-url-inspections/sidebar.js"),
+        },
+        {
+          type: "category",
           label: "Middleware",
           items: require("./docs/api/middleware/sidebar.js"),
         },
