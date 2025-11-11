@@ -34,7 +34,7 @@ jobs:
       #   run: git apply ./patches/fix_middleware_spec.patch
 
       - name: Copy content from current repo to another repo
-        run: cp api/* python-client/api
+        run: rm python-client/api/*.yaml && cp api/* python-client/api
 
       # Step 4: Commit and push the changes to the repository
       - name: Commit and push changes
