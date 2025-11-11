@@ -500,6 +500,12 @@ const config = {
         },
       },
     ],
+    [
+      "docusaurus-plugin-generate-llms-txt",
+      {
+        outputFile: "llms.txt", // This will generate llms.txt at the root
+      },
+    ],
     function chatWidgetPlugin() {
       return {
         name: "chat-widget-plugin",
