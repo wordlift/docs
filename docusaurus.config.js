@@ -1,8 +1,9 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const {themes} = require("prism-react-renderer");
+const lightCodeTheme = themes.github;
+const darkCodeTheme = themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -58,8 +59,6 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/wordlift/docs/tree/main",
-          docLayoutComponent: "@theme/DocPage",
-          docItemComponent: "@theme/ApiItem", // add @theme/ApiItem here
         },
         blog: false,
         theme: {
@@ -501,9 +500,23 @@ const config = {
       },
     ],
     [
-      "docusaurus-plugin-generate-llms-txt",
+      "docusaurus-plugin-llms-builder",
       {
-        outputFile: "llms.txt", // This will generate llms.txt at the root
+        sessions: [
+          {
+            id: "default",
+            config: {
+              outputs: {
+                "llms.txt": {
+                  sourcePaths: ["docs/**/*.{md,mdx}"],
+                },
+                "llms-full.txt": {
+                  sourcePaths: ["docs/**/*.{md,mdx}"],
+                },
+              },
+            },
+          },
+        ],
       },
     ],
     function chatWidgetPlugin() {

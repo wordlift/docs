@@ -1,0 +1,44 @@
+import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
+
+const sidebar: SidebarsConfig = {
+  apisidebar: [
+    {
+      type: "doc",
+      id: "api/inspector/inspection",
+    },
+    {
+      type: "category",
+      label: "Microdata",
+      link: {
+        type: "doc",
+        id: "api/inspector/microdata",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "api/inspector/microdata-to-json-ld",
+          label: "Microdata to JSON-LD",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Inspector",
+      link: {
+        type: "doc",
+        id: "api/inspector/inspector",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "api/inspector/get",
+          label: "Inspect",
+          className: "api-method get",
+        },
+      ],
+    },
+  ],
+};
+
+export default sidebar.apisidebar;

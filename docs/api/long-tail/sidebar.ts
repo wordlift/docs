@@ -1,0 +1,78 @@
+import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
+
+const sidebar: SidebarsConfig = {
+  apisidebar: [
+    {
+      type: "doc",
+      id: "api/long-tail/long-tail",
+    },
+    {
+      type: "category",
+      label: "Web Asyncs responses",
+      link: {
+        type: "doc",
+        id: "api/long-tail/web-asyncs-responses",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "api/long-tail/get-1",
+          label: "Get by id",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Long Tails",
+      link: {
+        type: "doc",
+        id: "api/long-tail/long-tails",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "api/long-tail/get-2",
+          label: "Get entities",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/long-tail/get-v-2",
+          label: "Get entities by rank",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/long-tail/get-3",
+          label: "Get entities by rank (async)",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Web Asyncs metadata",
+      link: {
+        type: "doc",
+        id: "api/long-tail/web-asyncs-metadata",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "api/long-tail/list",
+          label: "List",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/long-tail/get",
+          label: "Get by id",
+          className: "api-method get",
+        },
+      ],
+    },
+  ],
+};
+
+export default sidebar.apisidebar;
