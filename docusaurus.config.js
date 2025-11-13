@@ -13,9 +13,15 @@ const config = {
   url: "https://docs.wordlift.io",
   baseUrl: "/",
   onBrokenLinks: "warn",
-  onBrokenMarkdownLinks: "warn",
   favicon: "img/logo-tile.svg",
   trailingSlash: true,
+
+  // Markdown configuration
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
+  },
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -528,7 +534,6 @@ const config = {
         ],
       },
     ],
-    "./src/plugins/ai-chat-buttons",
     function chatWidgetPlugin() {
       return {
         name: "chat-widget-plugin",
