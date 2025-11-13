@@ -74,10 +74,17 @@ function PageActionsDropdown(): ReactNode {
       return 'docs/introduction.md';
     }
 
-    // For paths that look like directories, try .md first, then /index.md
+    // For paths that look like directories
     if (!mdPath.includes('.')) {
-      // First try the direct .md file
-      mdPath = `docs/${mdPath}.md`;
+      // Check if it has multiple segments (likely a directory with index.md)
+      const segments = mdPath.split('/');
+      if (segments.length > 1 || segments[0] === 'agent-wordlift' || segments[0] === 'pages') {
+        // For directories, use index.md
+        mdPath = `docs/${mdPath}/index.md`;
+      } else {
+        // For single-level paths under pages/, try .md first
+        mdPath = `docs/${mdPath}.md`;
+      }
     }
 
     return mdPath;
