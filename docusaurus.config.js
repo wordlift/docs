@@ -504,14 +504,6 @@ const config = {
               categoryLinkSource: "tag",
             },
           },
-          "gsc-url-inspections": {
-            specPath: "api/gsc-url-inspections.yaml",
-            outputDir: "docs/api/gsc-url-inspections",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-              categoryLinkSource: "tag",
-            },
-          },
         },
       },
     ],
