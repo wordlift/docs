@@ -536,6 +536,7 @@ const config = {
         ],
       },
     ],
+    "./src/plugins/ai-chat-buttons",
     function chatWidgetPlugin() {
       return {
         name: "chat-widget-plugin",

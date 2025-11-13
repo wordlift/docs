@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info Version Notice
-Latest Release: 3.7.0 (October 2025) - Now with Enhanced Google Knowledge Graph integration, AI Sub-Agent workflows via MCP, and Google Discover analytics!
+Latest Release: 3.8.0 (November 2025) - Now with AI-accessible documentation (llms.txt/llms-full.txt), Google Search Console URL Inspections API, Enhanced Google Knowledge Graph integration and AI Sub-Agent workflows via MCP!
 :::
 
 # 🤖 Welcome to Agent WordLift - Your Marketing & AI SEO Agent
