@@ -5,42 +5,231 @@ description: "[GET with body payload](https://opensource.zalando.com/restful-api
 sidebar_label: "Render"
 hide_title: true
 hide_table_of_contents: true
-api: {"description":"[GET with body payload](https://opensource.zalando.com/restful-api-guidelines/#get-with-body) - no resources created","operationId":"renderTemplateCollection","requestBody":{"content":{"application/json":{"schema":{"type":"array","items":{"type":"object","description":"A request to render a template using the provided data structure.","properties":{"data":{"type":"object","description":"The data from knowledge graph after applying the graphql query.","readOnly":true,"title":"Json"},"template":{"type":"string","description":"The liquid template."}},"required":["data","template"],"title":"RenderRequest"}}}},"required":true},"responses":{"200":{"content":{"application/json":{"schema":{"type":"array","items":{"type":"string"}}}},"description":"Found."},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"security_oauth2":[]}],"tags":["Content Generation Renders"],"method":"post","path":"/content-generations/renders-collection","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"jsonRequestBodyExample":[{"template":"string"}],"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"Render","description":{"content":"[GET with body payload](https://opensource.zalando.com/restful-api-guidelines/#get-with-body) - no resources created","type":"text/plain"},"url":{"path":["content-generations","renders-collection"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"application/json"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"oauth2","oauth2":[]}}}
+api: eJzFVVFv2zYQ/ivE7aUFZCs1+qSndUFbbBiWIXGxB8MIaPIssaFIhqTiKob+e3GklMhJ1gXDgD1Zpo5333333acjSAzCKxeVNVDB5vPHNTuo2LCdlT1zvNeWy+2bJkYXqrK0Dk2wnRe4vOeaG2mXwralxxD3nV5wpxZ1pyRqZTCUP9UYF5RtQdnesgUzlnnMCQITHnlECQVYh54ThF8lVODRSPRrbJ3mEc+t1igSvgI83nYY4i9W9lAdQVgT0UR65M5pJVKS8mugZo4QRIMtp6fYO4QKuPe8hwJUxDbMzu3uK4oIxRM2PrCxHouEm1AxzuIIjHVBmZrFBpnz9k5JlEzyyFmIvhOx87iEApyn5qLCVI/e/3PddYM5097blt0Ye9Aoa2S1565hfB8Jh3O6n+qnF7ea3Xbo+2XiicsLo3uoou+wgKiipoK/ETNDAVMPMywhemXqF7Foddsp+dD4EoYhj0J5lFBtcluzrNvHipeJtsvMIwzD6VVClw6CsyZkjlZnZ//lbMe+cuXT3j7Zzsgl8fH+7F0az+n4u9igiWNl9okr3XnM4e+fh/9hI0sZEz0BRedV7KHaHB/+XFvexWYF1WY7EEe8DkTfeW6VfUYz7gHLtAVissXYWNoLZwNpxfHYQAXlSNCifrgVyizSsBDzpQno7ygXIem8hgqmdeZOLQ/WS632caksEKgJ6xURnCfyDP4R9toe0js6sV7dJwDnVuKzwy8nJcO8YJkSllM4loRWWJfL7nhQAqr8y9J50q69wVckTWFlmsW0bRk9nZCKLh+95OM33jqS6+Y4W40H6WwLUGZvJ1VykVSJLVcJBGptf57TWIDhLSX4y3r5u9rT1E6JPyH9qSxHGSATllClybIdDyiZNUx0IdpW3aNkWpm6UyEqwVorUQdafa0EmpDGMKJ4I94yYV3vVd1EtjpbrRbOYyDFvRZgRN+Gi/0V+jsl8OW4MgUt7H4RchhNc7KB5xKHAkiVueV3yzMqQwpvuZlhz3vw1JVm7vB/fbJGTUX8FkunuUq2mjg8jhu6gRc2NHnzsx3dFtDQclcbOB5p0l+8HgY6To5OflHAHfeK75JKt0MBDXJihiR7g/0jxYs1IaNw3SVffGqeQzHd+CAEuvjD2Ln//HlxtYYCduPHt03LDp4fqCl+gArSpzz3WR3z2RE0N3XHa4rNOWkBaRXnH8K8mgU8GOSjr5t+hjB7QjE2MHnC3wS/wh6mTFwIDGE9Wcu/SnliY2PaLjY/zHfilNeCKJ3u1p6beJ1uDdthGL4Dk0VkIg==
 sidebar_class_name: "post api-method"
 info_path: api/content-generation/content-generation
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Render
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Render"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/content-generations/renders-collection"}
+>
+  
+</MethodEndpoint>
 
 
 
 [GET with body payload](https://opensource.zalando.com/restful-api-guidelines/#get-with-body) - no resources created
 
-<MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><span style={{"opacity":"0.6"}}> array</span><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"template"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The liquid template."}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found.
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
-
-string
-
-</div><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"[\n  \"string\"\n]"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
-
-Not Found
-
-</div><div></div></TabItem></ApiTabs></div>
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><span
+          style={{"opacity":"0.6"}}
+        >
+           array
+        </span><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <li>
+          <div
+            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+          >
+            Array [
+          </div>
+        </li><SchemaItem
+          collapsible={false}
+          name={"template"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The liquid template."}}
+        >
+          
+        </SchemaItem><li>
+          <div
+            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+          >
+            ]
+          </div>
+        </li>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                        >
+                          Array [
+                        </div>
+                      </li><div
+                        style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                      >
+                        
+                        
+                        string
+                        
+                        
+                      </div><li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                        >
+                          ]
+                        </div>
+                      </li>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"[\n  \"string\"\n]"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

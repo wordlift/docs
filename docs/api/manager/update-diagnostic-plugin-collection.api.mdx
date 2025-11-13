@@ -5,42 +5,215 @@ description: "Replace the list of the plugins for the current account with the o
 sidebar_label: "Update"
 hide_title: true
 hide_table_of_contents: true
-api: {"description":"Replace the list of the plugins for the current account with the one provided by the client","operationId":"updateDiagnosticPluginCollection","parameters":[{"in":"query","name":"account","required":true,"schema":{"type":"object","properties":{"analytics_client_factory":{"type":"string"},"analyzerId":{"type":"integer","format":"int64"},"botify_project":{"type":"string"},"botify_token":{"type":"string"},"botify_username":{"type":"string"},"country":{"type":"string"},"datasetId":{"type":"string","deprecated":true},"datasetUri":{"type":"string"},"domainUri":{"type":"string"},"google_search_console_site_url":{"type":"string"},"id":{"type":"integer","format":"int64"},"indexed":{"type":"boolean"},"key":{"type":"string"},"language":{"type":"string"},"ngDatasetId":{"type":"string"},"resolvedUrl":{"type":"string"},"subscriptionId":{"type":"integer","format":"int64"},"url":{"type":"string"},"wpAdmin":{"type":"string"},"wpJson":{"type":"string"},"wp_include_exclude_default":{"type":"string"}},"title":"Account"}}],"requestBody":{"content":{"application/json":{"schema":{"type":"array","items":{"type":"object","description":"Diagnostic Plugin Data Request","properties":{"active":{"type":"boolean","description":"Whether the plugin is active."},"name":{"type":"string","description":"The plugin name."},"version":{"type":"string","description":"The plugin version."}},"title":"DiagnosticPluginRequest"}}}},"required":true},"responses":{"200":{"description":"Found."},"204":{"description":"No Content"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"ApiKey":[]}],"tags":["Plugin Diagnostics"],"method":"put","path":"/accounts/me/plugin/diagnostics/plugins-collection","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"jsonRequestBodyExample":[{"active":true,"name":"string","version":"string"}],"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Update","description":{"content":"Replace the list of the plugins for the current account with the one provided by the client","type":"text/plain"},"url":{"path":["accounts","me","plugin","diagnostics","plugins-collection"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"key":"account","value":""}],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"}],"method":"PUT","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJy1V0tz2zYQ/isYnJIZ2nQ8nh50qpM0ndZtk7HjycHjUSBwSSIGAQRYSlY0/O+dBUiJkqjUl54kAfv4sI9vVxteQJBeOVTW8Bm/BaeFBIY1MK0CMlvG7063lTKBldbH37L1HgwyIaVtDbKVwjpeWAPMebtUBRRssU7CWoFBnnHrwAvy9EfBZ7x1hUB4r0RlbEAlP0Uf76zWICOcjDvhRQMIPvDZw4Yrgvi9Bb/mGTeiAT7jPQKecQ/fW+Wh4DP0LWQ8yBoawWcbjmtHonbxDSRJOk9IUEGgW2GEXqOSYZ6Azksh0fr1SDOgV6biXZaEf4CnF2yvlUGowPOMl9Y3AtPRL1eksLCoyvXceRudT9nsRdA+gfmZQBvAp1dPyMhd3I6uM15AKVpNwMCgwnU8Gif+M+Vpa4LVNihTxezdGLvSUFTAfvfC1efJWWvwRIQKgSIA7gVohMN5kAKHLO3k772aNpeQz0lsnsKL4KdFbSOUOWWosrbSMA8gvKzn0ppg6adCmLdeT6qolyZZmQKeYSy9sFaDMPEyzFfWF85DCNMSTzAdSi1M1YpqOuGmen860h21Q7B6CcX9iceFdrEtgBdX86lIrdx10ajp6l25P8NUVcaruTJStwXM4Tl9biv1SLzLOCrUdHTdN33XPaa+h4BvbRGjKK1BohvqbOe0kpFx8m89hiNWEN4L6geF0IQptthvlB1fsURYjNLAbhOIY3KRqJYwkfZDu19qwBr8iG2ZCiypx56b7vypPu7VSSFqLsGHk7xwQrnXOd8L+yFXD4/uuq475N9Ugc6akAJxeXFBH/sOP9jWFBHj5cXV8fU/lr3rs9ll/OrizbHIdYs1UVrKMvsglG49JPFJi8ii0/iuALL1xIY0XK6duqE+fHikokJR0czhQ463Lw/8MeMNYG1phrk2plxgzWc872dRyBvIUxzzYqfYH4UzOR5xAfxymG+xu3iN6MIsz4VT50QcWpV4riwnWAPiO6riFNgB9+FTv97Amm3WtvXsCdbdVypxOq9BFLG7+wFKEbRe/RA9oKEtktku429FUJKkJnzEO7YBIy0N/GFCzZwIgbC/3G3sy9ggZHKHg6JBKD6SwiVBKLVdpd4am3hnCzg6vN8LaBiHM7ckmQ/ikEcM1qWgJhA9GBbPCUQc0f9tNIrlqXV6MhERPZ0QEd3uKOu3Z9E46q6HHVmk/aUP1LZXt228ZcRHim1pB9YTab+ARqiIELS2v44raGvzi/XFX6qk2t2vub16O6SHu9HEYI0wooImLoGmYB40TXVG5awkhHOeca0kmBCz0vt9JV8zad3aq6pGdnlxeXlGY5GMvBQSgm/Cx/Iu+ZmWy6PQmS3PejiU3IHE/o7A/V5A35xfkG1nAzbCjADfxx31kChHQ+Z/3pj78kF4xtxpocxoCCfWeRg24MCJl4iNomfCPCKt4XiPfR4zXtuAZGSzWYgA9153HR2nJZtqslBBLDSxeil0gJ9E4tVtPwBes1PI46IzWtmXQrckFUt5KbwiV5GCs4EwCENS60fB2WeyvNM9GvLdmKA/3X/mtECn3aCJJMG9WNH/BbEi1/S3hJRj38ezzWjx4skkNa7oKXBHkIQrG74Q0OHKrEcAD5kuveYpkusJlc0m0W/XbeXT1UmNLb0maQr3Y9d1/wI0ONQd
 sidebar_class_name: "put api-method"
 info_path: api/manager/manager
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Update
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/accounts/me/plugin/diagnostics/plugins-collection"}
+>
+  
+</MethodEndpoint>
 
 
 
 Replace the list of the plugins for the current account with the one provided by the client
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"query","name":"account","required":true,"schema":{"type":"object","properties":{"analytics_client_factory":{"type":"string"},"analyzerId":{"type":"integer","format":"int64"},"botify_project":{"type":"string"},"botify_token":{"type":"string"},"botify_username":{"type":"string"},"country":{"type":"string"},"datasetId":{"type":"string","deprecated":true},"datasetUri":{"type":"string"},"domainUri":{"type":"string"},"google_search_console_site_url":{"type":"string"},"id":{"type":"integer","format":"int64"},"indexed":{"type":"boolean"},"key":{"type":"string"},"language":{"type":"string"},"ngDatasetId":{"type":"string"},"resolvedUrl":{"type":"string"},"subscriptionId":{"type":"integer","format":"int64"},"url":{"type":"string"},"wpAdmin":{"type":"string"},"wpJson":{"type":"string"},"wp_include_exclude_default":{"type":"string"}},"title":"Account"}}}></ParamsItem></ul></div></details><MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><span style={{"opacity":"0.6"}}> array</span><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"active"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","description":"Whether the plugin is active."}}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The plugin name."}}></SchemaItem><SchemaItem collapsible={false} name={"version"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The plugin version."}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found.
-
-</div><div></div></TabItem><TabItem label={"204"} value={"204"}><div>
-
-No Content
-
-</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
-
-Not Found
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"in":"query","name":"account","required":true,"schema":{"type":"object","properties":{"analytics_client_factory":{"type":"string"},"analyzerId":{"type":"integer","format":"int64"},"botify_project":{"type":"string"},"botify_token":{"type":"string"},"botify_username":{"type":"string"},"collection":{"type":"string","default":"entity","description":"The collection hosing the Knowledge Graph."},"country":{"type":"string"},"datasetId":{"type":"string","deprecated":true},"datasetUri":{"type":"string"},"default_data_formatter":{"type":"string"},"domainUri":{"type":"string"},"google_search_console_site_url":{"type":"string"},"id":{"type":"integer","format":"int64"},"indexed":{"type":"boolean"},"is_wordpress":{"type":"boolean"},"key":{"type":"string"},"language":{"type":"string"},"ngDatasetId":{"type":"string"},"resolvedUrl":{"type":"string"},"subscriptionId":{"type":"integer","format":"int64"},"url":{"type":"string"},"wpAdmin":{"type":"string"},"wpJson":{"type":"string"},"wp_include_exclude_default":{"type":"string"}},"title":"Account"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><span
+          style={{"opacity":"0.6"}}
+        >
+           array
+        </span><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <li>
+          <div
+            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+          >
+            Array [
+          </div>
+        </li><SchemaItem
+          collapsible={false}
+          name={"active"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"type":"boolean","description":"Whether the plugin is active."}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"name"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The plugin name."}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"version"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The plugin version."}}
+        >
+          
+        </SchemaItem><li>
+          <div
+            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+          >
+            ]
+          </div>
+        </li>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found.
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"204"}
+        value={"204"}
+      >
+        <div>
+          
+          
+          No Content
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

@@ -5,42 +5,193 @@ description: "[GET with body payload](https://opensource.zalando.com/restful-api
 sidebar_label: "Render"
 hide_title: true
 hide_table_of_contents: true
-api: {"description":"[GET with body payload](https://opensource.zalando.com/restful-api-guidelines/#get-with-body) - no resources created","operationId":"renderTemplate","requestBody":{"content":{"application/json":{"schema":{"type":"object","description":"A request to render a template using the provided data structure.","properties":{"data":{"type":"object","description":"The data from knowledge graph after applying the graphql query.","readOnly":true,"title":"Json"},"template":{"type":"string","description":"The liquid template."}},"required":["data","template"],"title":"RenderRequest"}}},"required":true},"responses":{"200":{"content":{"text/plain":{"schema":{"type":"string"}}},"description":"Found."},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"security_oauth2":[]}],"tags":["Content Generation Renders"],"method":"post","path":"/content-generations/renders","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"jsonRequestBodyExample":{"template":"string"},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"Render","description":{"content":"[GET with body payload](https://opensource.zalando.com/restful-api-guidelines/#get-with-body) - no resources created","type":"text/plain"},"url":{"path":["content-generations","renders"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"text/plain"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"oauth2","oauth2":[]}}}
+api: eJzFVd9v2zYQ/leI20sLyFZq9ElP64q22DAsQ+JiD0YQ0ORZYkORDEnFVQz978WRkiPH2RbsZU+Wyfvx3XffHQ8gMQivXFTWQAWbL5/WbK9iw7ZW9szxXlsub940MbpQlaV1aILtvMDlI9fcSLsUti09hrjr9II7tag7JVErg6H8qca4oGgLivaWLZixzGMOEJjwyCNKKMA69Jwg/CqhAo9Gol9j6zSPCAV4vO8wxF+s7KE6gLAmoon0yZ3TSiTX8lugEg4QRIMtp6/YO4QK7PYbigjFs1o/sDEui4SKcjLO4piWdUGZmsUGmfP2QUmUTPLIWYi+E7HzuIQCnCfoUWGgfHT/73nXDeZIO29bdmfsXqOskdWeu4bxXSQczul+yp8u7jW779D3y8QHl5dG91BF32EBUUVNCX8jBoYCphpmWEL0ytQvYtHqvlPyWPgShiFTrjxKqDa5rFnUm6eMV4m2q8wjDKeeBC4dBGdNyBStLi6etTDi91g6zdXLzRuBp9Cn2D/bzsgl1fv+4l2i/7S9XWzQxFEd7DNXuvOYzd+fm/9hI0sRU/kBRedV7KHaHI5/bi3vYrOCanMzEAe8DkTPx1wL+4JmVDHLtARiqsXYWFK1s4G04HhsoIJyZGBRH71C6Uc3yu8f6IvSd15DBdMEcqeWe+ulVru4VBYIyQTwmsjLPJ9hPsBO2326oxPr1WPK+tFKPDv8epIyzBOWKWA5mWNJaIV1Oe2WByWgyr8snSdB2jt8RdBkVqYGTCOU0dMJjffV0yL49J23TmeJH+V+VEsByuzspDQuktKw5SpBQK3tz3MSCzC8Jf+/rJe/qx016pT2E8qfK3HsPDJhCVNqJtvygJJZw0QXom3VI0qmlak7FaISrLUSdaBp1kqgCamSEcUb8ZYJ63qv6iay1cVqtXAeA4nstQAj+jZc7q7RPyiBL9uVyWhhd4uQzaiX02SfqxoKIE3mkt8tLygNibrlZoY9S//5oplN/P/1xoyKmq2bYeTwMA7lBl4YyrRuj9Pc0BBXGzgcqL1fvR4GOk6bmfZCAQ/cK74lCjc3QwENcqKD5vgO+ydeF2uCQ+a6I1hnD9lQTB4fhEAXZ7bzEuYb5s/L6zUUsB2fyTZNNni+pxr4HipIT20uqzrkswNobuqO12SbM9O00dzNn7I8hwUcV+Dxipt+hi0vgGKEPi2AvzF+xS6YInEhMIT1tEf+U8iTnTWG7WLzj/FO1uKtIEon39pzE2+T13AzDMMP4H1A9A==
 sidebar_class_name: "post api-method"
 info_path: api/content-generation/content-generation
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Render
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Render"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/content-generations/renders"}
+>
+  
+</MethodEndpoint>
 
 
 
 [GET with body payload](https://opensource.zalando.com/restful-api-guidelines/#get-with-body) - no resources created
 
-<MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"template"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The liquid template."}}></SchemaItem></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found.
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"text/plain"} value={"text/plain"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
-
-string
-
-</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
-
-Not Found
-
-</div><div></div></TabItem></ApiTabs></div>
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"template"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The liquid template."}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"text/plain"}
+              value={"text/plain"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <div
+                        style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                      >
+                        
+                        
+                        string
+                        
+                        
+                      </div>
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

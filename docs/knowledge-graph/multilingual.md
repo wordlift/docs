@@ -28,10 +28,10 @@ The parameter is called `__wl_lang` and specifies the ISO 639-1 two-letter code 
 
 For example, the internal routing may have the following configuration, URL example.org is served by:
 
-1. graph <https://data.example.org/en>, which is also the default, when language is English
-1. graph <https://data.example.org/it>, when language is Italian
+1. graph `https://data.example.org/en`, which is also the default, when language is English
+1. graph `https://data.example.org/it`, when language is Italian
 
-So that when requesting <https://api.wordlift.io/data/https/example.org/page.html?__wl_lang=en>, the Data API will route the request to the <https://data.example.org/en> graph, whereas requesting <https://api.wordlift.io/data/https/example.org/page.html?__wl_lang=it> will route the request to the <https://data.example.org/it> graph.
+So that when requesting `https://api.wordlift.io/data/https/example.org/page.html?__wl_lang=en`, the Data API will route the request to the `https://data.example.org/en` graph, whereas requesting `https://api.wordlift.io/data/https/example.org/page.html?__wl_lang=it` will route the request to the `https://data.example.org/it` graph.
 
 ## Cloud script
 

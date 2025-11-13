@@ -5,34 +5,474 @@ description: "Start"
 sidebar_label: "Start"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"createSync","parameters":[{"description":"The Merchant's `id`","in":"path","name":"merchantId","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"content":{"*/*":{"schema":{"type":"object","description":"A Merchant products data synchronization.","properties":{"created_at":{"type":"string","format":"date-time","description":"The create date-time.","readOnly":true},"has_errors":{"type":"boolean","description":"Whether the sync encountered errors.","readOnly":true},"id":{"type":"integer","format":"int64","description":"The unique id.","readOnly":true},"merchant_id":{"type":"integer","format":"int64","description":"The parent Merchant id.","readOnly":true},"modified_at":{"type":"string","format":"date-time","description":"The last modified date-time.","readOnly":true},"products_created":{"type":"integer","format":"int32","description":"The number of created products","readOnly":true},"products_deleted":{"type":"integer","format":"int32","description":"The number of deleted products","readOnly":true},"products_errored":{"type":"integer","format":"int32","description":"The number of errored products","readOnly":true},"products_skipped":{"type":"integer","format":"int32","description":"The number of skipped products","readOnly":true},"products_total":{"type":"integer","format":"int32","description":"The total number of processed products, including the skipped and errored.","readOnly":true},"products_updated":{"type":"integer","format":"int32","description":"The number of update products","readOnly":true},"started_at":{"type":"string","format":"date-time","description":"The started date-time.","readOnly":true},"stopped_at":{"type":"string","format":"date-time","description":"The stopped date-time.","readOnly":true}},"required":["merchant_id"],"title":"MerchantSync"}}},"description":"Found."},"401":{"description":"Authentication Failure"}},"security":[{"OAuth2":[]}],"tags":["Merchant Syncs"],"description":"Start","method":"post","path":"/merchants/{merchantId}/syncs","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Start","description":{"type":"text/plain"},"url":{"path":["merchants",":merchantId","syncs"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) The Merchant's `id`","type":"text/plain"},"type":"any","value":"","key":"merchantId"}]},"header":[{"key":"Accept","value":"*/*"}],"method":"POST","auth":{"type":"oauth2","oauth2":[]}}}
+api: eJytWNtu2zgQ/RWCL71AsdO0uw962uyli6JdJNik6EMQuGNxbLGhSJUcpdUa+vfFUJdYseoYaZ5sy8MzhzNnhkNtpCvRA2ln3ymZyswjEF7UNpOJLMFDgYQ+yPRqIxWGzOuSbWUqL3MU/6DPcrD0LIjPWn2WidT8VwmUy0RaKFCmsuiM3imZSI9fK+1RyZR8hYkMWY4FyHQjqS7ZWlvCNXqZyJXzBVD76Nc3smmueXkonQ0YeMXJ8TF/ZM4SWuKvL+cv+WMH1C2/YEYyubeF02EDovROVRkFoYBAhNpmuXdW/xcjM+NYeA4U6dZ1Gya1ANryEshru95mroDwiHSBO645ei2IGIxmMT6gzqyp2/g0iUTvnV94hMDrdn2NYf9ia0E5kMigCqgE5Xh/O4KcWIE27K+A7x/QrimX6S/Hx4kstO1/H0+wySEsIqOwxWXpnEGwO2Q+5Ug5+oGCQJu5yhJ6VKJFmdyyVofoYSqildVfKxRaTeL2Qlw83kEJHi3dyeZHnpzSK/2z+jAQSPRQD8jE3aIHYxa9jhfaLm7Wj91mhyag4HwJt7qrD7gFbWBpUDgr3v8tYEXoY3q1XU9SGyh1RfMgqdcnk6RsVSzRM5kOaCC116tCg0/itQM6zGuU91N47YAO8xpudFk+hdcO6DCv5AjMY33GxVueS+8yDGHLdyK0zUyltF23raTjBlb10dmvu8pysa6fIi5DGcQWm8Mt2mckOvjIiDserpzH4d8loo0FwhZr0HY/2VI9TZG0QHszGAj8T59iHcgD/SmQ46T9rKsI8pCrGOon6oQTqe9SuawF5Tr0gt1qjJob4+HUFsuol0XGh2hVHjYLbU9SV6OT7TqRpMnw+v6YiuNcw4vGG3zrKqtmsknkm51RCsrS6CzOC/Mv3ezx47lqPB0pJNBmN9F8tttAYDPcq4LKa9ncB73vEpTSzA7M+R67ppU5VeGQimqG2E1Qbx88RPsOQp57tzRY/NlGYyL+p9bFAalPXzsl6cAKAsPqqflr6d3aYwgzccnNRWRghbOmFks+hLvZylfWcocEEiDa2oh5fdUmZOS2ohwtddkVb0GbymNr/nra3Pl+dhysObCYVV5THW8HZ2x3ItOrax7UCdZ8aRgkKFiDgcU5Br/g7sFzKFLu+AJSuhAFxVeIVM770IT55u4e0cxDRGMG/ra/nlTeyFTmRGVI53Mo9eyb88roFc20k0yq53vBOm7Vclrq91jvbvrze6zFpnaVFzdYN8PVJkdQUTnd5WYUHNmLREIL2yTydwg6Y6sJH/E/seGxWKESVUDPsGkJITD3w93GyoyzOEPe8eBoMIs+ORu5Mu5b3DlsQ/zhFO48/DgKaNgO59yx5bw3x3nk4Mo2qC2JjoyIz2MBuRs8ADSazdtK6moZIvsm9o+V6zsVZLFTYRGbjczRGPfbds6HcH1yXn3QKxbWWCUjhexos1oOP0UBFtZY8PTPx7xHE0dQFqDOMF5kjM7QhhjHzu/z7IXIXFl7vc5JnByfnByVHgODHEqJ0BfhbHXR+pm2m0ejI7c66uhwOoZDIBJn7XCltDt7NTuODdYFKsBuEe7LcRSIoeURfqd5aXiEaTram65S784gLst0dOcPfennXNvpldxslhDwozdNw4+/Vui5h1wn8ha85jO0fd+gA39XMl2BCbjDajit5PN/u8PwhZh+LTG5gb5Wbc3BAVPxL5nIG24I268tmmu++rYlyMRag9Msw5K2lvLbB24zQy87P7u45JOqq/6xmpP+CyNOUulruXXXl9EPjA+oqB4JMh5YLvtqfBTkqPI72IryvXij5rLgnjesXXueXuKq5rppmv8BIXBzdw==
 sidebar_class_name: "post api-method"
 info_path: api/manager/manager
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Start
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/merchants/{merchantId}/syncs"}
+>
+  
+</MethodEndpoint>
 
 
 
 Start
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The Merchant's `id`","in":"path","name":"merchantId","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found.
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"created_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The create date-time.","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"has_errors"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","description":"Whether the sync encountered errors.","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"id"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"The unique id.","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"merchant_id"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"The parent Merchant id.","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"modified_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The last modified date-time.","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"products_created"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32","description":"The number of created products","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"products_deleted"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32","description":"The number of deleted products","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"products_errored"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32","description":"The number of errored products","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"products_skipped"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32","description":"The number of skipped products","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"products_total"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32","description":"The total number of processed products, including the skipped and errored.","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"products_updated"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32","description":"The number of update products","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"started_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The started date-time.","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"stopped_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The stopped date-time.","readOnly":true}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"created_at\": \"2024-02-28T15:20:20.125Z\",\n  \"has_errors\": true,\n  \"id\": 0,\n  \"merchant_id\": 0,\n  \"modified_at\": \"2024-02-28T15:20:20.125Z\",\n  \"products_created\": 0,\n  \"products_deleted\": 0,\n  \"products_errored\": 0,\n  \"products_skipped\": 0,\n  \"products_total\": 0,\n  \"products_updated\": 0,\n  \"started_at\": \"2024-02-28T15:20:20.125Z\",\n  \"stopped_at\": \"2024-02-28T15:20:20.125Z\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The Merchant's `id`","in":"path","name":"merchantId","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"*/*"}
+              value={"*/*"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"created_at"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time","description":"The create date-time.","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"error_reason"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** `<= 500 characters`"}
+                        schema={{"type":"string","description":"Error that caused the synchronization to fail.","maxLength":500,"minLength":0,"readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"has_errors"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean","description":"Whether the sync encountered errors.","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={false}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64","description":"The unique id.","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"merchant_id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64","description":"The parent Merchant id.","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"modified_at"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time","description":"The last modified date-time.","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"overall_products_in_kg"}
+                        required={false}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64","description":"The overall amount of products available on KG after syncing.","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"products_created"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int32","description":"The number of created products","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"products_deleted"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int32","description":"The number of deleted products","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"products_errored"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int32","description":"The number of errored products","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"products_skipped"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int32","description":"The number of skipped products","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"products_total"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int32","description":"The total number of processed products, including the skipped and errored.","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"products_unchanged"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int32","description":"The number of products that haven't changed and therefore haven't been synced again","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"products_updated"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int32","description":"The number of update products","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"started_at"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time","description":"The started date-time.","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"stopped_at"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time","description":"The stopped date-time.","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"synced_products_in_kg"}
+                        required={false}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64","description":"The number of products synced by this process available in KG.","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"synced_products_in_kg_before_cleanup"}
+                        required={false}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"created_at\": \"2024-07-29T15:51:28.071Z\",\n  \"error_reason\": \"string\",\n  \"has_errors\": true,\n  \"id\": 0,\n  \"merchant_id\": 0,\n  \"modified_at\": \"2024-07-29T15:51:28.071Z\",\n  \"overall_products_in_kg\": 0,\n  \"products_created\": 0,\n  \"products_deleted\": 0,\n  \"products_errored\": 0,\n  \"products_skipped\": 0,\n  \"products_total\": 0,\n  \"products_unchanged\": 0,\n  \"products_updated\": 0,\n  \"started_at\": \"2024-07-29T15:51:28.071Z\",\n  \"stopped_at\": \"2024-07-29T15:51:28.071Z\",\n  \"synced_products_in_kg\": 0,\n  \"synced_products_in_kg_before_cleanup\": 0\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Another merchant sync is in already in progress. There can only be one sync running at a time.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"detail"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"instance"}
+                        required={false}
+                        schemaName={"uri"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"uri"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                properties
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"status"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int32"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"title"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"type"}
+                        required={false}
+                        schemaName={"uri"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"uri"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"properties\": {},\n  \"status\": 0,\n  \"title\": \"string\",\n  \"type\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"403"}
+        value={"403"}
+      >
+        <div>
+          
+          
+          Authorization Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

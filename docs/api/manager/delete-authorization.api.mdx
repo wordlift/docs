@@ -5,30 +5,64 @@ description: "Retrieve the authorizations of the authenticated user."
 sidebar_label: "Delete an authorization"
 hide_title: true
 hide_table_of_contents: true
-api: {"description":"Retrieve the authorizations of the authenticated user.","operationId":"deleteAuthorization","responses":{"202":{"description":"Authorization of the account authenticated is deleted."}},"security":[{"ApiKey":[]}],"tags":["Google Search Console OAuth2"],"method":"delete","path":"/google-search-console/authorization","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"BasicAuth":{"description":"`Basic {encoded username:password}`","in":"header","name":"Authorization","scheme":"basic","type":"http"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Delete an authorization","description":{"content":"Retrieve the authorizations of the authenticated user.","type":"text/plain"},"url":{"path":["google-search-console","authorization"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"method":"DELETE","auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJylVE1v2zAM/SsCTxugxF2OPm1ri2FohwLLih2CAFVkJhZqS55Ep8sM/feBspvGXgoU2CWRKZLv6fGjgwKD9qYh4yzk8B3JG9yjoBKFaql03vxRfBmE2x6taMloRViINqCfgwTXoE9+XwvIocAKCT+dxoMEj6FxNmCAvIPFxYL/xvCjiCOg1q61NAE2QfQoxRxilBBQt97QAfJVB58ac4N8XMe1BFK7APkKvji3q1AsUXldiktng6tQ3DHoAtYSaqTSvdAHCY2iEnLIdilyFlLkTPeRmZq8L6Dfow+JQesryKEkakKeZaox8yfni8psaW4cMKtnwktdYt1r8kx7KsvDDR5Ed3CtF494iA8gwbC9RFWgBwlW1TiVDyTQoWGz6tNGCZ9VMJq9zmCkO9Gh1a4YCstp80aFwNzfDhvSiyCHDad84cFqMItB8byDbeWe0stHUl66Av8x3o8EDadyZo49j+XALHFwTS9qT2IgI5KdSZB7xDckTW5Z6rDhFcm+SBZjt44htLOkNPERa2VSTqwq9/G05ke5fjpf3JotgZx0yahD5KQ+y3Zz/BS1smqHNfJU2EJ4rNJMcAMajYEHsjIabUg6Drjv9HuhXXPwZleSWFwsFrPGY+Akb6VE6Otwt132OOf9suQ0c9vZQIfLQYYq9v+WiHPv8KT0L/swv+DcjQtUK3tC+CqNoVBWTCdtJE2vP1r6n/01FJfwN2VNpYxlSkmLbtgCKzi7BUCO+5QXSekCcUDXbVTAe1/FyOZfLfq0lCTslTdqw5Ks1vFk81xd317/uB5yMvbLCD/ige39gVfM85Vl+15V7blZTM7pN8pXQrquXxAxHv37q1cjjgug92ax1jHGvyAuMdE=
 sidebar_class_name: "delete api-method"
 info_path: api/manager/manager
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Delete an authorization
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete an authorization"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/google-search-console/authorization"}
+>
+  
+</MethodEndpoint>
 
 
 
 Retrieve the authorizations of the authenticated user.
 
-<div><ApiTabs><TabItem label={"202"} value={"202"}><div>
-
-Authorization of the account authenticated is deleted.
-
-</div><div></div></TabItem></ApiTabs></div>
+<div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"202"}
+        value={"202"}
+      >
+        <div>
+          
+          
+          Authorization of the account authenticated is deleted.
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

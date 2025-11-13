@@ -1,42 +1,131 @@
 ---
 id: delete-word
-title: "Delete a Word bias"
-description: "Delete a Word bias"
-sidebar_label: "Delete a Word bias"
+title: "Delete"
+description: "Delete"
+sidebar_label: "Delete"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"deleteWord","parameters":[],"responses":{"200":{"description":"Created"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"security_oauth2":[]}],"tags":["ContentGeneration Word biases"],"description":"Delete a Word bias","method":"delete","path":"/content-generations/{contentGenerationId}/words/{id}","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"Delete a Word bias","description":{"type":"text/plain"},"url":{"path":["content-generations",":contentGenerationId","words",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"method":"DELETE","auth":{"type":"oauth2","oauth2":[]}}}
+api: eJylVE1P3EAM/SuRT0UKZFmhHnJqxUeFhFqpgHpAKzTMeDcWyUyYcaBLlP9eeZIsu+yCED0lcZ7tZz/bLbgavWJy9txADgZLZPzjvIEUauVVhYw+QH7TgsGgPdWChRyuCkyOnWW0nPxAOwRJyBxACiSIWnEBKVhVIeSge+wL9FxSeHxoyKOBnH2DKQRdYKUgb4GXtbiRZVyghxTmzleKe9PXI+i6dBcloZ6wS/pC3uBC/5t6Ju6hdjZgEI/pZCKPTTrHHhWjgS6Fo8nh9v/vDRdomXTfuTNFZeOxhx9tw386Ts5cY42UDgF144mXUZnx49aphosp5DczochqIcrBDplim+5ICf9Z+irTSewdpFAhF+5lLOJIcAE5ZIOa+4tVyJC1OyTusifnTchaMh0Ia/84jlPjS8ihYK5DnmWqpgOBljTnA3Ig/MeyLkWZvtFblbYwL91T/CcW5+k5pj52BreM1xspw3rCLAbMRjhmwla7uk97pwJpyPtnEu2iE7t7/EDQCMuibMNoDezFQnbuJIU0T2mWV6wUxZhYlu7beldWEyz6XdCcIX3Vx40evhZ2UAYT7aq6xChbcqcCmsTZRDeBXUXPaJKS7KKhwKSTyhksgyxSSRptiF0dWHzRe4l29dLTouBkOplO92uPQWbtowQZfRV+zS/RP5LG3bgsgvbdfD/0MBGHiUvBbw83pCBD1pd8eDCRNLULXCm7xn015BstWi0/41/O6lKRFfdYQjtM/w3smH5IId994uICyG8ysmqFCywx2lYaf+3LrhPzQ4NelnmWwqPypO6kODm6FOTdQD5XZcAtukNOEeP3cND2kndv884CB6OyS+meKhv5ghTucfnG7Y7n97Pktq/0J1iRgW7WrV2pk9OL06tTSOPSr2k5bFsKq/PY7g7dr/kYf1zzN8Af2PgxktIaQ7gar8WnQm5cpiFsw8W78TaO362Wkzj6LryyfBu9ulnXdf8A70LFJw==
 sidebar_class_name: "delete api-method"
 info_path: api/content-generation/content-generation
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Delete a Word bias
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/content-generations/{contentGenerationId}/words/{id}"}
+>
+  
+</MethodEndpoint>
 
 
 
-Delete a Word bias
+Delete
 
-<div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Created
-
-</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
-
-Not Found
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The Content Generation id.","in":"path","name":"contentGenerationId","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The Word to delete.","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Created
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

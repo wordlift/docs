@@ -11,7 +11,7 @@ When saved, entities are created as `custom posts` in the local WordPress instal
 :::info Note
 The URL for an entity page is as follows::
 
-[http://](#)<*name-of-your-wordpress-site*>/?entity=<*name-of-the–entity*>
+`http://<name-of-your-wordpress-site>/?entity=<name-of-the–entity>`
 :::
 
 ### Metadata being added to Entity pages

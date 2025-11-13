@@ -5,34 +5,167 @@ description: "export"
 sidebar_label: "export"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"export","parameters":[{"description":"The Content Generation id.","in":"path","name":"contentGenerationId","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"content":{"text/tsv":{"schema":{"type":"array","items":{"type":"string"}}}},"description":"OK"}},"security":[{"security_oauth2":[]}],"tags":["Content Generation Records Export"],"description":"export","method":"get","path":"/content-generations/{contentGenerationId}/records.tsv","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"export","description":{"type":"text/plain"},"url":{"path":["content-generations",":contentGenerationId","records.tsv"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) The Content Generation id.","type":"text/plain"},"type":"any","value":"","key":"contentGenerationId"}]},"header":[{"key":"Accept","value":"text/tsv"}],"method":"GET","auth":{"type":"oauth2","oauth2":[]}}}
+api: eJydVE1r40AM/StGpxYmcTcse/Bpl1JK2YVCP9hDCWU6Vuyhtmc6I6dNzfz3ReOPJk1ayp5sy9KT9CS9DoxFJ0mb5iKHDPDFGkcgwEonayR0HrK7DnL0ymnLfpDBTYnJqWkIG0rOsRkAEp3PQYBmDyupBAGNrBEyUL3vm+tFDgIcPrXaYQ4ZuRYFeFViLSHrgDaWw3RDWKADASvjakm96cd3CGHJ4d6axqPniMXJCT+GRBEDXyglv+b3PWTpnNxwrYS137J7cropIIQQxLueL38DGz2q1mnaRFbGj3sjWyoXkN0tuTKSBbMGByi6QmVc7pOznufl+ywT/zVSaXgiBfbjoBIySIcGZ8UE6dPuAL0hdX2mOVPAZbv1OMvWVZBBSWR9lqbS6vmzcXmlVzTXBriBsa9r5q0neK/VDlaVeY7/2GKcfo25T02Oe8bbnZR+O2EaAdPRHVOuVhnbp32QXivI+mcS7RAEkHnEL4BGtzTObRjwUD1bdLMy485IFXcGa6kjJlaV+bnNyrTKf43L/+gVz2SXxx0O3491GA0mytS2wji35EF6zBPTJKr1ZGr9inlS6aZotSetktrkWHm+qEorbHxkdajiSB0nytiN00VJyeJksZhZh56X7asFErraX66u0a21wsN+aXSamdXM9248HNJUsf/+doMAXrK+5W/zE05jjadaNlu1Tyu+Q9F0gvFubSV1w+GxhW5Y/zs4sP4gIPtIX94uYCmgNJ4Yo+uY+FtXhcDmpxYdX/NSwFo6LR+4OVY87fk9h2wlK4975U5SA0dXg5AdJ58K48EGR0FqWI7Wsmr5CwQ84uYD4QzLIKBEmaOLhfaev5RCS1sYk/7xQU9qcn52AyLe5hblw1EImGSsO1xXf41jceM1fuD8hcMckaRS6P3NeNT/BbkjIANsS+WneDsada9YucbYwsmG7mNUWIYQ/gFlpX1M
 sidebar_class_name: "get api-method"
 info_path: api/content-generation/content-generation
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## export
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"export"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/content-generations/{contentGenerationId}/records.tsv"}
+>
+  
+</MethodEndpoint>
 
 
 
 export
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The Content Generation id.","in":"path","name":"contentGenerationId","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-OK
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"text/tsv"} value={"text/tsv"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
-
-string
-
-</div><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"[\n  \"string\"\n]"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The Content Generation id.","in":"path","name":"contentGenerationId","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"text/tsv"}
+              value={"text/tsv"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                        >
+                          Array [
+                        </div>
+                      </li><div
+                        style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                      >
+                        
+                        
+                        string
+                        
+                        
+                      </div><li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                        >
+                          ]
+                        </div>
+                      </li>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"[\n  \"string\"\n]"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

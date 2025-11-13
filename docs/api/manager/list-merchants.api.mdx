@@ -5,38 +5,561 @@ description: "List the Merchants, optionally filtering by the `deleted` flag"
 sidebar_label: "List"
 hide_title: true
 hide_table_of_contents: true
-api: {"description":"List the Merchants, optionally filtering by the `deleted` flag","operationId":"listMerchants","parameters":[{"description":"The cursor","in":"query","name":"cursor","required":false,"schema":{"type":"string"}},{"description":"The maximum number of results","in":"query","name":"limit","required":false,"schema":{"type":"integer","default":10}},{"description":"Filter by the `deleted` flag","in":"query","name":"deleted","required":false,"schema":{"type":"boolean"}}],"responses":{"200":{"content":{"application/json":{"schema":{"type":"object","description":"A page object with links to move to other pages and the list of objects.","properties":{"first":{"type":"string","description":"The link to the first page.","nullable":true},"items":{"type":"array","description":"An array of objects.","items":{"type":"object","description":"An array of objects.","properties":{"access_token":{"type":"string","description":"The Google merchant access token"},"account_id":{"type":"integer","format":"int64","description":"The account id","readOnly":true},"automatic_synchronization":{"type":"boolean","description":"Whether the Merchant data will be synchronized automatically"},"created_at":{"type":"string","format":"date-time","description":"The create date-time","readOnly":true},"dataset_domain":{"type":"string","description":"The custom domain (for example data.example.org)"},"dataset_name":{"type":"string","description":"The dataset path (for example /data)"},"deleted":{"type":"boolean","default":false,"description":"True if the merchant has been deleted"},"deleted_at":{"type":"string","format":"date-time","description":"The delete date-time","readOnly":true},"google_merchant_id":{"type":"integer","format":"int64","description":"The Google Merchant id"},"id":{"type":"integer","format":"int64","description":"The unique id","readOnly":true},"ignore_brand":{"type":"boolean","description":"Whether to ignore the `brand` property during validation"},"ignore_image":{"type":"boolean","description":"Whether to ignore the `image` property during validation"},"modified_at":{"type":"string","format":"date-time","description":"The last modified date-time","readOnly":true},"publisher_name":{"type":"string","description":"The publisher name (shows in schema publisher)"},"refresh_token":{"type":"string","description":"The Google merchant refresh token"},"sid":{"type":"string"},"sync_has_errors":{"type":"boolean"},"sync_id":{"type":"integer","format":"int64"},"sync_products_created":{"type":"integer","format":"int32"},"sync_products_deleted":{"type":"integer","format":"int32"},"sync_products_errored":{"type":"integer","format":"int32"},"sync_products_skipped":{"type":"integer","format":"int32"},"sync_products_total":{"type":"integer","format":"int32"},"sync_products_updated":{"type":"integer","format":"int32"},"sync_started_at":{"type":"string","format":"date-time","description":"The started date-time.","readOnly":true},"sync_stopped_at":{"type":"string","format":"date-time","description":"The stopped date-time.","readOnly":true},"url":{"type":"string","description":"The website URL"}},"required":["access_token","deleted","google_merchant_id","publisher_name","refresh_token"],"title":"MerchantView"}},"last":{"type":"string","description":"The link to the last page.","nullable":true},"next":{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true},"prev":{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true},"self":{"type":"string","description":"The link to the current page.","nullable":true}},"required":["first","items","last","next","prev","self"],"title":"PageMerchantView"}}},"description":"Found"},"401":{"description":"Authentication Failure"}},"security":[{"OAuth2":[]}],"tags":["Merchants"],"method":"get","path":"/merchants","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"List","description":{"content":"List the Merchants, optionally filtering by the `deleted` flag","type":"text/plain"},"url":{"path":["merchants"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"The cursor","type":"text/plain"},"key":"cursor","value":""},{"disabled":false,"description":{"content":"The maximum number of results","type":"text/plain"},"key":"limit","value":""},{"disabled":false,"description":{"content":"Filter by the `deleted` flag","type":"text/plain"},"key":"deleted","value":""}],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"oauth2","oauth2":[]}}}
+api: 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
 sidebar_class_name: "get api-method"
 info_path: api/manager/manager
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## List
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/merchants"}
+>
+  
+</MethodEndpoint>
 
 
 
 List the Merchants, optionally filtering by the `deleted` flag
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The cursor","in":"query","name":"cursor","required":false,"schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"The maximum number of results","in":"query","name":"limit","required":false,"schema":{"type":"integer","default":10}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"Filter by the `deleted` flag","in":"query","name":"deleted","required":false,"schema":{"type":"boolean"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"first"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the first page.","nullable":true}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>items</strong><span style={{"opacity":"0.6"}}> object[]</span><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
-
-An array of objects.
-
-</div><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"access_token"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The Google merchant access token"}}></SchemaItem><SchemaItem collapsible={false} name={"account_id"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"The account id","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"automatic_synchronization"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","description":"Whether the Merchant data will be synchronized automatically"}}></SchemaItem><SchemaItem collapsible={false} name={"created_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The create date-time","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"dataset_domain"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The custom domain (for example data.example.org)"}}></SchemaItem><SchemaItem collapsible={false} name={"dataset_name"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The dataset path (for example /data)"}}></SchemaItem><SchemaItem collapsible={false} name={"deleted"} required={true} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","default":false,"description":"True if the merchant has been deleted"}}></SchemaItem><SchemaItem collapsible={false} name={"deleted_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The delete date-time","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"google_merchant_id"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"The Google Merchant id"}}></SchemaItem><SchemaItem collapsible={false} name={"id"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"The unique id","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"ignore_brand"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","description":"Whether to ignore the `brand` property during validation"}}></SchemaItem><SchemaItem collapsible={false} name={"ignore_image"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","description":"Whether to ignore the `image` property during validation"}}></SchemaItem><SchemaItem collapsible={false} name={"modified_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The last modified date-time","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"publisher_name"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The publisher name (shows in schema publisher)"}}></SchemaItem><SchemaItem collapsible={false} name={"refresh_token"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The Google merchant refresh token"}}></SchemaItem><SchemaItem collapsible={false} name={"sid"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"sync_has_errors"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean"}}></SchemaItem><SchemaItem collapsible={false} name={"sync_id"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"sync_products_created"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"sync_products_deleted"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"sync_products_errored"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"sync_products_skipped"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"sync_products_total"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"sync_products_updated"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"sync_started_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The started date-time.","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"sync_stopped_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The stopped date-time.","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"url"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The website URL"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem><SchemaItem collapsible={false} name={"last"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the last page.","nullable":true}}></SchemaItem><SchemaItem collapsible={false} name={"next"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true}}></SchemaItem><SchemaItem collapsible={false} name={"prev"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true}}></SchemaItem><SchemaItem collapsible={false} name={"self"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the current page.","nullable":true}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"first\": \"string\",\n  \"items\": [\n    {\n      \"access_token\": \"string\",\n      \"account_id\": 0,\n      \"automatic_synchronization\": true,\n      \"created_at\": \"2024-02-28T15:20:20.123Z\",\n      \"dataset_domain\": \"string\",\n      \"dataset_name\": \"string\",\n      \"deleted\": false,\n      \"deleted_at\": \"2024-02-28T15:20:20.123Z\",\n      \"google_merchant_id\": 0,\n      \"id\": 0,\n      \"ignore_brand\": true,\n      \"ignore_image\": true,\n      \"modified_at\": \"2024-02-28T15:20:20.123Z\",\n      \"publisher_name\": \"string\",\n      \"refresh_token\": \"string\",\n      \"sid\": \"string\",\n      \"sync_has_errors\": true,\n      \"sync_id\": 0,\n      \"sync_products_created\": 0,\n      \"sync_products_deleted\": 0,\n      \"sync_products_errored\": 0,\n      \"sync_products_skipped\": 0,\n      \"sync_products_total\": 0,\n      \"sync_products_updated\": 0,\n      \"sync_started_at\": \"2024-02-28T15:20:20.123Z\",\n      \"sync_stopped_at\": \"2024-02-28T15:20:20.123Z\",\n      \"url\": \"string\"\n    }\n  ],\n  \"last\": \"string\",\n  \"next\": \"string\",\n  \"prev\": \"string\",\n  \"self\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The cursor","in":"query","name":"cursor","required":false,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The maximum number of results","in":"query","name":"limit","required":false,"schema":{"type":"integer","default":10}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"Filter by the `deleted` flag","in":"query","name":"deleted","required":false,"schema":{"type":"boolean"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"first"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the first page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                items
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span><span
+                                className={"openapi-schema__divider"}
+                              >
+                                
+                              </span><span
+                                className={"openapi-schema__required"}
+                              >
+                                required
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              An array of objects.
+                              
+                              
+                            </div><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"access_token"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The Google merchant access token"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"account_id"}
+                              required={false}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","description":"The account id","readOnly":true}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"automatic_synchronization"}
+                              required={false}
+                              schemaName={"boolean"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"boolean","description":"Whether the Merchant data will be synchronized automatically"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"created_at"}
+                              required={false}
+                              schemaName={"date-time"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"date-time","description":"The create date-time","readOnly":true}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"custom_seller"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"Custom seller entity - if applicable."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"dataset_domain"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","deprecated":true,"description":"The custom domain (for example data.example.org)"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"dataset_name"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","deprecated":true,"description":"The dataset path (for example /data)"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"default_products_filter_action"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={"**Possible values:** [`PROCESS`, `IGNORE`]"}
+                              schema={{"type":"string","default":"PROCESS","description":"Default Products filter action to apply during sync process.","enum":["PROCESS","IGNORE"]}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"deleted"}
+                              required={true}
+                              schemaName={"boolean"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"boolean","default":false,"description":"True if the merchant has been deleted"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"deleted_at"}
+                              required={false}
+                              schemaName={"date-time"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"date-time","description":"The delete date-time","readOnly":true}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"google_merchant_id"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","description":"The Google Merchant id"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"id"}
+                              required={false}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","description":"The unique id","readOnly":true}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"ignore_brand"}
+                              required={false}
+                              schemaName={"boolean"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"boolean","description":"Whether to ignore the `brand` property during validation"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"ignore_image"}
+                              required={false}
+                              schemaName={"boolean"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"boolean","description":"Whether to ignore the `image` property during validation"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"modified_at"}
+                              required={false}
+                              schemaName={"date-time"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"date-time","description":"The last modified date-time","readOnly":true}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"publisher_name"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The publisher name (shows in schema publisher)"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"refresh_token"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The Google merchant refresh token"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"sid"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"sync_has_errors"}
+                              required={false}
+                              schemaName={"boolean"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"boolean"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"sync_id"}
+                              required={false}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"sync_products_created"}
+                              required={false}
+                              schemaName={"int32"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int32"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"sync_products_deleted"}
+                              required={false}
+                              schemaName={"int32"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int32"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"sync_products_errored"}
+                              required={false}
+                              schemaName={"int32"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int32"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"sync_products_skipped"}
+                              required={false}
+                              schemaName={"int32"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int32"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"sync_products_total"}
+                              required={false}
+                              schemaName={"int32"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int32"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"sync_products_unchanged"}
+                              required={false}
+                              schemaName={"int32"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int32"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"sync_products_updated"}
+                              required={false}
+                              schemaName={"int32"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int32"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"sync_started_at"}
+                              required={false}
+                              schemaName={"date-time"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"date-time","description":"The started date-time.","readOnly":true}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"sync_stopped_at"}
+                              required={false}
+                              schemaName={"date-time"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"date-time","description":"The stopped date-time.","readOnly":true}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"url"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The website URL"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"url_strategy"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={"**Possible values:** `<= 50 characters`, [`canonicalLinkAndLink`, `canonicalLinkOtherwiseLink`]"}
+                              schema={{"type":"string","default":"canonicalLinkAndLink","description":"Which strategy to use to write the url schema.","enum":["canonicalLinkAndLink","canonicalLinkOtherwiseLink"],"maxLength":50,"minLength":0}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"writer_service"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"How to write the merchant data to the graph, if unsure, do not set anything (by default `wordpressMerchantWriter`)."}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"last"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the last page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"next"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"prev"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"self"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the current page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"first\": \"string\",\n  \"items\": [\n    {\n      \"access_token\": \"string\",\n      \"account_id\": 0,\n      \"automatic_synchronization\": true,\n      \"created_at\": \"2024-07-29T15:51:28.071Z\",\n      \"custom_seller\": \"string\",\n      \"default_products_filter_action\": \"PROCESS\",\n      \"deleted\": false,\n      \"deleted_at\": \"2024-07-29T15:51:28.071Z\",\n      \"google_merchant_id\": 0,\n      \"id\": 0,\n      \"ignore_brand\": true,\n      \"ignore_image\": true,\n      \"modified_at\": \"2024-07-29T15:51:28.071Z\",\n      \"publisher_name\": \"string\",\n      \"refresh_token\": \"string\",\n      \"sid\": \"string\",\n      \"sync_has_errors\": true,\n      \"sync_id\": 0,\n      \"sync_products_created\": 0,\n      \"sync_products_deleted\": 0,\n      \"sync_products_errored\": 0,\n      \"sync_products_skipped\": 0,\n      \"sync_products_total\": 0,\n      \"sync_products_unchanged\": 0,\n      \"sync_products_updated\": 0,\n      \"sync_started_at\": \"2024-07-29T15:51:28.071Z\",\n      \"sync_stopped_at\": \"2024-07-29T15:51:28.071Z\",\n      \"url\": \"string\",\n      \"url_strategy\": \"canonicalLinkAndLink\",\n      \"writer_service\": \"string\"\n    }\n  ],\n  \"last\": \"string\",\n  \"next\": \"string\",\n  \"prev\": \"string\",\n  \"self\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

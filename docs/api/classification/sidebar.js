@@ -1,1 +1,0 @@
-module.exports = [{"type":"doc","id":"api/classification/classification"},{"type":"category","label":"Classifications","link":{"type":"doc","id":"api/classification/classifications"},"items":[{"type":"doc","id":"api/classification/classify-using-post","label":"Create","className":"api-method post"}]}];

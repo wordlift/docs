@@ -5,38 +5,122 @@ description: "Delete a platform limit."
 sidebar_label: "Delete Platform Limit"
 hide_title: true
 hide_table_of_contents: true
-api: {"description":"Delete a platform limit.","operationId":"deletePlatformLimit","parameters":[{"description":"Platform Limit id","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"description":"Found"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"BasicAuth":[]}],"tags":["Platform Limits"],"method":"delete","path":"/platform-limit/limits/{id}","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"BasicAuth":{"description":"`Basic {encoded username:password}`","in":"header","name":"Authorization","scheme":"basic","type":"http"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Delete Platform Limit","description":{"content":"Delete a platform limit.","type":"text/plain"},"url":{"path":["platform-limit","limits",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) Platform Limit id","type":"text/plain"},"type":"any","value":"","key":"id"}]},"method":"DELETE","auth":{"type":"basic","basic":[{"type":"any","value":"<Basic Auth Username>","key":"username"},{"type":"any","value":"<Basic Auth Password>","key":"password"}]}}}
+api: eJyNVE1P20AQ/SurOYG0iUOEevCptIBUQQsqRT1Ekdh4x8kKe9fsjqGp5f9ezdqGfIlySezx25k3b3ZeAxpD5k1FxllI4RwLJBRKVIWi3PlSFKY0NAYJrkKvGPZNQwo6Am971DWDQEKlvCqR0AdIZ81O7gEsIloYDRIMf6gUrUCCVSVCCjHu8ak2HjWk5GuUELIVlgrSBmhdRZQlXKIHCZxSURf6dAptO+fjoXI2YOAT08mE/7bJXLraamglnE5O9r+e1bRCSyaLDYtLZYraYwc/3Yf/cCT6hK2EgFntDa2jBF9UMBmng3Q2Z2qklizOjhoB5hJKpJV7EzfqyQchGaYxitNI4m9IGqNb4Hr+eVC89gWksCKqQpokqjLjF+d1YXIaGwdcf2B3x4p2Ap1V5grX+209XOFaNGtXe/GI6/ZhmNcKlY7S9xPj9pw3f6NYIIcRqS5tKzdF2KsRv4kGbeY0alEH9Jw2rVQIzP3jZeMd4Q8LTvnGg9VgFjd8YMoU8sK9xM7VZoqvTuNe8H5L0LApZ+IYmQxwTCIHV3WidiR6MiLGmQS5R/xA0ghL4nXqu4jxaYwYmzsukTlLKiN+xFKZmBOLwn3enPmrXL+d19cm5zXdviVbN0TuzOeuXry+ilJZtcQSLQlltfBYKEIt+AKaDAO7RGEytCHq2Nc9yo5F5qq1N8sVielkOh1VHgMn+SglQl+Gm/yuq3MYl0TQyOWjng6PgwwVjP8eifPd4U3pOjsZTzh35QKVym4Q7j1we0FhR5hOfbT0vmn2wyP8Q7zExnLJ2GvTL/cMtpc7ahgdQUJqNPvCygViYNMsVMB7X7Qth59q9GwycwnPyhu14FbZdU3gZw1proqA7xA/+tnb7LE4ZM4HyQ/LbdespipqfgMJj+wgbN7tvN2wsvOL64tfFyDjVm3497Cj/ZrMmsOJY8udd9z3ztC2r9UGs4BW/v/87WAob+cHj2HObfsPKL1soQ==
 sidebar_class_name: "delete api-method"
 info_path: api/manager/manager
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Delete Platform Limit
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete Platform Limit"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/platform-limit/limits/{id}"}
+>
+  
+</MethodEndpoint>
 
 
 
 Delete a platform limit.
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"Platform Limit id","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found
-
-</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
-
-Not Found
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"Platform Limit id","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

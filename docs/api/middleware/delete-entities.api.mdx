@@ -5,34 +5,119 @@ description: "Delete entities with the provided ids."
 sidebar_label: "Delete"
 hide_title: true
 hide_table_of_contents: true
-api: {"tags":["Entities"],"description":"Delete entities with the provided ids.","operationId":"deleteEntities","parameters":[{"name":"id","in":"query","description":"One or more ids, in the form of URLs.","required":true,"schema":{"uniqueItems":true,"type":"array","items":{"type":"string","format":"uri"}}},{"name":"include_children","in":"query","description":"Whether to delete all the entities whose ids start with the provided ids, by default false.","required":false,"schema":{"type":"string","default":"false"}},{"name":"include_referenced","in":"query","description":"Whether to delete all the referenced entities (e.g. in `schema:mentions`), by default false.","required":false,"schema":{"type":"string","default":"false"}}],"responses":{"200":{"description":"Success"},"412":{"description":"Invalid request parameters"}},"security":[{"ApiKey":[]}],"method":"delete","path":"/entities","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"type":"apiKey","description":"`Key {your key}`","name":"Authorization","in":"header"}},"info":{"title":"Middleware","description":"Knowledge Graph data management.","termsOfService":"https://wordlift.io/terms-of-service/","contact":{"name":"WordLift","url":"https://wordlift.io","email":"hello@wordlift.io"},"license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"version":"1.0"},"postman":{"name":"Delete","description":{"content":"Delete entities with the provided ids.","type":"text/plain"},"url":{"path":["entities"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) One or more ids, in the form of URLs.","type":"text/plain"},"key":"id","value":""},{"disabled":false,"description":{"content":"Whether to delete all the entities whose ids start with the provided ids, by default false.","type":"text/plain"},"key":"include_children","value":""},{"disabled":false,"description":{"content":"Whether to delete all the referenced entities (e.g. in `schema:mentions`), by default false.","type":"text/plain"},"key":"include_referenced","value":""}],"variable":[]},"method":"DELETE","auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJy1VU1v2zgQ/SvEnBJAsVNjTzptgQSLIFkUaLbooTA2jDiyiFCkMhw5qxX03xdDWbHsJG0WaC+2xJnhmzcfTz2w3kTIv8GlZ8sWI6wzMBgLsg3b4CGHC3TIqHDnoJ4sV4orVA2FrTVolDVxARmEBklL0JWBHEwKe742g0aTrpGRBK8Hr2uEHKyBDKzgPLZIHRyjf/KoAqk6EApOpqxP4GWgWoVSffl8k8AJH1tLaCBnajGDWFRYa8h7aL19bPGKsY6TkbtGsDWRFkQ72vrpPDJZv4EMBEQz5NCShWEYsn3avnCtwb+LyjpD6L9P4muFXCEpDmosi9LOJRr7qlYhJoYqsiZ+vcqZuu+UwVK3jlWpXcRD6ulozv2Y0C4Wckiu8BolwhIJfYE/6MzbpPY37Pmd4GKzkObdjdnltZiCj3env4DVWuJjE3zE1NjV+bn8HRK4bYsCY4Qhg98+rF7ar/xWO2uUZIKR1WyAhyGDiEVLlrs0zR8be43yuBbsGrkK+yVIw88V5LDE/T5EpO20DC05yKFibmK+XOrGLp4CGWdLXtgAcuWEditVGElNmM8F0ePBcaPurrFTfRdaUg/YDXeQTS3/2HIVyP6btnbqdoXaICWK1pch3W/Zif+f1hiHT5rwBci1D08OzQbVH6SbShnNWtXa6w1Kp6WjjFTHT+Ut0tYWOOM747pMTmehPIuj2xIyKIJnXbBkskv8ayBzY0uG7Kh087JlgLW2yYrOhd8PSpqBswX6iLNbT4pTVYSmI7upWK3OV6uzhjCiZ/UuwCED6ehYkA+LczloQuRa+xnKxTQTBwXsE0v0/H8Ud9d3xn942ThtvSCm/PrdxH0DnAl7FSLLWd/f64hfyA2DHI/7LXNobNT3brZ0b+Z48nm3n6fqvRL9arYPMsHjV2CrXSsOIKL0/kx+rbh+L+mX34CfTuGnSOk7OByI/p7FWl7ICo2kbTNpu7i8ufzrEjLQrQzaXIQekgjtHmSsJpPvZrcfi8+YkPxK8V4N6ftR4obh2X80vRmxE7M9XRjWwzD8B3UcFWE=
 sidebar_class_name: "delete api-method"
 info_path: api/middleware/middleware
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Delete
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/entities"}
+>
+  
+</MethodEndpoint>
 
 
 
 Delete entities with the provided ids.
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","in":"query","description":"One or more ids, in the form of URLs.","required":true,"schema":{"uniqueItems":true,"type":"array","items":{"type":"string","format":"uri"}}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"include_children","in":"query","description":"Whether to delete all the entities whose ids start with the provided ids, by default false.","required":false,"schema":{"type":"string","default":"false"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"include_referenced","in":"query","description":"Whether to delete all the referenced entities (e.g. in `schema:mentions`), by default false.","required":false,"schema":{"type":"string","default":"false"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Success
-
-</div><div></div></TabItem><TabItem label={"412"} value={"412"}><div>
-
-Invalid request parameters
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"id","in":"query","description":"One or more ids, in the form of URLs.","required":true,"schema":{"uniqueItems":true,"type":"array","items":{"type":"string","format":"uri"}}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"include_children","in":"query","description":"Whether to delete all the entities whose ids start with the provided ids, by default false.","required":false,"schema":{"type":"string","default":"false"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"include_referenced","in":"query","description":"Whether to delete all the referenced entities (e.g. in `schema:mentions`), by default false.","required":false,"schema":{"type":"string","default":"false"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Success
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"412"}
+        value={"412"}
+      >
+        <div>
+          
+          
+          Invalid request parameters
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

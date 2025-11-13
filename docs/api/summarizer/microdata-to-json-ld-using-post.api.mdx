@@ -5,54 +5,272 @@ description: "Create"
 sidebar_label: "Create"
 hide_title: true
 hide_table_of_contents: true
-api: {"tags":["Summarizations"],"operationId":"microdataToJsonLdUsingPOST","parameters":[{"name":"max_length","in":"query","description":"Maximum text length","schema":{"type":"integer","format":"int32","default":500}},{"name":"min_length","in":"query","description":"Minimum text length","schema":{"type":"integer","format":"int32","default":25}},{"name":"ratio","in":"query","description":"Ratio","schema":{"type":"number","format":"float","default":0.2}}],"requestBody":{"description":"body","content":{"text/plain":{"schema":{"type":"string"}}},"required":true},"responses":{"200":{"description":"OK","content":{"application/ld+json":{"schema":{"type":"object","additionalProperties":{"type":"string"}}}}},"201":{"description":"Created","content":{}},"401":{"description":"Unauthorized","content":{}},"403":{"description":"Forbidden","content":{}},"404":{"description":"Not Found","content":{}}},"x-codegen-request-body-name":"body","security":[{"ApiKey":[]}],"description":"Create","extensions":[{"key":"x-codegen-request-body-name","value":"body"}],"method":"post","path":"/summarize","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"type":"apiKey","name":"Authorization","in":"header"}},"info":{"title":"Summarizer","description":"Generic text summarization","termsOfService":"https://wordlift.io/terms-of-service/","contact":{"name":"WordLift","url":"https://wordlift.io","email":"hello@wordlift.io"},"license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"version":"1.0"},"postman":{"name":"Create","description":{"type":"text/plain"},"url":{"path":["summarize"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"Maximum text length","type":"text/plain"},"key":"max_length","value":""},{"disabled":false,"description":{"content":"Minimum text length","type":"text/plain"},"key":"min_length","value":""},{"disabled":false,"description":{"content":"Ratio","type":"text/plain"},"key":"ratio","value":""}],"variable":[]},"header":[{"key":"Content-Type","value":"text/plain"},{"key":"Accept","value":"application/ld+json"}],"method":"POST","body":{"mode":"raw","raw":"\"\""},"auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJytVlGP2zYM/isBnzZMuaRp++Kn3Qp02Nrtit0d9nAIBsWiY7Wy5Er0Namh/15QthO7cQ/dsBfDkUl+n0h+ZFoguQ+QPcBtU1XS68+StLMBtgJcjT79+k1BBpXOvVOS5J37PTj7Vt0Hbffvbm7vQEAtvayQ0HOoFqyskF3k4R+Ddk8lCNAWMvjYoD+CAIUh97rm4JDBH/Kgq6ZaEB5ocXIIeYmVhKwFOtYcTlvCPXoQUDhfSeqOnm9SvEI2hiB7uV7HKM4MtP0+Btr+Xww2L8cEUgKfxv6rN7lAs021m4IVxkkag62vNjFuBXj82GCgX5w6coApwI5PBeTOElpKAHigVW0ks2ovgQN5bfcQY+wia48KMvINpoNQOxswsMNmvb7Eu3kzRZN1bXSeOmll1E/vg5uHdbv3mPP1pFKaraV557kJSXdoF/SY4Gb97JLCK4+SUE14sPGLOeN7KxsqndefZz2eX3q8dn6nlUI7Y/7i0vxPR4vXrrFfR48CDsvcKdyjXfYlXHK1ln339JULmDde0zFp67rWb5Bft1z4uWuDADwQ2pCEzD4f2OFJLAGP0jQnTA5dIZWOlV+7QEnjVEIGq9APCkzM/OMg+sYbyKAkqkO2WslaX31yXhld0JV2KeJwj1uufFfS4Tan4sruQAwCuu5Lk9pnEFKJUqEHTqC2hUvumgzbD2MsCWeanV/Rotd5J/IwHncggNBX4aa4Rf+ocxxdZHSJVTJaumIZOrNVX1CZp0bvKf/tvHqrC87ZNCfjfAjASur0FY1xP09yJcDoHG3AUdQf8h8XuauPXu9LWmzWm82y9hjQ0uK7AKMALlWXimdXaz7gylbSjlBOHTRJ3ak6o8ERe7C2b4wHODfGVkDJTZM9QNvuZMB7b2Lk424EcrsoHeTO8GAppAl4gXgSyjfWwyyjrtEne2foa+Cp/C9AZzfCU6DjVfMfQYdV8ATMsFDOCFv+4TVDpKkgBnmclf+qQ1jecdyz7yT+YHud51jTyGpufE/mQ/8fYNcvn8qpbvN9ApGeKQ3AM3aq8w9J5/0Lkx0+2eMI/usB0LHkJ3OedWnbborEeLLvPn3To8/YYM0J2cYYvwCUrxvh
 sidebar_class_name: "post api-method"
 info_path: api/summarizer/summarizer
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Create
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/summarize"}
+>
+  
+</MethodEndpoint>
 
 
 
 Create
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"max_length","in":"query","description":"Maximum text length","schema":{"type":"integer","format":"int32","default":500}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"min_length","in":"query","description":"Minimum text length","schema":{"type":"integer","format":"int32","default":25}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"ratio","in":"query","description":"Ratio","schema":{"type":"number","format":"float","default":0.2}}}></ParamsItem></ul></div></details><MimeTabs><TabItem label={"text/plain"} value={"text/plain-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-body
-
-</div></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
-
-string
-
-</div></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
-
-OK
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/ld+json"} value={"application/ld+json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem name={"property name*"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}} collapsible={false} discriminator={false}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"201"} value={"201"}><div>
-
-Created
-
-</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Unauthorized
-
-</div><div></div></TabItem><TabItem label={"403"} value={"403"}><div>
-
-Forbidden
-
-</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
-
-Not Found
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"max_length","in":"query","description":"Maximum text length","schema":{"type":"integer","format":"int32","default":500}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"min_length","in":"query","description":"Minimum text length","schema":{"type":"integer","format":"int32","default":25}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"ratio","in":"query","description":"Ratio","schema":{"type":"number","format":"float","default":0.2}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"text/plain"}
+    value={"text/plain-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          body
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":".5rem","marginBottom":".5rem"}}
+        >
+          
+          
+          string
+          
+          
+        </div>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/ld+json"}
+              value={"application/ld+json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        name={"property name*"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                        collapsible={false}
+                        discriminator={false}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"201"}
+        value={"201"}
+      >
+        <div>
+          
+          
+          Created
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"403"}
+        value={"403"}
+      >
+        <div>
+          
+          
+          Forbidden
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

@@ -1,42 +1,421 @@
 ---
 id: list-content-generations
-title: "List projects"
-description: "List projects"
-sidebar_label: "List projects"
+title: "List"
+description: "List"
+sidebar_label: "List"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"listContentGenerations","parameters":[{"description":"The cursor","in":"query","name":"cursor","required":false,"schema":{"type":"string"}},{"description":"The maximum number of results","in":"query","name":"limit","required":false,"schema":{"type":"integer","default":10}},{"description":"Filter for the deleted flag","in":"query","name":"deleted","required":false,"schema":{"type":"boolean"}}],"responses":{"200":{"content":{"application/json":{"schema":{"type":"object","description":"A page object with links to move to other pages and the list of objects.","properties":{"first":{"type":"string","description":"The link to the first page.","nullable":true},"items":{"type":"array","description":"An array of objects.","items":{"type":"object","description":"A Content Generation project.","properties":{"account_id":{"type":"integer","format":"int64","description":"The Account id bound to this Content Generation."},"created_at":{"type":"string","format":"date-time","description":"The create date-time.","readOnly":true},"deleted":{"type":"boolean","default":false,"description":"True if the project has been deleted."},"deleted_at":{"type":"string","format":"date-time","description":"The delete date-time.","readOnly":true},"graphql_query":{"type":"string","description":"The GraphQL query which will be used to import entity data from the Knowledge Graph."},"id":{"type":"integer","format":"int64","description":"The unique id.","readOnly":true},"max_tokens":{"type":"integer","format":"int32","default":64,"description":"The maximum number of tokens.","maximum":2000,"minimum":0},"model":{"type":"string","default":"ada","description":"The model name.","maxLength":250,"minLength":0},"modified_at":{"type":"string","format":"date-time","description":"The last modified date-time.","readOnly":true},"name":{"type":"string","description":"The name.","maxLength":250,"minLength":0},"penalty":{"type":"number","format":"double","default":0.5,"description":"The penalty score.","exclusiveMaximum":false,"exclusiveMinimum":false,"maximum":1.9,"minimum":0.5},"prompt_template":{"type":"string","description":"The prompt template."},"stop":{"type":"string","default":"###","description":"The stop sequence."},"temperature":{"type":"number","format":"double","default":0.4,"description":"The temperature score.","exclusiveMaximum":false,"exclusiveMinimum":false,"maximum":0.8,"minimum":0.4}},"required":["account_id","deleted","graphql_query","name"],"title":"ContentGeneration"}},"last":{"type":"string","description":"The link to the last page.","nullable":true},"next":{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true},"prev":{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true},"self":{"type":"string","description":"The link to the current page.","nullable":true}},"required":["first","items","last","next","prev","self"],"title":"PageContentGeneration"}}},"description":"Found."},"401":{"description":"Authentication Failure"}},"security":[{"security_oauth2":[]}],"tags":["Content Generations"],"description":"List projects","method":"get","path":"/content-generations","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"List projects","description":{"type":"text/plain"},"url":{"path":["content-generations"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"The cursor","type":"text/plain"},"key":"cursor","value":""},{"disabled":false,"description":{"content":"The maximum number of results","type":"text/plain"},"key":"limit","value":""},{"disabled":false,"description":{"content":"Filter for the deleted flag","type":"text/plain"},"key":"deleted","value":""}],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"oauth2","oauth2":[]}}}
+api: eJytWN9v2zYQ/lcI9mEboNiOlxabn1Z0a1EsRTs0xR4Cw6Wpk8SGIhXylMQ19L8PR0qObMuJk+7Jlnj8vvutI9fcVuAEKmvep3zGtfL4xhoEg+/AtCueJ7wSTpSA4DyfXa55Cl46VdEqn/GLApisnbeOJ1zRm+sa3Ion3IgS+IxvFh1c18pBymeZ0B4S7mUBpeCzNcdVRaIenTI5b5pkiKUUd6qsS2bqcgmO2Yw58LVGf4BYq1LhUbzKIORAOqaQiVojn51OBrR4qzSCY5l1DAtgKWhASFmmRX5Ah1bkKC2W1moQhjfNnMR9ZY0HTwLTyYR+ZAwO/RVVpZUMERp/86Tceh/QLr+BxGBV34rXrBI5sLjKbhUWTCtz5RlaVtoboF+LBbgg55kwaTCX8oO8Hjf6EWWGoxRCFdXMlPO4H85d/ouAZa6Ih3DDtsBFkKbWWiw18Bm6GpqEK4TS91CFc2K1b5RhYWFHwd3NB13SJj67z3xWOUvC+3YKKW1tcKHSwRzKrCsFxlevzgbNfx0RmErZ0tbkX3KF8gNqjHiTcOlAIKQLMejeDWEqEE5QlTBIGkHYRmgUslKkH41ebbzdJex+WvaKo83gHQpXA1NZCGnrOlYIz5YApiuVYEz7/8eMiSCPGJM7URXXehGL8qjEfEdb/jlnYQu7LZQs2K3Smi2B1R5CpFRZWYcMDCpckQqCZc6WwfK/jb3VkOYtUjD4+XlSG3VNXk0HzSvF3QLtFRj/KP6v0378Xp0Nke331whO3O0an00nk0nCS2Xi46QJD4tb69KjtegTf4hITJShIGzGAhSrwDFpy0pDECQam4J+Qs11jXzQVMJi7/8MpnW2nEYSlakfTU4tPLIO6pEcjR+KY1KTJNtYnIPJseCz6csYjO6ZwlGBERr76R4DuqW+ranF9tw0Gb0c4mzBmJfWBXK4k7r26gY+dBnRNoP7hc6f7cImdU5Hv/czZ/SyCY21rHCBUFZa4JGOiJtYtynUmEdbDe9uDeQvXrwYRKOdzMN1DUZGLAKm7ls7eLIXByurB/i/eHIy+m3Lk2dNwkPZLNAuVG7sluLDH8x/Q5lRNwvy7LYAw2QB8kqZPIw4sRCNRaZM6/OhT+qBQD0Tv0l4bHrvI02okqY/Pl32v79Jb8La7vZtZc0TjgppnOB7sy0Nmpxq9ekzS6jwgyOLgbtnYNKudjRz7CuBfm2/pw5+IkcdJqwc3DydkHYpW/tnknrQ2dNJZe0cTTgHYHdCHUfKLunaaLUObs1uFekF+pPIYSjYza5ub2n2Cjl3NjklU3amwhoL+sjHOZu9FUpTS2iC7bJ2irrs5XrzsLCixmLKZ5dzGuFR5HRg4vsznSdtt7nOVTCsBCwsHcZyCAYK6up83E7+J/nWucyDu+kOZbXTfMYLxMrPxmNRqRGVl1YZjpTlpE6n5Wc6JsRBdk/xNc+0vY1Dbo2Fdep7YHtjU9h7+WWL0vcJxwFw3InDmLSVtoq0S+GVpMmSfll4H9ouTRuPgwaxcYhCN9RH7emNMpntjkpChiKEUqiACVrbP/pe2ZzSqFedq4w8vu3HLR/uhqyNJ/TmFM+WgoZEa5isPdpSfYeU0j+vlUcl4+ARJiqtJBgfvNpq8bP8hUlbrZzKC2TTyXR6UjnwlDrHKojgSv8x+wzuRkkYlhsHoRObnfgoRsHZ6ZG9XOUJpySLJp+OJkRTWY+lMD3d2/TdctCmMyDc4bjSQoU5LhiwblP7kg+l9jzhhaW2fMnXa/LoF6ebhl63kzzdQihPbSMdPo30DsvbNxSDKl3Bqn9RcSN0TUI83AA8ieehO4oHqLurimcyP3wv8QDv/cfznnlOD07Fnnw5bxJegEjBBa/Hba+lhKqv7951BKFsetm7vy54EnpH/yQeizbhm6Z5P7CYVQ87dotO465bHBA+onF0SEJK8P6iazrPgtxqcC1sjcWDeFs9dCGps3Z7cycMLsKuZt40zX/9m8iu
 sidebar_class_name: "get api-method"
 info_path: api/content-generation/content-generation
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## List projects
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/content-generations"}
+>
+  
+</MethodEndpoint>
 
 
 
-List projects
+List
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The cursor","in":"query","name":"cursor","required":false,"schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"The maximum number of results","in":"query","name":"limit","required":false,"schema":{"type":"integer","default":10}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"Filter for the deleted flag","in":"query","name":"deleted","required":false,"schema":{"type":"boolean"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found.
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"first"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the first page.","nullable":true}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>items</strong><span style={{"opacity":"0.6"}}> object[]</span><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
-
-An array of objects.
-
-</div><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"account_id"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"The Account id bound to this Content Generation."}}></SchemaItem><SchemaItem collapsible={false} name={"created_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The create date-time.","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"deleted"} required={true} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","default":false,"description":"True if the project has been deleted."}}></SchemaItem><SchemaItem collapsible={false} name={"deleted_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The delete date-time.","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"graphql_query"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The GraphQL query which will be used to import entity data from the Knowledge Graph."}}></SchemaItem><SchemaItem collapsible={false} name={"id"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"The unique id.","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"max_tokens"} required={false} schemaName={"int32"} qualifierMessage={"**Possible values:** `<= 2000`"} schema={{"type":"integer","format":"int32","default":64,"description":"The maximum number of tokens.","maximum":2000,"minimum":0}}></SchemaItem><SchemaItem collapsible={false} name={"model"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** `<= 250 characters`"} schema={{"type":"string","default":"ada","description":"The model name.","maxLength":250,"minLength":0}}></SchemaItem><SchemaItem collapsible={false} name={"modified_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The last modified date-time.","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={true} schemaName={"string"} qualifierMessage={"**Possible values:** `<= 250 characters`"} schema={{"type":"string","description":"The name.","maxLength":250,"minLength":0}}></SchemaItem><SchemaItem collapsible={false} name={"penalty"} required={false} schemaName={"double"} qualifierMessage={"**Possible values:** `>= 0.5` and `<= 1.9`"} schema={{"type":"number","format":"double","default":0.5,"description":"The penalty score.","exclusiveMaximum":false,"exclusiveMinimum":false,"maximum":1.9,"minimum":0.5}}></SchemaItem><SchemaItem collapsible={false} name={"prompt_template"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The prompt template."}}></SchemaItem><SchemaItem collapsible={false} name={"stop"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","default":"###","description":"The stop sequence."}}></SchemaItem><SchemaItem collapsible={false} name={"temperature"} required={false} schemaName={"double"} qualifierMessage={"**Possible values:** `>= 0.4` and `<= 0.8`"} schema={{"type":"number","format":"double","default":0.4,"description":"The temperature score.","exclusiveMaximum":false,"exclusiveMinimum":false,"maximum":0.8,"minimum":0.4}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem><SchemaItem collapsible={false} name={"last"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the last page.","nullable":true}}></SchemaItem><SchemaItem collapsible={false} name={"next"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true}}></SchemaItem><SchemaItem collapsible={false} name={"prev"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true}}></SchemaItem><SchemaItem collapsible={false} name={"self"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the current page.","nullable":true}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"first\": \"string\",\n  \"items\": [\n    {\n      \"account_id\": 0,\n      \"created_at\": \"2024-02-28T15:20:08.845Z\",\n      \"deleted\": false,\n      \"deleted_at\": \"2024-02-28T15:20:08.845Z\",\n      \"graphql_query\": \"string\",\n      \"id\": 0,\n      \"max_tokens\": 64,\n      \"model\": \"ada\",\n      \"modified_at\": \"2024-02-28T15:20:08.845Z\",\n      \"name\": \"string\",\n      \"penalty\": 0.5,\n      \"prompt_template\": \"string\",\n      \"stop\": \"###\",\n      \"temperature\": 0.4\n    }\n  ],\n  \"last\": \"string\",\n  \"next\": \"string\",\n  \"prev\": \"string\",\n  \"self\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The cursor","in":"query","name":"cursor","required":false,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The maximum number of results","in":"query","name":"limit","required":false,"schema":{"type":"integer","default":10}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"Filter for the deleted flag","in":"query","name":"deleted","required":false,"schema":{"type":"boolean"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"first"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the first page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                items
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span><span
+                                className={"openapi-schema__divider"}
+                              >
+                                
+                              </span><span
+                                className={"openapi-schema__required"}
+                              >
+                                required
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              An array of objects.
+                              
+                              
+                            </div><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"account_id"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","description":"The Account id bound to this Content Generation."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"created_at"}
+                              required={false}
+                              schemaName={"date-time"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"date-time","description":"The create date-time.","readOnly":true}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"deleted"}
+                              required={true}
+                              schemaName={"boolean"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"boolean","default":false,"description":"True if the project has been deleted."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"deleted_at"}
+                              required={false}
+                              schemaName={"date-time"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"date-time","description":"The delete date-time.","readOnly":true}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"graphql_query"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The GraphQL query which will be used to import entity data from the Knowledge Graph."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"id"}
+                              required={false}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","description":"The unique id.","readOnly":true}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"max_tokens"}
+                              required={false}
+                              schemaName={"int32"}
+                              qualifierMessage={"**Possible values:** `<= 2000`"}
+                              schema={{"type":"integer","format":"int32","default":64,"description":"The maximum number of tokens.","maximum":2000,"minimum":0}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"min_words"}
+                              required={false}
+                              schemaName={"int32"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int32","description":"Minimum amount of words per completion"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"model_id"}
+                              required={false}
+                              schemaName={"int64"}
+                              qualifierMessage={"**Possible values:** `>= 1`"}
+                              schema={{"type":"integer","format":"int64","default":1,"description":"The model ID.","minimum":1}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"modified_at"}
+                              required={false}
+                              schemaName={"date-time"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"date-time","description":"The last modified date-time.","readOnly":true}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"name"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={"**Possible values:** `<= 250 characters`"}
+                              schema={{"type":"string","description":"The name.","maxLength":250,"minLength":0}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"penalty"}
+                              required={false}
+                              schemaName={"double"}
+                              qualifierMessage={"**Possible values:** `>= 0.5` and `<= 1.9`"}
+                              schema={{"type":"number","format":"double","default":0.5,"description":"The penalty score.","exclusiveMaximum":false,"exclusiveMinimum":false,"maximum":1.9,"minimum":0.5}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"prompt_template"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The prompt template."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"stop"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","default":"###","description":"The stop sequence."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"temperature"}
+                              required={false}
+                              schemaName={"double"}
+                              qualifierMessage={"**Possible values:** `>= 0.4` and `<= 0.8`"}
+                              schema={{"type":"number","format":"double","default":0.4,"description":"The temperature score.","exclusiveMaximum":false,"exclusiveMinimum":false,"maximum":0.8,"minimum":0.4}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"words_to_ignore"}
+                              required={false}
+                              schemaName={"string[]"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"array","description":"Words to ignore when checking for words not in prompt.","items":{"type":"string","description":"Words to ignore when checking for words not in prompt."},"uniqueItems":true}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"last"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the last page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"next"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"prev"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"self"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the current page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"first\": \"string\",\n  \"items\": [\n    {\n      \"account_id\": 0,\n      \"created_at\": \"2024-07-29T15:51:28.071Z\",\n      \"deleted\": false,\n      \"deleted_at\": \"2024-07-29T15:51:28.071Z\",\n      \"graphql_query\": \"string\",\n      \"id\": 0,\n      \"max_tokens\": 64,\n      \"min_words\": 0,\n      \"model_id\": 1,\n      \"modified_at\": \"2024-07-29T15:51:28.071Z\",\n      \"name\": \"string\",\n      \"penalty\": 0.5,\n      \"prompt_template\": \"string\",\n      \"stop\": \"###\",\n      \"temperature\": 0.4,\n      \"words_to_ignore\": [\n        \"string\"\n      ]\n    }\n  ],\n  \"last\": \"string\",\n  \"next\": \"string\",\n  \"prev\": \"string\",\n  \"self\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

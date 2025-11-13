@@ -5,38 +5,277 @@ description: "List the Websites"
 sidebar_label: "List"
 hide_title: true
 hide_table_of_contents: true
-api: {"description":"List the Websites","operationId":"listWebsites","parameters":[{"description":"The Google access token, must have access to the Google Search Console scope","in":"query","name":"google_access_token","required":true,"schema":{"type":"string"}},{"description":"The maximum number of results","in":"query","name":"limit","required":false,"schema":{"type":"integer","default":10}}],"responses":{"200":{"content":{"application/json":{"schema":{"type":"object","description":"A page object with links to move to other pages and the list of objects.","properties":{"first":{"type":"string","description":"The link to the first page.","nullable":true},"items":{"type":"array","description":"An array of objects.","items":{"type":"object","description":"A Website","properties":{"url":{"type":"string","description":"The Website URL, it may also start with thew `sc-domain:` prefix."}},"required":["url"],"title":"Website"}},"last":{"type":"string","description":"The link to the last page.","nullable":true},"next":{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true},"prev":{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true},"self":{"type":"string","description":"The link to the current page.","nullable":true}},"required":["first","items","last","next","prev","self"],"title":"PageWebsite"}}},"description":"Found"},"401":{"description":"Authentication Failure"}},"tags":["Google Search Console"],"method":"get","path":"/ext/google/searchconsole/websites","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"List","description":{"content":"List the Websites","type":"text/plain"},"url":{"path":["ext","google","searchconsole","websites"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) The Google access token, must have access to the Google Search Console scope","type":"text/plain"},"key":"google_access_token","value":""},{"disabled":false,"description":{"content":"The maximum number of results","type":"text/plain"},"key":"limit","value":""}],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
+api: eJytVk1v3DYQ/SsEL00A2VobPelUN2iCIi5SxDZyMIwslxqtGFMkwxnZ3i7034shtba8H41j9LS2yHnz5utx1rIG1NEEMt7JSp4bJEEtiC+wQEOAspA+QFR8/mctK2kN0uQwqKg6IIgoq+v1FtplC+KD90sLQmkNiIL8LbhCdD2SaNXd5HvyOl6+ABV1K955h96CQO0DyEIaxvzeQ1zJQjrVgazkMll8zTBfE7wsZITvvYlQy4piD4VE3UKnZLWWtApshhSNW8phKPZx7tSD6fpOuL5bQBS+ERGwt4QHSFjTGXrmtlEW9/k1jmAJURayhkb1lmR1MhuGG7bF4B0C8u3T2Yx/tHcEjvhPFYI1OpWh/IbMdL2L7hffQFMCn4Z0JoJagsin4t5QK6xxtynrnb8D/vXUQkz3UChXp2pwqTn4bIjHXO7I3UAm02xMRNrN6rb/y4TlbjdVTmbJF0O63lq1sJBrNRTSEHQ4QVUxqtVuUE6kgy2C28YHUzL28E5MfbQvi2gEEFefzwthSHRqJZRFL5BUHNNMLdyLOeqj2nfKuGouQoTGPBxz503a5Tq5vSkkGeJMyA07vmbVa5LMVodz7ODhFZhsNfZSFHMGnQvT8FGEX1A4f9hhiHD38w7ZyvgeX+kUwTY/71T3MYI7mLytwuUZ2DTeWK0xwWPYI5FJef9WS3gq8bDN6L3vXS2HQv46O2H+W73bUwuORjUQ75WxfcytQmrJOiz36igT6IBazzK+hERPUSsrWcIDlVlJS0w2OpuU909KjxDvNjKfhkS2RAGrslTBHN/7WFvT0LHxkuUMQffR0OqCNSpP1lkwH2G1G8/8I6zEeuX7KG5hNcw3ItuCqpNUjirLcfto/klhy+JRHjLsUMjfFRrNt/b4SGdiDU77GmrRI0SGrYJCZO4vd5tUlw8WDPnEg7PBLD6xwWmSR+vvU+RqCvHO17Dz8epZQnGaztLzzXJzHcrEwYec1ExiJDO+lNwI/BD+GDRdK3PrjHqpEnv+YlzjN6+Q0kkuoFMmYYK1/rdpzR/T9cXH+tw03F3Pu+RZh2x3/EW/ePxXdMqpJXQ8g/wURbCKoBbcgEZDknlrNDhMeRz9vtFvhfZhFc2yJXE6Oz09ChGQQV5KiSB2+Km5yH723yvTpSPfHI10uBybsf4rEefe4UnJkZ0czxg7eKROuQlhXrW2tWjy5O9dxcYiEc9rsMo4hh5frDzL1zILT57mNLaTeZaFfJzom0K2nl+Wa7leLxTCVbTDwJ/zdpPWOYOsfE8LzUG2bz6PmvhW/M9b396Yb1lIDix/d8r2bCHTcvfiCH60+P0Hj83+9+T5hv+JJj8b1zdDsZEVzmo2OtMawtRqZ8UbpoL94Y9LOQz/AroEC5o=
 sidebar_class_name: "get api-method"
 info_path: api/manager/manager
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## List
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/ext/google/searchconsole/websites"}
+>
+  
+</MethodEndpoint>
 
 
 
 List the Websites
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The Google access token, must have access to the Google Search Console scope","in":"query","name":"google_access_token","required":true,"schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"The maximum number of results","in":"query","name":"limit","required":false,"schema":{"type":"integer","default":10}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"first"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the first page.","nullable":true}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>items</strong><span style={{"opacity":"0.6"}}> object[]</span><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
-
-An array of objects.
-
-</div><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"url"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The Website URL, it may also start with thew `sc-domain:` prefix."}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem><SchemaItem collapsible={false} name={"last"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the last page.","nullable":true}}></SchemaItem><SchemaItem collapsible={false} name={"next"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true}}></SchemaItem><SchemaItem collapsible={false} name={"prev"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true}}></SchemaItem><SchemaItem collapsible={false} name={"self"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the current page.","nullable":true}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"first\": \"string\",\n  \"items\": [\n    {\n      \"url\": \"string\"\n    }\n  ],\n  \"last\": \"string\",\n  \"next\": \"string\",\n  \"prev\": \"string\",\n  \"self\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The Google access token, must have access to the Google Search Console scope","in":"query","name":"google_access_token","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The maximum number of results","in":"query","name":"limit","required":false,"schema":{"type":"integer","default":10}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"first"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the first page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                items
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span><span
+                                className={"openapi-schema__divider"}
+                              >
+                                
+                              </span><span
+                                className={"openapi-schema__required"}
+                              >
+                                required
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              An array of objects.
+                              
+                              
+                            </div><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"url"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The Website URL, it may also start with thew `sc-domain:` prefix."}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"last"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the last page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"next"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"prev"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"self"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the current page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"first\": \"string\",\n  \"items\": [\n    {\n      \"url\": \"string\"\n    }\n  ],\n  \"last\": \"string\",\n  \"next\": \"string\",\n  \"prev\": \"string\",\n  \"self\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

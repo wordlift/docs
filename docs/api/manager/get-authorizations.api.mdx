@@ -5,30 +5,195 @@ description: "Retrieve the authorizations of the authenticated user."
 sidebar_label: "Get the authorizations"
 hide_title: true
 hide_table_of_contents: true
-api: {"description":"Retrieve the authorizations of the authenticated user.","operationId":"getAuthorizations","parameters":[{"in":"query","name":"account_key","required":false,"schema":{"type":"array","items":{"type":"string"}}}],"responses":{"200":{"content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"access_token_issued_at":{"type":"string","format":"date-time","description":"When the access token was issued","readOnly":true},"account":{"type":"string","description":"Account key","readOnly":true},"refresh_token_issued_at":{"type":"string","format":"date-time","description":"When the refresh token was issued","readOnly":true},"status":{"type":"string","description":"The connections status","enum":["connected"],"readOnly":true,"title":"AuthorizationStatus"}},"required":["access_token_issued_at","account","status"],"title":"Authorization"}}}},"description":"The authorizations of the user"}},"tags":["Google Search Console OAuth2"],"method":"get","path":"/google-search-console/authorizations","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"BasicAuth":{"description":"`Basic {encoded username:password}`","in":"header","name":"Authorization","scheme":"basic","type":"http"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Get the authorizations","description":{"content":"Retrieve the authorizations of the authenticated user.","type":"text/plain"},"url":{"path":["google-search-console","authorizations"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"key":"account_key","value":""}],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
+api: eJytVVFv4zYM/isCnzbAqbs8+mndYSiG21BgucM9BEGPkelYd7akk+h2meH/PlB2UjvNYcWwpzgU+fETxY/soaSog/FsnIUC/iQOhp5IcU0KO65dMH+jHEblqrOVLBuNTKXqIoUbyMB5CsnvtxIKOBDfLYIhA48BW2IKEYptD0bSfesoHCEDiy1BAai16yw/fiUxBvrWmUAlFBU2kTKIuqYWoeiBjz75h4DiaZjaOLNHDsYeYBiGncBE72yk5LC+vZUf7SyTZflE7xu5i3E2/xKlCP3bE7n9F9IslwtSADZjFtSaYnxk95Xso4mxo/IR+TXBDCoXWjmBEplWbFqC7OJJPtVkx8InVJVQ1TNGNSKnSmH5YJsjFBw6GrJTIa9lXILfjY7qVPELnEBVoFj/3zeZYN90lcjI3ZXHvQT/UJPSzlrSY7dOcRmQ7VootjAdUgm7yzQZsOFGwBdduxkhhmHei9vvve5L1c+kd98Bls4crl3guuJEY4kF40HEA/fOHRpSG8Kga/XO2egaUg+SYy1JW+LaTTpMyuMaCsgPKWwVU9hKj2E5Xgo1Ung6qbQLDRRQM/tY5Dl6c/PsQtmYim+MA5FXJN0Fw8eNaGZs/ztv3tNRvpY3/Pyejqo/ui5Ivw2fRVBirwlLCi9jYFmr7CzCEXbI4BeMRovXlRzpTPVktSun+SSwhccYhfvb06YpIAd7gXzhIdUQFlO9ix6qxj2Pwp9DvHMlvTJ+XBQ0zsuZO/E8vwfliYPzY1FHEhMZlexCInXhv4Mmt3xsoml0YWIvFmMrd5qKqJO6qUWTMKlp3M/zNz+X65ML5e+mkgZbdsmiQy67fNPtz39VixYP1JJlhbZUgZq0U6QBjaYoe6UxmmxMdZzy/qB/VNr5YzCHmtX6dr1e+UBRQN5KiSm08aHajHmu++XJaeWq1URHnuOk5j8ScekdUcp4s59ubgXbu8gt2hnhe+Ir6/RygM2W0n/fwtPbMv3FuW/QWGGUStFPU2ALV6eATK8lvV0GtYssEX2/x0gfQzMMYh6XtkyH0kTcN7MNLWvkco0/YdMJqTQtnjAYCYFiuxuykwQFawy905o8z6JeredhPt/uf/0Aw/APFfMUdg==
 sidebar_class_name: "get api-method"
 info_path: api/manager/manager
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Get the authorizations
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get the authorizations"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/google-search-console/authorizations"}
+>
+  
+</MethodEndpoint>
 
 
 
 Retrieve the authorizations of the authenticated user.
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"query","name":"account_key","required":false,"schema":{"type":"array","items":{"type":"string"}}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-The authorizations of the user
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"access_token_issued_at"} required={true} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"When the access token was issued","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"account"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Account key","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"refresh_token_issued_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"When the refresh token was issued","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"status"} required={true} schemaName={"AuthorizationStatus"} qualifierMessage={"**Possible values:** [`connected`]"} schema={{"type":"string","description":"The connections status","enum":["connected"],"readOnly":true,"title":"AuthorizationStatus"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"[\n  {\n    \"access_token_issued_at\": \"2025-10-16T08:30:10.512Z\",\n    \"account\": \"string\",\n    \"refresh_token_issued_at\": \"2025-10-16T08:30:10.512Z\",\n    \"status\": \"connected\"\n  }\n]"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"in":"query","name":"account_key","required":false,"schema":{"type":"array","items":{"type":"string"}}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          The authorizations of the user
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                        >
+                          Array [
+                        </div>
+                      </li><SchemaItem
+                        collapsible={false}
+                        name={"access_token_issued_at"}
+                        required={true}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time","description":"When the access token was issued","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"account"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"Account key","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"refresh_token_issued_at"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time","description":"When the refresh token was issued","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"status"}
+                        required={true}
+                        schemaName={"AuthorizationStatus (string)"}
+                        qualifierMessage={"**Possible values:** [`connected`]"}
+                        schema={{"type":"string","description":"The connections status","enum":["connected"],"readOnly":true,"title":"AuthorizationStatus"}}
+                      >
+                        
+                      </SchemaItem><li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                        >
+                          ]
+                        </div>
+                      </li>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"[\n  {\n    \"access_token_issued_at\": \"2024-07-29T15:51:28.071Z\",\n    \"account\": \"string\",\n    \"refresh_token_issued_at\": \"2024-07-29T15:51:28.071Z\",\n    \"status\": \"connected\"\n  }\n]"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

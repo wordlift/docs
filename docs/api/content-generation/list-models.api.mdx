@@ -1,42 +1,308 @@
 ---
 id: list-models
-title: "List objects according to the cursor specifications and limit"
-description: "List objects according to the cursor specifications and limit"
-sidebar_label: "List objects according to the cursor specifications and limit"
+title: "List"
+description: "List"
+sidebar_label: "List"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"listModels","parameters":[{"description":"The cursor","in":"query","name":"cursor","required":false,"schema":{"type":"string"}},{"description":"The maximum number of results","in":"query","name":"limit","required":false,"schema":{"type":"integer","default":10}}],"responses":{"200":{"content":{"application/json":{"schema":{"type":"object","description":"A page object with links to move to other pages and the list of objects.","properties":{"first":{"type":"string","description":"The link to the first page.","nullable":true},"items":{"type":"array","description":"An array of objects.","items":{"type":"object","description":"A linguistic model.","properties":{"id":{"type":"string","description":"A string which uniquely identifies a linguistic model. Please note that this may become a number in the future."}},"title":"Model"}},"last":{"type":"string","description":"The link to the last page.","nullable":true},"next":{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true},"prev":{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true},"self":{"type":"string","description":"The link to the current page.","nullable":true}},"required":["first","items","last","next","prev","self"],"title":"PageModel"}}},"description":"Found."},"401":{"description":"Authentication Failure"}},"tags":["ContentGeneration Models"],"description":"List objects according to the cursor specifications and limit","method":"get","path":"/models","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"List objects according to the cursor specifications and limit","description":{"type":"text/plain"},"url":{"path":["models"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"The cursor","type":"text/plain"},"key":"cursor","value":""},{"disabled":false,"description":{"content":"The maximum number of results","type":"text/plain"},"key":"limit","value":""}],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
+api: eJydVktvGzkM/isCL7sLOLbjFnuY0xbFtligiy7QFHswglSZ4XjU6BWJcuIa898LSmPXzzbJaWyJ5Ed+fIhrcB6DJOXsPw1UoFWkf12DOsIIvAzSIGGIUM3X0GCsg/IsCxVcdSjqFKILMALFJ/cJwwpGYKVBqGB7GfA+qYANVK3UEUcQ6w6NhGoNtPIsGikou4C+H51CMfJRmWSETeYWg3CtCBiTpngGWCuj6Em4yhIukH1ssJVJE1SX076/Zt3onY0YWXo2nfKndpbQEv+U3mtVZ9omXyN7uj627m6/Yk3Z+G5Ib4SXCxTlVjwo6oRW9i4KcsK4JfLXUYchy0UhbSOoQ8Gp4eCLYhxzggJnj1Rxs1Uh0jGrh/hX2Za9Yxy2m9UyFpu0SWt5qxEqCgn7EShCE3esyhDk6jgoK/LFgYOHymcp0dIuEtNiuPiOY1PNybS1LhhJ5ejP1ydDTVbdJxSqGeeSkM1Hq1fb6ErJPImyPQ8FK46hH0FcRUJz44Mz/onsFxVRVETrQs5DsXsh6k5S+ROFs3qVUcjdob0xMiyU/SUTr2anmfAeg8iWRLGUsWtnvEaWyykbug2qV9O+322ieSHregSkiAsE8qDgrgUtX1J5rHW+8Cw+vsAmaw0NFsQXNvpFqJavAv4WhXXnAX3A5fMBWUu5FF8IGlG3zwetUwhoz5J3kLcyGDbdOGRrIHgIe3BkJ7n/yQVuEtwf+vPOJdvkwnw9vWT3D/o5UYeWhgkp3kmlU8BcKSQX/JrA2zJMxXu0w/sjhnfn+hDsg8ruGqTO8Ru1wOy2pA4qmJjNaxUxLDdPVQoaKuiIfKwmE+nV+MGFRquWxsoBD/iIdQqKVp94apcZszm6cTJRN8sjVbuHfMcnLqhv2dO3rsGjw897kHEXcJINTjbiOGFva+cL7K2MqoaqfEU+33b8r41msUmhdpixxXs+UbZ1m5dL1rmb0EiVbaLW7q9dVrbv5/8uNB9UyyTv87jH4WGWhkTi7jwRtzJiI5wVdYrkjPqGDdfxIqlIqh6mHBewVjXamFkdvPi9/kPUzq+CWnQkZtPZ7MIHjFwzT3WQMJj4sf2EYalqPC03yUIXrr2IRYyTs+mB4yKFEXCRlZAvx1OG8S6SkXbH96Fi9wjatjjhI028lsqycg5gPVTzHMy2BzrHI3UO6zWT+DnovufjsuvkdUxFbvkf680B3HZd2V/VTnpxh6vdjW0pdWIhyAvZs3B+tqz9BHqzs/1AvuY/QZWpNr/uR9ChbDDk2IvSm7pGv6t1tJaxle3ceP/3FfT9d4pXx+A=
 sidebar_class_name: "get api-method"
 info_path: api/content-generation/content-generation
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## List objects according to the cursor specifications and limit
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/models"}
+>
+  
+</MethodEndpoint>
 
 
 
-List objects according to the cursor specifications and limit
+List
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The cursor","in":"query","name":"cursor","required":false,"schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"The maximum number of results","in":"query","name":"limit","required":false,"schema":{"type":"integer","default":10}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found.
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"first"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the first page.","nullable":true}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>items</strong><span style={{"opacity":"0.6"}}> object[]</span><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
-
-An array of objects.
-
-</div><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"id"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"A string which uniquely identifies a linguistic model. Please note that this may become a number in the future."}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem><SchemaItem collapsible={false} name={"last"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the last page.","nullable":true}}></SchemaItem><SchemaItem collapsible={false} name={"next"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true}}></SchemaItem><SchemaItem collapsible={false} name={"prev"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true}}></SchemaItem><SchemaItem collapsible={false} name={"self"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the current page.","nullable":true}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"first\": \"string\",\n  \"items\": [\n    {\n      \"id\": \"string\"\n    }\n  ],\n  \"last\": \"string\",\n  \"next\": \"string\",\n  \"prev\": \"string\",\n  \"self\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The cursor","in":"query","name":"cursor","required":false,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The maximum number of results","in":"query","name":"limit","required":false,"schema":{"type":"integer","default":10}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"first"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the first page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                items
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span><span
+                                className={"openapi-schema__divider"}
+                              >
+                                
+                              </span><span
+                                className={"openapi-schema__required"}
+                              >
+                                required
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              An array of objects.
+                              
+                              
+                            </div><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"id"}
+                              required={false}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","description":"The unique id.","readOnly":true}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"name"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The language model name."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"system_prompt"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The system prompt for the model - chat models only."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"token_margin"}
+                              required={false}
+                              schemaName={"int32"}
+                              qualifierMessage={"**Possible values:** `<= 30`"}
+                              schema={{"type":"integer","format":"int32","description":"The upper token margin for completions.","maximum":30}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"last"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the last page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"next"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"prev"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"self"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the current page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"first\": \"string\",\n  \"items\": [\n    {\n      \"id\": 0,\n      \"name\": \"string\",\n      \"system_prompt\": \"string\",\n      \"token_margin\": 0\n    }\n  ],\n  \"last\": \"string\",\n  \"next\": \"string\",\n  \"prev\": \"string\",\n  \"self\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

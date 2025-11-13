@@ -5,34 +5,147 @@ description: "Call this API to go to the login page of the Google Search Console
 sidebar_label: "Login to the Google Search Console API client"
 hide_title: true
 hide_table_of_contents: true
-api: {"description":"Call this API to go to the login page of the Google Search Console.","operationId":"login","parameters":[{"description":"The account key","in":"query","name":"accountKey","required":true,"schema":{"type":"string"}},{"description":"The redirect URI to redirect to after the login","in":"query","name":"redirectUri","required":true,"schema":{"type":"string","format":"uri"}},{"description":"The state to maintain after authorize.","in":"query","name":"state","required":false,"schema":{"type":"string"}}],"responses":{"307":{"description":"Redirect to redirectUri value","headers":{"Location":{"description":"Redirect to google login page","schema":{},"style":"simple"}}}},"tags":["Google Search Console OAuth2"],"method":"get","path":"/google-search-console/authorize/init","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"BasicAuth":{"description":"`Basic {encoded username:password}`","in":"header","name":"Authorization","scheme":"basic","type":"http"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Login to the Google Search Console API client","description":{"content":"Call this API to go to the login page of the Google Search Console.","type":"text/plain"},"url":{"path":["google-search-console","authorize","init"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) The account key","type":"text/plain"},"key":"accountKey","value":""},{"disabled":false,"description":{"content":"(Required) The redirect URI to redirect to after the login","type":"text/plain"},"key":"redirectUri","value":""},{"disabled":false,"description":{"content":"The state to maintain after authorize.","type":"text/plain"},"key":"state","value":""}],"variable":[]},"method":"GET"}}
+api: eJytlcFu3DgMhl9F4KkFPHE6eyjg06ZBURRN0UXSYA9BgDIybQuVJVei284afvcFZc+MJ5kEadFLJpYo8uNPShygpKiD6dh4BwWco7WKGxPV2T/vFXtVe/nLDSnra+NUhzUpX6WVd97XltQVYdCNOvcueksnkIHvKKB4fF9CAekgZNBhwJaYQoTiZrgX+HNDCrX2vWP1lTaQgZHlbz0F+XDYEhQwW3xIBoG+9SZQCQWHnjKIuqEWoRiAN51YRw7G1TCO2bFogUoTSLO6vkyZ7r7ZK6yYwj7rR2i2J66D+QWcDCofWmQooA/mMbrIyCQoLRrHaNzMhD03Ppj/ks7HoNLBA5wKbXxSnluxjp13kaLs/3X6Wn4OoS4X8iwSV9/R9hKvISxTaQe48BqnU085qafu2bcVLBjHDCJvbMI0bWcJxnEcM2CspXvgaOupT2c9N2u4zaAlbrw0X02cWo8bKCCfYq5iOrbS07F8p2lunBHzSOH7tk37YKGAhrmLRZ5jZ05++FBaU/GJ8SDaRdJ9MLy5EvhJwbPOSI8+yP/LB9qoYeP7IE0+ftnWcBJvX8SzmWiSMdtWDCe3YwZvMBotVkdipD01kNO+pFL1kYK4LTqMUdifHzaVQzbuxOWeQ9QQilnvYoDK+h8pc1y6OPclPVi8PhA0LuXMvVgu6pEYfDeJOkHMMCqtCwT7r/QMp8ksh9REUxZpfZ1WjKu8hNDeMWqWf6lFk3yStf7vZc13cv3rQ3lhKumYwy456JDsXn2u+rvdp2rRYU0tOVboShXIIlOppAGNpiiX3BpNLiYd57gv9EulfbcJpm5YrU/X61UXKIqT5yIxhTZ+qq6mOMft8mS08tVqxpFysOF0Kz8mcOkduSlTZq9OTsV35yO36BbAF+mOz3Pk+NWVcaOtISfoB4JNVZGNPzWe5voz/eS8s2icUCe5hvmluIGjLwVku1amdIcMy2PT+MhyZhjuMNJ1sOMoy9PDnEadiXhnF2/xowm+uJyf7Zfq4UQ8yi1b9wbj9CQXAGm0/G7sX5uPT7AdjsnfhHv2THwCZDsa9wi38hGMMEBxczsuBse7t59hHP8H9Qkm8g==
 sidebar_class_name: "get api-method"
 info_path: api/manager/manager
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Login to the Google Search Console API client
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Login to the Google Search Console API client"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/google-search-console/authorize/init"}
+>
+  
+</MethodEndpoint>
 
 
 
 Call this API to go to the login page of the Google Search Console.
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The account key","in":"query","name":"accountKey","required":true,"schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"The redirect URI to redirect to after the login","in":"query","name":"redirectUri","required":true,"schema":{"type":"string","format":"uri"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"The state to maintain after authorize.","in":"query","name":"state","required":false,"schema":{"type":"string"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"307"} value={"307"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Redirect to redirectUri value
-
-</div><details style={{"textAlign":"left","marginBottom":"1rem"}} data-collaposed={true} open={false}><summary style={{}}><strong>Response Headers</strong></summary><ul style={{"marginLeft":"1rem"}}><li className={"schemaItem"}><summary style={{}}><strong>Location</strong><span style={{"opacity":"0.6"}}> any</span></summary><div><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
-
-Redirect to google login page
-
-</div></div></li></ul></details><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The account key","in":"query","name":"accountKey","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The redirect URI to redirect to after the login","in":"query","name":"redirectUri","required":true,"schema":{"type":"string","format":"uri"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The state to maintain after authorize.","in":"query","name":"state","required":false,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"307"}
+        value={"307"}
+      >
+        <div>
+          
+          
+          Redirect to redirectUri value
+          
+          
+        </div><details
+          style={{"textAlign":"left","marginBottom":"1rem"}}
+          className={"openapi-markdown__details"}
+          data-collapsed={true}
+          open={false}
+        >
+          <summary
+            style={{}}
+          >
+            <strong>
+              Response Headers
+            </strong>
+          </summary><ul
+            style={{"marginLeft":"1rem"}}
+          >
+            <li
+              className={"schemaItem"}
+            >
+              <summary
+                style={{}}
+              >
+                <strong>
+                  Location
+                </strong><span
+                  style={{"opacity":"0.6"}}
+                >
+                   any
+                </span>
+              </summary><div>
+                <div
+                  style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                >
+                  
+                  
+                  Redirect to google login page
+                  
+                  
+                </div>
+              </div>
+            </li>
+          </ul>
+        </details><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

@@ -5,34 +5,109 @@ description: "Delete"
 sidebar_label: "Delete"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"deleteQuestionsAndAnswersCollection","parameters":[{"in":"query","name":"smart_content_id","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"description":"OK"},"401":{"description":"Authentication Failure"}},"security":[{"security_oauth2":[]}],"tags":["QuestionsAndAnswers"],"description":"Delete","method":"delete","path":"/questions-and-answers-collection","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"Delete","description":{"type":"text/plain"},"url":{"path":["questions-and-answers-collection"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"key":"smart_content_id","value":""}],"variable":[]},"method":"DELETE","auth":{"type":"oauth2","oauth2":[]}}}
+api: eJydVE1v2zAM/SsGTyugxGlQ7ODTirYbhhUotnbYoQgCVaZjobLkSnS6NPB/HyjbmdNkW7GTE4ofj4983IKr0UvSzn7OIYMcDRJ+bTCwKZzb/NyGZ/ThwhmDio0goJZeVkjoA2T3W9AWMnhq0G9AgJUVQgahkp6WyllCS0udgwCPT432mENGvkEBQZVYSci2QJuaY7QlXKEHAYXzlaTO9P4M2nbB4aF2NmDgiPlsxp8cg/K6jrAyuPkCrYCz2enh03lDJVrSKraafJTaNB6hbQUEVI3XtImtDH+WTjZUziG7X3BtkituFY4QAwvxqtZl5BAEVEil+81qJI5KyCB9GvJMpM0nsss0UWOOA/r1QHDjDWRQEtUhS1NZ6+mz87nRBU21AwY44L5lTjuKDlrZQmHcc3xji/P6JbJx4XI8MH7fKxnGBdOYMB3cMWW0ytVd2QcZtIKs+ybRzlMh94hvSBrd0jiXfil69GzRtnBcgrdKKuKfWEkdc6Ix7sOYld0m/nA+v9YFgXjF4x6Hr4f4CS3rAhPlqtpgHFbyIAPmibOJagK5Sr9gnhhtV40OpFVSuRxNmIIAoxXaEFntUbxTJ4ly9cbrVUnJfDafT2qPAS0lbwVI6KtwU9yiX2uFx/3S6DRxxSR0bjwc0mTY/6JTY9L31u0ZL1nX8ul0xmVqF6iSdoR9t9B7FO1kS/iT0tpIbTk8trDtN/0e/rnpCwGlC8S+2y0T/N2btmVzd1F4/3Md5IPhy1FIE/AASH9mmOZv/ZE5SUAcB/iIm+P3aS1Nw+5RUGvpNdeMF2Ak5cur66u7KxBRLSMS+jUVsDscuydpN6PsnT52MHp9/MH5DVIZMkmlMIS7QWb/lXJP0n3ahsq/5tu7GkvFt2SIXXlpaRmj2kXbtr8A3LU86Q==
 sidebar_class_name: "delete api-method"
 info_path: api/content-generation/content-generation
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Delete
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/questions-and-answers-collection"}
+>
+  
+</MethodEndpoint>
 
 
 
 Delete
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"query","name":"smart_content_id","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-OK
-
-</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"in":"query","name":"smart_content_id","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

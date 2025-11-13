@@ -5,38 +5,122 @@ description: "Delete an entity from the Knowledge Graph."
 sidebar_label: "Delete one"
 hide_title: true
 hide_table_of_contents: true
-api: {"tags":["Entities"],"description":"Delete an entity from the Knowledge Graph.","operationId":"deleteEntity","parameters":[{"name":"uri","in":"query","description":"The URI of the entity to delete.","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Success"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"ApiKey":[]}],"method":"delete","path":"/dataset","servers":[{"url":"https://api.wordlift.io/middleware"}],"securitySchemes":{"ApiKey":{"type":"apiKey","description":"`Key {your key}`","name":"ApiKey","in":"header"}},"info":{"title":"Middleware","description":"Perform CRUD operations on the Knowledge Graph.","termsOfService":"https://wordlift.io/terms-of-service/","contact":{"name":"WordLift","url":"https://wordlift.io","email":"hello@wordlift.io"},"license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"version":"1.0"},"postman":{"name":"Delete one","description":{"content":"Delete an entity from the Knowledge Graph.","type":"text/plain"},"url":{"path":["dataset"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) The URI of the entity to delete.","type":"text/plain"},"key":"uri","value":""}],"variable":[]},"method":"DELETE","auth":{"type":"apikey","apikey":[{"type":"any","value":"ApiKey","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJyVVEtP3DAQ/ivWnEAKu8uKU05FYqkQtJV4qAe0EiaZbCwcO9iTpWnk/16Nk0CWLRW9JJE9M99jZtIByY2H9B7OJEmPBOsEcvSZUzUpayCFM9RIKKQRaEhRKwpnK0EliktjXzTmGxRfnazLGSRga3SSEy9ySCGPqauYBgnU0skKCR0DdmBkhZBC4xQkoBjquUHHgbsEbksUd9cXwhYRdWBBVvTlGdbhc6Mc5pCSazABn5VYSUg7oLZmEE9OmQ2EsOZgX1vj0fP9crHg1y7iTZNl6D2EBE4Wx/v3pw2VTCOLUsW5VLpx2Ief7Id/tyTObWNyCCEBj1nj2BD24LRWl8ifa2ZWIZX2zbhoGZWQwjwfusPpbjs62DgNKZREtU/nc1mr2Yt1uVYFzZQFrjiC3bAhveIR8tUb2R+8t/3hElvRtbZx4gnb8ADJ2DGWb536HdWPvStR5uiiQmUKG+sr0hz/TeW5xhfpcA/k3QgJ1ikqaeQGKzTEvSV0lf9R3KDbqgwneida5zHoyBZHvg+bQwKZNSQzYiYD8Z/W5VeqYBt3rZvalgBWUsVb1Np+2bE0Aa0yNB4nVQ+yQ5HZunVqU5JYLpbLo9qhR0PiU4AhAe5ob8jxbMEHtfVUSTNBGdbQmj0Tu6gUDf3vsg79J/xF81pLZRg58uyGwbuH/O23UFpPfNR1j9LjndMh8HG/tDyOufLyUfMWFlJ7/AfNg+thYQ/FJ7b7rzyfeIaHn8dW6oYj4shvpVNMIy7VZKfOVler2xUkIBuWNh3/pzj+wwcrGa9MO6n+fux7BvwMyQcpXdcvVwiv8f3VhxnDGo3RrHUdQvgDH63rxA==
 sidebar_class_name: "delete api-method"
 info_path: api/middleware/middleware
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Delete one
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete one"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/dataset"}
+>
+  
+</MethodEndpoint>
 
 
 
 Delete an entity from the Knowledge Graph.
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"uri","in":"query","description":"The URI of the entity to delete.","required":true,"schema":{"type":"string"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Success
-
-</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
-
-Not Found
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"uri","in":"query","description":"The URI of the entity to delete.","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Success
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

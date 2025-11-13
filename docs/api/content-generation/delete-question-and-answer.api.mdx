@@ -5,38 +5,122 @@ description: "Delete"
 sidebar_label: "Delete"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"deleteQuestionAndAnswer","parameters":[{"in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"description":"Found."},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"security_oauth2":[]}],"tags":["QuestionsAndAnswers"],"description":"Delete","method":"delete","path":"/questions-and-answers/{id}","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"Delete","description":{"type":"text/plain"},"url":{"path":["questions-and-answers",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"id"}]},"method":"DELETE","auth":{"type":"oauth2","oauth2":[]}}}
+api: eJydVE1v2zAM/SsGTyugxGlQ7ODTin4MA4oNW1vsEASFKjGxUFlyJbpdavi/D5TtLGm6odjJNk09Pj7xsQVfY5BkvPuioQCNFgm/Nxg5dOr0qYvPGEBALYOskDBEKBYtGAcF1JJKEOBkhVCA0SAg4GNjAmooKDQoIKoSKwlFC7SpU5YjXCfElQ+VpD708QS6bsnHY+1dxMgn5rMZPzRGFUzNhKCAS984PYVOwMns+PD3aUMlOjIq9ZRdSmObgH36yWH6V09ZQoSuExBRNcHQJnU4ftx52VA5h2KxZIYk16wAjBrFrUgRluIV/HmSEwRUSKX/I3DSk0ooIH8ccSbS6YnskfLW6A6YUHgaFW+ChQJKojoWeS5rM332QVuzoqnxwNRGxteseS/hQRMtrKx/Tv844oN5SUqdeY0Hwdu9knG3YJ4A8zEdc2arfN2XvZfRKCj6Z5bifAXkH/AdoCktTzcyDM3AniPGrTyXUN6RVMSvWEmTMNFa/2lXle1s/vRBX5kVgXil456Gr6/vMzo2B2bKV7XFdE3ZvYyoM+8y1UTylXlBnVnj1o2JZFRWeY02TkGANQpdTKoOLD6oo0z5ehPMuqRsPpvPJ3XAiI6y9xIkDFX8trrG8GQUvp2Xp6SJX01in8aXQ4Ys5595R1xw6I0bFcBD1rd8PJ1xmdpHqqTb4b4d5T2JtrYm/EV5baVxfDy10A4zvoA3ZxwEFEazZ0ofidPalrW9DbbrOPzYYGArLgU8yWDkPfNftKBN5HcNxUraiAeMVN8h6/1j2EZHGYi3mQ5B6TYsg7QNf4GAB9z0K61bdjv2Pb+4uri5AJF8stP+MKACtsuifRu6d8aIPzrjL8nvMMmIJJXCGG9Gg/0X5J6ZB9iGyn/i7e2LO8VbZDy7DtLRXTrVLbuu+w1aPDbc
 sidebar_class_name: "delete api-method"
 info_path: api/content-generation/content-generation
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Delete
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/questions-and-answers/{id}"}
+>
+  
+</MethodEndpoint>
 
 
 
 Delete
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found.
-
-</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
-
-Not Found
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found.
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

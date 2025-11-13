@@ -400,6 +400,22 @@ const config = {
           //     categoryLinkSource: "tag",
           //   },
           // },
+          "image-to-text": {
+            specPath: "api/image-to-text.yaml",
+            outputDir: "docs/api/image-to-text",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+              categoryLinkSource: "tag",
+            },
+          },
+          "content-evaluations": {
+            specPath: "api/content-evaluations.yaml",
+            outputDir: "docs/api/content-evaluations",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+              categoryLinkSource: "tag",
+            },
+          },
           events: {
             specPath: "api/events.yaml", // path or URL to the OpenAPI spec
             outputDir: "docs/api/events", // output directory for generated *.mdx and sidebar.js files
@@ -502,19 +518,20 @@ const config = {
     [
       "docusaurus-plugin-llms-builder",
       {
-        sessions: [
+        version: "2.0.0",
+        llmConfigs: [
           {
-            id: "default",
-            config: {
-              outputs: {
-                "llms.txt": {
-                  sourcePaths: ["docs/**/*.{md,mdx}"],
-                },
-                "llms-full.txt": {
-                  sourcePaths: ["docs/**/*.{md,mdx}"],
-                },
+            title: "WordLift Documentation",
+            sessions: [
+              {
+                type: "docs",
+                docsDir: "docs",
+                sessionName: "Documentation",
+                sitemap: "sitemap.xml",
               },
-            },
+            ],
+            generateLLMsTxt: true,
+            generateLLMsFullTxt: true,
           },
         ],
       },

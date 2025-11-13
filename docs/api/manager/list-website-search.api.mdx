@@ -5,38 +5,356 @@ description: "List the Website Search performance data"
 sidebar_label: "List Website Search data"
 hide_title: true
 hide_table_of_contents: true
-api: {"description":"List the Website Search performance data","operationId":"listWebsiteSearch","parameters":[{"description":"The website URL","in":"query","name":"website","required":true,"schema":{"type":"string"}},{"description":"The cursor","in":"query","name":"cursor","required":false,"schema":{"type":"string"}},{"description":"The start date, inclusive, in yyyy-MM-dd format.","in":"query","name":"since","required":true,"schema":{"type":"string"}},{"description":"The end date, inclusive, in yyyy-MM-dd format.","in":"query","name":"until","required":true,"schema":{"type":"string"}},{"description":"The dimensions, e.g. `query`, `page`. Must repeat for each dimension.","in":"query","name":"dimensions","required":true,"schema":{"type":"array","items":{"type":"string"}},"style":"form"},{"description":"The Google access token, must have access to the Google Search Console scope","in":"query","name":"google_access_token","required":true,"schema":{"type":"string"}},{"description":"The maximum number of results","in":"query","name":"limit","required":false,"schema":{"type":"integer","default":10}}],"responses":{"200":{"content":{"application/json":{"schema":{"type":"object","description":"A page object with links to move to other pages and the list of objects.","properties":{"first":{"type":"string","description":"The link to the first page.","nullable":true},"items":{"type":"array","description":"An array of objects.","items":{"type":"object","description":"Search Data","properties":{"clicks":{"type":"integer","format":"int32","description":"Number of clicks."},"ctr":{"type":"number","format":"double","description":"CTR."},"id":{"type":"integer","format":"int64","description":"The id: it's now a unique id, but a row index."},"impressions":{"type":"integer","format":"int32","description":"Number of impressions."},"keys":{"type":"array","description":"The keys for the current data, matching the provided `dimensions` in the query.","items":{"type":"string","description":"The keys for the current data, matching the provided `dimensions` in the query."}},"position":{"type":"number","format":"double","description":"Position."},"score":{"type":"number","format":"double","description":"A score to spot traffic opportunities, from 0.0 to 1.0 (the higher the better). The score is based on the traffic data."}},"required":["clicks","ctr","id","impressions","keys","position","score"],"title":"WebsiteSearch"}},"last":{"type":"string","description":"The link to the last page.","nullable":true},"next":{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true},"prev":{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true},"self":{"type":"string","description":"The link to the current page.","nullable":true}},"required":["first","items","last","next","prev","self"],"title":"PageWebsiteSearch"}}},"description":"Found"},"401":{"description":"Authentication Failure"}},"tags":["Google Search Console"],"method":"get","path":"/ext/google/searchconsole/searches","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"List Website Search data","description":{"content":"List the Website Search performance data","type":"text/plain"},"url":{"path":["ext","google","searchconsole","searches"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) The website URL","type":"text/plain"},"key":"website","value":""},{"disabled":false,"description":{"content":"The cursor","type":"text/plain"},"key":"cursor","value":""},{"disabled":false,"description":{"content":"(Required) The start date, inclusive, in yyyy-MM-dd format.","type":"text/plain"},"key":"since","value":""},{"disabled":false,"description":{"content":"(Required) The end date, inclusive, in yyyy-MM-dd format.","type":"text/plain"},"key":"until","value":""},{"disabled":false,"description":{"content":"(Required) The dimensions, e.g. `query`, `page`. Must repeat for each dimension.","type":"text/plain"},"key":"dimensions","value":""},{"disabled":false,"description":{"content":"(Required) The Google access token, must have access to the Google Search Console scope","type":"text/plain"},"key":"google_access_token","value":""},{"disabled":false,"description":{"content":"The maximum number of results","type":"text/plain"},"key":"limit","value":""}],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
+api: eJytWN1v2zgM/1cIvdwGuEnaG+4hT9fb3YbD1tuwddhDUSyKTMdabcmT6LZZ4P/9QMlunM81bZ4SS/z4kSIpUguRoldOV6StEWPxXnsCyhG+4tRrQviM0qkcKnSZdaU0CiGVJEUibIVOMtu/qRiLQntqeSKLSEQlnSyR0HkxvlqsabrMEe5aJV8+vReJ0Lz8o0Y3F4kwskQxFi2FSITDH7V2mIoxuRoT4VWOpRTjhaB5xaSenDYz0TTJNlWqdt66HVoeNpdKMln4w7V4ko7YQZiANqqovb4Nf2E+n89PLi5O0hSCI2mwA4vXRh3BXjTp83DUhnTxfBypLtF4bY1PAAezAUyCnkkCk0rOcDKAi9oTOKxQEkMClCpfsu2Ct5T7GIzSOcnMmrD0W7ELT/OCl9grYrstb62dFQhSKfQeyN6gSaBk+Lm87a2HBGqJ2/x5bY23BYJXtsIdJs0Cx7co5lsQ/3z/l/Jel3UJpi6n6MBm4NDXBfkdIApdanpUJmhDOEPOmhQzWRckxqejprlmXl9Z4zF4+mw04h9lDaEh/iurqtAqlI7hd89IF5vS7fQ7KgrC+yadA0cNxF2405RDoc1N8Hppb5F/LeXoAp0HadJwGlye2PjI6DmqKscVjHSEmWnnadOr6/ovgyxz051yYAu6WKSpi0JOOYz4rJrNeOvicM0oA2FjDeA68w6XtBH2d6zKq1apQqsbv/XQYvbHpd/PNqT+9xAvUcZANIlQ5HqyYkj1RaW2ZuvXZb2+/BTYdfpLJH+82upynY5B028ejL0DCbXRP2peTWBaE0hw9g60SfE+6ikrhz4Wh2eZ3hMUBN/g/NenyXiZMBQzilePQxOuBZlAKUnl2szCVuXsrU4xhcmynk24TPNmyMxtgbAnNo+pmKtiZb2O4g8/9o8tb3CdV9bhU6ScQ2DlhPOVJSAns0wrsFVlHdVGc6wnkDlbwmgwYrrTwQhesCG5nnEp4L9TJEL3cgDhmg4StYep9JiCjWZ3ktld0fplEbzqUikmQYjl1UBro6Pnss7o60SQpnC5rHZIrKKQTyk7zLW76hi8f4JM5mqrq4MJC52AznjLYci83Qorh7eHK2QubWv/RKUei+xwpV1O7BC7dujxVugysD2t1sGt2S2Q3iF/lDNcP+hmHdcbW5uUE+PV6JStWAv6mnI01N6S8EbqonYYAobkjNtpsbW/YBglUm65JZ9hACkpF2MxxHsaxg5j6AOPiiztF/pgibvtuvXaFWIscqLKj4dDWenBnXVpoTMaaCv4mveoaqdp/pnv7njfnFf6Hc437Zm8wzks5rZ2XKGaSdd85CjTUAXa7oPttk7/lG0CdYU2im0S8Zf0WjHVFh1hDxZolOXKVnt0LHZcSe8Z++PVhm6EN6YscomDvcEoPjDDWWgbCnsXLJd9Ea9tihuLX1Yc6vvuHFqmHHbkOIy1o4pOjSBaMG0HyYHADeKvhQayYQydto+QAT2vaJPZrjuTKhQNLKUOMrEo7J/9M39w11fr0vc64+hajZKVCNnoU+rpwyeU0sgZlpyJ3KI5LCRhChyAWmFofwqt0Pjgx1bvC/USlK3mTs9ygrPR2dkJ118W8lhIhK70H7LPUc92umEgOrHZSQuHj6NL7osAnGOHMyVadjoYiXhXUilND3CYptcm6XZ6XvFNrz0+ZAJvz5M4tatCasMogvmLNu2vRKxUMfFDhvdS/+EbPReO3PJVdCUWC74Wv7iiaXg5DghhgNeeS+VyJthpxItPbRF9CZtz/lbYN1w2euP+rSxqpoqj2KMVr4z6exQ90DxRz5qBB879e4B14/9xcB30CrAHVfcYcBxUx3gT2AN25WngOIiPOPnvAb79AeAZmbBv+N+Do3sDWGq+5g+nY6N0dd0k3RXKZSEynSuFVZ9rY8xv+s3J238uRdP8D3iQDwA=
 sidebar_class_name: "get api-method"
 info_path: api/manager/manager
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## List Website Search data
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List Website Search data"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/ext/google/searchconsole/searches"}
+>
+  
+</MethodEndpoint>
 
 
 
 List the Website Search performance data
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The website URL","in":"query","name":"website","required":true,"schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"The cursor","in":"query","name":"cursor","required":false,"schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"The start date, inclusive, in yyyy-MM-dd format.","in":"query","name":"since","required":true,"schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"The end date, inclusive, in yyyy-MM-dd format.","in":"query","name":"until","required":true,"schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"The dimensions, e.g. `query`, `page`. Must repeat for each dimension.","in":"query","name":"dimensions","required":true,"schema":{"type":"array","items":{"type":"string"}},"style":"form"}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"The Google access token, must have access to the Google Search Console scope","in":"query","name":"google_access_token","required":true,"schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"The maximum number of results","in":"query","name":"limit","required":false,"schema":{"type":"integer","default":10}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"first"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the first page.","nullable":true}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>items</strong><span style={{"opacity":"0.6"}}> object[]</span><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
-
-An array of objects.
-
-</div><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"clicks"} required={true} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32","description":"Number of clicks."}}></SchemaItem><SchemaItem collapsible={false} name={"ctr"} required={true} schemaName={"double"} qualifierMessage={undefined} schema={{"type":"number","format":"double","description":"CTR."}}></SchemaItem><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"The id: it's now a unique id, but a row index."}}></SchemaItem><SchemaItem collapsible={false} name={"impressions"} required={true} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32","description":"Number of impressions."}}></SchemaItem><SchemaItem collapsible={false} name={"keys"} required={true} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","description":"The keys for the current data, matching the provided `dimensions` in the query.","items":{"type":"string","description":"The keys for the current data, matching the provided `dimensions` in the query."}}}></SchemaItem><SchemaItem collapsible={false} name={"position"} required={true} schemaName={"double"} qualifierMessage={undefined} schema={{"type":"number","format":"double","description":"Position."}}></SchemaItem><SchemaItem collapsible={false} name={"score"} required={true} schemaName={"double"} qualifierMessage={undefined} schema={{"type":"number","format":"double","description":"A score to spot traffic opportunities, from 0.0 to 1.0 (the higher the better). The score is based on the traffic data."}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem><SchemaItem collapsible={false} name={"last"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the last page.","nullable":true}}></SchemaItem><SchemaItem collapsible={false} name={"next"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true}}></SchemaItem><SchemaItem collapsible={false} name={"prev"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true}}></SchemaItem><SchemaItem collapsible={false} name={"self"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The link to the current page.","nullable":true}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"first\": \"string\",\n  \"items\": [\n    {\n      \"clicks\": 0,\n      \"ctr\": 0,\n      \"id\": 0,\n      \"impressions\": 0,\n      \"keys\": [\n        \"string\"\n      ],\n      \"position\": 0,\n      \"score\": 0\n    }\n  ],\n  \"last\": \"string\",\n  \"next\": \"string\",\n  \"prev\": \"string\",\n  \"self\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The website URL","in":"query","name":"website","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The cursor","in":"query","name":"cursor","required":false,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The start date, inclusive, in yyyy-MM-dd format.","in":"query","name":"since","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The end date, inclusive, in yyyy-MM-dd format.","in":"query","name":"until","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The dimensions, e.g. `query`, `page`. Must repeat for each dimension.","in":"query","name":"dimensions","required":true,"schema":{"type":"array","items":{"type":"string"}},"style":"form"}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The Google access token, must have access to the Google Search Console scope","in":"query","name":"google_access_token","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The maximum number of results","in":"query","name":"limit","required":false,"schema":{"type":"integer","default":10}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"first"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the first page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                items
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span><span
+                                className={"openapi-schema__divider"}
+                              >
+                                
+                              </span><span
+                                className={"openapi-schema__required"}
+                              >
+                                required
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              An array of objects.
+                              
+                              
+                            </div><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"clicks"}
+                              required={true}
+                              schemaName={"int32"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int32","description":"Number of clicks."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"ctr"}
+                              required={true}
+                              schemaName={"double"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"number","format":"double","description":"CTR."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"id"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","description":"The id: it's now a unique id, but a row index."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"impressions"}
+                              required={true}
+                              schemaName={"int32"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int32","description":"Number of impressions."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"keys"}
+                              required={true}
+                              schemaName={"string[]"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"array","description":"The keys for the current data, matching the provided `dimensions` in the query.","items":{"type":"string","description":"The keys for the current data, matching the provided `dimensions` in the query."}}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"position"}
+                              required={true}
+                              schemaName={"double"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"number","format":"double","description":"Position."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"score"}
+                              required={true}
+                              schemaName={"double"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"number","format":"double","description":"A score to spot traffic opportunities, from 0.0 to 1.0 (the higher the better). The score is based on the traffic data."}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"last"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the last page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"next"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"prev"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"self"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The link to the current page.","nullable":true}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"first\": \"string\",\n  \"items\": [\n    {\n      \"clicks\": 0,\n      \"ctr\": 0,\n      \"id\": 0,\n      \"impressions\": 0,\n      \"keys\": [\n        \"string\"\n      ],\n      \"position\": 0,\n      \"score\": 0\n    }\n  ],\n  \"last\": \"string\",\n  \"next\": \"string\",\n  \"prev\": \"string\",\n  \"self\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

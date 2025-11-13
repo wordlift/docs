@@ -1,38 +1,113 @@
 ---
 id: delete-content-generation
-title: "Delete by id"
-description: "Delete by id"
-sidebar_label: "Delete by id"
+title: "Delete"
+description: "Delete"
+sidebar_label: "Delete"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"deleteContentGeneration","parameters":[{"description":"The Content Generation id.","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"description":"Deleted"},"401":{"description":"Authentication Failure"}},"security":[{"security_oauth2":[]}],"tags":["Content Generations"],"description":"Delete by id","method":"delete","path":"/content-generations/{id}","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"Delete by id","description":{"type":"text/plain"},"url":{"path":["content-generations",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) The Content Generation id.","type":"text/plain"},"type":"any","value":"","key":"id"}]},"method":"DELETE","auth":{"type":"oauth2","oauth2":[]}}}
+api: eJydVFFP3DAM/iuVn4aUo8cJ7aFPm4BNk5AmDdAe0AmFxL1GpElJXNhR9b9PTtvjjrshtKemjv358xfbHfgGgyTj3Q8NBWi0SHjmHaGj7+jGOxDQyCBrJAwRitsONEYVTJMuC7iuMBuDsteozOhjEGDYo5FUgQAna4QCjAYBAR9bE1BDQaFFAVFVWEsoOqB1k7wc4QoDCCh9qCUNps+n0PdLDo+NdxEjRyzmc/7ssjpPxWjoBZzOT/bvv7ZUoSOjBrbfpLFtQOh7ARFVGwytU63Tz52XLVULKG6XTIDkirWA/cIjLMVBLiCgRqr8q9RJWaqggFwNOLPVK07eGd0D0wlPk/JtsFBARdTEIs9lY46ffdDWlHRsPDCxie8VCzros1dCB6X1z+mOLT6Yl5TyzGvcM97spIzbCfMEmE/umDNb5Zsh7b2MRkExfLNk59cg/4AfAE1ueXqPsSNG9mwxrvScglWTiviItTQJE631X7ZV2TTebx/0pSkJxBsddzR8+3jjy2KmfN1YTE+T3cuIOvMuU20kX5sX1Jk1btWaSEZltddoI/e/NQpdTKqOLD6po0z5Zh3MqqJsMV8sZk3AyE30UYKEoY4/yysMT0bhYb88Oc18OYuDGz8OGbLsv9+1IICbbCj55HjOaRofqZZui/umkXck2sws4R/KGyuN4/BUQjd2+C0c6HAQUBjN81L5SOzUdazsTbB9z+bHFgOP4VLAkwxG3jN7XkAm8llDUUobcY/PmIvV/jUumqPs3T11sILRKN2a5ZG25T8Q8IDrYY/1y35rqM8vLi+uL0Ck+dmSZWxcAZsV0h2GHiZmwp8m5h/OHxieCUkqhTFeT4P3X5A7Qz7CtlS9i7ezR+4Ub5cpdhWko7sU1S/7vv8Lk6JDMQ==
 sidebar_class_name: "delete api-method"
 info_path: api/content-generation/content-generation
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Delete by id
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/content-generations/{id}"}
+>
+  
+</MethodEndpoint>
 
 
 
-Delete by id
+Delete
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The Content Generation id.","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Deleted
-
-</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The Content Generation id.","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Deleted
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

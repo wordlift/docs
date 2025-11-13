@@ -5,35 +5,138 @@ description: "The service will return a Web Data URI only for existing datasets.
 sidebar_label: "Get the Web Data URI for a Web Page URL."
 hide_title: true
 hide_table_of_contents: true
-api: {"description":"The service will return a Web Data URI only for existing datasets. The Web Data URI is not guaranteed to exist (i.e. it may return 404).\n","operationId":"get","parameters":[{"description":"The Web Page URL.","in":"query","name":"u","required":true,"schema":{"type":"string","format":"url"}}],"responses":{"303":{"description":"See Other","headers":{"Location":{"description":"${api.data-uri-controller.get.headers.location.description}","schema":{},"style":"simple"}}}},"tags":["Data URI"],"method":"get","path":"/data-uri","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Get the Web Data URI for a Web Page URL.","description":{"content":"The service will return a Web Data URI only for existing datasets. The Web Data URI is not guaranteed to exist (i.e. it may return 404).\n","type":"text/plain"},"url":{"path":["data-uri"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) The Web Page URL.","type":"text/plain"},"key":"u","value":""}],"variable":[]},"method":"GET"}}
+api: eJzNVE1v2zAM/SsCsUMLOHaX7eTTPjEM7dChH9ihKzDGpm2hsuRKdFvP8H8fKCdd0gZDjzvFkcjHx0fqjVBSKLzuWDsLOVw0pAL5O12QutfGKE/ce6tQ/aCV+oSM6vLsq3LWDKpyXtGDDqxtrUpkDMQhVQKxE6yDso5V3aNHy0SlYjcnqgOdUqo0qxaHTam3R28P058WEnAdeRRiX0vIoSaGBDr02BKTD5BfjXvYS+nvWJO6PDtJIQEtF7c9+QESsNgS5NBDAp5ue+2phJx9TwmEoqEWIR+Bh06CAntta0igcr5FljRvYJquJTd0zgYKEv7m6I387DI5J1Kn3JCHBBrCMvId4cQVOEc8TXg1YqdTUXHRe70onGXvjCGf1sTpGiI16/x0K3mCLfJTAoEHE/nrtjME0zRNCTDWIhhshgLXCbTEjdtWlhvIIdtwEFjydxulpfkcGuYu5FkmZO+dL42uONUORJVARe81D+dCZtbmfaePaXje7a9jGtQ4uN6rGxqmX5s5zX3+HdT7nhvn9e9ZtGQzGpxhpwQ+YNCFRO2pEe/USLZwJZWqD+QFNu8wBOH+8rJRXrlYCeRfHqKGsDiVhKVQqIy7j53jNsRHV9Kzw8sdQcO2nJmTyGwTTlnk4LpZ1JnEmoyK50KC3Q29ADSGZRCXYu4ini/jibaVkxKyfliwfFKLOmKSMe7d9swf5frhfHmiK1mi3S3Z2ZDk6RPpV49/VYsWa2rJskJbKk8GmcqNFQV5yEYXZEPUcV33oDhUhesGr+uG1fJouVx0noKAvJQSk2/DaXU+19kfl8WghasWazoyDtYcX9m3SFx2R17K3Nnr9EiwOxe4RbtF+Aux4qf2KDaKz2xrR6t5IGT5f3Po9QYxPXDWGdRW+o6Cj2s/uYJHP7lOoHGB5WwcVxjo0ptpkuPZnqOf64ArI65coQn0Dx0OztYGfqj22f5eZjfiRdH979D0ch+N6w69lqqQX11PW7745fMFTNMfQ3Bv5g==
 sidebar_class_name: "get api-method"
 info_path: api/manager/manager
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Get the Web Data URI for a Web Page URL.
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get the Web Data URI for a Web Page URL."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/data-uri"}
+>
+  
+</MethodEndpoint>
 
 
 
 The service will return a Web Data URI only for existing datasets. The Web Data URI is not guaranteed to exist (i.e. it may return 404).
 
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The Web Page URL.","in":"query","name":"u","required":true,"schema":{"type":"string","format":"url"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"303"} value={"303"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-See Other
-
-</div><details style={{"textAlign":"left","marginBottom":"1rem"}} data-collaposed={true} open={false}><summary style={{}}><strong>Response Headers</strong></summary><ul style={{"marginLeft":"1rem"}}><li className={"schemaItem"}><summary style={{}}><strong>Location</strong><span style={{"opacity":"0.6"}}> any</span></summary><div><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
-
-${api.data-uri-controller.get.headers.location.description}
-
-</div></div></li></ul></details><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The Web Page URL.","in":"query","name":"u","required":true,"schema":{"type":"string","format":"url"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"303"}
+        value={"303"}
+      >
+        <div>
+          
+          
+          See Other
+          
+          
+        </div><details
+          style={{"textAlign":"left","marginBottom":"1rem"}}
+          className={"openapi-markdown__details"}
+          data-collapsed={true}
+          open={false}
+        >
+          <summary
+            style={{}}
+          >
+            <strong>
+              Response Headers
+            </strong>
+          </summary><ul
+            style={{"marginLeft":"1rem"}}
+          >
+            <li
+              className={"schemaItem"}
+            >
+              <summary
+                style={{}}
+              >
+                <strong>
+                  Location
+                </strong><span
+                  style={{"opacity":"0.6"}}
+                >
+                   any
+                </span>
+              </summary><div>
+                <div
+                  style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                >
+                  
+                  
+                  $\{api.data-uri-controller.get.headers.location.description\}
+                  
+                  
+                </div>
+              </div>
+            </li>
+          </ul>
+        </details><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

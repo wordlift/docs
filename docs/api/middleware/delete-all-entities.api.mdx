@@ -5,38 +5,90 @@ description: "Delete all the entities in the Knowledge Graph."
 sidebar_label: "Delete all"
 hide_title: true
 hide_table_of_contents: true
-api: {"tags":["Entities"],"description":"Delete all the entities in the Knowledge Graph.","operationId":"deleteAllEntities","responses":{"200":{"description":"Success"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"ApiKey":[]}],"method":"delete","path":"/dataset/all","servers":[{"url":"https://api.wordlift.io/middleware"}],"securitySchemes":{"ApiKey":{"type":"apiKey","description":"`Key {your key}`","name":"ApiKey","in":"header"}},"info":{"title":"Middleware","description":"Perform CRUD operations on the Knowledge Graph.","termsOfService":"https://wordlift.io/terms-of-service/","contact":{"name":"WordLift","url":"https://wordlift.io","email":"hello@wordlift.io"},"license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"version":"1.0"},"postman":{"name":"Delete all","description":{"content":"Delete all the entities in the Knowledge Graph.","type":"text/plain"},"url":{"path":["dataset","all"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"method":"DELETE","auth":{"type":"apikey","apikey":[{"type":"any","value":"ApiKey","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJydU01v2zAM/SsCTxugxGnQk08LkHQY0m2HbNghCFDVZmKhsqRJdDLP0H8fJDutm6zAsIs/yEc+8umpAxIHD/kWloKER4IdhxJ94aQlaTTksESFhEwoxahChpokSfRM6vS/1uaksDwg++iErabAwVh0IlZ/KiGHMtUvlFoNlcDBobdGe/SQdzCfzeLrNeumKQr0HgKH29nNdX7RUBVHKRIRuxNSNQ57+O01/IshdmcaXUIIHDwWjZPUQr7tYGHlGuPnLuw41EiVeRkbOFhBFeSQlb1AmVAKYgt3ROdTh8YpyKEisj7PMmHl9GRcqeSeptJA7Hom3BQV1v3WZ9oOqLUIOYg+cCn/wxpb1rWmcewJ2/AAHLSocZDAOPk7KQAcZIRXKEp0aUup9yb1l6Qi/rMsS4Un4fCK5OIQWdyV1UKLA9aoKR4qoav91/0G3VEWONp3tGuWQBOzn/gelgGHwmgSBcVJhsF/GFfeyz0Bv5BuLBsHrIVMWVTKfHglKQclC9QeR13fFe9ZYWzr5KEiNp/N5xPr0KMm9k+EgUM80V6Qm+ksBqzxVAs9Ynm5DZcidmlT1PRfd2YwAeEvyqwSUkf6NGw3OHALgwOBQ6TfcaiMp5joukfh8btTIcTwzwZdMjSHo3BSPMbj3+7CyN3L1f3q2yp2amLvsQmfkgmHj2jvc0rH+FGo5m/mS+D0DPyNkq7rLR7CM75PvVkxmPmMjqLsQgh/AEYVmYo=
 sidebar_class_name: "delete api-method"
 info_path: api/middleware/middleware
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Delete all
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete all"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/dataset/all"}
+>
+  
+</MethodEndpoint>
 
 
 
 Delete all the entities in the Knowledge Graph.
 
-<div><ApiTabs><TabItem label={"200"} value={"200"}><div>
-
-Success
-
-</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
-
-Not Found
-
-</div><div></div></TabItem></ApiTabs></div>
+<div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Success
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

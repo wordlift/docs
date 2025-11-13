@@ -5,46 +5,676 @@ description: "Update"
 sidebar_label: "Update"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"updateRuleCollection","parameters":[{"description":"The project id","in":"query","name":"project_id","required":true,"schema":{"type":"integer","format":"int64"}},{"description":"The project type","in":"query","name":"project_type","required":true,"schema":{"type":"string","description":"The project type, if applicable.","enum":["SMART_CONTENT","CONTENT_GENERATION"],"title":"ProjectType"}}],"requestBody":{"content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"description":{"type":"string","description":"Description for the rule"},"fixes":{"type":"array","description":"The list of fixes to apply when the rule validation fails.","items":{"type":"object","description":"The list of fixes to apply when the rule validation fails.","properties":{"type":{"type":"string","enum":["FIND_AND_REPLACE","OPEN_AI","APPEND"],"title":"ValidationTypeEnum"},"what":{"type":"string"},"with":{"type":"string"}},"title":"ValidationFix"}},"is_enabled":{"type":"boolean"},"level":{"type":"string","description":"The rule level.","enum":["RECOMMENDED","REQUIRED"],"title":"LevelEnum"},"name":{"type":"string","description":"The rule name."},"project_id":{"type":"integer","format":"int64","description":"The project id, if applicable."},"project_type":{"type":"string","description":"The project type, if applicable.","enum":["SMART_CONTENT","CONTENT_GENERATION"],"title":"ProjectType"},"scope":{"type":"string","description":"The rule scope.","enum":["USER","PROJECT"],"title":"Scope"},"type":{"type":"string","description":"The rule type, one of `field`, `word` or `code`. By default `field`."},"what_operand_lhs":{"type":"string","description":"The left hand side operand for what condition.","enum":["EVERYWHERE","FIRST_SENTENCE","LAST_SENTENCE"],"title":"WhatOperandLhs"},"what_operand_rhs":{"type":"string","description":"The right hand side operand for what condition."},"what_operator":{"type":"string","description":"The operator for what condition.","enum":["CONTAINS","DOESNT_CONTAIN","ENDS_WITH","REGEX","REGEX_DOESNT_MATCH"],"title":"WhatOperator"},"when_operand_lhs":{"type":"string","description":"The left hand side  operand for when condition."},"when_operand_rhs":{"type":"string","description":"The right hand side operand for when condition."},"when_operator":{"type":"string","description":"The operator for when condition.","enum":["ALWAYS","EQUALS","NOT_EQUALS"],"title":"WhenOperator"}},"required":["level","name","scope","type","what_operand_lhs","what_operand_rhs","what_operator","when_operand_lhs","when_operand_rhs","when_operator"],"title":"RuleRequest"}}}},"required":true},"responses":{"200":{"content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"created_at":{"type":"string","format":"date-time","description":"The create date-time.","readOnly":true},"description":{"type":"string","description":"Description for the rule"},"fixes":{"type":"array","description":"The list of fixes to apply when the rule validation fails.","items":{"type":"object","description":"The list of fixes to apply when the rule validation fails.","properties":{"type":{"type":"string","enum":["FIND_AND_REPLACE","OPEN_AI","APPEND"],"title":"ValidationTypeEnum"},"what":{"type":"string"},"with":{"type":"string"}},"title":"ValidationFix"}},"id":{"type":"integer","format":"int64"},"is_enabled":{"type":"boolean"},"level":{"type":"string","description":"The rule level.","enum":["RECOMMENDED","REQUIRED"],"title":"LevelEnum"},"modified_at":{"type":"string","format":"date-time","description":"The last modified date-time.","readOnly":true},"name":{"type":"string","description":"The rule name."},"project_id":{"type":"integer","format":"int64"},"project_type":{"type":"string","description":"The project type, if applicable.","enum":["SMART_CONTENT","CONTENT_GENERATION"],"title":"ProjectType"},"scope":{"type":"string","description":"The rule scope.","enum":["USER","PROJECT"],"title":"Scope"},"type":{"type":"string","description":"The rule type, one of `field`, `word` or `code`. By default `field`."},"what_operand_lhs":{"type":"string","description":"The left hand side operand for what condition.","enum":["EVERYWHERE","FIRST_SENTENCE","LAST_SENTENCE"],"title":"WhatOperandLhs"},"what_operand_rhs":{"type":"string","description":"The right hand side operand for what condition."},"what_operator":{"type":"string","description":"The operator for what condition.","enum":["CONTAINS","DOESNT_CONTAIN","ENDS_WITH","REGEX","REGEX_DOESNT_MATCH"],"title":"WhatOperator"},"when_operand_lhs":{"type":"string","description":"The left hand side  operand for when condition."},"when_operand_rhs":{"type":"string","description":"The right hand side operand for when condition."},"when_operator":{"type":"string","description":"The operator for when condition.","enum":["ALWAYS","EQUALS","NOT_EQUALS"],"title":"WhenOperator"}},"required":["level","name","scope","type","what_operand_lhs","what_operand_rhs","what_operator","when_operand_lhs","when_operand_rhs","when_operator"],"title":"Rule"}}}},"description":"Found."},"400":{"description":"Bad request"},"401":{"description":"Authentication Failure"}},"security":[{"security_oauth2":[]}],"tags":["Rules"],"description":"Update","method":"put","path":"/rules-collection","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"jsonRequestBodyExample":[{"description":"string","fixes":[{"type":"FIND_AND_REPLACE","what":"string","with":"string"}],"is_enabled":true,"level":"RECOMMENDED","name":"string","project_id":0,"project_type":"SMART_CONTENT","scope":"USER","type":"string","what_operand_lhs":"EVERYWHERE","what_operand_rhs":"string","what_operator":"CONTAINS","when_operand_lhs":"string","when_operand_rhs":"string","when_operator":"ALWAYS"}],"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"Update","description":{"type":"text/plain"},"url":{"path":["rules-collection"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) The project id","type":"text/plain"},"key":"project_id","value":""},{"disabled":false,"description":{"content":"(Required) The project type","type":"text/plain"},"key":"project_type","value":""}],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"application/json"}],"method":"PUT","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"oauth2","oauth2":[]}}}
+api: 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
 sidebar_class_name: "put api-method"
 info_path: api/content-generation/content-generation
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Update
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/rules-collection"}
+>
+  
+</MethodEndpoint>
 
 
 
 Update
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The project id","in":"query","name":"project_id","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"The project type","in":"query","name":"project_type","required":true,"schema":{"type":"string","description":"The project type, if applicable.","enum":["SMART_CONTENT","CONTENT_GENERATION"],"title":"ProjectType"}}}></ParamsItem></ul></div></details><MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><span style={{"opacity":"0.6"}}> array</span><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"description"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Description for the rule"}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>fixes</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-The list of fixes to apply when the rule validation fails.
-
-</div><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"type"} required={false} schemaName={"ValidationTypeEnum"} qualifierMessage={"**Possible values:** [`FIND_AND_REPLACE`, `OPEN_AI`, `APPEND`]"} schema={{"type":"string","enum":["FIND_AND_REPLACE","OPEN_AI","APPEND"],"title":"ValidationTypeEnum"}}></SchemaItem><SchemaItem collapsible={false} name={"what"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"with"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem><SchemaItem collapsible={false} name={"is_enabled"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean"}}></SchemaItem><SchemaItem collapsible={false} name={"level"} required={true} schemaName={"LevelEnum"} qualifierMessage={"**Possible values:** [`RECOMMENDED`, `REQUIRED`]"} schema={{"type":"string","description":"The rule level.","enum":["RECOMMENDED","REQUIRED"],"title":"LevelEnum"}}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The rule name."}}></SchemaItem><SchemaItem collapsible={false} name={"project_id"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"The project id, if applicable."}}></SchemaItem><SchemaItem collapsible={false} name={"project_type"} required={false} schemaName={"ProjectType"} qualifierMessage={"**Possible values:** [`SMART_CONTENT`, `CONTENT_GENERATION`]"} schema={{"type":"string","description":"The project type, if applicable.","enum":["SMART_CONTENT","CONTENT_GENERATION"],"title":"ProjectType"}}></SchemaItem><SchemaItem collapsible={false} name={"scope"} required={true} schemaName={"Scope"} qualifierMessage={"**Possible values:** [`USER`, `PROJECT`]"} schema={{"type":"string","description":"The rule scope.","enum":["USER","PROJECT"],"title":"Scope"}}></SchemaItem><SchemaItem collapsible={false} name={"type"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The rule type, one of `field`, `word` or `code`. By default `field`."}}></SchemaItem><SchemaItem collapsible={false} name={"what_operand_lhs"} required={true} schemaName={"WhatOperandLhs"} qualifierMessage={"**Possible values:** [`EVERYWHERE`, `FIRST_SENTENCE`, `LAST_SENTENCE`]"} schema={{"type":"string","description":"The left hand side operand for what condition.","enum":["EVERYWHERE","FIRST_SENTENCE","LAST_SENTENCE"],"title":"WhatOperandLhs"}}></SchemaItem><SchemaItem collapsible={false} name={"what_operand_rhs"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The right hand side operand for what condition."}}></SchemaItem><SchemaItem collapsible={false} name={"what_operator"} required={true} schemaName={"WhatOperator"} qualifierMessage={"**Possible values:** [`CONTAINS`, `DOESNT_CONTAIN`, `ENDS_WITH`, `REGEX`, `REGEX_DOESNT_MATCH`]"} schema={{"type":"string","description":"The operator for what condition.","enum":["CONTAINS","DOESNT_CONTAIN","ENDS_WITH","REGEX","REGEX_DOESNT_MATCH"],"title":"WhatOperator"}}></SchemaItem><SchemaItem collapsible={false} name={"when_operand_lhs"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The left hand side  operand for when condition."}}></SchemaItem><SchemaItem collapsible={false} name={"when_operand_rhs"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The right hand side operand for when condition."}}></SchemaItem><SchemaItem collapsible={false} name={"when_operator"} required={true} schemaName={"WhenOperator"} qualifierMessage={"**Possible values:** [`ALWAYS`, `EQUALS`, `NOT_EQUALS`]"} schema={{"type":"string","description":"The operator for when condition.","enum":["ALWAYS","EQUALS","NOT_EQUALS"],"title":"WhenOperator"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
-
-Found.
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"created_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The create date-time.","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"description"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Description for the rule"}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>fixes</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
-
-The list of fixes to apply when the rule validation fails.
-
-</div><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"type"} required={false} schemaName={"ValidationTypeEnum"} qualifierMessage={"**Possible values:** [`FIND_AND_REPLACE`, `OPEN_AI`, `APPEND`]"} schema={{"type":"string","enum":["FIND_AND_REPLACE","OPEN_AI","APPEND"],"title":"ValidationTypeEnum"}}></SchemaItem><SchemaItem collapsible={false} name={"what"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"with"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem><SchemaItem collapsible={false} name={"id"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"is_enabled"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean"}}></SchemaItem><SchemaItem collapsible={false} name={"level"} required={true} schemaName={"LevelEnum"} qualifierMessage={"**Possible values:** [`RECOMMENDED`, `REQUIRED`]"} schema={{"type":"string","description":"The rule level.","enum":["RECOMMENDED","REQUIRED"],"title":"LevelEnum"}}></SchemaItem><SchemaItem collapsible={false} name={"modified_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The last modified date-time.","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The rule name."}}></SchemaItem><SchemaItem collapsible={false} name={"project_id"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"project_type"} required={false} schemaName={"ProjectType"} qualifierMessage={"**Possible values:** [`SMART_CONTENT`, `CONTENT_GENERATION`]"} schema={{"type":"string","description":"The project type, if applicable.","enum":["SMART_CONTENT","CONTENT_GENERATION"],"title":"ProjectType"}}></SchemaItem><SchemaItem collapsible={false} name={"scope"} required={true} schemaName={"Scope"} qualifierMessage={"**Possible values:** [`USER`, `PROJECT`]"} schema={{"type":"string","description":"The rule scope.","enum":["USER","PROJECT"],"title":"Scope"}}></SchemaItem><SchemaItem collapsible={false} name={"type"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The rule type, one of `field`, `word` or `code`. By default `field`."}}></SchemaItem><SchemaItem collapsible={false} name={"what_operand_lhs"} required={true} schemaName={"WhatOperandLhs"} qualifierMessage={"**Possible values:** [`EVERYWHERE`, `FIRST_SENTENCE`, `LAST_SENTENCE`]"} schema={{"type":"string","description":"The left hand side operand for what condition.","enum":["EVERYWHERE","FIRST_SENTENCE","LAST_SENTENCE"],"title":"WhatOperandLhs"}}></SchemaItem><SchemaItem collapsible={false} name={"what_operand_rhs"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The right hand side operand for what condition."}}></SchemaItem><SchemaItem collapsible={false} name={"what_operator"} required={true} schemaName={"WhatOperator"} qualifierMessage={"**Possible values:** [`CONTAINS`, `DOESNT_CONTAIN`, `ENDS_WITH`, `REGEX`, `REGEX_DOESNT_MATCH`]"} schema={{"type":"string","description":"The operator for what condition.","enum":["CONTAINS","DOESNT_CONTAIN","ENDS_WITH","REGEX","REGEX_DOESNT_MATCH"],"title":"WhatOperator"}}></SchemaItem><SchemaItem collapsible={false} name={"when_operand_lhs"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The left hand side  operand for when condition."}}></SchemaItem><SchemaItem collapsible={false} name={"when_operand_rhs"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The right hand side operand for when condition."}}></SchemaItem><SchemaItem collapsible={false} name={"when_operator"} required={true} schemaName={"WhenOperator"} qualifierMessage={"**Possible values:** [`ALWAYS`, `EQUALS`, `NOT_EQUALS`]"} schema={{"type":"string","description":"The operator for when condition.","enum":["ALWAYS","EQUALS","NOT_EQUALS"],"title":"WhenOperator"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"[\n  {\n    \"created_at\": \"2025-10-16T08:30:10.625Z\",\n    \"description\": \"string\",\n    \"fixes\": [\n      {\n        \"type\": \"FIND_AND_REPLACE\",\n        \"what\": \"string\",\n        \"with\": \"string\"\n      }\n    ],\n    \"id\": 0,\n    \"is_enabled\": true,\n    \"level\": \"RECOMMENDED\",\n    \"modified_at\": \"2025-10-16T08:30:10.626Z\",\n    \"name\": \"string\",\n    \"project_id\": 0,\n    \"project_type\": \"SMART_CONTENT\",\n    \"scope\": \"USER\",\n    \"type\": \"string\",\n    \"what_operand_lhs\": \"EVERYWHERE\",\n    \"what_operand_rhs\": \"string\",\n    \"what_operator\": \"CONTAINS\",\n    \"when_operand_lhs\": \"string\",\n    \"when_operand_rhs\": \"string\",\n    \"when_operator\": \"ALWAYS\"\n  }\n]"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
-
-Bad request
-
-</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The project id","in":"query","name":"project_id","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The project type","in":"query","name":"project_type","required":true,"schema":{"type":"string","description":"The project type, if applicable.","enum":["SMART_CONTENT","CONTENT_GENERATION"],"title":"ProjectType"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><span
+          style={{"opacity":"0.6"}}
+        >
+           array
+        </span><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <li>
+          <div
+            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+          >
+            Array [
+          </div>
+        </li><SchemaItem
+          collapsible={false}
+          name={"description"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Description for the rule"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  fixes
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   object[]
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <div
+                style={{"marginTop":".5rem","marginBottom":".5rem"}}
+              >
+                
+                
+                The list of fixes to apply when the rule validation fails.
+                
+                
+              </div><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={false}
+                name={"type"}
+                required={false}
+                schemaName={"ValidationTypeEnum (string)"}
+                qualifierMessage={"**Possible values:** [`FIND_AND_REPLACE`, `OPEN_AI`, `APPEND`]"}
+                schema={{"type":"string","enum":["FIND_AND_REPLACE","OPEN_AI","APPEND"],"title":"ValidationTypeEnum"}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"what"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"type":"string"}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"with"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"type":"string"}}
+              >
+                
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"is_enabled"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"type":"boolean"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"level"}
+          required={true}
+          schemaName={"LevelEnum (string)"}
+          qualifierMessage={"**Possible values:** [`RECOMMENDED`, `REQUIRED`]"}
+          schema={{"type":"string","description":"The rule level.","enum":["RECOMMENDED","REQUIRED"],"title":"LevelEnum"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"name"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The rule name."}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"project_id"}
+          required={false}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","format":"int64","description":"The project id, if applicable."}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"project_type"}
+          required={false}
+          schemaName={"ProjectType (string)"}
+          qualifierMessage={"**Possible values:** [`SMART_CONTENT`, `CONTENT_GENERATION`]"}
+          schema={{"type":"string","description":"The project type, if applicable.","enum":["SMART_CONTENT","CONTENT_GENERATION"],"title":"ProjectType"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"scope"}
+          required={true}
+          schemaName={"Scope (string)"}
+          qualifierMessage={"**Possible values:** [`USER`, `PROJECT`]"}
+          schema={{"type":"string","description":"The rule scope.","enum":["USER","PROJECT"],"title":"Scope"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"type"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The rule type, one of `field`, `word` or `code`. By default `field`."}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"what_operand_lhs"}
+          required={true}
+          schemaName={"WhatOperandLhs (string)"}
+          qualifierMessage={"**Possible values:** [`EVERYWHERE`, `FIRST_SENTENCE`, `LAST_SENTENCE`]"}
+          schema={{"type":"string","description":"The left hand side operand for what condition.","enum":["EVERYWHERE","FIRST_SENTENCE","LAST_SENTENCE"],"title":"WhatOperandLhs"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"what_operand_rhs"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The right hand side operand for what condition."}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"what_operator"}
+          required={true}
+          schemaName={"WhatOperator (string)"}
+          qualifierMessage={"**Possible values:** [`CONTAINS`, `DOESNT_CONTAIN`, `ENDS_WITH`, `REGEX`, `REGEX_DOESNT_MATCH`]"}
+          schema={{"type":"string","description":"The operator for what condition.","enum":["CONTAINS","DOESNT_CONTAIN","ENDS_WITH","REGEX","REGEX_DOESNT_MATCH"],"title":"WhatOperator"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"when_operand_lhs"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The left hand side  operand for when condition."}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"when_operand_rhs"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The right hand side operand for when condition."}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"when_operator"}
+          required={true}
+          schemaName={"WhenOperator (string)"}
+          qualifierMessage={"**Possible values:** [`ALWAYS`, `EQUALS`, `NOT_EQUALS`]"}
+          schema={{"type":"string","description":"The operator for when condition.","enum":["ALWAYS","EQUALS","NOT_EQUALS"],"title":"WhenOperator"}}
+        >
+          
+        </SchemaItem><li>
+          <div
+            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+          >
+            ]
+          </div>
+        </li>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                        >
+                          Array [
+                        </div>
+                      </li><SchemaItem
+                        collapsible={false}
+                        name={"created_at"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time","description":"The create date-time.","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"description"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"Description for the rule"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                fixes
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              The list of fixes to apply when the rule validation fails.
+                              
+                              
+                            </div><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"type"}
+                              required={false}
+                              schemaName={"ValidationTypeEnum (string)"}
+                              qualifierMessage={"**Possible values:** [`FIND_AND_REPLACE`, `OPEN_AI`, `APPEND`]"}
+                              schema={{"type":"string","enum":["FIND_AND_REPLACE","OPEN_AI","APPEND"],"title":"ValidationTypeEnum"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"what"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"with"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={false}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"is_enabled"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"level"}
+                        required={true}
+                        schemaName={"LevelEnum (string)"}
+                        qualifierMessage={"**Possible values:** [`RECOMMENDED`, `REQUIRED`]"}
+                        schema={{"type":"string","description":"The rule level.","enum":["RECOMMENDED","REQUIRED"],"title":"LevelEnum"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"modified_at"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time","description":"The last modified date-time.","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"name"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The rule name."}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"project_id"}
+                        required={false}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"project_type"}
+                        required={false}
+                        schemaName={"ProjectType (string)"}
+                        qualifierMessage={"**Possible values:** [`SMART_CONTENT`, `CONTENT_GENERATION`]"}
+                        schema={{"type":"string","description":"The project type, if applicable.","enum":["SMART_CONTENT","CONTENT_GENERATION"],"title":"ProjectType"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"scope"}
+                        required={true}
+                        schemaName={"Scope (string)"}
+                        qualifierMessage={"**Possible values:** [`USER`, `PROJECT`]"}
+                        schema={{"type":"string","description":"The rule scope.","enum":["USER","PROJECT"],"title":"Scope"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"type"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The rule type, one of `field`, `word` or `code`. By default `field`."}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"what_operand_lhs"}
+                        required={true}
+                        schemaName={"WhatOperandLhs (string)"}
+                        qualifierMessage={"**Possible values:** [`EVERYWHERE`, `FIRST_SENTENCE`, `LAST_SENTENCE`]"}
+                        schema={{"type":"string","description":"The left hand side operand for what condition.","enum":["EVERYWHERE","FIRST_SENTENCE","LAST_SENTENCE"],"title":"WhatOperandLhs"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"what_operand_rhs"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The right hand side operand for what condition."}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"what_operator"}
+                        required={true}
+                        schemaName={"WhatOperator (string)"}
+                        qualifierMessage={"**Possible values:** [`CONTAINS`, `DOESNT_CONTAIN`, `ENDS_WITH`, `REGEX`, `REGEX_DOESNT_MATCH`]"}
+                        schema={{"type":"string","description":"The operator for what condition.","enum":["CONTAINS","DOESNT_CONTAIN","ENDS_WITH","REGEX","REGEX_DOESNT_MATCH"],"title":"WhatOperator"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"when_operand_lhs"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The left hand side  operand for when condition."}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"when_operand_rhs"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The right hand side operand for when condition."}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"when_operator"}
+                        required={true}
+                        schemaName={"WhenOperator (string)"}
+                        qualifierMessage={"**Possible values:** [`ALWAYS`, `EQUALS`, `NOT_EQUALS`]"}
+                        schema={{"type":"string","description":"The operator for when condition.","enum":["ALWAYS","EQUALS","NOT_EQUALS"],"title":"WhenOperator"}}
+                      >
+                        
+                      </SchemaItem><li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                        >
+                          ]
+                        </div>
+                      </li>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"[\n  {\n    \"created_at\": \"2024-07-29T15:51:28.071Z\",\n    \"description\": \"string\",\n    \"fixes\": [\n      {\n        \"type\": \"FIND_AND_REPLACE\",\n        \"what\": \"string\",\n        \"with\": \"string\"\n      }\n    ],\n    \"id\": 0,\n    \"is_enabled\": true,\n    \"level\": \"RECOMMENDED\",\n    \"modified_at\": \"2024-07-29T15:51:28.071Z\",\n    \"name\": \"string\",\n    \"project_id\": 0,\n    \"project_type\": \"SMART_CONTENT\",\n    \"scope\": \"USER\",\n    \"type\": \"string\",\n    \"what_operand_lhs\": \"EVERYWHERE\",\n    \"what_operand_rhs\": \"string\",\n    \"what_operator\": \"CONTAINS\",\n    \"when_operand_lhs\": \"string\",\n    \"when_operand_rhs\": \"string\",\n    \"when_operator\": \"ALWAYS\"\n  }\n]"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad request
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

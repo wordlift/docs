@@ -5,42 +5,172 @@ description: "Create or update an entity in the Knowledge Graph."
 sidebar_label: "Create or update one"
 hide_title: true
 hide_table_of_contents: true
-api: {"tags":["Entities"],"description":"Create or update an entity in the Knowledge Graph.","operationId":"createOrUpdateEntity","parameters":[{"name":"uri","in":"query","description":"The entity's URI","required":true,"schema":{"type":"string"}},{"name":"private","in":"query","description":"Whether the entity should be hidden from Linked Data and GraphQL","required":false,"schema":{"type":"boolean","default":true},"example":true}],"requestBody":{"content":{"application/ld+json":{"schema":{"type":"string","description":"A string containing the Structured Data."}}},"required":true},"responses":{"200":{"description":"Success"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"ApiKey":[]}],"method":"post","path":"/dataset","servers":[{"url":"https://api.wordlift.io/middleware"}],"securitySchemes":{"ApiKey":{"type":"apiKey","description":"`Key {your key}`","name":"ApiKey","in":"header"}},"jsonRequestBodyExample":"string","info":{"title":"Middleware","description":"Perform CRUD operations on the Knowledge Graph.","termsOfService":"https://wordlift.io/terms-of-service/","contact":{"name":"WordLift","url":"https://wordlift.io","email":"hello@wordlift.io"},"license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"version":"1.0"},"postman":{"name":"Create or update one","description":{"content":"Create or update an entity in the Knowledge Graph.","type":"text/plain"},"url":{"path":["dataset"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) The entity's URI","type":"text/plain"},"key":"uri","value":""},{"disabled":false,"description":{"content":"Whether the entity should be hidden from Linked Data and GraphQL","type":"text/plain"},"key":"private","value":""}],"variable":[]},"header":[{"key":"Content-Type","value":"application/ld+json"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"apikey","apikey":[{"type":"any","value":"ApiKey","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJytVdtuGzcQ/RViXpqgK0sx8rRPTXMpUrtxa9nIgyEgo+VIy5pLbnixoi7234shV9bKkoOg6ItEkXM5c3h41EHAtYfyDt5hQE8BFgVI8pVTbVDWQAlvHWEgYZ2IreQVGkEmqLAVyohQk7gwdqNJrkn85rCtz6AA25JDLvBRQglVKnHlblOB9ykZCmjRYUOBHAPowGBDUEJ0CgpQ3PprJMeBh4BuahoA/OTF7fVHKMDR16gcSSiDi1SAr2pqEMoOwrbloj44ZdbQ98Vjn9apBwz0/V6fawo1uTTmMLSvbdRSLEnUSkoyYuVsIy6VuScpmEWBRmYm/ro8wLZC7U+BW1qrCU1qvsKoQx6jL4C+YdNqGn4vcjHy4Vcrt1ygsiaQCbzEttWqSpxPtfz5b8/4u2eZOEWqDy5WITqSQqY5vEDx+/zq0+TynXDUOvJkQmoBfd8/pT1t+NYaT54bns9m/HXYZx6riryHvoDXs1fH529iqJnoPIn4gEpHRzn89XH4JxvEBxuN5KsFT1V0rC2W05tWXRAvF0xcQ6G2rMXW+pC0F2ooYSoH2XOye9hJMToNJdQhtL6cTrFVZxvrpFarcKYscL1dqznzm+fdNXykGvPGU6q/XNBWdFsbnbinbf8Fip0keXjr1D+Z4kGYNaEkl+bjS73eK+D9Th37S1VmZRMCFdLBH0pKTRt0dATjyavNV96gwTU1ZAK/4kCu8VerObkHVdGIkREb0xQ0sauJz2FTKJIusUq6HEb7bJ28VCsm+pDcMbEFUIMqnZLW9pcD0gvQqiLjaVT1RfVSVLbdOrWugzifnZ9PBpWKH2rYF8B3ngl5dTbjDRZIg2bU5cgBrTmic/QW/5tjDpoJ9C1MW43KMJaEvBvEegdy79E1y7i8g65boqdbp/uet7OLsYSl8rjUI9t5Fu6L6+EZvxQnrPUkrnvW+eDUD6gjRwB76493/R+c9TvQ9ua+h7fgH04xvuQKxe5pMV057W2GN7nhyvvcU956YCp/Xs1voIDlYMuNlZzmcMP+jxtuz/+JXCBZRdrrQKNZR1xzbK7JjxwjX/bYRO6TiQwLBrs7MtsRyKfmkSfiT76Ykyldly2q7x/j89GzGQNju2imfNH3/b97SNX3
 sidebar_class_name: "post api-method"
 info_path: api/middleware/middleware
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Create or update one
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create or update one"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/dataset"}
+>
+  
+</MethodEndpoint>
 
 
 
 Create or update an entity in the Knowledge Graph.
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"uri","in":"query","description":"The entity's URI","required":true,"schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"private","in":"query","description":"Whether the entity should be hidden from Linked Data and GraphQL","required":false,"schema":{"type":"boolean","default":true},"example":true}}></ParamsItem></ul></div></details><MimeTabs><TabItem label={"application/ld+json"} value={"application/ld+json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-string
-
-</div></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
-
-Success
-
-</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
-
-Not Found
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"uri","in":"query","description":"The entity's URI","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"private","in":"query","description":"Whether the entity should be hidden from Linked Data and GraphQL","required":false,"schema":{"type":"boolean","default":true},"example":true}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/ld+json"}
+    value={"application/ld+json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":".5rem","marginBottom":".5rem"}}
+        >
+          
+          
+          string
+          
+          
+        </div>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Success
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

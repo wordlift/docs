@@ -5,42 +5,337 @@ description: "Update"
 sidebar_label: "Update"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"updateNodesCollection","requestBody":{"content":{"application/json":{"schema":{"type":"array","description":"A list of node requests.","items":{"type":"object","description":"A node request.","properties":{"embeddings":{"type":"array","description":"A list of embeddings.","items":{"type":"number","format":"double","description":"A list of embeddings."}},"entity_id":{"type":"string","description":"The entity id in the form on an IRI, e.g. https://data.example.org/dataset/entity."},"metadata":{"type":"object","additionalProperties":{"type":"object","description":"A map of metadata properties."},"description":"A map of metadata properties."},"node_id":{"type":"string","description":"The node id generally expressed in the form of a UUID."},"text":{"type":"string","description":"The original text."}},"required":["entity_id","node_id"],"title":"NodeRequest"}}}},"required":true},"responses":{"200":{"description":"Found."},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"ApiKey":[]}],"tags":["Vector Search Nodes"],"description":"Update","method":"put","path":"/vector-search/nodes-collection","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"jsonRequestBodyExample":[{"embeddings":[0],"entity_id":"string","metadata":{},"node_id":"string","text":"string"}],"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Update","description":{"type":"text/plain"},"url":{"path":["vector-search","nodes-collection"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"}],"method":"PUT","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJyVVk1v4zYQ/SvEnFpAtrxB0INOzaZdINh2s0ji9hAY3bE4lrihSC1JJfEa+u/FkP6QnKT1niyPho9vhm8etQHbksOgrLmSUEDXSgz0yUryl1ZrKvkNZODoW0c+vLdyDcUGSmsCmcCP2LZalREh/+qt4Zgva2qQn8K6JSgAncM1ZCDJl061EbSAC6GVD8KuhLGSxHYPP4UMVKDGDwDs8iuV4RWE4Upe2DouKCiKq6lZkpTKVP4HyBwWvcbEdM2SHGSwsq7BAAVI2y01nQjY9xmQCSqs/1FyAOuDU6Z6AXJXk0jpQkmhjAg1Cd5ZWCPQiKubq0zQtJqKOoTWF3kuMeCUnrFpNU2tq2LAU8gTzBT6DBoKyOHXGoxSKt4c9edRK//vIBpsudYdtDgcBHfRGrpeQXF/XG+f7SPKBKrGnVUm/HI+zHmz+f+Zs9IWwzBlaa0mNNAv+h8rpM+ABXfy0UV1KikqMuRQ67Wg59aR93R0mCuBYj6/+i1uEeg5nIZvnaqUQS14SRIXz4JyJKG4HwjtwHuRQVBBMzCP+U0aHej78eLgOooB31rjkwTOZjP+GdP4YDsjI+3z2buXry+6UDON5BDiAyrdOUrp5y/TP9kgImKsxVPZORXWUTgXrfpI/LjouQbkmb6Hv6gM1olbQlfWIhoXlzhGnUdXgyj82rLPtR1ruMVQQwH5YwSZ+AiSc6f8pBzanyf3SM5HHp3TUMBu3LBV0yfrpFarMFUWmNuO9i3bYGrdjvxxvV8+0lps1rZz4oHW/Rc2HI7XhDKK2GBD2zZap77jltDOyhJsn8F79KrkrFf2iO/EhkxpJUnReXIMW7ToPXM/fdto7HGCGPLAg7vBLK55wRlTWGn7FCvHIcSllfQiOB811A/bmVvOzHfplEcOtk1NTSS2ZESMx/GxD3QCaEzLo8523oaRPUf4Jrs53Hm/Jz+N5z+8U+5ni5GdH2Z1YLFD0zgkpCHf++CCT2Bld5crliHdX6hiHaS1/XWos/0R/W2d/EOtWM5jZY5UeTwRt91y/1c0aLCihkwQaKRwpDGQFCx6VSb/1qok4+PZbff9qfxZlLZdO1XVQZzNzs4m7GwMciqlQK7x16vbtM/reXlMmtjVZEuHJbAzsD8jcdYrT2eq7N10xtit9aFBMyC8N4FRJ/Yuy+eRtxqV4eWR92ZrEPcwMoitmY4sYpFBbX3g3M1miZ7mTvc9h7915KJrZfCITuEyyogvnu2wsaYe2BvgMn1VTe6YEafrLg350RcWi2XvZJ/nd5DBcvth1sQBA4dP/NGGT1AA376x2DgzMbYBjabqsOLcBMmix619HMyFeWW7h8HtjWY9IHjsEqmah2hMbyzZbJJ19f0+P716c8XemlK2ird33/8LvU+0Bg==
 sidebar_class_name: "put api-method"
 info_path: api/manager/manager
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Update
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/vector-search/nodes-collection"}
+>
+  
+</MethodEndpoint>
 
 
 
 Update
 
-<MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><span style={{"opacity":"0.6"}}> array</span><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"embeddings"} required={false} schemaName={"double[]"} qualifierMessage={undefined} schema={{"type":"array","description":"A list of embeddings.","items":{"type":"number","format":"double","description":"A list of embeddings."}}}></SchemaItem><SchemaItem collapsible={false} name={"entity_id"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The entity id in the form on an IRI, e.g. https://data.example.org/dataset/entity."}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>metadata</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-A map of metadata properties.
-
-</div><SchemaItem name={"property name*"} required={false} schemaName={"object"} qualifierMessage={undefined} schema={{"type":"object","description":"A map of metadata properties."}} collapsible={false} discriminator={false}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={false} name={"node_id"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The node id generally expressed in the form of a UUID."}}></SchemaItem><SchemaItem collapsible={false} name={"text"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The original text."}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
-
-Found.
-
-</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
-
-Not Found
-
-</div><div></div></TabItem></ApiTabs></div>
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><span
+          style={{"opacity":"0.6"}}
+        >
+           array
+        </span><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <li>
+          <div
+            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+          >
+            Array [
+          </div>
+        </li><SchemaItem
+          collapsible={false}
+          name={"embeddings"}
+          required={false}
+          schemaName={"double[]"}
+          qualifierMessage={undefined}
+          schema={{"type":"array","description":"A list of embeddings.","items":{"type":"number","format":"double","description":"A list of embeddings."}}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"entity_id"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The entity id in the form on an IRI, e.g. https://data.example.org/dataset/entity."}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  metadata
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   object
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <div
+                style={{"marginTop":".5rem","marginBottom":".5rem"}}
+              >
+                
+                
+                A map of metadata properties.
+                
+                
+              </div><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <span
+                      className={"openapi-schema__container"}
+                    >
+                      <strong
+                        className={"openapi-schema__property"}
+                      >
+                        property name*
+                      </strong><span
+                        className={"openapi-schema__name"}
+                      >
+                         object
+                      </span>
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    <div
+                      style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                    >
+                      
+                      
+                      A map of metadata properties.
+                      
+                      
+                    </div><div>
+                      <span
+                        className={"badge badge--info"}
+                        style={{"marginBottom":"1rem"}}
+                      >
+                        oneOf
+                      </span><SchemaTabs>
+                        <TabItem
+                          label={"MOD1"}
+                          value={"0-item-properties"}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            string
+                            
+                            
+                          </div>
+                        </TabItem><TabItem
+                          label={"MOD2"}
+                          value={"1-item-properties"}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            integer
+                            
+                            
+                          </div>
+                        </TabItem><TabItem
+                          label={"MOD3"}
+                          value={"2-item-properties"}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            number
+                            
+                            
+                          </div>
+                        </TabItem><TabItem
+                          label={"MOD4"}
+                          value={"3-item-properties"}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            number
+                            
+                            
+                          </div>
+                        </TabItem><TabItem
+                          label={"MOD5"}
+                          value={"4-item-properties"}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            boolean
+                            
+                            
+                          </div>
+                        </TabItem>
+                      </SchemaTabs>
+                    </div>
+                  </div>
+                </details>
+              </SchemaItem>
+            </div>
+          </details>
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"node_id"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The node id generally expressed in the form of a UUID."}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"text"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The original text."}}
+        >
+          
+        </SchemaItem><li>
+          <div
+            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+          >
+            ]
+          </div>
+        </li>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found.
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

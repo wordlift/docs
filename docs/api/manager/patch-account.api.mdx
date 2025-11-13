@@ -5,42 +5,434 @@ description: "Patch an account."
 sidebar_label: "Patch an account."
 hide_title: true
 hide_table_of_contents: true
-api: {"description":"Patch an account.","operationId":"patchAccount","parameters":[{"in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}],"requestBody":{"content":{"application/json-patch+json":{"schema":{"type":"object","title":"JsonPatch"}}},"required":true},"responses":{"200":{"content":{"application/json":{"schema":{"type":"object","properties":{"analytics_client_factory":{"type":"string"},"analyzerId":{"type":"integer","format":"int64"},"botify_project":{"type":"string"},"botify_token":{"type":"string"},"botify_username":{"type":"string"},"collection":{"type":"string","default":"entity","description":"The collection hosing the Knowledge Graph."},"country":{"type":"string"},"datasetId":{"type":"string","deprecated":true},"datasetUri":{"type":"string"},"default_data_formatter":{"type":"string"},"domainUri":{"type":"string"},"google_search_console_site_url":{"type":"string"},"id":{"type":"integer","format":"int64"},"indexed":{"type":"boolean"},"is_wordpress":{"type":"boolean"},"key":{"type":"string"},"language":{"type":"string"},"ngDatasetId":{"type":"string"},"resolvedUrl":{"type":"string"},"subscriptionId":{"type":"integer","format":"int64"},"url":{"type":"string"},"wpAdmin":{"type":"string"},"wpJson":{"type":"string"},"wp_include_exclude_default":{"type":"string"}},"title":"Account"}}},"description":"Found"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"BasicAuth":[]},{"OAuth2":[]}],"tags":["Accounts"],"method":"patch","path":"/accounts/{id}","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"BasicAuth":{"description":"`Basic {encoded username:password}`","in":"header","name":"Authorization","scheme":"basic","type":"http"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"jsonRequestBodyExample":{},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Patch an account.","description":{"content":"Patch an account.","type":"text/plain"},"url":{"path":["accounts",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"id"}]},"header":[{"key":"Content-Type","value":"application/json-patch+json"},{"key":"Accept","value":"application/json"}],"method":"PATCH","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"basic","basic":[{"type":"any","value":"<Basic Auth Username>","key":"username"},{"type":"any","value":"<Basic Auth Password>","key":"password"}]}}}
+api: eJyNVsFy2zYQ/RXOnpIpbToeTw86RXGbtknbeGJ7etBoFAhYiYhBAAFAywqH/95ZgJQom7J9kggsdh8edt9uAwI9d9IGaTRM4IoFXmZMZ4xzU+twCjkYi47R/l8CJmDJYpp2IQfLHKswoPMwmTUgdTIpIQfNKoQJSAE5OPxRS4cCJsHVmIPnJVYMJg2ErY1WOuAaHeSwMq5iIS39egFtO0/H0YcPRmzpDDc6oA70l1mrJI/wiu/e6JOI7xf6S9tP4pjld+QEPMigaOGTNzreGtq2fQw0LnhrtEdPTs7Pzl6I/3xQ64jMIJM3ppnaBsn9giuJOixWjAfjtoOTPjip19DmyfgnOnqEV7CWw9IEudourDMx+JjPziSYO9TPGdQeXXrNERtulEKe8ufxdg4CV6xWBAx1kGEbl4YZd1NitneRlcZLvc5CidlnbTYKxRqzPxyz5WkKVutwhCHBAvMYDgga4LAOOQuDl+3sb50cd5eQL8hskegN6MZNTcWkPuZobcxa4cIjc7xccKO9oU8ZcFE7NXpEvvaRpRb4gEPrpTEKmY6bfrExTliH3o9b3OE4lYrpdc3W4w+u178dZzpVjFH3KG6PXM7Xy10CvDqbjzG1sVNRyfHs3dhPfiwr49ZCaq5qgQt8SL+7TH1i3u7Vohe+qBWHifzR1FqQ74uzd+TkcHdah5IqIElF9pFJVTtM5hdPzf81IescEmPIa0fFQxL7gXnJyR1MZvM2b+ALfZzHr3kOga1JinukHuY5VBhKsxPvqNp0HIpO5X3RSNECBXL3vZRHxqEMwfpJUTArTymZlFyFU2mAQvWwrknvkqRNrfyccurwPt8+4zZrtqZ22R1u22+Qp1ZRIhPxxbtmQVcxTv6MLJFKp5dgyW2bD2//JEbcyxrU3AgUWa9aE8u8J+yvDxsVPNYKudzjIDYIRU95AytlNknMhy4ujcAni7cHhPohnYUhy6I3xyJiMDaRmkB0YLK4TiCibL/sNJoVKYu7dsQielqhlvV131x/f2CVpURvorasTN/tWOogWDEZ46FS5v0wH3ZU/mec+FuuqNsdZtBB9jwunuuBJmQV02yNFeqQMS0yh4p0O6PklBw9zSRKctQ+ctzFfcPfZtzYrZPrMmTnZ+fnJyR85OS1kAK6yn9ZXac443ZFNDoxq5MOTjGYJf6JwCmvqIrSzd6dnpFva3yomB4AHhu1DkgZzBmjxt1rBnwIhVVM6oFOpgKfQV/gkMNECtKC0vhAO02zZB5vnWpbWv5RI7XV2TyHe+YkW9KFZg0I6em/gMmKKY/PQHzztRud3mbHwPXVrGkMuGeqpi/o2hA1vXbe5n1xUvS0cZlinNzQ8f3B50Y/0sV0eMo52vDMsShlO4W8mt5c/gk0+aRRs4qVDI5taIplmwTYxPvH4oxrzaBjQnJK1cU6neobbycmXT3PmnFC4sskkbvtJKxtdyztZjG64kvnr3rl25/vxZC4btv/AScyJzc=
 sidebar_class_name: "patch api-method"
 info_path: api/manager/manager
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Patch an account.
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Patch an account."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/accounts/{id}"}
+>
+  
+</MethodEndpoint>
 
 
 
 Patch an account.
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><MimeTabs><TabItem label={"application/json-patch+json"} value={"application/json-patch+json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-object
-
-</div></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
-
-Found
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"analytics_client_factory"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"analyzerId"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"botify_project"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"botify_token"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"botify_username"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"collection"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","default":"entity","description":"The collection hosing the Knowledge Graph."}}></SchemaItem><SchemaItem collapsible={false} name={"country"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"datasetId"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","deprecated":true}}></SchemaItem><SchemaItem collapsible={false} name={"datasetUri"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"default_data_formatter"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"domainUri"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"google_search_console_site_url"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"id"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"indexed"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean"}}></SchemaItem><SchemaItem collapsible={false} name={"is_wordpress"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean"}}></SchemaItem><SchemaItem collapsible={false} name={"key"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"language"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"ngDatasetId"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"resolvedUrl"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"subscriptionId"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"url"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"wpAdmin"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"wpJson"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"wp_include_exclude_default"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"analytics_client_factory\": \"string\",\n  \"analyzerId\": 0,\n  \"botify_project\": \"string\",\n  \"botify_token\": \"string\",\n  \"botify_username\": \"string\",\n  \"collection\": \"entity\",\n  \"country\": \"string\",\n  \"datasetUri\": \"string\",\n  \"default_data_formatter\": \"string\",\n  \"domainUri\": \"string\",\n  \"google_search_console_site_url\": \"string\",\n  \"id\": 0,\n  \"indexed\": true,\n  \"is_wordpress\": true,\n  \"key\": \"string\",\n  \"language\": \"string\",\n  \"ngDatasetId\": \"string\",\n  \"resolvedUrl\": \"string\",\n  \"subscriptionId\": 0,\n  \"url\": \"string\",\n  \"wpAdmin\": \"string\",\n  \"wpJson\": \"string\",\n  \"wp_include_exclude_default\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
-
-Not Found
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json-patch+json"}
+    value={"application/json-patch+json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":".5rem","marginBottom":".5rem"}}
+        >
+          
+          
+          object
+          
+          
+        </div>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"analytics_client_factory"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"analyzerId"}
+                        required={false}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"botify_project"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"botify_token"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"botify_username"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"collection"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"entity","description":"The collection hosing the Knowledge Graph."}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"country"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"datasetId"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","deprecated":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"datasetUri"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"default_data_formatter"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"domainUri"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"google_search_console_site_url"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={false}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"indexed"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"is_wordpress"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"key"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"language"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"ngDatasetId"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"resolvedUrl"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"subscriptionId"}
+                        required={false}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"url"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"wpAdmin"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"wpJson"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"wp_include_exclude_default"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"analytics_client_factory\": \"string\",\n  \"analyzerId\": 0,\n  \"botify_project\": \"string\",\n  \"botify_token\": \"string\",\n  \"botify_username\": \"string\",\n  \"collection\": \"entity\",\n  \"country\": \"string\",\n  \"datasetUri\": \"string\",\n  \"default_data_formatter\": \"string\",\n  \"domainUri\": \"string\",\n  \"google_search_console_site_url\": \"string\",\n  \"id\": 0,\n  \"indexed\": true,\n  \"is_wordpress\": true,\n  \"key\": \"string\",\n  \"language\": \"string\",\n  \"ngDatasetId\": \"string\",\n  \"resolvedUrl\": \"string\",\n  \"subscriptionId\": 0,\n  \"url\": \"string\",\n  \"wpAdmin\": \"string\",\n  \"wpJson\": \"string\",\n  \"wp_include_exclude_default\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

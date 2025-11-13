@@ -5,34 +5,606 @@ description: "Create a Botify Crawl Import"
 sidebar_label: "Create"
 hide_title: true
 hide_table_of_contents: true
-api: {"description":"Create a Botify Crawl Import","operationId":"createBotifyCrawlImport","requestBody":{"content":{"application/json":{"schema":{"type":"object","description":"The Botify Crawl Import request","properties":{"collection":{"type":"string"},"description":{"type":"array","items":{"type":"string"}},"filters":{"type":"array","items":{"type":"object","description":"A query request filter.","properties":{"key":{"type":"string","description":"The filter key."},"operator":{"type":"string","description":"A query request filter operator.","enum":["EQ","GT","LT","NE","GTE","LTE","IN","NIN","TEXT_MATCH"]},"value":{"type":"string","description":"The filter value."}},"required":["key","operator","value"],"title":"Filter"}},"headline":{"type":"string"},"limit":{"type":"integer","format":"int32"},"offset":{"type":"integer","format":"int32"},"regex":{"type":"string"},"request_embeddings":{"type":"array","items":{"type":"string"}},"text":{"type":"array","items":{"type":"string"}},"types":{"type":"array","items":{"type":"string"}},"url":{"type":"string"}},"title":"BotifyCrawlImportRequest"}}},"required":true},"responses":{"200":{"content":{"application/x-ndjson":{"schema":{"type":"array","items":{"type":"object","properties":{"abstract":{"type":"string"},"date_published":{"type":"string","format":"date"},"headline":{"type":"string"},"image":{"type":"string"},"text":{"type":"string"},"url":{"type":"string"}},"title":"WebPage"}}}},"description":"Success"},"401":{"description":"Authentication Failure"}},"security":[{"ApiKey":[]}],"tags":["Botify Crawl Imports"],"method":"post","path":"/botify-crawl-imports","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"jsonRequestBodyExample":{"collection":"string","description":["string"],"filters":[{"key":"string","operator":"EQ","value":"string"}],"headline":"string","limit":0,"offset":0,"regex":"string","request_embeddings":["string"],"text":["string"],"types":["string"],"url":"string"},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Create","description":{"content":"Create a Botify Crawl Import","type":"text/plain"},"url":{"path":["botify-crawl-imports"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"application/x-ndjson"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJy9V21v2zYQ/ivEfWoB+SVeu276tDR1i6Cd3SYpCswwGko62WwoUSWpOJ6h/z4cKcuyLTfpBuyLLZH3xuNzz502kKCJtSisUDmEcKGRW2ScvVZWpGt2oflKssusUNpCAKpAzUn0MoEQYifsJZ1gI6fxe4nGvlbJGsINxCq3mFt65EUhRexsDL4Z8rkBEy8x4/Rk1wVCCCr6hjHZ2Q/uZoldcbHaGwRQaIrQCjTerZQYe+XGtrFa5AuoDow3+1xrvoYAhMXMdOhVAaRCWtTmCUonDnLOvpeo19vAmTfYPzrAaUf79qbba+GytmWYKeMl44adT94wpdn0qr+LD2Kh41Jy/eytk35O6bjD9fFxu67Ae2B3uO6z97hmwriDCI0JS5VmtpExbDb+FLDJOGDvbgL24Yb+x/QwDtjlJGCTy8mcfHtcKf14AN2pY1sDdEjMywzCGYw/QQDvbiCAD/QzGbvXsXun38sJrbrf88kbCGB6BfMqgHsuS3waGmvvToNcqxynKYSzg/uqgmP4nRYRucUFagggVTrj1i/9MvqhUl5m0b5OospI4r/w9OsLqJo8fE24xa5r2fnhFntWZPhohgiOnJF8wETKCq3uRYIJWwkpWYSs0JiiJhipe/Q4unWKtywVKJO+q74t1uiKG9zMA7DCSorQQ9qJLpEnUuQd8VcNR33FLMIkEfniKQW9Uy9z8b3ES79vdYlVABYf7M9RCa38d7+llifM1zk54uirmjKr/YzW9jSaQuXGRzYaDn/A4Q+9PDnJ4z9Ji4SXLxixj3yBBBN+RIg8Mlbz2HbzObf4tSgjKcySDvMIZuExgCxt1pXWAETGF90qGdd3iVp195sDdLQ2/h8QfMGIMkt3ftj94LqMYzSGbL8YnpGdA9ot7RJzW986e8uFLDU68wbjUgu7drR3Xoj31Edm84pKklNRzaCjaRsq2QztUtEkUSjfvrldQgiDyMn3YpLviVqePOl71w5nG39aWFpbmHAw4IXor5ROpEhtXygg59u4rgmVPr/b6A5Pd0ttbLNWpetq1S3lntYJHo4ec55hnQWlxd8uCRA09+XNVgG85kbEJNXhw+2xDeaxItIrDWoyGxbcGIr96W5dndFGRCZ3cVA2KIopKYzcACHVyhdO28SFSvBo8fNeQk07nQNFkoOtOA5cDKoGrQ+iDoa5dQdqdYdPMOrEBg0XEjlwFz2tELFc7UbJ8QPPComHo92JUWG2XZ+3JrZZa6ia5aWU83rw2RnZzSJ+gqjHgba5dmeE0XD0ojd81Rv9fnP2Mnx5Fo5+6w9fnf3lQLgjmJ2DrsbTtu55Ym/FE0R7yeO/xUl5qrY0XRMkZly49KOU6o92eTTI+qJ08kGkVHv7BbVXTMdkETWvLOM5X2CGuWU8T5hGyS0mjGpVxGhoKpIixty4e6v9Poufs1gVay0WS8tGw9GoV2g0ZOSpIVnUmZmm195Pt9zACfVU2qvDIeRu6fBPFziVGZGKP9lZf0i2iY4ynrcC9t9FhxBrdcXHvpxqcNPdDgrJRQ47yva0N4NO2iMQETuGM9hsIm7ws5ZVRctuECaqJUBqwWnaI+INtgRCaPfgvvBh9m4oigbSxx9jNBt6jfM4xsKekG2aftUm8Y/Ta5qzo/qjL3MsA5qvCPN8BSG46iILjjjc2gYkzxela6jgbVLl85pDdwxLYQXbh/aEna9bUR5SpT/MHe6Nvfsqm43n76pq5P3WSY2Gn7003eW8qqp/AA3POpg=
 sidebar_class_name: "post api-method"
 info_path: api/manager/manager
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Create
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/botify-crawl-imports"}
+>
+  
+</MethodEndpoint>
 
 
 
 Create a Botify Crawl Import
 
-<MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"collection"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"description"} required={false} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"string"}}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>filters</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"key"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The filter key."}}></SchemaItem><SchemaItem collapsible={false} name={"operator"} required={true} schemaName={"string"} qualifierMessage={"**Possible values:** [`EQ`, `GT`, `LT`, `NE`, `GTE`, `LTE`, `IN`, `NIN`, `TEXT_MATCH`]"} schema={{"type":"string","description":"A query request filter operator.","enum":["EQ","GT","LT","NE","GTE","LTE","IN","NIN","TEXT_MATCH"]}}></SchemaItem><SchemaItem collapsible={false} name={"value"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The filter value."}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem><SchemaItem collapsible={false} name={"headline"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"limit"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"offset"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"regex"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"request_embeddings"} required={false} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"string"}}}></SchemaItem><SchemaItem collapsible={false} name={"text"} required={false} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"string"}}}></SchemaItem><SchemaItem collapsible={false} name={"types"} required={false} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"string"}}}></SchemaItem><SchemaItem collapsible={false} name={"url"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Success
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/x-ndjson"} value={"application/x-ndjson"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"abstract"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"date_published"} required={false} schemaName={"date"} qualifierMessage={undefined} schema={{"type":"string","format":"date"}}></SchemaItem><SchemaItem collapsible={false} name={"headline"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"image"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"text"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"url"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"[\n  {\n    \"abstract\": \"string\",\n    \"date_published\": \"2024-02-28\",\n    \"headline\": \"string\",\n    \"image\": \"string\",\n    \"text\": \"string\",\n    \"url\": \"string\"\n  }\n]"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem></ApiTabs></div>
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"collection"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"description"}
+          required={false}
+          schemaName={"string[]"}
+          qualifierMessage={undefined}
+          schema={{"type":"array","items":{"type":"string"}}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  filters
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   object[]
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={false}
+                name={"filters"}
+                required={false}
+                schemaName={"undefined[]"}
+                qualifierMessage={undefined}
+                schema={{"type":"array","description":"Operational filters such as AND or OR.","items":"circular(Filter)"}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"key"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","description":"The filter key. Key is required for the filters [EQ, NE, GT, LT, GTE, LTE, IN, NIN]"}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"operator"}
+                required={true}
+                schemaName={"string"}
+                qualifierMessage={"**Possible values:** [`EQ`, `GT`, `LT`, `NE`, `GTE`, `LTE`, `IN`, `NIN`, `AND`, `OR`]"}
+                schema={{"type":"string","description":"A query request filter operator.","enum":["EQ","GT","LT","NE","GTE","LTE","IN","NIN","AND","OR"]}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <span
+                      className={"openapi-schema__container"}
+                    >
+                      <strong
+                        className={"openapi-schema__property"}
+                      >
+                        value
+                      </strong><span
+                        className={"openapi-schema__name"}
+                      >
+                         object
+                      </span>
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    <div
+                      style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                    >
+                      
+                      
+                      The filter value.
+                      
+                      
+                    </div><div>
+                      <span
+                        className={"badge badge--info"}
+                        style={{"marginBottom":"1rem"}}
+                      >
+                        oneOf
+                      </span><SchemaTabs>
+                        <TabItem
+                          label={"MOD1"}
+                          value={"0-item-properties"}
+                        >
+                          <li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                            >
+                              Array [
+                            </div>
+                          </li><div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            string
+                            
+                            
+                          </div><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                            >
+                              ]
+                            </div>
+                          </li>
+                        </TabItem><TabItem
+                          label={"MOD2"}
+                          value={"1-item-properties"}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            string
+                            
+                            
+                          </div>
+                        </TabItem><TabItem
+                          label={"MOD3"}
+                          value={"2-item-properties"}
+                        >
+                          <li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                            >
+                              Array [
+                            </div>
+                          </li><div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            integer
+                            
+                            
+                          </div><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                            >
+                              ]
+                            </div>
+                          </li>
+                        </TabItem><TabItem
+                          label={"MOD4"}
+                          value={"3-item-properties"}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            integer
+                            
+                            
+                          </div>
+                        </TabItem><TabItem
+                          label={"MOD5"}
+                          value={"4-item-properties"}
+                        >
+                          <li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                            >
+                              Array [
+                            </div>
+                          </li><div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            number
+                            
+                            
+                          </div><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                            >
+                              ]
+                            </div>
+                          </li>
+                        </TabItem><TabItem
+                          label={"MOD6"}
+                          value={"5-item-properties"}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            number
+                            
+                            
+                          </div>
+                        </TabItem><TabItem
+                          label={"MOD7"}
+                          value={"6-item-properties"}
+                        >
+                          <li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                            >
+                              Array [
+                            </div>
+                          </li><div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            integer
+                            
+                            
+                          </div><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                            >
+                              ]
+                            </div>
+                          </li>
+                        </TabItem><TabItem
+                          label={"MOD8"}
+                          value={"7-item-properties"}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            integer
+                            
+                            
+                          </div>
+                        </TabItem>
+                      </SchemaTabs>
+                    </div>
+                  </div>
+                </details>
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"value_date"}
+                required={false}
+                schemaName={"date-time"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","format":"date-time","description":"The filter value as a date, if provided will be preferred over the `value` field."}}
+              >
+                
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"headline"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"request_embeddings"}
+          required={false}
+          schemaName={"string[]"}
+          qualifierMessage={undefined}
+          schema={{"type":"array","items":{"type":"string"},"uniqueItems":true}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"text"}
+          required={false}
+          schemaName={"string[]"}
+          qualifierMessage={undefined}
+          schema={{"type":"array","items":{"type":"string"}}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"types"}
+          required={false}
+          schemaName={"string[]"}
+          qualifierMessage={undefined}
+          schema={{"type":"array","items":{"type":"string"},"uniqueItems":true}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"url"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Success
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/x-ndjson"}
+              value={"application/x-ndjson"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                        >
+                          Array [
+                        </div>
+                      </li><SchemaItem
+                        collapsible={false}
+                        name={"abstract"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"date_published"}
+                        required={false}
+                        schemaName={"date"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"headline"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"html"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"image"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"markdown"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"text"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"types"}
+                        required={false}
+                        schemaName={"string[]"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"array","items":{"type":"string"},"uniqueItems":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"url"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                        >
+                          ]
+                        </div>
+                      </li>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"[\n  {\n    \"abstract\": \"string\",\n    \"date_published\": \"2024-07-29\",\n    \"headline\": \"string\",\n    \"html\": \"string\",\n    \"image\": \"string\",\n    \"markdown\": \"string\",\n    \"text\": \"string\",\n    \"types\": [\n      \"string\"\n    ],\n    \"url\": \"string\"\n  }\n]"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

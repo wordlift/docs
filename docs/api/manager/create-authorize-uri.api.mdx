@@ -5,38 +5,208 @@ description: "Call this API to get an authorization URI needed to interactively 
 sidebar_label: "Create an Authorization URI"
 hide_title: true
 hide_table_of_contents: true
-api: {"description":"Call this API to get an authorization URI needed to interactively get an authorization token. Then call the `exchangeAuthCode` to exchange it with an authorization token.","operationId":"createAuthorizeUri","requestBody":{"content":{"application/json":{"schema":{"type":"object","description":"The request of the `buildAuthorizeUri` endpoint.","properties":{"redirect_uri":{"type":"string","description":"The Redirect URI to where redirect the Client after successful authentication."}},"required":["redirect_uri"],"title":"BuildAuthorizeUriRequest"}}},"required":true},"responses":{"200":{"content":{"*/*":{"schema":{"type":"object","description":"The response of the `buildAuthorizeUri` endpoint.","properties":{"authorize_uri":{"type":"string","description":"The Authorization URI. The Client should be redirected to this URI."}},"required":["authorize_uri"],"title":"BuildAuthorizeUriResponse"}}},"description":"Found"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"ApiKey":[]}],"tags":["Google Search Console OAuth2"],"method":"post","path":"/google-search-console/oauth2/authorize-uris","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"jsonRequestBodyExample":{"redirect_uri":"string"},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Create an Authorization URI","description":{"content":"Call this API to get an authorization URI needed to interactively get an authorization token. Then call the `exchangeAuthCode` to exchange it with an authorization token.","type":"text/plain"},"url":{"path":["google-search-console","oauth2","authorize-uris"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"*/*"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJzVVk1v4zYQ/SvEnFpAjrPGnnSqY3SLYNtmkQ/0EAQNTY0tbmiSS47iuIL+ezGk5Pgr26DopTdpNDN882bmiS1U6AMqSVhBSaHBAiqMKmhP2lkoYSaNEVTrKKZfLgU5sUQS0grZUO2C/kuyn7i7vhQWscKKXbQlDFKRfkazOR1A7gntmbit0QqVj0DxiC+qlnaJ04bqmavwkbMNRqFJrDXVbyWDApzHkEyXFZSgAkpKudgV74KGAgJ+azDShas2ULagnCW0xI/Se6NVCh9/jVx8C1HVuJL8RBuPUIKbf0VFcMjSbY2izyzcIhczb7Spdk9/FGgr77QlxuoDoyWNkdMHrHRARX82Qe8cFylouzx53HUfkbgnJ9Y1BgbRWxnCzGi0JOSCMIjYKIUxLhqT2ENLfbFn0HWZFx14Cu73wTwUQJoMo7k4rOg6lwzdfgaeo2SI3tmYC5ycn//nfOf0/47wYYLw/YxPD0c+ze/AcqxdYyoxf+1BXoa0O+x8RPM+hO/znEvNRO8j++QaW0FXwMfzD1zH/tfpXqvFJ6lNEzC7fzx2/92R6BN2BURUTdC0gfK+hanXn5EfHzqGKpeRa/jFuaVBcYMyqFrMnI3OoLjiYydc0gqpdryM3kVuo5dUQwnjZYobxRQ3Ujlu7JiSyXhLzKgJOgIDCc8YYsLRBAMl1EQ+luOx9Pps7UJl9ILOtAPGNsC+4WHK3R7AH9b7+Bk3ot24Jogn3HSPUIBme42ywgAFWLnCnsZt66EYhkXmtF0BFzJqxV4nzkjfRItWORbIJmLgtKWXMTL29x+b1oM/zDnlKw5mg1H0vJctLIxb7815SsGaemS82yM07tKZG/Laj3HC4HwmNYPowYhkZxBJjf85aXIbpzkbdj11P1lYD65flfrnF7nyBo+FcljXjglcuEFhpEoKgyupEww0xv20OyZbhv9wofpVL3g09wdrb6gOd+6mmW9fxUpaucRVUlpbiYCG/6aCZ1YrjCw9Rivk9S3b4dwf1I9COb8JelmTmJxPJiMfMHKS90IiDKt4tbjJ55z2GyenkVuMejjcwUFmfkvAedx4uXJlH87OOTdv60raHcCz9DPlf++RDB6K5Y7K/7+uD/0cEr7Q2BupLVORetD2wnUPJ4WLrx55eAs4EK+HAmqWvvIe2nYuI94F03Vs/tZgSHpawLMMWs65KfcPXTHIAKvdE6sWzDKfo1sGyO6myfJz8AftiiFiqhR6+q7vrjp/ubq5hQLm/a1olXQCglzzjUmuoYR0u+LofF1hWwtG2mUjl+ybc/Luyl4FXzWSIRXDA1c1fLKbHYSHYpcLeUr6+kZI22YF7rqtf/70ZsRWYbM3t/ih67q/AZnv3wY=
 sidebar_class_name: "post api-method"
 info_path: api/manager/manager
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Create an Authorization URI
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create an Authorization URI"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/google-search-console/oauth2/authorize-uris"}
+>
+  
+</MethodEndpoint>
+
+:::caution deprecated
 
 
+
+:::
 
 Call this API to get an authorization URI needed to interactively get an authorization token. Then call the `exchangeAuthCode` to exchange it with an authorization token.
 
-<MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"redirect_uri"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The Redirect URI to where redirect the Client after successful authentication."}}></SchemaItem></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"authorize_uri"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The Authorization URI. The Client should be redirected to this URI."}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"authorize_uri\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
-
-Not Found
-
-</div><div></div></TabItem></ApiTabs></div>
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"redirect_uri"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The Redirect URI to where redirect the Client after successful authentication."}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"authorize_uri"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The Authorization URI. The Client should be redirected to this URI."}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"authorize_uri\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

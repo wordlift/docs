@@ -5,38 +5,152 @@ description: "Query for long tail opportunities and receive entities along with 
 sidebar_label: "Get entities by rank (async)"
 hide_title: true
 hide_table_of_contents: true
-api: {"tags":["Long Tails"],"description":"Query for long tail opportunities and receive entities along with their position in SERP.","operationId":"get_3","parameters":[{"name":"q","in":"query","description":"The Longtail query","required":true,"schema":{"type":"string"}},{"name":"ln","in":"query","description":"A location name, origin of the search","required":true,"schema":{"type":"string"},"example":"London,England,United Kingdom"},{"name":"lc","in":"query","description":"Language Code","required":true,"schema":{"type":"string"},"example":"en"},{"name":"sd","in":"query","description":"Search Domain","required":true,"schema":{"type":"string"},"example":"google.co.uk, google.com.au, google.de, etc."},{"name":"sc","in":"query","description":"Analysis Scope","required":false,"schema":{"type":"string","enum":["all","local","network"]}},{"name":"hk","in":"query","description":"Webhook URL","required":true,"schema":{"type":"string"}},{"name":"d","in":"query","description":"The maximum number of results to analyze","required":false,"schema":{"type":"string","default":"10"}}],"responses":{"200":{"description":"Found."},"401":{"description":"Authentication Failure"},"500":{"description":"Server Error"}},"security":[{"ApiKey":[]}],"method":"get","path":"/longtail/hook","servers":[{"url":"https://api.wordlift.io/longtail"}],"securitySchemes":{"ApiKey":{"type":"apiKey","description":"`Key {your key}`","name":"Authorization","in":"header"}},"info":{"title":"Long Tail","description":"Provide suggestions for long tail opportunities.","termsOfService":"https://wordlift.io/terms-of-service/","contact":{"name":"WordLift","url":"https://wordlift.io","email":"hello@wordlift.io"},"license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"version":"1.0"},"postman":{"name":"Get entities by rank (async)","description":{"content":"Query for long tail opportunities and receive entities along with their position in SERP.","type":"text/plain"},"url":{"path":["longtail","hook"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) The Longtail query","type":"text/plain"},"key":"q","value":""},{"disabled":false,"description":{"content":"(Required) A location name, origin of the search","type":"text/plain"},"key":"ln","value":""},{"disabled":false,"description":{"content":"(Required) Language Code","type":"text/plain"},"key":"lc","value":""},{"disabled":false,"description":{"content":"(Required) Search Domain","type":"text/plain"},"key":"sd","value":""},{"disabled":false,"description":{"content":"Analysis Scope","type":"text/plain"},"key":"sc","value":""},{"disabled":false,"description":{"content":"(Required) Webhook URL","type":"text/plain"},"key":"hk","value":""},{"disabled":false,"description":{"content":"The maximum number of results to analyze","type":"text/plain"},"key":"d","value":""}],"variable":[]},"method":"GET","auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJy1Vdtu20YQ/ZXFPNnAWpLd9kVPNVonKCygqS/IQyA0K3JELrTcofdimyH478WQlErJDhOr6Qsvu7Nzzlx2Tg1BZR7mn2BBNhN3ShsPSwkp+sTpMmiyMIe/IrpKrMkJw1ZBaSOoLMmFaHXQ6IWyqXCYoH5EgTb0i631kw65CDlqJ0ryml0KbcXt1c2HCUigEp3ixT9SmEOG4e+fQEKpnCowoGNuNVhVIMzhASRoJvTAhOCQ5l2OgsNo+W1NHD5E7TCFeXARJfgkx0LBvIZQlezUB6dtBk0jdzjGjgNdCkNJS1rwCSnI6UxbQWsOVHhULsnfgi0Bn1VRGl5bkE3JyiubGWVTeW91wFRca5ulVMCQZTLOcqFsFlWG4jdK8Vg2aIeQPh2HvG0jF79TobQ9FjIjygxOEprEjRS7v2Ki4u43RSkwJJM9ct/Ix6VVpvLai9uEyv2ErJXxI/QkoI0F3xJlDEjg6vPbYngit4HlsHnyzTiNj7jKiTbi/mZxZHt+owh8DQr1rItYCBuLFTpuTIc+muBFIKE4EV/emIEU1yqaAHM4n0HTLPmwL8l69Gx+MZvxa5/JO4o25RrBz7Pzl9uXMeQ8LPqr9E5pEx2y+S+vebtF94hOXDlHjvMBHpPodKjaEXFZ6mvkzyVzKzDk1A+UdpyEHOYwNf10mHIFgD2wy27GRGe4eiGUfj6dqlJPnsilRq/DRNPuJLD3LfAtZ6uLfwu/S5zqFg6L8/kaK1FXFJ3YYNV85i7qqsrZIKe/tMnYVjhHlWIXrbZrav3rsJ0T3cB+gfHB0aNOUfiYZeh50Y8Nb57CAV3h/1xzinWCgzwMc9AandH6zHdmU5CQkA0qCUysj+MjuXSh15z2/ZQOXPGNKpg6R2gM/TrcayQYnaD1OPB6kpyKhMrK6SwP4mJ2cXFWOvRog/guwEYCV7pL0Plkxgsl+VAoO0B5j+Ff+VpVwim7ESfKVzY5PUxz3caONvzPAtn3U8DnMC0Nz9WmD7Tu+/oT7LpTQtvZS377wFt1vVIe751pGl7uRgb3e6q9WpnB3f9qdCc3/Zg4Fa9K7KsMN3wbWsV+VCbyfjurj0L9Xr0dIdJK+n9ncqipY4jJD0E8lNQRxFadj0R8IY5jOD8msn0hHMFrFfVIvDeI4QiD/cQu+cdpZtDqzUBu3l/dgQQV+VoOpWDTSkH/wbdvu2WrgetDCejA+clBv3qkrjuhaZqdfbf11RO9pGytOcxl0zT/ABjmGEM=
 sidebar_class_name: "get api-method"
 info_path: api/long-tail/long-tail
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Get entities by rank (async)
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get entities by rank (async)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/longtail/hook"}
+>
+  
+</MethodEndpoint>
 
 
 
 Query for long tail opportunities and receive entities along with their position in SERP.
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"q","in":"query","description":"The Longtail query","required":true,"schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"ln","in":"query","description":"A location name, origin of the search","required":true,"schema":{"type":"string"},"example":"London,England,United Kingdom"}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"lc","in":"query","description":"Language Code","required":true,"schema":{"type":"string"},"example":"en"}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"sd","in":"query","description":"Search Domain","required":true,"schema":{"type":"string"},"example":"google.co.uk, google.com.au, google.de, etc."}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"sc","in":"query","description":"Analysis Scope","required":false,"schema":{"type":"string","enum":["all","local","network"]}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"hk","in":"query","description":"Webhook URL","required":true,"schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"d","in":"query","description":"The maximum number of results to analyze","required":false,"schema":{"type":"string","default":"10"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found.
-
-</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"500"} value={"500"}><div>
-
-Server Error
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"q","in":"query","description":"The Longtail query","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"ln","in":"query","description":"A location name, origin of the search","required":true,"schema":{"type":"string"},"example":"London,England,United Kingdom"}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"lc","in":"query","description":"Language Code","required":true,"schema":{"type":"string"},"example":"en"}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"sd","in":"query","description":"Search Domain","required":true,"schema":{"type":"string"},"example":"google.co.uk, google.com.au, google.de, etc."}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"sc","in":"query","description":"Analysis Scope","required":false,"schema":{"type":"string","enum":["all","local","network"]}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"hk","in":"query","description":"Webhook URL","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"d","in":"query","description":"The maximum number of results to analyze","required":false,"schema":{"type":"string","default":"10"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found.
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"500"}
+        value={"500"}
+      >
+        <div>
+          
+          
+          Server Error
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

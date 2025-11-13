@@ -5,38 +5,245 @@ description: "Get a Web Async operation by its id."
 sidebar_label: "Get by id"
 hide_title: true
 hide_table_of_contents: true
-api: {"tags":["Web Asyncs metadata"],"description":"Get a Web Async operation by its id.","operationId":"get","parameters":[{"name":"id","in":"path","description":"The Web Async id","required":true,"schema":{"type":"string","format":"uuid"}}],"responses":{"200":{"description":"Found.","content":{"*/*":{"schema":{"type":"object","properties":{"id":{"type":"string","format":"uuid"},"created":{"type":"string","format":"date-time"},"completed":{"type":"string","format":"date-time"},"delivered":{"type":"string","format":"date-time"},"method":{"type":"string"},"url":{"type":"string"},"callback":{"type":"string"},"remoteAddress":{"type":"string"}},"title":"WebAsync"}}}},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"ApiKey":[]}],"method":"get","path":"/webasyncs/{id}","servers":[{"url":"https://api.wordlift.io/longtail"}],"securitySchemes":{"ApiKey":{"type":"apiKey","description":"`Key {your key}`","name":"Authorization","in":"header"}},"info":{"title":"Long Tail","description":"Provide suggestions for long tail opportunities.","termsOfService":"https://wordlift.io/terms-of-service/","contact":{"name":"WordLift","url":"https://wordlift.io","email":"hello@wordlift.io"},"license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"version":"1.0"},"postman":{"name":"Get by id","description":{"content":"Get a Web Async operation by its id.","type":"text/plain"},"url":{"path":["webasyncs",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) The Web Async id","type":"text/plain"},"type":"any","value":"","key":"id"}]},"header":[{"key":"Accept","value":"*/*"}],"method":"GET","auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJyVVE1vEzEQ/SvWnAC5Tah62hM5AEIgQFDUQ1UJx55kh+7aiz0bCCv/dzTeJGzTgMol64zn643fmwHYrBNUN3CNS7VIW2+TapGNM2zgVoPDZCN1TMFDBa+RlVEHVxU6jEbu1HKriJMidw4aDuY3DipYI4OGzkTTImOUagN40yJUQA40kKTuDNdwXO+qxkm14hzxe08RHVQce9SQbI2tgWoA3naSMnEkvwYNqxBbw1BB35ODnG8lOHXBJ0zifzGfy+d+xVeh9wWDDZ7Rs3g8mz2Tz4NKYfkNbcEWBTHTmJfcI7rRYCMaxn/7OsN4xtRiCQht1+B/hThsaIPxf0Ja5Dqc8M8a+tictFvTNEtj705eRmwD48K5iCmd8MgamLgR0zUuy0NDzmK+nD9/+D6Lnmv0THak3StDTR9L45fzy4fu7wOr8qSlUELbR+JtYeCio7cox1thxh72ga1cQwWzH7g0RRSzgVwGSRE3ew6XeUDN3KVqNjMdnf8I0TW04nMKsyb4NRtqQNLvK38WDo002dc/TMSMhmMNfH2LWzVsQx/VHW7zV9B78cgsQqRfZRR7HdVoHMYCl/wqlPy7+b4Lfq2upKXjGh9j2JBDlfr1GpMYk1qFqASDEhAqdF2I3HsSlos+GGObPqw+Y9yQxckcpjMoTmdhdZZGt9lOWMYWYe1wXIfo3tFK5n5/pJNUoAFbaV0QNk14Mb3LGhqy6BNOsj6xT5UN3TbSumZ1Mb+4OOsiJvSsHlUwa5CXHgf0/Hwuhi4kbo2fVJGNKLvPHc90+LNBHrs2dzxg/MmzrjHkJ6IbCXkDB0KChoqcrOg6JJarYViahF9ik7OYv/cYC701bEwksxQO3AzgKMnZQbUyTcJ/tP3k027XPlUnFvHJbvdU9sLjjWl6+Qca7oTpshnzbdZ7jko348XCWux4EiIr954sX7+8Ag2mlylMFXNXFLM7SMKTHRwrZawqv1n/JWQYRj3mfPAfr/4asUN1AOsFbM6/AV3hfh4=
 sidebar_class_name: "get api-method"
 info_path: api/long-tail/long-tail
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Get by id
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get by id"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/webasyncs/{id}"}
+>
+  
+</MethodEndpoint>
 
 
 
 Get a Web Async operation by its id.
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","in":"path","description":"The Web Async id","required":true,"schema":{"type":"string","format":"uuid"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found.
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={false} schemaName={"uuid"} qualifierMessage={undefined} schema={{"type":"string","format":"uuid"}}></SchemaItem><SchemaItem collapsible={false} name={"created"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time"}}></SchemaItem><SchemaItem collapsible={false} name={"completed"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time"}}></SchemaItem><SchemaItem collapsible={false} name={"delivered"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time"}}></SchemaItem><SchemaItem collapsible={false} name={"method"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"url"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"callback"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"remoteAddress"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n  \"created\": \"2024-02-28T15:20:18.160Z\",\n  \"completed\": \"2024-02-28T15:20:18.160Z\",\n  \"delivered\": \"2024-02-28T15:20:18.160Z\",\n  \"method\": \"string\",\n  \"url\": \"string\",\n  \"callback\": \"string\",\n  \"remoteAddress\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
-
-Not Found
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"id","in":"path","description":"The Web Async id","required":true,"schema":{"type":"string","format":"uuid"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"*/*"}
+              value={"*/*"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={false}
+                        schemaName={"uuid"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"uuid"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"created"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"completed"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"delivered"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"method"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"url"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"callback"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"remoteAddress"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n  \"created\": \"2024-07-29T15:51:28.071Z\",\n  \"completed\": \"2024-07-29T15:51:28.071Z\",\n  \"delivered\": \"2024-07-29T15:51:28.071Z\",\n  \"method\": \"string\",\n  \"url\": \"string\",\n  \"callback\": \"string\",\n  \"remoteAddress\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

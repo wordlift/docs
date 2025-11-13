@@ -5,42 +5,314 @@ description: "Query for long tail opportunities and receive entities."
 sidebar_label: "Get entities"
 hide_title: true
 hide_table_of_contents: true
-api: {"tags":["Long Tails"],"description":"Query for long tail opportunities and receive entities.","operationId":"get_2","parameters":[{"name":"q","in":"query","description":"The Longtail query","required":true,"schema":{"type":"string"}},{"name":"ln","in":"query","description":"A location name, origin of the search","required":true,"schema":{"type":"string"},"example":"London,England,United Kingdom"},{"name":"lc","in":"query","description":"Language Code","required":true,"schema":{"type":"string"},"example":"en"},{"name":"sd","in":"query","description":"Search Domain","required":true,"schema":{"type":"string"},"example":"google.co.uk, google.com.au, google.de, etc."},{"name":"sc","in":"query","description":"Analysis Scope","required":false,"schema":{"type":"string","enum":["all","local","network"]}},{"name":"d","in":"query","description":"The maximum number of results to analyze","required":false,"schema":{"type":"string","default":"10"}}],"responses":{"200":{"description":"Found.","content":{"*/*":{"schema":{"type":"object","properties":{"summary":{"type":"string","description":"The page summary."},"entities":{"type":"array","description":"The list of entities matching the query.","items":{"type":"object","properties":{"reference":{"type":"string","description":"The referenced entity URI"},"properties":{"type":"object","properties":{"name":{"type":"string","description":"The name of the entity."},"sameAs":{"type":"array","description":"A list of sameAs entity URIs.","items":{"type":"string","description":"A list of sameAs entity URIs."}}},"title":"Properties"}},"description":"The list of entities matching the query.","title":"Entity"}}},"title":"LongtailResponse"}}}},"401":{"description":"Authentication Failure"},"500":{"description":"Server Error"}},"security":[{"ApiKey":[]}],"method":"get","path":"/longtail","servers":[{"url":"https://api.wordlift.io/longtail"}],"securitySchemes":{"ApiKey":{"type":"apiKey","description":"`Key {your key}`","name":"Authorization","in":"header"}},"info":{"title":"Long Tail","description":"Provide suggestions for long tail opportunities.","termsOfService":"https://wordlift.io/terms-of-service/","contact":{"name":"WordLift","url":"https://wordlift.io","email":"hello@wordlift.io"},"license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"version":"1.0"},"postman":{"name":"Get entities","description":{"content":"Query for long tail opportunities and receive entities.","type":"text/plain"},"url":{"path":["longtail"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) The Longtail query","type":"text/plain"},"key":"q","value":""},{"disabled":false,"description":{"content":"(Required) A location name, origin of the search","type":"text/plain"},"key":"ln","value":""},{"disabled":false,"description":{"content":"(Required) Language Code","type":"text/plain"},"key":"lc","value":""},{"disabled":false,"description":{"content":"(Required) Search Domain","type":"text/plain"},"key":"sd","value":""},{"disabled":false,"description":{"content":"Analysis Scope","type":"text/plain"},"key":"sc","value":""},{"disabled":false,"description":{"content":"The maximum number of results to analyze","type":"text/plain"},"key":"d","value":""}],"variable":[]},"header":[{"key":"Accept","value":"*/*"}],"method":"GET","auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJytVk1v2zgQ/SvEnNqCsZ1g9+LTGm1aFAmw3XxgD4WxZaixxA0/FJJK4xr674uhJFt2HCVx9mJZ1My8N48zQ64gijzA9DucO5uzK6F0gDmHDIP0qozKWZjCXxX6JVs4zzRZRaE0c2XpfKysigoDEzZjHiWqe2RoY1ocAQdXohcU5WsGU8gx/nMCHErhhcGInpBXYIVBmMIdcFAEd0dwsEviqkBGJBN6Z+LxrlIeM5hGXyGHIAs0AqYriMuSgobolc2hrvkaR9thoBnTTibSjDw4c17lyjK3YLFAFlB4WbwGmwM+CFNqWjt3NnOWn9pcC5vxa6siZuxM2TxzBvos5TDLc2HzSuTIProMD2WDtg8ZsmHIy5Q5++SMUPZQyNy5XONIulF1y9n6zYxEtX7NkDOMcrRF7hk9ZlboZVCBXUpXbguyEDoM0OOAtjLUA0Jr4EC7T0+L8afztzDvF88zElGRGvGgTGWYrcwNeiobj6HSMbDomCCav17JL8OFqHSEKRxPoK7n5BxKZwMGMj+ZTOixzeSzq2xGLSidjWgjWXwYf6DHIyB38y/KSI3pqWGpeZNdZYzwy/2MdrMuqRZbj1Ha8nYM9NyF92K/ZlqFSEp1TsyIKAtFw6bAptspFxXRhOeJe1ygRyvxZdTX5lmDv2TXF18phe2ow5hNfbwEjiy7YdLgJb2CMDh7Xq3ZWqvGoUc57JPoCSLDYeq65hBVTB37bZMnLR+8eV2804S0jdEN9ou2rulrzeG3yfHjyp5VsSCodkZ/FkpXHknC3/c1wiX6e/Ts1HvnUwIBZeWJAZ09s1KdIf2dU1sZjIVrT6p0TsUCpjDWLTsgZ4rWnFuV1zCFIsYyTMdjUarRT+czrRZxpNzGiQJ3mJfUek3BdMib/W4WdhX+cYZLtlq6yrNbXNY/aDI1s4iEcF79Sjp0c6lAkWGTqLILl+L3RE5H/COMb97dq4z6N88x0GIYOu7TbqI34c8Fqauo0dY69DVIRkducRQas3E7j4SMm56Bv53PztWCFN+WtBeKprQh6pSh1u6P/reag1YSqW42Ud/J90y6culVXkR2Mjk5OSo9BrSRvQiw5kA73Qh0PJqkgeBCNML2UL5gXNf9rqyrzex9wxWqrY6ID3Fcajp565b2qi3Q77CutTmHwoVIa6vVjQh47XVd03JzXlHZZiqIG907eJ4k/e6iPaPes723r73Ubqmo02XuXuiKvqdj/CDUl17FBoik297bmexet4YQ5f+CuHvbGkBMF7cDER/dm4Zw3pDZK25GAwy2E53Ti1fEIE1w3k0/KvPGYSYllrHnRXegrVH/5fQKOIiKOqk/i2/TLG7/UMDuk132wu3O4AaVfkmevS6rVTPp63pt33x60qPNqrMmQeZ1Xf8HY5evtg==
 sidebar_class_name: "get api-method"
 info_path: api/long-tail/long-tail
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Get entities
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get entities"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/longtail"}
+>
+  
+</MethodEndpoint>
 
 
 
 Query for long tail opportunities and receive entities.
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"q","in":"query","description":"The Longtail query","required":true,"schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"ln","in":"query","description":"A location name, origin of the search","required":true,"schema":{"type":"string"},"example":"London,England,United Kingdom"}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"lc","in":"query","description":"Language Code","required":true,"schema":{"type":"string"},"example":"en"}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"sd","in":"query","description":"Search Domain","required":true,"schema":{"type":"string"},"example":"google.co.uk, google.com.au, google.de, etc."}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"sc","in":"query","description":"Analysis Scope","required":false,"schema":{"type":"string","enum":["all","local","network"]}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"d","in":"query","description":"The maximum number of results to analyze","required":false,"schema":{"type":"string","default":"10"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found.
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"summary"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The page summary."}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>entities</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
-
-The list of entities matching the query.
-
-</div><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"reference"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The referenced entity URI"}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>properties</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"name"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The name of the entity."}}></SchemaItem><SchemaItem collapsible={false} name={"sameAs"} required={false} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","description":"A list of sameAs entity URIs.","items":{"type":"string","description":"A list of sameAs entity URIs."}}}></SchemaItem></div></details></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"summary\": \"string\",\n  \"entities\": [\n    {\n      \"reference\": \"string\",\n      \"properties\": {\n        \"name\": \"string\",\n        \"sameAs\": [\n          \"string\"\n        ]\n      }\n    }\n  ]\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"500"} value={"500"}><div>
-
-Server Error
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"q","in":"query","description":"The Longtail query","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"ln","in":"query","description":"A location name, origin of the search","required":true,"schema":{"type":"string"},"example":"London,England,United Kingdom"}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"lc","in":"query","description":"Language Code","required":true,"schema":{"type":"string"},"example":"en"}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"sd","in":"query","description":"Search Domain","required":true,"schema":{"type":"string"},"example":"google.co.uk, google.com.au, google.de, etc."}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"sc","in":"query","description":"Analysis Scope","required":false,"schema":{"type":"string","enum":["all","local","network"]}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"d","in":"query","description":"The maximum number of results to analyze","required":false,"schema":{"type":"string","default":"10"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"*/*"}
+              value={"*/*"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"summary"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The page summary."}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                entities
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              The list of entities matching the query.
+                              
+                              
+                            </div><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"reference"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The referenced entity URI"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      properties
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <SchemaItem
+                                    collapsible={false}
+                                    name={"name"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","description":"The name of the entity."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"sameAs"}
+                                    required={false}
+                                    schemaName={"string[]"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"array","description":"A list of sameAs entity URIs.","items":{"type":"string","description":"A list of sameAs entity URIs."}}}
+                                  >
+                                    
+                                  </SchemaItem>
+                                </div>
+                              </details>
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"summary\": \"string\",\n  \"entities\": [\n    {\n      \"reference\": \"string\",\n      \"properties\": {\n        \"name\": \"string\",\n        \"sameAs\": [\n          \"string\"\n        ]\n      }\n    }\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"500"}
+        value={"500"}
+      >
+        <div>
+          
+          
+          Server Error
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

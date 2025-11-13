@@ -5,38 +5,192 @@ description: "Inspect a URL to perform a variety of tasks defined by the list of
 sidebar_label: "Inspect"
 hide_title: true
 hide_table_of_contents: true
-api: {"tags":["Inspector"],"description":"Inspect a URL to perform a variety of tasks defined by the list of applied filters.","operationId":"get","parameters":[{"name":"u","in":"query","description":"The URL to inspect","required":true,"schema":{"type":"string"},"example":"https://wordlift.io"},{"name":"f","in":"query","description":"Filters to be applied on the result, if you want to apply multiple filters they should be separated by comma","required":true,"schema":{"type":"string","example":"validator","enum":["validator","content-analysis","mock-language-detection","browser-response","jena-graph","links","browser-response","lingua-language-detection","language-detection","redlink-content-analysis","summarize","text","validator","xmltei","classify"]},"example":"validator,content-analysis"},{"name":"classes","in":"query","description":"A list of categories to be provided for classify filter.","required":false,"schema":{"type":"array","items":{"type":"string"}}}],"responses":{"200":{"description":"Found.","content":{"application/json":{"schema":{"type":"object","properties":{"empty":{"type":"boolean"}},"additionalProperties":{"type":"object"},"title":"InspectResponse"}}}},"401":{"description":"Authentication Failure"},"500":{"description":"Server Error"}},"security":[{"ApiKey":[]}],"method":"get","path":"/inspect","servers":[{"url":"https://api.wordlift.io/inspector"}],"securitySchemes":{"ApiKey":{"type":"apiKey","description":"`Key {your key}`","name":"Authorization","in":"header"}},"info":{"title":"Inspection","description":"Inspect web pages for structured data.","termsOfService":"https://wordlift.io/terms-of-service/","contact":{"name":"WordLift","url":"https://wordlift.io","email":"hello@wordlift.io"},"license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"version":"1.0"},"postman":{"name":"Inspect","description":{"content":"Inspect a URL to perform a variety of tasks defined by the list of applied filters.","type":"text/plain"},"url":{"path":["inspect"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) The URL to inspect","type":"text/plain"},"key":"u","value":""},{"disabled":false,"description":{"content":"(Required) Filters to be applied on the result, if you want to apply multiple filters they should be separated by comma","type":"text/plain"},"key":"f","value":""},{"disabled":false,"description":{"content":"A list of categories to be provided for classify filter.","type":"text/plain"},"key":"classes","value":""}],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJy9VU1v2zgQ/SvEnFqAttNg9+LT5tAWQQvsIm2xh8BAx9LIYkyR7JBKogr674uRrFhOlKDbRffiD3I48+bN42MLCXcR1tdw6WKgLHmGjYacYsYmJOMdrMctherL1UeVvArEhedKobpFNpQa5QuVMO6jyqkwjnK1bVQqSVkTk2xiCNZQrgpjE3FcggYfiFEqXOawhh0l0BCQsSKJgPV1Cw4rgjXUoMEIkG81cQOP4X0uaQRmBqSggelbbZhyWCeuSUPMSqoQ1i2kJkjSmNi4HXQa6B6rYGWtTCnE9Wp15zm3pkhL46HTDziKl3G8G3oTHFt66Ni7ngimWNuklSlU42t1hy5JoEQ1qqptMsHSSI+caFQsfW1zyRVJiEkDrZmvKvwXHU4bvEVrcpQhayBXVzL46VrmXSKXFujQNtFE0FD5bL+w6HY17miRU6Ks71fDlv1dJF4wxeBdJNBwQw4XO8ZQggZr3D7Ox1kj+ebTzi4y5ZJuMQMw1lWFbL5L3kT3MvxpS/eVTWSkN4sxmqKBTTdLiX6SezL6/jDFlwVw8SD3DBPtPBsa1RDY35pcLoBnNSI5jHt5MswCbZybJjKjlDSJqjij467bSJqB4j7g/OxMvh6J1NcuXx5HLRG9VLP+Lq5uooS1T+v77c1wswLLzU1mKEJVSM0kbOu9JXTQdRowz40kRfvXyZnTjJ2GZFI/i4PRXI1C6TpJ89vZm6d9XNSpJJcOsNU7NLZmkmS/z7X9ifiWWL1l9txji5TVbAT6dQsXwXwg+bkREitKpZ96UiphDaujt8Q+2WBRNduJcWAwy4l5jGek5uZY85NwO1AxVj6OeVh4LK2vH6hRbeNrVntquq+gR2UKEZ7NdzzclF6fJWFOQ6PGFb7Pf8rxEDzv83e0VQF3FHu1xsR1lmqmXOWYcNlfM67in4WQarJnjHPVBy18sYhD2OogOsx60R3g/+05/2gKofWUyqkHa6AKTb9L1vo/Tv0ZrMlI5HLM+ip7rTIfGja7Mqnzs/PzRWCK5JL6oYKdBpnwQMub5ZksBB9ThW5S5fJBESc8tse79YuezoNWxO1WwaJxgq/vpj3I9RpGuW40lD4mWWrbLUb6wrbrZHkwMRFxbiJu7cR9nu3n1dXBqF6r2Wd3FtleFN6/4rdoa9nvrfWnqv7Pj+wL/RQ/389/eCheAHR8o46wNvKHjeDq7U2P1iBjH45dZBmFNDn15Dk4McX3bz+DBqxFZVPX2veudfgh2cct10xyP3arAYJ8CoOzR9p28MSue4gftp49cWhxjBaONl3X/QNFWsb/
 sidebar_class_name: "get api-method"
 info_path: api/inspector/inspection
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Inspect
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Inspect"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/inspect"}
+>
+  
+</MethodEndpoint>
 
 
 
 Inspect a URL to perform a variety of tasks defined by the list of applied filters.
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"u","in":"query","description":"The URL to inspect","required":true,"schema":{"type":"string"},"example":"https://wordlift.io"}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"f","in":"query","description":"Filters to be applied on the result, if you want to apply multiple filters they should be separated by comma","required":true,"schema":{"type":"string","example":"validator","enum":["validator","content-analysis","mock-language-detection","browser-response","jena-graph","links","browser-response","lingua-language-detection","language-detection","redlink-content-analysis","summarize","text","validator","xmltei","classify"]},"example":"validator,content-analysis"}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"classes","in":"query","description":"A list of categories to be provided for classify filter.","required":false,"schema":{"type":"array","items":{"type":"string"}}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found.
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"empty"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean"}}></SchemaItem><SchemaItem name={"property name*"} required={false} schemaName={"object"} qualifierMessage={undefined} schema={{"type":"object"}} collapsible={false} discriminator={false}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"empty\": true\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"500"} value={"500"}><div>
-
-Server Error
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"u","in":"query","description":"The URL to inspect","required":true,"schema":{"type":"string"},"example":"https://wordlift.io"}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"f","in":"query","description":"Filters to be applied on the result, if you want to apply multiple filters they should be separated by comma","required":true,"schema":{"type":"string","example":"validator","enum":["validator","content-analysis","mock-language-detection","browser-response","jena-graph","links","browser-response","lingua-language-detection","language-detection","redlink-content-analysis","summarize","text","validator","xmltei","classify"]},"example":"validator,content-analysis"}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"classes","in":"query","description":"A list of categories to be provided for classify filter.","required":false,"schema":{"type":"array","items":{"type":"string"}}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"empty"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"empty\": true\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"500"}
+        value={"500"}
+      >
+        <div>
+          
+          
+          Server Error
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

@@ -5,34 +5,109 @@ description: "Delete a Merchant by its `id`."
 sidebar_label: "Delete by id"
 hide_title: true
 hide_table_of_contents: true
-api: {"description":"Delete a Merchant by its `id`.","operationId":"deleteMerchant","parameters":[{"description":"The Merchant id","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"description":"Deleted"},"401":{"description":"Authentication Failure"}},"security":[{"OAuth2":[]}],"tags":["Merchants"],"method":"delete","path":"/merchants/{id}","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Delete by id","description":{"content":"Delete a Merchant by its `id`.","type":"text/plain"},"url":{"path":["merchants",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) The Merchant id","type":"text/plain"},"type":"any","value":"","key":"id"}]},"method":"DELETE","auth":{"type":"oauth2","oauth2":[]}}}
+api: eJydVFFP2zAQ/ivWPQ3JNKVCe8jT2GDSBAhpgPaAKurG18YisYN9gWVR/vt0TgItdKjaU5zz+bvvPvu+FjSGzJuKjLOQwikWSCiUuESf5cqSWDbCUBALoxcTkOAq9IqTf2hIQcf0MRckVMqrEgl9gPSufQN+k+MrrtEgwXC4UpSDBKtKhBRi3ONjbTxqSMnXKCFkOZYK0haoqWKWJVyjBwkr50tFfejzMXTdnI+HytmAgU/MplP+7OpTQyfheHr0fv+kphwtmSz2Kr4rU9QeoeskBMxqb6iJDV5x4gzSuznXJbXmvmFsMsBcQomUu1exokiUQwpJOaYlrdEdMLR/GqWrfQEp5ERVSJNEVWby7LwuzIomxgFXG4lcszh9ryeVOcfmfTuLc2xE27jaiwdsusUofY5KRxUH8bkb582f2DXIUW3Vw3YSvqpgMs7aUSPuiRZt5jRqUQf0DJtWKgTmvn/ZeN28sWTIVx6sBrMYVW9hVbjn2LnahPjmNL4L3m4JGjblTBxnJmM6JpGDq3pRexIDGRHjTILcA+4BGtOS+HKGLmJ8FiPGrhyXyJwllREvsVQmYmJRuC+bd/4i1y/n9YVZ8bxtv5KtFyLf3M91vXz5FaWyao0lWhLKauGxUIRa8AM0GQae9MJkaEPUcaj7KTsQmasab9Y5idl0NjusPAYG2ZcSoS/D1eq6r7M7L4lJh251ONDh6yBDBedfRuL8dnhS+s6OJlPGrlygUtkNwoObsYWxq2zp0YuOlvZxveHmCH9TUhXKWK4XG22Hab6Dl2kGCanRPPq5C8RbbbtUAW990XUcfqzRs33MJTwpb9SSO2O3NIHXGtKVKgJ+QPjTz8EgD8R7U91Jdpxk27B0qqj5DyQ8sF2w6XbzbsOrTs8uzm7OQMYR2vDd4e3KccG0d0KPk9vjj0Pzj+Q95mdEUlmGIdyMs/dfkFtzPsDWlH+It2Ul9+xwL2fXXlm6j6e6edd1fwHwCoEW
 sidebar_class_name: "delete api-method"
 info_path: api/manager/manager
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Delete by id
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete by id"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/merchants/{id}"}
+>
+  
+</MethodEndpoint>
 
 
 
 Delete a Merchant by its `id`.
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The Merchant id","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Deleted
-
-</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The Merchant id","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Deleted
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

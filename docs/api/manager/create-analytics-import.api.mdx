@@ -5,38 +5,204 @@ description: "Create a Analytics Import using Google Search Console or Botify de
 sidebar_label: "Create"
 hide_title: true
 hide_table_of_contents: true
-api: {"description":"Create a Analytics Import using Google Search Console or Botify depending on the Account configuration.","operationId":"createAnalyticsImport","requestBody":{"content":{"application/json":{"schema":{"type":"object","description":"An Analytics Import request.","properties":{"urls":{"type":"array","description":"An array of URLs.","items":{"type":"string","description":"An array of URLs."},"uniqueItems":true}},"title":"AnalyticsImportRequest"}}},"required":true},"responses":{"201":{"content":{"application/x-ndjson":{"schema":{"type":"array","items":{"type":"string"}}}},"description":"Success"},"401":{"description":"Authentication Failure"}},"security":[{"ApiKey":[]}],"tags":["Analytics Imports"],"method":"post","path":"/analytics-imports","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"jsonRequestBodyExample":{"urls":["string"]},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Create","description":{"content":"Create a Analytics Import using Google Search Console or Botify depending on the Account configuration.","type":"text/plain"},"url":{"path":["analytics-imports"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"application/x-ndjson"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJy9VcFu2zgQ/RViTruAHKfGnnTaJOgWQVukiBvswTDQMTW22FAkQ1JNtIL+fTGk5NhOsshpbxQ5fPPmaeaxh4qC9MpFZQ2UcOUJIwkUFwZ1F5UM4rpx1kfRBmV24pO1O01iSehlLa6sCVaTsF5c2qi2najIkak40hoRaxIXUtrWRCGt2apd65ETnUEB1lH+uK6gBJny7pPmnFCAp4eWQry0VQdlD9KaSCbyEp3TSiaE+c/A5HsIsqYGeRU7R1CC3fwkyTjHVV6Yl/WNmZia80wuKgoM1XodDiDRe+xeQ0wHwm7F3e2XwDAqUnN4M0SvzO4dV4cCWqMeWrrOCNG3NAwFRBU1pRtHMt1m5jBwDJehPFXjLd4IzpqQa1mcf/gPGZ9mpnpTyqnu06r2EmNVKYZB/e1Iv+PqhyHRPJZg2UpJIXDhf2SGJxK1sSYTR57iL1S69QQMFEi2XsUOylUPF059Jl6uh3UBEXcByhWc/uoA6wIairXlznM2MHuHsYYS5jgFz9QYzDn8L/IhpWi9hhLqGF0o53N06uzR+kqrbTxTFjjtxGjJCmYJJl6ndf34TJ3oO9t6cU/d8IPl5f2asCIPBRhsaKzfevVPKh+K/S/JsEMBlxiU5KhXcqQz0ZORtqJKtIE8w5YOQ2Du70+beoIPNgz5zIPVYBY3fGHBFLbaPqbK8RDiylb0YvPuSNBwKOfccuR8Cqd54mBdFjWTGMmItM8kor2nd4CmsHlqoamRMbHnHR6C22fn+fiEjdP0bAarqZvXA0u3tdNQoUxDRQ2qRIC0tn8eNshe27+tr76oLbfecUsdtdPLQdnsP0WDBnfUkIkCTSU8aYxUCe5WJSlZkFaSTEjMx7y/yd+FtK7zaldHsThfLGbOU2CQ91KK5Jtws13mPK/HzVPQzG5nIx3+d5N/fU3EudF4rHJlH87OGZunsUFzQDi/SKeueeBh/+ObNXZKpKc4dxqVSVbNWvWjgazgpYGsC6jZZMoV9P0GA915PQy8/dCST3ZVwC/0Cjcsz4qbahxFdpx7dg64yuXOvjMFDtdttoCTV3AophsXUpKLb8TurX449MJvN8vvUMBmfG2bNK/g8ZFfYnyEEtLDzQhpBNNeDxrNrsUdx2ZMniEc3ejZq5hWMS24sunIdAcsT00nF3OffO6NK32fnXAY9vH56M0be6fL0fwj18Mw/Asn1iZS
 sidebar_class_name: "post api-method"
 info_path: api/manager/manager
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Create
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/analytics-imports"}
+>
+  
+</MethodEndpoint>
 
 
 
 Create a Analytics Import using Google Search Console or Botify depending on the Account configuration.
 
-<MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"urls"} required={false} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","description":"An array of URLs.","items":{"type":"string","description":"An array of URLs."},"uniqueItems":true}}></SchemaItem></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"201"} value={"201"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Success
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/x-ndjson"} value={"application/x-ndjson"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
-
-string
-
-</div><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"[\n  \"string\"\n]"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem></ApiTabs></div>
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"urls"}
+          required={false}
+          schemaName={"string[]"}
+          qualifierMessage={undefined}
+          schema={{"type":"array","description":"An array of URLs.","items":{"type":"string","description":"An array of URLs."},"uniqueItems":true}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"201"}
+        value={"201"}
+      >
+        <div>
+          
+          
+          Success
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/x-ndjson"}
+              value={"application/x-ndjson"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                        >
+                          Array [
+                        </div>
+                      </li><SchemaItem
+                        name={"property name*"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                        collapsible={false}
+                        discriminator={false}
+                      >
+                        
+                      </SchemaItem><li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                        >
+                          ]
+                        </div>
+                      </li>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"[\n  {}\n]"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

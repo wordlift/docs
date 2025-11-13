@@ -5,38 +5,720 @@ description: "Create an analysis request"
 sidebar_label: "Create"
 hide_title: true
 hide_table_of_contents: true
-api: {"tags":["Analyses"],"description":"Create an analysis request","operationId":"create","requestBody":{"content":{"application/json":{"schema":{"type":"object","properties":{"text":{"type":"string","description":"The text to analyse."},"url":{"type":"string","description":"The URL to analyse."},"query":{"type":"string","description":"The query string to analyse."},"html":{"type":"string","description":"The html to analyse."},"language_code":{"type":"string","description":"The language code used for content analysis, e.g. `en`.","example":"en","default":"en"},"query_location_name":{"type":"string","description":"The location name for the query, e.g. United Kingdom.","example":"United Kingdom","default":"United States"},"query_search_engine":{"type":"string","description":"The search engine domain for the query, if not set will be chosen according to `query_location_name`","example":"google.co.uk"},"linked_data":{"type":"boolean","description":"Whether to include results from Linked Data (e.g. DBpedia), by default true.","default":true},"local_data":{"type":"boolean","description":"Whether to include results from the local Knowledge Graph, by default true.","default":true},"network_data":{"type":"boolean","description":"Whether to include results from connected Knowledge Graphs, by default true.","default":true}},"description":"The analysis request.","title":"AnalysesRequest"}}},"required":true},"responses":{"200":{"description":"Success","content":{"application/x.wordlift.analysis+json;version=3":{"schema":{"type":"object","properties":{"items":{"type":"array","items":{"type":"object","properties":{"text":{"type":"string","description":"The text matching the entity."},"confidence":{"maximum":1,"minimum":0,"type":"number","description":"The confidence score this is the right entity.","format":"double"},"occurrences":{"type":"integer","description":"The number of occurrences.","format":"int32"},"serp_position":{"type":"integer","description":"The position of the entity in SERP. `null` if not applicable.","format":"int32"},"entity_id":{"type":"string","description":"The entity id (URI)."},"entity_label":{"type":"string","description":"The entity label."},"entity_type":{"type":"string","description":"The entity type."},"entity_description":{"type":"string","description":"The entity description."}},"title":"AnalysesResponseItem"}}},"title":"AnalysesResponse"}}}},"401":{"description":"Unauthorized","content":{"application/x.wordlift.analysis+json;version=3":{"schema":{"type":"object","properties":{"items":{"type":"array","items":{"type":"object","properties":{"text":{"type":"string","description":"The text matching the entity."},"confidence":{"maximum":1,"minimum":0,"type":"number","description":"The confidence score this is the right entity.","format":"double"},"occurrences":{"type":"integer","description":"The number of occurrences.","format":"int32"},"serp_position":{"type":"integer","description":"The position of the entity in SERP. `null` if not applicable.","format":"int32"},"entity_id":{"type":"string","description":"The entity id (URI)."},"entity_label":{"type":"string","description":"The entity label."},"entity_type":{"type":"string","description":"The entity type."},"entity_description":{"type":"string","description":"The entity description."}},"title":"AnalysesResponseItem"}}},"title":"AnalysesResponse"}}}},"500":{"description":"Uh oh, something went wrong","content":{"application/x.wordlift.analysis+json;version=3":{"schema":{"type":"object","properties":{"items":{"type":"array","items":{"type":"object","properties":{"text":{"type":"string","description":"The text matching the entity."},"confidence":{"maximum":1,"minimum":0,"type":"number","description":"The confidence score this is the right entity.","format":"double"},"occurrences":{"type":"integer","description":"The number of occurrences.","format":"int32"},"serp_position":{"type":"integer","description":"The position of the entity in SERP. `null` if not applicable.","format":"int32"},"entity_id":{"type":"string","description":"The entity id (URI)."},"entity_label":{"type":"string","description":"The entity label."},"entity_type":{"type":"string","description":"The entity type."},"entity_description":{"type":"string","description":"The entity description."}},"title":"AnalysesResponseItem"}}},"title":"AnalysesResponse"}}}}},"security":[{"ApiKey":[]}],"method":"post","path":"/analysis/analyses","servers":[{"url":"https://api.wordlift.io/analysis"}],"securitySchemes":{"ApiKey":{"type":"apiKey","name":"Authorization","in":"header"}},"jsonRequestBodyExample":{"text":"string","url":"string","query":"string","html":"string","language_code":"en","query_location_name":"United Kingdom","query_search_engine":"google.co.uk","linked_data":true,"local_data":true,"network_data":true},"info":{"title":"Analysis","description":"Analyse content using Linked Data and Knowledge Graphs.","termsOfService":"https://wordlift.io/terms-of-service/","contact":{"name":"WordLift","url":"https://wordlift.io","email":"hello@wordlift.io"},"license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"version":"1.0"},"postman":{"name":"Create","description":{"content":"Create an analysis request","type":"text/plain"},"url":{"path":["analysis","analyses"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"application/x.wordlift.analysis+json;version=3"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJztWN1v2zYQ/1eIe2oxRUnT7UXDgKUfGIoWaJE06EMQODR1tthQpEpSdTxD//twJGVLtjOoQB82IC8JTd7Hjzz+jrrbgOdLB8UNXGiu1g4d3GZQohNWNl4aDQW8tsg9Mq4ZDzLSMYvfWnQeMjANWk6C70ooQARRyCAJvDLlGooNCKM9ak9D3jRKiqBy+tWRgw04UWHNaeTXDUIBZv4VBZlvLDnwEl1YxQc/kHLeSr2EfbyfK2QkybxJiDGHLoPWqmnK15cf9nW/tWjX07SDKIsC+2YqX0/EQJL72orrZcuXOBOmxGlmehVGKqx1WLKFsSzFYxvQjGG+zNkd6rscMsAHXjeKTKMOZhe8VT7+7A9jpkyM4kzzeiqapMJIJQDx/YElBNdaeizZe6mXpanHWMZrI1xp6cpzj24H0SG3opqhXko9EWJUYVGFlabmUu8jlQumjWcOPVtJpdgcmaiMQ824EMaWKfB3R87pbrSjpTFLhbkweXsfAiz1PZazkvshGebGKOT6AO6XCn2FllxJLVRbIrPoWuUdW1hTsw/BGnvDPWfPwum+edVgKfnzjM3XLJ0e87bFfHiaNEFgjODqZ2HxKfqKvddmpbBcIvvL8qaaBEWjXxl7/7PACKM1inCXxmDcBDTdsVuznxhJzUsfgtwn1suUMzsyQXLSYrndokXXGO1injs/O6N/Yz9XrRDoHGSPZdOHfGVsqeTC5z2eXyjD/v4drZNG//HyR3Kt9Fi7gRi3lq8hO5j/Oam65l5UgTcVMtRe+nVIecLohSxRi0Dfmj/Iuq2heJFBLXUcn2W9E93Wc7RHnezsMCeMReYr6Zh0wZ+Vy8pvvWawMLbmlFZK084VEg4jRGst6Q/3LrXH5SMeIxhmFmygO7IutX95TsYd2mbWGCej+iTzvTg52J0Zk5pdvb38lLM73Sp116eqdE3mCo8jiNozWU4LWe+sZM+uL989zwcmFJ/jxCcuWQkaQxNR8wcskODQwEjwB+wMFnIglh5SOJL0ncc68vgxCVrtMvj17MUhka81b31lrPwbyyc2P7H5ic3/Ezb/duxZvq6YqTLmTI0+3PkVfVivrAnonsj9RO4ncv/3yR1CK1or/RqKmw1cNPI90vC2u82AqG2ov9GY0PRouK+ggNOeu2mA9HHu0BKJg5XQcYDK+8YVp6e8kTvaS7PVBnLRe78izseb22PY8TpOZBArbrhInxEhpxDf6ZAq5CXacCaUUS53jZi3fd3ZU353zhHo9mfqduwmYt9i93uvExHbBEfbAodV+9HSfFwK71XCVCKN69E4My4LUyEl9cKELY7CLd3BbUr3YNsLaR0ltWHRzPVhhRgqO7S1+7i4QvtdUrbbRngY3SB0YhYnLoqdpteAi5Bs0+l8Mbb8IBd+G4MjpqhlUHMZVlEp8+dwLXQNBNI93ll9Jp4zYZp1zJbnZ+fnJ41FR7uc5LDLID1EUMCL/Iwm6OrXXA+8vO6bfXsk3r55/945TJearuJpo7jUgx5dJNgN8F3w+KA/WRENixvYbObc4bVVXUfT6dre3GbwnVtJOTQwOOtJQZy8J0rB64jx5DOBIHHVRobtNSe7rNe4EAIb/4jshPd8lEc+fbz6DBnMU3u0jiyyfEWtU76CAkJrlWyHVBDmNlvaQQERHbGciolxkrgPSSINaM/9kl4P8O9nj7hN+kubPqqy2cQU1HVb+bj0qEY6+F6agnzbdd0/hMbXbw==
 sidebar_class_name: "post api-method"
 info_path: api/analysis/analysis
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Create
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/analysis/analyses"}
+>
+  
+</MethodEndpoint>
 
 
 
 Create an analysis request
 
-<MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"text"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The text to analyse."}}></SchemaItem><SchemaItem collapsible={false} name={"url"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The URL to analyse."}}></SchemaItem><SchemaItem collapsible={false} name={"query"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The query string to analyse."}}></SchemaItem><SchemaItem collapsible={false} name={"html"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The html to analyse."}}></SchemaItem><SchemaItem collapsible={false} name={"language_code"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The language code used for content analysis, e.g. `en`.","example":"en","default":"en"}}></SchemaItem><SchemaItem collapsible={false} name={"query_location_name"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The location name for the query, e.g. United Kingdom.","example":"United Kingdom","default":"United States"}}></SchemaItem><SchemaItem collapsible={false} name={"query_search_engine"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The search engine domain for the query, if not set will be chosen according to `query_location_name`","example":"google.co.uk"}}></SchemaItem><SchemaItem collapsible={false} name={"linked_data"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","description":"Whether to include results from Linked Data (e.g. DBpedia), by default true.","default":true}}></SchemaItem><SchemaItem collapsible={false} name={"local_data"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","description":"Whether to include results from the local Knowledge Graph, by default true.","default":true}}></SchemaItem><SchemaItem collapsible={false} name={"network_data"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","description":"Whether to include results from connected Knowledge Graphs, by default true.","default":true}}></SchemaItem></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Success
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/x.wordlift.analysis+json;version=3"} value={"application/x.wordlift.analysis+json;version=3"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>items</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"text"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The text matching the entity."}}></SchemaItem><SchemaItem collapsible={false} name={"confidence"} required={false} schemaName={"double"} qualifierMessage={"**Possible values:** `<= 1`"} schema={{"maximum":1,"minimum":0,"type":"number","description":"The confidence score this is the right entity.","format":"double"}}></SchemaItem><SchemaItem collapsible={false} name={"occurrences"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","description":"The number of occurrences.","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"serp_position"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","description":"The position of the entity in SERP. `null` if not applicable.","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"entity_id"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The entity id (URI)."}}></SchemaItem><SchemaItem collapsible={false} name={"entity_label"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The entity label."}}></SchemaItem><SchemaItem collapsible={false} name={"entity_type"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The entity type."}}></SchemaItem><SchemaItem collapsible={false} name={"entity_description"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The entity description."}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"items\": [\n    {\n      \"text\": \"string\",\n      \"confidence\": 0,\n      \"occurrences\": 0,\n      \"serp_position\": 0,\n      \"entity_id\": \"string\",\n      \"entity_label\": \"string\",\n      \"entity_type\": \"string\",\n      \"entity_description\": \"string\"\n    }\n  ]\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Unauthorized
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/x.wordlift.analysis+json;version=3"} value={"application/x.wordlift.analysis+json;version=3"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>items</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"text"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The text matching the entity."}}></SchemaItem><SchemaItem collapsible={false} name={"confidence"} required={false} schemaName={"double"} qualifierMessage={"**Possible values:** `<= 1`"} schema={{"maximum":1,"minimum":0,"type":"number","description":"The confidence score this is the right entity.","format":"double"}}></SchemaItem><SchemaItem collapsible={false} name={"occurrences"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","description":"The number of occurrences.","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"serp_position"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","description":"The position of the entity in SERP. `null` if not applicable.","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"entity_id"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The entity id (URI)."}}></SchemaItem><SchemaItem collapsible={false} name={"entity_label"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The entity label."}}></SchemaItem><SchemaItem collapsible={false} name={"entity_type"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The entity type."}}></SchemaItem><SchemaItem collapsible={false} name={"entity_description"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The entity description."}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"items\": [\n    {\n      \"text\": \"string\",\n      \"confidence\": 0,\n      \"occurrences\": 0,\n      \"serp_position\": 0,\n      \"entity_id\": \"string\",\n      \"entity_label\": \"string\",\n      \"entity_type\": \"string\",\n      \"entity_description\": \"string\"\n    }\n  ]\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"500"} value={"500"}><div>
-
-Uh oh, something went wrong
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/x.wordlift.analysis+json;version=3"} value={"application/x.wordlift.analysis+json;version=3"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>items</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"text"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The text matching the entity."}}></SchemaItem><SchemaItem collapsible={false} name={"confidence"} required={false} schemaName={"double"} qualifierMessage={"**Possible values:** `<= 1`"} schema={{"maximum":1,"minimum":0,"type":"number","description":"The confidence score this is the right entity.","format":"double"}}></SchemaItem><SchemaItem collapsible={false} name={"occurrences"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","description":"The number of occurrences.","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"serp_position"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","description":"The position of the entity in SERP. `null` if not applicable.","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"entity_id"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The entity id (URI)."}}></SchemaItem><SchemaItem collapsible={false} name={"entity_label"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The entity label."}}></SchemaItem><SchemaItem collapsible={false} name={"entity_type"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The entity type."}}></SchemaItem><SchemaItem collapsible={false} name={"entity_description"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The entity description."}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"items\": [\n    {\n      \"text\": \"string\",\n      \"confidence\": 0,\n      \"occurrences\": 0,\n      \"serp_position\": 0,\n      \"entity_id\": \"string\",\n      \"entity_label\": \"string\",\n      \"entity_type\": \"string\",\n      \"entity_description\": \"string\"\n    }\n  ]\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"text"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The text to analyse."}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"url"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The URL to analyse."}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"query"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The query string to analyse."}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"html"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The html to analyse."}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"language_code"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The language code used for content analysis, e.g. `en`.","example":"en","default":"en"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"query_location_name"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The location name for the query, e.g. United Kingdom.","example":"United Kingdom","default":"United States"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"query_search_engine"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The search engine domain for the query, if not set will be chosen according to `query_location_name`","example":"google.co.uk"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"linked_data"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"type":"boolean","description":"Whether to include results from Linked Data (e.g. DBpedia), by default true.","default":true}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"local_data"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"type":"boolean","description":"Whether to include results from the local Knowledge Graph, by default true.","default":true}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"network_data"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"type":"boolean","description":"Whether to include results from connected Knowledge Graphs, by default true.","default":true}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Success
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/x.wordlift.analysis+json;version=3"}
+              value={"application/x.wordlift.analysis+json;version=3"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                items
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"text"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The text matching the entity."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"confidence"}
+                              required={false}
+                              schemaName={"double"}
+                              qualifierMessage={"**Possible values:** `<= 1`"}
+                              schema={{"maximum":1,"minimum":0,"type":"number","description":"The confidence score this is the right entity.","format":"double"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"occurrences"}
+                              required={false}
+                              schemaName={"int32"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","description":"The number of occurrences.","format":"int32"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"serp_position"}
+                              required={false}
+                              schemaName={"int32"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","description":"The position of the entity in SERP. `null` if not applicable.","format":"int32"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"entity_id"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The entity id (URI)."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"entity_label"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The entity label."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"entity_type"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The entity type."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"entity_description"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The entity description."}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"items\": [\n    {\n      \"text\": \"string\",\n      \"confidence\": 0,\n      \"occurrences\": 0,\n      \"serp_position\": 0,\n      \"entity_id\": \"string\",\n      \"entity_label\": \"string\",\n      \"entity_type\": \"string\",\n      \"entity_description\": \"string\"\n    }\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/x.wordlift.analysis+json;version=3"}
+              value={"application/x.wordlift.analysis+json;version=3"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                items
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"text"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The text matching the entity."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"confidence"}
+                              required={false}
+                              schemaName={"double"}
+                              qualifierMessage={"**Possible values:** `<= 1`"}
+                              schema={{"maximum":1,"minimum":0,"type":"number","description":"The confidence score this is the right entity.","format":"double"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"occurrences"}
+                              required={false}
+                              schemaName={"int32"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","description":"The number of occurrences.","format":"int32"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"serp_position"}
+                              required={false}
+                              schemaName={"int32"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","description":"The position of the entity in SERP. `null` if not applicable.","format":"int32"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"entity_id"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The entity id (URI)."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"entity_label"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The entity label."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"entity_type"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The entity type."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"entity_description"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The entity description."}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"items\": [\n    {\n      \"text\": \"string\",\n      \"confidence\": 0,\n      \"occurrences\": 0,\n      \"serp_position\": 0,\n      \"entity_id\": \"string\",\n      \"entity_label\": \"string\",\n      \"entity_type\": \"string\",\n      \"entity_description\": \"string\"\n    }\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"500"}
+        value={"500"}
+      >
+        <div>
+          
+          
+          Uh oh, something went wrong
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/x.wordlift.analysis+json;version=3"}
+              value={"application/x.wordlift.analysis+json;version=3"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                items
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"text"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The text matching the entity."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"confidence"}
+                              required={false}
+                              schemaName={"double"}
+                              qualifierMessage={"**Possible values:** `<= 1`"}
+                              schema={{"maximum":1,"minimum":0,"type":"number","description":"The confidence score this is the right entity.","format":"double"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"occurrences"}
+                              required={false}
+                              schemaName={"int32"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","description":"The number of occurrences.","format":"int32"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"serp_position"}
+                              required={false}
+                              schemaName={"int32"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","description":"The position of the entity in SERP. `null` if not applicable.","format":"int32"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"entity_id"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The entity id (URI)."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"entity_label"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The entity label."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"entity_type"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The entity type."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"entity_description"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The entity description."}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"items\": [\n    {\n      \"text\": \"string\",\n      \"confidence\": 0,\n      \"occurrences\": 0,\n      \"serp_position\": 0,\n      \"entity_id\": \"string\",\n      \"entity_label\": \"string\",\n      \"entity_type\": \"string\",\n      \"entity_description\": \"string\"\n    }\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

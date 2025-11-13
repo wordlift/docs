@@ -5,46 +5,261 @@ description: "Get entities with the provided ids."
 sidebar_label: "Get"
 hide_title: true
 hide_table_of_contents: true
-api: {"tags":["Entities"],"description":"Get entities with the provided ids.","operationId":"getEntities","parameters":[{"name":"id","in":"query","description":"One or more ids, in the form of URLs.","required":true,"schema":{"uniqueItems":true,"type":"array","items":{"type":"string","format":"uri"}}},{"name":"include_children","in":"query","description":"Whether to return all the entities whose ids start with the provided ids, by default false.","required":false,"schema":{"type":"string","default":"false"}},{"name":"include_referenced","in":"query","description":"Whether to return all the referenced entities (e.g. in `schema:mentions`), by default false.","required":false,"schema":{"type":"string","default":"false"}},{"name":"include_private","in":"query","description":"Whether to return private properties, requires an authenticated request, by default false.","required":false,"schema":{"type":"string","default":"false"}}],"responses":{"200":{"description":"Success","content":{"application/ld+json":{"schema":{"type":"string"}},"application/rdf+xml":{"schema":{"type":"string"}},"text/turtle":{"schema":{"type":"string"}}}},"412":{"description":"Invalid request parameters"}},"security":[{"ApiKey":[]}],"method":"get","path":"/entities","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"type":"apiKey","description":"`Key {your key}`","name":"Authorization","in":"header"}},"info":{"title":"Middleware","description":"Knowledge Graph data management.","termsOfService":"https://wordlift.io/terms-of-service/","contact":{"name":"WordLift","url":"https://wordlift.io","email":"hello@wordlift.io"},"license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"version":"1.0"},"postman":{"name":"Get","description":{"content":"Get entities with the provided ids.","type":"text/plain"},"url":{"path":["entities"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) One or more ids, in the form of URLs.","type":"text/plain"},"key":"id","value":""},{"disabled":false,"description":{"content":"Whether to return all the entities whose ids start with the provided ids, by default false.","type":"text/plain"},"key":"include_children","value":""},{"disabled":false,"description":{"content":"Whether to return all the referenced entities (e.g. in `schema:mentions`), by default false.","type":"text/plain"},"key":"include_referenced","value":""},{"disabled":false,"description":{"content":"Whether to return private properties, requires an authenticated request, by default false.","type":"text/plain"},"key":"include_private","value":""}],"variable":[]},"header":[{"key":"Accept","value":"application/ld+json"}],"method":"GET","auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJy9VcFu2zgQ/RViTgmq2KmxJ502hyII0qJAs0UPRbBhxJHFhiKV4cipV9C/L4aSYzlxUi+Q7sWWyBm+eY+jNx2wXkbIv8MHz5YtRrjOwGAsyDZsg4cczpEVjrvqwXKluELVUFhZg0ZZE2eQQWiQtGRcGMhhifx4YAaNJl0jIwlSB17XCDlYAxlYQbhvkdbwFPezRxVI1YFQQDJlfUIuA9UqlOrrl48JmfC+tYQGcqYWM4hFhbWGvIPW2/sWLxjruNnkdSPYmkgLoh32us16ZLJ+CRkIiGbIoSULfd9n27J94VqDfxeVdYbQv07iW4VcISkOipBb8ko7l2hsJa1CTAxVZE28X+JM3a6VwVK3jlWpXcRd6mlpyv0poTEXckihsI8SYYmEvsBf3MzLpLYnbPkd4Ww5k8u7GarLa9kKPt4c/y+sGrIrzfhfKY1pcgsNkjDJ1FhZVNor3XIlRArNaNIORv4NhK4lPzbBR0ydujg9lb/d8q/aosAo31oRPKNnCdFN46Q8G/zcmXc/ooR2L4L3fbaTQqZ897N2v0ph/Mlzbokdvh4qwX+8Xzwv/sKvtLOPGqqJXUhOxKIly+vkHWeNvUR5vBZhauQqjH6TfIYryGGOW+uJSKuN77TkIIeKuYn5fK4bO3sIZJwteWYDyHkbqCshMci9AXzko4eFpw10c4lr1a1DS+oO1/0NZJs+PGu5CmT/SapuurBCbZASP+vLkM63SUL4ZI1x+KAJn4Fc+vDg0CxRnZNuKmU0a1Vrr5coH5X0GiPV8XN5hbSyBU74TrjOU9BJKE/iEDYfG0cXqXHGwr8FMh9tKcruSjeVLQOstU276Fz4c0fSDJwt0EecnHpUHKsiNGuyy4rV4nSxOGkII3pWBwH2GciNDoK8n53KQhMi19pPUM5TQ+yo122/jQNn2njjqcMbp60XrFRZN/bad8DJ3KxCZFnrulsd8Su5vpflwXGkA42N+tZNjODFAo++jJ5xrA6dg3urvZPeHUbtSrtWAkA88vBKfu8Ee63o54P2zSm8ybw6gMPOZH0zFm84og7gsJ2jWwLX8kJWGCRPzjbGJt0+pJ8VBTY8ydo3lnbM/PzDX5CBFL9ru3fJdscHAdhs+fXk+Kd2O1QhvyL33pSuG0y97x/jh60XM0aWW4mgv+77/l+edepY
 sidebar_class_name: "get api-method"
 info_path: api/middleware/middleware
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Get
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/entities"}
+>
+  
+</MethodEndpoint>
 
 
 
 Get entities with the provided ids.
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","in":"query","description":"One or more ids, in the form of URLs.","required":true,"schema":{"uniqueItems":true,"type":"array","items":{"type":"string","format":"uri"}}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"include_children","in":"query","description":"Whether to return all the entities whose ids start with the provided ids, by default false.","required":false,"schema":{"type":"string","default":"false"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"include_referenced","in":"query","description":"Whether to return all the referenced entities (e.g. in `schema:mentions`), by default false.","required":false,"schema":{"type":"string","default":"false"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"include_private","in":"query","description":"Whether to return private properties, requires an authenticated request, by default false.","required":false,"schema":{"type":"string","default":"false"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Success
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/ld+json"} value={"application/ld+json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
-
-string
-
-</div></ul></details></TabItem></SchemaTabs></TabItem><TabItem label={"application/rdf+xml"} value={"application/rdf+xml"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
-
-string
-
-</div></ul></details></TabItem></SchemaTabs></TabItem><TabItem label={"text/turtle"} value={"text/turtle"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
-
-string
-
-</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"412"} value={"412"}><div>
-
-Invalid request parameters
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"id","in":"query","description":"One or more ids, in the form of URLs.","required":true,"schema":{"uniqueItems":true,"type":"array","items":{"type":"string","format":"uri"}}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"include_children","in":"query","description":"Whether to return all the entities whose ids start with the provided ids, by default false.","required":false,"schema":{"type":"string","default":"false"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"include_referenced","in":"query","description":"Whether to return all the referenced entities (e.g. in `schema:mentions`), by default false.","required":false,"schema":{"type":"string","default":"false"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"include_private","in":"query","description":"Whether to return private properties, requires an authenticated request, by default false.","required":false,"schema":{"type":"string","default":"false"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Success
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/ld+json"}
+              value={"application/ld+json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <div
+                        style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                      >
+                        
+                        
+                        string
+                        
+                        
+                      </div>
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem><TabItem
+              label={"application/rdf+xml"}
+              value={"application/rdf+xml"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <div
+                        style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                      >
+                        
+                        
+                        string
+                        
+                        
+                      </div>
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem><TabItem
+              label={"text/turtle"}
+              value={"text/turtle"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <div
+                        style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                      >
+                        
+                        
+                        string
+                        
+                        
+                      </div>
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"412"}
+        value={"412"}
+      >
+        <div>
+          
+          
+          Invalid request parameters
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

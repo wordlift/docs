@@ -5,34 +5,250 @@ description: "Get a OAuth2 Authorized Client given its client registration id"
 sidebar_label: "Get"
 hide_title: true
 hide_table_of_contents: true
-api: {"description":"Get a OAuth2 Authorized Client given its client registration id","operationId":"getOAuth2AuthorizedClient","parameters":[{"description":"The Id","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"content":{"application/json":{"schema":{"type":"object","description":"A OAuth2 Authorized Client","properties":{"access_token_expires_at":{"type":"string","format":"date-time"},"access_token_issued_at":{"type":"string","format":"date-time"},"access_token_scopes":{"type":"string"},"access_token_type":{"type":"string"},"access_token_value":{"type":"string"},"client_registration_id":{"type":"string"},"id":{"type":"integer","format":"int64"},"principal_name":{"type":"string"},"refresh_token_issued_at":{"type":"string","format":"date-time"},"refresh_token_value":{"type":"string"}},"title":"OAuth2AuthorizedClient"}}},"description":"Found"},"401":{"description":"Authentication Failure"}},"security":[{"OAuth2":[]}],"tags":["OAuth2 Authorized Clients"],"method":"get","path":"/oauth2/authorized-clients/{id}","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Get","description":{"content":"Get a OAuth2 Authorized Client given its client registration id","type":"text/plain"},"url":{"path":["oauth2","authorized-clients",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) The Id","type":"text/plain"},"type":"any","value":"","key":"id"}]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"oauth2","oauth2":[]}}}
+api: eJytVlFv2zgM/isCnzbAabJguAc/XW+4FcN2GHDtcA9FkCkSE2u1JU+iu+UM//eBkp3aTbIVxV6SWCY/fiL5kWlBY1De1GSchRyukIQUHy8bKpaCP503/6MWb0qDlsTO3KMVhoJQ6cDjzgTykt2F0ZCBqzE9vtOQww4pgT1gJSjIoJZeVkjoA+S37SMiNwWKd4xn+KmWVEAGVlYIOcQ4Hr82xqOGnHyDGQRVYCUhb4H2dbSyhDv0kMHW+UpSOvrjNXTdit1D7WzAwB7LxYK/lLPE1PIWZF2XRsV7zL8EZtQeR3CbL6j4JlPql2fzx5f2nCAyKbBUCkNYk7tDu8bvtfEY1pJGMQJ5Y3fjS2hJOCNTIXTZFMCE0KB+vn9Qrk68ps6P7dLbX1ndy7I5bZZ6Zz3unbXRJ00nx+crynk1VplaluvUJCewPG49huL5yZoCnLtflwEZKvnoTOt3bDPtmbeusZpjvF68YsxHHdVQgZb6hhRvpSkbjzFUQNV4Q/sooRQP8tsVtzjJHSsLznVjgFUGFVLheqVGTVIBOcydZJ+5PPjMUtHCvDW6A47r7wflNr6EHAqiOuTzuazNxTfndWm2dGEcMJWB5TVLKLXYZW3e4/74rp/f4160e9d4cYf77vMwAgqUOta+HwLDdWJKIBuqIBNsl8FfMhjFVidixHeiRaucRi2agJ5h81qGwNyfHjYOBX6xYcgHHpwNZjGUpIVt6b4l0Y8h3jiNR4efJgkN43SmyjwUZh45DLpNJHoyIp4zidiwvwaNZvPUwf2Ei20QT4zdumFIShVVg5U0ERPL0v05rvkhXf85rz+YLbfWtEsmHfJYDdfN5vAoKmnlDiveNtJq4bGUhFpwAxqF4QIyKI1CG2Ie+7gv1EuhXL33ZleQWC6Wy1ntMTDIUykR+ip83F6nOKft5tFo5razng6XY1D/P5E49w4rJd3s1cUiTisXqJJ2RPgKjxbJaCH9hr3cV5TwO83rUhrLPGIC2l71t0O5MzjWPWSQG80To3CB2LhtNzLgJ192HR9/bdDzFFplcC+9kRvOAa91E/i3hnwry4A/ueOLf/uV/lIctv9J1oPU7Z5zm8YwQAZ3PE94ZXSrLhuUyxzSi0ulsKaRy9GS78YD8ervmz4T45U/ZKj/wegn6QzjIIUelHjG+AmiHJDSir0ZBP0syMnw6GEbKn6KN5lPax6bB9+dl5bSn4Ju1XXdD0qsk+8=
 sidebar_class_name: "get api-method"
 info_path: api/manager/manager
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Get
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/oauth2/authorized-clients/{id}"}
+>
+  
+</MethodEndpoint>
 
 
 
 Get a OAuth2 Authorized Client given its client registration id
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The Id","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"access_token_expires_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time"}}></SchemaItem><SchemaItem collapsible={false} name={"access_token_issued_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time"}}></SchemaItem><SchemaItem collapsible={false} name={"access_token_scopes"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"access_token_type"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"access_token_value"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"client_registration_id"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"id"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"principal_name"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"refresh_token_issued_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time"}}></SchemaItem><SchemaItem collapsible={false} name={"refresh_token_value"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"access_token_expires_at\": \"2024-02-28T15:20:20.127Z\",\n  \"access_token_issued_at\": \"2024-02-28T15:20:20.127Z\",\n  \"access_token_scopes\": \"string\",\n  \"access_token_type\": \"string\",\n  \"access_token_value\": \"string\",\n  \"client_registration_id\": \"string\",\n  \"id\": 0,\n  \"principal_name\": \"string\",\n  \"refresh_token_issued_at\": \"2024-02-28T15:20:20.127Z\",\n  \"refresh_token_value\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The Id","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"access_token_expires_at"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"access_token_issued_at"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"access_token_scopes"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"access_token_type"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"access_token_value"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"client_registration_id"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={false}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"principal_name"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"refresh_token_issued_at"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"refresh_token_value"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"access_token_expires_at\": \"2024-07-29T15:51:28.071Z\",\n  \"access_token_issued_at\": \"2024-07-29T15:51:28.071Z\",\n  \"access_token_scopes\": \"string\",\n  \"access_token_type\": \"string\",\n  \"access_token_value\": \"string\",\n  \"client_registration_id\": \"string\",\n  \"id\": 0,\n  \"principal_name\": \"string\",\n  \"refresh_token_issued_at\": \"2024-07-29T15:51:28.071Z\",\n  \"refresh_token_value\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

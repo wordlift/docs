@@ -5,50 +5,285 @@ description: "Classify the text to provided categories"
 sidebar_label: "Create"
 hide_title: true
 hide_table_of_contents: true
-api: {"tags":["Classifications"],"description":"Classify the text to provided categories","operationId":"classifyUsingPost","parameters":[{"name":"lang","in":"query","description":"Language code","schema":{"type":"string","default":"en"}},{"name":"multi_class","in":"query","description":"When set to true the scores will be independent, each will fall between 0 and 1","schema":{"type":"boolean","default":false}}],"requestBody":{"description":"body","content":{"application/json":{"schema":{"title":"ClassificationRequest","type":"object","properties":{"classes":{"type":"array","example":["indian","thai","chinese","italian"],"items":{"type":"string"}},"text":{"type":"string","example":"This dish is a deli egg-bacon-and-cheese-on-a-roll that has been pasta-fied, fancified, fetishized and turned into an Italian tradition that, like many inviolate Italian traditions, is actually far less old than the Mayflower."}}}}},"required":true},"responses":{"200":{"description":"OK","content":{"application/ld+json":{"schema":{"title":"ClassificationResponse","type":"object","properties":{"labels":{"type":"array","items":{"type":"string"}},"scores":{"type":"array","items":{"type":"number","format":"float"}}}}}}},"201":{"description":"Created","content":{}},"401":{"description":"Unauthorized","content":{}},"403":{"description":"Forbidden","content":{}},"404":{"description":"Not Found","content":{}}},"x-codegen-request-body-name":"body","security":[{"ApiKey":[]}],"extensions":[{"key":"x-codegen-request-body-name","value":"body"}],"method":"post","path":"/classification/classify","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"type":"apiKey","name":"Authorization","in":"header"}},"jsonRequestBodyExample":{"classes":["indian","thai","chinese","italian"],"text":"This dish is a deli egg-bacon-and-cheese-on-a-roll that has been pasta-fied, fancified, fetishized and turned into an Italian tradition that, like many inviolate Italian traditions, is actually far less old than the Mayflower."},"info":{"title":"Classification","description":"Generic text classification","termsOfService":"https://wordlift.io/terms-of-service/","contact":{"name":"WordLift","url":"https://wordlift.io","email":"hello@wordlift.io"},"license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"version":"1.0"},"postman":{"name":"Create","description":{"content":"Classify the text to provided categories","type":"text/plain"},"url":{"path":["classification","classify"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"Language code","type":"text/plain"},"key":"lang","value":""},{"disabled":false,"description":{"content":"When set to true the scores will be independent, each will fall between 0 and 1","type":"text/plain"},"key":"multi_class","value":""}],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"application/ld+json"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJzlVk1v3DYQ/SvEnFpU8tpuTjo1NZoiSNoEiYMcjEUxS45WTChSISnbW0H/PRhS8n7adYHeuocFRQ5nHvlmHmeAiOsA1Q1cGQxB11pi1M4GWBagKEivO/6GajbYiNiQiHQfRXSi8+5WK1JCYqS185oCFOA68snNawUVyGnjp6Dt+r0LEQro0GNLkTzHHsBiS1CBQbuGAjSH+9aT38AhiLdo1z2uSUinCAoIsqEWoRogbjp2EaLXyYmiGnsToQKyMI7FQ5C2N1H/lUA9HetzQ1YESueMvqd08CCdpyDutDFiRUJbRR1ZRTYWglA2eaXGtBzviKw4F2iVuDiFduWcIbS7cGs0gcZxWYCnbz2F+KtTG96yD27FswVIZyPZyOvYdWZib/ElsNGwG1BHQ1sWJ8MPOQQUMyC3+kIyEeSZxMh8VkOmMA8nQ/QeGQDdY9ux5xvQVul0ltigZmyNthSYJR3R8NKSh9SGY77GsQDOqVNMPoSA60YHoXRohA4ChSKjBa3X5QqlsyVaVcqGKFDJX6V3xojYYBQNBrFiKjoMEctakypEjVbqaUhRh0b/TSpRFXtvSQltoxNoxeuMXkSPSvOtJaeFMPoriRbtRmh7q53BSMe2oUhYZezRmI2o0QtDIQhnFLuxKan+wE1t3B35Mxj5l7nXnhRUnHlpInTOThxcnp8fZ8S7N4/ng1E/PT8lcqB/zAmDKzKnUuIJinP1PGOP7dsVeSigdr5FruLaOIz5etjT5fnF8RVcecJIau8e2PjFKeNPFvvYOM+0n9jx8/GOV86vtFJkT5i/ODb/00XxyvX20PtYwH3J+rUmW05FXnI9l5NCTbUdSPZex01SyJedfkM8XLI00H0kG5JO8+JXXnnSaQG3aPoH5+yjpdg41uduluTYQAULuZcO82cG5G9nxe69gQqaGLtQLRbY6bM755XRdTzTLvmf4X/khMukz4fY0p8nilmbX06MpNCzOjeEinzKH07iD1tZ/G1Whh2FeqYOZbH5XygKX2PtHq/4o4fvd7LktcyPvDy0jeTb8K7+SP5WS9pJgp0EWCSj0tVlyGaLqQZQJm2a6P7svHqra86+/XzazaUCqEWdVskY98tenhVgtCSWq63XH+SPQrpu4/W6ieLy/PKy7DwFslE8K+BYAKd5vouLs3Oe4Bpp0e5EyVpzeHfDttL/TcM0lQMbLTqD2nLMhHCY6vIGjoh4qMxlAQ3XcHUDw7DCQJ+8GUeezo0N16vSAVeGH5TUYDwB+7DFOoktK87Ur83SAtxlPT/Qf99fPQF1v+vbIl7yh9cMOYlrMcvNVlevMuLymr1v9x71W3z6vOOllNTFR2znt3hPg9+/+3gNRRbnaoCWr74Cj3dQpP8KUludW/NqyHNDIoC5ggqyTxZJftb2NfZr0thpwAebl+xmB+Sh+Oaz8D+f7OSWYcgKPo4P9nnp0R3T7c7WTNFyHMfvMnhVtw==
 sidebar_class_name: "post api-method"
 info_path: api/classification/classification
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Create
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/classification/classify"}
+>
+  
+</MethodEndpoint>
 
 
 
 Classify the text to provided categories
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"lang","in":"query","description":"Language code","schema":{"type":"string","default":"en"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"multi_class","in":"query","description":"When set to true the scores will be independent, each will fall between 0 and 1","schema":{"type":"boolean","default":false}}}></ParamsItem></ul></div></details><MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}><div style={{"marginTop":"1rem","marginBottom":"1rem"}}>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-body
-
-</div></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"classes"} required={false} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","example":["indian","thai","chinese","italian"],"items":{"type":"string"}}}></SchemaItem><SchemaItem collapsible={false} name={"text"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","example":"This dish is a deli egg-bacon-and-cheese-on-a-roll that has been pasta-fied, fancified, fetishized and turned into an Italian tradition that, like many inviolate Italian traditions, is actually far less old than the Mayflower."}}></SchemaItem></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
-
-OK
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/ld+json"} value={"application/ld+json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"labels"} required={false} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"string"}}}></SchemaItem><SchemaItem collapsible={false} name={"scores"} required={false} schemaName={"float[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"number","format":"float"}}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"labels\": [\n    \"string\"\n  ],\n  \"scores\": [\n    0\n  ]\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"201"} value={"201"}><div>
-
-Created
-
-</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Unauthorized
-
-</div><div></div></TabItem><TabItem label={"403"} value={"403"}><div>
-
-Forbidden
-
-</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
-
-Not Found
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"lang","in":"query","description":"Language code","schema":{"type":"string","default":"en"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"multi_class","in":"query","description":"When set to true the scores will be independent, each will fall between 0 and 1","schema":{"type":"boolean","default":false}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          body
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"classes"}
+          required={false}
+          schemaName={"string[]"}
+          qualifierMessage={undefined}
+          schema={{"type":"array","example":["indian","thai","chinese","italian"],"items":{"type":"string"}}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"text"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","example":"This dish is a deli egg-bacon-and-cheese-on-a-roll that has been pasta-fied, fancified, fetishized and turned into an Italian tradition that, like many inviolate Italian traditions, is actually far less old than the Mayflower."}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/ld+json"}
+              value={"application/ld+json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"labels"}
+                        required={false}
+                        schemaName={"string[]"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"array","items":{"type":"string"}}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"scores"}
+                        required={false}
+                        schemaName={"float[]"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"array","items":{"type":"number","format":"float"}}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"labels\": [\n    \"string\"\n  ],\n  \"scores\": [\n    0\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"201"}
+        value={"201"}
+      >
+        <div>
+          
+          
+          Created
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"403"}
+        value={"403"}
+      >
+        <div>
+          
+          
+          Forbidden
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

@@ -5,38 +5,132 @@ description: "Copy"
 sidebar_label: "Copy"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"copyRules","parameters":[{"description":"The project type","in":"query","name":"project_type","required":true,"schema":{"type":"string","description":"The project type, if applicable.","enum":["SMART_CONTENT","CONTENT_GENERATION"],"title":"ProjectType"}},{"description":"The source Content Generation id.","in":"query","name":"from_project_id","required":true,"schema":{"type":"integer","format":"int64"}},{"description":"The target Content Generation id.","in":"query","name":"to_project_id","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"201":{"description":"Created"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"security_oauth2":[]}],"tags":["Rules"],"description":"Copy","method":"post","path":"/rules/copies","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"Copy","description":{"type":"text/plain"},"url":{"path":["rules","copies"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"description":{"content":"(Required) The project type","type":"text/plain"},"key":"project_type","value":""},{"disabled":false,"description":{"content":"(Required) The source Content Generation id.","type":"text/plain"},"key":"from_project_id","value":""},{"disabled":false,"description":{"content":"(Required) The target Content Generation id.","type":"text/plain"},"key":"to_project_id","value":""}],"variable":[]},"method":"POST","auth":{"type":"oauth2","oauth2":[]}}}
+api: eJytVU1v2zgQ/SvEnLaAYqVGsAedNjDSosCuUyQu9mAYBkONLLYUyZKjdF1D/30xlJTasfPRoidJo+HMm6c3TztwHoMk7eyHEgpQzm9vWoMRMvAyyAYJQ4RiuYMSowracyoUsKhR+OA+oyJBW4+Qgeb41xbDFjKwskEoYEhZDykBv7Y6YAkFhRYziKrGRkKxg5RQQKSg7QayF7plQldCem+0kncGJ5AB2raBYgm3/1zeLNaz6/niar6ADIa79fur+dXN5eLD9RxWGZAmw/0+9kUX3L3rslNTRtcGhWLmLKEl8R7tQJjQ5eSJsavgmvU4uy5fM7m2hBsMkEHlQiOpD/158RQskmGD9HOwyP0+UCs+Hr2zESOfmJ6/5csh0FlASVhCl8HFqfeXLdVoSase+TupTRuwT784Tp87Eu9ca0smBSKqNmjaJnWOD2snW6qnUCxXDJHkhtULvaZXj3U1c57paZBqx/L3LlJSPtVQQB74VK6c12khIob7cRvaYKCAmsjHIs+l15NvLpRGVzTRDrj1iOiWSe05OgK5g8q4b+kdR1zQ3xMTM1fiUfDTQcu43zBPBfMxHXNGq5zv297JqBUU/VWkOFNM7gu+omhKyxPjgyoG9BzRtnLcQjlLUhHfYiN1qonGuL/2WXnQ4b8ulH/riqk+5PGAw8cfa5A4CuUab5CjUdzJiKVwVqg2kmv0dyyF0XbT6khaicaVaCLvg9EKbUysDij+UG8E+13Qm5rE9Hw6PfMBI2/TawEShiZeV7cY7rXC03l5Sjpz1Vns0/jjjP5zvL6QAYusH/nt5JzbsCwbafewD8I9IOhhawn/o9wbqS0fTgPsBk0vIQzuPqh6lUHNoi+WsNsxmZ+C6ToO996RnF9HdtkSikqaiEdtVT8EU3ozOMobceIHcRLeF9we/yfupWk5FZL3/Wr7l5z7GTzHBv57IL3k2s9AemzePwCt+CFoRpR8b8/QPl7f8k+QF3ZPIMMCZ/Bglg+vpN3u1e6dY0QwOscTya8wkbGSVApjXIwG9EslD8xuKNtS/Wy9Az9dK3bZ8ewmSDvor1t1Xfc/18giTQ==
 sidebar_class_name: "post api-method"
 info_path: api/content-generation/content-generation
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Copy
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Copy"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/rules/copies"}
+>
+  
+</MethodEndpoint>
 
 
 
 Copy
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The project type","in":"query","name":"project_type","required":true,"schema":{"type":"string","description":"The project type, if applicable.","enum":["SMART_CONTENT","CONTENT_GENERATION"],"title":"ProjectType"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"The source Content Generation id.","in":"query","name":"from_project_id","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"The target Content Generation id.","in":"query","name":"to_project_id","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"201"} value={"201"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Created
-
-</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
-
-Not Found
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The project type","in":"query","name":"project_type","required":true,"schema":{"type":"string","description":"The project type, if applicable.","enum":["SMART_CONTENT","CONTENT_GENERATION"],"title":"ProjectType"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The source Content Generation id.","in":"query","name":"from_project_id","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The target Content Generation id.","in":"query","name":"to_project_id","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"201"}
+        value={"201"}
+      >
+        <div>
+          
+          
+          Created
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

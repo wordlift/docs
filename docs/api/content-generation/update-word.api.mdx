@@ -1,42 +1,309 @@
 ---
 id: update-word
-title: "Update a Word bias"
-description: "Update a Word bias"
-sidebar_label: "Update a Word bias"
+title: "Update"
+description: "Update"
+sidebar_label: "Update"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"updateWord","parameters":[],"requestBody":{"content":{"application/json":{"schema":{"type":"object","properties":{"bias":{"type":"integer","format":"int32","description":"The bias."},"word":{"type":"string","description":"The actual word.","maxLength":1000}},"required":["bias","word"],"title":"WordRequest"}}},"required":true},"responses":{"200":{"content":{"application/json":{"schema":{"type":"object","description":"A Word bias.","properties":{"bias":{"type":"integer","format":"int32","description":"The bias."},"content_generation_id":{"type":"integer","format":"int64","description":"The content generatio id.","readOnly":true},"created_at":{"type":"string","format":"date-time","description":"The create date-time.","readOnly":true},"id":{"type":"integer","format":"int64","description":"The unique id.","readOnly":true},"modified_at":{"type":"string","format":"date-time","description":"The last modified date-time.","readOnly":true},"word":{"type":"string","description":"The actual word.","maxLength":1000}},"required":["bias","content_generation_id","word"],"title":"Word"}}},"description":"Updated"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"security_oauth2":[]}],"tags":["ContentGeneration Word biases"],"description":"Update a Word bias","method":"put","path":"/content-generations/{contentGenerationId}/words/{id}","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"jsonRequestBodyExample":{"bias":0,"word":"string"},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"Update a Word bias","description":{"type":"text/plain"},"url":{"path":["content-generations",":contentGenerationId","words",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"application/json"}],"method":"PUT","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"oauth2","oauth2":[]}}}
+api: eJy1Vk1v2zgQ/SvEnFpAthxvsAedtltsFwWK7SJNsIfAMBhqJLGVSIUcJXEF/ffFUJI/YjkJEvQUh5qv9zjzhi3YGp0kbc3nFBJo6lQS/mddChHU0skKCZ2H5LqFFL1yumZbSOCyQPHRGkJD4m80QxCh0zlEoNmillRABEZWCAmo3nZn+plTOLxttMMUEnINRuBVgZWEpAXa1OymDWGODiLIrKsk9Ue/n0PXRVMlceniRksvyIoezYmC9Fvzr3p39PSnTTfsM2Dkn7KuS60C0Pi75/La4+D25jsqYqYdXwNp9PyVy3+2hN+WEE3gZ985dBHc8x3ugnhy2uSTLlJRI0vBDkxVJR++oMmpgORssVh03T5L131xQ/hVBKSp5PjM+0XPBnSHPsxsOPC1Nb6HuFws3kTYIYoPu2uf/xo2Vdl4QvcyQgdjYTNBBZ4kNhrhr/PtUKx1+pLmm8w6DGP+eBgdyvSrKTfbm1AOJWG6ljSFZ5uKZ2dGusLpdCGI2BpNZno9msbo2wZPIahsqjP9Vgil9CTGUM8gIfsDH93OEx0QrIVORWbdMz3wi+d0bNxTzbaHbHqo+2k+rOYq6GrKg3G+OOPqH81jQwUaGsZZfJK6bBz25ufH5v9YEp9sYzhXBB5V4zRtws4Z/1lb2VCxhOR6xbpLMuedBBMLaKsE6BnKVOFMHlJheeHVTdBf3gwJxANHsx1HPm4nNlcXM1U+bnXaAZfs7sYt2bgSEiiIap/Esaz1nE1LndFcW+DiR0zfWN16jTqC2UJW2vvwjU+s0z9D6o82xaPDq4OUfj9hHALGoznGXK2y9SCN0msFSf9XhHMYe/35oMEsDnc2ynNfPZ+whF/stuNfD7KqS9zp8WLs/LHjWS1MZsetIFWYbKykDnVgWdo/9pnc7nG+8C8642s85P6A98edMNwmyyYXFq5a3EiPqbBGqMaTrfRPTEWpTd5oT1qxVGAZNkypFRof4AxVvFPvhbL1xum8ILFcLJez2qHn5nxpgYSu8l+zb+jutMJpuzgYzWw2870ZX+g4rsfTABFwY/aQz+YLTlNbT5U0e7Vvp+KAoq0kET5QXJdSG3YPENphYq5hYmIggmT6tReGhj/rIDOF9cQx2paJv3Jl1/HxbYOOp38VwZ10Wt4wOH5/as+/U0gyWXo8Knf7mIB3F4MQvhdPPlMnAQ6H0myYPVk2/B9E8AM3J56x4SX62uJOPFhfUZpOoVt1ERQoU36qXLfDhwH/7JLdd45HLy7G0Xt8UApretJ2tSei/15dQgQ3wyu4ChoFTt7zIpX3fY227psjafuzFkpp8kbmbNuHZN1gBdl/8PWKEsFW/9tpFnopG6kYpeyE8QtUbYwklULvL0dFfFXIA/UdwjZUPBnvQODXiikdfXMnDa2DV7fquu5/Rre6Yw==
 sidebar_class_name: "put api-method"
 info_path: api/content-generation/content-generation
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Update a Word bias
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/content-generations/{contentGenerationId}/words/{id}"}
+>
+  
+</MethodEndpoint>
 
 
 
-Update a Word bias
+Update
 
-<MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"bias"} required={true} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32","description":"The bias."}}></SchemaItem><SchemaItem collapsible={false} name={"word"} required={true} schemaName={"string"} qualifierMessage={"**Possible values:** `<= 1000 characters`"} schema={{"type":"string","description":"The actual word.","maxLength":1000}}></SchemaItem></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Updated
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"bias"} required={true} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32","description":"The bias."}}></SchemaItem><SchemaItem collapsible={false} name={"content_generation_id"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"The content generatio id.","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"created_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The create date-time.","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"id"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"The unique id.","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"modified_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The last modified date-time.","readOnly":true}}></SchemaItem><SchemaItem collapsible={false} name={"word"} required={true} schemaName={"string"} qualifierMessage={"**Possible values:** `<= 1000 characters`"} schema={{"type":"string","description":"The actual word.","maxLength":1000}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"bias\": 0,\n  \"content_generation_id\": 0,\n  \"created_at\": \"2024-02-28T15:20:08.855Z\",\n  \"id\": 0,\n  \"modified_at\": \"2024-02-28T15:20:08.855Z\",\n  \"word\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
-
-Not Found
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The Content Generation id.","in":"path","name":"contentGenerationId","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The Word bias to update.","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"bias"}
+          required={true}
+          schemaName={"int32"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","format":"int32","description":"The bias."}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"word"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={"**Possible values:** `<= 1000 characters`"}
+          schema={{"type":"string","description":"The actual word.","maxLength":1000}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Updated
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"bias"}
+                        required={true}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int32","description":"The bias."}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"cluster"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** `<= 1000 characters`"}
+                        schema={{"type":"string","description":"The cluster of the word.","maxLength":1000}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"content_generation_id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64","description":"The content generation id.","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"created_at"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time","description":"The create date-time.","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={false}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64","description":"The unique id.","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"modified_at"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time","description":"The last modified date-time.","readOnly":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"token_id"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** `<= 1000 characters`"}
+                        schema={{"type":"string","description":"The token id for the word.","maxLength":1000}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"word"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** `<= 1000 characters`"}
+                        schema={{"type":"string","description":"The actual word.","maxLength":1000}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"bias\": 0,\n  \"cluster\": \"string\",\n  \"content_generation_id\": 0,\n  \"created_at\": \"2024-07-29T15:51:28.071Z\",\n  \"id\": 0,\n  \"modified_at\": \"2024-07-29T15:51:28.071Z\",\n  \"token_id\": \"string\",\n  \"word\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

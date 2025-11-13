@@ -5,34 +5,368 @@ description: "Update a OAuth2 Authorized Client given its client registration id
 sidebar_label: "Update"
 hide_title: true
 hide_table_of_contents: true
-api: {"description":"Update a OAuth2 Authorized Client given its client registration id","operationId":"updateOAuth2AuthorizedClient","parameters":[{"description":"The Id","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}],"requestBody":{"content":{"application/json":{"schema":{"type":"object","description":"The OAuth2 Authorized Client request","properties":{"access_token_expires_at":{"type":"string","format":"date-time","description":"When the Access Token expires"},"access_token_issued_at":{"type":"string","format":"date-time","description":"When the Access Token was issued"},"access_token_scopes":{"type":"string","description":"The Access Token scopes"},"access_token_type":{"type":"string","description":"The Access Token Type"},"access_token_value":{"type":"string","description":"The Access Token Value"},"client_registration_id":{"type":"string","description":"The Client Registration Id"},"principal_name":{"type":"string","description":"The Principal Name"},"refresh_token_issued_at":{"type":"string","format":"date-time","description":"When the Access Token was issued"},"refresh_token_value":{"type":"string","description":"The Refresh Token Value"}},"title":"OAuth2AuthorizedClientRequest"}}},"required":true},"responses":{"200":{"content":{"application/json":{"schema":{"type":"object","description":"A OAuth2 Authorized Client","properties":{"access_token_expires_at":{"type":"string","format":"date-time"},"access_token_issued_at":{"type":"string","format":"date-time"},"access_token_scopes":{"type":"string"},"access_token_type":{"type":"string"},"access_token_value":{"type":"string"},"client_registration_id":{"type":"string"},"id":{"type":"integer","format":"int64"},"principal_name":{"type":"string"},"refresh_token_issued_at":{"type":"string","format":"date-time"},"refresh_token_value":{"type":"string"}},"title":"OAuth2AuthorizedClient"}}},"description":"Found"},"401":{"description":"Authentication Failure"}},"security":[{"OAuth2":[]}],"tags":["OAuth2 Authorized Clients"],"method":"put","path":"/oauth2/authorized-clients/{id}","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"jsonRequestBodyExample":{"access_token_expires_at":"2024-02-28T15:20:20.108Z","access_token_issued_at":"2024-02-28T15:20:20.108Z","access_token_scopes":"string","access_token_type":"string","access_token_value":"string","client_registration_id":"string","principal_name":"string","refresh_token_issued_at":"2024-02-28T15:20:20.108Z","refresh_token_value":"string"},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Update","description":{"content":"Update a OAuth2 Authorized Client given its client registration id","type":"text/plain"},"url":{"path":["oauth2","authorized-clients",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) The Id","type":"text/plain"},"type":"any","value":"","key":"id"}]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"application/json"}],"method":"PUT","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"oauth2","oauth2":[]}}}
+api: eJy9V21v2zYQ/ivEfWoBOXaMdO30aWmwAkG3tUicFVhguLR0tthIJEtSSTxB/304UoolvyROG+yLYVG85154z3NUBSnaxAjthJIQw5VOuUPG2afT0mVjRr/KiH8xZWe5QOnYUtyiZMJZloQFg0thneGEwEQKESiN4fE8hRhKDxnw1nABDSLQ3PACHRoL8XW1Ec4kQ3ZOkIKeNHcZRCB5gRCDd2XweykMphA7U2IENsmw4BBX4Fba75IOl2gggoUyBXdh6ZcTqOtpMEfr3qt0RTaJko6iiivgWuci8VkMv1kKptoGV/NvmFAS21HvrV/jkjI3VCgn0HqHSYLWzpy6QTnDey0M2hl3HW/WGSGX3UyosAMnCtwK4UuGkrkM2amHZROCZQ0s1FHfnbC2xPSlvd1xywLylkObKB3S3vS2XckeZmO4iRdQno02oe2bWLc8L38E7G9vV0cQeDHr8mIm0sMQmya56HLq3NdPGyEToXk+C/1/CNrn1ob9RTY1NfzCoM3+x3Pve3xGcS+CYb+6dQROuJxMdyvKRUOvuq431cEvWK2kDa03Ho1ekPSneyn/wlT/WfIeysXDOHYge55BizqC3vJ+BX+aFD/d8Yc28NONGTqy3zMfVCk9SU5Gx4S50VGly1C6piHZBy7y0gQOWExKI9zKj8zgD+LrKY00x5c0SWFfN1qYRlCgyxQNZ12GGewyiGGoONkM+YPNIByaHVYirYH8mtt2Upcmhxgy57SNh0OuxdGdMmkuFu5IKKBQ2igviUKhxU61+Iir7Vy/fsQVq1aqNOwGV/XXduRnyFN/9s3Qb9PxJYGoPQUeYOsI3nMrEtq1w4d/xyqUiUoxZaVFQ7Cx5tZS7Ie79aJAL+YEuY6DqkFRtEdSwSJXd4H0XYgzleLW4lWvoLZbznAy64MZ+hha3oYgmmDCiKQgfMM+Deq3DUMHNwrn28CvkAperC9Jv9/zQuf4qIjBeDQ+GYzeDsa/To7fxG+O4/G7o9Hb439gv3AdbNMmvSbtDo3a87Kh7vrtPkVa79jUl/WbvbLyWCo7paSre3Kh2pHEE69RWHDhTxDzXP3WZdhDc35RJv1DLIjIfU72+LipPZfl/OGRFVzyJRZ09eAyZQZz7jBlRHeRoD2CCHKRoLT+6Bu/r5LXLFF6ZcQyc2w8Go8H2qAlkENDcmgK+2lxGfzs3jf0mwZqMWjCoeZvtfZPHzgxlXQpZHZ8NPKzQVlXcNkJOHzcbE7uzg3gZT5/miZ0eO+GOudCUjS+DFWjtNctxSLY1lqIIBYpqXSmrKPNVTXnFq9MXte0/L1EQ8o/jeCWG8HnVAn6dBKW/qcQL3hu8ZE0X100F6PX7OELa2fUrbzKFVW46VeI4IY0nMZ0Pa2jVi0phvDiLHga+Pv12nDrelVHrQVdILV7dG93bH2+mkAE8+azrfBqCobfEcf4XYhR+cS9QPq1CnIulyVf0t4ASQrHm1nR176o/UNJ7axCq/wh/lZ092w+QH9bpCBZk1a7fwiyNyca2NJlj+L1RtGMJuSD7dJw6YK21tO6rv8DN9ujNA==
 sidebar_class_name: "put api-method"
 info_path: api/manager/manager
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Update
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/oauth2/authorized-clients/{id}"}
+>
+  
+</MethodEndpoint>
 
 
 
 Update a OAuth2 Authorized Client given its client registration id
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The Id","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"access_token_expires_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"When the Access Token expires"}}></SchemaItem><SchemaItem collapsible={false} name={"access_token_issued_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"When the Access Token was issued"}}></SchemaItem><SchemaItem collapsible={false} name={"access_token_scopes"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The Access Token scopes"}}></SchemaItem><SchemaItem collapsible={false} name={"access_token_type"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The Access Token Type"}}></SchemaItem><SchemaItem collapsible={false} name={"access_token_value"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The Access Token Value"}}></SchemaItem><SchemaItem collapsible={false} name={"client_registration_id"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The Client Registration Id"}}></SchemaItem><SchemaItem collapsible={false} name={"principal_name"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The Principal Name"}}></SchemaItem><SchemaItem collapsible={false} name={"refresh_token_issued_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"When the Access Token was issued"}}></SchemaItem><SchemaItem collapsible={false} name={"refresh_token_value"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The Refresh Token Value"}}></SchemaItem></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"access_token_expires_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time"}}></SchemaItem><SchemaItem collapsible={false} name={"access_token_issued_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time"}}></SchemaItem><SchemaItem collapsible={false} name={"access_token_scopes"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"access_token_type"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"access_token_value"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"client_registration_id"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"id"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"principal_name"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"refresh_token_issued_at"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time"}}></SchemaItem><SchemaItem collapsible={false} name={"refresh_token_value"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"access_token_expires_at\": \"2024-02-28T15:20:20.127Z\",\n  \"access_token_issued_at\": \"2024-02-28T15:20:20.127Z\",\n  \"access_token_scopes\": \"string\",\n  \"access_token_type\": \"string\",\n  \"access_token_value\": \"string\",\n  \"client_registration_id\": \"string\",\n  \"id\": 0,\n  \"principal_name\": \"string\",\n  \"refresh_token_issued_at\": \"2024-02-28T15:20:20.128Z\",\n  \"refresh_token_value\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The Id","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"access_token_expires_at"}
+          required={false}
+          schemaName={"date-time"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","format":"date-time","description":"When the Access Token expires"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"access_token_issued_at"}
+          required={false}
+          schemaName={"date-time"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","format":"date-time","description":"When the Access Token was issued"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"access_token_scopes"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The Access Token scopes"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"access_token_type"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The Access Token Type"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"access_token_value"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The Access Token Value"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"client_registration_id"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The Client Registration Id"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"principal_name"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The Principal Name"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"refresh_token_issued_at"}
+          required={false}
+          schemaName={"date-time"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","format":"date-time","description":"When the Access Token was issued"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"refresh_token_value"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The Refresh Token Value"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"access_token_expires_at"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"access_token_issued_at"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"access_token_scopes"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"access_token_type"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"access_token_value"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"client_registration_id"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={false}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"principal_name"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"refresh_token_issued_at"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"refresh_token_value"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"access_token_expires_at\": \"2024-07-29T15:51:28.071Z\",\n  \"access_token_issued_at\": \"2024-07-29T15:51:28.071Z\",\n  \"access_token_scopes\": \"string\",\n  \"access_token_type\": \"string\",\n  \"access_token_value\": \"string\",\n  \"client_registration_id\": \"string\",\n  \"id\": 0,\n  \"principal_name\": \"string\",\n  \"refresh_token_issued_at\": \"2024-07-29T15:51:28.071Z\",\n  \"refresh_token_value\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

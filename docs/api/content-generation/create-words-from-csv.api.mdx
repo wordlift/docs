@@ -5,42 +5,191 @@ description: "Update from CSV"
 sidebar_label: "Update from CSV"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"createWordsFromCSV","parameters":[{"in":"header","name":"content-type","required":false,"schema":{"type":"string"}},{"description":"The Content Generation id.","in":"path","name":"contentGenerationId","required":true,"schema":{"type":"integer","format":"int64"}}],"requestBody":{"content":{"text/csv":{"schema":{"type":"string"}}},"required":true},"responses":{"204":{"description":"No Content"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"security_oauth2":[]}],"tags":["Content Generation Word biases"],"description":"Update from CSV","method":"put","path":"/content-generations/{contentGenerationId}/words/imports","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"Update from CSV","description":{"type":"text/plain"},"url":{"path":["content-generations",":contentGenerationId","words","imports"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) The Content Generation id.","type":"text/plain"},"type":"any","value":"","key":"contentGenerationId"}]},"header":[{"key":"Content-Type","value":"text/csv"}],"method":"PUT","body":{"mode":"raw","raw":"\"\""},"auth":{"type":"oauth2","oauth2":[]}}}
+api: eJydVU1v2zAM/SsCTxug1F1Q7ODTtgIdBgzbsLbboQgKRaZjYbakSnS71PB/HyjbadO4RbGTHYYfj3zkcwfOY1BknP1SQA46oCL87UIRz4JrTs9/gQSvgmqQMETIrzowFnKoUBUYQIJVDXKgs4SWFrT1CBIC3rQmYAF5qeqIEqKusFGQd5A8cogUjN1A38sOCow6GM8oIIeLCsXpkE58RjvCE6Y4AjkU94qqg9IPrl+KPQQU2jkAxhJuUgulC42iwfT+BPp+NYRjpE+u2HLMWCOF41/KdLzl9+e76p8iSIbonY0YOWB5fMKP/da/ualz6CWcHL87dPnYUoWWjB6mcqZM3QYc3GczkjhzrS140hBRt8HQNvE4/bh2qqVqCfnVijsntWGeYYYC3guxNopbWMknlS59oQhFGVwjhr1pkCrHW+VbSmtEFeSQTauy2SWOWTdDYp/d8R5mpvEuUASGH26nLWxDzWtI5GOeZcqbI/auTUlHxgE3MvV3ziQNQz9ouYOydnfpP7a4YO5T9VNX4IHxcq9kfFwwSwmzyR0zRqudH8quVTQa8uEpkp0JI/cHX5E0uWWJv3HLRvRsMbZ004IqnRYUG2VSTqxr9+HxVHYnw0R+NSWzsj/HvRk+ZXgkB4V2ja8xMSfWKmIhnBW6jeQac4+FqI3dtCaS0aJxBdaRL7c2Gm1MUx1RvNFvhXZ+G8ymIrE8Xi4XPmDkpXstQMLQxO/lOYZbo3HeL0tOC1cu4uDG5JChmv0Ptxwk8JINLb87OuYy3kVqlH2E/XDb92a1E4SkFr5WxnKe1Es3XsIVzFwCSMjnBS0dAyvgeA4rCZWLxHm6jlm4DHXfs/mmxcAnvpJwq4JRa+70qoPCRH5/EOUnkHciB29+jtr1VryoxrNNjkZltzxKVbf8CyT8we0zat2vejl9URjo4DlWXVwMn5Qp005/+cZ3EvPj8gIkrEe5btL5QlB3/CVQdwygl+maH3EznpGEnQB28+CH+506mO73GedXnPKUSWmNMV5MMvBfKfckZ0zbUvVivj1Vu9Y8rCl2E5Sl6xTVr/q+/wfcdNEY
 sidebar_class_name: "put api-method"
 info_path: api/content-generation/content-generation
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Update from CSV
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update from CSV"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/content-generations/{contentGenerationId}/words/imports"}
+>
+  
+</MethodEndpoint>
 
 
 
 Update from CSV
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The Content Generation id.","in":"path","name":"contentGenerationId","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Header Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"header","name":"content-type","required":false,"schema":{"type":"string"}}}></ParamsItem></ul></div></details><MimeTabs><TabItem label={"text/csv"} value={"text/csv-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-string
-
-</div></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"204"} value={"204"}><div>
-
-No Content
-
-</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
-
-Not Found
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The Content Generation id.","in":"path","name":"contentGenerationId","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"in":"header","name":"content-type","required":false,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"text/csv"}
+    value={"text/csv-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":".5rem","marginBottom":".5rem"}}
+        >
+          
+          
+          string
+          
+          
+        </div>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"204"}
+        value={"204"}
+      >
+        <div>
+          
+          
+          No Content
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

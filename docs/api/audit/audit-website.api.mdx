@@ -5,22 +5,38 @@ description: "Performs a comprehensive SEO and AI-readiness audit of a specified
 sidebar_label: "Website Audit"
 hide_title: true
 hide_table_of_contents: true
-api: {"tags":["Audit"],"description":"Performs a comprehensive SEO and AI-readiness audit of a specified URL. The audit analyzes:\n- Site files (robots.txt, llms.txt)\n- SEO fundamentals (title, description, headings)\n- Structured data (Schema.org, JSON-LD)\n- Content structure and semantic HTML\n- Image accessibility\n- Automation readiness for AI agents\n- JavaScript rendering and bot accessibility\n\nReturns an overall score (0-100) and detailed recommendations for improvement.\n","operationId":"audit_website","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["url"],"properties":{"url":{"type":"string","format":"uri","title":"URL","description":"The full URL of the website to audit","example":"https://example.com"}},"title":"AuditRequest"},"examples":{"basic":{"summary":"Basic audit request","value":{"url":"https://example.com"}}}}}},"responses":{"200":{"description":"Successful audit response","content":{"application/json":{"schema":{"type":"object","properties":{"success":{"type":"boolean","description":"Indicates if the audit was successful"},"data":{"type":"object","properties":{"url":{"type":"string","description":"The audited URL (may include trailing slash)"},"domain":{"type":"string","description":"The base domain of the audited URL"},"timestamp":{"type":"string","format":"date-time","description":"ISO 8601 timestamp of when the audit was performed"},"overallScore":{"type":"integer","minimum":0,"maximum":100,"description":"Overall SEO and AI-readiness score (0-100)"},"summary":{"type":"string","description":"High-level summary of the audit findings"},"siteFiles":{"type":"object","properties":{"status":{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"],"description":"Overall status of site files"},"explanation":{"type":"string","description":"Detailed explanation of site files evaluation"},"robotsTxt":{"type":"string","enum":["found","not_found","error"],"description":"Status of robots.txt file"},"llmsTxt":{"type":"string","enum":["found","not_found","error"],"description":"Status of llms.txt file (AI model instructions)"},"botAccess":{"type":"object","properties":{"gptbot":{"type":"string","enum":["allowed","disallowed","not_specified"]},"claude":{"type":"string","enum":["allowed","disallowed","not_specified"]},"googlebot":{"type":"string","enum":["allowed","disallowed","not_specified"]}}}},"title":"SiteFiles"},"seoFundamentals":{"type":"object","properties":{"status":{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"]},"explanation":{"type":"string"},"title":{"type":"string","nullable":true,"description":"Page title tag content"},"description":{"type":"string","nullable":true,"description":"Meta description content"},"h1Count":{"type":"integer","description":"Number of H1 headings on the page"}},"title":"SeoFundamentals"},"structuredData":{"type":"object","properties":{"status":{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"]},"explanation":{"type":"string"},"hasSchema":{"type":"boolean","description":"Whether schema.org markup is present"},"hasJsonLd":{"type":"boolean","description":"Whether JSON-LD structured data is present"},"detectedSchemas":{"type":"array","items":{"type":"string"},"description":"List of detected schema types"}},"title":"StructuredData"},"contentStructure":{"type":"object","properties":{"status":{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"]},"explanation":{"type":"string"},"semanticHtmlScore":{"type":"integer","minimum":0,"maximum":10,"description":"Score for semantic HTML usage (0-10)"}},"title":"ContentStructure"},"imageAccessibility":{"type":"object","properties":{"status":{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"]},"explanation":{"type":"string"},"missingAltPercentage":{"type":"number","minimum":0,"maximum":100,"description":"Percentage of images missing alt text"},"totalImages":{"type":"integer","description":"Total number of images on the page"},"imagesWithoutAlt":{"type":"integer","description":"Number of images without alt text"}},"title":"ImageAccessibility"},"automationReadiness":{"type":"object","properties":{"status":{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"]},"explanation":{"type":"string"},"issues":{"type":"array","items":{"type":"string"},"description":"List of issues affecting automation readiness"}},"title":"AutomationReadiness"},"jsRendering":{"type":"object","properties":{"status":{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"]},"explanation":{"type":"string"},"frameworkDetected":{"type":"string","description":"Detected JavaScript framework (React, Vue, Angular, etc.)"},"renderingType":{"type":"string","enum":["Static","SSR","CSR","Hybrid"],"description":"Type of rendering used by the site"},"aiAccessibility":{"type":"string","enum":["Excellent","Good","Fair","Poor"],"description":"How accessible the content is to AI agents"},"contentAvailability":{"type":"string","description":"Description of content availability in HTML"},"recommendations":{"type":"array","items":{"type":"string"},"description":"Recommendations for improving JS rendering"}},"title":"JsRendering"},"quickWins":{"type":"array","items":{"type":"object","properties":{"title":{"type":"string","description":"Title of the quick win recommendation"},"description":{"type":"string","description":"Detailed description of the recommendation"},"impact":{"type":"string","enum":["High","Medium","Low"],"description":"Expected impact of implementing this recommendation"}},"title":"QuickWin"}},"status":{"type":"string","enum":["completed","pending","failed"],"description":"Status of the audit process"},"accountId":{"type":"integer","description":"Account ID associated with the audit"},"accountUrl":{"type":"string","description":"Account URL associated with the audit"}},"title":"AuditData"}},"title":"AuditResponse"},"examples":{"successful":{"summary":"Successful audit","value":{"success":true,"data":{"url":"https://example.com/","domain":"https://example.com","timestamp":"2025-10-16T07:52:01.581Z","overallScore":35,"summary":"The website is a basic example domain, primarily intended for documentation.","siteFiles":{"status":"Poor","explanation":"Neither robots.txt nor llms.txt are present.","robotsTxt":"not_found","llmsTxt":"not_found","botAccess":{"gptbot":"not_specified","claude":"not_specified","googlebot":"not_specified"}},"seoFundamentals":{"status":"Poor","explanation":"The site has a title tag but lacks a meta description.","title":"Example Domain","description":null,"h1Count":1},"structuredData":{"status":"Poor","explanation":"No schema.org markup is present.","hasSchema":false,"hasJsonLd":false,"detectedSchemas":[]},"contentStructure":{"status":"Needs Improvement","explanation":"The content is very basic.","semanticHtmlScore":6},"imageAccessibility":{"status":"Not Applicable","explanation":"There are no images on the page.","missingAltPercentage":0,"totalImages":0,"imagesWithoutAlt":0},"automationReadiness":{"status":"Poor","explanation":"The lack of structured data and robots.txt/llms.txt hinders automation.","issues":["Missing robots.txt","Missing llms.txt","Lack of structured data"]},"jsRendering":{"status":"Good","explanation":"The website appears to be statically rendered with minimal to no JavaScript.","frameworkDetected":"None","renderingType":"Static","aiAccessibility":"Excellent","contentAvailability":"All content in HTML","recommendations":[]},"quickWins":[{"title":"Add a Meta Description","description":"Implement a meta description tag in the <head> section.","impact":"Medium"},{"title":"Implement robots.txt","description":"Create a robots.txt file to explicitly define crawling rules.","impact":"Medium"}],"status":"completed","accountId":216,"accountUrl":"https://example.com"}}}}}}},"401":{"description":"Unauthorized - Invalid or missing API key","content":{"application/json":{"schema":{"type":"object","properties":{"success":{"type":"boolean","example":false},"error":{"type":"string","description":"Error message"}},"title":"ErrorResponse"}}}},"422":{"description":"Validation Error - Invalid request format","content":{"application/json":{"schema":{"type":"object","properties":{"detail":{"type":"array","items":{"type":"object","properties":{"loc":{"type":"array","items":{"type":"string"}},"msg":{"type":"string"},"type":{"type":"string"}}}}},"title":"ValidationError"}}}}},"security":[{"ApiKey":[]}],"method":"post","path":"/audit","servers":[{"url":"https://api.wordlift.io","description":"Production server"}],"securitySchemes":{"ApiKey":{"type":"apiKey","in":"header","name":"Authorization","description":"API Key authentication. Use the format: `Key [your-wordlift-key]`\n\nExample: `Authorization: Key wl_abc123def456`\n"}},"jsonRequestBodyExample":{"url":"https://example.com"},"info":{"title":"WordLift Audit API","description":"The WordLift Audit API provides comprehensive SEO and AI-readiness analysis for websites.\nIt evaluates site files, SEO fundamentals, structured data, content structure, image accessibility,\nautomation readiness, and JavaScript rendering to provide actionable insights for improving\nboth search engine and AI agent discoverability.\n","version":"1.0.0"},"postman":{"name":"Website Audit","description":{"content":"Performs a comprehensive SEO and AI-readiness audit of a specified URL. The audit analyzes:\n- Site files (robots.txt, llms.txt)\n- SEO fundamentals (title, description, headings)\n- Structured data (Schema.org, JSON-LD)\n- Content structure and semantic HTML\n- Image accessibility\n- Automation readiness for AI agents\n- JavaScript rendering and bot accessibility\n\nReturns an overall score (0-100) and detailed recommendations for improvement.\n","type":"text/plain"},"url":{"path":["audit"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"application/json"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}},"auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJztWm1v2zgS/isDfkoBxbGz297COBzgbdNruunLxekWuKRoaWlscUuRKknF8Qb+74ch9S47SW97Lz1cP7SuRM6Qw3l55qFumeMry6aXbFYkwrEPEUvQxkbkTmjFpuwtmqU2mQUOsc5ygykqK64R5idvgKsEZqeHBnkiFFoLnISAXgIHm2MslgITeHd+NoKLFMu3XHG5+R3t9Eodwlw4hKWQaOHA6IV2duRuXARSZv7XIz/o5A0sC5XwDJXj0sKBE05iBK2lRpD6VaxsmOJMEbvCYAIJdxwO5nGKGR9ps4rg5fzN68OzZ37gU60cKge2muA3ZTHjyokYXly8OqNhpxlfIfA4RmvFQkjhNvR4VjidcdIPjRGW2sDsFPgKlbM06iW/5nO/UDCoEjRCrbyahXZ9mVfqHF1hlAWuQF+j4VKCjbVBOBgfTsbjR35mgo4LiQkYjHWWoUr8KoJykeVGXyNZa3SlWMR0jsa/P03YlPlj+LjGhRUOWcQMfinQup91smHTW/9fYTBhU2cKjFgcLESveJ5LEXtJR79Z8o9bZr1h6Zfb5MimTC9+w9iVcoOgS1YYSb6VG1qKE2hpAj1s5llHdmERI3/jjk1ZYQSLmD9rNmXvzs9Y3zvJq5aFlORj5HYuRSg3Bk4Hh2MRwxue5V5I6lxup0dH5ZNRrDO23TZKfBScB4OwbT3TL3fBrYj9loss42bDpuxnelT6dWlGFrFrLgusN7hHJ/0hG9lcKxsUHI/H9E93i/PCO8iykLWeMIX9gaPpnoMNKloDF1pL5Gpg71OVkBK0IIKxw5LW3IKt10l2o6C7X/EeBxiesVcTUgkcZHwDQsWySBCc4UJSOFnJbfrIq9YZF+phchfcIoQJlfu0VDHvGBlax7P8Tk9NuMNDGjq02PwN/PRkPIFaEClap6h69stDosWEtJaBP6e4bykWyuEKDYtYJpTIioxNxxHL+E34PRmP++rflBlkZ7bupBVSWzv2fbZ7IVbpocRrlFDO6ZgPlkL5XOyFCofPRRlD9zii466wu9Sjog1espObGKUkn4/YX7VOWMReIyYWTpucxyL2Vmuy0mvtYBYCYyFxWNwq6wS9tAVb16MQ/bnkiofR99nkWZWSW7O6IgEpMwRxFPu+3l3cuLs2vNSFol0q7T5Wv9EYbYa7mde7aCqpV0zKqKD+K1RVhdorgoPZKWQ6QQlChYpKRcn71kK7WT/N7HGDVe4W+s6lcin1GmmBibDNf2jlNe5gH7YRiyUvEvwmolZaryR+m4Vt2zVnXgcIRQvq5y2o85+PmfvCoNnIcAWqkNJLKaFED1oSpPJzwfEVVMVs2xv3tWJfoeNtZNgWnE6e6kK5nSm1K+V1kS3QkIe/mNTQEnTI2jlfYQc2zHunRgdZI9BnD6qF/wXnmHI770OGfUjgfYouRQO2xtWQcfO5yEFYyA3ayuLcvrRanSVfIbPE5w0mL0F8V3KCDmOHSVhy23LcGL5hERMOsx0W7TsYOxPWNy2VxHJTQNNs95y7h7qtIVj94rs46Kq9eeGyr8cYg1rgUQT1HZ2uCQpL8e3RxaOOEZ/2TbaNmKD+atZuhb4LQ2bCWqFWM+neookp+FdtWyqfRL4CrjVSyB+9USyUSoBLBw5vvPM77bj0Tal9QDK7oNGg6pRWCu5ks/IM7HvhUl24mfy6LFmKXIfZrbW2Dv50eMjbiPG6hz6vkOl3cfbC2gK/RdoJgoAvlxg7f9A7WIVelzo02TZiv9nzil74Liy4NDzDtTafn5WJ90EgO6ToFqdSi4GDc+Sxi+DXAiOYqVUhuYkAXTzyELQmXy68jv07J3grYhax+fycReyp//vFZmFEMsTCJMyD7praKSwmsNj44PIcC3m52JfdHmL351yYytSDBbzQ65pFIiyVYgV5qGI63ZBRrYI1u+ZC8v2L6Zu9gVN6WYvnLSEglM/7wdAdUuoPxMj5XnqLDP1y3li9EyAvW5GwjdiXQsSf34sHrWRPuOzFuD1n8HC27IW9WlgL1WPpHgBx97SWSfccSMlQtMhyHt/ZpVD7ziL2ChNRZCxiZ3o9dKuTmzyEWpAXknwufdiT8V0q7EB76wz+VhrdP7w/2xC7LNH5dilHTx8Qw+L3fVcD2pAOudFxmQl5HBPOP00eUMNmYSycPgNurY4Fp01TIWtkt2S+ewhnVckkvuoOoX3iMYDKIR1ZEn49PrLFuHVIyT5j2GYka6qv7JzK1mQvUXnEGkJtJ5HZYcjY8fj48eFkfDh5cjH+0/Tx8XQ8GT3+afJ31qe0fnjcYps8FVfRtoKuGjzVCqWekqCLIDci40ZIyjWO4jvx+SDRceEbLzL+iPUYp8rzqjrVKUrsNQrfcrQYE6VNw2pwg1XPQZJblE2HJqnZlc7TDuVRkRo9LqChKAYvWoRD7912N1Fw91YvymoEKScTN433onAgefyZnma95nnUIuBPyuN4Fvyh5/PUlLca7MnOFview9B3tpO0llaLuuTSYqfBLJ8MGsPLD3satXo5u3DN0HqtqnqNZhO81DvcsJ96srepaZR2EdMOjXQbZRCU3oHYR2xf+zHutQfjXdB+vB953+9G5C2e2uw16MQwN5F0VEdRKqgY2xawpdVXAPqSvSo7nGYuVafyYSWF6tRuvR5s9sBvvYkSQQ03USUcnufIjQdKC/RUsIi5lJsSWlRp27dwXNIwpVvwk3ayA8iy11qFy7UO5myg5QAQdnDfTpTGZlI2TljCrR1oy/t7C/Nc3jYFJUmAg6fIWphueGtRFfodKcHnDBEc8c/EjP0FLMb1oZbgowIX2+i21f9VUjsH3VX91CCnU+mT2GR4OkQRCyc3kOBSKITY8LW//zGFRLtzAR8a9NEBGS2McDx50q3vd9zZbSP243gyvKd7p3jhUm3E75jAIZyqay5FAtrU/fvs7Sl8xs2/596uvvL0SXFbMfn3IpcTGgYZWtvnOP2bBosESxwfDy3xK208tK9BWmON8o4Uyouzb2aJcB3+z6N7qeOvaFKI+LGrHS+i8sFwRofwbwzk7VO9thgXxgf65S2b5eIX3PhY/hCxDF2qKavk2t8w59ylbMqOKnxn0VyjCaHexXI8F6O1NokUSzcSenDeb41OwjUNBCEhYMql+BIaTFQtqLFSeBCxgA2RJx5cK56VFIUPBr4zv1Ao/IIbKggptRPh2Efwzob+NfjHFD7RoMuNLsxhtYnDz7j58Ik+lCjxyBQ+dZRNveS1/MgX8eT4hwSXPz5+8ukq9CHkWOfN9w4nVZTceVdPW1zqVhfI3muTnImlAw/QKbJ3Xi8Ph4FvXRO0D/qahr6UsSJ0vWW5sqMrdeqqm0S0revFaPChTNSvlFFdPuoXUcAW3e9Qoiu1i4SK/Bp3fs7idLU14N6dCNPQLaBYpa7Xt1+phXYpWOQmTgHVijJ52H0gKiARNvYNQ1hO+IqFPDzYdjIaj8Z0LhQOGfepovS792VVn5WR0euz63zz/w+b/hc+bCpTETHNR7mkrmQbVV+VhBx5GT53IgYhpdw5vWS3t/TZxzsjt1t6/KVA4xMttclGhItFD6HKnEZJlep2fXNx6LFc3VUPKxeBnjCDMF7u7hzbTu9v38wvfOMYPsWiq3Q2ZYavCebxNZsy/zVXzar5Z7dMcrUqPPZnQeY2oPu0m64D+Ch/eFRYvlKb1gr7mTtshP72WG7XlNvbUAy223p8eLV3Rl0uwmg6OLoV/wclBS3t
 sidebar_class_name: "post api-method"
 info_path: api/audit/wordlift-audit-api
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Website Audit
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Website Audit"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/audit"}
+>
+  
+</MethodEndpoint>
 
 
 
@@ -36,17 +52,1096 @@ Performs a comprehensive SEO and AI-readiness audit of a specified URL. The audi
 Returns an overall score (0-100) and detailed recommendations for improvement.
 
 
-<MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"url"} required={true} schemaName={"uri"} qualifierMessage={undefined} schema={{"type":"string","format":"uri","title":"URL","description":"The full URL of the website to audit","example":"https://example.com"}}></SchemaItem></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Successful audit response
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"success"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","description":"Indicates if the audit was successful"}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>data</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"url"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The audited URL (may include trailing slash)"}}></SchemaItem><SchemaItem collapsible={false} name={"domain"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The base domain of the audited URL"}}></SchemaItem><SchemaItem collapsible={false} name={"timestamp"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"ISO 8601 timestamp of when the audit was performed"}}></SchemaItem><SchemaItem collapsible={false} name={"overallScore"} required={false} schemaName={"integer"} qualifierMessage={"**Possible values:** `<= 100`"} schema={{"type":"integer","minimum":0,"maximum":100,"description":"Overall SEO and AI-readiness score (0-100)"}}></SchemaItem><SchemaItem collapsible={false} name={"summary"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"High-level summary of the audit findings"}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>siteFiles</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"status"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`Excellent`, `Good`, `Needs Improvement`, `Poor`, `Not Applicable`]"} schema={{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"],"description":"Overall status of site files"}}></SchemaItem><SchemaItem collapsible={false} name={"explanation"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Detailed explanation of site files evaluation"}}></SchemaItem><SchemaItem collapsible={false} name={"robotsTxt"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`found`, `not_found`, `error`]"} schema={{"type":"string","enum":["found","not_found","error"],"description":"Status of robots.txt file"}}></SchemaItem><SchemaItem collapsible={false} name={"llmsTxt"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`found`, `not_found`, `error`]"} schema={{"type":"string","enum":["found","not_found","error"],"description":"Status of llms.txt file (AI model instructions)"}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>botAccess</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"gptbot"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`allowed`, `disallowed`, `not_specified`]"} schema={{"type":"string","enum":["allowed","disallowed","not_specified"]}}></SchemaItem><SchemaItem collapsible={false} name={"claude"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`allowed`, `disallowed`, `not_specified`]"} schema={{"type":"string","enum":["allowed","disallowed","not_specified"]}}></SchemaItem><SchemaItem collapsible={false} name={"googlebot"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`allowed`, `disallowed`, `not_specified`]"} schema={{"type":"string","enum":["allowed","disallowed","not_specified"]}}></SchemaItem></div></details></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>seoFundamentals</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"status"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`Excellent`, `Good`, `Needs Improvement`, `Poor`, `Not Applicable`]"} schema={{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"]}}></SchemaItem><SchemaItem collapsible={false} name={"explanation"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"title"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","nullable":true,"description":"Page title tag content"}}></SchemaItem><SchemaItem collapsible={false} name={"description"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","nullable":true,"description":"Meta description content"}}></SchemaItem><SchemaItem collapsible={false} name={"h1Count"} required={false} schemaName={"integer"} qualifierMessage={undefined} schema={{"type":"integer","description":"Number of H1 headings on the page"}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>structuredData</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"status"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`Excellent`, `Good`, `Needs Improvement`, `Poor`, `Not Applicable`]"} schema={{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"]}}></SchemaItem><SchemaItem collapsible={false} name={"explanation"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"hasSchema"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","description":"Whether schema.org markup is present"}}></SchemaItem><SchemaItem collapsible={false} name={"hasJsonLd"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","description":"Whether JSON-LD structured data is present"}}></SchemaItem><SchemaItem collapsible={false} name={"detectedSchemas"} required={false} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"string"},"description":"List of detected schema types"}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>contentStructure</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"status"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`Excellent`, `Good`, `Needs Improvement`, `Poor`, `Not Applicable`]"} schema={{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"]}}></SchemaItem><SchemaItem collapsible={false} name={"explanation"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"semanticHtmlScore"} required={false} schemaName={"integer"} qualifierMessage={"**Possible values:** `<= 10`"} schema={{"type":"integer","minimum":0,"maximum":10,"description":"Score for semantic HTML usage (0-10)"}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>imageAccessibility</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"status"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`Excellent`, `Good`, `Needs Improvement`, `Poor`, `Not Applicable`]"} schema={{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"]}}></SchemaItem><SchemaItem collapsible={false} name={"explanation"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"missingAltPercentage"} required={false} schemaName={"number"} qualifierMessage={"**Possible values:** `<= 100`"} schema={{"type":"number","minimum":0,"maximum":100,"description":"Percentage of images missing alt text"}}></SchemaItem><SchemaItem collapsible={false} name={"totalImages"} required={false} schemaName={"integer"} qualifierMessage={undefined} schema={{"type":"integer","description":"Total number of images on the page"}}></SchemaItem><SchemaItem collapsible={false} name={"imagesWithoutAlt"} required={false} schemaName={"integer"} qualifierMessage={undefined} schema={{"type":"integer","description":"Number of images without alt text"}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>automationReadiness</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"status"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`Excellent`, `Good`, `Needs Improvement`, `Poor`, `Not Applicable`]"} schema={{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"]}}></SchemaItem><SchemaItem collapsible={false} name={"explanation"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"issues"} required={false} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"string"},"description":"List of issues affecting automation readiness"}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>jsRendering</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"status"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`Excellent`, `Good`, `Needs Improvement`, `Poor`, `Not Applicable`]"} schema={{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"]}}></SchemaItem><SchemaItem collapsible={false} name={"explanation"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"frameworkDetected"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Detected JavaScript framework (React, Vue, Angular, etc.)"}}></SchemaItem><SchemaItem collapsible={false} name={"renderingType"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`Static`, `SSR`, `CSR`, `Hybrid`]"} schema={{"type":"string","enum":["Static","SSR","CSR","Hybrid"],"description":"Type of rendering used by the site"}}></SchemaItem><SchemaItem collapsible={false} name={"aiAccessibility"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`Excellent`, `Good`, `Fair`, `Poor`]"} schema={{"type":"string","enum":["Excellent","Good","Fair","Poor"],"description":"How accessible the content is to AI agents"}}></SchemaItem><SchemaItem collapsible={false} name={"contentAvailability"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Description of content availability in HTML"}}></SchemaItem><SchemaItem collapsible={false} name={"recommendations"} required={false} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"string"},"description":"Recommendations for improving JS rendering"}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>quickWins</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"title"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Title of the quick win recommendation"}}></SchemaItem><SchemaItem collapsible={false} name={"description"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Detailed description of the recommendation"}}></SchemaItem><SchemaItem collapsible={false} name={"impact"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`High`, `Medium`, `Low`]"} schema={{"type":"string","enum":["High","Medium","Low"],"description":"Expected impact of implementing this recommendation"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem><SchemaItem collapsible={false} name={"status"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`completed`, `pending`, `failed`]"} schema={{"type":"string","enum":["completed","pending","failed"],"description":"Status of the audit process"}}></SchemaItem><SchemaItem collapsible={false} name={"accountId"} required={false} schemaName={"integer"} qualifierMessage={undefined} schema={{"type":"integer","description":"Account ID associated with the audit"}}></SchemaItem><SchemaItem collapsible={false} name={"accountUrl"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Account URL associated with the audit"}}></SchemaItem></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"success\": true,\n  \"data\": {\n    \"url\": \"string\",\n    \"domain\": \"string\",\n    \"timestamp\": \"2025-10-16T08:33:30.147Z\",\n    \"overallScore\": 0,\n    \"summary\": \"string\",\n    \"siteFiles\": {\n      \"status\": \"Excellent\",\n      \"explanation\": \"string\",\n      \"robotsTxt\": \"found\",\n      \"llmsTxt\": \"found\",\n      \"botAccess\": {\n        \"gptbot\": \"allowed\",\n        \"claude\": \"allowed\",\n        \"googlebot\": \"allowed\"\n      }\n    },\n    \"seoFundamentals\": {\n      \"status\": \"Excellent\",\n      \"explanation\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"h1Count\": 0\n    },\n    \"structuredData\": {\n      \"status\": \"Excellent\",\n      \"explanation\": \"string\",\n      \"hasSchema\": true,\n      \"hasJsonLd\": true,\n      \"detectedSchemas\": [\n        \"string\"\n      ]\n    },\n    \"contentStructure\": {\n      \"status\": \"Excellent\",\n      \"explanation\": \"string\",\n      \"semanticHtmlScore\": 0\n    },\n    \"imageAccessibility\": {\n      \"status\": \"Excellent\",\n      \"explanation\": \"string\",\n      \"missingAltPercentage\": 0,\n      \"totalImages\": 0,\n      \"imagesWithoutAlt\": 0\n    },\n    \"automationReadiness\": {\n      \"status\": \"Excellent\",\n      \"explanation\": \"string\",\n      \"issues\": [\n        \"string\"\n      ]\n    },\n    \"jsRendering\": {\n      \"status\": \"Excellent\",\n      \"explanation\": \"string\",\n      \"frameworkDetected\": \"string\",\n      \"renderingType\": \"Static\",\n      \"aiAccessibility\": \"Excellent\",\n      \"contentAvailability\": \"string\",\n      \"recommendations\": [\n        \"string\"\n      ]\n    },\n    \"quickWins\": [\n      {\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"impact\": \"High\"\n      }\n    ],\n    \"status\": \"completed\",\n    \"accountId\": 0,\n    \"accountUrl\": \"string\"\n  }\n}"} language={"json"}></ResponseSamples></TabItem><TabItem label={"successful"} value={"successful"}><p> Successful audit</p><ResponseSamples responseExample={"{\n  \"success\": true,\n  \"data\": {\n    \"url\": \"https://example.com/\",\n    \"domain\": \"https://example.com\",\n    \"timestamp\": \"2025-10-16T07:52:01.581Z\",\n    \"overallScore\": 35,\n    \"summary\": \"The website is a basic example domain, primarily intended for documentation.\",\n    \"siteFiles\": {\n      \"status\": \"Poor\",\n      \"explanation\": \"Neither robots.txt nor llms.txt are present.\",\n      \"robotsTxt\": \"not_found\",\n      \"llmsTxt\": \"not_found\",\n      \"botAccess\": {\n        \"gptbot\": \"not_specified\",\n        \"claude\": \"not_specified\",\n        \"googlebot\": \"not_specified\"\n      }\n    },\n    \"seoFundamentals\": {\n      \"status\": \"Poor\",\n      \"explanation\": \"The site has a title tag but lacks a meta description.\",\n      \"title\": \"Example Domain\",\n      \"description\": null,\n      \"h1Count\": 1\n    },\n    \"structuredData\": {\n      \"status\": \"Poor\",\n      \"explanation\": \"No schema.org markup is present.\",\n      \"hasSchema\": false,\n      \"hasJsonLd\": false,\n      \"detectedSchemas\": []\n    },\n    \"contentStructure\": {\n      \"status\": \"Needs Improvement\",\n      \"explanation\": \"The content is very basic.\",\n      \"semanticHtmlScore\": 6\n    },\n    \"imageAccessibility\": {\n      \"status\": \"Not Applicable\",\n      \"explanation\": \"There are no images on the page.\",\n      \"missingAltPercentage\": 0,\n      \"totalImages\": 0,\n      \"imagesWithoutAlt\": 0\n    },\n    \"automationReadiness\": {\n      \"status\": \"Poor\",\n      \"explanation\": \"The lack of structured data and robots.txt/llms.txt hinders automation.\",\n      \"issues\": [\n        \"Missing robots.txt\",\n        \"Missing llms.txt\",\n        \"Lack of structured data\"\n      ]\n    },\n    \"jsRendering\": {\n      \"status\": \"Good\",\n      \"explanation\": \"The website appears to be statically rendered with minimal to no JavaScript.\",\n      \"frameworkDetected\": \"None\",\n      \"renderingType\": \"Static\",\n      \"aiAccessibility\": \"Excellent\",\n      \"contentAvailability\": \"All content in HTML\",\n      \"recommendations\": []\n    },\n    \"quickWins\": [\n      {\n        \"title\": \"Add a Meta Description\",\n        \"description\": \"Implement a meta description tag in the <head> section.\",\n        \"impact\": \"Medium\"\n      },\n      {\n        \"title\": \"Implement robots.txt\",\n        \"description\": \"Create a robots.txt file to explicitly define crawling rules.\",\n        \"impact\": \"Medium\"\n      }\n    ],\n    \"status\": \"completed\",\n    \"accountId\": 216,\n    \"accountUrl\": \"https://example.com\"\n  }\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Unauthorized - Invalid or missing API key
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"success"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","example":false}}></SchemaItem><SchemaItem collapsible={false} name={"error"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Error message"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"success\": false,\n  \"error\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"422"} value={"422"}><div>
-
-Validation Error - Invalid request format
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}}><summary style={{}}><strong>detail</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"loc"} required={false} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"string"}}}></SchemaItem><SchemaItem collapsible={false} name={"msg"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"type"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"url"}
+          required={true}
+          schemaName={"uri"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","format":"uri","title":"URL","description":"The full URL of the website to audit","example":"https://example.com"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Successful audit response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"success"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean","description":"Indicates if the audit was successful"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                data
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"url"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The audited URL (may include trailing slash)"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"domain"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"The base domain of the audited URL"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"timestamp"}
+                              required={false}
+                              schemaName={"date-time"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"date-time","description":"ISO 8601 timestamp of when the audit was performed"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"overallScore"}
+                              required={false}
+                              schemaName={"integer"}
+                              qualifierMessage={"**Possible values:** `<= 100`"}
+                              schema={{"type":"integer","minimum":0,"maximum":100,"description":"Overall SEO and AI-readiness score (0-100)"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"summary"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"High-level summary of the audit findings"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      siteFiles
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <SchemaItem
+                                    collapsible={false}
+                                    name={"status"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={"**Possible values:** [`Excellent`, `Good`, `Needs Improvement`, `Poor`, `Not Applicable`]"}
+                                    schema={{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"],"description":"Overall status of site files"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"explanation"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","description":"Detailed explanation of site files evaluation"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"robotsTxt"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={"**Possible values:** [`found`, `not_found`, `error`]"}
+                                    schema={{"type":"string","enum":["found","not_found","error"],"description":"Status of robots.txt file"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"llmsTxt"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={"**Possible values:** [`found`, `not_found`, `error`]"}
+                                    schema={{"type":"string","enum":["found","not_found","error"],"description":"Status of llms.txt file (AI model instructions)"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={true}
+                                    className={"schemaItem"}
+                                  >
+                                    <details
+                                      style={{}}
+                                      className={"openapi-markdown__details"}
+                                    >
+                                      <summary
+                                        style={{}}
+                                      >
+                                        <span
+                                          className={"openapi-schema__container"}
+                                        >
+                                          <strong
+                                            className={"openapi-schema__property"}
+                                          >
+                                            botAccess
+                                          </strong><span
+                                            className={"openapi-schema__name"}
+                                          >
+                                             object
+                                          </span>
+                                        </span>
+                                      </summary><div
+                                        style={{"marginLeft":"1rem"}}
+                                      >
+                                        <SchemaItem
+                                          collapsible={false}
+                                          name={"gptbot"}
+                                          required={false}
+                                          schemaName={"string"}
+                                          qualifierMessage={"**Possible values:** [`allowed`, `disallowed`, `not_specified`]"}
+                                          schema={{"type":"string","enum":["allowed","disallowed","not_specified"]}}
+                                        >
+                                          
+                                        </SchemaItem><SchemaItem
+                                          collapsible={false}
+                                          name={"claude"}
+                                          required={false}
+                                          schemaName={"string"}
+                                          qualifierMessage={"**Possible values:** [`allowed`, `disallowed`, `not_specified`]"}
+                                          schema={{"type":"string","enum":["allowed","disallowed","not_specified"]}}
+                                        >
+                                          
+                                        </SchemaItem><SchemaItem
+                                          collapsible={false}
+                                          name={"googlebot"}
+                                          required={false}
+                                          schemaName={"string"}
+                                          qualifierMessage={"**Possible values:** [`allowed`, `disallowed`, `not_specified`]"}
+                                          schema={{"type":"string","enum":["allowed","disallowed","not_specified"]}}
+                                        >
+                                          
+                                        </SchemaItem>
+                                      </div>
+                                    </details>
+                                  </SchemaItem>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      seoFundamentals
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <SchemaItem
+                                    collapsible={false}
+                                    name={"status"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={"**Possible values:** [`Excellent`, `Good`, `Needs Improvement`, `Poor`, `Not Applicable`]"}
+                                    schema={{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"]}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"explanation"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"title"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","nullable":true,"description":"Page title tag content"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"description"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","nullable":true,"description":"Meta description content"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"h1Count"}
+                                    required={false}
+                                    schemaName={"integer"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"integer","description":"Number of H1 headings on the page"}}
+                                  >
+                                    
+                                  </SchemaItem>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      structuredData
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <SchemaItem
+                                    collapsible={false}
+                                    name={"status"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={"**Possible values:** [`Excellent`, `Good`, `Needs Improvement`, `Poor`, `Not Applicable`]"}
+                                    schema={{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"]}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"explanation"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"hasSchema"}
+                                    required={false}
+                                    schemaName={"boolean"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"boolean","description":"Whether schema.org markup is present"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"hasJsonLd"}
+                                    required={false}
+                                    schemaName={"boolean"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"boolean","description":"Whether JSON-LD structured data is present"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"detectedSchemas"}
+                                    required={false}
+                                    schemaName={"string[]"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"array","items":{"type":"string"},"description":"List of detected schema types"}}
+                                  >
+                                    
+                                  </SchemaItem>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      contentStructure
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <SchemaItem
+                                    collapsible={false}
+                                    name={"status"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={"**Possible values:** [`Excellent`, `Good`, `Needs Improvement`, `Poor`, `Not Applicable`]"}
+                                    schema={{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"]}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"explanation"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"semanticHtmlScore"}
+                                    required={false}
+                                    schemaName={"integer"}
+                                    qualifierMessage={"**Possible values:** `<= 10`"}
+                                    schema={{"type":"integer","minimum":0,"maximum":10,"description":"Score for semantic HTML usage (0-10)"}}
+                                  >
+                                    
+                                  </SchemaItem>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      imageAccessibility
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <SchemaItem
+                                    collapsible={false}
+                                    name={"status"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={"**Possible values:** [`Excellent`, `Good`, `Needs Improvement`, `Poor`, `Not Applicable`]"}
+                                    schema={{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"]}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"explanation"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"missingAltPercentage"}
+                                    required={false}
+                                    schemaName={"number"}
+                                    qualifierMessage={"**Possible values:** `<= 100`"}
+                                    schema={{"type":"number","minimum":0,"maximum":100,"description":"Percentage of images missing alt text"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"totalImages"}
+                                    required={false}
+                                    schemaName={"integer"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"integer","description":"Total number of images on the page"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"imagesWithoutAlt"}
+                                    required={false}
+                                    schemaName={"integer"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"integer","description":"Number of images without alt text"}}
+                                  >
+                                    
+                                  </SchemaItem>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      automationReadiness
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <SchemaItem
+                                    collapsible={false}
+                                    name={"status"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={"**Possible values:** [`Excellent`, `Good`, `Needs Improvement`, `Poor`, `Not Applicable`]"}
+                                    schema={{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"]}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"explanation"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"issues"}
+                                    required={false}
+                                    schemaName={"string[]"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"array","items":{"type":"string"},"description":"List of issues affecting automation readiness"}}
+                                  >
+                                    
+                                  </SchemaItem>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      jsRendering
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <SchemaItem
+                                    collapsible={false}
+                                    name={"status"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={"**Possible values:** [`Excellent`, `Good`, `Needs Improvement`, `Poor`, `Not Applicable`]"}
+                                    schema={{"type":"string","enum":["Excellent","Good","Needs Improvement","Poor","Not Applicable"]}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"explanation"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"frameworkDetected"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","description":"Detected JavaScript framework (React, Vue, Angular, etc.)"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"renderingType"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={"**Possible values:** [`Static`, `SSR`, `CSR`, `Hybrid`]"}
+                                    schema={{"type":"string","enum":["Static","SSR","CSR","Hybrid"],"description":"Type of rendering used by the site"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"aiAccessibility"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={"**Possible values:** [`Excellent`, `Good`, `Fair`, `Poor`]"}
+                                    schema={{"type":"string","enum":["Excellent","Good","Fair","Poor"],"description":"How accessible the content is to AI agents"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"contentAvailability"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","description":"Description of content availability in HTML"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"recommendations"}
+                                    required={false}
+                                    schemaName={"string[]"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"array","items":{"type":"string"},"description":"Recommendations for improving JS rendering"}}
+                                  >
+                                    
+                                  </SchemaItem>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      quickWins
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object[]
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <li>
+                                    <div
+                                      style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                                    >
+                                      Array [
+                                    </div>
+                                  </li><SchemaItem
+                                    collapsible={false}
+                                    name={"title"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","description":"Title of the quick win recommendation"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"description"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","description":"Detailed description of the recommendation"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"impact"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={"**Possible values:** [`High`, `Medium`, `Low`]"}
+                                    schema={{"type":"string","enum":["High","Medium","Low"],"description":"Expected impact of implementing this recommendation"}}
+                                  >
+                                    
+                                  </SchemaItem><li>
+                                    <div
+                                      style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                                    >
+                                      ]
+                                    </div>
+                                  </li>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"status"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={"**Possible values:** [`completed`, `pending`, `failed`]"}
+                              schema={{"type":"string","enum":["completed","pending","failed"],"description":"Status of the audit process"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"accountId"}
+                              required={false}
+                              schemaName={"integer"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","description":"Account ID associated with the audit"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"accountUrl"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"Account URL associated with the audit"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"success\": true,\n  \"data\": {\n    \"url\": \"string\",\n    \"domain\": \"string\",\n    \"timestamp\": \"2024-07-29T15:51:28.071Z\",\n    \"overallScore\": 0,\n    \"summary\": \"string\",\n    \"siteFiles\": {\n      \"status\": \"Excellent\",\n      \"explanation\": \"string\",\n      \"robotsTxt\": \"found\",\n      \"llmsTxt\": \"found\",\n      \"botAccess\": {\n        \"gptbot\": \"allowed\",\n        \"claude\": \"allowed\",\n        \"googlebot\": \"allowed\"\n      }\n    },\n    \"seoFundamentals\": {\n      \"status\": \"Excellent\",\n      \"explanation\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"h1Count\": 0\n    },\n    \"structuredData\": {\n      \"status\": \"Excellent\",\n      \"explanation\": \"string\",\n      \"hasSchema\": true,\n      \"hasJsonLd\": true,\n      \"detectedSchemas\": [\n        \"string\"\n      ]\n    },\n    \"contentStructure\": {\n      \"status\": \"Excellent\",\n      \"explanation\": \"string\",\n      \"semanticHtmlScore\": 0\n    },\n    \"imageAccessibility\": {\n      \"status\": \"Excellent\",\n      \"explanation\": \"string\",\n      \"missingAltPercentage\": 0,\n      \"totalImages\": 0,\n      \"imagesWithoutAlt\": 0\n    },\n    \"automationReadiness\": {\n      \"status\": \"Excellent\",\n      \"explanation\": \"string\",\n      \"issues\": [\n        \"string\"\n      ]\n    },\n    \"jsRendering\": {\n      \"status\": \"Excellent\",\n      \"explanation\": \"string\",\n      \"frameworkDetected\": \"string\",\n      \"renderingType\": \"Static\",\n      \"aiAccessibility\": \"Excellent\",\n      \"contentAvailability\": \"string\",\n      \"recommendations\": [\n        \"string\"\n      ]\n    },\n    \"quickWins\": [\n      {\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"impact\": \"High\"\n      }\n    ],\n    \"status\": \"completed\",\n    \"accountId\": 0,\n    \"accountUrl\": \"string\"\n  }\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem><TabItem
+                  label={"successful"}
+                  value={"successful"}
+                >
+                  <div
+                    className={"openapi-example__summary"}
+                  >
+                    Successful audit
+                  </div><ResponseSamples
+                    responseExample={"{\n  \"success\": true,\n  \"data\": {\n    \"url\": \"https://example.com/\",\n    \"domain\": \"https://example.com\",\n    \"timestamp\": \"2025-10-16T07:52:01.581Z\",\n    \"overallScore\": 35,\n    \"summary\": \"The website is a basic example domain, primarily intended for documentation.\",\n    \"siteFiles\": {\n      \"status\": \"Poor\",\n      \"explanation\": \"Neither robots.txt nor llms.txt are present.\",\n      \"robotsTxt\": \"not_found\",\n      \"llmsTxt\": \"not_found\",\n      \"botAccess\": {\n        \"gptbot\": \"not_specified\",\n        \"claude\": \"not_specified\",\n        \"googlebot\": \"not_specified\"\n      }\n    },\n    \"seoFundamentals\": {\n      \"status\": \"Poor\",\n      \"explanation\": \"The site has a title tag but lacks a meta description.\",\n      \"title\": \"Example Domain\",\n      \"description\": null,\n      \"h1Count\": 1\n    },\n    \"structuredData\": {\n      \"status\": \"Poor\",\n      \"explanation\": \"No schema.org markup is present.\",\n      \"hasSchema\": false,\n      \"hasJsonLd\": false,\n      \"detectedSchemas\": []\n    },\n    \"contentStructure\": {\n      \"status\": \"Needs Improvement\",\n      \"explanation\": \"The content is very basic.\",\n      \"semanticHtmlScore\": 6\n    },\n    \"imageAccessibility\": {\n      \"status\": \"Not Applicable\",\n      \"explanation\": \"There are no images on the page.\",\n      \"missingAltPercentage\": 0,\n      \"totalImages\": 0,\n      \"imagesWithoutAlt\": 0\n    },\n    \"automationReadiness\": {\n      \"status\": \"Poor\",\n      \"explanation\": \"The lack of structured data and robots.txt/llms.txt hinders automation.\",\n      \"issues\": [\n        \"Missing robots.txt\",\n        \"Missing llms.txt\",\n        \"Lack of structured data\"\n      ]\n    },\n    \"jsRendering\": {\n      \"status\": \"Good\",\n      \"explanation\": \"The website appears to be statically rendered with minimal to no JavaScript.\",\n      \"frameworkDetected\": \"None\",\n      \"renderingType\": \"Static\",\n      \"aiAccessibility\": \"Excellent\",\n      \"contentAvailability\": \"All content in HTML\",\n      \"recommendations\": []\n    },\n    \"quickWins\": [\n      {\n        \"title\": \"Add a Meta Description\",\n        \"description\": \"Implement a meta description tag in the <head> section.\",\n        \"impact\": \"Medium\"\n      },\n      {\n        \"title\": \"Implement robots.txt\",\n        \"description\": \"Create a robots.txt file to explicitly define crawling rules.\",\n        \"impact\": \"Medium\"\n      }\n    ],\n    \"status\": \"completed\",\n    \"accountId\": 216,\n    \"accountUrl\": \"https://example.com\"\n  }\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized - Invalid or missing API key
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"success"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean","example":false}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"Error message"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"success\": false,\n  \"error\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"422"}
+        value={"422"}
+      >
+        <div>
+          
+          
+          Validation Error - Invalid request format
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                detail
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"loc"}
+                              required={false}
+                              schemaName={"string[]"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"array","items":{"type":"string"}}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"msg"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"type"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

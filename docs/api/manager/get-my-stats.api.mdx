@@ -5,34 +5,173 @@ description: "Get the Account statistics, such the number of products, product g
 sidebar_label: "Get my Account statistics"
 hide_title: true
 hide_table_of_contents: true
-api: {"description":"Get the Account statistics, such the number of products, product groups and urls in the KG.","operationId":"getMyStats","responses":{"200":{"content":{"application/json":{"schema":{"type":"object","description":"The Account statistics","properties":{"entities":{"type":"integer","format":"int64","description":"The number of entities."},"entities_with_url":{"type":"integer","format":"int64","description":"The number of entities with URL."},"product_groups":{"type":"integer","format":"int64","description":"The number of product groups in the KG."},"products":{"type":"integer","format":"int64","description":"The number of products in the KG."}},"required":["entities","entities_with_url","product_groups","products"],"title":"AccountStats"}}},"description":"Found"},"401":{"description":"Authentication Failure"}},"security":[{"ApiKey":[]},{"OAuth2":[]}],"tags":["Account Stats"],"method":"get","path":"/accounts/me/stats","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"ApiKey":{"description":"`Key {your key}`","in":"header","name":"Authorization","type":"apiKey"},"BasicAuth":{"description":"`Basic {encoded username:password}`","in":"header","name":"Authorization","scheme":"basic","type":"http"},"OAuth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Subscription management and related services.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Manager","version":"1.0"},"postman":{"name":"Get my Account statistics","description":{"content":"Get the Account statistics, such the number of products, product groups and urls in the KG.","type":"text/plain"},"url":{"path":["accounts","me","stats"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"apikey","apikey":[{"type":"any","value":"Authorization","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"header","key":"in"}]}}}
+api: eJy1VcFu2zgQ/RViTluAsVyj6EGnzW7boEiLAk2DPRRBSlNji41EsuQoWa+gf18MKTmy6wLBbnsSRQ7fPA7fPPZQYdTBeDLOQgkXSIJqFOdau86SiKTIRDI6ShE7XadF27VrDMJthA+u6jRFOY3ENrjOR6FsJbrQRGFs2nJ5sQAJzmNQnOltBSVskd7vrkhRBAkBo3c2YoSyh9VyyR/tLKElHirvG6PT3uJrZKo9RF1jq3hEO49Qglt/RU0gj8706eR5QIIPTIhMTqpyyK2pZpDGEm4xgISNC62iPPXyxckkI4J4+2oBgwS0ZCbw/wL3WOYJ6QD29sFQfduF5ufhC4YU1x/fpUTjld7mK/3/WY4kMlPGY7Kfl+YwwcAK+9aZgBWUn+d3PbunU7X9rgwzqjcSyFDDXEd9ZTUPnO6Q4hvX2YrP+WL5nI94uHreUc2ps8DFG2WaLmBiHVF3wdAOys89nHtziTy8GWQPH3jbKv0xE7WNfLRJ6ZnKjYQWqXZjvzF7RTWUUIwliEWLRRybMGK4xxBTriQsqIl8LItCebN4cKFqzIYWxgFnnKhdcR9mmU8Ejw/45RJ3ot+5Log73A1fQILh+RpVlW7YqhbHQrhg/kl1ADkpQWXYQcIfKhrNUSdypDXRo9Wuwkp0EQPDll7FyNyfnjY5Cy+sGfKRB1eDWUyV72HTuIfsHnOIP12F301eHxQ0zstZOI4spnAsEgfnc1EziZGMSPNMgtwdPgE0hRVJS5NNqsSeZ4zduMlplU5Oi60yCRObxv0+v/N9uf5yoXpnNqymQ5UcKOS4Ba669f5XtMqqLbZoKT0VARtFWAkWoNFsdBIao9HGVMcx72/6mdDO74LZ1iRWy9XqzAeMDPJUSoShjR82VznP6bgiBZ25zdlIh69javT3iThrhzsln+z5YpkszEVqlZ0R5te03Z1+fA6KM3vrfvETPGqA8G8qfKOMZebjI5KtYe+OzLJFluJkJbWLxAF9v1YRr0MzDDz9rcOQXEnCvQpGrblS7FFTo7Gf3LEvsDuh51u6V02XW/voYR/mlnXx+hPI1Eazd0F5w2ByGjD6tGR3M+zjts4U7pKT/GBL32evGYZ9fF764Y69l+RoLujNMAz/AvInOjY=
 sidebar_class_name: "get api-method"
 info_path: api/manager/manager
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Get my Account statistics
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get my Account statistics"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/accounts/me/stats"}
+>
+  
+</MethodEndpoint>
 
 
 
 Get the Account statistics, such the number of products, product groups and urls in the KG.
 
-<div><ApiTabs><TabItem label={"200"} value={"200"}><div>
-
-Found
-
-</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"entities"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"The number of entities."}}></SchemaItem><SchemaItem collapsible={false} name={"entities_with_url"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"The number of entities with URL."}}></SchemaItem><SchemaItem collapsible={false} name={"product_groups"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"The number of product groups in the KG."}}></SchemaItem><SchemaItem collapsible={false} name={"products"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"The number of products in the KG."}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"entities\": 0,\n  \"entities_with_url\": 0,\n  \"product_groups\": 0,\n  \"products\": 0\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem></ApiTabs></div>
+<div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"account_id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64","description":"The account ID."}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"entities"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64","description":"The number of entities."}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"entities_with_url"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64","description":"The number of entities with URL."}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"product_groups"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64","description":"The number of product groups in the KG."}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"products"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64","description":"The number of products in the KG."}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"account_id\": 0,\n  \"entities\": 0,\n  \"entities_with_url\": 0,\n  \"product_groups\": 0,\n  \"products\": 0\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

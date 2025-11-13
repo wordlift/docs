@@ -1,42 +1,126 @@
 ---
 id: delete-rule
-title: "Delete Rule"
-description: "Delete Rule"
-sidebar_label: "Delete Rule"
+title: "Delete"
+description: "Delete"
+sidebar_label: "Delete"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"deleteRule","parameters":[{"description":"The Content Generation id.","in":"path","name":"contentGenerationId","required":true,"schema":{"type":"integer","format":"int64"}},{"description":"The id","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"description":"Found."},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}},"security":[{"security_oauth2":[]}],"tags":["ContentGeneration Rules"],"description":"Delete Rule","method":"delete","path":"/content-generations/{contentGenerationId}/rules/{id}","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"Delete Rule","description":{"type":"text/plain"},"url":{"path":["content-generations",":contentGenerationId","rules",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) The Content Generation id.","type":"text/plain"},"type":"any","value":"","key":"contentGenerationId"},{"disabled":false,"description":{"content":"(Required) The id","type":"text/plain"},"type":"any","value":"","key":"id"}]},"method":"DELETE","auth":{"type":"oauth2","oauth2":[]}}}
+api: eJydVE1r3DAQ/StmTg0o680SevCpIR+lEFrIBz2EJSjSeC0iS440Trox/u9lZHu7m01L6MnWePTmzfO86cA3GCQZ775pKECjRcKr1iIIaGSQNRKGCMVdBxqjCqbhXCjgpsLMaBBg+NRIqkCAkzVCASke8Kk1ATUUFFoUEFWFtYSiA1o3KcsRrjCAgNKHWtIQ+nwMfb/k67HxLmLkG4v5nB+7DC586/QMegHH86P9zyctVejIqNRddiGNbQMO6cf76d89ZQkR+l5ARNUGQ+vU+HS497KlagHF3ZIZklyxMMBqRViKN4BnSUoQUCNV/o+4SViqoIA88M28M7oHLhmeJ6nbYKGAiqiJRZ7LxsxefNDWlDQzHrj4xOmaVR1E2qPZQWn9S/rGER/Ma9Li1GvcC97ulIzbBfMEmE/pmDNb5Zuh7IOMRkExPLMUZ5HJP+IHQFNanjQfx2JkzxHjSs8llHckFfEr1tIkTLTWf9lWZTN9P33Ql6YkEG903NHw7e/6io6NgJnydWORozF7kBF15l2m2ki+Nq+oM2vcqjWRjMpqr9HGGQiwRqGLSdWRxSd1kCnfrINZVZQt5ovFYRMwoqPsowQJQx1/lNcYno3C9/PylHToy8M4pPHPIUOW80+9Iy449saNCuAhG1o+ms25TOMj1dJtcd+M7o5EG+MS/qK8sdI4vp5a6MaZvoM00yCgMJo9UflIHO461vI22L7n8FOLgc21FPAsg5EPzJd3jIn8rqEopY24x0ANHbG+V+N+Ocg2q+hdfmNQujU3L23LJxDwiOthVfXLfsukZ+eX5zfnIJI7tpoex1LAZgl070MPfpjwJz/8JfkD1piQpFIY481kq/+C3LHwCNtS9U+8nS1xr3h3THdXQTq6T7f6Zd/3vwHukCjx
 sidebar_class_name: "delete api-method"
 info_path: api/content-generation/content-generation
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## Delete Rule
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/rules/{id}"}
+>
+  
+</MethodEndpoint>
 
 
 
-Delete Rule
+Delete
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The Content Generation id.","in":"path","name":"contentGenerationId","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"description":"The id","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found.
-
-</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
-
-Not Found
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The id","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found.
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

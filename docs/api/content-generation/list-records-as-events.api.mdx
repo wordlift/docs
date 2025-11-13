@@ -5,34 +5,109 @@ description: "List as Events"
 sidebar_label: "List as Events"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"listRecordsAsEvents","parameters":[{"description":"The Content Generation id.","in":"path","name":"contentGenerationId","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"description":"Found."},"401":{"description":"Authentication Failure"}},"security":[{"security_oauth2":[]}],"tags":["Content Generation Records"],"description":"List as Events","method":"get","path":"/content-generations/{contentGenerationId}/records-sse","servers":[{"url":"https://api.wordlift.io"}],"securitySchemes":{"security_oauth2":{"flows":{"authorizationCode":{"authorizationUrl":"https://s.wordlift.io/oauth/authorize/","scopes":{"basic":"basic scope"},"tokenUrl":"https://s.wordlift.io/oauth/token/"}},"type":"oauth2"}},"info":{"contact":{"email":"hello@wordlift.io","name":"WordLift","url":"https://wordlift.io"},"description":"Generate completions based on customized linguistic models.","license":{"name":"(c) copyright 2022-present WordLift","url":"https://wordlift.io"},"termsOfService":"https://wordlift.io/terms-of-service/","title":"Content Generation","version":"1.0"},"postman":{"name":"List as Events","description":{"type":"text/plain"},"url":{"path":["content-generations",":contentGenerationId","records-sse"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) The Content Generation id.","type":"text/plain"},"type":"any","value":"","key":"contentGenerationId"}]},"method":"GET","auth":{"type":"oauth2","oauth2":[]}}}
+api: eJydVNtO40AM/ZXIT4uUNqVC+5CnRQgQEtJKXLQPqELDxGlGTGbC2Clbovz7yrmUlhaE9imJY59jH18a8BUGxca7qwxSsIb4BrUPGZ3S+QodE8RQqaBKZAwE6UMDGZIOppIgSOGuwOjMO0bH0SW6AS0y2RRiMOJRKS4gBqdKhBR07/vuepVBDAFfahMwg5RDjTGQLrBUkDbA60rCjGNcYoAYch9Kxb3p5wm07ULCqfKOkCRiPpvJYzfNC1+7bAptDCez4/3fpzUX6NjoPvsLZWwdENo2BkJdB8Prrvbx49Grmos5pA8L4We1FG3ggBCDnLCIP1BeG+JIUbSRuUQuvHRhidypzgWkkAyCTZYbTEqaAyq2SeipJkQIkndYjS2rg4UUCuaK0iRRlZm++pBZk/PUeJAKxsJuRfhex71aG8itf+3+icUH89Zxn/kM94z3O5S0TZh0gMnojolkq33V0z4pMhrS/hl1dmkb+2f8BmjnlnSNGyZnyF4sxuVeKEQ9pVlesVSmw0Rr/a9tVTYT+8eH7Nrk0pNdHXc0/NjeoTUYaV9WFru+RU+KMIu8i3RN7EvzhllkjVvWhtjoqPQZWpLFsUajo07VIYsf+ijSvloHsyw4ms/m80kVkGTavpsgYyjpd36LYWU0HvZLOqeJzyfUu0lz2LAV//3xhhhkyPqSj6czoak8cancVu57o74j1WbHGf9yUlllnMB0pTTDGjzAgTWAGNLPzsn7JixiKDyxYDSNNOA+2LYV80uNQdZ6EcNKBaOepEg5cIbkPYM0V5ZwL92BU5pyM9yto+jLO3iwwMGo3FpUVLaWL4jhGdef3Ml20W6dicvzO4i7pdvScJj2GDYHqjlM1K/ZyDau2SfO39i4EUlpjUR347b+F+TOZRhgay6+xNs5Po9aTtIYuwzK8WMX1S7atv0HP0BsLQ==
 sidebar_class_name: "get api-method"
 info_path: api/content-generation/content-generation
 custom_edit_url: null
 ---
 
 import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-## List as Events
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List as Events"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/content-generations/{contentGenerationId}/records-sse"}
+>
+  
+</MethodEndpoint>
 
 
 
 List as Events
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"description":"The Content Generation id.","in":"path","name":"contentGenerationId","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
-Found.
-
-</div><div></div></TabItem><TabItem label={"401"} value={"401"}><div>
-
-Authentication Failure
-
-</div><div></div></TabItem></ApiTabs></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The Content Generation id.","in":"path","name":"contentGenerationId","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Found.
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Authentication Failure
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       
