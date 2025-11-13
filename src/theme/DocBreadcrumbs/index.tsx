@@ -142,13 +142,17 @@ function PageActionsDropdown(): ReactNode {
           gap: '4px',
           color: '#ffffff',
         }}
-        aria-label="AI Actions"
+        aria-label="AI Actions menu"
+        aria-expanded={isOpen}
+        aria-haspopup="menu"
       >
         AI ▾
       </button>
 
       {isOpen && (
         <div
+          role="menu"
+          aria-label="AI Actions"
           style={{
             position: 'absolute',
             right: 0,
@@ -163,6 +167,7 @@ function PageActionsDropdown(): ReactNode {
           }}
         >
           <button
+            role="menuitem"
             onClick={copyPageLink}
             style={{
               width: '100%',
@@ -181,6 +186,7 @@ function PageActionsDropdown(): ReactNode {
             🔗 Copy page link
           </button>
           <button
+            role="menuitem"
             onClick={viewMarkdown}
             style={{
               width: '100%',
@@ -199,6 +205,7 @@ function PageActionsDropdown(): ReactNode {
             📄 View Page as Markdown
           </button>
           <button
+            role="menuitem"
             onClick={openInChatGPT}
             style={{
               width: '100%',

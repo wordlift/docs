@@ -235,6 +235,19 @@ const config = {
               },
             ],
           },
+          {
+            title: "AI Resources",
+            items: [
+              {
+                label: "llms.txt",
+                href: "/llms.txt",
+              },
+              {
+                label: "llms-full.txt",
+                href: "/llms-full.txt",
+              },
+            ],
+          },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} WordLift srl`,
       },
