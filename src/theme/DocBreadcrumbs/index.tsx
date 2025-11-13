@@ -64,40 +64,17 @@ function PageActionsDropdown(): ReactNode {
     return `${origin}${location.pathname}${location.search}${location.hash}`;
   };
 
-  // Get the markdown file path from the current page
-  const getMarkdownPath = () => {
-    const pathname = location.pathname;
-    // Convert URL path to markdown file path
-    let mdPath = pathname.replace(/^\//, '').replace(/\/$/, '');
-
-    if (!mdPath || mdPath === '') {
-      return 'docs/introduction.md';
-    }
-
-    // For paths that look like directories
-    if (!mdPath.includes('.')) {
-      // Check if it has multiple segments (likely a directory with index.md)
-      const segments = mdPath.split('/');
-      if (segments.length > 1 || segments[0] === 'agent-wordlift' || segments[0] === 'pages') {
-        // For directories, use index.md
-        mdPath = `docs/${mdPath}/index.md`;
-      } else {
-        // For single-level paths under pages/, try .md first
-        mdPath = `docs/${mdPath}.md`;
-      }
-    }
-
-    return mdPath;
-  };
-
   const copyPageLink = () => {
     navigator.clipboard.writeText(getCurrentUrl());
     setIsOpen(false);
   };
 
   const viewMarkdown = () => {
-    const mdPath = getMarkdownPath();
-    const githubUrl = `https://raw.githubusercontent.com/wordlift/docs/refs/heads/main/${mdPath}`;
+    const pathname = location.pathname.replace(/^\//, '').replace(/\/$/, '');
+    // Use GitHub tree view for the path - works for all file types and structures
+    const githubUrl = pathname
+      ? `https://github.com/wordlift/docs/tree/main/docs/${pathname}`
+      : 'https://github.com/wordlift/docs/tree/main/docs';
     window.open(githubUrl, '_blank');
     setIsOpen(false);
   };
@@ -202,7 +179,7 @@ function PageActionsDropdown(): ReactNode {
               color: 'var(--ifm-font-color-base)',
             }}
           >
-            📄 View Page as Markdown
+            📄 View Source on GitHub
           </button>
           <button
             role="menuitem"

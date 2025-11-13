@@ -239,12 +239,10 @@ const config = {
             title: "AI Resources",
             items: [
               {
-                type: 'html',
-                value: '<a href="/llms.txt" target="_blank" rel="noopener noreferrer" class="footer__link-item">llms.txt</a>',
+                html: '<a href="/llms.txt" target="_blank" rel="noopener noreferrer" class="footer__link-item">llms.txt</a>',
               },
               {
-                type: 'html',
-                value: '<a href="/llms-full.txt" target="_blank" rel="noopener noreferrer" class="footer__link-item">llms-full.txt</a>',
+                html: '<a href="/llms-full.txt" target="_blank" rel="noopener noreferrer" class="footer__link-item">llms-full.txt</a>',
               },
             ],
           },
