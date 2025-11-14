@@ -71,15 +71,42 @@ function PageActionsDropdown(): ReactNode {
 
   const viewMarkdown = () => {
     const pathname = location.pathname.replace(/^\//, '').replace(/\/$/, '');
-    // Use GitHub tree view for the path - works for all file types and structures
-    const githubUrl = pathname
-      ? `https://github.com/wordlift/docs/tree/main/docs/${pathname}`
-      : 'https://github.com/wordlift/docs/tree/main/docs';
+
+    // Homepage or empty path - link to root tree view
+    if (!pathname) {
+      window.open('https://github.com/wordlift/docs/tree/main/docs', '_blank');
+      setIsOpen(false);
+      return;
+    }
+
+    // Skip generated/category pages and API pages - link to tree view
+    if (pathname.startsWith('category/') || pathname.includes('/category/') || pathname.startsWith('api/')) {
+      // For API pages, show the specific directory
+      const githubUrl = pathname.startsWith('api/')
+        ? `https://github.com/wordlift/docs/tree/main/docs/${pathname.split('/').slice(0, -1).join('/')}`
+        : 'https://github.com/wordlift/docs/tree/main/docs';
+      window.open(githubUrl, '_blank');
+      setIsOpen(false);
+      return;
+    }
+
+    // Try to build raw markdown URL
+    // Most docs follow the pattern: /path/to/page/ -> docs/path/to/page.md or docs/path/to/page/index.md
+    const segments = pathname.split('/');
+    let mdPath = '';
+
+    if (segments.length === 1) {
+      // Single segment like 'agent-wordlift' -> try index.md
+      mdPath = `docs/${pathname}/index.md`;
+    } else {
+      // Multi-segment - try direct .md first
+      mdPath = `docs/${pathname}.md`;
+    }
+
+    const githubUrl = `https://raw.githubusercontent.com/wordlift/docs/refs/heads/main/${mdPath}`;
     window.open(githubUrl, '_blank');
     setIsOpen(false);
-  };
-
-  const openInChatGPT = () => {
+  };  const openInChatGPT = () => {
     const currentPageUrl = getCurrentUrl();
     const pageTitle = typeof document !== 'undefined' ? document.title : '';
     const prompt = `I'm reading this page: "${pageTitle}" at ${currentPageUrl}. Can you help me understand it better?`;
@@ -179,7 +206,12 @@ function PageActionsDropdown(): ReactNode {
               color: 'var(--ifm-font-color-base)',
             }}
           >
-            📄 View Source on GitHub
+            <img
+              src="/img/github-logo.svg"
+              alt="GitHub"
+              style={{ width: '16px', height: '16px' }}
+            />
+            View Markdown
           </button>
           <button
             role="menuitem"
