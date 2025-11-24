@@ -16,7 +16,7 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
-    "@docsearch/react": "^4.3.2",
+    "@docsearch/react": "3.5.2",
     "@docusaurus/core": "^3.9.2",
     "@docusaurus/module-type-aliases": "^3.9.2",
     "@docusaurus/plugin-client-redirects": "^3.9.2",
