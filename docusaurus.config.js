@@ -279,7 +279,7 @@ const config = {
 
       // Algolia search temporarily disabled due to corrupt index data
       // Error: "Cannot read properties of null (reading 'replace')"
-      // TODO: Reindex Algolia to fix null values in search results
+      // TODO: Trigger GitHub Action to reindex, then uncomment this
       // algolia: {
       //   appId: "KT7EPQGS5A",
       //   apiKey: "4443307bcba39f1d7cc5c4d492411b6e",
