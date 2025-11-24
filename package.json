@@ -16,10 +16,12 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
+    "@docsearch/react": "^4.3.2",
     "@docusaurus/core": "^3.9.2",
     "@docusaurus/module-type-aliases": "^3.9.2",
     "@docusaurus/plugin-client-redirects": "^3.9.2",
     "@docusaurus/preset-classic": "^3.9.2",
+    "@docusaurus/theme-search-algolia": "^3.9.2",
     "@mdx-js/react": "^3.1.1",
     "clsx": "^1.2.1",
     "docusaurus-plugin-llms-builder": "^0.1.13",

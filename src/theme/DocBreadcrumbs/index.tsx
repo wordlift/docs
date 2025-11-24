@@ -57,11 +57,19 @@ function PageActionsDropdown(): ReactNode {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
+  // Safety check: don't render if location is not available
+  if (!location) {
+    return null;
+  }
+
   // Get current URL from location - this will update when location changes
   const getCurrentUrl = () => {
     if (typeof window === 'undefined') return '';
     const origin = window.location.origin;
-    return `${origin}${location.pathname}${location.search}${location.hash}`;
+    const pathname = location?.pathname || '';
+    const search = location?.search || '';
+    const hash = location?.hash || '';
+    return `${origin}${pathname}${search}${hash}`;
   };
 
   const copyPageLink = () => {
@@ -70,7 +78,14 @@ function PageActionsDropdown(): ReactNode {
   };
 
   const viewMarkdown = () => {
-    const pathname = location.pathname.replace(/^\//, '').replace(/\/$/, '');
+    if (!location?.pathname) {
+      window.open('https://github.com/wordlift/docs/tree/main/docs', '_blank');
+      setIsOpen(false);
+      return;
+    }
+
+    try {
+      const pathname = location.pathname.replace(/^\//,  '').replace(/\/$/,  '');
 
     // Homepage or empty path - link to root tree view
     if (!pathname) {
@@ -106,6 +121,11 @@ function PageActionsDropdown(): ReactNode {
     const githubUrl = `https://raw.githubusercontent.com/wordlift/docs/refs/heads/main/${mdPath}`;
     window.open(githubUrl, '_blank');
     setIsOpen(false);
+    } catch (error) {
+      console.error('Error in viewMarkdown:', error);
+      window.open('https://github.com/wordlift/docs/tree/main/docs', '_blank');
+      setIsOpen(false);
+    }
   };  const openInChatGPT = () => {
     const currentPageUrl = getCurrentUrl();
     const pageTitle = typeof document !== 'undefined' ? document.title : '';

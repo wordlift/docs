@@ -287,6 +287,10 @@ const config = {
         indexName: "docs_wordlift_io",
 
         contextualSearch: false,
+        searchParameters: {},
+        transformItems: (items) => {
+          return items.filter(item => item.url != null);
+        },
       },
     }),
 
