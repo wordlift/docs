@@ -274,6 +274,11 @@ const sidebars = {
           label: "Sitemap Generator",
           items: require("./docs/api/sitemap-generator/sidebar.ts").default,
         },
+        {
+          type: "category",
+          label: "Query Fan-Out",
+          items: require("./docs/api/query-fan-out/sidebar.ts").default,
+        },
       ],
     },
   ],
