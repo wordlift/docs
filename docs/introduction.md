@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.7.0 (October 2025) - Now with Enhanced Google Knowledge Graph integration, AI Sub-Agent workflows via MCP, and Google Discover analytics!
+Latest Release: 3.7.0 (December 2025) - New Python SDK available on PyPI, Knowledge Graph export endpoint documentation, Chrome Extension bug fixes, and enhanced Google Knowledge Graph integration!
 :::
 
 # 👋 Welcome to WordLift
@@ -116,10 +116,12 @@ Looking to scale? Access:
 
 ```bash
 # For developers & custom integrations
-pip install wordlift-client
+pip install wordlift-sdk
 
-# Python, Node.js, PHP clients available
+# Python SDK with full API support
 ```
+
+📦 [Python SDK on PyPI](https://pypi.org/project/wordlift-sdk/)
 
 [Explore API Documentation →](/category/api)
   </TabItem>
@@ -183,10 +185,12 @@ Choose your path:
 ### 💻 Developer Path
 
 ```bash
-pip install wordlift-client  # It's that simple!
+pip install wordlift-sdk  # It's that simple!
 ```
 
 Then [grab your API key](https://wordlift.io/pricing/)
+
+📦 [View on PyPI](https://pypi.org/project/wordlift-sdk/) | 📚 [Python SDK Documentation](https://github.com/wordlift/python-sdk)
 
 You can also jumpstart a Knowledge Graph using our [getting-started-notebook](https://github.com/wordlift/getting-started-notebook):
 

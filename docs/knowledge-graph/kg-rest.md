@@ -19,7 +19,7 @@ Knowledge Graphs are powerful tools for structuring and interlinking data, enabl
 We'll assist you in setting up and performing Create, Read, Update, and Delete (CRUD) operations on your Knowledge Graph using two methods:
 
 1. **Using `curl`**
-2. **Using the WordLift Python Client**
+2. **Using the WordLift Python SDK**
 
 ### Prerequisites
 
@@ -27,7 +27,7 @@ Before you begin, ensure you have the following:
 
 - **API Key:** An active API key is required for authentication. If you don't have one, please request it from the [WordLift website](https://wordlift.io). he API key is used to authenticate your requests to the KG-REST API.
 - **HTTP Client:** Tools like [`curl`](https://curl.se/) can be used to send HTTP requests to the API.
-- **Python Environment:** If you prefer using Python, ensure you have Python installed along with the WordLift Python Client.
+- **Python Environment:** If you prefer using Python, ensure you have Python installed along with the [WordLift Python SDK](https://pypi.org/project/wordlift-sdk/).
 
 ### Obtaining Your API Key
 
@@ -79,15 +79,17 @@ curl -X GET "https://api.wordlift.io/entities?id=ENTITY_ID" \
 }
 ```
 
-### Using the WordLift Python Client
+### Using the WordLift Python SDK
 
 If you prefer to use Python, follow these steps:
 
-**a. Install the WordLift Python Client:**
+**a. Install the WordLift Python SDK:**
 
 ```bash
-pip install wordlift
+pip install wordlift-sdk
 ```
+
+📦 [View on PyPI](https://pypi.org/project/wordlift-sdk/)
 
 **b. Initialize the Client:**
 
@@ -258,3 +260,62 @@ Content-Type: application/json
   ]
 }
 ```
+
+### Export
+
+**Endpoint:** `GET /dataset/export`
+
+**Description:** Exports your entire Knowledge Graph dataset in various RDF formats. This endpoint allows you to download a complete backup of all entities and relationships in your Knowledge Graph.
+
+**Supported Formats:**
+
+The export endpoint supports multiple RDF serialization formats via the `Accept` header:
+
+- `application/rdf+xml` - RDF/XML format
+- `application/ld+json` - JSON-LD format
+- `text/turtle` - Turtle format
+- `text/n3` - N3 format
+
+**Request Examples:**
+
+**Export as RDF/XML:**
+
+```bash
+wget 'https://api.wordlift.io/dataset/export' \
+  --header="Authorization: Key <WORDLIFT_API_KEY>" \
+  --header="Accept: application/rdf+xml" \
+  -O "export.rdf"
+```
+
+**Export as JSON-LD:**
+
+```bash
+wget 'https://api.wordlift.io/dataset/export' \
+  --header="Authorization: Key <WORDLIFT_API_KEY>" \
+  --header="Accept: application/ld+json" \
+  -O "export.jsonld"
+```
+
+**Using curl:**
+
+```bash
+curl -X GET "https://api.wordlift.io/dataset/export" \
+  -H "Authorization: Key YOUR_API_KEY" \
+  -H "Accept: application/ld+json" \
+  -o "export.jsonld"
+```
+
+**Response:**
+
+The endpoint returns the complete dataset in the requested format. The response will contain all entities, their properties, and relationships stored in your Knowledge Graph.
+
+:::info Note
+This endpoint exports your entire Knowledge Graph. For large datasets, the download may take some time. Ensure you have sufficient storage space for the exported file.
+:::
+
+:::tip Use Cases
+- **Backup:** Create regular backups of your Knowledge Graph data
+- **Migration:** Export data when moving to a different infrastructure
+- **Analysis:** Download data for offline analysis or processing
+- **Integration:** Import your Knowledge Graph data into other systems or platforms
+:::

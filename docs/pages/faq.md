@@ -55,6 +55,21 @@ In addition, with the purchase of our 12-month packages, we offer 20% discount. 
 4. WordLift's technology is entirely open source: it takes development skills, infrastructure and some wisdom to nicely bring all the pieces together without our support.
 5. Your vocabulary (article metadata and entities) are published as [linked data](/pages/key-concepts#linked-open-data) and you can always request a data dump in any of the following formats: RDF/XML, Turtle, N3, JSON-LD.
 
+## How can I download my Knowledge Graph data?
+
+You can export your entire Knowledge Graph dataset using the [Dataset Export API endpoint](/knowledge-graph/kg-rest#export). The API supports multiple formats including RDF/XML, JSON-LD, Turtle, and N3.
+
+**Quick example using wget:**
+
+```bash
+wget 'https://api.wordlift.io/dataset/export' \
+  --header="Authorization: Key <WORDLIFT_API_KEY>" \
+  --header="Accept: application/ld+json" \
+  -O "export.jsonld"
+```
+
+Replace `<WORDLIFT_API_KEY>` with your actual WordLift API key. For detailed documentation and more examples, see the [Export section in the KG-REST API documentation](/knowledge-graph/kg-rest#export).
+
 ## Is WordLift Secure?
 
 Security has been a consideration from day one. We have worked for many years in high-security environments such as parliaments and telco operators and we leverage on all of our experience to protect the data of our users.
