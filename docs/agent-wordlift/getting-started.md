@@ -48,7 +48,5 @@ Expand the content on https://wordlift.io/ by integrating entities like Google a
 ```
 
 :::infoNote
-
 At the moment we are **not able to support Chinese language** for some of the Agent tasks that require analysing texts or queries.
-
 :::

@@ -19,11 +19,11 @@ jobs:
     steps:
       # Step 1: Checkout the first repository
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # Step 2: Checkout the second repository
       - name: Checkout second repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: wordlift/python-client
           path: "./python-client"

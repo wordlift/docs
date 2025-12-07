@@ -17,7 +17,7 @@ import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
 import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
+import CodeSamples from "@theme/CodeSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
 import Heading from "@theme/Heading";
@@ -563,22 +563,22 @@ Inspect a URL using Google Search Console
                   label={"Example (from schema)"}
                   value={"Example (from schema)"}
                 >
-                  <ResponseSamples
+                  <CodeSamples
                     responseExample={"{\n  \"inspectionResult\": {\n    \"inspectionResultLink\": \"string\",\n    \"indexStatusResult\": {\n      \"verdict\": \"PASS\",\n      \"coverageState\": \"string\",\n      \"robotsTxtState\": \"ALLOWED\",\n      \"indexingState\": \"string\",\n      \"lastCrawlTime\": \"2024-07-29T15:51:28.071Z\",\n      \"pageFetchState\": \"string\",\n      \"googleCanonical\": \"string\",\n      \"userCanonical\": \"string\",\n      \"sitemap\": [\n        \"string\"\n      ],\n      \"referringUrls\": [\n        \"string\"\n      ],\n      \"crawledAs\": \"MOBILE\"\n    },\n    \"mobileUsabilityResult\": {\n      \"verdict\": \"string\"\n    },\n    \"richResultsResult\": {\n      \"verdict\": \"PASS\",\n      \"detectedItems\": [\n        {\n          \"richResultType\": \"string\",\n          \"items\": [\n            {\n              \"name\": \"string\",\n              \"issues\": [\n                {\n                  \"issueMessage\": \"string\",\n                  \"severity\": \"WARNING\"\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    }\n  }\n}"}
                     language={"json"}
                   >
                     
-                  </ResponseSamples>
+                  </CodeSamples>
                 </TabItem><TabItem
                   label={"Example"}
                   value={"Example"}
                 >
-                  <ResponseSamples
+                  <CodeSamples
                     responseExample={"{\n  \"inspectionResult\": {\n    \"inspectionResultLink\": \"https://search.google.com/search-console/inspect?resource_id=sc-domain:example.com&id=3LKVoOqyHSOj12br3NiNoQ&utm_medium=link&utm_source=api\",\n    \"indexStatusResult\": {\n      \"verdict\": \"PASS\",\n      \"coverageState\": \"Submitted and indexed\",\n      \"robotsTxtState\": \"ALLOWED\",\n      \"indexingState\": \"INDEXING_ALLOWED\",\n      \"lastCrawlTime\": \"2025-11-04T02:36:47Z\",\n      \"pageFetchState\": \"SUCCESSFUL\",\n      \"googleCanonical\": \"https://www.example.com/product/12345\",\n      \"userCanonical\": \"https://www.example.com/product/12345\",\n      \"sitemap\": [\n        \"https://www.example.com/sitemap.xml\"\n      ],\n      \"referringUrls\": [\n        \"https://www.example.com/sitemap.xml\",\n        \"https://www.example.com/product-listing\"\n      ],\n      \"crawledAs\": \"MOBILE\"\n    },\n    \"mobileUsabilityResult\": {\n      \"verdict\": \"VERDICT_UNSPECIFIED\"\n    },\n    \"richResultsResult\": {\n      \"verdict\": \"PASS\",\n      \"detectedItems\": [\n        {\n          \"richResultType\": \"Product snippets\",\n          \"items\": [\n            {\n              \"name\": \"Sample Product Name\",\n              \"issues\": [\n                {\n                  \"issueMessage\": \"Missing field \\\"review\\\"\",\n                  \"severity\": \"WARNING\"\n                },\n                {\n                  \"issueMessage\": \"Missing field \\\"aggregateRating\\\"\",\n                  \"severity\": \"WARNING\"\n                }\n              ]\n            }\n          ]\n        },\n        {\n          \"richResultType\": \"Merchant listings\",\n          \"items\": [\n            {\n              \"name\": \"Sample Product Name\",\n              \"issues\": [\n                {\n                  \"issueMessage\": \"Missing field \\\"shippingDetails\\\"\",\n                  \"severity\": \"WARNING\"\n                },\n                {\n                  \"issueMessage\": \"Missing field \\\"hasMerchantReturnPolicy\\\"\",\n                  \"severity\": \"WARNING\"\n                }\n              ]\n            }\n          ]\n        },\n        {\n          \"richResultType\": \"Breadcrumbs\",\n          \"items\": [\n            {\n              \"name\": \"Unnamed item\"\n            }\n          ]\n        }\n      ]\n    }\n  }\n}"}
                     language={"json"}
                   >
                     
-                  </ResponseSamples>
+                  </CodeSamples>
                 </TabItem>
               </SchemaTabs>
             </TabItem>
