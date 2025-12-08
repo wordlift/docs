@@ -192,7 +192,7 @@ Analyze content alignment between my website and Instagram account @[handle]. Id
 Set up monitoring for key search queries where my Instagram content @[handle] could rank. Compare current visibility against main website pages and identify optimization opportunities.
 ```
 
-## 🔍 Enhanced Knowledge Graph Research
+## 🔍 Enhanced Knowledge Graph Research {#enhanced-knowledge-graph-research}
 
 ### Enhanced Entity Lookup
 

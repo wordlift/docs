@@ -296,7 +296,7 @@ const config = {
                     },
                     {
                         to: "/cloud/",
-                        from: ["/pages/wordlift-cloud", "/pages/wordlift-cloud/"],
+                        from: "/pages/wordlift-cloud",
                     },
                     {
                         to: "/wordpress-plugin/troubleshooting/",

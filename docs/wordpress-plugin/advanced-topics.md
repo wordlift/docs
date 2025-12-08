@@ -20,7 +20,7 @@ Large linked open datasets (or [Knowledge Graph](#knowledge-graph)) include DBpe
 
 ### Reconciliation
 
-**Reconciling** entities we store in our own [vocabulary](#system-message-1) with entities available elsewhere provides computers with an unambiguous way to identify the things we're talking about.
+**Reconciling** entities we store in our own [vocabulary](/pages/key-concepts#vocabulary) with entities available elsewhere provides computers with an unambiguous way to identify the things we're talking about.
 
 *\[Apple\]* in a specific article might refer to a rather typical British psychedelic-pop band rather than to a World famous computer company or the forbidden fruit. This becomes important when third party applications like search engines need to provide valuable content for users searching for articles on *\[Apple\]* the psychedelic-pop band and not the other two *Apples*.
 

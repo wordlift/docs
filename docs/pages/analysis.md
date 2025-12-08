@@ -62,7 +62,7 @@ Once you hit the **Save Draft** button *for the first time*, [entities](/pages/k
 
 ![image](./images/wordlift-content-analysis-results.png)
 
-By clicking on each entity you can [reconcile](/pages/key-concepts#reconciliation) it with the same entity in DBpedia or Freebase using the [WordLift Edit Post Widget](#wordlift-edit-post-widget)(#wordlift-edit-post-widget). The entities that you choose will annotate this blog post.
+By clicking on each entity you can [reconcile](/pages/key-concepts#reconciliation) it with the same entity in DBpedia or Freebase using the [WordLift Edit Post Widget](#wordlift-edit-post-widget). The entities that you choose will annotate this blog post.
 
 :::info Note
 Text annotation in WordLift is *semi-automatic*. [Entities](/pages/key-concepts#entity) being extracted automatically must be validated by the editor before being recorded.
