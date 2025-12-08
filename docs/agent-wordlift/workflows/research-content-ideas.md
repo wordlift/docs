@@ -15,7 +15,7 @@ Learn how to effectively research content ideas using Reddit discussions with Ag
   src="https://www.youtube.com/embed/PApeDYvL5A8"
   frameborder="0"
   allow="autoplay; encrypted-media"
-  allowfullscreen>
+  allowfullscreen referrerpolicy="strict-origin-when-cross-origin">
 </iframe>
 
 In this video, you'll see how to:

@@ -7,7 +7,7 @@ sidebar_position: 8
 
 Watch the complete workflow demonstration:
 
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/qPzidYw0ITA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/qPzidYw0ITA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
 :::info MCP-Powered Workflow
 This workflow leverages Agent WordLift as a specialized SEO sub-agent through the [Model Context Protocol (MCP) integration](../integrations.md#agent-wordlift-model-context-protocol-mcp-integration). Agent WordLift provides deep SEO expertise while working seamlessly within Claude, ChatGPT, Copilot, or Gemini.

@@ -17,7 +17,7 @@ See how Agent WordLift creates and manages authorship markup automatically:
   src="https://www.youtube.com/embed/osj2RJ6gPfM"
   frameborder="0"
   allow="autoplay; encrypted-media"
-  allowfullscreen>
+  allowfullscreen referrerpolicy="strict-origin-when-cross-origin">
 </iframe>
 
 ## Quick Start

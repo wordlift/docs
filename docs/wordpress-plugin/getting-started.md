@@ -163,7 +163,7 @@ Linked Data technologies allow software agents and search crawlers find, share a
 
 ## Features at a glance
 
-<iframe src="https://www.youtube.com/embed/TzsIz-mjY94" width="100%" height="540" frameborder="0" scrolling="auto"></iframe>
+<iframe src="https://www.youtube.com/embed/TzsIz-mjY94" width="100%" height="540" frameborder="0" scrolling="auto" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
 **WordLift** is a **semantic editor** for WordPress to help writing, organizing, tagging and sharing content online.
 **WordLift** is designed for bloggers, journalists and content creators to inspire and make writing more productive.

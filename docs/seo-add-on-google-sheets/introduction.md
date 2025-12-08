@@ -14,7 +14,7 @@ The Entity Analysis supports hundreds of languages with many different alphabets
 In this video you will learn what is SEO Add-On for Google Sheets and how it can help you to improve your SEO strategy.
 
 
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/Fxb9tugJMe8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/Fxb9tugJMe8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
 ## How it works
 
@@ -104,7 +104,7 @@ You can now **select the relevant entities**. If you have WordPress with WordLif
 
 Learn how to use the SEO Add-on for Google Sheets, watching this demo👇
 
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/bhxiRj7_ZKs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/bhxiRj7_ZKs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
 
 :::info Note

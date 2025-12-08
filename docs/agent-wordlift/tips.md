@@ -7,7 +7,7 @@ Talk to the Agent as your SEO assistant: Provide it with step-by-step instructio
 
 - **Watch the Video:** Get a visual introduction to the WordLift AI SEO Agent's capabilities and how it simplifies various SEO tasks.
 
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/iIwLM4dCBWY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/iIwLM4dCBWY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
 # Optimizing SEO with AI Agents: An Experiment
 

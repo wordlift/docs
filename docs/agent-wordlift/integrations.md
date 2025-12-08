@@ -16,7 +16,7 @@ Supercharge your SEO workflow directly in your browser with the **Agent WordLift
 Powered by cutting-edge AI and knowledge graph technology, the Agent WordLift Chrome Extension transforms how you create and optimize content, making it easier than ever to achieve your SEO goals.
 
 Ready to see it in action? Watch this video tutorial.
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/Lmz6Kgi6HB0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/Lmz6Kgi6HB0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
 [Install the Agent WordLift Chrome Extension here](https://chromewebstore.google.com/detail/agent-wordlift/jegfjceighmfpbklniiakflbhceejddb) and start boosting your SEO today!
 
@@ -51,7 +51,7 @@ To get started, check out the [WordLift Agent API documentation](https://docs.wo
 
 Transform your command-line workflow with Agent WordLift CLI! This powerful terminal-based tool brings the full capabilities of Agent WordLift directly to your development environment, making it perfect for developers, content creators, and SEO professionals who prefer working in the command line.
 
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/sXzRclE-6ik" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/sXzRclE-6ik" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
 **Why CLI Over Web UI for AI Workflows?**
 
@@ -165,7 +165,7 @@ Our MCP server is reachable at `https://mcp.wordlift.io/sse` and currently suppo
 
 Watch how Claude, integrated with WordLift via Model Context Protocol, analyzes the WordLift Blog to uncover actionable insights around the "Agentic SEO" content cluster:
 
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/6dz_-LbP3eQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/6dz_-LbP3eQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
 ### Setup Instructions
 

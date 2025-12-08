@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.7.0 (December 2025) - New Python SDK available on PyPI, Knowledge Graph export endpoint documentation, Chrome Extension bug fixes, and enhanced Google Knowledge Graph integration!
+Latest Release: 3.8.0 (December 2025) — Improved documentation for installing the [WordLift Cloud script](/cloud/) and new support for automatic FAQ rendering in [WordLift Cloud](/cloud/).
 :::
 
 # 👋 Welcome to WordLift
@@ -112,6 +112,18 @@ Looking to scale? Access:
 
 [Start with Agent WordLift →](/agent-wordlift)
   </TabItem>
+  <TabItem value="cloud" label="Cloud script">
+
+```html
+<!-- Install the WordLift Cloud script in <head> -->
+<script async type="text/javascript" src="https://cloud.wordlift.io/app/bootstrap.js"></script>
+```
+
+- Place in `<head>` on every page you want to annotate.
+- Need details or GTM? See [WordLift Cloud](/cloud/) or [install via GTM](/cloud/google-tag-manager/).
+
+[Install via WordLift Cloud guide →](/cloud/)
+  </TabItem>
   <TabItem value="api" label="API">
 
 ```bash
@@ -181,6 +193,7 @@ Choose your path:
 1. [Try Agent WordLift](/agent-wordlift) for instant SEO optimization
 2. [Use Google Sheets Add-on](/seo-add-on-google-sheets/introduction) for search analysis
 3. [Install WordPress Plugin](/wordpress-plugin) for content optimization
+4. Install the [WordLift Cloud script](/cloud/) (or [via Google Tag Manager](/cloud/google-tag-manager/))
 
 ### 💻 Developer Path
 

@@ -6,7 +6,7 @@ displayed_sidebar: wordpress-plugin
 
 Learn how to use WordLift Cloud to improve the **organic traffic** of your website using [Semantic SEO](https://wordlift.io/blog/en/entity/semantic-seo).
 
-<iframe src="https://www.youtube.com/embed/DF4HQENosfo?rel=0&amp;showinfo=0" width="100%" height="540" frameborder="0" scrolling="auto"></iframe>
+<iframe src="https://www.youtube.com/embed/DF4HQENosfo?rel=0&amp;showinfo=0" width="100%" height="540" frameborder="0" scrolling="auto" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
 ## Introduction
 

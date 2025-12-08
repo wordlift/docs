@@ -50,7 +50,12 @@ const sidebars = {
             {
               type: "doc",
               id: "cloud/index",
-              label: "WordLift Cloud"
+              label: "Install the WordLift Cloud script"
+            },
+            {
+              type: "doc",
+              id: "cloud/google-tag-manager",
+              label: "WordLift Cloud via GTM"
             },
           ],
         },

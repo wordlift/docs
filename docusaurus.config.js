@@ -295,6 +295,10 @@ const config = {
                         from: "/en/latest/wordlift-cloud.html",
                     },
                     {
+                        to: "/cloud/",
+                        from: ["/pages/wordlift-cloud", "/pages/wordlift-cloud/"],
+                    },
+                    {
                         to: "/wordpress-plugin/troubleshooting/",
                         from: "/en/latest/troubleshooting.html",
                     },

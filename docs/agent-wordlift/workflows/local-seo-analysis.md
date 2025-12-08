@@ -17,7 +17,7 @@ Learn how to effectively transform your local search performance with Agent Word
   src="https://www.youtube.com/embed/RfhTZOKT7PE"
   frameborder="0"
   allow="autoplay; encrypted-media"
-  allowfullscreen>
+  allowfullscreen referrerpolicy="strict-origin-when-cross-origin">
 </iframe>
 
 ## Business Profile Analysis
