@@ -548,79 +548,70 @@ const config = {
                 ],
             },
         ],
-        function chatWidgetPlugin() {
-            return {
-                name: "chat-widget-plugin",
-                injectHtmlTags() {
-                    return {
-                        preBodyTags: [
-                            `
-              <div id="chat-widget-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
-                <button
-                  id="chat-widget-button"
-                  style="background: transparent; border: none; cursor: pointer; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; padding:0; margin:0;"
-                >
-                  <img src="https://bot-framework-westeurope.azureedge.net/bot-icons-v1/bdb5390f-2312-420b-89b3-6d753841cdb1_DjAC7MB61QR80uauCeo1sPEve8jqABuAkHEcY8I28t0Dno.png" alt="Chat Bot Icon" style="width: 60px; height: 60px; border-radius: 50%;" />
-                </button>
-                <div
-                  id="chat-widget-iframe-container"
-                  style="display: none; width: 400px; height: 600px; border: none; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: relative;"
-                >
-                  <iframe
-                    id="chat-widget-iframe"
-                    src="https://copilotstudio.microsoft.com/environments/Default-efbef5c4-77ac-41d8-800a-2dec22f28e82/bots/Default_agentWordLift/webchat?__version__=2"
-                    frameborder="0"
-                    style="width: 100%; height: 100%; border-radius: 10px;"
-                    title="WordLift Chat"
-                  ></iframe>
-                </div>
-              </div>
-              <style>
-                /* Mobile responsiveness */
-                @media (max-width: 768px) {
-                  #chat-widget-iframe-container {
-                    width: 100%;
-                    max-width: 350px;
-                    right: 10px;
-                  }
-                }
-              </style>
-            `,
-                        ],
-                        postBodyTags: [
-                            `
-              <script>
-                (function() {
-                  const chatButton = document.getElementById('chat-widget-button');
-                  const chatIframeContainer = document.getElementById('chat-widget-iframe-container');
-
-                  chatButton.addEventListener('click', function() {
-                    if (chatIframeContainer.style.display === 'none') {
-                      chatIframeContainer.style.display = 'block';
-                    } else {
-                      chatIframeContainer.style.display = 'none';
-                    }
-                  });
-                })();
-              </script>
-            `,
-                        ],
-                    };
-                },
-            };
-        },
+        // function chatWidgetPlugin() {
+        //     return {
+        //         name: "chat-widget-plugin",
+        //         injectHtmlTags() {
+        //             return {
+        //                 preBodyTags: [
+        //                     `
+        //       <div id="chat-widget-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+        //         <button
+        //           id="chat-widget-button"
+        //           style="background: transparent; border: none; cursor: pointer; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; padding:0; margin:0;"
+        //         >
+        //           <img src="https://bot-framework-westeurope.azureedge.net/bot-icons-v1/bdb5390f-2312-420b-89b3-6d753841cdb1_DjAC7MB61QR80uauCeo1sPEve8jqABuAkHEcY8I28t0Dno.png" alt="Chat Bot Icon" style="width: 60px; height: 60px; border-radius: 50%;" />
+        //         </button>
+        //         <div
+        //           id="chat-widget-iframe-container"
+        //           style="display: none; width: 400px; height: 600px; border: none; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: relative;"
+        //         >
+        //           <iframe
+        //             id="chat-widget-iframe"
+        //             src="https://copilotstudio.microsoft.com/environments/Default-efbef5c4-77ac-41d8-800a-2dec22f28e82/bots/Default_agentWordLift/webchat?__version__=2"
+        //             frameborder="0"
+        //             style="width: 100%; height: 100%; border-radius: 10px;"
+        //             title="WordLift Chat"
+        //           ></iframe>
+        //         </div>
+        //       </div>
+        //       <style>
+        //         /* Mobile responsiveness */
+        //         @media (max-width: 768px) {
+        //           #chat-widget-iframe-container {
+        //             width: 100%;
+        //             max-width: 350px;
+        //             right: 10px;
+        //           }
+        //         }
+        //       </style>
+        //     `,
+        //                 ],
+        //                 postBodyTags: [
+        //                     `
+        //       <script>
+        //         (function() {
+        //           const chatButton = document.getElementById('chat-widget-button');
+        //           const chatIframeContainer = document.getElementById('chat-widget-iframe-container');
+        //
+        //           chatButton.addEventListener('click', function() {
+        //             if (chatIframeContainer.style.display === 'none') {
+        //               chatIframeContainer.style.display = 'block';
+        //             } else {
+        //               chatIframeContainer.style.display = 'none';
+        //             }
+        //           });
+        //         })();
+        //       </script>
+        //     `,
+        //                 ],
+        //             };
+        //         },
+        //     };
+        // },
     ],
     themes: [
-        "docusaurus-theme-openapi-docs",
-        // Remove this entire block:
-        // [
-        //   "@docusaurus/theme-classic",
-        //   {
-        //     customCss: [
-        //       require.resolve("./src/css/custom.css"),
-        //     ],
-        //   },
-        // ],
+        "docusaurus-theme-openapi-docs"
     ],
 };
 
