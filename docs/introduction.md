@@ -205,19 +205,24 @@ Then [grab your API key](https://wordlift.io/pricing/)
 
 📦 [View on PyPI](https://pypi.org/project/wordlift-sdk/) | 📚 [Python SDK Documentation](https://github.com/wordlift/python-sdk)
 
-You can also jumpstart a Knowledge Graph using our [getting-started-notebook](https://github.com/wordlift/getting-started-notebook):
+You can also jumpstart a Knowledge Graph using the [kg-build notebook template](https://github.com/wordlift/kg-build-notebook-template) (GitHub template project — see the [README](https://github.com/wordlift/kg-build-notebook-template/blob/main/README.md) for full details):
 
 ```bash
-# Clone the repository
-git clone https://github.com/wordlift/getting-started-notebook.git
-cd getting-started-notebook
+# Create a new repo from the template (via GitHub UI) or clone the template directly:
+git clone https://github.com/wordlift/kg-build-notebook-template.git my-kg-build
+cd my-kg-build
 
-# Install dependencies using Poetry
-poetry install
+# Install uv (once)
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# Configure with your WordLift Key and sitemap URL
-# Then run the notebook
-jupyter notebook getting_started_notebook.ipynb
+# Create the venv and install deps
+uv sync
+
+# Activate (optional) or prefix commands with `uv run`
+source .venv/bin/activate
+
+# Configure your .env with your WordLift Key and sitemap URL, then run the notebook
+uv run jupyter notebook kg_import.ipynb
 ```
 
 ### 🤝 Enterprise Setup
