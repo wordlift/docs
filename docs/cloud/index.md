@@ -56,7 +56,7 @@ Enable FAQ rendering when loading the bootstrap:
 
 ```html
 <script
-  type="module"
+  async
   src="https://cloud.wordlift.io/app/bootstrap.js"
   data-faq="true"
   data-faq-target-id="faq-container"
