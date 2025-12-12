@@ -206,11 +206,6 @@ const sidebars = {
         },
         {
           type: "category",
-          label: "Image to Text",
-          items: require("./docs/api/image-to-text/sidebar.ts").default,
-        },
-        {
-          type: "category",
           label: "Analysis",
           items: require("./docs/api/analysis/sidebar.ts").default,
         },
