@@ -416,14 +416,6 @@ const config = {
                     //     categoryLinkSource: "tag",
                     //   },
                     // },
-                    "image-to-text": {
-                        specPath: "api/image-to-text.yaml",
-                        outputDir: "docs/api/image-to-text",
-                        sidebarOptions: {
-                            groupPathsBy: "tag",
-                            categoryLinkSource: "tag",
-                        },
-                    },
                     "content-evaluations": {
                         specPath: "api/content-evaluations.yaml",
                         outputDir: "docs/api/content-evaluations",
