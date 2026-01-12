@@ -3,7 +3,7 @@
 Validate RDF (Turtle or JSON-LD) against SHACL shapes. Required properties surface as errors; recommended properties surface as warnings.
 
 ## Usage
-- `worai validate <file.ttl|file.jsonld|url> [--shape <shape>] [--report-file <path>] [--format pretty|raw] [--color|--no-color]`
+- `worai validate [--list-shapes] <file.ttl|file.jsonld|url> [--shape <shape>] [--report-file <path>] [--format pretty|raw] [--color|--no-color]`
 
 ## Examples
 - `worai validate ./data.jsonld`
@@ -12,7 +12,4 @@ Validate RDF (Turtle or JSON-LD) against SHACL shapes. Required properties surfa
 - `worai validate https://api.wordlift.io/data/example.jsonld --shape review-snippet`
 - `worai validate ./data.jsonld --format raw`
 - `worai validate ./data.jsonld --format pretty --no-color`
-
-## Built-in shapes
-- `review-snippet` (Google review snippet constraints; shapes prefixed `google_`)
-- `schema-review` (Schema.org Review/AggregateRating grammar; shapes prefixed `schema_`)
+- `worai validate --list-shapes`
