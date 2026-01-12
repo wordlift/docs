@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.9.0 (January 2026) — Added a new [worai tool section](/worai/) and improved documentation for installing the [WordLift Cloud script](/cloud/), plus support for automatic FAQ rendering in [WordLift Cloud](/cloud/).
+Latest Release: 3.9.0 (January 2026) — Added a new [worai tool section](/worai/install/) and improved documentation for installing the [WordLift Cloud script](/cloud/), plus support for automatic FAQ rendering in [WordLift Cloud](/cloud/).
 :::
 
 # 👋 Welcome to WordLift

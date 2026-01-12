@@ -1,9 +1,6 @@
 ---
 sidebar_position: 1
 title: Install and Quickstart
-redirect_from:
-  - /worai
-  - /worai/
 ---
 
 ## Install
