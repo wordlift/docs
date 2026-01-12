@@ -291,14 +291,6 @@ const config = {
             {
                 redirects: [
                     {
-                        to: "/worai/install/",
-                        from: "/worai/",
-                    },
-                    {
-                        to: "/worai/install/",
-                        from: "/worai",
-                    },
-                    {
                         to: "/cloud",
                         from: "/en/latest/wordlift-cloud.html",
                     },
