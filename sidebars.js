@@ -139,6 +139,31 @@ const sidebars = {
           href: "/category/api",
           label: "API Documentation"
         },
+        {
+          type: "category",
+          label: "🧰 worai CLI",
+          items: [
+            "worai/install",
+            "worai/configuration",
+            {
+              type: "category",
+              label: "Commands",
+              items: [
+                "worai/commands/seocheck",
+                "worai/commands/google-search-console",
+                "worai/commands/dedupe",
+                "worai/commands/canonicalize-duplicate-pages",
+                "worai/commands/delete-entities-from-csv",
+                "worai/commands/find-faq-page-wrong-type",
+                "worai/commands/find-missing-names",
+                "worai/commands/find-url-by-type",
+                "worai/commands/link-groups",
+                "worai/commands/patch",
+                "worai/commands/upload-entities-from-turtle",
+              ],
+            },
+          ],
+        },
       ],
     },
   ],
