@@ -3,6 +3,13 @@ title: ⚙️ Integrations
 sidebar_position: 7
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+:::info Version Notice
+Latest Release: 3.9.0 (January 2026) - Support for header-based authorization in MCP, Google Search Console URL Inspections API, Enhanced Google Knowledge Graph integration and AI Sub-Agent workflows!
+:::
+
 # Integrations
 
 ## Agent WordLift Chrome Extension
