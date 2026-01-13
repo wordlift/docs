@@ -146,6 +146,40 @@ The WordLift CLI seamlessly integrates with modern development practices:
 
 **API Integration:** Access the full WordLift Agent API capabilities through command-line interfaces.
 
+#### Advanced CLI Configuration (Experimental)
+
+For advanced users or programmatic setups, you can manually configure the CLI settings including header-based authorization.
+
+:::warning
+Direct configuration modification is intended for advanced users. The API key must be manually edited in the configuration file as environment variables are not currently interpolated.
+:::
+
+To edit the configuration, locate `settings.json` based on your installation:
+
+```bash
+# If installed locally (git clone)
+vim .gemini/settings.json
+
+# If installed globally via npm
+vim $(dirname $(which wordlift-cli))/../lib/node_modules/wordlift-cli/.gemini/settings.json
+```
+
+A sample header-based authorization configuration looks like this:
+
+```json
+{
+  "Wordlift - via header auth": {
+    "command": "npx",
+    "args": [
+      "mcp-remote",
+      "https://mcp.wordlift.io/sse",
+      "--header",
+      "Authorization: Key YOUR_WORDLIFT_API_KEY_HERE"
+    ]
+  }
+}
+```
+
 Ready to supercharge your command-line SEO workflow? [Install WordLift CLI](https://www.npmjs.com/package/wordlift-cli) and bring Agent WordLift's power directly to your terminal!
 
 ---
@@ -192,6 +226,26 @@ Watch how Claude, integrated with WordLift via Model Context Protocol, analyzes 
   }
 }
 ```
+
+:::tip Advanced: Header-based Authorization
+For programmatic use or advanced configurations, you can provide the API key directly in the configuration using the `--header` flag:
+```json
+{
+  "mcpServers": {
+    "wordlift": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.wordlift.io/sse",
+        "--header",
+        "Authorization: Key YOUR_WORDLIFT_API_KEY_HERE"
+      ]
+    }
+  }
+}
+```
+:::
 
 **For Visual Studio:**
 1. Press CTRL/CMD+P and search for "MCP: Add Server"
