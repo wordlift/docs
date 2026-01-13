@@ -159,6 +159,7 @@ const sidebars = {
                 "worai/commands/find-url-by-type",
                 "worai/commands/link-groups",
                 "worai/commands/patch",
+                "worai/commands/structured-data",
                 "worai/commands/list-entities-outside-dataset",
                 "worai/commands/validate",
                 "worai/commands/upload-entities-from-turtle",
