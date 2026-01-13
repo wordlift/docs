@@ -47,8 +47,10 @@ Generate an outline for a new, informative article based on the combined insight
 Expand the content on https://wordlift.io/ by integrating entities like Google and Semantic Web.
 ```
 
-:::infoNote
-
+:::info
 At the moment we are **not able to support Chinese language** for some of the Agent tasks that require analysing texts or queries.
-
 :::
+
+## Getting help
+
+Need assistance? Reach out to the WordLift team via [support@wordlift.io](mailto:support@wordlift.io) or check the [Agent WordLift FAQ](./faq.md).

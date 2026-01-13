@@ -11,18 +11,13 @@ info_path: api/middleware/middleware
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
-import Heading from "@theme/Heading";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
 <Heading
   as={"h1"}
@@ -34,6 +29,7 @@ import TabItem from "@theme/TabItem";
 <MethodEndpoint
   method={"post"}
   path={"/dataset"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
@@ -50,127 +46,26 @@ Create or update an entity in the Knowledge Graph.
 >
 </Heading>
 
-<details
-  style={{"marginBottom":"1rem"}}
-  className={"openapi-markdown__details"}
-  data-collapsed={false}
-  open={true}
+<ParamsDetails
+  parameters={[{"name":"uri","in":"query","description":"The entity's URI","required":true,"schema":{"type":"string"}},{"name":"private","in":"query","description":"Whether the entity should be hidden from Linked Data and GraphQL","required":false,"schema":{"type":"boolean","default":true},"example":true}]}
 >
-  <summary
-    style={{}}
-  >
-    <h3
-      className={"openapi-markdown__details-summary-header-params"}
-    >
-      Query Parameters
-    </h3>
-  </summary><div>
-    <ul>
-      <ParamsItem
-        className={"paramsItem"}
-        param={{"name":"uri","in":"query","description":"The entity's URI","required":true,"schema":{"type":"string"}}}
-      >
-        
-      </ParamsItem><ParamsItem
-        className={"paramsItem"}
-        param={{"name":"private","in":"query","description":"Whether the entity should be hidden from Linked Data and GraphQL","required":false,"schema":{"type":"boolean","default":true},"example":true}}
-      >
-        
-      </ParamsItem>
-    </ul>
-  </div>
-</details><MimeTabs
-  className={"openapi-tabs__mime"}
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/ld+json":{"schema":{"type":"string","description":"The structured data as a JSON-LD representation"}}},"required":true}}
 >
-  <TabItem
-    label={"application/ld+json"}
-    value={"application/ld+json-schema"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details mime"}
-      data-collapsed={false}
-      open={true}
-    >
-      <summary
-        style={{}}
-        className={"openapi-markdown__details-summary-mime"}
-      >
-        <h3
-          className={"openapi-markdown__details-summary-header-body"}
-        >
-          Body
-        </h3><strong
-          className={"openapi-schema__required"}
-        >
-          required
-        </strong>
-      </summary><div
-        style={{"textAlign":"left","marginLeft":"1rem"}}
-      >
-        
-      </div><ul
-        style={{"marginLeft":"1rem"}}
-      >
-        <div
-          style={{"marginTop":".5rem","marginBottom":".5rem"}}
-        >
-          
-          
-          string
-          
-          
-        </div>
-      </ul>
-    </details>
-  </TabItem>
-</MimeTabs><div>
-  <div>
-    <ApiTabs
-      label={undefined}
-      id={undefined}
-    >
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          Success
-          
-          
-        </div><div>
-          
-        </div>
-      </TabItem><TabItem
-        label={"401"}
-        value={"401"}
-      >
-        <div>
-          
-          
-          Authentication Failure
-          
-          
-        </div><div>
-          
-        </div>
-      </TabItem><TabItem
-        label={"404"}
-        value={"404"}
-      >
-        <div>
-          
-          
-          Not Found
-          
-          
-        </div><div>
-          
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Success"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
       

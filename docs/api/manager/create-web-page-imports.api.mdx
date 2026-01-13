@@ -11,18 +11,13 @@ info_path: api/manager/manager
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
-import Heading from "@theme/Heading";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
 <Heading
   as={"h1"}
@@ -34,6 +29,7 @@ import TabItem from "@theme/TabItem";
 <MethodEndpoint
   method={"post"}
   path={"/web-page-imports"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
@@ -50,374 +46,26 @@ Create a Web Page Import
 >
 </Heading>
 
-<MimeTabs
-  className={"openapi-tabs__mime"}
+<ParamsDetails
+  parameters={undefined}
 >
-  <TabItem
-    label={"application/json"}
-    value={"application/json-schema"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details mime"}
-      data-collapsed={false}
-      open={true}
-    >
-      <summary
-        style={{}}
-        className={"openapi-markdown__details-summary-mime"}
-      >
-        <h3
-          className={"openapi-markdown__details-summary-header-body"}
-        >
-          Body
-        </h3><strong
-          className={"openapi-schema__required"}
-        >
-          required
-        </strong>
-      </summary><div
-        style={{"textAlign":"left","marginLeft":"1rem"}}
-      >
-        
-      </div><ul
-        style={{"marginLeft":"1rem"}}
-      >
-        <SchemaItem
-          collapsible={true}
-          className={"schemaItem"}
-        >
-          <details
-            style={{}}
-            className={"openapi-markdown__details"}
-          >
-            <summary
-              style={{}}
-            >
-              <span
-                className={"openapi-schema__container"}
-              >
-                <strong
-                  className={"openapi-schema__property"}
-                >
-                  embedding
-                </strong><span
-                  className={"openapi-schema__name"}
-                >
-                   object
-                </span>
-              </span>
-            </summary><div
-              style={{"marginLeft":"1rem"}}
-            >
-              <div
-                style={{"marginTop":".5rem","marginBottom":".5rem"}}
-              >
-                
-                
-                A request to generate the embeddings.
-                
-                
-              </div><SchemaItem
-                collapsible={false}
-                name={"model"}
-                required={false}
-                schemaName={"string"}
-                qualifierMessage={undefined}
-                schema={{"type":"string","default":"nomic-ai/nomic-embed-text-v1","description":"The model used to generate the embeddings."}}
-              >
-                
-              </SchemaItem><SchemaItem
-                collapsible={false}
-                name={"properties"}
-                required={false}
-                schemaName={"string[]"}
-                qualifierMessage={undefined}
-                schema={{"type":"array","description":"The list of properties to use to generate the embeddings.","items":{"type":"string","description":"The list of properties to use to generate the embeddings."},"uniqueItems":true}}
-              >
-                
-              </SchemaItem>
-            </div>
-          </details>
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"id"}
-          required={false}
-          schemaName={"string"}
-          qualifierMessage={undefined}
-          schema={{"type":"string","description":"The Web Page id (or iri) in Graph when available."}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"id_generator"}
-          required={false}
-          schemaName={"string"}
-          qualifierMessage={"**Possible values:** [`default`, `headline-with-url-hash`]"}
-          schema={{"type":"string","default":"default","description":"The entity id generator, by default uses the web page path.","enum":["default","headline-with-url-hash"]}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"output_types"}
-          required={false}
-          schemaName={"string[]"}
-          qualifierMessage={undefined}
-          schema={{"type":"array","default":["http://schema.org/WebPage"],"description":"The type of the generated entities, by default `http://schema.org/WebPage`.","items":{"type":"string","default":"[\"http://schema.org/WebPage\"]","description":"The type of the generated entities, by default `http://schema.org/WebPage`."},"uniqueItems":true}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"url"}
-          required={true}
-          schemaName={"string"}
-          qualifierMessage={undefined}
-          schema={{"type":"string","description":"The Web Page url to import"}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"write_strategy"}
-          required={false}
-          schemaName={"string"}
-          qualifierMessage={undefined}
-          schema={{"type":"string","default":"createOrUpdateModel","description":"The strategy used to write to the Graph: `createOrUpdateModel` (default) will replace existing entities; `patchReplaceModel` will replace the `type`, `headline`, `abstract` and `text` properties."}}
-        >
-          
-        </SchemaItem>
-      </ul>
-    </details>
-  </TabItem>
-</MimeTabs><div>
-  <div>
-    <ApiTabs
-      label={undefined}
-      id={undefined}
-    >
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          Success
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"id"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string","description":"The id/iri of the web page in the Graph."}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"model"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={true}
-                        className={"schemaItem"}
-                      >
-                        <details
-                          style={{}}
-                          className={"openapi-markdown__details"}
-                        >
-                          <summary
-                            style={{}}
-                          >
-                            <span
-                              className={"openapi-schema__container"}
-                            >
-                              <strong
-                                className={"openapi-schema__property"}
-                              >
-                                web_page
-                              </strong><span
-                                className={"openapi-schema__name"}
-                              >
-                                 object
-                              </span><span
-                                className={"openapi-schema__divider"}
-                              >
-                                
-                              </span><span
-                                className={"openapi-schema__required"}
-                              >
-                                required
-                              </span>
-                            </span>
-                          </summary><div
-                            style={{"marginLeft":"1rem"}}
-                          >
-                            <div
-                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
-                            >
-                              
-                              
-                              The Web Page data
-                              
-                              
-                            </div><SchemaItem
-                              collapsible={false}
-                              name={"abstract"}
-                              required={false}
-                              schemaName={"string"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"date_published"}
-                              required={false}
-                              schemaName={"date"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string","format":"date"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"headline"}
-                              required={false}
-                              schemaName={"string"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"html"}
-                              required={false}
-                              schemaName={"string"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"image"}
-                              required={false}
-                              schemaName={"string"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"markdown"}
-                              required={false}
-                              schemaName={"string"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"text"}
-                              required={false}
-                              schemaName={"string"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"types"}
-                              required={false}
-                              schemaName={"string[]"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"array","items":{"type":"string"},"uniqueItems":true}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"url"}
-                              required={false}
-                              schemaName={"string"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string"}}
-                            >
-                              
-                            </SchemaItem>
-                          </div>
-                        </details>
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"id\": \"string\",\n  \"model\": \"string\",\n  \"web_page\": {\n    \"abstract\": \"string\",\n    \"date_published\": \"2024-07-29\",\n    \"headline\": \"string\",\n    \"html\": \"string\",\n    \"image\": \"string\",\n    \"markdown\": \"string\",\n    \"text\": \"string\",\n    \"types\": [\n      \"string\"\n    ],\n    \"url\": \"string\"\n  }\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"401"}
-        value={"401"}
-      >
-        <div>
-          
-          
-          Authentication Failure
-          
-          
-        </div><div>
-          
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","description":"The Web Page Import request","properties":{"embedding":{"type":"object","description":"A request to generate the embeddings.","properties":{"model":{"type":"string","default":"nomic-ai/nomic-embed-text-v1","description":"The model used to generate the embeddings."},"properties":{"type":"array","description":"The list of properties to use to generate the embeddings.","items":{"type":"string","description":"The list of properties to use to generate the embeddings."},"uniqueItems":true}},"title":"EmbeddingRequest"},"id":{"type":"string","description":"The Web Page id (or iri) in Graph when available."},"id_generator":{"type":"string","default":"default","description":"The entity id generator, by default uses the web page path.","enum":["default","headline-with-url-hash"]},"output_types":{"type":"array","default":["http://schema.org/WebPage"],"description":"The type of the generated entities, by default `http://schema.org/WebPage`.","items":{"type":"string","default":"[\"http://schema.org/WebPage\"]","description":"The type of the generated entities, by default `http://schema.org/WebPage`."},"uniqueItems":true},"url":{"type":"string","description":"The Web Page url to import"},"write_strategy":{"type":"string","default":"createOrUpdateModel","description":"The strategy used to write to the Graph: `createOrUpdateModel` (default) will replace existing entities; `patchReplaceModel` will replace the `type`, `headline`, `abstract` and `text` properties."}},"required":["url"],"title":"WebPageImportRequest"}}},"required":true}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"type":"object","description":"Web Page Import Response","properties":{"id":{"type":"string","description":"The id/iri of the web page in the Graph."},"model":{"type":"string"},"web_page":{"type":"object","description":"The Web Page data","properties":{"abstract":{"type":"string"},"date_published":{"type":"string","format":"date"},"headline":{"type":"string"},"html":{"type":"string"},"image":{"type":"string"},"markdown":{"type":"string"},"text":{"type":"string"},"types":{"type":"array","items":{"type":"string"},"uniqueItems":true},"url":{"type":"string"}},"title":"WebPage"}},"required":["id","model","web_page"],"title":"WebPageImportResponse"}}},"description":"Success"},"401":{"description":"Authentication Failure"}}}
+>
+  
+</StatusCodes>
+
+
       

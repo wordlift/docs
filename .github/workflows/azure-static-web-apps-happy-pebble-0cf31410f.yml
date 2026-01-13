@@ -12,17 +12,21 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           submodules: true
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v6
         with:
           node-version: '20'
           cache: 'npm'
 
       - name: Install Node deps
         run: npm install
+
+      - name: Clean build output
+        run: rm -rf build
+
       - name: Rebuild API docs
         run: ./.bin/rebuild-api.sh
 
@@ -59,4 +63,4 @@ jobs:
     steps:
       -
         name: Indexing
-        run: docker run -e "APPLICATION_ID=${{secrets.APPLICATION_ID}}" -e "API_KEY=${{secrets.API_KEY}}" -e "CONFIG={\"index_name\":\"docs_wordlift_io\",\"start_urls\":[\"https://docs.wordlift.io\"],\"selectors\":{\"lvl0\":\"article h1\",\"lvl1\":\"article h2\",\"lvl2\":\"article h3\",\"lvl3\":\"article h4\",\"lvl4\":\"article h5\",\"lvl5\":\"article h6\",\"text\":\"article p\"}}" algolia/docsearch-scraper:v1.16.0
+        run: docker run -e "APPLICATION_ID=${{secrets.APPLICATION_ID}}" -e "API_KEY=${{secrets.API_KEY}}" -e "CONFIG={\"index_name\":\"docs_wordlift_io\",\"start_urls\":[\"https://docs.wordlift.io\"],\"selectors\":{\"lvl0\":{\"selector\":\"article h1, header h1, h1\",\"default_value\":\"\"},\"lvl1\":\"article h2\",\"lvl2\":\"article h3\",\"lvl3\":\"article h4\",\"lvl4\":\"article h5\",\"lvl5\":\"article h6\",\"text\":\"article p\"}}" algolia/docsearch-scraper:v1.16.0

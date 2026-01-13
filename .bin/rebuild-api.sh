@@ -10,7 +10,6 @@ npm run docusaurus clean-api-docs content-generation && npm run docusaurus gen-a
 npm run docusaurus clean-api-docs events && npm run docusaurus gen-api-docs events
 npm run docusaurus clean-api-docs fact-check && npm run docusaurus gen-api-docs fact-check
 npm run docusaurus clean-api-docs graphql && npm run docusaurus gen-api-docs graphql
-npm run docusaurus clean-api-docs image-to-text && npm run docusaurus gen-api-docs image-to-text
 npm run docusaurus clean-api-docs inspector && npm run docusaurus gen-api-docs inspector
 npm run docusaurus clean-api-docs long-tail && npm run docusaurus gen-api-docs long-tail
 npm run docusaurus clean-api-docs manager && npm run docusaurus gen-api-docs manager

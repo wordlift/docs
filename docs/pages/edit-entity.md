@@ -5,7 +5,7 @@ displayed_sidebar: wordpress-plugin
 # Edit Entity
 
 **WordLift** uses [entities](/pages/key-concepts#entity) to annotate and organize blog posts and pages.
-All entities can be edited using the [WordLift Edit Post widget](/pages/analysis#wordLift-edit-post-widget) or from the **Entity Page** itself. To access all entities or add a new entity click on the **Vocabolary** icon on the dashboard menu.
+All entities can be edited using the [WordLift Edit Post widget](/pages/analysis#wordlift-edit-post-widget) or from the **Entity Page** itself. To access all entities or add a new entity click on the **Vocabolary** icon on the dashboard menu.
 
 ![image](./images/wordlift-edit-entity-vocabulary.png)
 

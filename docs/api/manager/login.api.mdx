@@ -11,18 +11,13 @@ info_path: api/manager/manager
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
-import Heading from "@theme/Heading";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
 <Heading
   as={"h1"}
@@ -34,6 +29,7 @@ import TabItem from "@theme/TabItem";
 <MethodEndpoint
   method={"get"}
   path={"/google-search-console/authorize/init"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
@@ -50,102 +46,26 @@ Call this API to go to the login page of the Google Search Console.
 >
 </Heading>
 
-<details
-  style={{"marginBottom":"1rem"}}
-  className={"openapi-markdown__details"}
-  data-collapsed={false}
-  open={true}
+<ParamsDetails
+  parameters={[{"description":"The account key","in":"query","name":"accountKey","required":true,"schema":{"type":"string"}},{"description":"The redirect URI to redirect to after the login","in":"query","name":"redirectUri","required":true,"schema":{"type":"string","format":"uri"}},{"description":"The state to maintain after authorize.","in":"query","name":"state","required":false,"schema":{"type":"string"}}]}
 >
-  <summary
-    style={{}}
-  >
-    <h3
-      className={"openapi-markdown__details-summary-header-params"}
-    >
-      Query Parameters
-    </h3>
-  </summary><div>
-    <ul>
-      <ParamsItem
-        className={"paramsItem"}
-        param={{"description":"The account key","in":"query","name":"accountKey","required":true,"schema":{"type":"string"}}}
-      >
-        
-      </ParamsItem><ParamsItem
-        className={"paramsItem"}
-        param={{"description":"The redirect URI to redirect to after the login","in":"query","name":"redirectUri","required":true,"schema":{"type":"string","format":"uri"}}}
-      >
-        
-      </ParamsItem><ParamsItem
-        className={"paramsItem"}
-        param={{"description":"The state to maintain after authorize.","in":"query","name":"state","required":false,"schema":{"type":"string"}}}
-      >
-        
-      </ParamsItem>
-    </ul>
-  </div>
-</details><div>
-  <div>
-    <ApiTabs
-      label={undefined}
-      id={undefined}
-    >
-      <TabItem
-        label={"307"}
-        value={"307"}
-      >
-        <div>
-          
-          
-          Redirect to redirectUri value
-          
-          
-        </div><details
-          style={{"textAlign":"left","marginBottom":"1rem"}}
-          className={"openapi-markdown__details"}
-          data-collapsed={true}
-          open={false}
-        >
-          <summary
-            style={{}}
-          >
-            <strong>
-              Response Headers
-            </strong>
-          </summary><ul
-            style={{"marginLeft":"1rem"}}
-          >
-            <li
-              className={"schemaItem"}
-            >
-              <summary
-                style={{}}
-              >
-                <strong>
-                  Location
-                </strong><span
-                  style={{"opacity":"0.6"}}
-                >
-                   any
-                </span>
-              </summary><div>
-                <div
-                  style={{"marginTop":".5rem","marginBottom":".5rem"}}
-                >
-                  
-                  
-                  Redirect to google login page
-                  
-                  
-                </div>
-              </div>
-            </li>
-          </ul>
-        </details><div>
-          
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"307":{"description":"Redirect to redirectUri value","headers":{"Location":{"description":"Redirect to google login page","schema":{},"style":"simple"}}}}}
+>
+  
+</StatusCodes>
+
+
       

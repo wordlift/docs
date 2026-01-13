@@ -17,7 +17,7 @@ import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
 import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
+import CodeSamples from "@theme/CodeSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
 import Heading from "@theme/Heading";
@@ -355,12 +355,12 @@ Create AI visibility audits for Query Fan-Out
                   label={"Example (from schema)"}
                   value={"Example (from schema)"}
                 >
-                  <ResponseSamples
+                  <CodeSamples
                     responseExample={"{\n  \"url\": \"string\",\n  \"num_queries_requested\": 0,\n  \"coverage_threshold\": 0,\n  \"entity_name\": \"string\",\n  \"query_reasoning\": \"string\",\n  \"covered_count\": 0,\n  \"total_queries\": 0,\n  \"query_details\": [\n    {\n      \"query\": \"string\",\n      \"is_covered\": true,\n      \"similarity\": 0\n    }\n  ],\n  \"content_chunks_count\": 0,\n  \"coverage_score\": 0\n}"}
                     language={"json"}
                   >
                     
-                  </ResponseSamples>
+                  </CodeSamples>
                 </TabItem>
               </SchemaTabs>
             </TabItem>
@@ -564,12 +564,12 @@ Create AI visibility audits for Query Fan-Out
                   label={"Example (from schema)"}
                   value={"Example (from schema)"}
                 >
-                  <ResponseSamples
+                  <CodeSamples
                     responseExample={"{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        0\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}"}
                     language={"json"}
                   >
                     
-                  </ResponseSamples>
+                  </CodeSamples>
                 </TabItem>
               </SchemaTabs>
             </TabItem>

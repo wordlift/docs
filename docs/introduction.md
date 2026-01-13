@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.7.0 (December 2025) - New Python SDK available on PyPI, Knowledge Graph export endpoint documentation, Chrome Extension bug fixes, and enhanced Google Knowledge Graph integration!
+Latest Release: 3.9.0 (January 2026) — Added a new [worai tool section](/worai/install/) and improved documentation for installing the [WordLift Cloud script](/cloud/), plus support for automatic FAQ rendering in [WordLift Cloud](/cloud/).
 :::
 
 # 👋 Welcome to WordLift
@@ -112,6 +112,18 @@ Looking to scale? Access:
 
 [Start with Agent WordLift →](/agent-wordlift)
   </TabItem>
+  <TabItem value="cloud" label="Cloud script">
+
+```html
+<!-- Install the WordLift Cloud script in <head> -->
+<script async type="text/javascript" src="https://cloud.wordlift.io/app/bootstrap.js"></script>
+```
+
+- Place in `<head>` on every page you want to annotate.
+- Need details or GTM? See [WordLift Cloud](/cloud/) or [install via GTM](/cloud/google-tag-manager/).
+
+[Install via WordLift Cloud guide →](/cloud/)
+  </TabItem>
   <TabItem value="api" label="API">
 
 ```bash
@@ -181,6 +193,7 @@ Choose your path:
 1. [Try Agent WordLift](/agent-wordlift) for instant SEO optimization
 2. [Use Google Sheets Add-on](/seo-add-on-google-sheets/introduction) for search analysis
 3. [Install WordPress Plugin](/wordpress-plugin) for content optimization
+4. Install the [WordLift Cloud script](/cloud/) (or [via Google Tag Manager](/cloud/google-tag-manager/))
 
 ### 💻 Developer Path
 
@@ -192,19 +205,24 @@ Then [grab your API key](https://wordlift.io/pricing/)
 
 📦 [View on PyPI](https://pypi.org/project/wordlift-sdk/) | 📚 [Python SDK Documentation](https://github.com/wordlift/python-sdk)
 
-You can also jumpstart a Knowledge Graph using our [getting-started-notebook](https://github.com/wordlift/getting-started-notebook):
+You can also jumpstart a Knowledge Graph using the [kg-build notebook template](https://github.com/wordlift/kg-build-notebook-template) (GitHub template project — see the [README](https://github.com/wordlift/kg-build-notebook-template/blob/main/README.md) for full details):
 
 ```bash
-# Clone the repository
-git clone https://github.com/wordlift/getting-started-notebook.git
-cd getting-started-notebook
+# Create a new repo from the template (via GitHub UI) or clone the template directly:
+git clone https://github.com/wordlift/kg-build-notebook-template.git my-kg-build
+cd my-kg-build
 
-# Install dependencies using Poetry
-poetry install
+# Install uv (once)
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# Configure with your WordLift Key and sitemap URL
-# Then run the notebook
-jupyter notebook getting_started_notebook.ipynb
+# Create the venv and install deps
+uv sync
+
+# Activate (optional) or prefix commands with `uv run`
+source .venv/bin/activate
+
+# Configure your .env with your WordLift Key and sitemap URL, then run the notebook
+uv run jupyter notebook kg_import.ipynb
 ```
 
 ### 🤝 Enterprise Setup

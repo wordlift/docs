@@ -16,13 +16,13 @@ Let's choose as relevant entity in this example *\[Web\]*, as the post is referr
 
 ![image](./images/wordlift-edit-post-widget-05.png)
 
-Using the [WordLift Edit Post Widget](/pages/analysis#wordLift-edit-post-widget) you can now read the following parameters:
+Using the [WordLift Edit Post Widget](/pages/analysis#wordlift-edit-post-widget) you can now read the following parameters:
 
 - **Entity Title** the name of the entity
 - **Entity Category** the type of entity according to the `schema.org` vocabulary
 - **Entity Description** the description of the entity
 
-All parameters but the Title can be edited directly from the [WordLift Edit Post Widget]
+All parameters but the Title can be edited directly from the [WordLift Edit Post Widget](/pages/analysis#wordlift-edit-post-widget)
 
 :::info Note
 Data being used for the enrichments comes from openely avaialble sources
@@ -78,7 +78,7 @@ In our example one significant entity has not been detected and it is worth *tea
 
 ![image](./images/wordlift-content-analysis-new-entity-highlight.gif)
 
-The entity is *\[WordLift\]* itself. To create a new entity simply highlight the text `WordLift`, then click the button **Create New Entity** at the top of the [WordLift Edit Post Widget] and by clicking it you will be then able to edit the properties of the new entity.
+The entity is *\[WordLift\]* itself. To create a new entity simply highlight the text `WordLift`, then click the button **Create New Entity** at the top of the [WordLift Edit Post Widget](/pages/analysis#wordlift-edit-post-widget) and by clicking it you will be then able to edit the properties of the new entity.
 
 ![image](./images/wordlift-content-analysis-new-entity-creation.png)
 

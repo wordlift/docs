@@ -147,4 +147,4 @@ Bear in mind that the editor always has the ability to review completions that d
 
 Learn more on how to use the **Content Generation Tool** by [**watching this video**](https://youtu.be/6NiG2acKyyM) or [**booking a demo**](https://wordlift.io/book-a-demo/) with our team of experts.
 
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/6NiG2acKyyM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/6NiG2acKyyM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>

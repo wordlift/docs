@@ -22,7 +22,7 @@ This approach leverages **Agent WordLift's MCP integration** as a specialized SE
 
 Watch the complete workflow demonstration:
 
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/qPzidYw0ITA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/qPzidYw0ITA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
 ## Setup Requirements
 

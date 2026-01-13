@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "0.29.0",
+  "version": "3.9.2",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -12,33 +12,33 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc",
-    "postinstall": "patch-package"
+    "typecheck": "tsc"
   },
   "dependencies": {
-    "@docsearch/react": "3.5.2",
-    "@docusaurus/core": "^3.9.2",
-    "@docusaurus/module-type-aliases": "^3.9.2",
-    "@docusaurus/plugin-client-redirects": "^3.9.2",
-    "@docusaurus/preset-classic": "^3.9.2",
-    "@docusaurus/theme-search-algolia": "^3.9.2",
-    "@mdx-js/react": "^3.1.1",
-    "clsx": "^1.2.1",
+    "@docusaurus/core": "^3.8.1",
+    "@docusaurus/plugin-client-redirects": "^3.8.1",
+    "@docusaurus/plugin-content-docs": "^3.8.1",
+    "@docusaurus/preset-classic": "^3.8.1",
+    "@docusaurus/theme-common": "^3.8.1",
+    "@docusaurus/theme-search-algolia": "^3.8.1",
+    "@mdx-js/react": "^3.0.0",
+    "clsx": "^2.0.0",
     "docusaurus-plugin-llms-builder": "^0.1.13",
-    "docusaurus-plugin-openapi-docs": "^3.0.2",
+    "docusaurus-plugin-openapi-docs": "^4.5.1",
     "docusaurus-plugin-sass": "^0.2.6",
-    "docusaurus-theme-openapi-docs": "^3.0.2",
-    "prism-react-renderer": "^2.4.1",
-    "prismjs": "^1.29.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "sass": "^1.94.0",
-    "url": "^0.11.0"
+    "docusaurus-theme-openapi-docs": "^4.5.1",
+    "prism-react-renderer": "^2.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
+    "redux": "^5.0.1",
+    "sass": "^1.94.0"
   },
   "devDependencies": {
-    "@tsconfig/docusaurus": "^1.0.6",
-    "patch-package": "^8.0.0",
-    "typescript": "^4.9.5"
+    "@docusaurus/module-type-aliases": "^3.8.1",
+    "@docusaurus/tsconfig": "^3.8.1",
+    "@docusaurus/types": "^3.8.1",
+    "typescript": "~5.6.2"
   },
   "browserslist": {
     "production": [
@@ -47,12 +47,12 @@
       "not op_mini all"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 5 safari version"
     ]
   },
   "engines": {
-    "node": ">=16.14"
+    "node": ">=20.0"
   }
 }

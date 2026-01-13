@@ -11,18 +11,13 @@ info_path: api/analysis/analysis
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
-import Heading from "@theme/Heading";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
 <Heading
   as={"h1"}
@@ -34,6 +29,7 @@ import TabItem from "@theme/TabItem";
 <MethodEndpoint
   method={"post"}
   path={"/merge"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
@@ -50,267 +46,26 @@ Analyze content and return the results merged as HTML code.
 >
 </Heading>
 
-<MimeTabs
-  className={"openapi-tabs__mime"}
+<ParamsDetails
+  parameters={undefined}
 >
-  <TabItem
-    label={"application/json"}
-    value={"application/json-schema"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details mime"}
-      data-collapsed={false}
-      open={true}
-    >
-      <summary
-        style={{}}
-        className={"openapi-markdown__details-summary-mime"}
-      >
-        <h3
-          className={"openapi-markdown__details-summary-header-body"}
-        >
-          Body
-        </h3><strong
-          className={"openapi-schema__required"}
-        >
-          required
-        </strong>
-      </summary><div
-        style={{"textAlign":"left","marginLeft":"1rem"}}
-      >
-        
-      </div><ul
-        style={{"marginLeft":"1rem"}}
-      >
-        <SchemaItem
-          collapsible={true}
-          className={"schemaItem"}
-        >
-          <details
-            style={{}}
-            className={"openapi-markdown__details"}
-          >
-            <summary
-              style={{}}
-            >
-              <span
-                className={"openapi-schema__container"}
-              >
-                <strong
-                  className={"openapi-schema__property"}
-                >
-                  html
-                </strong><span
-                  className={"openapi-schema__name"}
-                >
-                   object
-                </span>
-              </span>
-            </summary><div
-              style={{"marginLeft":"1rem"}}
-            >
-              <div
-                style={{"marginTop":".5rem","marginBottom":".5rem"}}
-              >
-                
-                
-                The html fragment or html page to analyze.
-                
-                
-              </div><SchemaItem
-                collapsible={false}
-                name={"fragment"}
-                required={false}
-                schemaName={"string"}
-                qualifierMessage={undefined}
-                schema={{"type":"string","description":"The html fragment to analyze."}}
-              >
-                
-              </SchemaItem><SchemaItem
-                collapsible={false}
-                name={"page"}
-                required={false}
-                schemaName={"string"}
-                qualifierMessage={undefined}
-                schema={{"type":"string","description":"The html page to analyze, either fragment or page should be present"}}
-              >
-                
-              </SchemaItem>
-            </div>
-          </details>
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"url"}
-          required={false}
-          schemaName={"url"}
-          qualifierMessage={undefined}
-          schema={{"type":"string","description":"The url of the page to analyze.","format":"url"}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"urlClient"}
-          required={false}
-          schemaName={"string"}
-          qualifierMessage={"**Possible values:** [`CHROME`, `PLAIN_HTTP`, `CHROME, PLAIN_HTTP`]"}
-          schema={{"type":"string","description":"The client which the analysis should use to extract the content, by default chrome is used.","enum":["CHROME","PLAIN_HTTP","CHROME, PLAIN_HTTP"]}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"language"}
-          required={true}
-          schemaName={"string"}
-          qualifierMessage={"**Possible values:** `>= 2 characters` and `<= 2 characters`"}
-          schema={{"maxLength":2,"minLength":2,"type":"string","description":"The content language, 2 letters code, e.g. 'en'."}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"text"}
-          required={false}
-          schemaName={"string"}
-          qualifierMessage={undefined}
-          schema={{"type":"string","description":"A textual fragment."}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"exclude"}
-          required={false}
-          schemaName={"url[]"}
-          qualifierMessage={undefined}
-          schema={{"type":"array","description":"An array of item IDs to exclude from the analysis results.","items":{"type":"string","description":"An array of item IDs to exclude from the analysis results.","format":"url"}}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"scope"}
-          required={true}
-          schemaName={"string"}
-          qualifierMessage={undefined}
-          schema={{"type":"string","description":"The scope of the analysis, one of 'local', 'network', 'cloud-only', 'network-only' or 'all'."}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"matches"}
-          required={false}
-          schemaName={"int32"}
-          qualifierMessage={undefined}
-          schema={{"type":"integer","description":"Filter out results that don't have at least the specified number of occurrences. By default 1.","format":"int32"}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"links"}
-          required={false}
-          schemaName={"string"}
-          qualifierMessage={undefined}
-          schema={{"type":"string","description":"When returning an interpolated HTML results, matches should have the 'wl-link' class. By default 'no'."}}
-        >
-          
-        </SchemaItem>
-      </ul>
-    </details>
-  </TabItem>
-</MimeTabs><div>
-  <div>
-    <ApiTabs
-      label={undefined}
-      id={undefined}
-    >
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          Success
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"text/html"}
-              value={"text/html"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <div
-                        style={{"marginTop":".5rem","marginBottom":".5rem"}}
-                      >
-                        
-                        
-                        string
-                        
-                        
-                      </div>
-                    </ul>
-                  </details>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"401"}
-        value={"401"}
-      >
-        <div>
-          
-          
-          Authentication Failure
-          
-          
-        </div><div>
-          
-        </div>
-      </TabItem><TabItem
-        label={"500"}
-        value={"500"}
-      >
-        <div>
-          
-          
-          Server Error
-          
-          
-        </div><div>
-          
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"required":["language","scope"],"type":"object","properties":{"html":{"type":"object","properties":{"fragment":{"type":"string","description":"The html fragment to analyze."},"page":{"type":"string","description":"The html page to analyze, either fragment or page should be present"}},"description":"The html fragment or html page to analyze.","title":"Html"},"url":{"type":"string","description":"The url of the page to analyze.","format":"url"},"urlClient":{"type":"string","description":"The client which the analysis should use to extract the content, by default chrome is used.","enum":["CHROME","PLAIN_HTTP","CHROME, PLAIN_HTTP"]},"language":{"maxLength":2,"minLength":2,"type":"string","description":"The content language, 2 letters code, e.g. 'en'."},"text":{"type":"string","description":"A textual fragment."},"exclude":{"type":"array","description":"An array of item IDs to exclude from the analysis results.","items":{"type":"string","description":"An array of item IDs to exclude from the analysis results.","format":"url"}},"scope":{"type":"string","description":"The scope of the analysis, one of 'local', 'network', 'cloud-only', 'network-only' or 'all'."},"matches":{"type":"integer","description":"Filter out results that don't have at least the specified number of occurrences. By default 1.","format":"int32"},"links":{"type":"string","description":"When returning an interpolated HTML results, matches should have the 'wl-link' class. By default 'no'."}},"description":"The request","title":"Request"}}},"required":true}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Success","content":{"text/html":{"schema":{"type":"string"}}}},"401":{"description":"Authentication Failure"},"500":{"description":"Server Error"}}}
+>
+  
+</StatusCodes>
+
+
       

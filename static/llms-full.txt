@@ -12458,147 +12458,6 @@ Authentication Failure
 ---
 
 ---
-url: https://docs.wordlift.io/api/image-to-text/image-to-text-api-image-2-text-v-1-post/
----
-# Convert Image to Text | WordLift Developer Documentation
-
-# Convert Image to Text
-
-POST 
-
-## /image-2-text-v1
-
-Process an image and generate descriptive text based on its content.
-
-## Request[​](#request "Direct link to Request")
-
-* application/json
-
-### 
-
-Body
-
-**required**
-
-**image\_url** Image URL (string)required
-
-URL of the image to be processed
-
-**prompt\_type** Prompt Type (string)required
-
-**Possible values:** \[`Other`, `Product`, `Scene`\]
-
-Type of analysis to perform
-
-**custom\_prompt** Custom Prompt (string)
-
-Custom instructions for text generation
-
-## Responses[​](#responses "Direct link to Responses")
-
-* 200
-* 422
-
-Successful Response
-
-* application/json
-
-* Schema
-* Example (from schema)
-
-**Schema**
-
-**text** Text (string)required
-
-Generated text description of the image
-
-```
-{
-  "text": "string"
-}
-
-```
-
-Validation Error
-
-* application/json
-
-* Schema
-* Example (from schema)
-
-**Schema**
-
-**detail**
-
-object\[\]
-
-* Array \[
-
-**loc**
-
-object\[\]
-
-required
-
-* Array \[
-
-anyOf
-
-   * MOD1
-   * MOD2
-
-string
-
-integer
-
-* \]
-
-**msg** Message (string)required
-
-**type** Error Type (string)required
-
-* \]
-
-```
-{
-  "detail": [
-    {
-      "loc": [
-        "string",
-        0
-      ],
-      "msg": "string",
-      "type": "string"
-    }
-  ]
-}
-
-```
-
----
-
----
-url: https://docs.wordlift.io/api/image-to-text/wordlift-image-to-text-api/
----
-# WordLift Image-to-Text API | WordLift Developer Documentation
-
-Version: 1.0.0 
-
-# WordLift Image-to-Text API
-
-API for converting images into text descriptions using AI technology.
-
-## Authentication[​](#authentication "Direct link to Authentication")
-
-* API Key: ApiKey
-
-| Security Scheme Type:  | apiKey        |
-| ---------------------- | ------------- |
-| Header parameter name: | authorization |
-
----
-
----
 url: https://docs.wordlift.io/api/inspector/get/
 ---
 # Inspect | WordLift Developer Documentation
@@ -22644,7 +22503,6 @@ Search
 * [API](/category/api/)  
    * [Agent WordLift](/api/agent/wordlift-agent-api/)  
    * [Audit](/api/audit/wordlift-audit-api/)  
-   * [Image to Text](/api/image-to-text/wordlift-image-to-text-api/)  
    * [Analysis](/api/analysis/analysis/)  
    * [Classification](/api/classification/classification/)  
    * [Content Generation](/api/content-generation/content-generation/)  
@@ -22667,8 +22525,6 @@ Search
 [🗃️ Agent WordLift2 items](/api/agent/wordlift-agent-api/)
 
 [🗃️ Audit2 items](/api/audit/wordlift-audit-api/)
-
-[🗃️ Image to Text2 items](/api/image-to-text/wordlift-image-to-text-api/)
 
 [🗃️ Analysis4 items](/api/analysis/analysis/)
 

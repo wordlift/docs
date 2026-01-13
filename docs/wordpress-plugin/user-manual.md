@@ -22,7 +22,7 @@ sidebar_position: 20
 - [Mappings](/pages/mappings)
     - [Supported Schema types](/pages/mappings#supported-schema-types)
     - [Advanced Schema types](/pages/mappings#advanced-schema-types)
-    - [Advanced Custom Fields](/pages/mappings#advanced-custom-fields-1)
+    - [Advanced Custom Fields](/pages/mappings#advanced-custom-fields)
 - [Jsonld](/pages/jsonld)
   - [Post linked with term](/pages/jsonld#post-linked-with-term)
   - [Post linked with entity which matches the complete or a part of title](/pages/jsonld#post-linked-with-entity-which-matches-the-complete-or-a-part-of-title)
