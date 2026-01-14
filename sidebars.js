@@ -126,6 +126,11 @@ const sidebars = {
               id: "marketing-automation/power-automate/introduction",
               label: "Microsoft Power Automate"
             },
+            {
+              type: "doc",
+              id: "marketing-automation/brightedge/introduction",
+              label: "BrightEdge"
+            },
           ],
         },
       ],
@@ -134,6 +139,11 @@ const sidebars = {
       type: "category",
       label: "📚 Developer Resources",
       items: [
+        {
+          type: "doc",
+          id: "developer-resources/ip-user-agent-whitelist",
+          label: "IP & UA Whitelist"
+        },
         {
           type: "link",
           href: "/category/api",

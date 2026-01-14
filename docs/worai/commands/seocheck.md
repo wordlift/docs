@@ -19,6 +19,8 @@ Run SEO checks against URLs found in a sitemap. Supports remote sitemap URLs and
 | --- | --- | --- | --- |
 | `--max-urls` | int | none | Limit the number of URLs checked. |
 | `--timeout` | float | `20.0` | Timeout (seconds) for HTTP requests (sitemaps, robots.txt, llms.txt). |
+| `--user-agent` | string | browser-like | User-Agent header for HTTP requests (sitemaps, robots.txt, llms.txt). |
+| `--sitemap-fetch-mode` | choice | `auto` | How to fetch sitemaps: `requests`, `browser` (Playwright), or `auto` (fallback to browser). |
 | `--page-timeout` | int | `30000` | Timeout (ms) for browser page loads. |
 | `--wait-until` | choice | `domcontentloaded` | Playwright wait strategy: `domcontentloaded`, `load`, `networkidle`. |
 | `--ttfb-ok-ms` | float | `200.0` | TTFB ok threshold in ms. |
@@ -29,6 +31,7 @@ Run SEO checks against URLs found in a sitemap. Supports remote sitemap URLs and
 | `--output` | string | none | Write a comprehensive JSON report to this file path. |
 | `--output-summary` | string | none | Write a human-readable summary report to this file path. |
 | `--save-html` | bool | `false` | Save rendered HTML for each page to the output directory. |
+| `--no-report-ui` | bool | `false` | Do not serve or open the HTML report UI. |
 | `--checks` | string | none | Comma-separated list of page check names to run (others disabled). |
 | `--disable-checks` | string | none | Comma-separated list of page check names to skip. |
 | `--concurrency` | string | `1` | Number of pages to process concurrently, or `auto`. |
@@ -37,3 +40,6 @@ Run SEO checks against URLs found in a sitemap. Supports remote sitemap URLs and
 - `worai seocheck https://example.com/sitemap.xml`
 - `worai seocheck ./sitemap.xml --max-urls 50 --format json`
 - `worai seocheck https://example.com/sitemap.xml --output-dir ./seocheck-report --save-html`
+- `worai seocheck https://example.com/sitemap.xml --user-agent "Mozilla/5.0 ..."`
+- `worai seocheck https://example.com/sitemap.xml --sitemap-fetch-mode browser`
+- `worai seocheck https://example.com/sitemap.xml --no-report-ui`

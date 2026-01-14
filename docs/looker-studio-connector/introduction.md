@@ -1,6 +1,6 @@
 ---
 title: Introduction
-displayed_sidebar: wordpress-plugin
+displayed_sidebar: docs
 ---
 
 # WordLift Looker Studio Connector
@@ -43,4 +43,3 @@ Learn how to [create your Semantic SEO reports](https://youtu.be/mWMEbx3qIVI) in
 
 
 <iframe src="https://www.youtube-nocookie.com/embed/mWMEbx3qIVI" width="100%" height="540" frameborder="0" scrolling="auto"></iframe>
-
