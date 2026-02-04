@@ -10,14 +10,14 @@ Generate an SEO performance report from Google Search Console, optionally enrich
 
 ## Key options
 
-- `--site` (required): GSC property URL (e.g. `sc-domain:example.com`).
+- `--site` (required unless `gsc.id` is set): GSC property URL (e.g. `sc-domain:example.com`).
 - `--format`: `markdown` or `html` (default `markdown`).
 - `--output`: output path (default `seo_report_<timestamp>.md/html`).
 - `--url-regex`: filter pages by regex.
 - `--client-secrets`: OAuth client secrets JSON for GSC (also used for GA4 if `--ga-client-secrets` is not set).
 - `--token`: path for the shared OAuth token (GSC + GA4). Defaults to `./oauth_token.json` if not set anywhere.
 - `--port`: local redirect port for the OAuth flow (default `8080`).
-- `--inspect-limit`: number of top pages to inspect (default `10`, GSC quota).
+- `--inspect-limit`: number of top pages to inspect (default `0`, skip inspection when `0`, GSC quota).
 
 ### Analytics (GA4)
 
