@@ -160,6 +160,7 @@ const sidebars = {
               label: "Commands",
               items: [
                 "worai/commands/seocheck",
+                "worai/commands/seoreport",
                 "worai/commands/google-search-console",
                 "worai/commands/dedupe",
                 "worai/commands/canonicalize-duplicate-pages",
