@@ -7,7 +7,7 @@ sidebar_position: 8
 
 The Rankings Drop Audit workflow uses Agent WordLift's Multi-Agent System (MAS) to perform an autonomous, in-depth analysis of ranking drops in your Google Search Console data. Instead of static dashboards, it provides a dynamic reasoning engine that converts raw GSC data into a client-ready, interactive report.
 
-<iframe width="100%" height="415" src="https://www.youtube.com/embed/-cYW_uNRucE" title="Rankings Drop Audit with Agent WordLift" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/-cYW_uNRucE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
 ## The Three-Stage Process
 
