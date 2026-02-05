@@ -14,6 +14,7 @@ To allow WordLift to correctly analyze a customer website, please ensure the fol
 - 20.75.17.9
 - 52.252.16.185
 - 188.8.4.228
+- 34.52.203.209
 
 ## Whitelist User-Agent
 

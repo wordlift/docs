@@ -4,3 +4,4 @@
 - [x] 2026-02-05 Fix typecheck by aligning tsconfig/types and sidebar imports.
 - [x] 2026-02-05 Make sidebar loading resilient to .js/.ts generation differences and add a test.
 - [x] 2026-02-05 Bump patch version to 3.12.1 for sidebar build fix.
+- [x] 2026-02-05 Add 34.52.203.209 to the IP whitelist.
