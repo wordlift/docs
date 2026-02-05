@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info Version Notice
-Latest Release: 3.10.0 (February 2026) - New Rankings Drop Audit workflow with Multi-Agent System for autonomous traffic triage and recovery planning!
+Latest Release: 3.12.0 (February 2026) - New Rankings Drop Audit workflow with Multi-Agent System for autonomous traffic triage and recovery planning!
 :::
 
 # 🤖 Welcome to Agent WordLift - Your Marketing & AI SEO Agent

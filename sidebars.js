@@ -1,5 +1,7 @@
 // @ts-check
 
+const { loadSidebar } = require("./scripts/sidebars-utils");
+
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
   docs: [
@@ -126,6 +128,11 @@ const sidebars = {
               id: "marketing-automation/power-automate/introduction",
               label: "Microsoft Power Automate"
             },
+            {
+              type: "doc",
+              id: "marketing-automation/brightedge/introduction",
+              label: "BrightEdge"
+            },
           ],
         },
       ],
@@ -134,6 +141,16 @@ const sidebars = {
       type: "category",
       label: "📚 Developer Resources",
       items: [
+        {
+          type: "doc",
+          id: "developer-resources/ip-user-agent-whitelist",
+          label: "IP & UA Whitelist"
+        },
+        {
+          type: "doc",
+          id: "developer-resources/monitoring",
+          label: "Monitoring API Guide"
+        },
         {
           type: "link",
           href: "/category/api",
@@ -150,6 +167,7 @@ const sidebars = {
               label: "Commands",
               items: [
                 "worai/commands/seocheck",
+                "worai/commands/seoreport",
                 "worai/commands/google-search-console",
                 "worai/commands/dedupe",
                 "worai/commands/canonicalize-duplicate-pages",
@@ -159,6 +177,7 @@ const sidebars = {
                 "worai/commands/find-url-by-type",
                 "worai/commands/link-groups",
                 "worai/commands/patch",
+                "worai/commands/structured-data",
                 "worai/commands/list-entities-outside-dataset",
                 "worai/commands/validate",
                 "worai/commands/upload-entities-from-turtle",
@@ -224,87 +243,87 @@ const sidebars = {
         {
           type: "category",
           label: "Agent WordLift",
-          items: require("./docs/api/agent/sidebar.ts").default,
+          items: loadSidebar("./docs/api/agent/sidebar"),
         },
         {
           type: "category",
           label: "Audit",
-          items: require("./docs/api/audit/sidebar.ts").default,
+          items: loadSidebar("./docs/api/audit/sidebar"),
         },
         {
           type: "category",
           label: "Analysis",
-          items: require("./docs/api/analysis/sidebar.ts").default,
+          items: loadSidebar("./docs/api/analysis/sidebar"),
         },
         {
           type: "category",
           label: "Classification",
-          items: require("./docs/api/classification/sidebar.ts").default,
+          items: loadSidebar("./docs/api/classification/sidebar"),
         },
         {
           type: "category",
           label: "Content Generation",
-          items: require("./docs/api/content-generation/sidebar.ts").default,
+          items: loadSidebar("./docs/api/content-generation/sidebar"),
         },
         {
           type: "category",
           label: "Content Evaluations",
-          items: require("./docs/api/content-evaluations/sidebar.ts").default,
+          items: loadSidebar("./docs/api/content-evaluations/sidebar"),
         },
         {
           type: "category",
           label: "Fact Check",
-          items: require("./docs/api/fact-check/sidebar.ts").default,
+          items: loadSidebar("./docs/api/fact-check/sidebar"),
         },
         {
           type: "category",
           label: "GraphQL",
-          items: require("./docs/api/graphql/sidebar.ts").default,
+          items: loadSidebar("./docs/api/graphql/sidebar"),
         },
         {
           type: "category",
           label: "Inspector",
-          items: require("./docs/api/inspector/sidebar.ts").default,
+          items: loadSidebar("./docs/api/inspector/sidebar"),
         },
         {
           type: "category",
           label: "KPI Events",
-          items: require("./docs/api/events/sidebar.ts").default,
+          items: loadSidebar("./docs/api/events/sidebar"),
         },
         {
           type: "category",
           label: "Long Tail",
-          items: require("./docs/api/long-tail/sidebar.ts").default,
+          items: loadSidebar("./docs/api/long-tail/sidebar"),
         },
         {
           type: "category",
           label: "Manager",
-          items: require("./docs/api/manager/sidebar.ts").default,
+          items: loadSidebar("./docs/api/manager/sidebar"),
         },
         {
           type: "category",
           label: "Google Search Console",
-          items: require("./docs/api/gsc-url-inspections/sidebar.ts").default,
+          items: loadSidebar("./docs/api/gsc-url-inspections/sidebar"),
         },
         {
           type: "category",
           label: "Middleware",
-          items: require("./docs/api/middleware/sidebar.ts").default,
+          items: loadSidebar("./docs/api/middleware/sidebar"),
         },
         {
           type: "category",
           label: "Summarization",
-          items: require("./docs/api/summarizer/sidebar.ts").default,
+          items: loadSidebar("./docs/api/summarizer/sidebar"),
         },
         {
           type: "category",
           label: "Sitemap Generator",
-          items: require("./docs/api/sitemap-generator/sidebar.ts").default,
+          items: loadSidebar("./docs/api/sitemap-generator/sidebar"),
         },
         {
           type: "category",
           label: "Query Fan-Out",
-          items: require("./docs/api/query-fan-out/sidebar.ts").default,
+          items: loadSidebar("./docs/api/query-fan-out/sidebar"),
         },
       ],
     },
