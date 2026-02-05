@@ -32,6 +32,14 @@ $ npm run typecheck
 
 This runs TypeScript checks using the project `tsconfig.json` (which extends the Docusaurus base config).
 
+### Sidebar Checks
+
+```
+$ npm run test:sidebars
+```
+
+This verifies that API sidebar modules can be loaded from either `.js` or `.ts` files.
+
 ### Deployment
 
 Using SSH:
