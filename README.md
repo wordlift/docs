@@ -24,6 +24,14 @@ $ yarn build
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
+### Type Checking
+
+```
+$ npm run typecheck
+```
+
+This runs TypeScript checks using the project `tsconfig.json` (which extends the Docusaurus base config).
+
 ### Deployment
 
 Using SSH:
