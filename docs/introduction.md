@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.9.0 (January 2026) — Support for header-based authorization in MCP, a new [worai tool section](/worai/install/), improved documentation for installing [WordLift Cloud](/cloud/), and automatic FAQ rendering.
+Latest Release: 3.12.0 (February 2026) — New Monitor API guide in [Developer Resources](/developer-resources/monitoring) and documentation refreshes across the platform.
 :::
 
 # 👋 Welcome to WordLift
