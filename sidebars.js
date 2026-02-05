@@ -145,6 +145,11 @@ const sidebars = {
           label: "IP & UA Whitelist"
         },
         {
+          type: "doc",
+          id: "developer-resources/monitoring",
+          label: "Monitoring API Guide"
+        },
+        {
           type: "link",
           href: "/category/api",
           label: "API Documentation"
