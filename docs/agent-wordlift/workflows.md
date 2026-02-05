@@ -9,6 +9,7 @@ Here is how WordLift AI SEO Agent can help you boost your productivity in differ
   - [Keyword Discovery](./workflows/keyword-discovery.md)
   - [Keyword Cannibalization](./workflows/keyword-cannibalization.md)
   - [Google Search Console Integration](./workflows/google-search-console.md)
+  - [Rankings Drop Audit](./workflows/rankings-drop-audit.md)
 
 - **Research Content:**
   - [Research Using Reddit Discussions](./workflows/research-content-ideas.md)
