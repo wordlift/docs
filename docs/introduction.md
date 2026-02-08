@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.12.0 (February 2026) — New Monitor API guide in [Developer Resources](/developer-resources/monitoring) and documentation refreshes across the platform.
+Latest Release: 3.12.0 (February 2026) — New [Rankings Drop Audit](/agent-wordlift/workflows/rankings-drop-audit) workflow with Multi-Agent System, new [Monitor API guide](/developer-resources/monitoring), and documentation refreshes across the platform.
 :::
 
 # 👋 Welcome to WordLift

@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info Version Notice
-Latest Release: 3.9.0 (January 2026) - Support for header-based authorization in MCP, Google Search Console URL Inspections API, Enhanced Google Knowledge Graph integration and AI Sub-Agent workflows!
+Latest Release: 3.12.0 (February 2026) - New Rankings Drop Audit workflow with Multi-Agent System for autonomous traffic triage and recovery planning!
 :::
 
 # 🤖 Welcome to Agent WordLift - Your Marketing & AI SEO Agent
@@ -80,6 +80,7 @@ Your AI-Powered SEO Companion for Smart Content Optimization
 
 #### Content Strategy
 
+* [Rankings Drop Audit](./workflows/rankings-drop-audit.md) <span className="badge badge--success">New: Feb 2026</span>
 * [Keyword Research](./workflows/keyword-discovery.md)
 * [GSC Integration](./workflows/google-search-console.md)
 * [Enhanced Entity Research](./workflows/enhanced-entity-research.md)
