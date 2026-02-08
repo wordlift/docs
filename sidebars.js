@@ -39,6 +39,11 @@ const sidebars = {
                 },
                 {
                   type: "doc",
+                  id: "knowledge-graph/web-page-import",
+                  label: "Web Page Import"
+                },
+                {
+                  type: "doc",
                   id: "knowledge-graph/analytics-api",
                   label: "Analytics Import"
                 },
