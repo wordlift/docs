@@ -41,11 +41,11 @@ The `mode` parameter determines the strategy used to download the page:
 | :--- | :--- |
 | `default` | **Recommended.** Uses a smart fallback system. It attempts a standard fetch and automatically upgrades to an advanced rendering fetch if the target site blocks the initial request. |
 | `proxy` | Uses the standard fetching service. |
-| `scrapingbee` | Forces the use of an advanced rendering engine capable of handling JavaScript and premium residential networks. |
+| `premium_scraper` | Forces the use of an advanced rendering engine capable of handling JavaScript and premium residential networks. |
 
 ### Configuration Parameters
 
-When using the advanced rendering engine (either via `default` fallback or forced `scrapingbee` mode), the following options are available:
+When using the advanced rendering engine (either via `default` fallback or forced `premium_scraper` mode), the following options are available:
 
 | Option | Type | Description |
 | :--- | :--- | :--- |
@@ -61,7 +61,7 @@ When using the advanced rendering engine (either via `default` fallback or force
 {
   "url": "https://www.zurich.ch/de",
   "fetch_options": {
-    "mode": "scrapingbee",
+    "mode": "premium_scraper",
     "render_js": true,
     "country_code": "ch",
     "wait_for": ".main-content"
@@ -80,5 +80,5 @@ The resulting entity is stored in the Knowledge Graph and includes the following
 
 ## Troubleshooting
 
-- **Access Denied (403)**: If the standard fetch is blocked, the system usually retries automatically in `default` mode. If it still fails, try forcing `mode: scrapingbee` with `premium_proxy: true`.
+- **Access Denied (403)**: If the standard fetch is blocked, the system usually retries automatically in `default` mode. If it still fails, try forcing `mode: premium_scraper` with `premium_proxy: true`.
 - **Incomplete Content**: If the page relies heavily on client-side rendering, ensure `render_js` is set to `true`.
