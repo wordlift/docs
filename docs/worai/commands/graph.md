@@ -19,7 +19,7 @@ Run graph-specific workflows.
 
 Example profile config:
 ```toml
-[profile.zurich]
+[profile.acme]
 api_key = "wl_..."
 sheets_service_account = "./service-account.json"
 # or inline JSON string:
@@ -27,6 +27,6 @@ sheets_service_account = "./service-account.json"
 ```
 
 ## Examples
-- `worai graph sync --profile zurich`
-- `worai --config ./worai.toml graph sync --profile zurich`
-- `worai graph sync --profile zurich --debug`
+- `worai graph sync --profile acme`
+- `worai --config ./worai.toml graph sync --profile acme`
+- `worai graph sync --profile acme --debug`
