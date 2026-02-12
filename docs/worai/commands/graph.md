@@ -20,6 +20,10 @@ Run graph-specific workflows.
 - Without root `--config`, standard worai config discovery applies (`WORAI_CONFIG`, `./worai.toml`, `~/.config/worai/config.toml`, `~/.worai.toml`).
 - `sheets_service_account` accepts either inline JSON or a file path.
 - The command fails when the selected profile does not define `api_key`.
+- `google_search_console` can be set globally or per profile in `worai.toml`.
+  - profile value overrides global value.
+  - default is `false` when unset.
+  - mapped to SDK setting `GOOGLE_SEARCH_CONSOLE`.
 - `sheets_service_account` is required only when using Google Sheets source (`sheets_url` + `sheets_name`).
 - Failure cases for `sheets_service_account` (Sheets source only):
   - value is missing or empty
@@ -30,6 +34,7 @@ Example profile config:
 ```toml
 [profile.acme]
 api_key = "wl_..."
+google_search_console = true
 sheets_service_account = "./service-account.json"
 # or inline JSON string:
 # sheets_service_account = "{\"type\":\"service_account\",...}"
