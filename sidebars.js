@@ -194,6 +194,7 @@ const sidebars = {
                 "worai/commands/find-faq-page-wrong-type",
                 "worai/commands/find-missing-names",
                 "worai/commands/find-url-by-type",
+                "worai/commands/graph",
                 "worai/commands/link-groups",
                 "worai/commands/patch",
                 "worai/commands/structured-data",
