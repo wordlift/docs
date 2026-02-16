@@ -112,6 +112,7 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 | `--port` | int | `8080` | Local redirect port for OAuth flow. |
 | `--timeout` | float | `30.0` | HTTP timeout in seconds for sitemap and page fetches. |
 | `--concurrency` | string | `auto` | Worker count or `auto` to adapt to fetch/parse responses. |
+| `--source-type` | string | none | Optional source parser override (e.g., `debug-cloud`). |
 
 ### Output columns
 - `url`
@@ -131,6 +132,9 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
   - `.txt`: one URL per line
   - `.csv`: requires `url` column
 - When using a Google Spreadsheet as source, `--sheet-name` is required.
+- `--source-type debug-cloud` supports `.ttl` debug artifacts by reading:
+  - URL from `http://schema.org/url`
+  - HTML from `https://w3id.org/seovoc/html`
 
 ### Examples
 - `worai structured-data inventory https://example.com/sitemap.xml --output ./structured-data-inventory.csv`
@@ -138,3 +142,4 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 - `worai structured-data inventory https://docs.google.com/spreadsheets/d/<id>/edit --sheet-name URLs_US --output ./structured-data-inventory.csv`
 - `worai structured-data inventory https://example.com/sitemap.xml --destination-sheet-id 1AbCdEfGhIjKlMnOp --destination-sheet-name Inventory`
 - `worai structured-data inventory https://example.com/sitemap.xml --output ./structured-data-inventory.csv --concurrency auto`
+- `worai structured-data inventory /path/to/debug_cloud/us --source-type debug-cloud --output ./structured-data-inventory.csv`
