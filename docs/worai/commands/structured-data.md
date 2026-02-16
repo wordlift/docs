@@ -111,6 +111,7 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 | `--token` | string | `oauth_token.json` | OAuth token path (shared token file). |
 | `--port` | int | `8080` | Local redirect port for OAuth flow. |
 | `--timeout` | float | `30.0` | HTTP timeout in seconds for sitemap and page fetches. |
+| `--concurrency` | string | `auto` | Worker count or `auto` to adapt to fetch/parse responses. |
 
 ### Output columns
 - `url`
@@ -125,6 +126,7 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 - Requires exactly one destination: `--output` or `--destination-sheet-id` + `--destination-sheet-name`.
 - Fetches page content with Playwright using the shared worai default User-Agent.
 - Shows a progress bar while processing source URLs.
+- Supports adaptive concurrency via `--concurrency auto`.
 - Local URL list file support:
   - `.txt`: one URL per line
   - `.csv`: requires `url` column
@@ -135,3 +137,4 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 - `worai structured-data inventory ./urls.txt --output ./structured-data-inventory.csv`
 - `worai structured-data inventory https://docs.google.com/spreadsheets/d/<id>/edit --sheet-name URLs_US --output ./structured-data-inventory.csv`
 - `worai structured-data inventory https://example.com/sitemap.xml --destination-sheet-id 1AbCdEfGhIjKlMnOp --destination-sheet-name Inventory`
+- `worai structured-data inventory https://example.com/sitemap.xml --output ./structured-data-inventory.csv --concurrency auto`
