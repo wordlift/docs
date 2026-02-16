@@ -97,7 +97,7 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 
 | Argument | Type | Description |
 | --- | --- | --- |
-| `source` | string | Sitemap URL/path, or Google Spreadsheet URL/ID containing input URLs. |
+| `source` | string | Sitemap URL/path, local URL list file, or Google Spreadsheet URL/ID containing input URLs. |
 
 ### Options
 
@@ -122,9 +122,13 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 - Uses JSON-LD only (`<script type=\"application/ld+json\">`).
 - Requires `WORDLIFT_KEY` (or `wordlift.api_key` in config) to resolve account dataset URI.
 - Requires exactly one destination: `--output` or `--sheets`.
+- Local URL list file support:
+  - `.txt`: one URL per line
+  - `.csv`: requires `url` column
 - When using a Google Spreadsheet as source, `--sheet-name` is required.
 
 ### Examples
 - `worai structured-data inventory https://example.com/sitemap.xml --output ./structured-data-inventory.csv`
+- `worai structured-data inventory ./urls.txt --output ./structured-data-inventory.csv`
 - `worai structured-data inventory https://docs.google.com/spreadsheets/d/<id>/edit --sheet-name URLs_US --output ./structured-data-inventory.csv`
 - `worai structured-data inventory https://example.com/sitemap.xml --sheets 1AbCdEfGhIjKlMnOp`
