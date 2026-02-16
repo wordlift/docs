@@ -124,6 +124,7 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 - Requires `WORDLIFT_KEY` (or `wordlift.api_key` in config) to resolve account dataset URI.
 - Requires exactly one destination: `--output` or `--destination-sheet-id` + `--destination-sheet-name`.
 - Fetches page content with Playwright using the shared worai default User-Agent.
+- Shows a progress bar while processing source URLs.
 - Local URL list file support:
   - `.txt`: one URL per line
   - `.csv`: requires `url` column
