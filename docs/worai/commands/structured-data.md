@@ -7,7 +7,7 @@ Generate JSON-LD/YARRRML mappings or materialize RDF from YARRRML using Playwrig
 ## Usage
 - `worai structured-data create <url> [schema_type] [options]`
 - `worai structured-data generate <input> --yarrrml <mapping.yarrrml> [options]`
-- `worai structured-data inventory <sitemap_url> (--output <file.csv> | --sheets <spreadsheet_id>) [options]`
+- `worai structured-data inventory <source> (--output <file.csv> | --sheets <spreadsheet_id>) [options]`
 
 ## structured-data create
 Generate JSON-LD and YARRRML for a rendered web page using Playwright and Agent WordLift.
@@ -97,12 +97,13 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 
 | Argument | Type | Description |
 | --- | --- | --- |
-| `sitemap_url` | string | Sitemap URL/path (supports sitemap indexes and nested sitemaps). |
+| `source` | string | Sitemap URL/path, or Google Spreadsheet URL/ID containing input URLs. |
 
 ### Options
 
 | Option | Type | Default | Description |
 | --- | --- | --- | --- |
+| `--sheet-name` | string | none | Source sheet tab name when `source` is a Google Spreadsheet (reads the `url` column). |
 | `--output` | string | none | Write inventory to CSV. |
 | `--sheets` | string | none | Google Spreadsheet ID to write inventory to. |
 | `--client-secrets` | string | none | OAuth client secrets JSON path (used when Sheets auth needs re-consent). |
@@ -121,7 +122,9 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 - Uses JSON-LD only (`<script type=\"application/ld+json\">`).
 - Requires `WORDLIFT_KEY` (or `wordlift.api_key` in config) to resolve account dataset URI.
 - Requires exactly one destination: `--output` or `--sheets`.
+- When using a Google Spreadsheet as source, `--sheet-name` is required.
 
 ### Examples
 - `worai structured-data inventory https://example.com/sitemap.xml --output ./structured-data-inventory.csv`
+- `worai structured-data inventory https://docs.google.com/spreadsheets/d/<id>/edit --sheet-name URLs_US --output ./structured-data-inventory.csv`
 - `worai structured-data inventory https://example.com/sitemap.xml --sheets 1AbCdEfGhIjKlMnOp`
