@@ -7,7 +7,7 @@ Generate JSON-LD/YARRRML mappings or materialize RDF from YARRRML using Playwrig
 ## Usage
 - `worai structured-data create <url> [schema_type] [options]`
 - `worai structured-data generate <input> --yarrrml <mapping.yarrrml> [options]`
-- `worai structured-data inventory <source> (--output <file.csv> | --sheets <spreadsheet_id>) [options]`
+- `worai structured-data inventory <source> (--output <file.csv> | --destination-sheet-id <spreadsheet_id> --destination-sheet-name <tab>) [options]`
 
 ## structured-data create
 Generate JSON-LD and YARRRML for a rendered web page using Playwright and Agent WordLift.
@@ -105,7 +105,8 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 | --- | --- | --- | --- |
 | `--sheet-name` | string | none | Source sheet tab name when `source` is a Google Spreadsheet (reads the `url` column). |
 | `--output` | string | none | Write inventory to CSV. |
-| `--sheets` | string | none | Google Spreadsheet ID to write inventory to. |
+| `--destination-sheet-id` | string | none | Google Spreadsheet ID where inventory should be written. |
+| `--destination-sheet-name` | string | none | Destination sheet tab name for inventory output. |
 | `--client-secrets` | string | none | OAuth client secrets JSON path (used when Sheets auth needs re-consent). |
 | `--token` | string | `oauth_token.json` | OAuth token path (shared token file). |
 | `--port` | int | `8080` | Local redirect port for OAuth flow. |
@@ -121,7 +122,7 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 ### Notes
 - Uses JSON-LD only (`<script type=\"application/ld+json\">`).
 - Requires `WORDLIFT_KEY` (or `wordlift.api_key` in config) to resolve account dataset URI.
-- Requires exactly one destination: `--output` or `--sheets`.
+- Requires exactly one destination: `--output` or `--destination-sheet-id` + `--destination-sheet-name`.
 - Local URL list file support:
   - `.txt`: one URL per line
   - `.csv`: requires `url` column
@@ -131,4 +132,4 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 - `worai structured-data inventory https://example.com/sitemap.xml --output ./structured-data-inventory.csv`
 - `worai structured-data inventory ./urls.txt --output ./structured-data-inventory.csv`
 - `worai structured-data inventory https://docs.google.com/spreadsheets/d/<id>/edit --sheet-name URLs_US --output ./structured-data-inventory.csv`
-- `worai structured-data inventory https://example.com/sitemap.xml --sheets 1AbCdEfGhIjKlMnOp`
+- `worai structured-data inventory https://example.com/sitemap.xml --destination-sheet-id 1AbCdEfGhIjKlMnOp --destination-sheet-name Inventory`
