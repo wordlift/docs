@@ -7,6 +7,7 @@ Generate JSON-LD/YARRRML mappings or materialize RDF from YARRRML using Playwrig
 ## Usage
 - `worai structured-data create <url> [schema_type] [options]`
 - `worai structured-data generate <input> --yarrrml <mapping.yarrrml> [options]`
+- `worai structured-data inventory <sitemap_url> (--output <file.csv> | --sheets <spreadsheet_id>) [options]`
 
 ## structured-data create
 Generate JSON-LD and YARRRML for a rendered web page using Playwright and Agent WordLift.
@@ -88,3 +89,39 @@ Render pages from a sitemap (or a single URL), apply a YARRRML mapping, and emit
 - `worai structured-data generate https://example.com/sitemap.xml --yarrrml ./mapping.yarrrml --output-dir ./out`
 - `worai structured-data generate https://example.com/page --yarrrml ./mapping.yarrrml --format jsonld`
 - `worai structured-data generate ./sitemap.xml --yarrrml ./mapping.yarrrml --regex "/product/" --concurrency auto`
+
+## structured-data inventory
+Parse all URLs from a sitemap, extract JSON-LD from each page, and export a structured-data inventory.
+
+### Arguments
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sitemap_url` | string | Sitemap URL/path (supports sitemap indexes and nested sitemaps). |
+
+### Options
+
+| Option | Type | Default | Description |
+| --- | --- | --- | --- |
+| `--output` | string | none | Write inventory to CSV. |
+| `--sheets` | string | none | Google Spreadsheet ID to write inventory to. |
+| `--client-secrets` | string | none | OAuth client secrets JSON path (used when Sheets auth needs re-consent). |
+| `--token` | string | `oauth_token.json` | OAuth token path (shared token file). |
+| `--port` | int | `8080` | Local redirect port for OAuth flow. |
+| `--timeout` | float | `30.0` | HTTP timeout in seconds for sitemap and page fetches. |
+
+### Output columns
+- `url`
+- `faq_markup` (`yes`/`no`, based on `FAQPage` existence)
+- `faq_markup_from_graph` (`yes`/`no`, based on `FAQPage.@id` being under current account dataset URI)
+- `types` (comma-separated schema types without schema.org prefixes)
+- `structured_data` (full combined JSON-LD object with one `@graph`)
+
+### Notes
+- Uses JSON-LD only (`<script type=\"application/ld+json\">`).
+- Requires `WORDLIFT_KEY` (or `wordlift.api_key` in config) to resolve account dataset URI.
+- Requires exactly one destination: `--output` or `--sheets`.
+
+### Examples
+- `worai structured-data inventory https://example.com/sitemap.xml --output ./structured-data-inventory.csv`
+- `worai structured-data inventory https://example.com/sitemap.xml --sheets 1AbCdEfGhIjKlMnOp`
