@@ -24,6 +24,7 @@ log_level = "info"
 api_key = "wl_..."
 
 [gsc]
+id = "sc-domain:example.com"
 client_secrets = "/path/to/client_secrets.json"
 
 [ga]
@@ -32,11 +33,16 @@ client_secrets = "/path/to/client_secrets.json"
 
 [oauth]
 token = "/path/to/oauth_token.json"
+
+[updates]
+check = true
 ```
 
 Notes:
+- `gsc.id` can be used as default `--site` for commands that support it.
 - `oauth.token` is the shared token file for GSC + GA4. If not set via config or env, the CLI defaults to `./oauth_token.json`.
 - Legacy keys `gsc.token` and `ga.token` are still read, but must point to the same file when used.
+- `updates.check = false` disables startup update checks.
 
 ## Environment variables
 
@@ -52,6 +58,7 @@ Notes:
 - `GA_ID` — GA4 property ID for Analytics sections.
 - `GA_CLIENT_SECRETS` — path to OAuth client secrets JSON for GA4.
 - `GSC_TOKEN` / `GA_TOKEN` — legacy aliases for `OAUTH_TOKEN` (must point to the same file if used).
+- `WORAI_DISABLE_UPDATE_CHECK` — set to `1|true|yes|on` to disable startup update checks.
 
 Example environment setup:
 ```
