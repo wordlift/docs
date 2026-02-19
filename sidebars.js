@@ -197,6 +197,7 @@ const sidebars = {
                 "worai/commands/graph",
                 "worai/commands/link-groups",
                 "worai/commands/patch",
+                "worai/commands/self",
                 "worai/commands/structured-data",
                 "worai/commands/list-entities-outside-dataset",
                 "worai/commands/validate",

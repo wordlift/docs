@@ -16,6 +16,7 @@ If you plan to run `seocheck`, install Playwright browsers:
 - `worai --help`
 - `worai seocheck https://example.com/sitemap.xml`
 - `worai google-search-console --site sc-domain:example.com --client-secrets ./client_secrets.json`
+- `worai self update --check-only`
 - `worai <command> --help`
 
 ## Autocompletion
