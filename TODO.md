@@ -5,3 +5,4 @@
 - [x] 2026-02-05 Make sidebar loading resilient to .js/.ts generation differences and add a test.
 - [x] 2026-02-05 Bump patch version to 3.12.1 for sidebar build fix.
 - [x] 2026-02-05 Add 34.52.203.209 to the IP whitelist.
+- [x] 2026-02-19 Sync worai CLI docs with current command flags/defaults (`structured-data`, `google-search-console`, `configuration`, and command option tables).
