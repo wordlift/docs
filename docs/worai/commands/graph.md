@@ -41,6 +41,10 @@ Run graph-specific workflows.
 - Loader default behavior is `web_scrape_api`.
   - legacy `web_page_import_mode=default` maps to `web_scrape_api`
   - legacy `proxy` and `premium_scraper` keep the same value
+  - emitted SDK fetch mode (`WEB_PAGE_IMPORT_MODE`) remains SDK-valid:
+    - `ingest.loader=proxy` -> `WEB_PAGE_IMPORT_MODE=proxy`
+    - `ingest.loader=premium_scraper` -> `WEB_PAGE_IMPORT_MODE=premium_scraper`
+    - `ingest.loader=web_scrape_api` (and all other loaders) -> `WEB_PAGE_IMPORT_MODE=default`
 Example ingestion config:
 ```toml
 [profile.acme]
