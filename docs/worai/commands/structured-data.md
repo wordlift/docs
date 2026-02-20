@@ -113,6 +113,9 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 | `--timeout` | float | `30.0` | HTTP timeout in seconds for sitemap and page fetches. |
 | `--concurrency` | string | `auto` | Worker count or `auto` to adapt to fetch/parse responses. |
 | `--source-type` | string | none | Optional source parser override (e.g., `debug-cloud`). |
+| `--ingest-source` | string | none | SDK 5 source axis: `auto`, `urls`, `sitemap`, `sheets`, `local`. |
+| `--ingest-loader` | string | none | SDK 5 loader axis: `auto`, `simple`, `proxy`, `playwright`, `premium_scraper`, `web_scrape_api`, `passthrough`. |
+| `--ingest-passthrough-when-html / --no-ingest-passthrough-when-html` | bool | config/default | Prefer passthrough when source records include embedded HTML. |
 
 ### Output columns
 - `url`
@@ -128,11 +131,32 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 - Fetches page content with Playwright using the shared worai default User-Agent.
 - Shows a progress bar while processing source URLs.
 - Supports adaptive concurrency via `--concurrency auto`.
+- Ingestion precedence:
+  - new ingest settings (`--ingest-*` or `ingest.*` config) win over legacy when both are set
+  - legacy remains supported when new is unset
+  - disagreements emit a structured warning event
+- Loader defaults:
+  - default and `auto` loader resolve to `web_scrape_api`
+  - passthrough takes precedence when embedded HTML exists and passthrough-when-html is enabled
+- `worai.toml` examples:
+```toml
+[ingest]
+source = "auto"
+loader = "web_scrape_api"
+passthrough_when_html = true
+```
+
+```toml
+[profile.inventory_local]
+ingest.source = "local"
+ingest.loader = "passthrough"
+ingest.passthrough_when_html = true
+```
 - Local URL list file support:
   - `.txt`: one URL per line
   - `.csv`: requires `url` column
 - When using a Google Spreadsheet as source, `--sheet-name` is required.
-- `--source-type debug-cloud` supports `.ttl` debug artifacts by reading:
+- `--source-type debug-cloud` (legacy alias of `--ingest-source local`) supports `.ttl` debug artifacts by reading:
   - URL from `http://schema.org/url`
   - HTML from `https://w3id.org/seovoc/html`
 
@@ -143,3 +167,5 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 - `worai structured-data inventory https://example.com/sitemap.xml --destination-sheet-id 1AbCdEfGhIjKlMnOp --destination-sheet-name Inventory`
 - `worai structured-data inventory https://example.com/sitemap.xml --output ./structured-data-inventory.csv --concurrency auto`
 - `worai structured-data inventory /path/to/debug_cloud/us --source-type debug-cloud --output ./structured-data-inventory.csv`
+- `worai structured-data inventory /path/to/debug_cloud/us --ingest-source local --ingest-loader passthrough --output ./structured-data-inventory.csv`
+- `worai structured-data inventory https://example.com/sitemap.xml --ingest-loader web_scrape_api --output ./structured-data-inventory.csv`
