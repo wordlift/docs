@@ -29,4 +29,4 @@ Patch WordLift entities from RDF (Turtle or JSON-LD).
 - `worai patch ./data.jsonld --types-only --workers 4`
 
 ## Notes
-- Requires `WORDLIFT_KEY` (or `wordlift.api_key` in config).
+- Requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config).

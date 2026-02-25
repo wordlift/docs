@@ -26,5 +26,5 @@ Choose canonical URLs based on WordLift entity type+name and GSC KPIs.
 - `worai canonicalize-duplicate-pages --input gsc_pages.csv --entity-type Product`
 
 ## Notes
-- Requires `WORDLIFT_KEY` (or `wordlift.api_key` in config).
+- Requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config).
 - If multiple entities are returned for the same URL, use `--entity-type` to select the expected type.

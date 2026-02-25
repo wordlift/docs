@@ -27,4 +27,4 @@ Upload .ttl/.turtle files to WordLift /entities with resume support.
 - `worai upload-entities-from-turtle ./entities --recursive --limit 50`
 
 ## Notes
-- Uses `WORDLIFT_KEY` or `WORDLIFT_API_KEY` if `--api-key` is not provided.
+- Uses `profiles.<name>.api_key` first, then `WORDLIFT_API_KEY`, if `--api-key` is not provided.

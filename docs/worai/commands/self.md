@@ -23,4 +23,4 @@ Check PyPI for a newer `worai` version and print (or run) the recommended upgrad
 
 ### Notes
 - Startup update checks are cached (24h) and non-blocking.
-- Disable startup update checks via `WORAI_DISABLE_UPDATE_CHECK=1` or config `updates.check = false`.
+- Disable startup update checks via `WORAI_DISABLE_UPDATE_CHECK=1`.

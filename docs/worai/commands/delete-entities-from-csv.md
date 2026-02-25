@@ -23,4 +23,4 @@ Delete entities listed in a CSV file (first column = IRI).
 - `worai delete-entities-from-csv ./entities.csv --batch-size 20`
 
 ## Notes
-- Requires `WORDLIFT_KEY` (or `wordlift.api_key` in config).
+- Requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config).

@@ -27,4 +27,4 @@ Find entities with schema:mainEntity but missing schema:FAQPage type. Optionally
 - `worai find-faq-page-wrong-type ./data.ttl --patch --replace-type`
 
 ## Notes
-- `--patch` requires `WORDLIFT_KEY` (or `wordlift.api_key` in config).
+- `--patch` requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config).

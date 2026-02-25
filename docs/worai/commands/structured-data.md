@@ -38,7 +38,7 @@ Generate JSON-LD and YARRRML for a rendered web page using Playwright and Agent 
 | `--wait-until` | choice | `networkidle` | Playwright wait strategy: `domcontentloaded`, `load`, `networkidle`. |
 
 ### Notes
-- Requires `WORDLIFT_KEY` (or `wordlift.api_key` in config) to resolve the dataset URI.
+- Requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config) to resolve the dataset URI.
 - Requires `yarrrml-parser` (`npm install -g @rmlio/yarrrml-parser`).
 - `morph-kgc` is included in project dependencies.
 - Each JSON-LD node includes an `@id` built as `<dataset_uri>/<pluralized-type>/<name>-<hash>`.
@@ -126,13 +126,13 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 
 ### Notes
 - Uses JSON-LD only (`<script type=\"application/ld+json\">`).
-- Requires `WORDLIFT_KEY` (or `wordlift.api_key` in config) to resolve account dataset URI.
+- Requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config) to resolve account dataset URI.
 - Requires exactly one destination: `--output` or `--destination-sheet-id` + `--destination-sheet-name`.
 - Fetches page content with Playwright using the shared worai default User-Agent.
 - Shows a progress bar while processing source URLs.
 - Supports adaptive concurrency via `--concurrency auto`.
 - Ingestion precedence:
-  - new ingest settings (`--ingest-*` or `ingest.*` config) win over legacy when both are set
+  - new ingest settings (`--ingest-*` or `ingest_*` config) win over legacy when both are set
   - legacy remains supported when new is unset
   - disagreements emit a structured warning event
 - Loader defaults:
@@ -147,10 +147,12 @@ passthrough_when_html = true
 ```
 
 ```toml
-[profile.inventory_local]
-ingest.source = "local"
-ingest.loader = "passthrough"
-ingest.passthrough_when_html = true
+[profiles.inventory_local]
+api_key = "${WORDLIFT_API_KEY}"
+mapping = "default.yarrrml"
+urls = ["https://example.com/page"]
+ingest_source = "local"
+ingest_loader = "passthrough"
 ```
 - Local URL list file support:
   - `.txt`: one URL per line

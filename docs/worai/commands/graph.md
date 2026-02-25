@@ -10,12 +10,30 @@ Run graph-specific workflows.
 - `worai graph sync run --profile <name> [--debug]`
 - `worai --config <path> graph sync run --profile <name> [--debug]`
 - `worai graph sync create <destination> [--template <src>] [--defaults] [--data-file <path>] [--vcs-ref <ref>] [--non-interactive] [--force]`
+- `worai graph export [--profile <name>] [output_file_name]`
+- `worai graph validate <file-or-url> [<file-or-url> ...] [--builtin-shape <name>] [--exclude-builtin-shape <name>] [--shape <file-or-url>] [--level warning|error] [--format text|json]`
 - `worai graph property delete <predicate> [--dry-run] [--yes] [--workers <n>] [--retries <n>] [--rate-delay <s>] [--limit <n>]`
 
 ## Notes
 - `graph sync run` executes the graph sync workflow for a profile in `worai.toml`.
 - `graph sync create` bootstraps a new graph sync project from a Copier template.
 - `graph sync create` enables Copier trusted mode by default, so template `_tasks` run automatically.
+- `graph export` downloads graph data from `/export` and writes it to a local file.
+  - `--profile` is optional for export and defaults to `default`.
+  - API key resolution is `profiles.<name>.api_key` first, then `WORDLIFT_API_KEY`.
+  - output format is inferred from file extension:
+    - `.ttl` -> `text/turtle`
+    - `.nt` -> `application/n-triples`
+    - `.nq` -> `application/n-quads`
+    - `.rdf`/`.xml` -> `application/rdf+xml`
+    - `.jsonld`/`.json` -> `application/ld+json`
+  - when no output file is passed, default name is `export_<profile>_<yyyyMMdd>_<seq>.ttl` (sequence starts at `1` and increments if the file already exists).
+- `graph validate` validates one or more local files or URLs with SHACL shapes.
+  - `--builtin-shape` includes selected packaged shape names.
+  - `--exclude-builtin-shape` removes packaged shapes from the active set.
+  - `--shape` adds extra shape files/URLs.
+  - `--level warning|error` controls failure threshold.
+  - `--format text|json` selects output format.
 - `graph property delete` removes one predicate from all matching entities.
   - accepts full IRI (`https://w3id.org/seovoc/html`) or CURIE (`seovoc:html`).
   - includes private fields by default (`X-include-Private: true`) for both matching-entity discovery and deletion PATCH requests.
@@ -25,7 +43,8 @@ Run graph-specific workflows.
   - `urls` (explicit URL list)
   - `sitemap_url` (+ optional `sitemap_url_pattern`)
   - Google Sheets (`sheets_url` + `sheets_name` + `sheets_service_account`)
-- `--profile` is required and must match a profile entry in the selected config file.
+  - configure exactly one source mode per run.
+- `graph sync run --profile` is required and must match a profile entry in the selected config file.
 - Config path comes from root `worai --config ...` when provided.
 - Without root `--config`, standard worai config discovery applies (`WORAI_CONFIG`, `./worai.toml`, `~/.config/worai/config.toml`, `~/.worai.toml`).
 - `sheets_service_account` accepts either inline JSON or a file path.
@@ -34,25 +53,37 @@ Run graph-specific workflows.
   - profile value overrides global value.
   - default is `false` when unset.
   - mapped to SDK setting `GOOGLE_SEARCH_CONSOLE`.
-- SDK 5 ingestion settings are forwarded when configured:
-  - `ingest.source`: `auto|urls|sitemap|sheets|local`
-  - `ingest.loader`: `auto|simple|proxy|playwright|premium_scraper|web_scrape_api|passthrough`
-  - `ingest.passthrough_when_html`: default `true`
-- Loader default behavior is `web_scrape_api`.
-  - legacy `web_page_import_mode=default` maps to `web_scrape_api`
-  - legacy `proxy` and `premium_scraper` keep the same value
-  - emitted SDK fetch mode (`WEB_PAGE_IMPORT_MODE`) remains SDK-valid:
-    - `ingest.loader=proxy` -> `WEB_PAGE_IMPORT_MODE=proxy`
-    - `ingest.loader=premium_scraper` -> `WEB_PAGE_IMPORT_MODE=premium_scraper`
-    - `ingest.loader=web_scrape_api` (and all other loaders) -> `WEB_PAGE_IMPORT_MODE=default`
+- `postprocessor_runtime` can be set globally or per profile in `worai.toml`.
+  - profile value overrides global value.
+  - accepted values: `oneshot`, `persistent`.
+  - SDK 6 default is `persistent`; set `oneshot` to preserve legacy one-shot behavior.
+  - when set, exported as env var `POSTPROCESSOR_RUNTIME` during `graph sync run`.
+- Callback telemetry for `graph sync run`:
+  - `graph sync run` uses `run_cloud_workflow` and logs per-graph progress events and one final KPI summary.
+  - `on_info` lifecycle messages remain supported and are logged as info events.
+  - debug artifacts are written by the SDK protocol callback to `output/debug_cloud/<profile>/` (relative to the invocation current working directory):
+    - `static_templates.ttl`
+    - `cloud_<sha256(url)>.ttl` for each callback URL.
+- SDK 6 ingestion settings are forwarded when configured:
+  - `ingest_source`: `auto|urls|sitemap|sheets|local`
+  - `ingest_loader`: `auto|simple|proxy|playwright|premium_scraper|web_scrape_api|passthrough`
+  - `ingest_passthrough_when_html`: default `true`
+- Timeout is forwarded as `INGEST_TIMEOUT_MS` (milliseconds).
+- SDK 6 cloud-flow migration deprecates integration reliance on:
+  - `WEB_PAGE_IMPORT_MODE`
+  - `WEB_PAGE_IMPORT_TIMEOUT`
+- SDK 6.2 SHACL validation settings:
+  - use `shacl_validate_mode = "warn"|"fail"|"off"`
+  - use `shacl_builtin_shapes`, `shacl_exclude_builtin_shapes`, `shacl_extra_shapes`
+  - `shacl_validate_sync` and `shacl_shape_specs` are no longer supported
 Example ingestion config:
 ```toml
-[profile.acme]
+[profiles.acme]
 api_key = "wl_..."
 sitemap_url = "https://example.com/sitemap.xml"
-ingest.source = "sitemap"
-ingest.loader = "web_scrape_api"
-ingest.passthrough_when_html = true
+ingest_source = "sitemap"
+ingest_loader = "web_scrape_api"
+ingest_passthrough_when_html = true
 web_page_import_timeout = "60s"
 ```
 - `sheets_service_account` is required only when using Google Sheets source (`sheets_url` + `sheets_name`).
@@ -63,7 +94,7 @@ web_page_import_timeout = "60s"
 
 Example profile config:
 ```toml
-[profile.acme]
+[profiles.acme]
 api_key = "wl_..."
 google_search_console = true
 sheets_service_account = "./service-account.json"
@@ -76,5 +107,10 @@ sheets_service_account = "./service-account.json"
 - `worai --config ./worai.toml graph sync run --profile acme`
 - `worai graph sync run --profile acme --debug`
 - `worai graph sync create ./acme-graph`
+- `worai graph export`
+- `worai graph export --profile acme`
+- `worai graph export ./acme-export.jsonld --profile acme`
+- `worai graph validate ./acme-export.ttl`
+- `worai graph validate ./acme-export.ttl ./acme-export.jsonld --builtin-shape google-required --shape ./custom.ttl --level warning --format json`
 - `worai graph property delete seovoc:html --dry-run`
 - `worai graph property delete https://w3id.org/seovoc/html --yes --workers 4`

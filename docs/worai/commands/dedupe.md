@@ -21,4 +21,4 @@ Find duplicated WordLift entities by schema:url and delete duplicates.
 - `worai dedupe --auto --rate-delay 0.5`
 
 ## Notes
-- Requires `WORDLIFT_KEY` (or `wordlift.api_key` in config).
+- Requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config).

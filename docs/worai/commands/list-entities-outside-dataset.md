@@ -25,5 +25,5 @@ This command fetches the `dataset_uri` via `get_me`, queries GraphQL for all ent
 - `worai list-entities-outside-dataset --dataset-uri https://example.com/dataset`
 
 ## Notes
-- Requires `WORDLIFT_KEY` (or `wordlift.api_key` in config).
+- Requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config).
 - If your GraphQL schema differs, pass a custom `--query-template`. The default query is `entities { iri }`.

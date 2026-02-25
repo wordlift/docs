@@ -13,45 +13,38 @@ Discovery order:
 - `~/.worai.toml`
 
 Profiles:
-- `[profile.<name>]` with `--profile` or `WORAI_PROFILE`
+- `[profiles.<name>]` with `--profile` or `WORAI_PROFILE`
+- Logging keys:
+  - `log_level` (global)
+  - `profiles.<name>.log_level` (profile override)
 
 Example `worai.toml`:
-```
-[defaults]
-log_level = "info"
-
-[wordlift]
-api_key = "wl_..."
-
-[gsc]
-id = "sc-domain:example.com"
-client_secrets = "/path/to/client_secrets.json"
-
-[ga]
-id = "123456789"
-client_secrets = "/path/to/client_secrets.json"
-
-[oauth]
-token = "/path/to/oauth_token.json"
-
-[updates]
-check = true
+```toml
+[profiles.default]
+api_key = "${WORDLIFT_API_KEY}"
+mapping = "default.yarrrml"
+sitemap_url = "https://example.com/sitemap.xml"
+ingest_loader = "web_scrape_api"
 ```
 
 Notes:
-- `gsc.id` can be used as default `--site` for commands that support it.
-- `oauth.token` is the shared token file for GSC + GA4. If not set via config or env, the CLI defaults to `./oauth_token.json`.
-- Legacy keys `gsc.token` and `ga.token` are still read, but must point to the same file when used.
-- `updates.check = false` disables startup update checks.
+- Non-sync command auth resolves from SDK profiles (`profiles.<name>.api_key`) first, then `WORDLIFT_API_KEY`.
+- `WORAI_PROFILE` defaults the selected profile for commands that support profile-aware loading.
+- Command-specific OAuth/GSC/GA values are resolved from CLI flags and environment variables.
+- Logging level precedence:
+  - `--log-level` (highest)
+  - `WORAI_LOG_LEVEL`
+  - `profiles.<name>.log_level` from `worai.toml` (when profile is selected)
+  - global `log_level` from `worai.toml`
+  - `info` (default)
 
 ## Environment variables
 
 - `WORAI_CONFIG` — path to a config TOML file.
-- `WORAI_PROFILE` — profile name under `[profile.<name>]`.
+- `WORAI_PROFILE` — profile name under `[profiles.<name>]`.
 - `WORAI_LOG_LEVEL` — default log level (`debug|info|warning|error`).
 - `WORAI_LOG_FORMAT` — default log format (`text|json`).
-- `WORDLIFT_KEY` — WordLift API key for entity operations.
-- `WORDLIFT_API_KEY` — alternate WordLift API key name.
+- `WORDLIFT_API_KEY` — WordLift API key for entity operations.
 - `GSC_CLIENT_SECRETS` — path to OAuth client secrets JSON for GSC.
 - `OAUTH_TOKEN` — path to store the shared OAuth token (GSC + GA).
 - `GSC_OUTPUT` — default output CSV path for GSC export.
@@ -62,7 +55,7 @@ Notes:
 
 Example environment setup:
 ```
-export WORDLIFT_KEY="wl_..."
+export WORDLIFT_API_KEY="wl_..."
 export WORAI_CONFIG="~/worai.toml"
 export WORAI_PROFILE="dev"
 export GSC_CLIENT_SECRETS="~/client_secrets.json"

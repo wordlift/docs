@@ -28,4 +28,4 @@ Convert a link-group CSV to RDF and optionally apply changes via WordLift API.
 - `worai link-groups ./links.csv --apply --dry-run --concurrency 4`
 
 ## Notes
-- `--apply` requires `WORDLIFT_KEY` (or `wordlift.api_key` in config).
+- `--apply` requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config).
