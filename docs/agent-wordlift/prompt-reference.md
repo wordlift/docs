@@ -45,6 +45,12 @@ analyze the trends for '[keyword1]' and '[keyword2]'
 Provide me with insights on the Reddit exposure of the following domains: [URL]
 ```
 
+### Query Fan Out
+
+```md className=wlx-send-to-agent
+Provide a query fan out for the web-page: [url]
+```
+
 ## 📝 Content Creation & Enhancement
 
 ### Content Expansion
