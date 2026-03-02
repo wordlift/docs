@@ -102,6 +102,21 @@ const sidebars = {
           label: "WordLift Cloud",
           items: [
             {
+              type: "category",
+              label: "WordPress Plugin",
+              link: {
+                type: "doc",
+                id: "cloud/wordpress-plugin",
+              },
+              items: [
+                {
+                  type: "doc",
+                  id: "cloud/wordpress-plugin-entity-types",
+                  label: "Select Entity Types for Web Pages"
+                },
+              ],
+            },
+            {
               type: "doc",
               id: "cloud/index",
               label: "Install the WordLift Cloud script"
