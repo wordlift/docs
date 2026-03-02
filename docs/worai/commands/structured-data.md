@@ -115,6 +115,7 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 | `--source-type` | string | none | Optional source parser override (e.g., `debug-cloud`). |
 | `--ingest-source` | string | none | SDK 5 source axis: `auto`, `urls`, `sitemap`, `sheets`, `local`. |
 | `--ingest-loader` | string | none | SDK 5 loader axis: `auto`, `simple`, `proxy`, `playwright`, `premium_scraper`, `web_scrape_api`, `passthrough`. |
+| `--url-regex` | string | none | Optional regex filter applied to discovered URLs before processing. |
 | `--ingest-passthrough-when-html / --no-ingest-passthrough-when-html` | bool | config/default | Prefer passthrough when source records include embedded HTML. |
 
 ### Output columns
@@ -135,6 +136,10 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
   - new ingest settings (`--ingest-*` or `ingest_*` config) win over legacy when both are set
   - legacy remains supported when new is unset
   - disagreements emit a structured warning event
+- URL filtering:
+  - `--url-regex` filters discovered URLs before inventory processing
+  - when omitted, no URL regex filter is applied
+  - config fallback key: `ingest.url_regex`
 - Loader defaults:
   - default and `auto` loader resolve to `web_scrape_api`
   - passthrough takes precedence when embedded HTML exists and passthrough-when-html is enabled
@@ -144,6 +149,7 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 source = "auto"
 loader = "web_scrape_api"
 passthrough_when_html = true
+url_regex = "/blog/"
 ```
 
 ```toml
@@ -168,6 +174,7 @@ ingest_loader = "passthrough"
 - `worai structured-data inventory https://docs.google.com/spreadsheets/d/<id>/edit --sheet-name URLs_US --output ./structured-data-inventory.csv`
 - `worai structured-data inventory https://example.com/sitemap.xml --destination-sheet-id 1AbCdEfGhIjKlMnOp --destination-sheet-name Inventory`
 - `worai structured-data inventory https://example.com/sitemap.xml --output ./structured-data-inventory.csv --concurrency auto`
+- `worai structured-data inventory https://example.com/sitemap.xml --url-regex "/blog/" --output ./structured-data-inventory.csv`
 - `worai structured-data inventory /path/to/debug_cloud/us --source-type debug-cloud --output ./structured-data-inventory.csv`
 - `worai structured-data inventory /path/to/debug_cloud/us --ingest-source local --ingest-loader passthrough --output ./structured-data-inventory.csv`
 - `worai structured-data inventory https://example.com/sitemap.xml --ingest-loader web_scrape_api --output ./structured-data-inventory.csv`

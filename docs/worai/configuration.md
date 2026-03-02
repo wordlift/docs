@@ -16,6 +16,7 @@ Profiles:
 - `[profiles.<name>]` with `--profile` or `WORAI_PROFILE`
 - Logging keys:
   - `log_level` (global)
+  - `profiles._base.log_level` (shared profile fallback)
   - `profiles.<name>.log_level` (profile override)
 
 Example `worai.toml`:
@@ -35,6 +36,7 @@ Notes:
   - `--log-level` (highest)
   - `WORAI_LOG_LEVEL`
   - `profiles.<name>.log_level` from `worai.toml` (when profile is selected)
+  - `profiles._base.log_level` from `worai.toml` (when profile is selected and no profile-specific value is set)
   - global `log_level` from `worai.toml`
   - `info` (default)
 
@@ -49,7 +51,6 @@ Notes:
 - `OAUTH_TOKEN` — path to store the shared OAuth token (GSC + GA).
 - `GSC_OUTPUT` — default output CSV path for GSC export.
 - `GA_ID` — GA4 property ID for Analytics sections.
-- `GA_CLIENT_SECRETS` — path to OAuth client secrets JSON for GA4.
 - `GSC_TOKEN` / `GA_TOKEN` — legacy aliases for `OAUTH_TOKEN` (must point to the same file if used).
 - `WORAI_DISABLE_UPDATE_CHECK` — set to `1|true|yes|on` to disable startup update checks.
 
