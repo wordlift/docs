@@ -6,6 +6,10 @@ sidebar_position: 0
 
 Bring WordLift’s semantic markup to any site by loading a single launcher script.
 
+:::note WordPress
+If you are using WordPress, you can use the [WordPress Plugin](./wordpress-plugin.md) to inject `bootstrap.js` instead of adding the script manually.
+:::
+
 <iframe src="https://www.youtube.com/embed/DF4HQENosfo?rel=0&amp;showinfo=0" width="100%" height="540" frameborder="0" scrolling="auto" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
 ## Before you start

@@ -68,16 +68,6 @@ const sidebars = {
               id: "knowledge-graph/multilingual",
               label: "Multilingual"
             },
-            {
-              type: "doc",
-              id: "cloud/index",
-              label: "Install the WordLift Cloud script"
-            },
-            {
-              type: "doc",
-              id: "cloud/google-tag-manager",
-              label: "WordLift Cloud via GTM"
-            },
           ],
         },
         {
@@ -98,6 +88,76 @@ const sidebars = {
               type: "doc",
               id: "llm-connectors/index",
               label: "AI & LLM Integrations"
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "🧩 Apps, Tools & Plugins",
+      items: [
+        {
+          type: "category",
+          label: "WordLift Cloud",
+          items: [
+            {
+              type: "category",
+              label: "WordPress Plugin",
+              link: {
+                type: "doc",
+                id: "cloud/wordpress-plugin",
+              },
+              items: [
+                {
+                  type: "doc",
+                  id: "cloud/wordpress-plugin-entity-types",
+                  label: "Select Entity Types for Web Pages"
+                },
+              ],
+            },
+            {
+              type: "doc",
+              id: "cloud/index",
+              label: "Install the WordLift Cloud script"
+            },
+            {
+              type: "doc",
+              id: "cloud/google-tag-manager",
+              label: "WordLift Cloud via GTM"
+            },
+          ],
+        },
+        {
+          type: "category",
+          label: "🧰 worai CLI",
+          items: [
+            "worai/install",
+            "worai/configuration",
+            {
+              type: "category",
+              label: "Commands",
+              items: [
+                "worai/commands/seocheck",
+                "worai/commands/seoreport",
+                "worai/commands/google-search-console",
+                "worai/commands/canonicals",
+                "worai/commands/dedupe",
+                "worai/commands/canonicalize-duplicate-pages",
+                "worai/commands/delete-entities-from-csv",
+                "worai/commands/find-faq-page-wrong-type",
+                "worai/commands/find-missing-names",
+                "worai/commands/find-url-by-type",
+                "worai/commands/graph",
+                "worai/commands/link-groups",
+                "worai/commands/patch",
+                "worai/commands/self",
+                "worai/commands/structured-data",
+                "worai/commands/web-pages",
+                "worai/commands/list-entities-outside-dataset",
+                "worai/commands/validate",
+                "worai/commands/upload-entities-from-turtle",
+              ],
             },
           ],
         },
@@ -174,37 +234,6 @@ const sidebars = {
           type: "link",
           href: "/category/api",
           label: "API Documentation"
-        },
-        {
-          type: "category",
-          label: "🧰 worai CLI",
-          items: [
-            "worai/install",
-            "worai/configuration",
-            {
-              type: "category",
-              label: "Commands",
-              items: [
-                "worai/commands/seocheck",
-                "worai/commands/seoreport",
-                "worai/commands/google-search-console",
-                "worai/commands/dedupe",
-                "worai/commands/canonicalize-duplicate-pages",
-                "worai/commands/delete-entities-from-csv",
-                "worai/commands/find-faq-page-wrong-type",
-                "worai/commands/find-missing-names",
-                "worai/commands/find-url-by-type",
-                "worai/commands/graph",
-                "worai/commands/link-groups",
-                "worai/commands/patch",
-                "worai/commands/self",
-                "worai/commands/structured-data",
-                "worai/commands/list-entities-outside-dataset",
-                "worai/commands/validate",
-                "worai/commands/upload-entities-from-turtle",
-              ],
-            },
-          ],
         },
       ],
     },

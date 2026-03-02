@@ -7,10 +7,10 @@ title: graph
 Run graph-specific workflows.
 
 ## Usage
-- `worai graph sync run --profile <name> [--debug]`
-- `worai --config <path> graph sync run --profile <name> [--debug]`
+- `worai graph sync run [--debug]`
+- `worai --config <path> --profile <name> graph sync run [--debug]`
 - `worai graph sync create <destination> [--template <src>] [--defaults] [--data-file <path>] [--vcs-ref <ref>] [--non-interactive] [--force]`
-- `worai graph export [--profile <name>] [output_file_name]`
+- `worai graph export [output_file_name]`
 - `worai graph validate <file-or-url> [<file-or-url> ...] [--builtin-shape <name>] [--exclude-builtin-shape <name>] [--shape <file-or-url>] [--level warning|error] [--format text|json]`
 - `worai graph property delete <predicate> [--dry-run] [--yes] [--workers <n>] [--retries <n>] [--rate-delay <s>] [--limit <n>]`
 
@@ -44,7 +44,8 @@ Run graph-specific workflows.
   - `sitemap_url` (+ optional `sitemap_url_pattern`)
   - Google Sheets (`sheets_url` + `sheets_name` + `sheets_service_account`)
   - configure exactly one source mode per run.
-- `graph sync run --profile` is required and must match a profile entry in the selected config file.
+- `graph sync run` profile resolution is: root `--profile`, then `WORAI_PROFILE`, then `default`.
+- `graph sync run` profile resolution is: command `--profile` (deprecated), then root `--profile`, then `WORAI_PROFILE`, then `default`.
 - Config path comes from root `worai --config ...` when provided.
 - Without root `--config`, standard worai config discovery applies (`WORAI_CONFIG`, `./worai.toml`, `~/.config/worai/config.toml`, `~/.worai.toml`).
 - `sheets_service_account` accepts either inline JSON or a file path.
@@ -103,12 +104,12 @@ sheets_service_account = "./service-account.json"
 ```
 
 ## Examples
-- `worai graph sync run --profile acme`
-- `worai --config ./worai.toml graph sync run --profile acme`
-- `worai graph sync run --profile acme --debug`
+- `worai --profile acme graph sync run`
+- `worai --config ./worai.toml --profile acme graph sync run`
+- `worai --profile acme graph sync run --debug`
 - `worai graph sync create ./acme-graph`
 - `worai graph export`
-- `worai graph export --profile acme`
+- `worai --profile acme graph export`
 - `worai graph export ./acme-export.jsonld --profile acme`
 - `worai graph validate ./acme-export.ttl`
 - `worai graph validate ./acme-export.ttl ./acme-export.jsonld --builtin-shape google-required --shape ./custom.ttl --level warning --format json`
