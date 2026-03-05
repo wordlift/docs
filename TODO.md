@@ -11,3 +11,4 @@
 - [x] 2026-03-02 Create `apps-tools-plugins` branch and relocate `worai` + WordLift Cloud docs under a dedicated "Apps, Tools & Plugins" sidebar section while preserving existing URLs.
 - [x] 2026-03-02 Remove legacy Universal Analytics (`UA-*`) injection from Docusaurus config to prevent `window.ga is not a function` runtime crashes.
 - [x] 2026-03-02 Align WordLift Cloud Plugin docs with actual meta output (`name=\"wl:entity_type\"` + slug content) and group plugin pages under a single sidebar menu item.
+- [x] 2026-03-05 Add a dedicated `bootstrap.js` FAQ section to WordLift Cloud docs covering usage, behavior, cookies, and data handling.

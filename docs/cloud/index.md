@@ -30,6 +30,45 @@ Place the launcher in the `<head>` of every page you want to annotate:
 
 Keep it near the top of `<head>` so it loads early; `async` ensures it does not block rendering.
 
+## bootstrap.js FAQ
+
+### 1. What does it do?
+
+The WordLift Cloud launcher (`bootstrap.js`) is a JavaScript script that you add to your website. Its main function is to load WordLift Cloud features on the page.
+
+When installed, the script:
+
+- Connects the page to WordLift Cloud services.
+- Retrieves structured data (JSON-LD) generated through WordLift annotations.
+- Injects that structured data into the page markup.
+- Enables the WordLift Sidebar widget for annotating entities and managing semantic metadata.
+
+These annotations are stored in WordLift Cloud and automatically published as `schema.org` JSON-LD markup on the page.
+
+### 2. How do you use it?
+
+To use WordLift Cloud, add the launcher script to the `<head>` section of every page you want to annotate.
+
+```html
+<!-- WL Cloud -->
+<script async type="text/javascript" src="https://cloud.wordlift.io/app/bootstrap.js"></script>
+<!-- End WL Cloud -->
+```
+
+Recommended implementation details:
+
+- Place the script near the top of `<head>` so it loads early.
+- Use the `async` attribute so it does not block page rendering.
+- Alternatively, deploy the same script through Google Tag Manager using a Custom HTML tag triggered on all page views.
+
+### 3. How are cookies involved?
+
+The `bootstrap.js` script does not use cookies or similar client-side tracking technologies and does not store any information in the user's browser.
+
+### 4. Do we share personal data with WordLift?
+
+No personally identifiable information is collected through the script. The system records only an anonymized IP address for operational logging purposes. This IP address cannot be linked to an individual and is automatically removed when the log retention period ends.
+
 ## FAQ rendering (overview)
 
 FAQ rendering activates only if **all** of the following are true:
