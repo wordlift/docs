@@ -91,7 +91,7 @@ Render pages from a sitemap (or a single URL), apply a YARRRML mapping, and emit
 - `worai structured-data generate ./sitemap.xml --yarrrml ./mapping.yarrrml --regex "/product/" --concurrency auto`
 
 ## structured-data inventory
-Parse all URLs from a sitemap, extract JSON-LD from each page, and export a structured-data inventory.
+Generate a structured-data inventory from ingestion sources and export it to CSV or Google Sheets.
 
 ### Arguments
 
@@ -110,8 +110,8 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 | `--client-secrets` | string | none | OAuth client secrets JSON path (used when Sheets auth needs re-consent). |
 | `--token` | string | `oauth_token.json` | OAuth token path (shared token file). |
 | `--port` | int | `8080` | Local redirect port for OAuth flow. |
-| `--timeout` | float | `30.0` | HTTP timeout in seconds for sitemap and page fetches. |
-| `--concurrency` | string | `auto` | Worker count or `auto` to adapt to fetch/parse responses. |
+| `--timeout` | float | `30.0` | HTTP timeout in seconds for source resolution and ingestion requests. |
+| `--concurrency` | string | `auto` | Retained for CLI backward compatibility. |
 | `--source-type` | string | none | Optional source parser override (e.g., `debug-cloud`). |
 | `--ingest-source` | string | none | SDK 5 source axis: `auto`, `urls`, `sitemap`, `sheets`, `local`. |
 | `--ingest-loader` | string | none | SDK 5 loader axis: `auto`, `simple`, `proxy`, `playwright`, `premium_scraper`, `web_scrape_api`, `passthrough`. |
@@ -120,18 +120,21 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
 
 ### Output columns
 - `url`
-- `faq_markup` (`yes`/`no`, based on `FAQPage` existence)
-- `faq_markup_from_graph` (`yes`/`no`, based on `FAQPage.@id` being under current account dataset URI)
-- `types` (comma-separated schema types without schema.org prefixes)
-- `structured_data` (full combined JSON-LD object with one `@graph`)
+- `faq_markup` (`yes`/`no`)
+- `faq_markup_from_graph` (`yes`/`no`)
+- `types`
+- `structured_data`
 
 ### Notes
-- Uses JSON-LD only (`<script type=\"application/ld+json\">`).
-- Requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config) to resolve account dataset URI.
+- Uses `wordlift-sdk` ingestion inventory API (`create_structured_data_inventory_from_ingestion`).
+- Shows one CLI-owned progress bar during execution, powered by SDK `inventory.progress.*` callbacks.
+- Migration note:
+  - before: worai inventory fetched pages and parsed JSON-LD locally.
+  - after: worai inventory builds a source bundle and delegates inventory generation to SDK ingestion.
+- Requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config).
 - Requires exactly one destination: `--output` or `--destination-sheet-id` + `--destination-sheet-name`.
-- Fetches page content with Playwright using the shared worai default User-Agent.
-- Shows a progress bar while processing source URLs.
-- Supports adaptive concurrency via `--concurrency auto`.
+- Google Sheet destination writing is handled by worai from returned inventory rows.
+- `--concurrency` is accepted for CLI compatibility.
 - Ingestion precedence:
   - new ingest settings (`--ingest-*` or `ingest_*` config) win over legacy when both are set
   - legacy remains supported when new is unset
@@ -142,7 +145,7 @@ Parse all URLs from a sitemap, extract JSON-LD from each page, and export a stru
   - config fallback key: `ingest.url_regex`
 - Loader defaults:
   - default and `auto` loader resolve to `web_scrape_api`
-  - passthrough takes precedence when embedded HTML exists and passthrough-when-html is enabled
+  - passthrough behavior is delegated to SDK ingestion when embedded HTML is available
 - `worai.toml` examples:
 ```toml
 [ingest]

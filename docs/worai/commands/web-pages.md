@@ -37,6 +37,7 @@ Classify ingested URLs into schema.org types and export CSV columns:
 - The command prompts before execution because each run consumes agent credits.
 - Prompt default is yes (`Y/n`), so pressing `Enter` continues.
 - Use `-y` / `--yes` in automation to skip the prompt.
+- Shows one CLI-owned progress bar during execution, powered by SDK `type_classification.progress.*` callbacks.
 
 ### Config Fallbacks
 - `profiles.<name>.web_pages.output`

@@ -25,9 +25,6 @@ Powered by AI and WordLift's knowledge graph technology, the extension makes con
 
 The icon status line is a quick health check for your WordLift Cloud setup. It validates whether `bootstrap.js` is present and correctly configured on the current page.
 
-Use this as a fast signal before running extension actions.  
-Setup reference: [Install the WordLift Cloud script](/cloud/).
-
 | Status | Icon | Meaning | What to do |
 |---|---|---|---|
 | **Red** | <img src="/img/agent-wordlift-extension/status-red.png" alt="Red status icon" width="64" /> | `bootstrap.js` is missing. | [Add the script to the page](/cloud/) and reload. |
