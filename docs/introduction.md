@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.12.0 (February 2026) — New [Rankings Drop Audit](/agent-wordlift/workflows/rankings-drop-audit) workflow with Multi-Agent System, new [Monitor API guide](/developer-resources/monitoring), and documentation refreshes across the platform.
+Latest Release: 3.13.0 (March 2026) — Added a dedicated [Agent WordLift Extension](/apps-tools-plugins/agent-wordlift-extension/) page under [Apps, Tools & Plugins](/apps-tools-plugins/agent-wordlift-extension/), including icon status indicators for WordLift Cloud `bootstrap.js` validation and updated navigation labels.
 :::
 
 # 👋 Welcome to WordLift

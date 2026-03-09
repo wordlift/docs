@@ -98,8 +98,13 @@ const sidebars = {
       label: "🧩 Apps, Tools & Plugins",
       items: [
         {
+          type: "doc",
+          id: "apps-tools-plugins/agent-wordlift-extension",
+          label: "🤖 Agent WordLift Extension",
+        },
+        {
           type: "category",
-          label: "WordLift Cloud",
+          label: "☁️ WordLift Cloud",
           items: [
             {
               type: "category",
@@ -153,6 +158,7 @@ const sidebars = {
                 "worai/commands/patch",
                 "worai/commands/self",
                 "worai/commands/structured-data",
+                "worai/commands/agent",
                 "worai/commands/web-pages",
                 "worai/commands/list-entities-outside-dataset",
                 "worai/commands/validate",
