@@ -376,6 +376,11 @@ const sidebars = {
           label: "Query Fan-Out",
           items: loadSidebar("./docs/api/query-fan-out/sidebar"),
         },
+        {
+          type: "category",
+          label: "Graph KPI",
+          items: loadSidebar("./docs/api/graph-kpi/sidebar"),
+        },
       ],
     },
   ],
