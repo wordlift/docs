@@ -32,7 +32,36 @@ jobs:
       - name: Clean build output
         run: rm -rf build
 
+      - name: Detect API changes
+        id: api_changes
+        shell: bash
+        run: |
+          api_changed=false
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            api_changed=true
+          else
+            BEFORE="${{ github.event.before }}"
+            if [[ -z "$BEFORE" || "$BEFORE" =~ ^0+$ ]]; then
+              api_changed=true
+            elif git diff --name-only "$BEFORE" "${{ github.sha }}" | grep -q '^api/'; then
+              api_changed=true
+            fi
+          fi
+
+          if [ "$api_changed" = "false" ]; then
+            while IFS= read -r id; do
+              if [ ! -f "docs/api/$id/sidebar.ts" ] && [ ! -f "docs/api/$id/sidebar.js" ]; then
+                api_changed=true
+                break
+              fi
+            done < <(grep -oE 'gen-api-docs [a-zA-Z0-9-]+' .bin/rebuild-api.sh | awk '{print $2}')
+          fi
+
+          echo "api_changed=$api_changed" >> "$GITHUB_OUTPUT"
+
       - name: Rebuild API docs
+        if: steps.api_changes.outputs.api_changed == 'true'
         run: ./.bin/rebuild-api.sh
 
       - name: Build static site
