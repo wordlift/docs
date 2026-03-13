@@ -520,6 +520,14 @@ const config = {
                             categoryLinkSource: "tag",
                         },
                     },
+                    "graph-kpi": {
+                        specPath: "api/graph-kpi.yaml",
+                        outputDir: "docs/api/graph-kpi",
+                        sidebarOptions: {
+                            groupPathsBy: "tag",
+                            categoryLinkSource: "tag",
+                        },
+                    },
                 },
             },
         ],
