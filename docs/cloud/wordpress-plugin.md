@@ -6,7 +6,8 @@ sidebar_position: 20
 
 Use the WordLift Cloud plugin to:
 
-- load the WordLift Cloud `bootstrap.js` script on the frontend (enabled by default),
+- load the WordLift Cloud `bootstrap.js` script on the frontend,
+- configure FAQ rendering defaults for WordLift Cloud output,
 - assign semantic Entity Types directly in WordPress, and
 - expose selected entity types in page metadata.
 
@@ -16,7 +17,9 @@ Use the WordLift Cloud plugin to:
 - A managed `wl_entity_type` taxonomy based on a distilled Schema.org dataset.
 - Front-end metadata output for selected entity types.
 - Plugin settings with:
-  - **Enable frontend cloud features** (controls `bootstrap.js` frontend loading)
+  - **Enable FAQ rendering** (global default, disabled by default)
+  - **FAQ target element ID**
+  - **FAQ HTML template** (editable HTML/Mustache)
   - **Enable telemetry** (optional admin-only usage telemetry)
 
 ## Open plugin settings
@@ -32,9 +35,24 @@ Use the WordLift Cloud plugin to:
 
 ## Settings behavior
 
-- **Enable frontend cloud features**:
-  - enabled by default.
-  - when disabled, the plugin does not inject `https://cloud.wordlift.io/app/bootstrap.js` and WordLift Cloud frontend structured data output is disabled.
+- `bootstrap.js` loading:
+  - `https://cloud.wordlift.io/app/bootstrap.js` is injected on frontend pages (subject to plugin consent gate/filter).
+- **Enable FAQ rendering**:
+  - disabled by default.
+  - when enabled, plugin output adds FAQ-related `data-*` attributes to the bootstrap script and outputs in-page template markup (`wl-faq-template`).
+- **FAQ target element ID**:
+  - identifies where FAQ HTML should be rendered.
+  - the plugin does **not** auto-create this container; developers add it to theme/templates.
+- **FAQ HTML template**:
+  - editable HTML/Mustache template used for FAQ rendering.
+- Post-level override:
+  - all public post types have a dedicated **WordLift FAQ Rendering** metabox with:
+    - **Inherit (default)**
+    - **Enable**
+    - **Disable**
+  - post override takes precedence over the global FAQ setting.
+- Missing target behavior:
+  - if FAQ rendering is enabled and target container is missing, logged-in admins see a frontend notice.
 - **Enable telemetry**:
   - optional and admin-only.
   - tracks authenticated backend feature usage; no public frontend telemetry snippet is injected.
