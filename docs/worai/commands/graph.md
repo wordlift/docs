@@ -69,7 +69,8 @@ Run graph-specific workflows.
   - `ingest_source`: `auto|urls|sitemap|sheets|local`
   - `ingest_loader`: `auto|simple|proxy|playwright|premium_scraper|web_scrape_api|passthrough`
   - `ingest_passthrough_when_html`: default `true`
-- Timeout is forwarded as `INGEST_TIMEOUT_MS` (milliseconds).
+- With `wordlift-sdk>=6.10.0`, `ingest_timeout_ms` defaults to `30000` in the SDK and is forwarded as `INGEST_TIMEOUT_MS` only when explicitly configured in worai.
+- With `wordlift-sdk>=6.10.0`, `playwright_wait_until` defaults to `domcontentloaded` in the SDK and is forwarded as `PLAYWRIGHT_WAIT_UNTIL` only when explicitly configured in worai.
 - SDK 6 cloud-flow migration deprecates integration reliance on:
   - `WEB_PAGE_IMPORT_MODE`
   - `WEB_PAGE_IMPORT_TIMEOUT`
@@ -85,7 +86,8 @@ sitemap_url = "https://example.com/sitemap.xml"
 ingest_source = "sitemap"
 ingest_loader = "web_scrape_api"
 ingest_passthrough_when_html = true
-web_page_import_timeout = "60s"
+ingest_timeout_ms = 30000
+playwright_wait_until = "domcontentloaded"
 ```
 - `sheets_service_account` is required only when using Google Sheets source (`sheets_url` + `sheets_name`).
 - Failure cases for `sheets_service_account` (Sheets source only):

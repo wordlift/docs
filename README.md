@@ -5,13 +5,13 @@ This website is built using [Docusaurus 2](https://docusaurus.io/), a modern sta
 ### Installation
 
 ```
-$ yarn
+$ npm install
 ```
 
 ### Local Development
 
 ```
-$ yarn start
+$ npm run start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
@@ -19,7 +19,7 @@ This command starts a local development server and opens up a browser window. Mo
 ### Build
 
 ```
-$ yarn build
+$ npm run build
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
@@ -45,13 +45,13 @@ This verifies that API sidebar modules can be loaded from either `.js` or `.ts` 
 Using SSH:
 
 ```
-$ USE_SSH=true yarn deploy
+$ USE_SSH=true npm run deploy
 ```
 
 Not using SSH:
 
 ```
-$ GIT_USER=<Your GitHub username> yarn deploy
+$ GIT_USER=<Your GitHub username> npm run deploy
 ```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
@@ -60,7 +60,7 @@ If you are using GitHub pages for hosting, this command is a convenient way to b
 
 ## Adding a new endpoint
 
-1. Add the openapi.yaml to `/api`
+1. Add the OpenAPI spec file to `/api` (for example `api/agent.yaml`).
 
 2. Update the `docusaurus.config.js` to add the required configuration for the new endpoint.
 
@@ -77,7 +77,8 @@ If you are using GitHub pages for hosting, this command is a convenient way to b
 ...
 ```
 
-3. Generate the API documentation
+3. Generate the API documentation.
+
 `npm run docusaurus gen-api-docs <OpenAPI file name>`
 
 4. Add the generated `sidebars.js` to the main `sidebars.js`. 
@@ -94,7 +95,7 @@ If you are using GitHub pages for hosting, this command is a convenient way to b
 
 # Regenerating an existing endpoint
 
-1. Add the docusaurus-plugin-openapi-docs
+1. Run the clean + generate commands with the existing `docusaurus-plugin-openapi-docs` setup.
 
 `npm run docusaurus clean-api-docs <OpenAPI file name> && npm run docusaurus gen-api-docs <OpenAPI file name>`
 

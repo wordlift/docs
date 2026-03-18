@@ -8,6 +8,8 @@ Launch external agent CLIs with worai MCP server + skills.
 - `worai agent [options] [-- <agent-cli-args...>]`
 - `worai agent mcp serve [--config <path>] [--profile <name>]`
 
+Arguments after `--` are passed through to the selected agent CLI unchanged.
+
 ## Options
 
 | Option | Type | Default | Description |
@@ -40,6 +42,7 @@ Launch external agent CLIs with worai MCP server + skills.
 
 ## Examples
 - `worai agent --agent-cli codex`
+- `worai agent --agent-cli codex -- --yolo --search`
 - `worai agent --agent-cli claude --profile acme`
 - `worai agent --agent-cli gemini --config ./worai.toml --profile acme`
 - `worai agent --agent-cli codex --dry-run`

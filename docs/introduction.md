@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.18.2 (March 2026) — Added a dedicated [Agent WordLift Extension](/apps-tools-plugins/agent-wordlift-extension/) page under [Apps, Tools & Plugins](/apps-tools-plugins/agent-wordlift-extension/), including icon status indicators for WordLift Cloud `bootstrap.js` validation and updated navigation labels.
+Latest Release: 3.19.0 (March 2026) — Refined docs for WordLift Cloud and worai command usage, including `data-sidebar` coverage, WordPress plugin settings behavior, agent CLI passthrough arguments, and SDK 6.10 ingest defaults.
 :::
 
 # 👋 Welcome to WordLift

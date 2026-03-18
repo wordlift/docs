@@ -139,6 +139,7 @@ Configuration is read from `<script data-*>` attributes and can be overridden wi
 | `data-faq` | `"true"` to enable FAQ rendering |
 | `data-faq-target-id` | DOM element ID to inject FAQ markup into |
 | `data-faq-template-id` | Script/template element ID for rendering (defaults to `wl-faq-template`) |
+| `data-sidebar` | `"false"` disables sidebar listeners (enabled by default) |
 | `data-sidebar-url` | URL for the sidebar feature |
 | `data-disable-jsonld` | `"true"` disables JSON-LD loading |
 | `data-web-page-url` | Overrides detected page URL |

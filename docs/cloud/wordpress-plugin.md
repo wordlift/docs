@@ -4,14 +4,20 @@ sidebar_position: 20
 
 # WordPress Plugin
 
-Use the WordLift Cloud plugin to assign semantic Entity Types directly in WordPress and expose the selected types in page metadata.
+Use the WordLift Cloud plugin to:
+
+- load the WordLift Cloud `bootstrap.js` script on the frontend (enabled by default),
+- assign semantic Entity Types directly in WordPress, and
+- expose selected entity types in page metadata.
 
 ## What this plugin adds
 
 - A dedicated **Entity Types** panel in the post and page editors.
 - A managed `wl_entity_type` taxonomy based on a distilled Schema.org dataset.
 - Front-end metadata output for selected entity types.
-- Admin-only telemetry controls in plugin settings.
+- Plugin settings with:
+  - **Enable frontend cloud features** (controls `bootstrap.js` frontend loading)
+  - **Enable telemetry** (optional admin-only usage telemetry)
 
 ## Open plugin settings
 
@@ -23,6 +29,15 @@ Use the WordLift Cloud plugin to assign semantic Entity Types directly in WordPr
 3. Review settings in **Settings > WordLift Cloud**.
 
 ![WordLift Cloud settings page](/img/cloud-plugin/step-2-settings-page.png)
+
+## Settings behavior
+
+- **Enable frontend cloud features**:
+  - enabled by default.
+  - when disabled, the plugin does not inject `https://cloud.wordlift.io/app/bootstrap.js` and WordLift Cloud frontend structured data output is disabled.
+- **Enable telemetry**:
+  - optional and admin-only.
+  - tracks authenticated backend feature usage; no public frontend telemetry snippet is injected.
 
 ## Next steps
 
