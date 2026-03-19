@@ -46,7 +46,7 @@ Use the WordLift Cloud plugin to:
 - **FAQ HTML template**:
   - editable HTML/Mustache template used for FAQ rendering.
 - Post-level override:
-  - all public post types have a dedicated **WordLift FAQ Rendering** metabox with:
+  - all public post types have a dedicated **FAQ** metabox with:
     - **Inherit (default)**
     - **Enable**
     - **Disable**
@@ -56,6 +56,22 @@ Use the WordLift Cloud plugin to:
 - **Enable telemetry**:
   - optional and admin-only.
   - tracks authenticated backend feature usage; no public frontend telemetry snippet is injected.
+
+## Enable or disable FAQ per post
+
+Use the **FAQ** metabox on the edit post screen to override the global FAQ setting for a single post.
+
+- **Inherit (default)**: use the global plugin setting.
+- **Enable**: force FAQ rendering for this post.
+- **Disable**: force FAQ rendering off for this post.
+
+### Block Editor metabox
+
+![FAQ metabox in Block Editor](/img/cloud-plugin/step-7-block-editor-faq-metabox.png)
+
+### Classic Editor metabox
+
+![FAQ metabox in Classic Editor](/img/cloud-plugin/step-6-classic-editor-faq-metabox.png)
 
 ## Next steps
 

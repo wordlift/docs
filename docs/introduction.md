@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.0 (March 2026) — Refined docs for WordLift Cloud and worai command usage, including `data-sidebar` coverage, WordPress plugin settings behavior, agent CLI passthrough arguments, and SDK 6.10 ingest defaults.
+Latest Release: 3.20.1 (March 2026) — Refined docs for WordLift Cloud and worai command usage, including `data-sidebar` coverage, WordPress plugin settings behavior, agent CLI passthrough arguments, and SDK 6.10 ingest defaults.
 :::
 
 # 👋 Welcome to WordLift
