@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info Version Notice
-Latest Release: 3.9.0 (January 2026) - Support for header-based authorization in MCP, Google Search Console URL Inspections API, Enhanced Google Knowledge Graph integration and AI Sub-Agent workflows!
+Latest Release: 3.12.0 (April 2026) - Added Google AI Edge `wordlift-graphql` integration docs and video, plus continued improvements for MCP workflows and Knowledge Graph integrations.
 :::
 
 # Integrations
@@ -269,6 +269,30 @@ The MCP integration enables a new category of workflows where Agent WordLift ope
 :::note
 The MCP integration is **currently experimental** and we're actively expanding its capabilities. If you have questions or feedback, please reach out to our support team.
 :::
+
+:::tip Related Resources
+- [Google announcement: Bring state-of-the-art agentic skills to the edge with Gemma 4](https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/)
+- [Gemma 4 E2B on Hugging Face](https://huggingface.co/google/gemma-4-E2B)
+:::
+
+## Agent WordLift Google AI Edge GraphQL Integration
+
+Use the official Google AI Edge integration to run Agent WordLift GraphQL capabilities in AI-powered workflows.
+
+:::note Experimental
+This integration is currently **experimental** and intended for early adopters building agentic workflows on edge-capable models.
+:::
+
+- **Repository:** [wordlift/google-ai-edge/tree/main/wordlift-graphql](https://github.com/wordlift/google-ai-edge/tree/main/wordlift-graphql)
+- **Use case:** connect WordLift GraphQL to AI assistants and edge-driven pipelines for semantic SEO and Knowledge Graph use cases.
+- **Google announcement:** [Bring state-of-the-art agentic skills to the edge with Gemma 4](https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/)
+- **Model reference:** [Gemma 4 E2B on Hugging Face](https://huggingface.co/google/gemma-4-E2B)
+
+Watch the walkthrough video:
+
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/kpE8Qs-HVw4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+To get started, follow the setup instructions and examples in the GitHub repository linked above.
 
 ## Agent WordLift Claude Skill
 

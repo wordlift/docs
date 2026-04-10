@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.1 (March 2026) — Refined docs for WordLift Cloud and worai command usage, including `data-sidebar` coverage, WordPress plugin settings behavior, agent CLI passthrough arguments, and SDK 6.10 ingest defaults.
+Latest Release: 3.20.1 (April 2026) — Added Google AI Edge [wordlift-graphql integration](/agent-wordlift/integrations#agent-wordlift-google-ai-edge-graphql-integration) and refined docs for WordLift Cloud and worai command usage, including `data-sidebar` coverage, WordPress plugin settings behavior, agent CLI passthrough arguments, and SDK 6.10 ingest defaults.
 :::
 
 # 👋 Welcome to WordLift
@@ -24,6 +24,7 @@ AI-Powered Platform / Knowledge Graph Builder for SEO & Marketing Teams
 <span className="badge badge--success">SEO Automation</span>
 <span className="badge badge--primary">Marketing Automation</span>
 <span className="badge badge--info">AI-Powered</span>
+<span className="badge badge--warning">Edge AI</span>
 </div>
 </div>
 

@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info Version Notice
-Latest Release: 3.12.0 (February 2026) - New Rankings Drop Audit workflow with Multi-Agent System for autonomous traffic triage and recovery planning!
+Latest Release: 3.12.0 (April 2026) - New Google AI Edge `wordlift-graphql` integration docs and updated integrations for AI-assisted SEO workflows.
 :::
 
 # 🤖 Welcome to Agent WordLift - Your Marketing & AI SEO Agent
@@ -22,6 +22,7 @@ Your AI-Powered SEO Companion for Smart Content Optimization
 <span className="badge badge--success">SEO Automation</span>
 <span className="badge badge--primary">Content Intelligence</span>
 <span className="badge badge--info">AI-Powered</span>
+<span className="badge badge--warning">GraphQL Skill</span>
 </div>
 </div>
 
