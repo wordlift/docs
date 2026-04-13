@@ -159,10 +159,6 @@ analyze the markup of the page at [URL], focusing on the JSON-LD. Provide a brie
 6. Write recommendations for improvement
 ```
 
-## � AI Sub-Agent Workflows
-
-### Instagram Indexing Analysis
-
 ## 🤖 AI Sub-Agent Workflows
 
 ### Instagram Indexing Analysis
@@ -242,28 +238,8 @@ analyze the leadership team of [company name] using enhanced knowledge graph dat
 research comprehensive geographic and demographic data for [location name] using enhanced knowledge graph. Include population, administrative divisions, economic data, and regional relationships
 ```
 
-### Instagram Content Audit
 
-```md className=wlx-send-to-agent
-Using search operators, audit my Instagram presence:
-1. site:instagram.com/[handle] - total indexed posts
-2. site:instagram.com/[handle] "[keyword]" - topic-specific visibility
-3. Compare findings with my website's content coverage
-```
-
-### Cross-Platform Content Strategy
-
-```md className=wlx-send-to-agent
-Analyze content alignment between my website and Instagram account @[handle]. Identify entities that are well-covered on Instagram but missing from my website, and suggest content opportunities for both platforms.
-```
-
-### Instagram SERP Monitoring
-
-```md className=wlx-send-to-agent
-Set up monitoring for key search queries where my Instagram content @[handle] could rank. Compare current visibility against main website pages and identify optimization opportunities.
-```
-
-## �🔗 Internal Linking
+## 🔗 Internal Linking
 
 ### Create Internal Links
 
@@ -392,7 +368,6 @@ Provide specific recommendations for improving conversion rates.
 - Use both qualitative and quantitative data to support recommendations.
 ```
 
-Here's a section to add to your prompt-reference.md file. This should be placed alongside your other specialized prompt categories:
 
 ## 🏪 Local SEO
 
@@ -443,22 +418,6 @@ Compare the Google Business Profile for "[my business]" with competitors "[compe
 Create a comprehensive strategy to help "[business name]" in "[City,State,Country]" improve local search visibility for "[target keyword]". Include profile optimization, review management, and Q&A engagement tactics.
 ```
 
-## Tips for Using Prompts
-
-1. **Be Specific**: Include exact URLs, keywords, or text you want to analyze
-2. **Customize**: Modify prompts to match your specific needs
-3. **Combine**: Use multiple prompts together for comprehensive analysis
-4. **Verify**: Always review and verify the generated content
-5. **Iterate**: Refine prompts based on results
-
-Need help? Contact our support team at [support@wordlift.io](mailto:support@wordlift.io)
-
-:::tip
-
-For tasks involving multiple entities, such as products, it is advisable to utilize the [Content Generation Tool](/content-generation/).
-
-:::
-
 ## 🧠 Google AI Overview & SERP Intelligence
 
 ### Check AI Overview Presence
@@ -487,3 +446,19 @@ For the following keywords, check which ones trigger a Google AI Overview:
 ```md className=wlx-send-to-agent
 Compare the Google AI Overview (standard search) with the Google AI Mode response for the query "[keyword]". Highlight differences in cited sources, answer depth, and follow-up topics.
 ```
+
+## Tips for Using Prompts
+
+1. **Be Specific**: Include exact URLs, keywords, or text you want to analyze
+2. **Customize**: Modify prompts to match your specific needs
+3. **Combine**: Use multiple prompts together for comprehensive analysis
+4. **Verify**: Always review and verify the generated content
+5. **Iterate**: Refine prompts based on results
+
+Need help? Contact our support team at [support@wordlift.io](mailto:support@wordlift.io)
+
+:::tip
+
+For tasks involving multiple entities, such as products, it is advisable to utilize the [Content Generation Tool](/content-generation/).
+
+:::
