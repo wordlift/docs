@@ -458,3 +458,32 @@ Need help? Contact our support team at [support@wordlift.io](mailto:support@word
 For tasks involving multiple entities, such as products, it is advisable to utilize the [Content Generation Tool](/content-generation/).
 
 :::
+
+## 🧠 Google AI Overview & SERP Intelligence
+
+### Check AI Overview Presence
+
+```md className=wlx-send-to-agent
+Check if Google is showing an AI Overview for the query "[keyword]" in [Country].
+```
+
+### Get AI Overview Insights
+
+```md className=wlx-send-to-agent
+Analyze the Google AI Overview for "[keyword]" and tell me which websites are being cited.
+```
+
+### Batch AI Overview Detection
+
+```md className=wlx-send-to-agent
+For the following keywords, check which ones trigger a Google AI Overview:
+- "[keyword1]"
+- "[keyword2]"
+- "[keyword3]"
+```
+
+### Compare organic search vs AI mode
+
+```md className=wlx-send-to-agent
+Compare the Google AI Overview (standard search) with the Google AI Mode response for the query "[keyword]". Highlight differences in cited sources, answer depth, and follow-up topics.
+```
