@@ -18,4 +18,4 @@ To allow WordLift to correctly analyze a customer website, please ensure the fol
 
 ## Whitelist User-Agent
 
-- WLBot
+- Any User-Agent value that contains `WLBot` (not an exact match).
