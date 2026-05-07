@@ -21,6 +21,19 @@ Arguments after `--` are passed through to the selected agent CLI unchanged.
 | `--dry-run` | bool | `false` | Print launch command and generated files without launching. |
 | `--keep-temp` | bool | `false` | Keep generated temporary skill/MCP config files after exit. |
 
+## Codex WordLift model
+By default, `worai agent --agent-cli codex` injects the WordLift provider with `gpt-5-5-graph-sync`.
+
+Override it globally or per profile:
+
+```toml
+[agent]
+codex_model = "gpt-5-5-graph-sync"
+
+[profiles.acme.agent]
+codex_model = "custom-graph-sync"
+```
+
 ## MCP tools
 - `worai_version`
 - `worai_help`
