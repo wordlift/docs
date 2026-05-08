@@ -21,6 +21,17 @@ const sidebars = {
       items: [
         {
           type: "category",
+          label: "🏢 Enterprise",
+          items: [
+            {
+              type: "doc",
+              id: "enterprise/saml-sso",
+              label: "SAML Single Sign-On"
+            },
+          ],
+        },
+        {
+          type: "category",
           label: "🏗️ Knowledge Graph",
           link: {
             type: "doc",

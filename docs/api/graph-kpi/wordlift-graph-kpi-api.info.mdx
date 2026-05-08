@@ -1,0 +1,186 @@
+---
+id: wordlift-graph-kpi-api
+title: "WordLift Graph KPI API"
+description: "Historical graph KPI ancillary service for WordLift knowledge graphs."
+sidebar_label: Introduction
+sidebar_position: 0
+hide_title: true
+custom_edit_url: null
+---
+
+import ApiLogo from "@theme/ApiLogo";
+import Heading from "@theme/Heading";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+import Export from "@theme/ApiExplorer/Export";
+
+<span
+  className={"theme-doc-version-badge badge badge--secondary"}
+  children={"Version: 0.2.17"}
+>
+</span>
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"WordLift Graph KPI API"}
+>
+</Heading>
+
+
+
+Historical graph KPI ancillary service for WordLift knowledge graphs.
+
+This API exposes daily KPI snapshots for a graph identified by the public WordLift
+`account.id` (`graph_id` in the path). Internally, requests can be resolved to the
+underlying dataset by `X-Ng-Dataset-Id` or through the WordLift Accounts API.
+
+## Data model
+
+- `graph_id`: the public WordLift account identifier.
+- `snapshot_date`: the logical KPI day in `YYYY-MM-DD` format used for time-series charts.
+- `started_at` / `finished_at` / `heartbeat_at`: operational timestamps for job execution.
+
+## Request examples
+
+- List snapshot history:
+  - `GET https://api.wordlift.io/kpi/graphs/1506805/snapshots?date_from=2026-03-01&date_to=2026-03-13&limit=30`
+- Read one snapshot:
+  - `GET https://api.wordlift.io/kpi/graphs/1506805/snapshots/2026-03-13`
+- Submit one job:
+  - `POST https://api.wordlift.io/kpi/graphs/1506805/jobs`
+- Read one job:
+  - `GET https://api.wordlift.io/kpi/graphs/1506805/jobs/job_20260313_5bdaac21`
+
+## KPI visibility model
+
+Most graph-wide KPIs are split into three visibility buckets:
+
+- `all_*`: the complete graph snapshot.
+- `public_*`: the public view of the graph.
+- `private_*`: the private view of the graph.
+
+Private/public visibility is derived from dataset-configured private properties and
+private namespaces.
+
+Rich snippets and schema compliance KPIs are public-only and remain unprefixed.
+
+## KPI glossary
+
+- `all_total_entities`: all entities in the graph snapshot.
+- `public_total_entities`: entities that have at least one public assertion.
+- `private_total_entities`: entities that have no public assertions.
+- `all_total_properties`: all non-`rdf:type` assertions in the snapshot.
+- `public_total_properties`: non-`rdf:type` assertions whose predicate is public.
+- `private_total_properties`: non-`rdf:type` assertions whose predicate is private.
+- `all_total_triples`: all assertions in the snapshot, including `rdf:type`.
+- `public_total_triples`: assertions whose predicate is public.
+- `private_total_triples`: assertions whose predicate is private.
+- `all_edges_count`: all internal and external links, excluding literals and `rdf:type`.
+- `public_edges_count`: edges created by public assertions only.
+- `private_edges_count`: edges created by private assertions only.
+- `all_edge_node_ratio`: all edges divided by all entities.
+- `public_edge_node_ratio`: public edges divided by public entities.
+- `private_edge_node_ratio`: private edges divided by private entities.
+- `all_unique_urls_count`: distinct `schema:url` values in the snapshot.
+- `public_unique_urls_count`: same as `all_unique_urls_count` because `schema:url` is public.
+- `private_unique_urls_count`: always `0` because `schema:url` is not private.
+- `all_orphans_count`: public orphans plus private orphans.
+- `public_orphans_count`: public entities that are never targets of public internal edges.
+- `private_orphans_count`: private entities that are never targets of any internal edges.
+- `all_broken_links_count`: public broken links plus private broken links.
+- `public_broken_links_count`: missing targets referenced by public internal edges.
+- `private_broken_links_count`: missing targets referenced by private internal edges.
+- `all_isolated_graphs_count`: public isolated graphs plus private isolated graphs.
+- `public_isolated_graphs_count`: connected components built from public entities and public internal edges.
+- `private_isolated_graphs_count`: connected components for private entities using public internal edges that connect private entities.
+- `all_duplicates_count`: duplicate groups sharing the same `schema:url`.
+- `public_duplicates_count`: same as `all_duplicates_count` because `schema:url` is public.
+- `private_duplicates_count`: always `0` because `schema:url` is not private.
+- `rich_snippets_valid_count`: public rich-snippet items that passed validation.
+- `rich_snippets_invalid_count`: public rich-snippet items that failed validation.
+- `schema_compliance_errors`: schema-compliance errors found in public URL-generated subgraphs.
+- `schema_compliance_warnings`: schema-compliance warnings found in public URL-generated subgraphs.
+- `schema_compliance_urls_checked`: number of public URLs validated for schema compliance.
+- `graph_health_score`: composite `0..100` graph health score derived from validation, structure, public footprint, and freshness.
+
+<div
+  style={{"marginBottom":"2rem"}}
+>
+  <Heading
+    id={"authentication"}
+    as={"h2"}
+    className={"openapi-tabs__heading"}
+    children={"Authentication"}
+  >
+  </Heading><SchemaTabs
+    className={"openapi-tabs__security-schemes"}
+  >
+    <TabItem
+      label={"API Key: ApiKey"}
+      value={"ApiKey"}
+    >
+      
+      
+      `Key {your key}`
+      
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <th>
+                Security Scheme Type:
+              </th><td>
+                apiKey
+              </td>
+            </tr><tr>
+              <th>
+                Header parameter name:
+              </th><td>
+                Authorization
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </TabItem><TabItem
+      label={"OAuth 2.0: security_oauth2"}
+      value={"security_oauth2"}
+    >
+      
+      
+      
+      
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <th>
+                Security Scheme Type:
+              </th><td>
+                oauth2
+              </td>
+            </tr><tr>
+              <th>
+                OAuth Flow (authorizationCode):
+              </th><td>
+                <div>
+                  Token URL: https://s.wordlift.io/oauth/token/
+                </div><div>
+                  Authorization URL: https://s.wordlift.io/oauth/authorize/
+                </div><span>
+                  Scopes:
+                </span><ul>
+                  <li>
+                    basic: basic scope
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </TabItem>
+  </SchemaTabs>
+</div>
+      
