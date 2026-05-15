@@ -1,7 +1,9 @@
 ---
 title: Introduction
-displayed_sidebar: product-knowledge-graph-builder
+displayed_sidebar: docs
 sidebar_position: 10
+toc_min_heading_level: 2
+toc_max_heading_level: 3
 ---
 
 # Product Knowledge Graph Builder

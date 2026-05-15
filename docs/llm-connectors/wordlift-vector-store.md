@@ -1,5 +1,6 @@
 ---
 title: Llama Index - WordLift Vector Store
+displayed_sidebar: docs
 sidebar_position: 1
 ---
 

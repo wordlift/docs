@@ -111,9 +111,24 @@ const sidebars = {
               label: "Content Generation"
             },
             {
-              type: "doc",
-              id: "llm-connectors/index",
-              label: "AI & LLM Integrations"
+              type: "category",
+              label: "AI & LLM Integrations",
+              link: {
+                type: "doc",
+                id: "llm-connectors/index",
+              },
+              items: [
+                {
+                  type: "doc",
+                  id: "llm-connectors/wordlift-vector-store",
+                  label: "WordLift Vector Store",
+                },
+                {
+                  type: "doc",
+                  id: "llm-connectors/wordlift-reader",
+                  label: "WordLift Reader",
+                },
+              ],
             },
           ],
         },
