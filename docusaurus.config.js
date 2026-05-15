@@ -5,6 +5,10 @@ const {themes} = require("prism-react-renderer");
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
 
+const nodeCoreModuleFallbacks = {
+    path: require.resolve("path-browserify"),
+};
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
     title: "WordLift Developer Documentation",
@@ -282,6 +286,18 @@ const config = {
         }),
 
     plugins: [
+        function nodeCoreModuleFallbackPlugin() {
+            return {
+                name: "node-core-module-fallback-plugin",
+                configureWebpack() {
+                    return {
+                        resolve: {
+                            fallback: nodeCoreModuleFallbacks,
+                        },
+                    };
+                },
+            };
+        },
         [
             "@docusaurus/plugin-client-redirects",
             {
