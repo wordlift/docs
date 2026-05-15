@@ -1,5 +1,6 @@
 ---
 title: Content Generation
+displayed_sidebar: docs
 sidebar_position: 1
 ---
 

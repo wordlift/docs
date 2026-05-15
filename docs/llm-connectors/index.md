@@ -1,5 +1,6 @@
 ---
 title: AI & LLM Integrations
+displayed_sidebar: docs
 sidebar_position: 0
 ---
 

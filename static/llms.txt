@@ -6,7 +6,7 @@
 
 ### Documentation
 
-- [Overview | WordLift Developer Documentation](https://docs.wordlift.io/): Latest Release: 3.20.4 (May 2026) — Added Data API server-side rendering guidance, including cache-safe integration patterns for structured data publishing.
+- [Overview | WordLift Developer Documentation](https://docs.wordlift.io/): Latest Release: 3.20.5 (May 2026) — Refined API category icons and restored Smart Content and Knowledge Graph sidebar context for related documentation pages.
 - [Overview | WordLift Developer Documentation](https://docs.wordlift.io/agent-wordlift/): Latest Release: 3.12.0 (April 2026) - New Google AI Edge wordlift-graphql integration docs and updated integrations for AI-assisted SEO workflows.
 - [🛡️ Data Privacy and Security | WordLift Developer Documentation](https://docs.wordlift.io/agent-wordlift/data-privacy-and-security/): At WordLift, we take data privacy and security very seriously. We are committed to safeguarding any data entrusted to us and have implemented robust security measures to ensure its protection.
 - [🙋🏽‍♀️ Frequently Asked Questions | WordLift Developer Documentation](https://docs.wordlift.io/agent-wordlift/faq/): How does Agent WordLift work?

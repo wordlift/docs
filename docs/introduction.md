@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.4 (May 2026) — Added [Data API](/knowledge-graph/data-api/) server-side rendering guidance, including cache-safe integration patterns for structured data publishing.
+Latest Release: 3.20.5 (May 2026) — Refined API category icons and restored Smart Content and Knowledge Graph sidebar context for related documentation pages.
 :::
 
 # 👋 Welcome to WordLift

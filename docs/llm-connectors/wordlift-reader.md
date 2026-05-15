@@ -1,5 +1,6 @@
 ---
 title: LlamaIndex & LangChain - WordLift Reader
+displayed_sidebar: docs
 sidebar_position: 2
 ---
 

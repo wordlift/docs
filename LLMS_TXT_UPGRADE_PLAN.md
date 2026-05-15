@@ -35,7 +35,7 @@ Regenerate or rebuild the artifacts after changes that should be visible to AI t
 
 ## Current Release Context
 
-Latest docs release: `3.20.4` (May 2026).
+Latest docs release: `3.20.5` (May 2026).
 
 Release note: Data API server-side rendering guidance was added, including cache-safe integration patterns for structured data publishing.
 
