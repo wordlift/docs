@@ -159,6 +159,10 @@ Configuration is read from `<script data-*>` attributes and can be overridden wi
 
 The launcher reads the `lang` attribute on the `<html>` element and appends `__wl_lang` to requests automatically (for example `lang="en"` sets `__wl_lang=en`). See [Multilingual Graphs](../knowledge-graph/multilingual.md) for details.
 
+## Server-side rendering
+
+If you control the server-side rendering pipeline, you can fetch structured data directly from the [Data API](../knowledge-graph/data-api.md) and inject it into the initial HTML response instead of loading it client-side with `bootstrap.js`.
+
 ## Validate the markup
 
 - Use Google’s [Rich Results Test](https://search.google.com/test/rich-results) or your preferred structured data validator.

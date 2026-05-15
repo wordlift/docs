@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.2 (May 2026) — Added Enterprise [onboarding](/enterprise/onboarding/), [custom domain configuration](/enterprise/custom-domain-configuration/), and [SAML single sign-on](/enterprise/saml-sso/) documentation.
+Latest Release: 3.20.4 (May 2026) — Added [Data API](/knowledge-graph/data-api/) server-side rendering guidance, including cache-safe integration patterns for structured data publishing.
 :::
 
 # 👋 Welcome to WordLift

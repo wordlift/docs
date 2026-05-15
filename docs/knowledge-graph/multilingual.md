@@ -18,13 +18,9 @@ Structured data is stored in the form of linked data entities in the Graph. An e
 
 ### Data API
 
-The act of selecting and aggregating this data happens using the Data API which exposes a simple end-point `https://api.wordlift.io/data/https/example.org/page.html`. When calling this end-point, the Data API will return the structured data for the URL `https://example.org/page.html`. The Data API is formatted so that it eases caching by browsers and edge caches in order to boost performance, because it is a simple HTTP GET operation.
+The act of selecting and aggregating this data happens using the [Data API](./data-api.md). When calling the Data API, WordLift returns the structured data for the requested URL as JSON-LD.
 
-In order to know which graph is authoritative for a URL, the Data API queries an internal routing table based on the provided URL, which redirects to the appropriate graph.
-
-When working with multilingual websites, the same path context may refer to a different graph based on the client language, so that another parameter is required to tell the Data API how to select the correct source graph for structured data.
-
-The parameter is called `__wl_lang` and specifies the ISO 639-1 two-letter code for the required language, example `en` for English or `it` for Italian.
+When working with multilingual websites, the same path context may refer to a different graph based on the client language. The Data API uses the `__wl_lang` query parameter to select the correct source graph for structured data.
 
 For example, the internal routing may have the following configuration, URL example.org is served by:
 
@@ -32,6 +28,8 @@ For example, the internal routing may have the following configuration, URL exam
 1. graph `https://data.example.org/it`, when language is Italian
 
 So that when requesting `https://api.wordlift.io/data/https/example.org/page.html?__wl_lang=en`, the Data API will route the request to the `https://data.example.org/en` graph, whereas requesting `https://api.wordlift.io/data/https/example.org/page.html?__wl_lang=it` will route the request to the `https://data.example.org/it` graph.
+
+See [Data API](./data-api.md) for URL formatting, output format, and client-side or server-side injection options.
 
 ## Cloud script
 
