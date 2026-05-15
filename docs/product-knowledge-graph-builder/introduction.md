@@ -73,7 +73,7 @@ From the WordLift dashboard, you can open the backend of your website to view th
 The update of [Product Knowledge Graph Builder](https://wordlift.io/seo-for-non-wordpress-ecommerce/) added important elements to this feature:
 
 - You can **reassign an existing merchant feed configuration to another Google account** that is not the same as the originally configured account. This way you have control over your data even if the platform was configured by someone else.
-- In the PKG Builder configuration, you can **add a custom domain** and specify the dataset you want to use.
+- In the PKG Builder configuration, you can **add a custom domain** and specify the dataset you want to use. For setup options, see [Custom Domain Configuration](/enterprise/custom-domain-configuration/).
 - You can check the **inport synchronization** at any time.
 - **Change the "Seller Name."** This element, which cannot be edited in the Merchant Feed, is customizable in our Builder.
 

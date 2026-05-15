@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.2 (May 2026) — Added Enterprise [SAML single sign-on documentation](/enterprise/saml-sso/) covering supported identity providers, enterprise SSO benefits, and how to contact WordLift for activation.
+Latest Release: 3.20.2 (May 2026) — Added Enterprise [onboarding](/enterprise/onboarding/), [custom domain configuration](/enterprise/custom-domain-configuration/), and [SAML single sign-on](/enterprise/saml-sso/) documentation.
 :::
 
 # 👋 Welcome to WordLift

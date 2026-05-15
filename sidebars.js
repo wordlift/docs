@@ -25,6 +25,16 @@ const sidebars = {
           items: [
             {
               type: "doc",
+              id: "enterprise/onboarding",
+              label: "Enterprise Onboarding"
+            },
+            {
+              type: "doc",
+              id: "enterprise/custom-domain-configuration",
+              label: "Custom Domain Configuration"
+            },
+            {
+              type: "doc",
               id: "enterprise/saml-sso",
               label: "SAML Single Sign-On"
             },
