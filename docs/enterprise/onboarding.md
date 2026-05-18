@@ -31,6 +31,8 @@ A successful Enterprise onboarding gives the customer clear answers to these que
 
 ## Phased journey
 
+![WordLift Enterprise Onboarding Architecture](./images/wordlift-enterprise-onboarding-architecture.png)
+
 | Phase | Goal | Customer output |
 | --- | --- | --- |
 | Alignment | Confirm business use case, owners, graph topology, and environment strategy. | Named owners, first use case, and topology decision. |
