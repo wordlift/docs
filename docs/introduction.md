@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.6 (May 2026) — Added Business+ documentation and reorganized Core Features navigation for Knowledge Graph and Enterprise integrations.
+Latest Release: 3.20.7 (May 2026) — Refined Business+ API usage guidance and Enterprise positioning.
 :::
 
 # 👋 Welcome to WordLift

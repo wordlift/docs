@@ -48,6 +48,4 @@ For most initial implementations, WordLift recommends starting with a single [Kn
 
 Business+ is designed to help teams bootstrap a headless AI Search and SEO workflow quickly, learn from real usage, and grow from there.
 
-API usage is governed by the plan quotas and standard platform safeguards. WordLift does not publish a single public requests-per-minute figure for Business+, because practical limits may depend on the endpoint, workload type, and implementation pattern.
-
-Start with the expected launch workload, monitor usage during the first weeks, and share volume changes as traffic or automation grows. WordLift can then confirm whether the workload fits Business+ or whether moving to [Enterprise](/enterprise/onboarding/) would unlock more capacity, dedicated SLAs, and tailored operational support.
+Business+ supports normal API-first operational usage within the URL allowance. The [Enterprise plan](/enterprise/onboarding/) is for guaranteed throughput, higher concurrency, dedicated SLAs, and custom infrastructure.
