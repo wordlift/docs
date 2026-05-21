@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.5 (May 2026) — Refined API category icons and restored Smart Content and Knowledge Graph sidebar context for related documentation pages.
+Latest Release: 3.20.6 (May 2026) — Added Business+ documentation and reorganized Core Features navigation for Knowledge Graph and Enterprise integrations.
 :::
 
 # 👋 Welcome to WordLift

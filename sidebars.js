@@ -21,6 +21,41 @@ const sidebars = {
       items: [
         {
           type: "category",
+          label: "🏗️ Knowledge Graph",
+          link: {
+            type: "doc",
+            id: "knowledge-graph/index",
+          },
+          items: [
+            {
+              type: "doc",
+              id: "product-knowledge-graph-builder/introduction",
+              label: "Product Knowledge Graph"
+            },
+            {
+              type: "doc",
+              id: "knowledge-graph/data-api",
+              label: "Data API"
+            },
+            {
+              type: "doc",
+              id: "knowledge-graph/kg-rest",
+              label: "KG-REST"
+            },
+            {
+              type: "doc",
+              id: "knowledge-graph/multilingual",
+              label: "Multilingual"
+            },
+          ],
+        },
+        {
+          type: "doc",
+          id: "business-plus/index",
+          label: "📈 Business+",
+        },
+        {
+          type: "category",
           label: "🏢 Enterprise",
           items: [
             {
@@ -38,19 +73,9 @@ const sidebars = {
               id: "enterprise/saml-sso",
               label: "SAML Single Sign-On"
             },
-          ],
-        },
-        {
-          type: "category",
-          label: "🏗️ Knowledge Graph",
-          link: {
-            type: "doc",
-            id: "knowledge-graph/index",
-          },
-          items: [
             {
               type: "category",
-              label: "Enterprise Solutions",
+              label: "Integrations",
               items: [
                 {
                   type: "doc",
@@ -73,26 +98,6 @@ const sidebars = {
                   label: "Analytics Import"
                 },
               ]
-            },
-            {
-              type: "doc",
-              id: "product-knowledge-graph-builder/introduction",
-              label: "Product Knowledge Graph"
-            },
-            {
-              type: "doc",
-              id: "knowledge-graph/data-api",
-              label: "Data API"
-            },
-            {
-              type: "doc",
-              id: "knowledge-graph/kg-rest",
-              label: "KG-REST"
-            },
-            {
-              type: "doc",
-              id: "knowledge-graph/multilingual",
-              label: "Multilingual"
             },
           ],
         },
