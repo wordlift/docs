@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ List the accounts
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"description":"The cursor","in":"query","name":"cursor","required":false,"schema":{"type":"string"}},{"in":"query","name":"limit","required":false,"schema":{"type":"integer","format":"int32","default":10}},{"description":"Filter accounts that can or cannot do Content Generation","in":"query","name":"can_content_generation","required":false,"schema":{"type":"boolean"}},{"description":"Add entity count data","in":"query","name":"include_entity_count","required":false,"schema":{"type":"boolean","default":false}},{"description":"Include all the accounts the user has access to","in":"query","name":"include_all_accounts","required":false,"schema":{"type":"boolean","default":false}},{"description":"Include the subscription data","in":"query","name":"include_subscription","required":false,"schema":{"type":"boolean","default":false}},{"description":"The URL","in":"query","name":"url","required":false,"schema":{"type":"string"}},{"description":"The dataset id","in":"query","name":"ng_dataset_id","required":false,"schema":{"type":"string"}}]}
+  {...require("./list-accounts.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./list-accounts.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"content":{"application/vnd.wordlift.accounts+json;version=1":{"schema":{"type":"object","description":"A page object with links to move to other pages and the list of objects.","properties":{"first":{"type":"string","description":"The link to the first page.","nullable":true},"items":{"type":"array","description":"An array of objects.","items":{"type":"object","description":"An array of objects.","properties":{"collection":{"type":"string","default":"entity","description":"The collection hosting the Knowledge Graph."},"country":{"type":"string"},"diagnostic_plugins":{"type":"array","items":{"type":"object","description":"Plugin Data used for diagnostics","properties":{"account_id":{"type":"integer","format":"int64","description":"The account id.","readOnly":true},"active":{"type":"boolean","description":"Whether the plugin is active."},"created_at":{"type":"string","format":"date-time","description":"The create date-time","readOnly":true},"id":{"type":"integer","format":"int64","description":"The record id.","readOnly":true},"name":{"type":"string","description":"The plugin name."},"version":{"type":"string","description":"The plugin version."}},"title":"DiagnosticPlugin"}},"domain_uri":{"type":"string"},"google_search_console_site_url":{"type":"string"},"id":{"type":"integer","format":"int64"},"is_wordpress":{"type":"boolean"},"key":{"type":"string"},"language":{"type":"string"},"ng_dataset_id":{"type":"string"},"package_type":{"type":"string"},"subscription":{"type":"object","properties":{"email":{"type":"string"},"first_name":{"type":"string"},"last_name":{"type":"string"},"order_id":{"type":"integer","format":"int64"},"sku":{"type":"string"}},"title":"AccountSubscription"},"subscription_id":{"type":"integer","format":"int64"},"total_entities":{"type":"integer","format":"int64"},"total_entities_with_schema_url":{"type":"integer","format":"int64"},"url":{"type":"string"},"user_id":{"type":"integer","format":"int64"},"wp_admin":{"type":"string"},"wp_include_exclude_default":{"type":"string"},"wp_json":{"type":"string"}},"title":"ActiveAccount"}},"last":{"type":"string","description":"The link to the last page.","nullable":true},"next":{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true},"prev":{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true},"self":{"type":"string","description":"The link to the current page.","nullable":true}},"required":["first","items","last","next","prev","self"],"title":"PageActiveAccount"}}},"description":"Found"},"401":{"description":"Authentication Failure"}}}
+  {...require("./list-accounts.StatusCodes.json")}
 >
   
 </StatusCodes>

@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ List the Add-ons configurations
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"description":"The access token","in":"query","name":"token","required":false,"schema":{"type":"string"}},{"description":"The key","in":"query","name":"key","required":false,"schema":{"type":"string"}},{"description":"The maximum number of results","in":"query","name":"limit","required":false,"schema":{"type":"integer","default":10}}]}
+  {...require("./list-configurations.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./list-configurations.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"content":{"application/json":{"schema":{"type":"object","description":"A page object with links to move to other pages and the list of objects.","properties":{"first":{"type":"string","description":"The link to the first page.","nullable":true},"items":{"type":"array","description":"An array of objects.","items":{"type":"object","description":"An Add-On configuration","properties":{"can_do_content_expansion":{"type":"boolean","description":"Whether this Add-on can do content expansion","readOnly":true},"can_import_to_wordpress":{"type":"boolean","description":"Whether this Add-on can import to WordPress.","readOnly":true},"key":{"type":"string","description":"A key","readOnly":true},"wp_admin":{"type":"string","description":"The wp-admin endpoint for a website using the key.","readOnly":true},"wp_json":{"type":"string","description":"The wp-json endpoint for a website using the key.","readOnly":true}},"title":"AddOnConfiguration"}},"last":{"type":"string","description":"The link to the last page.","nullable":true},"next":{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true},"prev":{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true},"self":{"type":"string","description":"The link to the current page.","nullable":true}},"required":["first","items","last","next","prev","self"],"title":"PageAddOnConfiguration"}}},"description":"Found"},"401":{"description":"Authentication Failure"}}}
+  {...require("./list-configurations.StatusCodes.json")}
 >
   
 </StatusCodes>

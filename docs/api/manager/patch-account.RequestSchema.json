@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json-patch+json":{"schema":{"type":"object","title":"JsonPatch"}}},"required":true}}

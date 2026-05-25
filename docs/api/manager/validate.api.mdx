@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Check if the provided custom domain can be set for the account
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"dataset_domain":{"type":"string","description":"The dataset domain, e.g. data.example.org"},"dataset_name":{"type":"string","description":"The dataset name, e.g. my-dataset-name"}},"required":["dataset_domain","dataset_name"],"title":"DomainValidationRequest"}}},"required":true}}
+  {...require("./validate.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"content":{"application/vnd.wordlift.custom-domain-validation+json;version-1":{}},"description":"Success"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}}}
+  {...require("./validate.StatusCodes.json")}
 >
   
 </StatusCodes>

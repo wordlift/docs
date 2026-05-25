@@ -1,0 +1,1 @@
+{"parameters":[{"description":"The Merchant's `id`","in":"path","name":"merchantId","required":true,"schema":{"type":"integer","format":"int64"}},{"description":"The Merchant Sync `id`.","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}]}

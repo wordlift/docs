@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ List the Google Merchants
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"query","name":"google_access_token","required":true,"schema":{"type":"string"}}]}
+  {...require("./list-google-merchants.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./list-google-merchants.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"content":{"application/json":{"schema":{"type":"object","description":"A page object with links to move to other pages and the list of objects.","properties":{"first":{"type":"string","description":"The link to the first page.","nullable":true},"items":{"type":"array","description":"An array of objects.","items":{"type":"object","description":"A Merchant Entry with the Google Merchant Id and the Website URL","properties":{"google_merchant_id":{"type":"integer","format":"int64","description":"The Google Merchant id"},"website_url":{"type":"string","description":"The Google Merchant Website URL"}},"required":["google_merchant_id","website_url"],"title":"MerchantEntry"}},"last":{"type":"string","description":"The link to the last page.","nullable":true},"next":{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true},"prev":{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true},"self":{"type":"string","description":"The link to the current page.","nullable":true}},"required":["first","items","last","next","prev","self"],"title":"PageMerchantEntry"}}},"description":"Found"},"401":{"description":"Authentication Failure"}}}
+  {...require("./list-google-merchants.StatusCodes.json")}
 >
   
 </StatusCodes>

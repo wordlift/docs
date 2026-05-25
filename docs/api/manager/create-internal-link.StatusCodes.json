@@ -1,0 +1,1 @@
+{"responses":{"200":{"content":{"application/x-ndjson":{"schema":{"type":"array","items":{"type":"string"}}}},"description":"Created"},"401":{"description":"Authentication Failure"}}}

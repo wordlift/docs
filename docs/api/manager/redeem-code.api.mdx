@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Redeem the provided code and get a key
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"redeem_code":{"type":"string"}},"title":"Request"}}},"required":true}}
+  {...require("./redeem-code.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"content":{"application/json":{"schema":{"type":"object","properties":{"key":{"type":"string"}},"title":"Response"}}},"description":"Found."},"404":{"content":{"application/problem+json":{"schema":{"type":"object","properties":{"detail":{"type":"string"},"instance":{"type":"string","format":"uri"},"properties":{"type":"object","additionalProperties":{"type":"object"}},"status":{"type":"integer","format":"int32"},"title":{"type":"string"},"type":{"type":"string","format":"uri"}},"title":"ProblemDetail"}}},"description":"Not Found."},"409":{"content":{"application/problem+json":{"schema":{"type":"object","properties":{"detail":{"type":"string"},"instance":{"type":"string","format":"uri"},"properties":{"type":"object","additionalProperties":{"type":"object"}},"status":{"type":"integer","format":"int32"},"title":{"type":"string"},"type":{"type":"string","format":"uri"}},"title":"ProblemDetail"}}},"description":"Code already redeemed."},"500":{"content":{"application/problem+json":{"schema":{"type":"object","properties":{"detail":{"type":"string"},"instance":{"type":"string","format":"uri"},"properties":{"type":"object","additionalProperties":{"type":"object"}},"status":{"type":"integer","format":"int32"},"title":{"type":"string"},"type":{"type":"string","format":"uri"}},"title":"ProblemDetail"}}},"description":"Configuration error."}}}
+  {...require("./redeem-code.StatusCodes.json")}
 >
   
 </StatusCodes>

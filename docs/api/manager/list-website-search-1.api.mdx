@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ List the Website Search performance data
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"description":"The cursor","in":"query","name":"cursor","required":false,"schema":{"type":"string"}},{"description":"The start date, inclusive, in yyyy-MM-dd format.","in":"query","name":"since","required":true,"schema":{"type":"string"}},{"description":"The end date, inclusive, in yyyy-MM-dd format.","in":"query","name":"until","required":true,"schema":{"type":"string"}},{"description":"The dimensions, e.g. `query`, `page`. Must repeat for each dimension.","in":"query","name":"dimensions","required":true,"schema":{"type":"array","items":{"type":"string"}},"style":"form"},{"description":"If \"all\" (case-insensitive), data will include fresh data. If \"final\" (case-insensitive) or if this parameter is omitted, the returned data will include only finalized data.","in":"query","name":"data_state","required":false,"schema":{"type":"string","enum":["all","final"]}},{"description":"The maximum number of results","in":"query","name":"limit","required":false,"schema":{"type":"integer","default":10,"maximum":25000}}]}
+  {...require("./list-website-search-1.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./list-website-search-1.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"content":{"application/json":{"schema":{"type":"object","description":"A page object with links to move to other pages and the list of objects.","properties":{"first":{"type":"string","description":"The link to the first page.","nullable":true},"items":{"type":"array","description":"An array of objects.","items":{"type":"object","description":"Search Data","properties":{"clicks":{"type":"integer","format":"int32","description":"Number of clicks."},"ctr":{"type":"number","format":"double","description":"CTR."},"id":{"type":"integer","format":"int64","description":"The id: it's now a unique id, but a row index."},"impressions":{"type":"integer","format":"int32","description":"Number of impressions."},"keys":{"type":"array","description":"The keys for the current data, matching the provided `dimensions` in the query.","items":{"type":"string","description":"The keys for the current data, matching the provided `dimensions` in the query."}},"position":{"type":"number","format":"double","description":"Position."},"score":{"type":"number","format":"double","description":"A score to spot traffic opportunities, from 0.0 to 1.0 (the higher the better). The score is based on the traffic data."}},"required":["clicks","ctr","id","impressions","keys","position","score"],"title":"WebsiteSearch"}},"last":{"type":"string","description":"The link to the last page.","nullable":true},"next":{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true},"prev":{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true},"self":{"type":"string","description":"The link to the current page.","nullable":true}},"required":["first","items","last","next","prev","self"],"title":"PageWebsiteSearch"}}},"description":"Found"},"401":{"description":"Authentication Failure"}}}
+  {...require("./list-website-search-1.StatusCodes.json")}
 >
   
 </StatusCodes>

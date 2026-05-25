@@ -1,0 +1,69 @@
+---
+id: authorization
+title: "Get account connector authorization"
+description: "Get the OAuth2 authorization status for a Data Source connector on an account."
+sidebar_label: "Get account connector authorization"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcFu3DYQ/RViTklAW+6i6EGnbtMiKNzCQNygB2PhzFKjFWuJVMhR0q2gfy9GlDbS2kmNouhJEjl6fPP4ZqaHgqIJtmXrHeTwhlhxRepm23G1Udhx5YP9C2VbRUbuoip9UKh+REZ167tgSBnvHBn2QXmn0Ck0xneOL0GDbymMf/9cQA4rPNDQYsCGmEKE/K4HKxRa5Ao0OGxI/khQ97YADYE+dDZQATmHjjREU1GDkPfAx1airWM6UAANpQ8Nclr67lsYBv0k/In5Mw+IHKw7wDDsJDi23kWKsr+5upKH8Y7Jsby+yl7J4xGE3/9BhiX5IOKwTQBoDMV4z/6B3L2NsaPiHvnx0YvUCmS6YNsQDHop1HP00OvUH2co+ZWBYvXvKSW/PKWeBrZcy1Iy2uuZy3ZpkLeTwDDIH2uj3lwnGDyIdWCbsp99e8KLsNPQEFde7HegUXdxQA7ZpFjM+s/aDZkXj26ykzox65dKDdm5hyOFj7OBu1BDDhVzG/Msw9ZefvKhqG3Jl9aDmCaS6YLl463YIt38trXXdJS3dYrvr+mo+qPvgnqg4/AedHJwRViMdzp5eHtGaBIbE+yg4QeM1kjUE2eMe6onZ3xBheoiBYHNW4xRuD//2NHosrEXyM88RA1hka5GKJS1/5Q8v4R47Qt6tPhuJWhcyplu6nQdlI0cfJtETSQmMmpcFxKjl/8ZdAzLksOmqh1tMa5YV/q51tGM9UAN2hGT6tp/v7zzk1y/+1D8Yksx4NolK4ec2/y2258+VYMOD9SQY4WuUIFqZCqUGNAaitJua2tIKibv53NfmJfK+PYY7KFitbnabC7aQFFAnkuJKTTxprxN5zwdl41BF768mOjIdcxF/utIXLwjlZIy++bySrBbH7lBtyAsI2gqyMVgOa+6lUyLvvvfT7DJAEx/ctbWaJ3QHvXqp1ZyNzffCBry1cSabLPotmPM2dhZJ7fTUPnIgtv3e4z0LtTDIMsfOgpHyO92Gj5isLgXde96KGyU9wLyEutIX1Hnxdtpwr1UX0ptbh/uKPeFdSdfoOFBetRyzMhI/R9PXmk27AY9dyRRIIVsjaGWFz/LDB6WE+DNT7/BMPwNfDwbvA==
+sidebar_class_name: "get api-method"
+info_path: api/manager/manager
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get account connector authorization"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/accounts/{account_id}/oauth2/connectors/{connector_id}/authorization"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get the OAuth2 authorization status for a Data Source connector on an account.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./authorization.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./authorization.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./authorization.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

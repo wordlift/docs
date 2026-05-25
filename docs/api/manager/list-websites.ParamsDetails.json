@@ -1,0 +1,1 @@
+{"parameters":[{"description":"The Google access token, must have access to the Google Search Console scope","in":"query","name":"google_access_token","required":true,"schema":{"type":"string"}},{"description":"The maximum number of results","in":"query","name":"limit","required":false,"schema":{"type":"integer","default":10}}]}

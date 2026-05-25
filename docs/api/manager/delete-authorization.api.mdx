@@ -1,11 +1,11 @@
 ---
 id: delete-authorization
-title: "Delete an authorization"
-description: "Retrieve the authorizations of the authenticated user."
-sidebar_label: "Delete an authorization"
+title: "Disconnect account connector authorization"
+description: "Disconnect an OAuth2 Data Source connector from an account."
+sidebar_label: "Disconnect account connector authorization"
 hide_title: true
 hide_table_of_contents: true
-api: eJylVE1v2zAM/SsCTxugxF2OPm1ri2FohwLLih2CAFVkJhZqS55Ep8sM/feBspvGXgoU2CWRKZLv6fGjgwKD9qYh4yzk8B3JG9yjoBKFaql03vxRfBmE2x6taMloRViINqCfgwTXoE9+XwvIocAKCT+dxoMEj6FxNmCAvIPFxYL/xvCjiCOg1q61NAE2QfQoxRxilBBQt97QAfJVB58ac4N8XMe1BFK7APkKvji3q1AsUXldiktng6tQ3DHoAtYSaqTSvdAHCY2iEnLIdilyFlLkTPeRmZq8L6Dfow+JQesryKEkakKeZaox8yfni8psaW4cMKtnwktdYt1r8kx7KsvDDR5Ed3CtF494iA8gwbC9RFWgBwlW1TiVDyTQoWGz6tNGCZ9VMJq9zmCkO9Gh1a4YCstp80aFwNzfDhvSiyCHDad84cFqMItB8byDbeWe0stHUl66Av8x3o8EDadyZo49j+XALHFwTS9qT2IgI5KdSZB7xDckTW5Z6rDhFcm+SBZjt44htLOkNPERa2VSTqwq9/G05ke5fjpf3JotgZx0yahD5KQ+y3Zz/BS1smqHNfJU2EJ4rNJMcAMajYEHsjIabUg6Drjv9HuhXXPwZleSWFwsFrPGY+Akb6VE6Otwt132OOf9suQ0c9vZQIfLQYYq9v+WiHPv8KT0L/swv+DcjQtUK3tC+CqNoVBWTCdtJE2vP1r6n/01FJfwN2VNpYxlSkmLbtgCKzi7BUCO+5QXSekCcUDXbVTAe1/FyOZfLfq0lCTslTdqw5Ks1vFk81xd317/uB5yMvbLCD/ige39gVfM85Vl+15V7blZTM7pN8pXQrquXxAxHv37q1cjjgug92ax1jHGvyAuMdE=
+api: eJy9VU1r3DAQ/StiTgko8XYpPfjUNMmhJCXQbehhWRqtPF6L2JIjjZO6xv+9jOz9TFoWCj2tLQ1v3nszfttBhkF7U5NxFlK4MkE7a1GTUFbcXTRUTMWVIiVmrvEaxXjrvMi9q7hIae0aS+cgwdXoFSN9ziCFDEskZAjnza94DhJq5VWFhD5AOu/AcNdaUQESrKoQUhgBf5gMJHh8aozHDFLyDUoIusBKQdoBtTVXG0u4Qg8ScucrRcPRh/fQ9/JN+I2CIxsE8sauoO8XXBxqZwMGvp9OJvyzb+DdDTcGUivWBxeDlrWTl+veARYSKqTCbZ2K5lABKSSjBSHptmb0iVMMkmwEhKTbFdMn6sDrgP55bXTjS0ihIKpDmiSqNucvzmelyencOGBxAXXjDbUzdmCQeFGbG2xfq3y4wVZ0rWu8eMS2fwA5OF2gyuIsRq8Phz9aqgbYXsInFYzmqjd6xDvRodUuw0w0AT3DprUKgbkf3zbOlC+WDLnlwW4wi2E6TCEv3UtUvmflpcvw1eH9nqFh185hUptxYBI5uHowdSAxkhHxnEmQe8QjQGNZMizZoGJYi3hibO64hXaWlCZ+xEqZiIll6T7uznxj13fns1uTE8iDLdnbEHkwn1mz3LyKSlm1wgot50YmPJaKMBO8gEZj4HAojUYboo9j3xN9KrSrW29WBYnpZDo9qz0GBjmWEqGvwl0+G/q8XZfEojOXn410eBxkqOT6L5E47w5/KYOyd+cTxq5doErZHcK76Th+2Ns8PPz49twaRoKW/jljx6ET/qSkLpWxTDV61I3xMV8naAAJ6V6ajqsityEYaw4icV/JQkLhAjFu1y1VwHtf9j0fPzXoW0jnCwnPyhu1ZEfnHWQm8HMGaa7KgH+x4uTrmL6n4k/S1pFhW56RKht+AwmPnEu7/xUc9/+x855n/aLfifOr69vrb9fQ978BU2aN9A==
 sidebar_class_name: "delete api-method"
 info_path: api/manager/manager
 custom_edit_url: null
@@ -18,17 +18,18 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
   className={"openapi__heading"}
-  children={"Delete an authorization"}
+  children={"Disconnect account connector authorization"}
 >
 </Heading>
 
 <MethodEndpoint
   method={"delete"}
-  path={"/google-search-console/authorization"}
+  path={"/accounts/{account_id}/oauth2/connectors/{connector_id}/authorization"}
   context={"endpoint"}
 >
   
@@ -36,25 +37,30 @@ import Heading from "@theme/Heading";
 
 
 
-Retrieve the authorizations of the authenticated user.
+Disconnect an OAuth2 Data Source connector from an account.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
 
 <ParamsDetails
-  parameters={undefined}
+  {...require("./delete-authorization.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./delete-authorization.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"202":{"description":"Authorization of the account authenticated is deleted."}}}
+  {...require("./delete-authorization.StatusCodes.json")}
 >
   
 </StatusCodes>

@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -43,27 +44,24 @@ The service will return a Web Data URI only for existing datasets. The Web Data 
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"description":"The Web Page URL.","in":"query","name":"u","required":true,"schema":{"type":"string","format":"url"}}]}
+  {...require("./get.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"303":{"description":"See Other","headers":{"Location":{"description":"${api.data-uri-controller.get.headers.location.description}","schema":{},"style":"simple"}}}}}
+  {...require("./get.StatusCodes.json")}
 >
   
 </StatusCodes>

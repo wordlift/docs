@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Update a platform limit.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"description":"Platform Limit id","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}]}
+  {...require("./update-platform-limit.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"content":{"application/json":{"schema":{"type":"object","description":"Platform Limit request","properties":{"applies_to":{"type":"string"},"based_on":{"type":"string","enum":["SKU"]},"based_on_value":{"type":"string"},"description":{"type":"string"},"limits":{"type":"integer","format":"int32","minimum":1},"scope":{"type":"string","enum":["ACCOUNT","SUBSCRIPTION"]}},"required":["applies_to","based_on","based_on_value","limits","scope"],"title":"PlatformLimitRequest"}}},"required":true}}
+  {...require("./update-platform-limit.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"content":{"application/json":{"schema":{"type":"object","properties":{"applies_to":{"type":"string"},"based_on":{"type":"string","enum":["SKU"]},"based_on_value":{"type":"string"},"created_at":{"type":"string","format":"date-time","description":"The create date-time.","readOnly":true},"description":{"type":"string"},"id":{"type":"integer","format":"int64"},"limits":{"type":"integer","format":"int32","minimum":1},"modified_at":{"type":"string","format":"date-time","description":"The last modified date-time.","readOnly":true},"scope":{"type":"string","enum":["ACCOUNT","SUBSCRIPTION"]}},"required":["applies_to","based_on","based_on_value","limits","scope"],"title":"PlatformLimit"}}},"description":"Found"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}}}
+  {...require("./update-platform-limit.StatusCodes.json")}
 >
   
 </StatusCodes>

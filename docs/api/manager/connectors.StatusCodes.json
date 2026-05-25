@@ -1,0 +1,1 @@
+{"responses":{"200":{"content":{"*/*":{"schema":{"type":"array","items":{"type":"object","properties":{"connector_id":{"type":"string"},"display_name":{"type":"string"},"registration_id":{"type":"string"},"scopes":{"type":"array","items":{"type":"string"}}},"title":"OAuth2ConnectorResponse"}}}},"description":"OK"}}}

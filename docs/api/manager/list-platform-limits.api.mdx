@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ List the platform limits.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"description":"The type of based on, e.g. `sku`.","in":"query","name":"based_on_in","required":false,"schema":{"type":"array","items":{"type":"string","enum":["SKU"]},"uniqueItems":true}},{"description":"The based on values.","in":"query","name":"based_on_value_in","required":false,"schema":{"type":"array","items":{"type":"string"},"uniqueItems":true}},{"description":"The applies to (e.g. API name).","in":"query","name":"applies_to_in","required":false,"schema":{"type":"array","items":{"type":"string"},"uniqueItems":true}},{"description":"The scope.","in":"query","name":"scope_in","required":false,"schema":{"type":"array","items":{"type":"string","enum":["ACCOUNT","SUBSCRIPTION"]},"uniqueItems":true}}]}
+  {...require("./list-platform-limits.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./list-platform-limits.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"content":{"application/json":{"schema":{"type":"object","description":"A page object with links to move to other pages and the list of objects.","properties":{"first":{"type":"string","description":"The link to the first page.","nullable":true},"items":{"type":"array","description":"An array of objects.","items":{"type":"object","properties":{"applies_to":{"type":"string"},"based_on":{"type":"string","enum":["SKU"]},"based_on_value":{"type":"string"},"created_at":{"type":"string","format":"date-time","description":"The create date-time.","readOnly":true},"description":{"type":"string"},"id":{"type":"integer","format":"int64"},"limits":{"type":"integer","format":"int32","minimum":1},"modified_at":{"type":"string","format":"date-time","description":"The last modified date-time.","readOnly":true},"scope":{"type":"string","enum":["ACCOUNT","SUBSCRIPTION"]}},"required":["applies_to","based_on","based_on_value","limits","scope"],"title":"PlatformLimit"}},"last":{"type":"string","description":"The link to the last page.","nullable":true},"next":{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true},"prev":{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true},"self":{"type":"string","description":"The link to the current page.","nullable":true}},"required":["first","items","last","next","prev","self"],"title":"PagePlatformLimit"}}},"description":"Found"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}}}
+  {...require("./list-platform-limits.StatusCodes.json")}
 >
   
 </StatusCodes>

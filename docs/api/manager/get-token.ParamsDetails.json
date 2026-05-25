@@ -1,0 +1,1 @@
+{"parameters":[{"description":"The registration id","example":"google-search-console","in":"query","name":"registration_id","required":true,"schema":{"type":"string"}}]}

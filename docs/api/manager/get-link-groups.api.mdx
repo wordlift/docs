@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Get Link Groups
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"description":"Graph id","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}},{"description":"One or more URLs.","in":"query","name":"url","required":true,"schema":{"type":"array","items":{"type":"string"},"uniqueItems":true},"style":"form"},{"description":"Zero or more Link Group identifiers.","in":"query","name":"link-group","required":false,"schema":{"type":"array","items":{"type":"string"},"uniqueItems":true},"style":"form"}]}
+  {...require("./get-link-groups.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-link-groups.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"content":{"application/json":{"schema":{"type":"object","properties":{"link_groups":{"type":"array","items":{"type":"object","properties":{"identifier":{"type":"string"},"iri":{"type":"string"},"items":{"type":"array","items":{"type":"object","description":"An Internal Link request item.","properties":{"id":{"type":"string","format":"uri","description":"The entity id, reused in the output template."},"query":{"type":"object","description":"A query request.","properties":{"fields":{"type":"array","description":"List of extra fields to be retrieved.","items":{"type":"string","description":"List of extra fields to be retrieved."},"uniqueItems":true},"filters":{"type":"array","description":"A list of prefilters.","items":{"type":"object","description":"A query request filter.","properties":{"filters":{"type":"array","description":"Operational filters such as AND or OR.","items":"circular(Filter)"},"key":{"type":"string","description":"The filter key. Key is required for the filters [EQ, NE, GT, LT, GTE, LTE, IN, NIN]"},"operator":{"type":"string","description":"A query request filter operator.","enum":["EQ","GT","LT","NE","GTE","LTE","IN","NIN","AND","OR"]},"value":{"type":"object","description":"The filter value.","oneOf":[{"type":"array","items":{"type":"string"}},{"type":"string"},{"type":"array","items":{"type":"integer","format":"int32"}},{"type":"integer","format":"int32"},{"type":"array","items":{"type":"number","format":"double"}},{"type":"number","format":"double"},{"type":"array","items":{"type":"integer","format":"int64"}},{"type":"integer","format":"int64"}]},"value_date":{"type":"string","format":"date-time","description":"The filter value as a date, if provided will be preferred over the `value` field."}},"required":["operator"],"title":"Filter"}},"query_embedding":{"type":"array","description":"The list of embeddings, not required if `query_string` is provided.","items":{"type":"number","format":"double","description":"The list of embeddings, not required if `query_string` is provided."}},"query_string":{"type":"string","description":"The query string, not required if the `query_embeddings` are provided. Please note that the `query_string` is ignored if the `query_embeddings` are provided."},"query_uri":{"type":"string","format":"uri","description":"Perform a Vector Search based on similarities with an entity with the specified URI."},"query_url":{"type":"string","format":"url","description":"Perform a Vector Search based on similarities with an entity with the specified URL (schema:url)."},"similarity_top_k":{"type":"integer","format":"int32","default":2,"description":"The similarity top K.","minimum":1}},"title":"VectorSearchQueryRequest"},"source_name":{"type":"string","description":"The webpage name, reused in the output template."}},"required":["query"],"title":"Item"}},"name":{"type":"string"}},"title":"LinkGroup"},"uniqueItems":true}},"title":"LinkGroupResponse"}}},"description":"Success"},"401":{"description":"Authentication Failure"}}}
+  {...require("./get-link-groups.StatusCodes.json")}
 >
   
 </StatusCodes>

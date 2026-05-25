@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"redirect_uri":{"type":"string","format":"uri"},"state_id":{"type":"string"}},"required":["redirect_uri","state_id"],"title":"OAuth2ConnectorAuthorizationRequest"}}},"required":true}}

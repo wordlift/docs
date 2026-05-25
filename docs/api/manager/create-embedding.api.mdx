@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Create the embedding for the IRIs for the provided query.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"embedding":{"type":"object","description":"A request to generate the embeddings.","properties":{"model":{"type":"string","default":"nomic-ai/nomic-embed-text-v1","description":"The model used to generate the embeddings."},"properties":{"type":"array","description":"The list of properties to use to generate the embeddings.","items":{"type":"string","description":"The list of properties to use to generate the embeddings."},"uniqueItems":true}},"title":"EmbeddingRequest"},"graphql_query":{"type":"string","description":"The GraphQL query used to select entities to create embedding vectors for."}},"required":["embedding","graphql_query"],"title":"KgEmbeddingRequest"}}},"required":true}}
+  {...require("./create-embedding.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"201":{"content":{"application/x-ndjson":{"schema":{"type":"array","items":{"type":"object","description":"Graph Embedding Response","properties":{"id":{"type":"string","description":"The id/iri of the web page in the Graph."},"model":{"type":"string"}},"required":["id","model"],"title":"KgEmbeddingResponse"}}}},"description":"Success"},"401":{"description":"Authentication Failure"}}}
+  {...require("./create-embedding.StatusCodes.json")}
 >
   
 </StatusCodes>

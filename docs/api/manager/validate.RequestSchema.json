@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"dataset_domain":{"type":"string","description":"The dataset domain, e.g. data.example.org"},"dataset_name":{"type":"string","description":"The dataset name, e.g. my-dataset-name"}},"required":["dataset_domain","dataset_name"],"title":"DomainValidationRequest"}}},"required":true}}

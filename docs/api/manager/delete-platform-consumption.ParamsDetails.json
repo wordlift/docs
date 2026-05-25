@@ -1,0 +1,1 @@
+{"parameters":[{"in":"path","name":"referenceType","required":true,"schema":{"type":"string","enum":["SUBSCRIPTION","ACCOUNT"]}},{"in":"path","name":"referenceId","required":true,"schema":{"type":"integer","format":"int64"}},{"in":"path","name":"appliesTo","required":true,"schema":{"type":"string"}}]}

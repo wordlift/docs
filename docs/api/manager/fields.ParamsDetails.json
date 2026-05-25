@@ -1,0 +1,1 @@
+{"parameters":[{"in":"path","name":"account_id","required":true,"schema":{"type":"integer","format":"int64"}},{"in":"path","name":"connector_id","required":true,"schema":{"type":"string"}}]}

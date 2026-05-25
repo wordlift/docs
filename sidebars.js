@@ -39,6 +39,11 @@ const sidebars = {
             },
             {
               type: "doc",
+              id: "knowledge-graph/data-sources-oauth2",
+              label: "Data Sources"
+            },
+            {
+              type: "doc",
               id: "knowledge-graph/kg-rest",
               label: "KG-REST"
             },

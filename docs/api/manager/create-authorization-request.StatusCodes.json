@@ -1,0 +1,1 @@
+{"responses":{"200":{"content":{"*/*":{"schema":{"type":"object","properties":{"authorization_url":{"type":"string","format":"uri"}},"title":"OAuth2ConnectorAuthorizationRequestResponse"}}},"description":"OK"}}}

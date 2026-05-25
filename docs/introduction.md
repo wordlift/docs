@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.7 (May 2026) — Refined Business+ API usage guidance and Enterprise positioning.
+Latest Release: 3.20.8 (May 2026) — Added Data Sources (OAuth2) documentation for Dashboard-based provider connections and Manager API connector workflows.
 :::
 
 # 👋 Welcome to WordLift

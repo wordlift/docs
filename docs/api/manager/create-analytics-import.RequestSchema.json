@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","description":"An Analytics Import request.","properties":{"urls":{"type":"array","description":"An array of URLs.","items":{"type":"string","description":"An array of URLs."},"uniqueItems":true}},"title":"AnalyticsImportRequest"}}},"required":true}}

@@ -1,0 +1,1 @@
+{"parameters":[{"in":"query","name":"applies_to","required":true,"schema":{"type":"string"}},{"in":"query","name":"include_subscription","required":false,"schema":{"type":"boolean"}},{"in":"query","name":"include_limit","required":false,"schema":{"type":"boolean"}}]}

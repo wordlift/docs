@@ -20,6 +20,18 @@ const sidebar: SidebarsConfig = {
           label: "Get",
           className: "api-method get",
         },
+        {
+          type: "doc",
+          id: "api/manager/clear-cache",
+          label: "Clear Cache",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "api/manager/reset-me",
+          label: "Reset",
+          className: "api-method post",
+        },
       ],
     },
     {
@@ -176,22 +188,6 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Vector Search Questions",
-      link: {
-        type: "doc",
-        id: "api/manager/vector-search-questions",
-      },
-      items: [
-        {
-          type: "doc",
-          id: "api/manager/create-vector-search-question",
-          label: "Create",
-          className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
       label: "OAuth2 Authorized Clients",
       link: {
         type: "doc",
@@ -232,6 +228,84 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Account OAuth2 Connectors",
+      link: {
+        type: "doc",
+        id: "api/manager/account-o-auth-2-connectors",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "api/manager/delete-authorization",
+          label: "Disconnect account connector authorization",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "api/manager/authorization",
+          label: "Get account connector authorization",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/manager/create-authorization-request",
+          label: "Create account connector authorization request",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Account Connector Fields",
+      link: {
+        type: "doc",
+        id: "api/manager/account-connector-fields",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "api/manager/fields",
+          label: "List account connector fields",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/manager/delete-field",
+          label: "Delete account connector field",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "api/manager/put-field",
+          label: "Save account connector field",
+          className: "api-method put",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "OAuth2 Connectors",
+      link: {
+        type: "doc",
+        id: "api/manager/o-auth-2-connectors",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "api/manager/connectors",
+          label: "List OAuth2 connectors",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/manager/authorize-error",
+          label: "Complete OAuth2 connector authorization",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Web Pages Imports",
       link: {
         type: "doc",
@@ -243,22 +317,6 @@ const sidebar: SidebarsConfig = {
           id: "api/manager/create-web-page-imports",
           label: "Create",
           className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Google Search Console Websites",
-      link: {
-        type: "doc",
-        id: "api/manager/google-search-console-websites",
-      },
-      items: [
-        {
-          type: "doc",
-          id: "api/manager/get-gsc-sites",
-          label: "Get Google Search Console sites",
-          className: "api-method get",
         },
       ],
     },
@@ -293,52 +351,6 @@ const sidebar: SidebarsConfig = {
           id: "api/manager/update-account",
           label: "Update an account.",
           className: "api-method put",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Google Search Console OAuth2",
-      link: {
-        type: "doc",
-        id: "api/manager/google-search-console-o-auth-2",
-      },
-      items: [
-        {
-          type: "doc",
-          id: "api/manager/delete-authorization",
-          label: "Delete an authorization",
-          className: "api-method delete",
-        },
-        {
-          type: "doc",
-          id: "api/manager/get-authorizations",
-          label: "Get the authorizations",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "api/manager/duplicate",
-          label: "Duplicate the Google Search Console connection through accounts",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "api/manager/login",
-          label: "Login to the Google Search Console API client",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "api/manager/create-auth-code-exchange",
-          label: "Get an Access Code",
-          className: "menu__list-item--deprecated api-method post",
-        },
-        {
-          type: "doc",
-          id: "api/manager/create-authorize-uri",
-          label: "Create an Authorization URI",
-          className: "menu__list-item--deprecated api-method post",
         },
       ],
     },
@@ -490,6 +502,22 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Web Page Scrape",
+      link: {
+        type: "doc",
+        id: "api/manager/web-page-scrape",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "api/manager/create-web-page-scrape",
+          label: "Web Page Scrape",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Account Stats",
       link: {
         type: "doc",
@@ -532,6 +560,40 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "api/manager/update-nodes-collection",
           label: "Update",
+          className: "api-method put",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Account Chunksets",
+      link: {
+        type: "doc",
+        id: "api/manager/account-chunksets",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "api/manager/list-account-chunksets",
+          label: "List account chunksets",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/manager/delete-account-chunkset",
+          label: "Delete account chunkset",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "api/manager/get-account-chunkset",
+          label: "Get account chunkset",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/manager/put-account-chunkset",
+          label: "Create or replace account chunkset",
           className: "api-method put",
         },
       ],
@@ -587,22 +649,6 @@ const sidebar: SidebarsConfig = {
           id: "api/manager/create-query",
           label: "Create",
           className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Account - Google Search Console",
-      link: {
-        type: "doc",
-        id: "api/manager/account-google-search-console",
-      },
-      items: [
-        {
-          type: "doc",
-          id: "api/manager/update-account-config",
-          label: "Account configuration update",
-          className: "api-method patch",
         },
       ],
     },

@@ -1,0 +1,1 @@
+{"responses":{"200":{"content":{"application/vnd.wordlift.custom-domain-validation+json;version-1":{}},"description":"Success"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}}}

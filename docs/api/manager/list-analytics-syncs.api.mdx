@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Retrieve the analytics syncs
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"query","name":"account_ids","required":true,"schema":{"type":"array","items":{"type":"integer","format":"int64"}}},{"in":"query","name":"sort","required":false,"schema":{"type":"string","enum":["MOST_RECENT"]}},{"in":"query","name":"group_by","required":false,"schema":{"type":"string","enum":["ACCOUNT_ID"]}}]}
+  {...require("./list-analytics-syncs.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./list-analytics-syncs.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"account_id":{"type":"integer","format":"int64","description":"The Account identifier","readOnly":true},"created_at":{"type":"string","format":"date-time","description":"The creation date-time.","readOnly":true},"id":{"type":"string","format":"uuid","description":"The resource identifier","readOnly":true},"queries_retrieved":{"type":"integer","format":"int64","description":"Total number of queries retrieved by the analytics provider.","readOnly":true},"retrievable_urls":{"type":"integer","format":"int32","description":"Number of URLs processable by the analytics provider based on the Account URL.","readOnly":true},"started_at":{"type":"string","format":"date-time","description":"The started date-time.","readOnly":true},"status":{"type":"string","description":"Status of the sync process.","enum":["SCHEDULED","SYNCING","COMPLETED","ERROR","CANCELLED"],"readOnly":true},"stopped_at":{"type":"string","format":"date-time","description":"The stopped date-time.","readOnly":true},"total_entities_updated":{"type":"integer","format":"int32","description":"Number of unique entities updated with analytics by this sync.","readOnly":true},"urls_in_dataset":{"type":"integer","format":"int32","description":"Number of total URLs retrieved from dataset entities","readOnly":true}},"title":"AnalyticsSync"}}}},"description":"OK"},"400":{"content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"account_id":{"type":"integer","format":"int64","description":"The Account identifier","readOnly":true},"created_at":{"type":"string","format":"date-time","description":"The creation date-time.","readOnly":true},"id":{"type":"string","format":"uuid","description":"The resource identifier","readOnly":true},"queries_retrieved":{"type":"integer","format":"int64","description":"Total number of queries retrieved by the analytics provider.","readOnly":true},"retrievable_urls":{"type":"integer","format":"int32","description":"Number of URLs processable by the analytics provider based on the Account URL.","readOnly":true},"started_at":{"type":"string","format":"date-time","description":"The started date-time.","readOnly":true},"status":{"type":"string","description":"Status of the sync process.","enum":["SCHEDULED","SYNCING","COMPLETED","ERROR","CANCELLED"],"readOnly":true},"stopped_at":{"type":"string","format":"date-time","description":"The stopped date-time.","readOnly":true},"total_entities_updated":{"type":"integer","format":"int32","description":"Number of unique entities updated with analytics by this sync.","readOnly":true},"urls_in_dataset":{"type":"integer","format":"int32","description":"Number of total URLs retrieved from dataset entities","readOnly":true}},"title":"AnalyticsSync"}}}},"description":"Bad Request"}}}
+  {...require("./list-analytics-syncs.StatusCodes.json")}
 >
   
 </StatusCodes>

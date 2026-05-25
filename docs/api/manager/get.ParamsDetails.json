@@ -1,0 +1,1 @@
+{"parameters":[{"description":"The Web Page URL.","in":"query","name":"u","required":true,"schema":{"type":"string","format":"url"}}]}

@@ -1,0 +1,1 @@
+{"parameters":[{"in":"query","name":"account_ids","required":true,"schema":{"type":"array","items":{"type":"integer","format":"int64"}}},{"in":"query","name":"sort","required":false,"schema":{"type":"string","enum":["MOST_RECENT"]}},{"in":"query","name":"group_by","required":false,"schema":{"type":"string","enum":["ACCOUNT_ID"]}}]}
