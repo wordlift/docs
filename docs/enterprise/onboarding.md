@@ -78,7 +78,7 @@ Treat access as operational infrastructure, not as a personal account owned by o
 | SAML SSO | Enterprise identity and centralized access governance. | Identity owner, security owner | Enterprise login flow | Managed by the customer's identity provider. | Is SSO required, and who owns IdP configuration and access review? | [SAML Single Sign-On](/enterprise/saml-sso/) |
 | Graph Key / WordLift Key | Programmatic access to graph-backed APIs and automation. | Platform, data, or engineering owner | API, GraphQL, SDK, MCP, automation, and selected tools | Store only in a customer-approved secret manager. Use `Authorization: Key ...` where product docs require Key authentication. | Who can retrieve, rotate, revoke, and audit key use? | [GraphQL support](/api/graphql/graphql-support/) and [Monitoring API Guide](/developer-resources/monitoring/) |
 | OAuth2 Bearer tokens | Delegated access for product-specific APIs and workflows. | Identity owner, application owner, system owner | Product-specific APIs that require Bearer tokens | Use the identity and security pattern approved by your organization. | Which application owner approves the flow, scopes, token storage, and revocation path? | Follow the relevant product documentation after your identity and security owners approve the pattern. |
-| Third-party service authorization | Authorization to external services such as Google Search Console. | Service owner, analytics owner, security owner | Analytics, search, or connector workflows | Authorized by the external service owner through the current product or support path. | Who owns the third-party account, scopes, consent, and revocation? | See [Analytics API](/knowledge-graph/analytics-api/) for product-specific implementation details. |
+| Third-party service authorization | Authorization to external services such as Google Search Console. | Service owner, analytics owner, security owner | Analytics, search, or connector workflows | Authorized by the external service owner through the current product or support path. | Who owns the third-party account, scopes, consent, and revocation? | See [Data Sources](/knowledge-graph/data-sources-oauth2/) for Dashboard and API connector setup, and [Analytics API](/knowledge-graph/analytics-api/) for product-specific implementation details. |
 
 ## Security operating rules
 
@@ -104,7 +104,7 @@ Choose one primary ingestion path for the first phase. Multiple paths can coexis
 | Strong internal engineering team | API or GraphQL-backed workflow | One query or integration that downstream systems can consume | [GraphQL support](/api/graphql/graphql-support/) |
 | Data science or batch enrichment workflow | SDK or scripted workflow | Repeatable import and validation process | Product or support path |
 | Agentic or AI-native architecture | MCP or worai-assisted workflow | Controlled graph operation through approved tooling | [worai install](/worai/install/) and [worai configuration](/worai/configuration/) |
-| Analytics or search performance workflow | Product-specific analytics workflow | Authorized source connection and validation run | [Analytics API](/knowledge-graph/analytics-api/) implementation details |
+| Analytics or search performance workflow | Product-specific analytics workflow | Authorized source connection and validation run | [Data Sources](/knowledge-graph/data-sources-oauth2/) for source connection and [Analytics API](/knowledge-graph/analytics-api/) for import details |
 | Monitoring or quality checks | Monitoring workflow | Repeatable quality signal for selected URLs or graph outputs | [Monitoring API Guide](/developer-resources/monitoring/) |
 
 Avoid starting with API, SDK, MCP, worai, analytics, and Graph Sync all at once unless there is a clear architectural reason.
@@ -142,6 +142,7 @@ Example milestone:
 - [Custom Domain Configuration](/enterprise/custom-domain-configuration/)
 - [GraphQL support](/api/graphql/graphql-support/)
 - [Monitoring API Guide](/developer-resources/monitoring/)
+- [Data Sources](/knowledge-graph/data-sources-oauth2/) - Dashboard and API connector setup
 - [Analytics API](/knowledge-graph/analytics-api/) - product-specific implementation details
 - [Content Generation API Guide](/content-generation/api-guide/) - product-specific implementation details
 - [worai install](/worai/install/)

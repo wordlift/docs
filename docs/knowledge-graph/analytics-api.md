@@ -13,6 +13,8 @@ To import analytics data, use the Analytics API, following these steps:
 1. Connect the Google Search Console to your Knowledge Graph (Botify is also supported as an alternative to Google Search Console, [inquire with us](https://wordlift.io/contact-us/)).
 1. Run the Analytics Import. 
 
+For Dashboard-based provider setup and the generic OAuth2 connector API, see [Data Sources: OAuth2 Connections](./data-sources-oauth2.md).
+
 ## Authorization
 
 :::info

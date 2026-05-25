@@ -149,3 +149,11 @@ If the API reports that a source is not authorized, start a new authorization re
 If a field value is saved but the Dashboard still asks for configuration, read the connector fields through the API and confirm that the expected `field_name` and value were stored for the same `account_id` and `connector_id`.
 
 If a provider returns a permission error, review the granted provider permissions and the resource-level permissions in the provider account.
+
+## Related documentation
+
+- [Knowledge Graph](./index.md) explains how WordLift accounts and graphs organize structured data.
+- [Analytics API](./analytics-api.md) describes analytics imports that can use authorized search data.
+- [Enterprise Onboarding](/enterprise/onboarding/) covers ownership for Dashboard access, API credentials, and third-party service authorization.
+- [Monitoring API Guide](/developer-resources/monitoring/) covers authenticated monitoring workflows for production operations.
+- [Manager API reference](/api/manager/manager/) lists the generated API reference for account and connector operations.

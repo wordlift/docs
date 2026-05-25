@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.8 (May 2026) — Added Data Sources (OAuth2) documentation for Dashboard-based provider connections and Manager API connector workflows.
+Latest Release: 3.20.9 (May 2026) — Added inbound and outbound internal links for the Data Sources (OAuth2) guide across Knowledge Graph, Analytics API, and Enterprise onboarding docs.
 :::
 
 # 👋 Welcome to WordLift
