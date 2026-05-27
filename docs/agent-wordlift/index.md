@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info Version Notice
-Latest Release: 3.12.0 (April 2026) - New Google AI Edge `wordlift-graphql` integration docs and updated integrations for AI-assisted SEO workflows.
+Latest Documentation Update: May 2026 - Added the [Agent WordLift Tools](./tools.md) reference, including Google Search Console, Google Analytics, Content Evaluation, Keyword Suggestions, Entity Analysis, Fact-Checking, Local SEO, and Enhanced Knowledge Graph Research.
 :::
 
 # 🤖 Welcome to Agent WordLift - Your Marketing & AI SEO Agent

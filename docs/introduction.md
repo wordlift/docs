@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.9 (May 2026) — Added inbound and outbound internal links for the Data Sources (OAuth2) guide across Knowledge Graph, Analytics API, and Enterprise onboarding docs.
+Latest Release: 3.20.10 (May 2026) — Added the Agent WordLift Tools reference with configuration guidance, sample prompts, and workflow links for Google Search Console, Google Analytics, and core SEO tools.
 :::
 
 # 👋 Welcome to WordLift
