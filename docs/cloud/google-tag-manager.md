@@ -11,6 +11,7 @@ Set up a Custom HTML tag in Google Tag Manager to load `bootstrap.js` on every p
 - You have a Google Tag Manager account.
 - A container is created for the website where you will load WordLift Cloud.
 - You can log in to tagmanager.google.com with permission to edit tags.
+- If your site uses CSP, allow the WordLift Cloud script and API endpoint; see [Content Security Policy](./index.md#content-security-policy).
 
 ## 1) Open the correct container
 

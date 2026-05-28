@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.10 (May 2026) — Added the Agent WordLift Tools reference with configuration guidance, sample prompts, and workflow links for Google Search Console, Google Analytics, and core SEO tools.
+Latest Release: 3.20.11 (May 2026) — Added Content Security Policy guidance for WordLift Cloud `bootstrap.js`, covering the Cloud script host and WordLift API endpoint required by CSP-enabled sites.
 :::
 
 # 👋 Welcome to WordLift

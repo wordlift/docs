@@ -30,6 +30,49 @@ Place the launcher in the `<head>` of every page you want to annotate:
 
 Keep it near the top of `<head>` so it loads early; `async` ensures it does not block rendering.
 
+## Content Security Policy
+
+If your website uses a Content Security Policy (CSP), allow both the WordLift Cloud script and the WordLift API endpoint.
+
+The launcher is loaded from:
+
+```text
+https://cloud.wordlift.io
+```
+
+The launcher fetches structured data from:
+
+```text
+https://api.wordlift.io
+```
+
+Add these domains to the existing CSP directives without removing the domains your site already uses:
+
+```http
+Content-Security-Policy:
+  script-src 'self' https://cloud.wordlift.io ...existing domains...;
+  connect-src 'self' https://api.wordlift.io ...existing domains...;
+```
+
+If the CSP is configured with an HTML `<meta>` tag, the configuration should look similar to:
+
+```html
+<meta
+  http-equiv="Content-Security-Policy"
+  content="
+    default-src 'self';
+    script-src 'self'
+      https://cloud.wordlift.io
+      ...existing domains...;
+    connect-src 'self'
+      https://api.wordlift.io
+      ...existing domains...;
+  "
+>
+```
+
+If `https://api.wordlift.io` is missing from `connect-src`, browsers block the API request and log an error similar to `Refused to connect because it violates the document's Content Security Policy`.
+
 ## bootstrap.js FAQ
 
 ### 1. What does it do?
@@ -173,7 +216,7 @@ If you control the server-side rendering pipeline, you can fetch structured data
 
 - Widget not opening: ensure you are logged in and the launcher is present in `<head>`.
 - Language mismatch: set the correct `lang` on `<html>`; the launcher derives `__wl_lang` from it.
-- Script blocked: check Content Security Policy and ad blockers that might block `cloud.wordlift.io`.
+- Script or API request blocked: check the [Content Security Policy](#content-security-policy) configuration and ad blockers that might block WordLift Cloud.
 - `bootstrap.js` must be in `<head>` directly; other loaders can delay markup so Google misses it.
 - Google Tag Manager is the only supported alternative loader (see [GTM setup](./google-tag-manager.md)).
 

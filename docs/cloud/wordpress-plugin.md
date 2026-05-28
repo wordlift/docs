@@ -37,6 +37,7 @@ Use the WordLift Cloud plugin to:
 
 - `bootstrap.js` loading:
   - `https://cloud.wordlift.io/app/bootstrap.js` is injected on frontend pages (subject to plugin consent gate/filter).
+  - if your site uses CSP, allow the WordLift Cloud script and API endpoint; see [Content Security Policy](./index.md#content-security-policy).
 - **Enable FAQ rendering**:
   - disabled by default.
   - when enabled, plugin output adds FAQ-related `data-*` attributes to the bootstrap script and outputs in-page template markup (`wl-faq-template`).
