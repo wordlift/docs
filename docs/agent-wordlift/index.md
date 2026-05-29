@@ -8,10 +8,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info Version Notice
-Latest Documentation Update: May 2026 - Added the [Agent WordLift Tools](./tools.md) reference, including Google Search Console, Google Analytics, Content Evaluation, Keyword Suggestions, Entity Analysis, Fact-Checking, Local SEO, and Enhanced Knowledge Graph Research.
-:::
-
-:::info Documentation Update
 Latest Documentation Update: May 2026 - Added the Agent WordLift Tools reference, explaining how **20+ specialized SEO, content, Knowledge Graph, analytics, local SEO, and automation tools** are organized into tool families and accessed through Agent WordLift, MCP, CLI, API, and integrations.
 :::
 
