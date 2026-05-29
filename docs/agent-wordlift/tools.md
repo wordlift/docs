@@ -1,6 +1,8 @@
 ---
 title: 🧰 Tools
 sidebar_position: 6
+toc_min_heading_level: 2
+toc_max_heading_level: 2
 ---
 
 Agent WordLift gives SEO, content, and technical teams access to **20+ specialized tools** for search analysis, analytics, knowledge graph research, content optimization, local SEO, content generation, and automation.

@@ -40,54 +40,9 @@ const agentWordLiftSidebarItems = [
   "agent-wordlift/faq",
   "agent-wordlift/integrations",
   {
-    type: "category",
+    type: "doc",
+    id: "agent-wordlift/tools",
     label: "🧰 Tools",
-    link: {
-      type: "doc",
-      id: "agent-wordlift/tools",
-    },
-    items: [
-      {
-        type: "link",
-        label: "Google Search Console",
-        href: "/agent-wordlift/tools/#google-search-console",
-      },
-      {
-        type: "link",
-        label: "Google Analytics",
-        href: "/agent-wordlift/tools/#google-analytics",
-      },
-      {
-        type: "link",
-        label: "Content Evaluation",
-        href: "/agent-wordlift/tools/#content-evaluation",
-      },
-      {
-        type: "link",
-        label: "Keyword Suggestions",
-        href: "/agent-wordlift/tools/#keyword-suggestions",
-      },
-      {
-        type: "link",
-        label: "Entity Analysis",
-        href: "/agent-wordlift/tools/#entity-analysis",
-      },
-      {
-        type: "link",
-        label: "Fact-Checking",
-        href: "/agent-wordlift/tools/#fact-checking",
-      },
-      {
-        type: "link",
-        label: "Local SEO Tools",
-        href: "/agent-wordlift/tools/#local-seo-tools",
-      },
-      {
-        type: "link",
-        label: "Enhanced Knowledge Graph Research",
-        href: "/agent-wordlift/tools/#enhanced-knowledge-graph-research",
-      },
-    ],
   },
   {
     type: "category",
