@@ -12,6 +12,14 @@ Latest Release: 3.12.0 (April 2026) - Added Google AI Edge `wordlift-graphql` in
 
 # Integrations
 
+This page is the canonical place for Agent WordLift integration surfaces and setup instructions (MCP, CLI, API, and automation platforms).
+
+For architecture and tool-family organization, see [Agent WordLift Tools](./tools.md).
+
+For ready-to-use prompts, see the [Prompt Library](./prompt-reference.md).
+
+For end-to-end recipes that combine multiple tools, see [Workflows](./workflows.md).
+
 ## Agent WordLift Extension {#agent-wordlift-chrome-extension}
 
 Use Agent WordLift directly in your browser to validate WordLift Cloud setup and accelerate SEO tasks.

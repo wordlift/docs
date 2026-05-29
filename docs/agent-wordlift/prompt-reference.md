@@ -7,6 +7,8 @@ sidebar_position: 5
 
 This comprehensive library contains ready-to-use prompts for Agent WordLift, optimized for both the web interface and Chrome extension. Each prompt is formatted for easy copying and immediate use.
 
+For an explanation of how Agent WordLift capabilities are organized into tool families, data sources, workflows, and integration surfaces, see [Agent WordLift Tools](./tools.md).
+
 ## 🔍 Analysis & Research
 
 ### Analyze Text
@@ -107,6 +109,20 @@ identify new keyword opportunities from my Google Search Console data where I'm 
 
 ```md className=wlx-send-to-agent
 analyze my Google Search Console data for the search type "discover". Show me the top 20 pages with the highest clicks over the last 30 days. Include clicks, impressions, and CTR for each page.
+```
+
+### Google Analytics 4 (GA4) Analysis
+
+```md className=wlx-send-to-agent
+provide an analysis of all AI referral traffic over the last week
+```
+
+```md className=wlx-send-to-agent
+analyze my GA4 data and show the top landing pages by sessions, engagement rate, and conversions over the last 30 days
+```
+
+```md className=wlx-send-to-agent
+compare organic search traffic vs AI referral traffic in GA4 for the last 28 days, including sessions, engaged sessions, and conversion rate
 ```
 
 ### Generate Diagram

@@ -11,6 +11,10 @@ import TabItem from '@theme/TabItem';
 Latest Documentation Update: May 2026 - Added the [Agent WordLift Tools](./tools.md) reference, including Google Search Console, Google Analytics, Content Evaluation, Keyword Suggestions, Entity Analysis, Fact-Checking, Local SEO, and Enhanced Knowledge Graph Research.
 :::
 
+:::info Documentation Update
+Latest Documentation Update: May 2026 - Added the Agent WordLift Tools reference, explaining how **20+ specialized SEO, content, Knowledge Graph, analytics, local SEO, and automation tools** are organized into tool families and accessed through Agent WordLift, MCP, CLI, API, and integrations.
+:::
+
 # 🤖 Welcome to Agent WordLift - Your Marketing & AI SEO Agent
 
 <div style={{textAlign: 'center', margin: '2rem 0'}}>
@@ -71,6 +75,7 @@ Your AI-Powered SEO Companion for Smart Content Optimization
 * [Getting Started Guide](./getting-started.md) - Your first steps with Agent WordLift
 * [Tips & Best Practices](./tips.md) - Get the most out of the AI
 * [Feature Highlights](./highlights.md) - What makes Agent WordLift special
+* [Tools](./tools.md) - Architecture and tool-family overview of Agent WordLift's 20+ specialized tools
 * [Prompt Library](./prompt-reference.md) - Ready-to-use prompts
 
 ### 🛠️ Popular Workflows

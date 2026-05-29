@@ -3,6 +3,12 @@ title: 🛠️ Workflows
 sidebar_position: 8
 ---
 
+The Workflows section is the canonical place for end-to-end recipes that combine multiple Agent WordLift tools.
+
+For architecture and capability organization, see [Agent WordLift Tools](./tools.md).
+
+For ready-to-use prompts, see the [Prompt Library](./prompt-reference.md).
+
 Here is how WordLift AI SEO Agent can help you boost your productivity in different editorial workflows:
 
 - **Analyze Search Demand:**

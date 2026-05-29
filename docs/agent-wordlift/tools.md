@@ -3,245 +3,141 @@ title: 🧰 Tools
 sidebar_position: 6
 ---
 
-# Agent WordLift Tools
+Agent WordLift gives SEO, content, and technical teams access to **20+ specialized tools** for search analysis, analytics, knowledge graph research, content optimization, local SEO, content generation, and automation.
 
-Agent WordLift can use specialized SEO, analytics, and knowledge graph tools to ground its answers in your website data, search performance, and structured content. Use this page as a reference for what each tool does, how to configure it, and which prompts to try first.
+This page explains how Agent WordLift tools are organized and how they fit into the WordLift platform architecture.
 
-## Google Search Console
+For ready-to-use prompts, see the [Prompt Library](./prompt-reference.md).
 
-### Description
+For end-to-end recipes, see [Workflows](./workflows.md).
 
-The Google Search Console tool helps Agent WordLift analyze search queries, landing pages, impressions, clicks, click-through rate, and ranking changes. Use it to discover opportunities, diagnose traffic drops, and prioritize content updates with real search data.
+For MCP, CLI, API, and automation setup, see [Integrations](./integrations.md).
 
-### How to configure it
+## How tools fit into Agent WordLift
 
-Connect Google Search Console as a WordLift Data Source from the WordLift Dashboard. See [Data Sources: OAuth2 Connections](/knowledge-graph/data-sources-oauth2/) for the dashboard setup flow and API-based connector options.
+Agent WordLift is built on a dual-stack architecture:
 
-### Sample prompts
+- **Knowledge Graph / Memory Layer**
+- **Agentic AI Layer**
 
-```md
-Show me the top 10 queries with high impressions and low CTR over the last 30 days.
-```
+The Knowledge Graph / Memory Layer stores entities, relationships, structured data, search signals, provenance, and reusable context.
 
-```md
-Find keywords where my site ranks between positions 11 and 20 and suggest content improvements.
-```
+The Agentic AI Layer uses specialized tools to retrieve evidence, analyze content, reason over entities, generate outputs, validate claims, and automate SEO workflows.
 
-```md
-Analyze my Google Search Console data and identify pages that lost clicks in the last 28 days.
-```
+A single workflow can combine multiple tools. For example, a rankings drop audit can use Google Search Console analysis, analytics signals, query analysis, entity analysis, content evaluation, and internal linking recommendations.
 
-### Related workflows
+## Terms and Concepts
 
-- [Google Search Console Integration](./workflows/google-search-console.md)
-- [Rankings Drop Audit](./workflows/rankings-drop-audit.md)
-- [Keyword Discovery](./workflows/keyword-discovery.md)
+| Term | Meaning |
+| --- | --- |
+| Tool | A specific callable capability Agent WordLift can use to perform a task. |
+| Tool family | A group of related tools, such as Search Performance, Content Optimization, Knowledge Graph Research, or Local SEO. |
+| Data source | A connected source of evidence used by one or more tools, such as Google Search Console, Google Analytics, Google Ads, a sitemap, Botify data, or the WordLift Knowledge Graph. |
+| Workflow | A repeatable process that combines multiple tools to complete an SEO, content, or marketing task. |
+| Prompt Library | The canonical place for ready-to-use prompts that activate Agent WordLift capabilities. |
+| Integration surface | The place where tools are accessed, such as Agent WordLift UI, WordLift CLI, MCP, API, Zapier, Power Automate, or Google Sheets. |
 
-## Google Analytics
+## Tool Families
 
-### Description
+The sections below describe high-level tool families. They are not the full list of individual tools.
 
-The Google Analytics tool helps Agent WordLift interpret user engagement, traffic patterns, and content performance after users reach your site. Use it with Google Search Console to connect search visibility with behavior such as engagement, landing-page performance, and conversion-oriented content analysis.
+For the full prompt inventory, use the [Prompt Library](./prompt-reference.md).
 
-### How to configure it
+### Search Performance
 
-Connect Google Analytics as a WordLift Data Source from the WordLift Dashboard. See [Data Sources: OAuth2 Connections](/knowledge-graph/data-sources-oauth2/) for the dashboard setup flow and API-based connector options.
+Tools for understanding how pages, queries, and search opportunities perform across organic search.
 
-### Sample prompts
+Typical capabilities include Google Search Console analysis, query performance, CTR analysis, ranking movement, Google Discover analysis, and opportunity discovery.
 
-```md
-Compare organic landing pages by engagement and identify pages that need content improvements.
-```
+### Analytics and Engagement
 
-```md
-Combine Google Search Console and Google Analytics data to find pages with strong impressions but weak engagement.
-```
+Tools for connecting search visibility with post-click behavior and business outcomes.
 
-```md
-Analyze which organic pages bring qualified traffic and suggest next content actions.
-```
+Typical capabilities include Google Analytics analysis, landing page engagement analysis, qualified traffic analysis, and combined GSC + GA investigations.
 
-### Related workflows
+### How GSC and GA Work Together
 
-- [Google Search Console Integration](./workflows/google-search-console.md)
-- [Rankings Drop Audit](./workflows/rankings-drop-audit.md)
-- [Analyze SEO Score](./workflows/analyzing-query-match.md)
+Agent WordLift connects Google Search Console (impressions, clicks, queries, pages, and CTR) with Google Analytics (sessions, engagement, and conversion-oriented behavior) to diagnose cause and impact in one workflow.
 
-## Content Evaluation
+In practice, this means teams can trace a visibility change in search results to downstream user behavior and business outcomes, instead of reviewing the two data sources separately.
 
-### Description
+### How to Configure GSC and GA
 
-The Content Evaluation tool reviews content quality, readability, depth, accuracy, and SEO alignment. Use it to understand whether a page satisfies the target intent and where the content needs stronger coverage.
+- Connect Google Search Console as a WordLift data source from the WordLift Dashboard.
+- Connect Google Analytics as a WordLift data source from the WordLift Dashboard.
+- For the dashboard setup flow and API-based connector options, see [Data Sources: OAuth2 Connections](https://docs.wordlift.io/knowledge-graph/data-sources-oauth2/).
 
-### How to configure it
+### Keyword and Search Demand
 
-No separate data source configuration is required. You need access to Agent WordLift and a page, text passage, or target keyword to evaluate. For website-aware analysis, make sure your site is connected to WordLift as described in [Getting Started](./getting-started.md).
+Tools for discovering, expanding, clustering, and mapping search demand.
 
-### Sample prompts
+Typical capabilities include keyword suggestions, keyword discovery, intent grouping, Google Trends analysis, Google Ads insights, and cannibalization analysis.
 
-```md
-Evaluate the content quality for the keyword "semantic SEO" in relation to this URL: https://example.com/page
-```
+### Knowledge Graph and Entity Intelligence
 
-```md
-Review this article for readability, depth, accuracy, and SEO alignment. Suggest the top improvements.
-```
+Tools for analyzing entities, relationships, topical coverage, and Knowledge Graph context.
 
-```md
-Compare these two pages for content quality and explain which one better satisfies the search intent.
-```
+Typical capabilities include entity extraction, entity gap analysis, enhanced entity lookup, corporate intelligence research, person entity research, relationship mapping, and Knowledge Graph retrieval.
 
-### Related workflows
+### Content Evaluation and Optimization
 
-- [Content Quality Evaluation](./workflows/content-evaluation.md)
-- [Analyze SEO Score](./workflows/analyzing-query-match.md)
-- [Align Content with Search Query](./workflows/analyzing-query-match.md)
+Tools for evaluating whether content is useful, complete, trustworthy, and aligned with search intent.
 
-## Keyword Suggestions
+Typical capabilities include content quality evaluation, query-match analysis, SEO score analysis, readability checks, internal linking opportunities, and page differentiation.
 
-### Description
+### Fact-Checking and Trust
 
-The Keyword Suggestions tool expands a topic or seed keyword into related search terms, semantic variants, and content opportunities. Use it to plan briefs, refine page targeting, and find new angles for existing content.
+Tools for reducing factual risk and improving source quality.
 
-### How to configure it
+Typical capabilities include claim detection, fact-checking, citation gap detection, factual risk analysis, and safer wording recommendations.
 
-No separate setup is required. For stronger recommendations, connect your website and search data through WordLift and the relevant Data Sources.
+### Content Generation
 
-### Sample prompts
+Tools for generating and expanding content using search signals, entities, and Knowledge Graph context.
 
-```md
-Generate keyword suggestions based on "entity SEO" and group them by search intent.
-```
+Typical capabilities include content expansion, content creation, meta title and description generation, product descriptions, product highlights, FAQ generation, social posts, content buckets, newsletters, and multi-platform content adaptation.
 
-```md
-Suggest keywords I should include in an article about "structured data for ecommerce".
-```
+### Local SEO
 
-```md
-Create a keyword map for this topic and recommend which keywords belong in the same article.
-```
+Tools for local search visibility and Google Business Profile analysis.
 
-### Related workflows
+Typical capabilities include Google Business Profile analysis, Local Pack analysis, business ranking tracking, local competitor comparison, and Q&A analysis.
 
-- [Keyword Discovery](./workflows/keyword-discovery.md)
-- [Keyword Cannibalization](./workflows/keyword-cannibalization.md)
-- [Create Product Descriptions](./workflows/create-product-description.md)
+### Social, Community, and External Signals
 
-## Entity Analysis
+Tools for using external signals to identify content and visibility opportunities.
 
-### Description
+Typical capabilities include Reddit content research, Instagram indexing analysis, cross-platform content strategy, SERP monitoring, and community-driven topic discovery.
 
-The Entity Analysis tool identifies the people, organizations, places, products, concepts, and other entities mentioned in text or on a webpage. Use it to understand topical coverage, compare pages, and align content with your knowledge graph.
+### Technical SEO and Structured Data
 
-### How to configure it
+Tools for technical SEO, markup, schema, and machine-readability analysis.
 
-No separate setup is required for basic text or URL analysis. To ground analysis in your own website knowledge graph, connect your website to WordLift as described in [Getting Started](./getting-started.md).
+Typical capabilities include markup audits, schema type analysis, structured data validation, authorship markup, technical SEO health checks, and site performance analysis.
 
-### Sample prompts
+### Automation and Integration
 
-```md
-Analyze the entities on this webpage: https://example.com/article
-```
+Tools and integration surfaces that make Agent WordLift available inside developer, automation, and AI assistant workflows.
 
-```md
-Extract the main entities from this text and explain which ones should be strengthened for SEO.
-```
+Typical surfaces include WordLift CLI, MCP, Agent WordLift API, GraphQL queries on the WordLift Knowledge Graph, Zapier, Power Automate, Google Sheets, Looker Studio, and batch processing.
 
-```md
-Compare the entities covered by these two pages and identify overlap or missing topics.
-```
+See [Integrations](./integrations.md) for setup instructions.
 
-### Related workflows
+## Where to Find Prompts
 
-- [Keyword Cannibalization](./workflows/keyword-cannibalization.md)
-- [Create Internal Links](./workflows/create-internal-links.md)
-- [Instagram Indexing Analysis](./workflows/instagram-indexing-analysis.md)
+The [Prompt Library](./prompt-reference.md) is the canonical reference for ready-to-use prompts.
 
-## Fact-Checking
+Use the Prompt Library when you want to:
 
-### Description
+- run a specific SEO or content task
+- understand which prompt to use for a capability
+- copy and adapt a prompt for Agent WordLift
+- explore the full set of user-facing Agent WordLift capabilities
 
-The Fact-Checking tool reviews claims and highlights whether they need verification, correction, or stronger sourcing. Use it before publishing content that includes factual statements, statistics, or expert claims.
+The Tools page explains architecture and capability organization.
 
-### How to configure it
+The Prompt Library explains how to run capabilities.
 
-No separate setup is required. Provide the claim, source text, or page URL you want Agent WordLift to check.
+The Workflows section explains how multiple tools combine in repeatable SEO and content processes.
 
-### Sample prompts
-
-```md
-Fact-check this statement: "Structured data directly increases Google rankings."
-```
-
-```md
-Review this paragraph and identify claims that need citations or verification.
-```
-
-```md
-Check this article for factual risks and suggest safer wording where needed.
-```
-
-### Related workflows
-
-- [Content Quality Evaluation](./workflows/content-evaluation.md)
-- [Research Using Reddit Discussions](./workflows/research-content-ideas.md)
-- [Enhanced Entity Research](./workflows/enhanced-entity-research.md)
-
-## Local SEO Tools
-
-### Description
-
-Local SEO tools help Agent WordLift analyze Google Business Profiles, local pack results, local rankings, and customer questions and answers. Use them to understand local visibility, compare competitors, and prioritize local search improvements.
-
-### How to configure it
-
-No dashboard data source is required for the basic local SEO prompts. Provide the business name, target keyword, and location in the format `City,State,Country`. For detailed syntax and limitations, see the [Local SEO Tools Reference](./workflows/local-seo-tools-guide.md).
-
-### Sample prompts
-
-```md
-Analyze the Google Business Profile for "Mountain View Cafe" in "Denver,Colorado,United States".
-```
-
-```md
-Show me the Local Pack results for "best coffee shop" in "Denver,Colorado,United States".
-```
-
-```md
-Track the rankings of "Mountain View Cafe" for "best coffee shop" in "Denver,Colorado,United States".
-```
-
-### Related workflows
-
-- [Local SEO Analysis](./workflows/local-seo-analysis.md)
-- [Local SEO Tools Reference](./workflows/local-seo-tools-guide.md)
-
-## Enhanced Knowledge Graph Research
-
-### Description
-
-The Enhanced Knowledge Graph Research tool enriches entity research with semantic attributes, relationships, and context from knowledge graph sources. Use it for content research, entity profiles, competitive intelligence, and topical authority planning.
-
-### How to configure it
-
-No separate setup is required for general entity research. To compare results with your own content graph, connect your website to WordLift as described in [Getting Started](./getting-started.md).
-
-### Sample prompts
-
-```md
-Research the entity "Marie Curie" and summarize the most important semantic attributes and relationships.
-```
-
-```md
-Map the key entities related to "agentic SEO" and explain how they connect.
-```
-
-```md
-Compare these organizations as entities and identify content angles for an SEO article.
-```
-
-### Related workflows
-
-- [Enhanced Entity Research](./workflows/enhanced-entity-research.md)
-- [Research Using Reddit Discussions](./workflows/research-content-ideas.md)
-- [Keyword Discovery](./workflows/keyword-discovery.md)
+The Integrations section explains where and how tools can be accessed.
