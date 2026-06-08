@@ -17,6 +17,9 @@ Here is how WordLift AI SEO Agent can help you boost your productivity in differ
   - [Google Search Console Integration](./workflows/google-search-console.md)
   - [Rankings Drop Audit](./workflows/rankings-drop-audit.md)
 
+- **Measure AI Visibility:**
+  - [Analyze your AI Visibility](./workflows/ai-visibility-analysis.md)
+
 - **Research Content:**
   - [Research Using Reddit Discussions](./workflows/research-content-ideas.md)
   - [Enhanced Entity Research](./workflows/enhanced-entity-research.md)
