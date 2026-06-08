@@ -51,6 +51,12 @@ Tools for understanding how pages, queries, and search opportunities perform acr
 
 Typical capabilities include Google Search Console analysis, query performance, CTR analysis, ranking movement, Google Discover analysis, and opportunity discovery.
 
+### AI Visibility
+
+Tools for understanding how content appears across AI-powered search surfaces and generative answers.
+
+Typical capabilities include checking whether a query triggers a Google AI Overview, inspecting the sources cited in AI-generated answers, interrogating Google AI Mode (SGE) for conversational responses, and analyzing AI Shopping results to see which products and brands surface.
+
 ### Analytics and Engagement
 
 Tools for connecting search visibility with post-click behavior and business outcomes.
