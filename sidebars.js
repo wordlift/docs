@@ -244,6 +244,7 @@ const sidebars = {
               label: "Commands",
               items: [
                 "worai/commands/seocheck",
+                "worai/commands/entity-matrix",
                 "worai/commands/seoreport",
                 "worai/commands/google-search-console",
                 "worai/commands/canonicals",
