@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.11 (May 2026) — Added Content Security Policy guidance for WordLift Cloud `bootstrap.js`, covering the Cloud script host and WordLift API endpoint required by CSP-enabled sites.
+Latest Release: 3.20.13 (June 2026) — Added Data API guidance for choosing client-side or server-side JSON-LD injection, including AI crawler discoverability considerations and a non-production Next.js server-side example.
 :::
 
 # 👋 Welcome to WordLift

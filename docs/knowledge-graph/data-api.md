@@ -28,6 +28,16 @@ Server-side rendering fetches the Data API response from your server, static-sit
 
 Use this option when you control the page rendering pipeline and want the JSON-LD to be present in the initial HTML response.
 
+### Choosing client-side or server-side injection
+
+With the client-side WordLift Cloud integration, JSON-LD is added to the rendered DOM after the browser executes `bootstrap.js`. It is not present in the initial server-rendered HTML response.
+
+This works for crawlers that render JavaScript, including Googlebot. However, AI crawlers, LLM-based retrieval systems, and agentic tools do not all process pages in the same way. Some render JavaScript, some rely on search engine indexes, some consume APIs or structured endpoints, and some inspect only the raw HTML response.
+
+When AI search visibility, AEO, GEO, or access by non-JavaScript crawlers is a primary requirement, prefer server-side rendering. Server-side rendering makes the JSON-LD available in the HTML returned by the server, without requiring the consumer to execute JavaScript.
+
+Client-side injection remains useful when implementation speed and minimal application changes are the priority, or when the main consumer is known to render JavaScript. For broad machine discovery, server-side injection plus the machine-readable Knowledge Graph exposed through the Data API provides the stronger default.
+
 The server-side flow is:
 
 1. Determine the canonical URL of the page being rendered.
@@ -49,6 +59,61 @@ The server-side flow is:
 ```
 
 When using server-side rendering, avoid building JSON-LD with string concatenation. Parse the Data API response as JSON, then serialize it with the JSON tools provided by your runtime.
+
+#### Next.js server-side example
+
+In Next.js, fetch the Data API response during server rendering and render it in the page as an `application/ld+json` script.
+
+:::warning Example only
+
+The following snippet demonstrates where JSON-LD injection happens in a Next.js page. It is not production-ready: it does not implement the full caching, fallback, background refresh, cache stampede protection, or observability requirements described in [Performance and caching](#performance-and-caching).
+
+Do not make production page rendering depend directly on an uncached Data API request.
+
+:::
+
+```tsx
+function toWordLiftDataApiUrl(pageUrl: string) {
+  const url = new URL(pageUrl);
+  return `https://api.wordlift.io/data/${url.protocol.replace(":", "")}/${url.host}${url.pathname}${url.search}`;
+}
+
+async function getJsonLd(pageUrl: string) {
+  const response = await fetch(toWordLiftDataApiUrl(pageUrl), {
+    next: { revalidate: 3600 },
+    signal: AbortSignal.timeout(1500),
+  });
+
+  if (!response.ok) {
+    return null;
+  }
+
+  return response.json();
+}
+
+function serializeJsonLd(jsonLd: unknown) {
+  return JSON.stringify(jsonLd).replace(/</g, "\\u003c");
+}
+
+export default async function Page() {
+  const pageUrl = "https://www.example.com/example-page";
+  const jsonLd = await getJsonLd(pageUrl);
+
+  return (
+    <>
+      {jsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
+        />
+      ) : null}
+      <main>{/* Page content */}</main>
+    </>
+  );
+}
+```
+
+Adapt the canonical URL construction to your routing model, locale handling, and canonical URL policy. If the site is multilingual, append `__wl_lang` as described in [Multilingual requests](#multilingual-requests).
 
 #### Performance and caching
 
