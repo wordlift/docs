@@ -208,6 +208,8 @@ If you control the server-side rendering pipeline, you can fetch structured data
 
 Use server-side rendering when JSON-LD must be available in the raw HTML response, including for crawlers or AI retrieval systems that do not execute JavaScript. See [Choosing client-side or server-side injection](../knowledge-graph/data-api.md#choosing-client-side-or-server-side-injection) for the full guidance.
 
+If you are moving an existing client-side implementation to server-side rendering, follow [Migrate from Client-Side API to Server-Side API](../knowledge-graph/migrate-client-side-to-server-side-data-api.md).
+
 ## Validate the markup
 
 - Use Google’s [Rich Results Test](https://search.google.com/test/rich-results) or your preferred structured data validator.

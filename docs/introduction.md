@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.13 (June 2026) — Added Data API guidance for choosing client-side or server-side JSON-LD injection, including AI crawler discoverability considerations and a non-production Next.js server-side example.
+Latest Release: 3.20.14 (June 2026) — Added a migration guide for moving from the client-side WordLift Cloud API to the server-side Data API, including response format differences, rollout steps, caching guidance, and validation checks.
 :::
 
 # 👋 Welcome to WordLift

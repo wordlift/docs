@@ -92,6 +92,11 @@ const sidebars = {
             },
             {
               type: "doc",
+              id: "knowledge-graph/migrate-client-side-to-server-side-data-api",
+              label: "Migrate to Server-Side Data API"
+            },
+            {
+              type: "doc",
               id: "knowledge-graph/data-sources-oauth2",
               label: "Data Sources"
             },

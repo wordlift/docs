@@ -10,6 +10,8 @@ The Data API publishes the structured data for a web page from the WordLift Know
 
 Use it when you need to retrieve the JSON-LD that WordLift has generated for a URL and inject it into the page HTML. The response is standard JSON-LD, compatible with RDF tooling and schema.org consumers.
 
+If you already use the client-side WordLift Cloud API and want to move JSON-LD injection to your rendering layer, see [Migrate from Client-Side API to Server-Side API](./migrate-client-side-to-server-side-data-api.md).
+
 ## Ways to inject structured data
 
 There are two supported integration patterns.
