@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.14 (June 2026) — Added a migration guide for moving from the client-side WordLift Cloud API to the server-side Data API, including response format differences, rollout steps, caching guidance, and validation checks.
+Latest Release: 3.20.15 (June 2026) — Aligned the `worai` CLI installation guide with the public installer scripts, including macOS/Linux and Windows one-liners, verification steps, and `pipx` fallback guidance.
 :::
 
 # 👋 Welcome to WordLift

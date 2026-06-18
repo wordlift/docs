@@ -1,5 +1,6 @@
 # TODO
 
+- [x] 2026-06-18 Align `worai` CLI installation docs with the public installer scripts, refresh the 3.20.15 Version Notice, and bump the docs patch release.
 - [x] 2026-05-28 Add WordLift Cloud CSP guidance for `bootstrap.js`, refresh the 3.20.11 Version Notice, and bump the docs patch release.
 - [x] 2026-05-15 Add canonical Data API documentation for client-side and server-side structured data injection, refresh the 3.20.4 Version Notice, and update project meta docs.
 - [x] 2026-05-15 Refine API category icons and sidebar context for Knowledge Graph and Smart Content documentation pages for the 3.20.5 patch release.
