@@ -365,61 +365,64 @@ Follow the MCP integration setup instructions above to connect WordLift to Claud
 
 **Direct Download**
 
-[📦 Download WordLift SEO Audit Skill v1.0.0](/downloads/claude-skills/wl-seo-audit-competitors-v1.0.0.zip)
+[📦 Download WordLift SEO Audit Skill v1.1.0](/downloads/claude-skills/wl-seo-audit-v1.1.0.zip)
+
+This release is aligned with the live [Audit API](/api/audit/audit-website/). It is **single-URL only**; competitor / SERP analysis will return in a dedicated follow-up Skill.
 
 **Step 3: Upload to Claude**
 
 1. In Claude, navigate to **Settings** → **Capabilities**
 2. Click **Upload Skill**
-3. Select the `wl-seo-audit-competitors.zip` file (or the skill folder)
+3. Select the `wl-seo-audit-v1.1.0.zip` file (or the unzipped `wl-seo-audit/` folder)
 4. Enable the skill for your conversations
 
 **Step 4: Start Using**
 
 Simply ask Claude to audit any URL:
 ```
-"Audit https://example.com/products/backpack and compare with top 5 competitors"
+"Audit https://example.com/products/backpack — give me the overall score and the top quick wins."
 ```
 
 ### Example Commands
 
 **Basic SEO Audit**:
 ```
-"Run an SEO audit on https://mysite.com"
+"Run a WordLift SEO audit on https://mysite.com"
 ```
 
-**Competitive Analysis**:
+**AI-readiness check**:
 ```
-"Compare the schema markup on https://mysite.com/products/shoes with top 3 competitors in the US market"
-```
-
-**SERP Gap Analysis**:
-```
-"Analyze https://mystore.com/category/electronics for the query 'best wireless headphones' and show me what schema types competitors are using"
+"Audit https://mysite.com and tell me whether GPTBot, Claude-Web, and Googlebot are allowed."
 ```
 
-**Market-Specific Audit**:
+**Discovery surfaces**:
 ```
-"Audit https://mysite.fr for the French market (fr-FR) and compare with top 10 competitors"
+"Audit https://mysite.com and report on llms.txt, SKILL.md, and the .well-known MCP / WebMCP / Agent Skills discovery surfaces."
+```
+
+**Structured data review**:
+```
+"Audit https://mystore.com/product/abc and list the detected schemas plus the missing recommendations."
 ```
 
 ### What You Get
 
 Every audit delivers a comprehensive report including:
 
-1. **Executive Summary** with overall SEO health score (0-100)
-2. **Quick Stats Dashboard** showing key metrics at a glance
-3. **Six-Dimensional Score Breakdown**:
-   - 🏷️ Schema Markup
-   - 📝 Meta Tags
-   - ✍️ Content Quality
-   - ⚙️ Technical SEO
-   - 📱 Mobile Readiness
-   - ⚡ Performance
-4. **Prioritized Issues** with severity indicators and action steps
-5. **Structured Data Inventory** showing all schema types (found/missing)
-6. **Competitive Analysis** comparing your coverage with SERP leaders
-7. **Growth Opportunities** ranked by impact vs. effort with ROI estimates
+1. **Executive Summary** with overall SEO and AI-readiness score (0-100)
+2. **Quick Stats Dashboard** — schema types, critical issues, quick wins, allowed AI bots
+3. **Score Breakdown** across the seven audited criteria:
+   - 📁 Site files (`robots.txt`, `llms.txt`, `SKILL.md`, `.well-known/`)
+   - 🔎 SEO fundamentals (title, description, H1)
+   - 🏷️ Structured data (Schema.org, JSON-LD, Microdata)
+   - ✍️ Content structure & token budget
+   - 🖼️ Image accessibility
+   - 🤖 Automation readiness (WCAG / agent compatibility)
+   - ⚡ JavaScript rendering
+4. **Quick Wins** ranked by impact (from the API `quickWins.wins[]` field)
+5. **Site Files & Discovery Surfaces** — including the AI bot allow/block matrix and MCP / WebMCP / Agent Skills detection
+6. **Structured Data Inventory** — detected schemas and missing recommendations
+7. **Automation Readiness Issues** — prioritized WCAG / agent compatibility findings
 
 ### Why Use the Claude Skill vs. Direct MCP?
 
