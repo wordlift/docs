@@ -260,6 +260,7 @@ const sidebars = {
                 "worai/commands/find-missing-names",
                 "worai/commands/find-url-by-type",
                 "worai/commands/graph",
+                "worai/commands/graph-kpis",
                 "worai/commands/link-groups",
                 "worai/commands/patch",
                 "worai/commands/self",
