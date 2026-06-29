@@ -108,7 +108,15 @@ Recommended implementation details:
 
 The `bootstrap.js` script does not use cookies or similar client-side tracking technologies and does not store any information in the user's browser.
 
-### 4. Do we share personal data with WordLift?
+### 4. Should bootstrap.js be placed behind cookie consent?
+
+No. The WordLift Cloud script must load on page view so WordLift can inject `schema.org` JSON-LD and Google can parse the structured data.
+
+It is also not necessary to gate it behind cookie consent because `bootstrap.js` does not use cookies or similar client-side tracking technologies and does not store information in the visitor's browser.
+
+For sites that prefer not to rely on client-side injection, WordLift also supports [server-side JSON-LD injection through the Data API](../knowledge-graph/data-api.md#server-side-rendering).
+
+### 5. Do we share personal data with WordLift?
 
 No personally identifiable information is collected through the script. The system records only an anonymized IP address for operational logging purposes. This IP address cannot be linked to an individual and is automatically removed when the log retention period ends.
 
