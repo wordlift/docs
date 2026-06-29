@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.15 (June 2026) — Aligned the `worai` CLI installation guide with the public installer scripts, including macOS/Linux and Windows one-liners, verification steps, and `pipx` fallback guidance.
+Latest Release: 3.20.16 (June 2026) — Clarified that the WordLift Cloud `bootstrap.js` script must not be placed behind cookie consent because it publishes `schema.org` JSON-LD and does not use cookies or similar client-side tracking technologies.
 :::
 
 # 👋 Welcome to WordLift

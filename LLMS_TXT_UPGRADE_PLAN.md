@@ -35,9 +35,9 @@ Regenerate or rebuild the artifacts after changes that should be visible to AI t
 
 ## Current Release Context
 
-Latest docs release: `3.20.15` (June 2026).
+Latest docs release: `3.20.16` (June 2026).
 
-Release note: The `worai` CLI installation guide now follows the public installer scripts for macOS/Linux and Windows, with verification steps and `pipx` fallback guidance.
+Release note: The WordLift Cloud `bootstrap.js` FAQ clarifies that the script must not be placed behind cookie consent because it publishes `schema.org` JSON-LD and does not use cookies or similar client-side tracking technologies.
 
 ## Notes
 
