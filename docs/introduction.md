@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.16 (June 2026) — Clarified that the WordLift Cloud `bootstrap.js` script must not be placed behind cookie consent because it publishes `schema.org` JSON-LD and does not use cookies or similar client-side tracking technologies.
+Latest Release: 3.20.17 (June 2026) — Added `worai graph kpis` documentation for graph KPI calculation, API payload generation, and scheduled KPI upload workflows.
 :::
 
 # 👋 Welcome to WordLift
