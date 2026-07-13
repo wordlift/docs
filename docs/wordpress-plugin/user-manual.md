@@ -38,5 +38,5 @@ sidebar_position: 20
     - [How can the location affect the analysis?](/seo-add-on-google-sheets/introduction#how-can-the-location-affect-the-analysis)
 - [WordLift Looker Studio Connector](/looker-studio-connector/introduction)
     - [Get Started](/looker-studio-connector/introduction#get-started)
-- [Product Knowledge Graph Builder](/pages/pkg-builder)
-    - [Get Started](/pages/pkg-builder#get-started)
+- [Product Knowledge Graph Builder](/product-knowledge-graph-builder/introduction/)
+    - [Get Started](/product-knowledge-graph-builder/introduction/#get-started)

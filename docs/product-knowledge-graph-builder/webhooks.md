@@ -1,140 +1,83 @@
 ---
 title: Webhooks
-displayed_sidebar: product-knowledge-graph-builder
+displayed_sidebar: docs
 sidebar_position: 50
 ---
 
 # Webhooks
 
-> **What is a webhook?** A webhook is a method used to send real-time data updates from one application to another as soon as an event occurs. It allows for seamless integration and communication between systems by automatically triggering a callback when specific events take place.
+Product Knowledge Graph Builder webhooks let an integrator transform generated RDF during product synchronization, before the data is written to the Graph store. The callback is a synchronous batch transformation within the synchronization process, not a real-time event notification.
 
+## Processing flow
 
-## Introduction
+1. Product KG Builder retrieves product data from Google Merchant Center.
+2. It generates an RDF graph for each product.
+3. It sends the graphs to the configured webhook endpoint in batches of up to 100 items.
+4. The endpoint returns the transformed RDF for the products that should continue through synchronization.
+5. Product KG Builder uses each returned `id` to look up the original product association and writes the returned graph to the Graph store.
 
-This guide explains the new webhooks feature in the Product Knowledge Graph Builder. With webhooks, your platform can modify RDF data from the Merchant Center before it’s committed to the Graph store. This enables greater customization of product graphs, enhancing SEO and ensuring that your product information is as accurate and enriched as possible.
+![Product Knowledge Graph Builder webhook flow](images/webhook_flowchart.svg)
 
----
+## HTTP contract
 
-## How It Works
+Configure a publicly reachable HTTPS endpoint to protect product data in transit. Product KG Builder sends a `POST` request to the configured HTTP or HTTPS URL with the following headers:
 
-The integration process works in the following sequence:
+```http
+Accept: application/json
+Content-Type: application/json
+```
 
-1. **Retrieve Product from Google Merchant Center:**
-   The Platform KG Builder queries the Merchant Center to retrieve product data.
+The request object contains:
 
-2. **Product Graph Creation:**
-   A product graph is generated for each product based on the imported Merchant Feed data.
+- `webhook_name`: the event identifier. Product KG Builder uses `productkg_preupdate`.
+- `items`: an array containing up to 100 product graph objects.
+  - `id`: the product graph identifier, typically a URL.
+  - `rdf`: the RDF payload.
+    - `format`: the RDF serialization. Requests use `turtle`.
+    - `data`: the serialized RDF string.
 
-3. **Webhook Invocation:**
-   The Platform KG Builder sends product graphs in batches to your webhook endpoint via an HTTP POST request. The webhook is expected to process (e.g., enhance, validate, or modify) the RDF data.
+### Example request
 
-4. **Response Processing:**
-   Your webhook replies with the updated RDF graph. The Platform KG Builder then writes this updated data to the Graph store.
+```bash
+curl --request POST 'https://example.org/webhook/calls' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "webhook_name": "productkg_preupdate",
+    "items": [
+      {
+        "id": "https://data.example.org/products/7895653316409",
+        "rdf": {
+          "format": "turtle",
+          "data": "<https://data.example.org/products/7895653316409> a <https://schema.org/Product> ."
+        }
+      }
+    ]
+  }'
+```
 
----
+## Response requirements
 
-## Integration Diagram
+Return a successful `2xx` response with an `application/json` body containing an `items` array. Return each request item with its original `id` so Product KG Builder can preserve its association with the source product.
 
-Below is a flow diagram that visualizes the webhook integration process:
+Return every request item, even when its RDF is unchanged. Do not use omitted items as a product-filtering mechanism; empty-response fallback behavior can restore the original input.
 
-![Product Knowledge Graph Builder Webhook Flow](images/webhook_flowchart.svg)
-
-
-*Figure: Flow Diagram of the Webhook Integration Process*
-
----
-
-## Technical Details
-
-### Endpoint Details
-
-- **HTTP Method:** POST
-- **Endpoint Example:**
-  `https://example.org/webhook/calls`
-
-### Request Headers
-
-- `Content-Type: application/json; charset=utf-8`
-
-### Request Payload Structure
-
-The payload is a JSON object that includes:
-- **webhook_name:** Identifier for the event (e.g., `"productkg_preupdate"`).
-- **items:** An array of product objects where each product has:
-  - **id:** Unique identifier (typically a URL).
-  - **rdf:** An object containing:
-    - **format:** RDF format (e.g., `"turtle"`).
-    - **data:** The actual RDF data in a string format.
-
-### Example Request (Step-by-Step)
-
-1. **Prepare the CURL Command:**
-
-   ```bash
-   curl -X "POST" "http://localhost:8080/webhook/calls" \
-        -H 'Content-Type: application/json; charset=utf-8' \
-        -d '{
-     "webhook_name": "before_productkg_create",
-     "items": [
-       {
-         "id": "https://data.example.org/test-841554094878123/01/7895653316409",
-         "rdf": {
-           "format": "turtle",
-           "data": "<https://data.example.org/test-841554094878123/01/7895653316409/size-0>..."
-         }
-       }
-     ]
-   }'
-   ```
-
-2. **Send the Request:**
-   Run the above CURL command in your terminal. This POST request sends the product graphs to your webhook endpoint for processing.
-
-### Example Response
-
-Your webhook should respond with an HTTP 200 status and a JSON payload that contains the updated RDF data. For example:
+Response RDF can use `turtle`, `jsonld`, or `n-triples`. The `data` value must be valid for the declared format.
 
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 8998
-connection: close
 
 {
   "items": [
     {
-      "id": "https://data.example.org/test-841554094878123/01/7895653316409",
+      "id": "https://data.example.org/products/7895653316409",
       "rdf": {
         "format": "turtle",
-        "data": "<https://data.example.org/test-841554094878123/01/7895653316409/size-0>..."
+        "data": "<https://data.example.org/products/7895653316409> a <https://schema.org/Product> ."
       }
     }
   ]
 }
 ```
 
-*Note:* The response must include the updated RDF data exactly as processed by your webhook.
-
----
-
-## Step-by-Step Example Walkthrough
-
-1. **Graph Creation:**
-   The Platform KG Builder retrieves product data and creates RDF graphs for each product.
-
-2. **Webhook Call:**
-   Each graph is sent via an HTTP POST request to your webhook endpoint. Use the CURL command provided above to simulate a call.
-
-3. **Webhook Processing:**
-   Your webhook receives the JSON payload, processes the RDF data (for example, altering specific fields or adding new metadata), and returns the updated graph.
-
-4. **Data Synchronization:**
-   Upon receiving the HTTP 200 response with the updated RDF graphs, the Platform KG Builder writes the data to the Graph store.
-
----
-
-## Conclusion
-
-By following this guide, integrators can easily set up and test the webhook functionality. This feature not only enables real-time manipulation of product graphs but also ensures that your e-commerce platform communicates effectively with Google’s Shopping Graph, boosting both search visibility and customer engagement.
-
-For further questions or support, please refer to our support documentation or contact the development team.
+A non-`2xx` response, malformed JSON, invalid RDF, or an unsupported response shape prevents Product KG Builder from accepting that callback result and can interrupt the synchronization. Authentication, retry, and timeout behavior are not defined by this payload contract; confirm operational requirements with WordLift before deployment.

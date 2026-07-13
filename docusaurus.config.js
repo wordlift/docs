@@ -387,6 +387,10 @@ const config = {
                         from: "/zapier/",
                     },
                     {
+                        to: "/product-knowledge-graph-builder/introduction/",
+                        from: "/pages/pkg-builder/",
+                    },
+                    {
                         to: "/",
                         from: "/:any*", // this will match any path
                     },

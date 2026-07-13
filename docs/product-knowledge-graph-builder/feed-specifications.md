@@ -1,24 +1,30 @@
 ---
 title: Feed Specifications
-displayed_sidebar: product-knowledge-graph-builder
+displayed_sidebar: docs
 sidebar_position: 100
 ---
 
-**Mapping Between Google Merchant Product Properties and Schema.org Properties**
+# Feed Specifications
 
-Customers and integrators can further enhance the Product graphs by using [webhooks](webhooks.md).
+## Google Merchant-to-Schema.org mapping
 
-| Google Merchant Product Property | Required | Schema.org Property | Description |
+The following table describes how Product KG Builder maps Google Merchant product data to Schema.org. The **Status** column reflects Product KG Builder's current mapping expectations. Because Google Merchant requirements can change, also consult Google's [product data specification](https://support.google.com/merchants/answer/7052112?hl=en).
+
+You can transform the generated product graphs before they are written to the Graph store by using [webhooks](webhooks.md).
+
+| Google Merchant Product Property | Status | Schema.org Property | Description |
 |----------------------------------|----------|---------------------|-------------|
 | offerId                          | required | sku                 | The product SKU |
 | title                            | required | name                | The product name |
 | description                      | required | description         | The product description; HTML is allowed |
 | link                             | required | url                 | The product URL |
-| imageLink                        | required | image               | The main product image; must have a ratio of 1:1, 4:3, or 16:9 and be at least 1,600 pixels wide |
-| additionalImageLinks             | recommended | image              | Other product images; provide at least three ratios: 1:1, 4:3, and 16:9 |
+| imageLink                        | required | image               | The main product image URL |
+| additionalImageLinks             | recommended | image              | Additional product image URLs |
 | availability                     | required | availability        | Allowed values: InStock, LimitedAvailability, OnlineOnly, Discontinued, InStoreOnly, OutOfStock, SoldOut, PreOrder, PreSale, BackOrder |
 | price_value                      | required | price               | The price without currency and thousands separator; use a period (.) to separate decimals |
 | price_currency                   | required | priceCurrency       | The currency in 3-letter uppercase format |
+| salePrice                        | optional | price, priceSpecification | The promotional price and currency; it becomes the offer price while the sale is active |
+| salePriceEffectiveDate           | optional | validFrom, priceValidUntil | The ISO 8601 `start/end` interval in which the sale price is active |
 | brand                            | recommended | brand              | The brand name |
 | canonicalLink                    | recommended | url                | The product's canonical page URL |
 | gtin                             | recommended | gtin (or gtin8, gtin12, gtin13, gtin14) | The Global Trade Item Number |
@@ -34,23 +40,66 @@ Customers and integrators can further enhance the Product graphs by using [webho
 | targetCountry                    | optional  | -                   | The target country 2-letter uppercase code |
 | feedLabel                        | optional  | -                   | The feed name |
 | channel                          | optional  | -                   | The target channel |
-| googleProductCategory            | optional  | -                   | Google-defined product category |
+| googleProductCategory            | optional  | category            | Google-defined product category represented as a Schema.org `CategoryCode` |
 | itemGroupId                      | optional  | inProductGroupWithID | A parent SKU to group variant products |
 | age_group                        | recommended | audience.suggestedMinAge, audience.suggestedMaxAge | The intended demographic age range |
 | gender                           | recommended | audience.suggestedGender | The intended gender |
 | color                            | recommended | color              | The product's color(s) |
 | material                         | recommended | material           | The product's fabric or material |
-| product_type                     | recommended | -                   | The product category defined by you |
+| product_type                     | recommended | category            | The product category defined by you, represented as text |
 
-**Recent Updates:**
-- **Newly Added Properties:**
-  - `additionalImageLinks` → `image` Additional images for the product, supports multiple image URLs
-  - `canonicalLink` → `url` The canonical URL of the product, ensuring search engines reference the correct page
-  - `itemGroupId` → `inProductGroupWithID` Used to group product variants under a common identifier
-  - `age_group` → `audience.suggestedMinAge, audience.suggestedMaxAge` Defines the intended audience age range: `newborn` 0.0-0.25 years, `infant` 0.25-1.0 years, `toddler` 1.0-5.0 years, `kids` 5.0-13.0 years, `adult` 13.0+ years
-  - `gender` → `audience.suggestedGender` Specifies the gender targeting: `Female`, `Male`, `Unisex`
-  - `shipping0_price_value` → `shippingRate.value` Specifies the shipping cost, using a decimal format
-  - `shipping0_price_currency` → `shippingRate.currency` The currency of the shipping cost in 3-letter uppercase format
-  - `shipping0_country` → `shippingDestination.addressCountry` Indicates the shipping destination using a 2-letter country code
-  - `color` → `color` Defines the color of the product as described by the merchant
-  - `material` → `material` Indicates the fabric or material composition of the product
+## Google product category
+
+When `googleProductCategory` is present and not blank, Product KG Builder adds a structured `CategoryCode` alongside the textual categories generated from `product_type`. The category value can be either a Google taxonomy ID or a `>`-separated taxonomy path.
+
+```json
+{
+  "@type": "Product",
+  "category": {
+    "@type": "CategoryCode",
+    "codeValue": "2271",
+    "inCodeSet": "https://www.google.com/basepages/producttype/taxonomy-with-ids.en-US.txt"
+  }
+}
+```
+
+## Sale price validity
+
+Product KG Builder applies `salePrice` according to `salePriceEffectiveDate`:
+
+- During an active sale, including at either endpoint of the interval, the offer uses the sale price and includes `validFrom` and `priceValidUntil`. The regular price is also exposed as a `UnitPriceSpecification` with `priceType` set to `http://schema.org/StrikethroughPrice`.
+- Before a sale starts or after it ends, the offer uses the regular price, omits sale-specific price specifications and `validFrom`, and keeps the existing end-of-year `priceValidUntil` value.
+- If the interval is missing, blank, malformed, or has an end before its start, the sale price remains active for backward compatibility, without `validFrom` or a strikethrough price. `priceValidUntil` keeps the existing end-of-year value.
+
+The interval accepts ISO 8601 date-times with an offset, date-times without an offset (interpreted as UTC), and plain dates. Plain start and end dates cover their complete respective days.
+
+The following fragment represents a sale while the specified interval is active:
+
+```json
+{
+  "@type": "Offer",
+  "price": "79.00",
+  "priceCurrency": "EUR",
+  "validFrom": "2026-07-10T00:00+02:00",
+  "priceValidUntil": "2026-07-20T23:59:59+02:00",
+  "priceSpecification": [
+    {
+      "@type": "UnitPriceSpecification",
+      "price": "99.00",
+      "priceCurrency": "EUR",
+      "priceType": "http://schema.org/ListPrice"
+    },
+    {
+      "@type": "UnitPriceSpecification",
+      "price": "79.00",
+      "priceCurrency": "EUR"
+    },
+    {
+      "@type": "UnitPriceSpecification",
+      "price": "99.00",
+      "priceCurrency": "EUR",
+      "priceType": "http://schema.org/StrikethroughPrice"
+    }
+  ]
+}
+```

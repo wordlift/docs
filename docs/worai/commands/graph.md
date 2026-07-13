@@ -15,9 +15,8 @@ Mapping docs:
 - `worai graph validate <file-or-url> [<file-or-url> ...] [--builtin-shape <name>] [--exclude-builtin-shape <name>] [--shape <file-or-url>] [--level warning|error] [--format text|json]`
 - `worai graph property delete <predicate> [--dry-run] [--yes] [--workers <n>] [--retries <n>] [--rate-delay <s>] [--limit <n>]`
 - `worai graph audit <file> [--depth <n>] [--list-isolated-iris] [--show-url-violations] [--rich-snippets-granularity counts|entities] [--workers <n>] [--builtin-shape <name>] [--exclude-builtin-shape <name>] [--shape <file>] [--issue-level warning|error] [--format text|json]`
-- `worai graph kpis calculate <file> [--website-host <host>] [--graph-host <host>] [--builtin-shape <name>] [--exclude-builtin-shape <name>] [--shape <file>] [--no-builtin-shapes] [--depth <n>] [--issue-level warning|error] [--shacl-workers <n>] [--output <file>]`
-- `worai graph kpis payload <file> [--snapshot-date YYYY-MM-DD] [--website-host <host>] [--output <file>]`
-- `worai graph kpis push <file> [--snapshot-date YYYY-MM-DD] [--website-host <host>] [--api-url <url>] [--timeout <seconds>] [--output <file>] [--details-output <file>]`
+- `worai graph kpis calculate <file> [--website-host <host>] [--graph-host <host>] [--builtin-shape <name>] [--exclude-builtin-shape <name>] [--shape <file>] [--no-builtin-shapes] [--depth <n>] [--issue-level warning|error] [--shacl-workers <n>] [--memory-mode auto|full|streaming] [--max-full-graph-bytes <bytes>] [--rdf-error-policy fail|repair-iris] [--output <file>]`
+- `worai graph kpis payload <file> [--snapshot-date YYYY-MM-DD] [--website-host <host>] [--memory-mode auto|full|streaming] [--max-full-graph-bytes <bytes>] [--rdf-error-policy fail|repair-iris] [--output <file>]`
 - `worai graph reset [--keep-country] [--keep-language] [--keep-url] [--yes]`
 
 ## Notes
@@ -142,16 +141,16 @@ sheets_service_account = "./service-account.json"
   - `--issue-level warning|error` filters the issue severity shown (default: warning).
   - `--format text|json` selects report output format (default: text).
   - exits with code 1 if load errors are encountered.
-- `graph kpis` calculates compact graph KPI snapshots from a local RDF export (requires wordlift-sdk>=8.3.3).
+- `graph kpis` calculates compact graph KPI snapshots from a local RDF export (requires wordlift-sdk>=8.3.6).
   - `calculate` writes the detailed KPI JSON for inspection or artifacts.
   - `payload` writes the numeric-only WordLift API payload for a dated snapshot.
-  - `push` calculates the snapshot, resolves the selected account through the WordLift API, and uploads with `PUT /accounts/{id}/graph-kpis/{snapshot_date}`.
   - `--website-host` scopes URL coverage and duplicate URL KPIs to the customer website host.
   - `--graph-host` marks graph dataset hosts as internal when computing broken internal edges; repeat for multiple hosts.
+  - `--memory-mode auto` uses full calculation for smaller files and streaming partial KPIs for large N-Triples, Turtle, and RDF/XML exports over `--max-full-graph-bytes`.
+  - `--rdf-error-policy fail|repair-iris` defaults to strict parsing; `repair-iris` repairs invalid percent escapes inside Turtle IRI tokens before temporary N-Triples conversion.
   - URL-rooted SHACL compliance validates first-level entities with `schema:url` at `--depth 1` by default.
   - `--no-builtin-shapes` runs only shapes passed with `--shape`, useful for fast scheduled KPI gates.
   - `--shacl-workers` parallelizes URL-level SHACL validation for larger graphs.
-  - `--details-output` on `push` writes the detailed KPI snapshot without recalculating.
 - `graph reset` resets the WordLift account associated with the current profile (requires wordlift-sdk>=6.12.0).
   - **Destructive and irreversible** — prompts for confirmation unless `--yes` is passed.
   - `--keep-country` preserves the account country on reset.
@@ -181,7 +180,5 @@ sheets_service_account = "./service-account.json"
 - `worai graph audit ./acme-export.ttl --builtin-shape google-required --shape ./custom.ttl`
 - `worai --profile acme graph kpis calculate ./acme-export.ttl --website-host www.example.com --output graph-kpis.json`
 - `worai --profile acme graph kpis payload ./acme-export.ttl --snapshot-date 2026-06-29 --website-host www.example.com --output graph-kpi-payload.json`
-- `worai --profile acme graph kpis push ./acme-export.ttl --snapshot-date 2026-06-29 --website-host www.example.com --shacl-workers 4 --output graph-kpi-payload.json --details-output graph-kpis.json`
-- `worai --profile acme graph kpis push ./acme-export.ttl --snapshot-date 2026-06-29 --website-host www.example.com --no-builtin-shapes --shape profiles/_base/shapes/graph-kpis-url-roots.shacl.ttl --output graph-kpi-payload.json --details-output graph-kpis.json`
 - `worai --profile acme graph reset --yes`
 - `worai --profile acme graph reset --keep-country --keep-language`

@@ -21,7 +21,7 @@ The main documentation for getting started with WordLift is organized in the fol
   * [WooCommerce SEO by WordLift](/woocommerce/introduction)
   * [SEO Add-On for Google Sheets](/seo-add-on-google-sheets/introduction)
   * [WordLift Looker Studio Connector](/looker-studio-connector/introduction)
-  * [Product Knowledge Graph Builder](/pages/pkg-builder)
+  * [Product Knowledge Graph Builder](/product-knowledge-graph-builder/introduction/)
 * [Advanced Topics](advanced-topics)
   * [Knowledge Graph](advanced-topics#knowledge-graph)
   * [RDF](advanced-topics#rdf)
