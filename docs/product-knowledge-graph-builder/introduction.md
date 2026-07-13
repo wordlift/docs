@@ -16,7 +16,7 @@ Product KG Builder imports product data from Merchant Center, maps it to Schema.
 
 ## Compatibility across platforms
 
-Product KG Builder supports non-WordPress e-commerce websites. The generated structured data is added with a script, so the setup is not tied to a specific content management system.
+Product KG Builder supports e-commerce websites. The generated structured data is added with a script, so the setup is not tied to a specific content management system.
 
 ## Get started
 

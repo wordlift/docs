@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.18 (July 2026) — Updated Product Knowledge Graph documentation and expanded `worai graph kpis` calculation and payload guidance.
+Latest Release: 3.20.19 (July 2026) — Updated Product Knowledge Graph documentation and expanded `worai graph kpis` calculation and payload guidance.
 :::
 
 # 👋 Welcome to WordLift
