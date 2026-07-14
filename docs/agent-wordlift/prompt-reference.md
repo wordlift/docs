@@ -7,6 +7,8 @@ sidebar_position: 5
 
 This comprehensive library contains ready-to-use prompts for Agent WordLift, optimized for both the web interface and Chrome extension. Each prompt is formatted for easy copying and immediate use.
 
+These prompts also ship inside the downloadable [Agent WordLift Skill](./integrations.md#agent-wordlift-claude-skill), ready to use from any MCP-capable AI assistant.
+
 For an explanation of how Agent WordLift capabilities are organized into tool families, data sources, workflows, and integration surfaces, see [Agent WordLift Tools](./tools.md).
 
 ## 🔍 Analysis & Research

@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.20 (July 2026) — Added GraphSync-first Knowledge Graph onboarding and clarified page import limits.
+Latest Release: 3.20.20 (July 2026) — Unified Agent WordLift Skill v1.1.0 (MCP tool routing, verified GraphQL reference, workflow recipes, and the SEO Audit workflow in one downloadable Agent Skill), plus GraphSync-first Knowledge Graph onboarding and clarified page import limits.
 :::
 
 # 👋 Welcome to WordLift
@@ -57,6 +57,8 @@ Remember the LEGO® analogy? Here's what happens behind the scenes:
 
 3. **Optimize & Create** ✨
    - [Agent WordLift](/agent-wordlift) for AI SEO optimization
+   - [MCP Integration](/agent-wordlift/integrations/#agent-wordlift-model-context-protocol-mcp-integration) to connect WordLift to Claude, ChatGPT, Copilot, or Gemini
+   - [Agent WordLift Skill](/agent-wordlift/integrations/#agent-wordlift-claude-skill) for tool routing, SEO audits, workflow recipes, and a verified GraphQL reference in any MCP-capable assistant
    - [Content Generation](/content-generation) for creating new content at scale
    - [AI & LLM Integrations](/llm-connectors/wordlift-reader) for building AI applications using LlamaIndex 🦙
 
@@ -73,6 +75,7 @@ You love APIs, code, and building things? We've got:
 
 - [API Reference](/category/api) for custom development
 - [GraphQL API](/api/graphql/graphql-support/) for flexible queries
+- [MCP Integration](/agent-wordlift/integrations/#agent-wordlift-model-context-protocol-mcp-integration) and the [Agent WordLift Skill](/agent-wordlift/integrations/#agent-wordlift-claude-skill) for AI assistants
 - Custom integrations and enterprise solutions
 
 ### 📝 Content Teams
