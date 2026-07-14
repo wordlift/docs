@@ -48,4 +48,6 @@ Here is how WordLift AI SEO Agent can help you boost your productivity in differ
 
 :::note New Series: AI Sub-Agent Workflows
 This new category features workflows where Agent WordLift operates as a specialized SEO sub-agent within other AI platforms like Claude, ChatGPT, Copilot, or Gemini via our [Model Context Protocol (MCP) integration](./integrations.md#agent-wordlift-model-context-protocol-mcp-integration). These workflows combine the conversational capabilities of leading AI models with WordLift's deep SEO expertise and direct access to your knowledge graph.
+
+Install the [Agent WordLift Skill](./integrations.md#agent-wordlift-claude-skill) to give your host agent these workflows, the prompt library, SEO audits, and a verified GraphQL reference out of the box.
 :::

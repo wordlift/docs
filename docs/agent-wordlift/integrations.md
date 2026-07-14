@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info Version Notice
-Latest Release: 3.12.0 (April 2026) - Added Google AI Edge `wordlift-graphql` integration docs and video, plus continued improvements for MCP workflows and Knowledge Graph integrations.
+Latest Release: 3.13.0 (July 2026) - Unified Agent WordLift Skill v1.1.0 — MCP tool routing, verified GraphQL reference, workflow recipes, and the SEO Audit workflow merged into a single downloadable Agent Skill.
 :::
 
 # Integrations
@@ -302,36 +302,26 @@ Watch the walkthrough video:
 
 To get started, follow the setup instructions and examples in the GitHub repository linked above.
 
-## Agent WordLift Claude Skill
+## Agent WordLift Skill {#agent-wordlift-claude-skill}
 
-Take your SEO audits to the next level with the official **WordLift SEO Audit Skill** for Claude! This pre-built Agent Skill delivers comprehensive SEO analysis and competitive intelligence directly within your Claude conversations.
+The **Agent WordLift Skill** is the official Agent Skill for operating WordLift from any MCP-capable AI assistant — Claude, ChatGPT, Copilot, or Gemini. While the [MCP connection](#agent-wordlift-model-context-protocol-mcp-integration) gives an assistant access to WordLift's tools, the skill teaches it *how to use them well*.
 
 <iframe width="100%" height="500" src="https://www.youtube.com/embed/DRIVYxFB60I?si=LgmmSzs8S9Td8q-1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### What is a Claude Skill?
 
-Claude Skills are specialized packages that extend Claude's capabilities with domain-specific expertise. The WordLift SEO Audit Skill combines Claude's reasoning with WordLift's powerful SEO intelligence, creating an AI-powered SEO analyst that can audit any URL, analyze competitors, and provide actionable recommendations—all through natural conversation.
+Agent Skills (called "Skills" in Claude) are specialized packages that extend an AI assistant's capabilities with domain-specific expertise. The unified Agent WordLift Skill combines the assistant's reasoning with WordLift's SEO intelligence and Knowledge Graph, turning it into an AI-powered SEO analyst that can route work across the right tools, audit any URL, query your graph with GraphQL, and run multi-tool workflows—all through natural conversation.
 
-### Key Features:
+### What's Inside
 
-- **Comprehensive SEO Audits**: Analyze any URL for schema markup, meta tags, content quality, technical SEO, mobile readiness, and performance
-- **Competitive Intelligence**: Automatically identify and analyze your top SERP competitors to uncover schema gaps and opportunities
-- **Structured Data Analysis**: Complete inventory of schema types with coverage comparison against competitors
-- **Actionable Recommendations**: Prioritized issues with specific implementation steps and ROI estimates
-- **WordLift Branded Reports**: Professional, color-coded reports with visual progress indicators and severity badges
-- **Progressive Disclosure**: Efficient token usage through smart resource loading
-
-### Perfect For:
-
-- **SEO Professionals** conducting client audits and competitive analysis
-- **Content Teams** optimizing pages for search visibility
-- **Agencies** delivering comprehensive SEO reports at scale
-- **Developers** integrating SEO insights into workflows
-- **E-commerce Teams** improving product page performance
+- **Tool routing** — when to delegate to Agent WordLift (SERP, AI Overview/AI Mode, Google Search Console, GA4, Trends, entity gap, local SEO) versus querying the Knowledge Graph directly with GraphQL (inventories, audits, counts, exports) versus semantic retrieval with neural search.
+- **SEO Audits with competitive intelligence** — the complete audit workflow formerly shipped as the standalone WordLift SEO Audit Skill: audit any URL, compare schema coverage with SERP competitors, and get a professional, WordLift-branded report with prioritized issues and ROI-ranked opportunities. See [SEO Audit reports](#seo-audit-reports) below.
+- **A live-verified GraphQL reference** — every documented pattern was executed against a production Knowledge Graph: introspection-first workflow, constraints, vector search, aggregations, nested traversal, URL→entity lookup, plus a gotchas section covering silent failure modes.
+- **The Prompt Library and 11 workflow recipes** — keyword research, cannibalization, rankings drop audit, AI visibility analysis, internal linking, FAQ generation, authorship markup, local SEO, and more, each as a concrete tool chain: *locate → extract → enrich → synthesize*.
 
 ### How It Works
 
-The WordLift SEO Audit Skill leverages the **WordLift MCP Server** (described above) to access Agent WordLift's capabilities. This architecture ensures:
+The Agent WordLift Skill leverages the **WordLift MCP Server** (described above) to access Agent WordLift's capabilities. This architecture ensures:
 
 1. **Claude (with Skill)** → Provides methodology and formatting instructions
 2. **WordLift MCP Server** → Makes API calls and processes data
@@ -355,57 +345,27 @@ The WordLift SEO Audit Skill leverages the **WordLift MCP Server** (described ab
 └─────────────────────────────────────┘
 ```
 
-### Installation & Setup
+### Installation
 
-**Step 1: Configure WordLift MCP Server** (if not already done)
+1. Configure the WordLift MCP Server (see [setup instructions](#setup-instructions) above).
+2. Download: **[📦 Download Agent WordLift Skill v1.1.0](/downloads/claude-skills/agent-wordlift-skill-v1.1.0.zip)**
+3. In Claude: **Settings → Capabilities → Upload Skill**, select the zip, and enable it. For other assistants, unzip and add `SKILL.md` (plus the relevant reference file) to the assistant's instructions or project context — the content is host-agnostic.
 
-Follow the MCP integration setup instructions above to connect WordLift to Claude.
+:::info Upgrading from the WordLift SEO Audit Skill?
+The standalone SEO Audit Skill (v1.0.0) has been merged into the Agent WordLift Skill as of v1.1.0 — all audit capabilities, report formats, and branding are included. Uninstall the old skill after installing this one to avoid double-triggering.
+:::
 
-**Step 2: Download the WordLift SEO Audit Skill**
+### Example Prompts
 
-**Direct Download**
-
-[📦 Download WordLift SEO Audit Skill v1.1.0](/downloads/claude-skills/wl-seo-audit-v1.1.0.zip)
-
-This release is aligned with the live [Audit API](/api/audit/audit-website/). It is **single-URL only**; competitor / SERP analysis will return in a dedicated follow-up Skill.
-
-**Step 3: Upload to Claude**
-
-1. In Claude, navigate to **Settings** → **Capabilities**
-2. Click **Upload Skill**
-3. Select the `wl-seo-audit-v1.1.0.zip` file (or the unzipped `wl-seo-audit/` folder)
-4. Enable the skill for your conversations
-
-**Step 4: Start Using**
-
-Simply ask Claude to audit any URL:
 ```
-"Audit https://example.com/products/backpack — give me the overall score and the top quick wins."
+"Audit https://example.com/products/backpack and compare with top 5 competitors"
+"What's in my knowledge graph? Give me an inventory by type."
+"List all FAQ pages with their questions and answers."
+"Run an AI visibility check for 'best CRM software' and map the gaps to my KG content."
+"Which of my articles are missing an author? Suggest authorship markup using existing Person entities."
 ```
 
-### Example Commands
-
-**Basic SEO Audit**:
-```
-"Run a WordLift SEO audit on https://mysite.com"
-```
-
-**AI-readiness check**:
-```
-"Audit https://mysite.com and tell me whether GPTBot, Claude-Web, and Googlebot are allowed."
-```
-
-**Discovery surfaces**:
-```
-"Audit https://mysite.com and report on llms.txt, SKILL.md, and the .well-known MCP / WebMCP / Agent Skills discovery surfaces."
-```
-
-**Structured data review**:
-```
-"Audit https://mystore.com/product/abc and list the detected schemas plus the missing recommendations."
-```
-
-### What You Get
+### SEO Audit reports
 
 Every audit delivers a comprehensive report including:
 
