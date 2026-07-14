@@ -20,6 +20,194 @@ For ready-to-use prompts, see the [Prompt Library](./prompt-reference.md).
 
 For end-to-end recipes that combine multiple tools, see [Workflows](./workflows.md).
 
+## Agent WordLift Model Context Protocol (MCP) Integration
+
+Your preferred AI models and agents can use our official MCP server to access your Knowledge Graph and leverage Agent WordLift in a simple and secure way.
+
+Connect WordLift to various AI assistants through our **experimental Model Context Protocol (MCP) integration**. This integration enables AI models like Claude to directly interact with your content and knowledge graph, unlocking powerful new workflows.
+
+Our MCP server is reachable at `https://mcp.wordlift.io/sse` and currently supports:
+- Direct calls to Agent WordLift's capabilities
+- Execution of GraphQL queries on your knowledge graph
+- Seamless integration with supported AI assistants
+
+Watch how Claude, integrated with WordLift via Model Context Protocol, analyzes the WordLift Blog to uncover actionable insights around the "Agentic SEO" content cluster:
+
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/6dz_-LbP3eQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+### Setup Instructions
+
+**For Claude:**
+1. Navigate to Settings in Claude
+2. Scroll to Integrations at the bottom and click Add more
+3. In the prompt, enter:
+   - Integration name: WordLift
+   - Integration URL: https://mcp.wordlift.io/sse
+4. Make sure to enable the tools in any new chats
+
+**For Cursor:**
+1. Press CTRL/CMD+Shift+J to open Cursor Settings
+2. Select MCP
+3. Select Add new global MCP server
+4. Add the following configuration:
+```json
+{
+  "mcpServers": {
+    "wordlift": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.wordlift.io/sse"]
+    }
+  }
+}
+```
+
+:::tip Advanced: Header-based Authorization
+For programmatic use or advanced configurations, you can provide the API key directly in the configuration using the `--header` flag:
+```json
+{
+  "mcpServers": {
+    "wordlift": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.wordlift.io/sse",
+        "--header",
+        "Authorization: Key YOUR_WORDLIFT_API_KEY_HERE"
+      ]
+    }
+  }
+}
+```
+:::
+
+**For Visual Studio:**
+1. Press CTRL/CMD+P and search for "MCP: Add Server"
+2. Select "Command (stdio)"
+3. Enter the following configuration and hit enter:
+   ```
+   npx mcp-remote https://mcp.wordlift.io/sse
+   ```
+4. Enter the name "WordLift" and hit enter
+5. Activate the server using "MCP: List Servers", selecting "WordLift", and selecting "Start Server"
+
+**For Windsurf:**
+1. Press CTRL/CMD+, to open Windsurf settings
+2. Under Cascade -> MCP servers
+3. Select Add Server -> Add custom server
+4. Add the same JSON configuration as shown above for Cursor
+
+This experimental integration opens up new possibilities by combining the reasoning capabilities of large language models with WordLift's structured knowledge and SEO expertise. From identifying content gaps to suggesting improvements, this integration showcases how symbolic AI and LLMs can work together to power the next generation of marketing strategies.
+
+**🚀 New: AI Sub-Agent Workflows**
+The MCP integration enables a new category of workflows where Agent WordLift operates as a specialized SEO sub-agent within other AI platforms. These workflows leverage the conversational capabilities of Claude, ChatGPT, Copilot, or Gemini while providing deep SEO expertise through WordLift. Explore our [Instagram Indexing Analysis workflow](./workflows/instagram-indexing-analysis.md) to see this in action.
+
+:::note
+The MCP integration is **currently experimental** and we're actively expanding its capabilities. If you have questions or feedback, please reach out to our support team.
+:::
+
+:::tip Related Resources
+- [Google announcement: Bring state-of-the-art agentic skills to the edge with Gemma 4](https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/)
+- [Gemma 4 E2B on Hugging Face](https://huggingface.co/google/gemma-4-E2B)
+:::
+
+## Agent WordLift Skill {#agent-wordlift-claude-skill}
+
+The **Agent WordLift Skill** is the official Agent Skill for operating WordLift from any MCP-capable AI assistant — Claude, ChatGPT, Copilot, or Gemini. While the [MCP connection](#agent-wordlift-model-context-protocol-mcp-integration) gives an assistant access to WordLift's tools, the skill teaches it *how to use them well*.
+
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/DRIVYxFB60I?si=LgmmSzs8S9Td8q-1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+### What is a Claude Skill?
+
+Agent Skills (called "Skills" in Claude) are specialized packages that extend an AI assistant's capabilities with domain-specific expertise. The unified Agent WordLift Skill combines the assistant's reasoning with WordLift's SEO intelligence and Knowledge Graph, turning it into an AI-powered SEO analyst that can route work across the right tools, audit any URL, query your graph with GraphQL, and run multi-tool workflows—all through natural conversation.
+
+### What's Inside
+
+- **Tool routing** — when to delegate to Agent WordLift (SERP, AI Overview/AI Mode, Google Search Console, GA4, Trends, entity gap, local SEO) versus querying the Knowledge Graph directly with GraphQL (inventories, audits, counts, exports) versus semantic retrieval with neural search.
+- **SEO Audits with competitive intelligence** — the complete audit workflow formerly shipped as the standalone WordLift SEO Audit Skill: audit any URL, compare schema coverage with SERP competitors, and get a professional, WordLift-branded report with prioritized issues and ROI-ranked opportunities. See [SEO Audit reports](#seo-audit-reports) below.
+- **A live-verified GraphQL reference** — every documented pattern was executed against a production Knowledge Graph: introspection-first workflow, constraints, vector search, aggregations, nested traversal, URL→entity lookup, plus a gotchas section covering silent failure modes.
+- **The Prompt Library and 11 workflow recipes** — keyword research, cannibalization, rankings drop audit, AI visibility analysis, internal linking, FAQ generation, authorship markup, local SEO, and more, each as a concrete tool chain: *locate → extract → enrich → synthesize*.
+
+### How It Works
+
+The Agent WordLift Skill leverages the **WordLift MCP Server** (described above) to access Agent WordLift's capabilities. This architecture ensures:
+
+1. **Claude (with Skill)** → Provides methodology and formatting instructions
+2. **WordLift MCP Server** → Makes API calls and processes data
+3. **Agent WordLift** → Delivers SEO intelligence and competitive analysis
+
+```
+┌─────────────────────────────────────┐
+│   Claude with WordLift Skill        │
+│   ├── Audit methodology             │
+│   ├── Report formatting             │
+│   └── WordLift branding             │
+└─────────────────┬───────────────────┘
+                  │
+                  │ Uses MCP Tools
+                  │
+┌─────────────────▼───────────────────┐
+│   WordLift MCP Server               │
+│   https://mcp.wordlift.io/sse       │
+│   ├── Agent WordLift API            │
+│   └── Knowledge Graph Access        │
+└─────────────────────────────────────┘
+```
+
+### Installation
+
+1. Configure the WordLift MCP Server (see [setup instructions](#setup-instructions) above).
+2. Download: **[📦 Download Agent WordLift Skill v1.1.0](/downloads/claude-skills/agent-wordlift-skill-v1.1.0.zip)**
+3. In Claude: **Settings → Capabilities → Upload Skill**, select the zip, and enable it. For other assistants, unzip and add `SKILL.md` (plus the relevant reference file) to the assistant's instructions or project context — the content is host-agnostic.
+
+:::info Upgrading from the WordLift SEO Audit Skill?
+The standalone SEO Audit Skill (v1.0.0) has been merged into the Agent WordLift Skill as of v1.1.0 — all audit capabilities, report formats, and branding are included. Uninstall the old skill after installing this one to avoid double-triggering.
+:::
+
+### Example Prompts
+
+```
+"Audit https://example.com/products/backpack and compare with top 5 competitors"
+"What's in my knowledge graph? Give me an inventory by type."
+"List all FAQ pages with their questions and answers."
+"Run an AI visibility check for 'best CRM software' and map the gaps to my KG content."
+"Which of my articles are missing an author? Suggest authorship markup using existing Person entities."
+```
+
+### SEO Audit reports
+
+Every audit delivers a comprehensive report including:
+
+1. **Executive Summary** with overall SEO and AI-readiness score (0-100)
+2. **Quick Stats Dashboard** — schema types, critical issues, quick wins, allowed AI bots
+3. **Score Breakdown** across the seven audited criteria:
+   - 📁 Site files (`robots.txt`, `llms.txt`, `SKILL.md`, `.well-known/`)
+   - 🔎 SEO fundamentals (title, description, H1)
+   - 🏷️ Structured data (Schema.org, JSON-LD, Microdata)
+   - ✍️ Content structure & token budget
+   - 🖼️ Image accessibility
+   - 🤖 Automation readiness (WCAG / agent compatibility)
+   - ⚡ JavaScript rendering
+4. **Quick Wins** ranked by impact (from the API `quickWins.wins[]` field)
+5. **Site Files & Discovery Surfaces** — including the AI bot allow/block matrix and MCP / WebMCP / Agent Skills detection
+6. **Structured Data Inventory** — detected schemas and missing recommendations
+7. **Automation Readiness Issues** — prioritized WCAG / agent compatibility findings
+
+### Why Use the Claude Skill vs. Direct MCP?
+
+| Feature | Claude Skill | Direct MCP Integration |
+|---------|-------------|----------------------|
+| **Pre-built Workflow** | ✅ Complete methodology | ❌ You build from scratch |
+| **Report Formatting** | ✅ Professional branded reports | ❌ Manual formatting needed |
+| **Best Practices** | ✅ Built-in SEO expertise | ⚠️ Requires your knowledge |
+| **Progressive Disclosure** | ✅ Optimized token usage | ⚠️ Manual management |
+| **Updates** | ✅ Version-tracked improvements | ❌ Manual updates |
+| **Branding** | ✅ WordLift design system | ❌ Custom styling needed |
+
+:::tip
+The Claude Skill integrates seamlessly with all other WordLift integrations (Chrome Extension, CLI, API, Zapier) for a complete SEO automation ecosystem. For custom workflows, explore the [MCP Integration](#agent-wordlift-model-context-protocol-mcp-integration) section above.
+:::
+
 ## Agent WordLift Extension {#agent-wordlift-chrome-extension}
 
 Use Agent WordLift directly in your browser to validate WordLift Cloud setup and accelerate SEO tasks.
@@ -192,97 +380,6 @@ Ready to supercharge your command-line SEO workflow? [Install WordLift CLI](http
 
 *The WordLift CLI is powered by the same MCP integration that enables Agent WordLift to work across multiple platforms, ensuring consistent access to your knowledge graph and SEO tools regardless of your preferred development environment.*
 
-## Agent WordLift Model Context Protocol (MCP) Integration
-
-Your preferred AI models and agents can use our official MCP server to access your Knowledge Graph and leverage Agent WordLift in a simple and secure way.
-
-Connect WordLift to various AI assistants through our **experimental Model Context Protocol (MCP) integration**. This integration enables AI models like Claude to directly interact with your content and knowledge graph, unlocking powerful new workflows.
-
-Our MCP server is reachable at `https://mcp.wordlift.io/sse` and currently supports:
-- Direct calls to Agent WordLift's capabilities
-- Execution of GraphQL queries on your knowledge graph
-- Seamless integration with supported AI assistants
-
-Watch how Claude, integrated with WordLift via Model Context Protocol, analyzes the WordLift Blog to uncover actionable insights around the "Agentic SEO" content cluster:
-
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/6dz_-LbP3eQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-
-### Setup Instructions
-
-**For Claude:**
-1. Navigate to Settings in Claude
-2. Scroll to Integrations at the bottom and click Add more
-3. In the prompt, enter:
-   - Integration name: WordLift
-   - Integration URL: https://mcp.wordlift.io/sse
-4. Make sure to enable the tools in any new chats
-
-**For Cursor:**
-1. Press CTRL/CMD+Shift+J to open Cursor Settings
-2. Select MCP
-3. Select Add new global MCP server
-4. Add the following configuration:
-```json
-{
-  "mcpServers": {
-    "wordlift": {
-      "command": "npx",
-      "args": ["-y", "mcp-remote", "https://mcp.wordlift.io/sse"]
-    }
-  }
-}
-```
-
-:::tip Advanced: Header-based Authorization
-For programmatic use or advanced configurations, you can provide the API key directly in the configuration using the `--header` flag:
-```json
-{
-  "mcpServers": {
-    "wordlift": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "mcp-remote",
-        "https://mcp.wordlift.io/sse",
-        "--header",
-        "Authorization: Key YOUR_WORDLIFT_API_KEY_HERE"
-      ]
-    }
-  }
-}
-```
-:::
-
-**For Visual Studio:**
-1. Press CTRL/CMD+P and search for "MCP: Add Server"
-2. Select "Command (stdio)"
-3. Enter the following configuration and hit enter:
-   ```
-   npx mcp-remote https://mcp.wordlift.io/sse
-   ```
-4. Enter the name "WordLift" and hit enter
-5. Activate the server using "MCP: List Servers", selecting "WordLift", and selecting "Start Server"
-
-**For Windsurf:**
-1. Press CTRL/CMD+, to open Windsurf settings
-2. Under Cascade -> MCP servers
-3. Select Add Server -> Add custom server
-4. Add the same JSON configuration as shown above for Cursor
-
-This experimental integration opens up new possibilities by combining the reasoning capabilities of large language models with WordLift's structured knowledge and SEO expertise. From identifying content gaps to suggesting improvements, this integration showcases how symbolic AI and LLMs can work together to power the next generation of marketing strategies.
-
-**🚀 New: AI Sub-Agent Workflows**
-The MCP integration enables a new category of workflows where Agent WordLift operates as a specialized SEO sub-agent within other AI platforms. These workflows leverage the conversational capabilities of Claude, ChatGPT, Copilot, or Gemini while providing deep SEO expertise through WordLift. Explore our [Instagram Indexing Analysis workflow](./workflows/instagram-indexing-analysis.md) to see this in action.
-
-:::note
-The MCP integration is **currently experimental** and we're actively expanding its capabilities. If you have questions or feedback, please reach out to our support team.
-:::
-
-:::tip Related Resources
-- [Google announcement: Bring state-of-the-art agentic skills to the edge with Gemma 4](https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/)
-- [Gemma 4 E2B on Hugging Face](https://huggingface.co/google/gemma-4-E2B)
-:::
-
 ## Agent WordLift Google AI Edge GraphQL Integration
 
 Use the official Google AI Edge integration to run Agent WordLift GraphQL capabilities in AI-powered workflows.
@@ -301,100 +398,3 @@ Watch the walkthrough video:
 <iframe width="100%" height="500" src="https://www.youtube.com/embed/kpE8Qs-HVw4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
 To get started, follow the setup instructions and examples in the GitHub repository linked above.
-
-## Agent WordLift Skill {#agent-wordlift-claude-skill}
-
-The **Agent WordLift Skill** is the official Agent Skill for operating WordLift from any MCP-capable AI assistant — Claude, ChatGPT, Copilot, or Gemini. While the [MCP connection](#agent-wordlift-model-context-protocol-mcp-integration) gives an assistant access to WordLift's tools, the skill teaches it *how to use them well*.
-
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/DRIVYxFB60I?si=LgmmSzs8S9Td8q-1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-### What is a Claude Skill?
-
-Agent Skills (called "Skills" in Claude) are specialized packages that extend an AI assistant's capabilities with domain-specific expertise. The unified Agent WordLift Skill combines the assistant's reasoning with WordLift's SEO intelligence and Knowledge Graph, turning it into an AI-powered SEO analyst that can route work across the right tools, audit any URL, query your graph with GraphQL, and run multi-tool workflows—all through natural conversation.
-
-### What's Inside
-
-- **Tool routing** — when to delegate to Agent WordLift (SERP, AI Overview/AI Mode, Google Search Console, GA4, Trends, entity gap, local SEO) versus querying the Knowledge Graph directly with GraphQL (inventories, audits, counts, exports) versus semantic retrieval with neural search.
-- **SEO Audits with competitive intelligence** — the complete audit workflow formerly shipped as the standalone WordLift SEO Audit Skill: audit any URL, compare schema coverage with SERP competitors, and get a professional, WordLift-branded report with prioritized issues and ROI-ranked opportunities. See [SEO Audit reports](#seo-audit-reports) below.
-- **A live-verified GraphQL reference** — every documented pattern was executed against a production Knowledge Graph: introspection-first workflow, constraints, vector search, aggregations, nested traversal, URL→entity lookup, plus a gotchas section covering silent failure modes.
-- **The Prompt Library and 11 workflow recipes** — keyword research, cannibalization, rankings drop audit, AI visibility analysis, internal linking, FAQ generation, authorship markup, local SEO, and more, each as a concrete tool chain: *locate → extract → enrich → synthesize*.
-
-### How It Works
-
-The Agent WordLift Skill leverages the **WordLift MCP Server** (described above) to access Agent WordLift's capabilities. This architecture ensures:
-
-1. **Claude (with Skill)** → Provides methodology and formatting instructions
-2. **WordLift MCP Server** → Makes API calls and processes data
-3. **Agent WordLift** → Delivers SEO intelligence and competitive analysis
-
-```
-┌─────────────────────────────────────┐
-│   Claude with WordLift Skill        │
-│   ├── Audit methodology             │
-│   ├── Report formatting             │
-│   └── WordLift branding             │
-└─────────────────┬───────────────────┘
-                  │
-                  │ Uses MCP Tools
-                  │
-┌─────────────────▼───────────────────┐
-│   WordLift MCP Server               │
-│   https://mcp.wordlift.io/sse       │
-│   ├── Agent WordLift API            │
-│   └── Knowledge Graph Access        │
-└─────────────────────────────────────┘
-```
-
-### Installation
-
-1. Configure the WordLift MCP Server (see [setup instructions](#setup-instructions) above).
-2. Download: **[📦 Download Agent WordLift Skill v1.1.0](/downloads/claude-skills/agent-wordlift-skill-v1.1.0.zip)**
-3. In Claude: **Settings → Capabilities → Upload Skill**, select the zip, and enable it. For other assistants, unzip and add `SKILL.md` (plus the relevant reference file) to the assistant's instructions or project context — the content is host-agnostic.
-
-:::info Upgrading from the WordLift SEO Audit Skill?
-The standalone SEO Audit Skill (v1.0.0) has been merged into the Agent WordLift Skill as of v1.1.0 — all audit capabilities, report formats, and branding are included. Uninstall the old skill after installing this one to avoid double-triggering.
-:::
-
-### Example Prompts
-
-```
-"Audit https://example.com/products/backpack and compare with top 5 competitors"
-"What's in my knowledge graph? Give me an inventory by type."
-"List all FAQ pages with their questions and answers."
-"Run an AI visibility check for 'best CRM software' and map the gaps to my KG content."
-"Which of my articles are missing an author? Suggest authorship markup using existing Person entities."
-```
-
-### SEO Audit reports
-
-Every audit delivers a comprehensive report including:
-
-1. **Executive Summary** with overall SEO and AI-readiness score (0-100)
-2. **Quick Stats Dashboard** — schema types, critical issues, quick wins, allowed AI bots
-3. **Score Breakdown** across the seven audited criteria:
-   - 📁 Site files (`robots.txt`, `llms.txt`, `SKILL.md`, `.well-known/`)
-   - 🔎 SEO fundamentals (title, description, H1)
-   - 🏷️ Structured data (Schema.org, JSON-LD, Microdata)
-   - ✍️ Content structure & token budget
-   - 🖼️ Image accessibility
-   - 🤖 Automation readiness (WCAG / agent compatibility)
-   - ⚡ JavaScript rendering
-4. **Quick Wins** ranked by impact (from the API `quickWins.wins[]` field)
-5. **Site Files & Discovery Surfaces** — including the AI bot allow/block matrix and MCP / WebMCP / Agent Skills detection
-6. **Structured Data Inventory** — detected schemas and missing recommendations
-7. **Automation Readiness Issues** — prioritized WCAG / agent compatibility findings
-
-### Why Use the Claude Skill vs. Direct MCP?
-
-| Feature | Claude Skill | Direct MCP Integration |
-|---------|-------------|----------------------|
-| **Pre-built Workflow** | ✅ Complete methodology | ❌ You build from scratch |
-| **Report Formatting** | ✅ Professional branded reports | ❌ Manual formatting needed |
-| **Best Practices** | ✅ Built-in SEO expertise | ⚠️ Requires your knowledge |
-| **Progressive Disclosure** | ✅ Optimized token usage | ⚠️ Manual management |
-| **Updates** | ✅ Version-tracked improvements | ❌ Manual updates |
-| **Branding** | ✅ WordLift design system | ❌ Custom styling needed |
-
-:::tip
-The Claude Skill integrates seamlessly with all other WordLift integrations (Chrome Extension, CLI, API, Zapier) for a complete SEO automation ecosystem. For custom workflows, explore the [MCP Integration](#agent-wordlift-model-context-protocol-mcp-integration) section above.
-:::
