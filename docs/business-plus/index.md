@@ -18,19 +18,17 @@ Learn more on the [WordLift Business+ page](https://wordlift.io/business-plus-ge
 
 Yes. Business+ supports headless implementations with no dependency on the WordPress plugin.
 
-A Business+ API key can access the relevant WordLift APIs for a headless setup, including [Sitemap Import](/knowledge-graph/sitemap-import/), Analysis, [GraphQL](/api/graphql/graphql-support/), Manager, and Internal Linking, subject to the plan's usage limits, quotas, and standard platform safeguards.
+A Business+ API key can access the relevant WordLift APIs for a headless setup, including Analysis, [GraphQL](/api/graphql/graphql-support/), Manager, Internal Linking, and limited page-import workflows such as [Sitemap Import](/knowledge-graph/sitemap-import/), subject to the plan's usage limits, quotas, and standard platform safeguards.
 
 The [Enterprise plan](/enterprise/onboarding/) provides more advanced API capacity, higher throughput, dedicated SLAs, custom integrations, and tailored operational support for teams with larger or more complex workloads. Business+ still supports API-first and headless implementations; it is not limited to WordPress-only usage.
 
 ### What is the recommended way to bulk import initial URLs?
 
-For a headless setup, use the [Sitemap Import API](/knowledge-graph/sitemap-import/) to jumpstart the [Knowledge Graph](/knowledge-graph/).
+Use **GraphSync** to create and maintain a Business+ content Knowledge Graph. GraphSync supports source-specific mappings, multiple connected entities, stable identities, and repeatable synchronization rather than treating the graph as a flat list of imported pages.
 
-Where possible, provide a clean `sitemap.xml` URL. The API also supports sending URLs directly in the request body.
+See [GraphSync](/knowledge-graph/graphsync/) for the onboarding process and [contact WordLift](https://wordlift.io/contact-us/) to plan the first pilot.
 
-The sitemap importer supports a simple sitemap with a list of URLs. Sitemap indexes that reference other sitemap files are not supported by default, so validate that format before using it for an import.
-
-For large initial imports, batch imports rather than sending very large single payloads. Share the expected number of URLs and import cadence with WordLift so the best batching strategy can be confirmed for the account.
+The [Sitemap Import API](/knowledge-graph/sitemap-import/) remains available for small, simple page-oriented imports. It defaults to one `WebPage`-oriented entity per URL and does not replace GraphSync when the graph needs custom multi-entity mappings or recurring synchronization.
 
 ### Is a hosted SPARQL endpoint included in Business+?
 

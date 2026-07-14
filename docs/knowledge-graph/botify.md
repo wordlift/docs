@@ -6,7 +6,13 @@ toc_max_heading_level: 5
 
 # Botify Crawl Imports
 
-Use the Botify Crawl Imports endpoint (`https://api.wordlift.io/botify-crawl-imports`) to populate a Knowledge Graph with data from Botify.
+:::note Review the population options first
+
+Before using the Botify Integration, review [Create a Knowledge Graph](./create-a-knowledge-graph.md) to confirm that this specialized connector is the right population method for your source and use case.
+
+:::
+
+Use the Botify Crawl Imports endpoint (`https://api.wordlift.io/botify-crawl-imports`) to populate a Knowledge Graph with data from Botify. This is a specialized path for customers whose source is an existing Botify crawl.
 
 The import will create Web Pages extracting basic data:
 

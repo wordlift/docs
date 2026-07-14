@@ -2,6 +2,8 @@
 
 Run graph-specific workflows.
 
+For customer-facing guidance on GraphSync and assisted Business+ or Enterprise onboarding, see [GraphSync](/knowledge-graph/graphsync/).
+
 Mapping docs:
 - Reference: `docs/graph-sync-mappings-reference.md`
 - Guide: `docs/graph-sync-mappings-guide.md`

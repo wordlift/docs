@@ -82,6 +82,31 @@ const sidebars = {
           items: [
             {
               type: "category",
+              label: "Create a Knowledge Graph",
+              link: {
+                type: "doc",
+                id: "knowledge-graph/create-a-knowledge-graph",
+              },
+              items: [
+                {
+                  type: "doc",
+                  id: "knowledge-graph/graphsync",
+                  label: "GraphSync"
+                },
+                {
+                  type: "doc",
+                  id: "knowledge-graph/sitemap-import",
+                  label: "Sitemap Import"
+                },
+                {
+                  type: "doc",
+                  id: "knowledge-graph/web-page-import",
+                  label: "Web Page Import"
+                },
+              ],
+            },
+            {
+              type: "category",
               label: "Product Knowledge Graph",
               link: {
                 type: "doc",
@@ -159,16 +184,6 @@ const sidebars = {
                   type: "doc",
                   id: "knowledge-graph/botify",
                   label: "Botify Integration"
-                },
-                {
-                  type: "doc",
-                  id: "knowledge-graph/sitemap-import",
-                  label: "Sitemap Import"
-                },
-                {
-                  type: "doc",
-                  id: "knowledge-graph/web-page-import",
-                  label: "Web Page Import"
                 },
                 {
                   type: "doc",

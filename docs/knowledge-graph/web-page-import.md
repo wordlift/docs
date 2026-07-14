@@ -6,7 +6,15 @@ toc_max_heading_level: 5
 
 # Web Page Import
 
+:::note Review the population options first
+
+Before using the Web Page Import API, review [Create a Knowledge Graph](./create-a-knowledge-graph.md) to determine whether a single-page import or a broader GraphSync workflow fits your use case.
+
+:::
+
 The Web Page Import API allows you to transform unstructured web content into structured data within your Knowledge Graph. By providing a URL, the service automatically retrieves the page content, extracts the core information, and represents it as a Knowledge Graph entity.
+
+Use this API for one or a few individual pages, or as a narrow integration primitive. It creates a page-oriented entity and defaults to the `WebPage` type; it is not the recommended way to model and synchronize a complete Business+ or Enterprise graph.
 
 ## Overview
 

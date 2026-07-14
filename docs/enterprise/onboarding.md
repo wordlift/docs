@@ -66,7 +66,7 @@ Use the smallest graph topology that supports the first use case. Expanding from
 | Which dataset URI strategy is used? | Affects linked data, integrations, structured data, and long-term namespace ownership. | Choose WordLift-hosted or [customer-controlled domain](/enterprise/custom-domain-configuration/). |
 | Who owns DNS and domain changes? | Custom domains require customer-side ownership and coordination. | Record DNS owner and approval path. |
 
-For Knowledge Graph concepts and population options, see [Knowledge Graph](/knowledge-graph/).
+For the recommended population workflow and a comparison of specialized alternatives, see [Create a Knowledge Graph](/knowledge-graph/create-a-knowledge-graph/).
 
 ## Access and credential ownership
 
@@ -100,14 +100,13 @@ Choose one primary ingestion path for the first phase. Multiple paths can coexis
 
 | Customer situation | Better starting point | Validation output | Canonical route |
 | --- | --- | --- | --- |
-| Existing CMS or publishing workflow | Graph Sync or product-supported integration | Controlled content or entity sync into the graph | Product or support path |
-| Strong internal engineering team | API or GraphQL-backed workflow | One query or integration that downstream systems can consume | [GraphQL support](/api/graphql/graphql-support/) |
-| Data science or batch enrichment workflow | SDK or scripted workflow | Repeatable import and validation process | Product or support path |
-| Agentic or AI-native architecture | MCP or worai-assisted workflow | Controlled graph operation through approved tooling | [worai install](/worai/install/) and [worai configuration](/worai/configuration/) |
-| Analytics or search performance workflow | Product-specific analytics workflow | Authorized source connection and validation run | [Data Sources](/knowledge-graph/data-sources-oauth2/) for source connection and [Analytics API](/knowledge-graph/analytics-api/) for import details |
-| Monitoring or quality checks | Monitoring workflow | Repeatable quality signal for selected URLs or graph outputs | [Monitoring API Guide](/developer-resources/monitoring/) |
+| Website or content platform | GraphSync | A controlled pilot with validated entities, relationships, and stable identities | [GraphSync](/knowledge-graph/graphsync/) |
+| Google Merchant Center product catalog | Product Knowledge Graph Builder | A validated product subset synchronized from the selected feed | [Product Knowledge Graph Builder](/product-knowledge-graph-builder/introduction/) |
+| WordPress editorial workflow | WordPress Plugin | Editors can create, annotate, and publish the agreed entity model | [WordPress Plugin](/wordpress-plugin/) |
+| Existing Botify crawl workflow | Botify Crawl Import | Selected crawl fields are mapped and written to the graph | [Botify Crawl Import](/knowledge-graph/botify/) |
+| Customer-owned entity model and lifecycle | Direct API or SDK integration | A repeatable write and validation process owned by the customer team | [Create a Knowledge Graph](/knowledge-graph/create-a-knowledge-graph/) |
 
-Avoid starting with API, SDK, MCP, worai, analytics, and Graph Sync all at once unless there is a clear architectural reason.
+GraphSync is the recommended general path for Business+ and Enterprise content graphs. Sitemap Import and Web Page Import are limited page-oriented tools, while GraphQL, analytics, monitoring, and publishing services operate on or around a graph rather than replacing its primary population workflow.
 
 ## Production-ready milestone
 

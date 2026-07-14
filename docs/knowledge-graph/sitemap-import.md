@@ -6,11 +6,30 @@ toc_max_heading_level: 5
 
 # Sitemap Import API
 
-It is possible to jumpstart a Knowledge Graph by importing the URLs from a simple sitemap.xml file (i.e. a sitemap with a list of URLs; sitemap.xml with references to other sitemap files isn't yet supported). It is also possible to specify a list of URLs.
+:::note Review the population options first
+
+Before using the Sitemap Import API, review [Create a Knowledge Graph](./create-a-knowledge-graph.md) to decide whether this limited page import or GraphSync is appropriate for your graph.
+
+:::
+
+Use the Sitemap Import API for a small, simple import of page-oriented entities from a `sitemap.xml` file or an explicit URL list. Each URL produces one page-oriented entity, which defaults to the `WebPage` type. The API does not provide the custom multi-entity mappings or recurring, source-specific synchronization available with GraphSync.
+
+The sitemap must contain a list of URLs. Sitemap indexes that reference other sitemap files are not supported.
+
+:::warning Maximum 50 pages per request
+
+The Sitemap Import API is synchronous and must fetch, process, and write every page within five minutes. Limit each request to a maximum of 50 web pages:
+
+- An explicit `urls` list must contain no more than 50 URLs.
+- A `sitemap_url`, after applying any `sitemap_url_regex` filter, must resolve to no more than 50 URLs.
+
+For more than 50 pages, use [GraphSync](./graphsync.md) instead of splitting a larger graph bootstrap across Sitemap Import requests.
+
+:::
 
 ## Import
 
-You can import web pages by providing a `sitemap.xml`` file or a list of URLs.
+You can import web pages by providing a `sitemap.xml` file or a list of URLs.
 
 ### Import URLs from a sitemap.xml file
 

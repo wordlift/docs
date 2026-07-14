@@ -106,8 +106,8 @@ const config = {
                                 to: "knowledge-graph/botify/",
                             },
                             {
-                                label: "Knowledge Graph / Sitemap Import",
-                                to: "knowledge-graph/sitemap-import/",
+                                label: "Knowledge Graph / Create a Knowledge Graph",
+                                to: "knowledge-graph/create-a-knowledge-graph/",
                             },
                             {
                                 label: "Knowledge Graph / Analytics Import",

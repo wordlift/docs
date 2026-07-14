@@ -4,15 +4,10 @@ sidebar_position: 0
 
 # Knowledge Graph
 
-The Knowledge Graph constitutes the basic representation of the Knowledge Domain for a website or an account.
+The Knowledge Graph represents the people, places, products, content, and other entities that matter to a website or organization, together with the relationships between them.
 
-There are several way to populate data in a Knowledge Graph.
+For Business+ and Enterprise customers, start with [Create a Knowledge Graph](./create-a-knowledge-graph.md) to compare population methods. [GraphSync](./graphsync.md) is the recommended way to create and maintain a content Knowledge Graph, while specialized alternatives fit narrower sources and use cases.
 
-In this section you can populate data using:
-
-- URLs by providing a `sitemap.xml` file or manually by using the [Sitemap Import API](./sitemap-import.md) or;
-- Crawl data coming from [Botify](./botify.md)
-
-Once the web pages have been imported it is possible to populate the Analytics data by using the [Analytics API](./analytics-api.md). This requires access to Google Search Console and might not be needed if you are using the [Botify Crawl Import](botify.md).
+Once the graph has been populated, use the [Analytics API](./analytics-api.md) to add search performance data when the use case requires it.
 
 Use [Data Sources](./data-sources-oauth2.md) to connect OAuth2-based search and analytics providers from the WordLift Dashboard or through the Manager API.

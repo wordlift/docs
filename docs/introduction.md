@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.19 (July 2026) — Updated Product Knowledge Graph documentation and expanded `worai graph kpis` calculation and payload guidance.
+Latest Release: 3.20.20 (July 2026) — Added GraphSync-first Knowledge Graph onboarding and clarified page import limits.
 :::
 
 # 👋 Welcome to WordLift
@@ -48,11 +48,12 @@ Remember the LEGO® analogy? Here's what happens behind the scenes:
    - [Google Sheets Add-on](/seo-add-on-google-sheets/introduction/) for keyword research
 
 2. **Build Knowledge Graph** 🏗️
-   - [Analytics Import](/knowledge-graph/analytics-api/) for performance tracking
-   - [Botify Connector](/knowledge-graph/botify/) for enterprise insights
-   - [Sitemap Import](/knowledge-graph/sitemap-import/) for existing content
+   - [GraphSync](/knowledge-graph/graphsync/) for scalable content Knowledge Graphs
    - [Product Knowledge Graph Builder](/product-knowledge-graph-builder/introduction/) for e-commerce using Google Merchant Center
-   - [WordLift Cloud](/cloud/) for entity annotation
+   - [WordPress Plugin](/wordpress-plugin/) for editorial entity management
+   - [Botify Connector](/knowledge-graph/botify/) for enterprise insights
+
+   Use [Analytics Import](/knowledge-graph/analytics-api/) after population when you need to add search performance data, and use [WordLift Cloud](/cloud/) to publish and manage graph-backed annotations on a website.
 
 3. **Optimize & Create** ✨
    - [Agent WordLift](/agent-wordlift) for AI SEO optimization
@@ -206,25 +207,7 @@ Then [grab your API key](https://wordlift.io/pricing/)
 
 📦 [View on PyPI](https://pypi.org/project/wordlift-sdk/) | 📚 [Python SDK Documentation](https://github.com/wordlift/python-sdk)
 
-You can also jumpstart a Knowledge Graph using the [kg-build notebook template](https://github.com/wordlift/kg-build-notebook-template) (GitHub template project — see the [README](https://github.com/wordlift/kg-build-notebook-template/blob/main/README.md) for full details):
-
-```bash
-# Create a new repo from the template (via GitHub UI) or clone the template directly:
-git clone https://github.com/wordlift/kg-build-notebook-template.git my-kg-build
-cd my-kg-build
-
-# Install uv (once)
-curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# Create the venv and install deps
-uv sync
-
-# Activate (optional) or prefix commands with `uv run`
-source .venv/bin/activate
-
-# Configure your .env with your WordLift Key and sitemap URL, then run the notebook
-uv run jupyter notebook kg_import.ipynb
-```
+For Business+ and Enterprise content graphs, start with the [Create a Knowledge Graph](/knowledge-graph/create-a-knowledge-graph/) decision guide and [contact WordLift](https://wordlift.io/contact-us/) to plan a GraphSync pilot.
 
 ### 🤝 Enterprise Setup
 
