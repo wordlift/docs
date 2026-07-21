@@ -45,15 +45,13 @@ In addition, with the purchase of our 12-month packages, we offer 20% discount. 
 
 ## Who owns the structured metadata created with WordLift?
 
-**You do!** We believe content creators should retain the commercial value of their content and all the data they create and exploit it through **new business models** based on **content syndication**, **data-as-a-service** and a stronger **relationship with their audience**. You can open your datasets to the public, attaching to it a free or a commercial licence. Otherwise, use your data to feed **chat bots** such as Facebook Messenger or Telegram, providing live feed updates on your activity and/or automatic customer service in real time.
+**You do.** Customers own the structured metadata they create with WordLift. See [Data ownership and portability](/knowledge-graph/#data-ownership-and-portability) for access, export, migration, and identifier-continuity guidance.
 
 ## What happens if I stop using WordLift?
 
-1. If you stop paying for your subscription, but keep the plugin on your site, all the entities, metadata and pages you created with wordlift will still be available on your site - you won't be able to update it any longer, but they will still work just fine as they were at the moment you removed the key. The data you’ve created belongs to you and you can always request to us a data dump that is available in various machine-readable formats.
-2. if you deactivate the plugin instead, the vocabulary (metadata, entity and pages) will disappear from your dashboard, but everything you created is stored in your website Database in WordPress, and you will be able to download it, transfer it or re-activate it again anytime from the plugin menu.
-3. Turning off WordLift on our side, it would be like turning off all the keys and un-publish all the linked data you’ve created, not the plug-in itself, so it will be like ##1 - you could get the data back from us and re-publish it as [linked data](https://wordlift.io/blog/en/entity/linked-data/) on your own infrastructure.
-4. WordLift's technology is entirely open source: it takes development skills, infrastructure and some wisdom to nicely bring all the pieces together without our support.
-5. Your vocabulary (article metadata and entities) are published as [linked data](/pages/key-concepts#linked-open-data) and you can always request a data dump in any of the following formats: RDF/XML, Turtle, N3, JSON-LD.
+Content created through the WordPress plugin remains in the website's WordPress database. Knowledge Graph hosting, publishing, synchronization, and other managed capabilities depend on an active WordLift service.
+
+The graph data remains portable. See [Data ownership and portability](/knowledge-graph/#data-ownership-and-portability) for the general policy and [download your Knowledge Graph data](#how-can-i-download-my-knowledge-graph-data) before changing or ending the integration.
 
 ## How can I download my Knowledge Graph data?
 

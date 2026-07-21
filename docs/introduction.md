@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.20 (July 2026) — Unified Agent WordLift Skill v1.1.0 (MCP tool routing, verified GraphQL reference, workflow recipes, and the SEO Audit workflow in one downloadable Agent Skill), plus GraphSync-first Knowledge Graph onboarding and clarified page import limits.
+Latest Release: 3.20.21 (July 2026) — Added server-side and Cloudflare JSON-LD delivery guidance, improved access for non-JavaScript crawlers, clarified Knowledge Graph ownership and portability, and documented reusable GraphSync template mappings.
 :::
 
 # 👋 Welcome to WordLift

@@ -126,14 +126,24 @@ const sidebars = {
               ],
             },
             {
-              type: "doc",
-              id: "knowledge-graph/data-api",
-              label: "Data API"
-            },
-            {
-              type: "doc",
-              id: "knowledge-graph/migrate-client-side-to-server-side-data-api",
-              label: "Migrate to Server-Side Data API"
+              type: "category",
+              label: "Data API",
+              link: {
+                type: "doc",
+                id: "knowledge-graph/data-api",
+              },
+              items: [
+                {
+                  type: "doc",
+                  id: "knowledge-graph/migrate-client-side-to-server-side-data-api",
+                  label: "Migrate to Server-Side Data API"
+                },
+                {
+                  type: "doc",
+                  id: "knowledge-graph/cloudflare-integration",
+                  label: "Cloudflare Integration"
+                },
+              ],
             },
             {
               type: "doc",

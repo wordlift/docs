@@ -12,9 +12,7 @@ Server-side injection makes the JSON-LD available in the initial HTML response. 
 
 ## Before you start
 
-Server-side Data API access must be enabled for your account. Contact [hello@wordlift.io](mailto:hello@wordlift.io) or your WordLift account manager before changing the implementation.
-
-You should also confirm that your team can:
+Confirm that your team can:
 
 - change the server, static-site generator, edge function, or framework code that renders pages;
 - determine the canonical URL for each rendered page;
@@ -112,13 +110,9 @@ The exact nodes and properties depend on the Knowledge Graph data available for 
 
 ## Migration steps
 
-### 1. Confirm server-side access
+<a id="2-map-each-page-to-its-canonical-url"></a>
 
-Contact [hello@wordlift.io](mailto:hello@wordlift.io) or your account manager and ask to enable the server-side Data API for your account.
-
-Share the domains, environments, and expected rollout timeline so WordLift can confirm the correct setup.
-
-### 2. Map each page to its canonical URL
+### 1. Map each page to its canonical URL
 
 For each rendered page, determine the canonical URL that WordLift uses for the Knowledge Graph entry.
 
@@ -136,7 +130,9 @@ https://api.wordlift.io/data/https/www.acme.example/running-shoes
 
 See [API URL format](./data-api.md#api-url-format) for the full URL construction rules.
 
-### 3. Fetch and parse the JSON-LD
+<a id="3-fetch-and-parse-the-json-ld"></a>
+
+### 2. Fetch and parse the JSON-LD
 
 Fetch the Data API response from server-side code. Parse it as JSON, then serialize it into the page as an `application/ld+json` script.
 
@@ -163,7 +159,9 @@ Do not build JSON-LD with string concatenation. Use your runtime JSON serializer
 
 For a framework example, see the [Next.js server-side example](./data-api.md#nextjs-server-side-example).
 
-### 4. Add caching, timeout, and fallback behavior
+<a id="4-add-caching-timeout-and-fallback-behavior"></a>
+
+### 3. Add caching, timeout, and fallback behavior
 
 Do not block page rendering on an uncached Data API request without a timeout and fallback.
 
@@ -178,7 +176,9 @@ Start with a minimum cache TTL of 1 minute. Depending on your publishing cadence
 
 See [Performance and caching](./data-api.md#performance-and-caching) for the full caching model and observability recommendations.
 
-### 5. Handle multilingual pages
+<a id="5-handle-multilingual-pages"></a>
+
+### 4. Handle multilingual pages
 
 If the site is multilingual, pass the `__wl_lang` query parameter when requesting structured data for a specific language.
 
@@ -188,7 +188,9 @@ https://api.wordlift.io/data/https/www.acme.example/running-shoes?__wl_lang=en
 
 See [Multilingual requests](./data-api.md#multilingual-requests) and [Multilingual Graphs](./multilingual.md) for language routing details.
 
-### 6. Validate before rollout
+<a id="6-validate-before-rollout"></a>
+
+### 5. Validate before rollout
 
 Before removing the client-side integration, validate a representative set of pages:
 

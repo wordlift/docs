@@ -30,6 +30,8 @@ Server-side rendering fetches the Data API response from your server, static-sit
 
 Use this option when you control the page rendering pipeline and want the JSON-LD to be present in the initial HTML response.
 
+For a Cloudflare edge example, see [Cloudflare Integration](./cloudflare-integration.md).
+
 ### Choosing client-side or server-side injection
 
 With the client-side WordLift Cloud integration, JSON-LD is added to the rendered DOM after the browser executes `bootstrap.js`. It is not present in the initial server-rendered HTML response.

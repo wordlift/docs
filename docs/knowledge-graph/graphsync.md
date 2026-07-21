@@ -45,6 +45,14 @@ GraphSync onboarding is an assisted process focused on producing a useful, maint
 4. **Validate the result.** Review entity identity, relationships, source coverage, and graph quality before expanding the scope.
 5. **Establish recurring synchronization.** Run the approved workflow as the source content changes and evolve mappings through a controlled process.
 
+## How does GraphSync reuse mappings across pages that share a template?
+
+GraphSync defines a source-specific mapping for a representative page or source type and reuses that mapping across matching URLs. A blog mapping, for example, can be validated on a controlled set of posts and then applied to the other posts that share the same content structure.
+
+The mapping is reusable, but the graph output remains page-specific: each URL contributes its own entities, properties, and relationships. After a recurring synchronization run processes a source change, the [Data API](./data-api.md) returns the updated JSON-LD for the affected URL.
+
+Materially different templates or source structures can require separate mappings. Validate each distinct page type in the pilot instead of assuming that one mapping fits the entire website.
+
 ## Prepare for onboarding
 
 Before contacting WordLift, identify:
