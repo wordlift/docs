@@ -165,7 +165,7 @@ For a framework example, see the [Next.js server-side example](./data-api.md#nex
 
 Do not block page rendering on an uncached Data API request without a timeout and fallback.
 
-Use a stale-while-revalidate approach:
+For request-time caching, use a stale-while-revalidate approach:
 
 - serve fresh cached JSON-LD when available;
 - serve acceptable stale JSON-LD when fresh data is unavailable;
@@ -175,6 +175,8 @@ Use a stale-while-revalidate approach:
 Start with a minimum cache TTL of 1 minute. Depending on your publishing cadence, a TTL of 3 hours, 6 hours, 12 hours, or 24 hours may be more appropriate.
 
 See [Performance and caching](./data-api.md#performance-and-caching) for the full caching model and observability recommendations.
+
+Alternatively, if the canonical URL inventory is bounded and daily freshness is acceptable, you can keep Data API calls entirely outside page requests by using [Out-of-Band Data API Cache Prefill](./out-of-band-data-api-cache.md).
 
 <a id="5-handle-multilingual-pages"></a>
 

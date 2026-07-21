@@ -140,6 +140,11 @@ const sidebars = {
                 },
                 {
                   type: "doc",
+                  id: "knowledge-graph/out-of-band-data-api-cache",
+                  label: "Out-of-Band Cache Prefill"
+                },
+                {
+                  type: "doc",
                   id: "knowledge-graph/cloudflare-integration",
                   label: "Cloudflare Integration"
                 },

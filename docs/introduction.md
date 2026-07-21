@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.21 (July 2026) — Added server-side and Cloudflare JSON-LD delivery guidance, improved access for non-JavaScript crawlers, clarified Knowledge Graph ownership and portability, and documented reusable GraphSync template mappings.
+Latest Release: 3.20.22 (July 2026) — Added out-of-band Data API cache-prefill guidance with a 24-hour refresh schedule, 30-hour TTL, Next.js architecture, and secure failure handling.
 :::
 
 # 👋 Welcome to WordLift

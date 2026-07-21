@@ -14,7 +14,7 @@ If you already use the client-side WordLift Cloud API and want to move JSON-LD i
 
 ## Ways to inject structured data
 
-There are two supported integration patterns.
+There are two injection locations: client-side and server-side. Server-side integrations can refresh their cache during a page request or through an out-of-band process.
 
 ### Client-side with WordLift Cloud
 
@@ -31,6 +31,12 @@ Server-side rendering fetches the Data API response from your server, static-sit
 Use this option when you control the page rendering pipeline and want the JSON-LD to be present in the initial HTML response.
 
 For a Cloudflare edge example, see [Cloudflare Integration](./cloudflare-integration.md).
+
+### Server-side with out-of-band cache prefill
+
+When canonical URLs are known and daily freshness is acceptable, a scheduled process can fetch and validate Data API responses before they are needed. The renderer then reads JSON-LD only from a shared application cache, keeping Data API requests outside the page-rendering path.
+
+See [Out-of-Band Data API Cache Prefill](./out-of-band-data-api-cache.md) for the recommended 24-hour refresh schedule, 30-hour cache TTL, Next.js use case, and failure behavior.
 
 ### Choosing client-side or server-side injection
 
@@ -129,7 +135,7 @@ Do not make the page response depend on an uncached Data API call with no timeou
 
 :::
 
-Use a stale-while-revalidate pattern for server-side integrations:
+For server-side integrations that refresh during page requests, use a stale-while-revalidate pattern. If the application instead refreshes a bounded URL inventory on a schedule, use [Out-of-Band Data API Cache Prefill](./out-of-band-data-api-cache.md).
 
 ![Data API server-side cache flow](./images/data-api-server-side-cache.svg)
 
