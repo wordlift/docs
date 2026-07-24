@@ -15,31 +15,38 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    strategy:
+      matrix:
+        target:
+          - repository: wordlift/python-client
+            path: python-client
+          - repository: wordlift/ngx-api-client
+            path: ngx-api-client
 
     steps:
       # Step 1: Checkout the first repository
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      # Step 2: Checkout the second repository
-      - name: Checkout second repository
+      # Step 2: Checkout the target repository
+      - name: Checkout target repository
         uses: actions/checkout@v6
         with:
-          repository: wordlift/python-client
-          path: "./python-client"
-          token: ${{ secrets.GH_PAT }}  
+          repository: ${{ matrix.target.repository }}
+          path: ${{ matrix.target.path }}
+          token: ${{ secrets.GH_PAT }}
 
       # # step 3: Patch middleware api specification
       # - name: Apply patch to middleware.yaml
       #   run: git apply ./patches/fix_middleware_spec.patch
 
-      - name: Copy content from current repo to another repo
-        run: rm python-client/api/*.yaml && cp api/* python-client/api
+      - name: Copy content from current repo to target repo
+        run: rm ${{ matrix.target.path }}/api/*.yaml && cp api/* ${{ matrix.target.path }}/api
 
-      # Step 4: Commit and push the changes to the repository
+      # Step 4: Commit and push the changes to the target repository
       - name: Commit and push changes
         run: |
-          cd python-client
+          cd ${{ matrix.target.path }}
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add -A
