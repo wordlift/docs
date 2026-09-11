@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info Version Notice
-Latest Release: 3.13.0 (July 2026) - Unified Agent WordLift Skill v1.1.0 — MCP tool routing, verified GraphQL reference, workflow recipes, and the SEO Audit workflow merged into a single downloadable Agent Skill.
+Latest Documentation Update: September 2026 - Added a Microsoft 365 Copilot walkthrough for connecting WordLift's MCP tools through Copilot Studio.
 :::
 
 # Integrations
