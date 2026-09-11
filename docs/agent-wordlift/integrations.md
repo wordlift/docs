@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info Version Notice
-Latest Release: 3.13.0 (July 2026) - Unified Agent WordLift Skill v1.1.0 — MCP tool routing, verified GraphQL reference, workflow recipes, and the SEO Audit workflow merged into a single downloadable Agent Skill.
+Latest Documentation Update: September 2026 - Added a Microsoft 365 Copilot walkthrough for connecting WordLift's MCP tools through Copilot Studio.
 :::
 
 # Integrations
@@ -97,6 +97,8 @@ For programmatic use or advanced configurations, you can provide the API key dir
 3. Select Add Server -> Add custom server
 4. Add the same JSON configuration as shown above for Cursor
 
+**For Microsoft 365 Copilot (via Copilot Studio):** build a Copilot Studio agent, connect it to WordLift's MCP server (`https://mcp.wordlift.io/streamable-http`, OAuth 2.0), and publish it to Microsoft 365 Copilot. See the full walkthrough in [Microsoft 365 Copilot (via Copilot Studio)](#microsoft-365-copilot-via-copilot-studio) below.
+
 This experimental integration opens up new possibilities by combining the reasoning capabilities of large language models with WordLift's structured knowledge and SEO expertise. From identifying content gaps to suggesting improvements, this integration showcases how symbolic AI and LLMs can work together to power the next generation of marketing strategies.
 
 **🚀 New: AI Sub-Agent Workflows**
@@ -110,6 +112,94 @@ The MCP integration is **currently experimental** and we're actively expanding i
 - [Google announcement: Bring state-of-the-art agentic skills to the edge with Gemma 4](https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/)
 - [Gemma 4 E2B on Hugging Face](https://huggingface.co/google/gemma-4-E2B)
 :::
+
+## Microsoft 365 Copilot (via Copilot Studio)
+
+A click-by-click walkthrough for connecting WordLift's MCP tools to Microsoft 365 Copilot: build a Copilot Studio agent, connect it to WordLift's MCP server, and publish it so it's available directly in Copilot chat.
+
+:::info Prerequisites
+You'll need a Microsoft 365 account with access to [Copilot Studio](https://copilotstudio.microsoft.com), and your WordLift API key from [my.wordlift.io](https://my.wordlift.io).
+:::
+
+### Build the agent in Copilot Studio
+
+**1. Open Copilot Studio.** Go to `https://copilotstudio.microsoft.com` and sign in with your Microsoft 365 account.
+
+![Microsoft Copilot Studio home page](images/agent-wordlift-copilot-01-copilot-studio-home.jpg)
+
+**2. Create the agent.** Open **Agents** in the left menu, then click the small arrow (▾) next to **New agent** and choose **Build using standard orchestration**.
+
+![New agent dropdown showing Build using standard orchestration](images/agent-wordlift-copilot-02-copilot-studio-new-agent.jpg)
+
+**3. Name it.** Give the agent a name and continue.
+
+![Naming the agent in Microsoft Copilot Studio](/img/agent-wordlift-copilot/agent-wordlift-copilot-03-copilot-studio-name-agent.jpg)
+
+**4. Open the Tools tab.** In the header menu, click on **Tools**, then click **Add a tool**.
+
+![Tools tab highlighted in the agent's header menu](images/agent-wordlift-copilot-04-copilot-studio-tools-tab.jpg)
+
+**5. Add WordLift as an MCP tool.** In the **Add tool** panel, under **Create new**, select **Model Context Protocol**.
+
+![Model Context Protocol option highlighted in the Add tool panel](images/agent-wordlift-copilot-05-copilot-studio-add-mcp-tool.jpg)
+
+**6. Point it at WordLift's MCP server.** Server URL: `https://mcp.wordlift.io/streamable-http`. Authentication: **OAuth 2.0**, type **Dynamic discovery**.
+
+![Adding the WordLift MCP server in Copilot Studio](images/agent-wordlift-copilot-06-copilot-studio-mcp-server-details.jpg)
+
+**7. Authenticate with your WordLift API key.** Copilot Studio opens a WordLift sign-in popup. Paste in your **WordLift API Key** and click **Authenticate & Approve**.
+
+:::tip
+Find your WordLift API key on your user dashboard at [my.wordlift.io](https://my.wordlift.io).
+:::
+
+![Authenticate with WordLift popup asking for the API key](/img/agent-wordlift-copilot/agent-wordlift-copilot-07-copilot-studio-authenticate-wordlift.jpg)
+
+### Publish to Microsoft 365 Copilot
+
+**8. Open the Microsoft 365 and Teams channel.** In the header menu, click on **Channels**, then open the **Microsoft 365 and Microsoft Teams** tile under **Microsoft channels**.
+
+![Channels tab highlighted with an arrow to the Microsoft 365 and Microsoft Teams tile](images/agent-wordlift-copilot-08-copilot-studio-channels-tab.jpg)
+
+**9. Turn it on and publish.** Check **Make agent available in Microsoft 365 Copilot**, click **Add channel**, then click **Publish** at the top of the page.
+
+![Microsoft 365 and Teams channel panel with the Make agent available checkbox and Add channel button highlighted](images/agent-wordlift-copilot-10-copilot-studio-m365-teams-channel.jpg)
+
+:::note
+Any later change to the agent (tools, instructions, knowledge, etc.) stays local until you click **Publish** again. If the agent is already in active use — for example in Microsoft Teams conversations — also check **Force newest version** in the publish dialog, so people get the update right away instead of finishing their current session on the old version.
+
+<img src="/img/agent-wordlift-copilot/agent-wordlift-copilot-09-copilot-studio-publish-force-newest.jpg" alt="Publish this agent dialog with Force newest version checked" width="360" style={{display: 'block', margin: '10px auto 0'}} />
+:::
+
+**10. Jump straight into Microsoft 365.** In the same channel panel, click **See agent in Microsoft 365** — it opens the agent directly in Copilot.
+
+![See agent in Microsoft 365 link after publishing](images/agent-wordlift-copilot-11-copilot-studio-see-agent-in-m365.jpg)
+
+**11. Add it.** Microsoft 365 Copilot opens the agent's card in the Agent Store. Click **Add**.
+
+![Adding the WordLift DEMO Agent from the Microsoft 365 Agent Store](images/agent-wordlift-copilot-12-m365-copilot-add-agent-store.jpg)
+
+### Use it in Copilot chat
+
+**12. Pin it (optional, recommended).** Hover the agent under **Agents** in the left sidebar and click the pin icon — it now stays under **Pinned**, one click away every time.
+
+<img src="/img/agent-wordlift-copilot/agent-wordlift-copilot-13-m365-copilot-pin-agent.jpg" alt="WordLift DEMO Agent pinned to the top of the Copilot sidebar" width="320" />
+
+**13. Connect WordLift's tools when asked.** The first time you use a WordLift tool in a chat — or if a previous connection has expired — Copilot may say it needs to connect first. Click **Open connection manager**.
+
+![Copilot chat prompt asking to open the connection manager, with a Retry button](images/agent-wordlift-copilot-14-m365-copilot-connect-prompt.jpg)
+
+**14. Create the connection, then retry.** Find **WordLift MCP** in the list and click **Connect**, then **Submit**. Back in the chat, click **Retry** to run your question again.
+
+![Manage your connections page with WordLift MCP, Connect and Submit highlighted](images/agent-wordlift-copilot-15-m365-copilot-manage-connections.jpg)
+
+Once connected, WordLift's tools are available right inside Copilot chat — the agent calls them over the MCP connection and cites its source beneath the answer.
+
+![WordLift agent answering inside Microsoft 365 Copilot chat](images/agent-wordlift-copilot-16-m365-copilot-chat-answer.jpg)
+
+> **You:** Ask wordlift agent what is my domain url
+>
+> **WordLift DEMO Agent:** The connected website/domain for the current account is: `https://demo.copilotagent.localhost`
 
 ## Agent WordLift Skill {#agent-wordlift-claude-skill}
 
