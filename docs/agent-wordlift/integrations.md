@@ -26,7 +26,7 @@ Your preferred AI models and agents can use our official MCP server to access yo
 
 Connect WordLift to various AI assistants through our **experimental Model Context Protocol (MCP) integration**. This integration enables AI models like Claude to directly interact with your content and knowledge graph, unlocking powerful new workflows.
 
-Our MCP server is reachable at `https://mcp.wordlift.io/sse` and currently supports:
+Our MCP server is reachable at `https://mcp.wordlift.io/streamable-http` and currently supports:
 - Direct calls to Agent WordLift's capabilities
 - Execution of GraphQL queries on your knowledge graph
 - Seamless integration with supported AI assistants
@@ -42,7 +42,7 @@ Watch how Claude, integrated with WordLift via Model Context Protocol, analyzes 
 2. Scroll to Integrations at the bottom and click Add more
 3. In the prompt, enter:
    - Integration name: WordLift
-   - Integration URL: https://mcp.wordlift.io/sse
+   - Integration URL: https://mcp.wordlift.io/streamable-http
 4. Make sure to enable the tools in any new chats
 
 **For Cursor:**
@@ -55,7 +55,7 @@ Watch how Claude, integrated with WordLift via Model Context Protocol, analyzes 
   "mcpServers": {
     "wordlift": {
       "command": "npx",
-      "args": ["-y", "mcp-remote", "https://mcp.wordlift.io/sse"]
+      "args": ["-y", "mcp-remote", "https://mcp.wordlift.io/streamable-http"]
     }
   }
 }
@@ -71,7 +71,7 @@ For programmatic use or advanced configurations, you can provide the API key dir
       "args": [
         "-y",
         "mcp-remote",
-        "https://mcp.wordlift.io/sse",
+        "https://mcp.wordlift.io/streamable-http",
         "--header",
         "Authorization: Key YOUR_WORDLIFT_API_KEY_HERE"
       ]
@@ -86,7 +86,7 @@ For programmatic use or advanced configurations, you can provide the API key dir
 2. Select "Command (stdio)"
 3. Enter the following configuration and hit enter:
    ```
-   npx mcp-remote https://mcp.wordlift.io/sse
+   npx mcp-remote https://mcp.wordlift.io/streamable-http
    ```
 4. Enter the name "WordLift" and hit enter
 5. Activate the server using "MCP: List Servers", selecting "WordLift", and selecting "Start Server"
@@ -227,21 +227,21 @@ The Agent WordLift Skill leverages the **WordLift MCP Server** (described above)
 3. **Agent WordLift** → Delivers SEO intelligence and competitive analysis
 
 ```
-┌─────────────────────────────────────┐
-│   Claude with WordLift Skill        │
-│   ├── Audit methodology             │
-│   ├── Report formatting             │
-│   └── WordLift branding             │
-└─────────────────┬───────────────────┘
-                  │
-                  │ Uses MCP Tools
-                  │
-┌─────────────────▼───────────────────┐
-│   WordLift MCP Server               │
-│   https://mcp.wordlift.io/sse       │
-│   ├── Agent WordLift API            │
-│   └── Knowledge Graph Access        │
-└─────────────────────────────────────┘
+┌─────────────────────────────────────────────┐
+│   Claude with WordLift Skill                │
+│   ├── Audit methodology                     │
+│   ├── Report formatting                     │
+│   └── WordLift branding                     │
+└──────────────────────┬──────────────────────┘
+                       │
+                       │ Uses MCP Tools
+                       │
+┌──────────────────────▼──────────────────────┐
+│   WordLift MCP Server                       │
+│   https://mcp.wordlift.io/streamable-http   │
+│   ├── Agent WordLift API                    │
+│   └── Knowledge Graph Access                │
+└─────────────────────────────────────────────┘
 ```
 
 ### Installation
@@ -456,7 +456,7 @@ A sample header-based authorization configuration looks like this:
     "command": "npx",
     "args": [
       "mcp-remote",
-      "https://mcp.wordlift.io/sse",
+      "https://mcp.wordlift.io/streamable-http",
       "--header",
       "Authorization: Key YOUR_WORDLIFT_API_KEY_HERE"
     ]
