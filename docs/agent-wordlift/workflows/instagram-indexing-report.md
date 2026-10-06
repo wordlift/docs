@@ -39,7 +39,7 @@ Ensure Agent WordLift is configured as your MCP server in Claude:
   "mcpServers": {
     "wordlift": {
       "command": "npx",
-      "args": ["-y", "mcp-remote", "https://mcp.wordlift.io/sse"]
+      "args": ["-y", "mcp-remote", "https://mcp.wordlift.io/streamable-http"]
     }
   }
 }
