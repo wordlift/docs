@@ -18,3 +18,4 @@ npm run docusaurus clean-api-docs sitemap-generator && npm run docusaurus gen-ap
 npm run docusaurus clean-api-docs summarizer && npm run docusaurus gen-api-docs summarizer
 npm run docusaurus clean-api-docs query-fan-out && npm run docusaurus gen-api-docs query-fan-out
 npm run docusaurus clean-api-docs graph-kpi && npm run docusaurus gen-api-docs graph-kpi
+npm run docusaurus clean-api-docs resolve && npm run docusaurus gen-api-docs resolve
