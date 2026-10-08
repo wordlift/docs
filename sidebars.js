@@ -389,6 +389,11 @@ const sidebars = {
           label: "Monitoring API Guide"
         },
         {
+          type: "doc",
+          id: "developer-resources/resolve",
+          label: "Resolve API Guide"
+        },
+        {
           type: "link",
           href: "/category/api",
           label: "API Documentation"
@@ -521,6 +526,11 @@ const sidebars = {
           type: "category",
           label: "Graph KPI",
           items: loadSidebar("./docs/api/graph-kpi/sidebar"),
+        },
+        {
+          type: "category",
+          label: "Resolve",
+          items: loadSidebar("./docs/api/resolve/sidebar"),
         },
       ],
     },

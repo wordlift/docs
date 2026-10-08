@@ -548,6 +548,14 @@ const config = {
                             categoryLinkSource: "tag",
                         },
                     },
+                    resolve: {
+                        specPath: "api/resolve.yaml",
+                        outputDir: "docs/api/resolve",
+                        sidebarOptions: {
+                            groupPathsBy: "tag",
+                            categoryLinkSource: "tag",
+                        },
+                    },
                 },
             },
         ],
