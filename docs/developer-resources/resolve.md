@@ -104,6 +104,12 @@ Add `"include": ["candidates", "evidence"]` to see the bounded set of
 identities the engine considered and how it decided, which is useful while
 building a vocabulary or reviewing abstentions.
 
+## Errors
+
+Every error is an RFC 9457 Problem Details document with a stable `code` and a
+`type` URI that leads to the code's page; the list of codes and what to do about
+each is in [Resolve API Errors](/developer-resources/resolve-errors).
+
 ## Credits and limits
 
 Each call reports its cost in smart credits in the `X-Wordlift-Consumption`

@@ -394,6 +394,11 @@ const sidebars = {
           label: "Resolve API Guide"
         },
         {
+          type: "doc",
+          id: "developer-resources/resolve-errors",
+          label: "Resolve API Errors"
+        },
+        {
           type: "link",
           href: "/category/api",
           label: "API Documentation"
