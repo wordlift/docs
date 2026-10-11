@@ -1,0 +1,1 @@
+{"parameters":[{"name":"accountId","in":"path","required":true,"description":"Your WordLift account id, the `accountId` of `GET /accounts/me` with the same key. A key used with another account's id is answered 403.","schema":{"type":"integer","format":"int64"}}]}

@@ -13,8 +13,17 @@ stable identifier, or returns `unresolved` with a reason. A resolver is allowed
 to abstain. It never returns the least-bad candidate as a match.
 
 ```
-POST https://api.wordlift.io/resolve
+POST https://api.wordlift.io/accounts/{accountId}/resolve
 Authorization: Key <your WordLift key>
+```
+
+`accountId` is your account's id: the `accountId` field that
+`GET https://api.wordlift.io/accounts/me` returns for the same key. The open
+clients read it from the key on first use, so they take only the key.
+
+```bash
+WL_ACCOUNT_ID=$(curl -s https://api.wordlift.io/accounts/me \
+  -H "Authorization: Key $WL_KEY" | jq .accountId)
 ```
 
 The full request and response schema is in the [API reference](/api/resolve/resolve-mentions).
@@ -24,7 +33,7 @@ The live tester and the benchmark against other entity-linking services are at
 ## A first call
 
 ```bash
-curl -X POST https://api.wordlift.io/resolve \
+curl -X POST "https://api.wordlift.io/accounts/$WL_ACCOUNT_ID/resolve" \
   -H "Authorization: Key $WL_KEY" \
   -H "Content-Type: application/json" \
   -d '{"text": "Tim Cook said Apple will open a store in Rome.", "language": "en"}'
