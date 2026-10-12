@@ -17,7 +17,7 @@ Every error answered by the [Resolve API](/developer-resources/resolve) is an
   "type": "https://docs.wordlift.io/problems/dataset_not_supported",
   "title": "Dataset not supported",
   "status": 422,
-  "instance": "/v1/resolve",
+  "instance": "/accounts/12345/resolve",
   "code": "dataset_not_supported",
   "dataset_uri": "x://y",
   "supported": ["wikidata://public", "wordlift://dataset/me", "inline"]
@@ -52,7 +52,7 @@ given, the `Retry-After` header is authoritative.
 | 429 | [`too_many_requests`](/problems/too_many_requests) | The replica serving your request has its limit of requests in flight and waiting, so this one was refused before any work was done |
 | 503 | [`dataset_warming`](/problems/dataset_warming) | Your knowledge graph is being read for the first time in a while |
 | 502 or 503 | [`dataset_unavailable`](/problems/dataset_unavailable) | With status 502: the knowledge graph named in `dataset_uri` could not be read from its source |
-| 404 | [`not_found`](/problems/not_found) | The path does not exist under `/v1/` |
+| 404 | [`not_found`](/problems/not_found) | The requested path does not exist |
 | 500 | [`internal_error`](/problems/internal_error) | The engine failed while handling the request |
 | 502 | [`upstream_error`](/problems/upstream_error) | A service the engine depends on answered with an error while your request was handled |
 | 503 | [`unavailable`](/problems/unavailable) | The engine cannot serve requests at the moment, typically while starting |
