@@ -121,7 +121,7 @@ each is in [Resolve API Errors](/developer-resources/resolve-errors).
 
 ## Credits and limits
 
-Each call reports its cost in smart credits in the `X-Wordlift-Consumption`
+Each call reports its cost in smart credits in the `X-Wordlift-Cost`
 response header: one credit per request plus one per 1,000 characters of text.
 Resolving against your own graph costs the same as the public world. When your
 plan's monthly allowance is reached the API answers `429 Too Many Requests`
