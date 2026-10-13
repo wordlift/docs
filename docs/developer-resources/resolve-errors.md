@@ -28,7 +28,7 @@ Every error answered by the [Resolve API](/developer-resources/resolve) is an
 `https://docs.wordlift.io/problems/` describing it. `detail` is a sentence when
 the engine has one. Extension members carry what the engine knows about the
 failure and are listed on each code's page. Responses with an error status
-cost no credits.
+do not count against your allowance.
 
 The exception is the `429` the gateway answers when the account's monthly
 allowance is spent: its body is `text/plain` and the `X-RateLimit-*` headers

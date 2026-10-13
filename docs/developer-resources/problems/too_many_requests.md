@@ -21,7 +21,7 @@ The replica serving your request has its limit of requests in flight and waiting
 
 ## What to do
 
-Wait the seconds in the `Retry-After` header and send the request again. A 429 with a `text/plain` body and `X-RateLimit-*` headers is a different case: the account's monthly allowance for resolve() is spent (see the guide's Credits and limits).
+Wait the seconds in the `Retry-After` header and send the request again. A 429 with a `text/plain` body and `X-RateLimit-*` headers is a different case: the account's monthly allowance for resolve() is spent (see the guide's Requests and limits).
 
 This is one of the [Resolve API errors](/developer-resources/resolve-errors). Errors are
 [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457) Problem Details documents with
