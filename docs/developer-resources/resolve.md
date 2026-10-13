@@ -119,13 +119,16 @@ Every error is an RFC 9457 Problem Details document with a stable `code` and a
 `type` URI that leads to the code's page; the list of codes and what to do about
 each is in [Resolve API Errors](/developer-resources/resolve-errors).
 
-## Credits and limits
+## Requests and limits
 
-Each call reports its cost in smart credits in the `X-Wordlift-Cost`
-response header: one credit per request plus one per 1,000 characters of text.
-Resolving against your own graph costs the same as the public world. When your
-plan's monthly allowance is reached the API answers `429 Too Many Requests`
-with the `X-RateLimit-*` headers describing the limit and when it resets.
+Every plan includes a monthly allowance of resolve() requests; a free developer
+key includes 1,000. A call counts as one request, plus one per 1,000 characters
+of text, so a sentence counts 2 and a 5,000-character article 6. Each response
+says what the call counted in the `X-Wordlift-Cost` header, and where the
+allowance stands in `X-RateLimit-Limit`, `X-RateLimit-Remaining` and
+`X-RateLimit-Reset`. Resolving against your own graph counts the same as the
+public world. When the allowance is used up the API answers `429 Too Many
+Requests` with the same headers until the monthly reset; nothing is charged.
 
 ## Clients
 
