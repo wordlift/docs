@@ -23,6 +23,13 @@ Your knowledge graph is being read for the first time in a while. Nothing was re
 
 Retry after the seconds in `Retry-After`. The body repeats the same number as `retry_after_s` for clients that only read the body; the header is authoritative.
 
+The read continues after this answer, so retrying is enough: keep retrying until
+the call answers. A graph of a few hundred entities is ready in seconds; one with
+hundreds of thousands of entities can take several minutes. The read happens
+again after a few hours without calls, and when a new server starts. Nothing is
+charged for this answer. A retry loop is in the
+[Resolve API Guide](/developer-resources/resolve#the-first-call-on-your-graph).
+
 ## Extension members
 
 - `dataset_uri`
