@@ -399,6 +399,11 @@ const sidebars = {
           label: "Resolve API Errors"
         },
         {
+          type: "doc",
+          id: "developer-resources/resolve-migrate-from-azure",
+          label: "Migrate from Azure Entity Linking"
+        },
+        {
           type: "link",
           href: "/category/api",
           label: "API Documentation"
