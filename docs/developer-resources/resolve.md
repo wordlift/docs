@@ -27,8 +27,11 @@ WL_ACCOUNT_ID=$(curl -s https://api.wordlift.io/accounts/me \
 ```
 
 The full request and response schema is in the [API reference](/api/resolve/resolve-mentions).
-The live tester and the benchmark against other entity-linking services are at
-[wordlift.io/resolve](https://wordlift.io/resolve/).
+The live tester is at [wordlift.io/resolve](https://wordlift.io/resolve/); the
+comparison with other entity-linking services, losses included, is
+[on the WordLift blog](https://wordlift.io/blog/en/entity-linking-apis-compared/).
+Moving from Azure Entity Linking, which retires on 1 September 2028? See
+[Migrate from Azure Entity Linking](/developer-resources/resolve/migrate-from-azure-entity-linking).
 
 ## A first call
 
