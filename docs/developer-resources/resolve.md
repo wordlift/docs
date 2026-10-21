@@ -106,9 +106,37 @@ read as aliases and descriptions.
  "dataset_uri": "wordlift://dataset/me,wikidata://public"}
 ```
 
-The first call that reads a large graph may return `503` with a `Retry-After`
-header while the graph is being read; nothing is resolved against a partial
-graph. Retry after the given seconds.
+### The first call on your graph
+
+The engine reads your graph before it can answer from it. A graph of a few
+hundred entities is ready in seconds; one with hundreds of thousands of
+entities can take several minutes. The read happens again after a few hours
+without calls, and when a new server starts.
+
+While the graph is being read, a call waits up to about 20 seconds and then
+answers `503` with the code [`dataset_warming`](/problems/dataset_warming) and a
+`Retry-After` header. The read goes on in the background. Nothing is resolved
+against a partial graph and nothing is charged. Retry after the given seconds
+until the call answers:
+
+```python
+import time, requests
+
+def resolve(url, key, body, max_wait_s=900):
+    deadline = time.monotonic() + max_wait_s
+    while True:
+        r = requests.post(url, json=body, headers={"Authorization": f"Key {key}"}, timeout=120)
+        warming = r.status_code == 503 and r.headers.get("content-type", "").startswith("application/problem+json") \
+            and r.json().get("code") == "dataset_warming"
+        if not warming or time.monotonic() > deadline:
+            r.raise_for_status()
+            return r.json()
+        time.sleep(int(r.headers.get("Retry-After", "15")))
+```
+
+- Before a batch, send one call and wait for it to answer; then send the rest.
+  Calls sent in parallel during the read all receive `503`.
+- Calls against `wikidata://public` alone never wait for a graph.
 
 ## Evidence
 

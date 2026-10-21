@@ -65,3 +65,8 @@ Nothing is resolved or charged when the status is an error, so a `429`, `502`
 or `503` can be retried after the seconds given. The open clients do not retry
 on their own: a request that timed out on the client side may still have been
 served and metered, so the retry policy is yours.
+
+A `503` with the code `dataset_warming` is expected on the first call on your
+own graph, and it can last several minutes for a large graph. Keep retrying it
+after `Retry-After` until the call answers; see
+[the first call on your graph](/developer-resources/resolve#the-first-call-on-your-graph).
