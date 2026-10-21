@@ -172,7 +172,7 @@ Requests` with the same headers until the monthly reset; nothing is charged.
 ## Languages
 
 English, Italian, French, German, Spanish and Portuguese are supported.
-Japanese and Chinese answer too and are measured on the same gold sets, at a
-lower level: F1 77.2 for Japanese and 68.7 for Chinese, against Google Cloud
-Natural Language's 81.4 and 74.8. The full comparison, misses included, is on
-[wordlift.io/resolve](https://wordlift.io/resolve/#benchmarks).
+Japanese and Chinese are experimental: measured on small gold sets (79 and
+78 mentions), currently behind Google Cloud Natural Language (F1 77.2 against
+81.4 for Japanese, 68.7 against 74.8 for Chinese). The full comparison, misses
+included, is on [wordlift.io/resolve](https://wordlift.io/resolve/#benchmarks).
