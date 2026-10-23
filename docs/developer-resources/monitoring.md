@@ -6,7 +6,7 @@ sidebar_label: Monitoring API Guide
 
 # Developer API Guide
 
-This document describes how to query monitor results for a specific URL.
+This document describes how to query monitor results for a specific URL. For what Monitor checks and how to read the same results in the dashboard, see [Monitor](../monitor/index.md).
 
 ## Base Host
 
@@ -35,7 +35,7 @@ You can authenticate in two ways:
 ```
 curl -sS \
   -H "Authorization: Bearer $ACCESS_TOKEN" \
-  "https://api.wordlift.io/monitor/graphs/1506805/urls/results?url=https://www.busesforsale.com/buses/21358-2019-ford-t350-hd-blue-bird-mfsab"
+  "https://api.wordlift.io/monitor/graphs/1234567/urls/results?url=https://www.example.com/frames/aria-ar5051"
 ```
 
 ## Example: Graph Key Token
@@ -43,7 +43,7 @@ curl -sS \
 ```
 curl -sS \
   -H "Authorization: Key $GRAPH_KEY" \
-  "https://api.wordlift.io/monitor/graphs/1506805/urls/results?url=https://www.busesforsale.com/buses/21358-2019-ford-t350-hd-blue-bird-mfsab"
+  "https://api.wordlift.io/monitor/graphs/1234567/urls/results?url=https://www.example.com/frames/aria-ar5051"
 ```
 
 ## Example Response
@@ -52,8 +52,8 @@ Note: The response below is truncated for brevity.
 
 ```json
 {
-  "url": "https://www.busesforsale.com/buses/21358-2019-ford-t350-hd-blue-bird-mfsab",
-  "graph_id": "1506805",
+  "url": "https://www.example.com/frames/aria-ar5051",
+  "graph_id": "1234567",
   "status": "OK",
   "run_id": "c2b4b364-4f4c-4ef1-b8f4-7b02d5c9e0f7",
   "created_at": "2026-02-05T08:12:10.145Z",
@@ -114,8 +114,8 @@ Note: The response below is truncated for brevity.
           "jsonld": [
             {
               "@context": "https://schema.org",
-              "@type": "Vehicle",
-              "name": "2014 Ford Phoenix 22 CE Shuttle Bus"
+              "@type": "Product",
+              "name": "Aria AR5051 Eyeglasses"
             }
           ]
         },
@@ -124,16 +124,16 @@ Note: The response below is truncated for brevity.
             {
               "@context": "https://schema.org",
               "@type": "Product",
-              "name": "2019 Ford T350 HD Blue Bird MFSAB",
-              "brand": "Ford",
-              "model": "T350 HD",
+              "name": "Aria AR5051 Eyeglasses",
+              "brand": "Aria Eyewear",
+              "model": "AR5051",
               "offers": {
                 "@type": "Offer",
                 "priceCurrency": "USD"
               }
             }
           ],
-          "url": "https://api.wordlift.io/data/https/www.busesforsale.com/buses/21358-2019-ford-t350-hd-blue-bird-mfsab?__wl_lang=en",
+          "url": "https://api.wordlift.io/data/https/www.example.com/frames/aria-ar5051?__wl_lang=en",
           "status_code": 200,
           "error": null
         }

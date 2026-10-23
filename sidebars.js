@@ -178,6 +178,20 @@ const sidebars = {
           ],
         },
         {
+          type: "category",
+          label: "📡 Monitor",
+          link: {
+            type: "doc",
+            id: "monitor/index",
+          },
+          items: [
+            "monitor/define-segments-and-expectations",
+            "monitor/read-monitor-status",
+            "monitor/inspect-url-results",
+            "monitor/reference",
+          ],
+        },
+        {
           type: "doc",
           id: "business-plus/index",
           label: "📈 Business+",
