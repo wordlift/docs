@@ -1,8 +1,8 @@
 ---
 title: Monitor reference
-description: Every Monitor check, segment matcher, expectation kind, severity, score and limit, with the current limitations of the feature.
-sidebar_position: 4
-last_updated: 2026-10-23
+description: Every Monitor check, segment matcher, expectation kind, severity, score and default limit, plus the current limitations of the feature and how to reach the API.
+sidebar_position: 5
+last_updated: 2026-10-26
 ---
 
 # Monitor reference
@@ -105,5 +105,5 @@ To read the latest results for a URL from your own code, use the Monitor API. Se
 - **You can't add pages from the dashboard.** WordLift sets up the monitored pages for your account.
 - **Results are not instant.** You can't start a run manually. Changes show up after the next scheduled run.
 - **Monitor reports issues but doesn't fix them.** It shows where structured data falls short. Fixing it is a separate step.
-- **AI readiness is not yet available through the MCP Server.** Bot readiness and semantic data quality are.
+- **AI readiness is not yet available through the MCP Server.** Bot readiness and semantic data quality are (see [Ask your AI assistant about Monitor](./ask-your-ai-assistant.md)).
 - **You write expectations by hand.** Monitor doesn't propose rules from your site's content.

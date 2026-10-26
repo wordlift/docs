@@ -188,6 +188,7 @@ const sidebars = {
             "monitor/define-segments-and-expectations",
             "monitor/read-monitor-status",
             "monitor/inspect-url-results",
+            "monitor/ask-your-ai-assistant",
             "monitor/reference",
           ],
         },
