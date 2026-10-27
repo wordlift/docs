@@ -1,5 +1,9 @@
 ---
+title: "Load WordLift Cloud with Google Tag Manager"
+description: "Load the WordLift Cloud bootstrap.js launcher on every page view with a Custom HTML tag in Google Tag Manager, then preview and publish the container."
+sidebar_label: "Google Tag Manager"
 sidebar_position: 10
+last_updated: 2026-10-27
 ---
 
 # Load WordLift Cloud with Google Tag Manager
@@ -11,7 +15,7 @@ Set up a Custom HTML tag in Google Tag Manager to load `bootstrap.js` on every p
 - You have a Google Tag Manager account.
 - A container is created for the website where you will load WordLift Cloud.
 - You can log in to tagmanager.google.com with permission to edit tags.
-- If your site uses CSP, allow the WordLift Cloud script and API endpoint; see [Content Security Policy](./index.md#content-security-policy).
+- If your site uses CSP, allow the WordLift Cloud script and API endpoint; see [Content Security Policy](/welcome/install-wordlift-cloud/#content-security-policy).
 
 ## 1) Open the correct container
 

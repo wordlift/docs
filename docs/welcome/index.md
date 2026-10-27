@@ -1,223 +1,104 @@
 ---
+title: "Welcome to WordLift"
+description: "Start here: learn what the WordLift knowledge graph platform does, pick the path for your role and follow the onboarding steps from credentials to Agent WordLift."
 sidebar_position: 1
-hide_title: true
-title: Overview
+last_updated: 2026-10-27
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import ThemedImage from '@theme/ThemedImage';
+import Link from '@docusaurus/Link';
 
-:::info Version Notice
-Latest Release: 3.20.24 (October 2026) — Added a GraphSync guide to find the pages that changed since a date, with a sample GraphQL query and a curl example.
-:::
+# Welcome to WordLift
 
-# 👋 Welcome to WordLift
+WordLift is a knowledge graph technology and platform. It has two pillars. The **Knowledge Graph** is the memory: Data Sources feed it your content, products and search data, and it stores them as entities and relationships. **Agent WordLift** is the agentic AI that operates on the graph. SEO and AI visibility are one application of the platform, and these docs show you how to set it up and use it.
 
-<div style={{textAlign: 'center', margin: '2rem 0'}}>
-<p style={{fontSize: '1.2rem', color: 'var(--ifm-color-emphasis-600)'}}>
-AI-Powered Platform / Knowledge Graph Builder for SEO & Marketing Teams
-</p>
+## What you can do with WordLift
 
-<div style={{display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap'}}>
-<span className="badge badge--success">SEO Automation</span>
-<span className="badge badge--primary">Marketing Automation</span>
-<span className="badge badge--info">AI-Powered</span>
-<span className="badge badge--warning">Edge AI</span>
-</div>
-</div>
+- **Build and sync a Knowledge Graph.** Turn your website content and product catalog into a graph of entities and relationships, and keep it current with GraphSync. Start at [Knowledge Graph](/platform/knowledge-graph/).
+- **Publish structured data.** Deliver schema.org JSON-LD from your graph to your pages with [WordLift Cloud](/welcome/install-wordlift-cloud/), or server side through the Data API. See [Schema publishing](/platform/knowledge-graph/schema-publishing/).
+- **Put Agent WordLift to work.** Run workflows that evaluate content, build internal links, research keywords and write product descriptions from your graph. Start at [Agent WordLift](/platform/agent-wordlift/).
+- **Connect from your own tools.** Query and update the graph through the [APIs and SDKs](/apis-and-sdks/), use it from AI assistants and the command line with the [interfaces and tools](/tools/), or wire it into [integrations](/integrations/) such as Zapier and Looker Studio.
 
-## What's WordLift, anyway?
+## Choose your path
 
-Think of WordLift as your AI-powered marketing companion that turns your content into a powerful Knowledge Graph. But what does that actually mean?
-
-Imagine you're building with LEGO® blocks. Your content pieces are like individual LEGO® blocks, and WordLift helps you:
-
-- 🔗 Connect them in meaningful ways (that's the Knowledge Graph part)
-- 🔍 Make them discoverable by both humans and machines
-- 🤖 Turn them into automated marketing workflows and AI applications
-
-## How does it work?
-
-### The Secret Sauce: Semantic Technology
-
-Remember the LEGO® analogy? Here's what happens behind the scenes:
-
-1. **Analyze Search Demand** 🔍
-   - [Google Sheets Add-on](/tools/google-sheets-addon/) for keyword research
-
-2. **Build Knowledge Graph** 🏗️
-   - [GraphSync](/platform/knowledge-graph/graph-sync/) for scalable content Knowledge Graphs
-   - [Product Knowledge Graph Builder](/platform/knowledge-graph/product-knowledge-graph/) for e-commerce using Google Merchant Center
-   - [WordPress Plugin](/integrations/wordpress-plugin/) for editorial entity management
-   - [Botify Connector](/platform/data-sources/botify/) for enterprise insights
-
-   Use [Analytics Import](/apis-and-sdks/analytics-api/) after population when you need to add search performance data, and use [WordLift Cloud](/welcome/install-wordlift-cloud/) to publish and manage graph-backed annotations on a website.
-
-3. **Optimize & Create** ✨
-   - [Agent WordLift](/platform/agent-wordlift/) for AI SEO optimization
-   - [MCP Integration](/tools/mcp-server/) to connect WordLift to Claude, ChatGPT, Copilot, or Gemini
-   - [Agent WordLift Skill](/tools/agent-wordlift-skill/) for tool routing, SEO audits, workflow recipes, and a verified GraphQL reference in any MCP-capable assistant
-   - [Content Generation](/platform/agent-wordlift/content-generation/) for creating new content at scale
-   - [AI & LLM Integrations](/apis-and-sdks/llm-connectors/wordlift-reader/) for building AI applications using LlamaIndex 🦙
-
-4. **Automate, Scale & Reporting** 🚀
-   - [Zapier Integration](/integrations/zapier/) for workflow automation
-   - [Power Automate Connector](/integrations/power-automate/) for Microsoft ecosystem
-   - [Looker Studio Connector](/integrations/looker-studio/) for semantic analytics and dashboarding
-
-## Who's it for?
-
-### 🛠️ Technical Folks
-
-You love APIs, code, and building things? We've got:
-
-- [API Reference](/apis-and-sdks/api-reference/) for custom development
-- [GraphQL API](/apis-and-sdks/api-reference/graphql/graphql-support/) for flexible queries
-- [MCP Integration](/tools/mcp-server/) and the [Agent WordLift Skill](/tools/agent-wordlift-skill/) for AI assistants
-- Custom integrations and enterprise solutions
-
-### 📝 Content Teams
-
-More into creating great content? Use our:
-
-- [Agent WordLift](/platform/agent-wordlift/) for AI SEO optimization
-- [WordPress Plugin](/integrations/wordpress-plugin/) for easy content optimization
-- [WooCommerce SEO](/integrations/woocommerce/) for e-commerce
-- [Google Sheets Add-on](/tools/google-sheets-addon/) for keyword research
-
-### 🎯 Marketing Teams
-
-Need to show results? Get:
-
-- [Analytics Import](/apis-and-sdks/analytics-api/) for performance tracking
-- [Zapier Integration](/integrations/zapier/) for automation
-- [Looker Studio Connector](/integrations/looker-studio/) for reporting
-
-### 🏢 Enterprise Teams
-
-Looking to scale? Access:
-
-- [WordLift Cloud](/welcome/install-wordlift-cloud/) for enterprise deployment
-- [Botify Connector](/platform/data-sources/botify/) for enterprise SEO
-- [Power Automate](/integrations/power-automate/) for Microsoft integration
-
-## Quick Start Options
-
-<Tabs>
-  <TabItem value="agent" label="AI SEO Agent" default>
-
-```bash
-# Start with Agent WordLift
-1. Open Agent WordLift
-2. Get instant SEO optimization
-3. Let AI work for you!
-```
-
-[Start with Agent WordLift →](/platform/agent-wordlift/)
-  </TabItem>
-  <TabItem value="cloud" label="Cloud script">
-
-```html
-<!-- Install the WordLift Cloud script in <head> -->
-<script async type="text/javascript" src="https://cloud.wordlift.io/app/bootstrap.js"></script>
-```
-
-- Place in `<head>` on every page you want to annotate.
-- Need details or GTM? See [WordLift Cloud](/welcome/install-wordlift-cloud/) or [install via GTM](/welcome/install-wordlift-cloud/google-tag-manager/).
-
-[Install via WordLift Cloud guide →](/welcome/install-wordlift-cloud/)
-  </TabItem>
-  <TabItem value="api" label="API">
-
-```bash
-# For developers & custom integrations
-pip install wordlift-sdk
-
-# Python SDK with full API support
-```
-
-📦 [Python SDK on PyPI](https://pypi.org/project/wordlift-sdk/)
-
-[Explore API Documentation →](/apis-and-sdks/api-reference/)
-  </TabItem>
-  <TabItem value="sheets" label="Google Sheets">
-
-```bash
-# Start with SEO analysis
-1. Install the Google Sheets add-on
-2. Connect your Search Console
-3. Analyze your search data
-```
-
-[Start SEO Analysis →](/tools/google-sheets-addon/)
-  </TabItem>
-</Tabs>
-
-## Key Features
+Each path is a short, ordered list of the pages that matter for your role, from first look to advanced use.
 
 <div className="row">
-<div className="col col--4">
-
-### 🔍 Search Intelligence
-
-- Advanced entity-based gap analysis for SEO
-- AI SEO Agent for search intent insights
-- Tailored strategies for content discovery and visibility
-
+  <div className="col col--4 margin-bottom--lg">
+    <Link className="card padding--lg" to="/welcome/paths/business-plus/">
+      <h3>Business+</h3>
+      <p>Get a growing team from account setup to a live Knowledge Graph and Agent WordLift workflows.</p>
+    </Link>
+  </div>
+  <div className="col col--4 margin-bottom--lg">
+    <Link className="card padding--lg" to="/welcome/paths/enterprise/">
+      <h3>Enterprise</h3>
+      <p>Coordinate onboarding, SAML SSO, custom domain, data and Agent setup across your organization.</p>
+    </Link>
+  </div>
+  <div className="col col--4 margin-bottom--lg">
+    <Link className="card padding--lg" to="/welcome/paths/developer/">
+      <h3>Developer</h3>
+      <p>Go straight to access, authentication, the APIs, the MCP Server and the worai CLI.</p>
+    </Link>
+  </div>
+  <div className="col col--4 margin-bottom--lg">
+    <Link className="card padding--lg" to="/welcome/paths/content-team/">
+      <h3>Content team</h3>
+      <p>Evaluate content, match search intent and build internal links with Agent WordLift workflows.</p>
+    </Link>
+  </div>
+  <div className="col col--4 margin-bottom--lg">
+    <Link className="card padding--lg" to="/welcome/paths/marketing-team/">
+      <h3>Marketing team</h3>
+      <p>Produce campaign content and bring WordLift data into your automation and reporting tools.</p>
+    </Link>
+  </div>
+  <div className="col col--4 margin-bottom--lg">
+    <Link className="card padding--lg" to="/welcome/paths/e-commerce/">
+      <h3>E-commerce</h3>
+      <p>Build a Product Knowledge Graph from your Google Merchant Center feed and generate product content.</p>
+    </Link>
+  </div>
 </div>
-<div className="col col--4">
 
-### 🏗️ Knowledge Graph
+## Onboarding overview {#onboarding-overview}
 
-- Fully automated RDF-based Knowledge Graph
-- Schema.org markup for enhanced search visibility
-- Advanced entity creation and management
-- Product catalog enrichment with structured data and support for GS1 Digital Link
+Follow these steps in order. Steps 4 and 5 apply to Enterprise only, and step 7 applies to teams with a product catalog.
 
-</div>
-<div className="col col--4">
+1. **Receive your credentials.** Your WordLift key comes with your subscription and gives you access to the Dashboard. See [Plans and pricing](/plans-and-pricing/).
 
-### 🤖 AI & Content Automation
+   :::warning[Review needed]
+   TODO [SME]: confirm how Business+ and Enterprise customers receive their credentials today (automatic email with the key, or handover from the account team).
+   :::
 
-- Scalable content generation and optimization workflows
-- Neural search and Graph Retrieval Augmented Generation (RAG)
-- AI-powered SEO Agent for smarter workflows
-- End-to-end workflow automation with integrations (Zapier, Power Automate)
+2. **Log in to the Dashboard.** Sign in at [my.wordlift.io](https://my.wordlift.io) to reach your Knowledge Graphs and settings. See [Dashboard](/platform/dashboard/).
+3. **Connect Data Sources.** Authorize Google Search Console and Google Analytics, the primary supported sources. See [Data Sources](/platform/data-sources/).
+4. **Configure SSO** <span className="badge badge--primary">Enterprise</span>. Set up SAML single sign-on for your organization. See [SAML SSO](/plans-and-pricing/sso-saml/).
+5. **Configure a custom domain** <span className="badge badge--primary">Enterprise</span>. Decide your dataset URI strategy before production, because changing it later can require an identifier migration. See [Custom domain](/plans-and-pricing/custom-domain/).
+6. **Install WordLift Cloud.** Add the `bootstrap.js` launcher to the head of every page, or load it with Google Tag Manager or the WordLift Cloud WordPress plugin. The script publishes what your graph holds for each URL, so JSON-LD appears once steps 7 or 8 populate the graph. See [Install WordLift Cloud](/welcome/install-wordlift-cloud/).
+7. **Configure a Product Knowledge Graph.** In the Dashboard, select **+ Add Merchant** and connect your Google Merchant Center feed. See [Product Knowledge Graph](/platform/knowledge-graph/product-knowledge-graph/).
+8. **Synchronize your Knowledge Graph.** GraphSync is the recommended way for Business+ and Enterprise customers to build and maintain a content graph. See [Create a Knowledge Graph](/platform/knowledge-graph/create/) and [GraphSync](/platform/knowledge-graph/graph-sync/).
+9. **Explore your Knowledge Graph.** Review the entities and relationships your graph now holds.
 
-</div>
-</div>
+   :::warning[Review needed]
+   TODO [SME]: name the page this step links to; no explorer or Dashboard graph-browsing page exists, and the GraphQL reference and KG-REST pages are developer-level.
+   :::
 
-## Ready to start?
+10. **Monitor visibility** <span className="badge badge--secondary">Early Access</span>. Check that your pages carry the structured data you expect and that AI assistants and crawlers can reach them. See [Monitor](/platform/monitor/).
+11. **Start using Agent WordLift.** Open [agent.wordlift.io](https://agent.wordlift.io) and enter your WordLift key in the Settings panel. See [Get started with Agent WordLift](/platform/agent-wordlift/getting-started/).
 
-Choose your path:
+## Compare plans and get access
 
-### 🚀 Quick Start (No Code)
+WordLift has two plans, Business+ and Enterprise. Enterprise includes everything in Business+, and Agent WordLift is included in both. Compare what each plan includes in the [Feature Matrix](/plans-and-pricing/feature-matrix/), or read [Plans and pricing](/plans-and-pricing/).
 
-1. [Try Agent WordLift](/platform/agent-wordlift/) for instant SEO optimization
-2. [Use Google Sheets Add-on](/tools/google-sheets-addon/) for search analysis
-3. [Install WordPress Plugin](/integrations/wordpress-plugin/) for content optimization
-4. Install the [WordLift Cloud script](/welcome/install-wordlift-cloud/) (or [via Google Tag Manager](/welcome/install-wordlift-cloud/google-tag-manager/))
+Access starts with a conversation with WordLift: Business+ begins with a discovery session, and Enterprise with an enquiry to the sales team. The Resolve API is the exception. Developers can get Resolve API access directly, without a sales conversation. See [Get access](/apis-and-sdks/#get-access).
 
-### 💻 Developer Path
+## What's new
 
-```bash
-pip install wordlift-sdk  # It's that simple!
-```
+Read [What's New](/whats-new/) for the latest product releases across the platform.
 
-Then [grab your API key](https://wordlift.io/pricing/)
+## Get help
 
-📦 [View on PyPI](https://pypi.org/project/wordlift-sdk/) | 📚 [Python SDK Documentation](https://github.com/wordlift/python-sdk)
-
-For Business+ and Enterprise content graphs, start with the [Create a Knowledge Graph](/platform/knowledge-graph/create/) decision guide and [contact WordLift](https://wordlift.io/contact-us/) to plan a GraphSync pilot.
-
-### 🤝 Enterprise Setup
-
-[Let's talk!](https://wordlift.io/demo) We'll create a custom plan for you.
-
----
-
-🎮 **Ready to level up your marketing game?**
-Start by [understanding what your audience wants](/tools/google-sheets-addon/) →
-
-Need help? [Drop us a line](mailto:support@wordlift.io) 💌
+- **Support.** Find guides, status and troubleshooting on the [Support](/support/) page.
+- **Common questions.** Check the [FAQ](/support/faq/) for quick answers.
+- **Contact.** Email support@wordlift.io or use the [contact page](/support/contact/).
