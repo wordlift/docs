@@ -1,37 +1,39 @@
 ---
-title: Generate FAQs
+title: "Generate FAQs"
+description: "Generate FAQ questions from an entity gap analysis of a page with Agent WordLift, then draft answers in the page's writing style with links to sources."
 sidebar_position: 14
+last_updated: 2026-10-27
 ---
 
-# Creating frequently asked questions (FAQs)
+# Generate FAQs
 
-This workflow is designed to help us with the process of creating **frequently asked questions (FAQs)** based on content from our website and insights from WordLift's AI SEO Agent.
+This workflow helps you create **frequently asked questions (FAQs)** based on content from your website and insights from Agent WordLift.
 
-# Understanding the Entity Gap
+## Understanding the entity gap
 
 The first step involves analyzing the "*entity gap*" between a specific webpage and a user query. Entities are essentially keywords or concepts that define a topic.
 
 :::info
 
-WordLift's AI SEO Agent helps us understand the entity gap by:
+Agent WordLift helps you understand the entity gap by:
 
-* **Identifying key entities on a webpage:** This helps us understand what information the page covers.
+* **Identifying key entities on a webpage:** This helps you understand what information the page covers.
 * **Analyzing top search results:** The Agent looks at the entities mentioned in top-ranking pages for the same query.
-* **Highligting missing entities:** By comparing these, the Agent identifies concepts relevant to the topic but missing from our webpage.
+* **Highlighting missing entities:** By comparing these, the Agent identifies concepts relevant to the topic but missing from your webpage.
 
-This analysis helps us create FAQs that address potential user questions based on what our content might be missing.
+This analysis helps you create FAQs that address potential user questions based on what your content might be missing.
 
 :::
 
-## Generate Questions Based on the Entity Gap Analysis
+## Generate questions based on the entity gap analysis
 
 For example, imagine this workflow is analyzing the entity gap between the blog post "Neuro-symbolic AI: Where Knowledge Graphs Meet LLMs" on the WordLift blog and the search query "*neuro-symbolic AI*".
 
-**Entity Gap Analysis**: The AI SEO Agent would analyze the blog post and identify key entities related to "neuro-symbolic AI" that are not explicitly mentioned.
+**Entity gap analysis**: Agent WordLift would analyze the blog post and identify key entities related to "neuro-symbolic AI" that are not explicitly mentioned.
 
-**Top Missing Entities**: Based on this analysis, the Agent would determine the top three missing entities most relevant to understanding "neuro-symbolic AI" in the context of the blog post.
+**Top missing entities**: Based on this analysis, Agent WordLift would determine the top three missing entities most relevant to understanding "neuro-symbolic AI" in the context of the blog post.
 
-**Question Generation**: Finally, the workflow would use these missing entities to automatically generate three relevant questions users might have about "neuro-symbolic AI."
+**Question generation**: Finally, the workflow would use these missing entities to automatically generate three relevant questions users might have about "neuro-symbolic AI".
 
 ```md className=wlx-send-to-agent
 Analyze the entity gap between https://wordlift.io/blog/en/neuro-symbolic-ai/ and the query "neuro-symbolic AI", look at the top missing entities and, if they are relevant, generate three questions accordingly.
@@ -39,9 +41,9 @@ Analyze the entity gap between https://wordlift.io/blog/en/neuro-symbolic-ai/ an
 
 ![image](./images/agent-wordlift-top-missing-entities.png)
 
-## Answer the Questions
+## Answer the questions
 
-Once the questions are generated, we can provide the agent with a new prompt that will automatically search the website and relevant sources to find answers. It will also consider the writing style of the target webpage to ensure the answers are consistent and informative.
+Once the questions are generated, give Agent WordLift a new prompt that will automatically search the website and relevant sources to find answers. It will also consider the writing style of the target webpage to ensure the answers are consistent and informative.
 
 ```md className=wlx-send-to-agent
 Now, search on the website, read the writing style and prepare the answer for the first question "How does Artificial General Intelligence (AGI) relate to the development of neuro-symbolic AI systems, and what are the potential implications of integrating AGI capabilities into neuro-symbolic models?". Remember to add links back to the sources.

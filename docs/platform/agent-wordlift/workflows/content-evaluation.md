@@ -1,26 +1,28 @@
 ---
-title: Content Quality Evaluation
+title: "Evaluate content quality"
+description: "Score a page or a block of text for quality, readability and SEO with Agent WordLift, read the radar chart, and get targeted improvement suggestions."
 sidebar_position: 11
+last_updated: 2026-10-27
 ---
 
-# Evaluating Content Quality with WordLift AI SEO Agent
+# Evaluate content quality
 
-The Content Quality Evaluation workflow allows you to comprehensively assess your content across multiple dimensions including quality, readability, and SEO performance. This powerful tool provides actionable insights to improve your content and make it more engaging for both users and search engines.
+The Content Quality Evaluation workflow lets you comprehensively assess your content across multiple dimensions including quality, readability, and SEO performance. The tool provides actionable insights to improve your content and make it more engaging for both users and search engines.
 
-## Overview of Content Evaluation
+## Overview of content evaluation
 
-WordLift's Content Evaluation Tool goes beyond traditional SEO analysis by examining multiple dimensions of your content:
+The WordLift Content Evaluation tool goes beyond traditional SEO analysis by examining multiple dimensions of your content:
 
-- **Content Quality**: Analyzes purpose, accuracy, and depth of your content
+- **Content quality**: Analyzes purpose, accuracy, and depth of your content
 - **Readability**: Evaluates reading level, sentence complexity, and overall clarity
-- **SEO Performance**: Assesses keyword usage, density, and optimization
+- **SEO performance**: Assesses keyword usage, density, and optimization
 - **Metadata**: Examines word count, sentiment, and other technical aspects
 
 The tool visualizes these metrics through an intuitive radar chart, making it easy to identify strengths and areas for improvement.
 
-## How to Use the Content Quality Evaluator
+## How to use the Content Quality Evaluator
 
-### Step 1: Analyze Your Content
+### Step 1: Analyze your content
 
 Start by analyzing your content against a specific keyword or topic to understand how well it addresses the intended search intent. You can evaluate content in two ways:
 
@@ -44,9 +46,9 @@ You can include multiple keywords for a more comprehensive evaluation:
 evaluate the content quality for the keywords "content marketing strategies, SEO optimization, content distribution" in relation to the content on "https://your-website.com/your-page"
 ```
 
-The tool works effectively with or without specified keywords. If no keywords are provided, it will identify the main topics of your content automatically.
+The tool works effectively with or without specified keywords. If you provide no keywords, it identifies the main topics of your content automatically.
 
-### Evaluating Specific Content Sections
+### Evaluate specific content sections {#evaluating-specific-content-sections}
 
 You can evaluate either entire articles or specific sections of your content:
 
@@ -56,7 +58,7 @@ evaluate only the introduction section of the content on "https://your-website.c
 
 This allows you to focus on improving specific parts of your content that may need more attention.
 
-### Analyzing Multiple Content Pieces
+### Analyze multiple content pieces {#analyzing-multiple-content-pieces}
 
 When evaluating multiple pieces of content, you can request the agent to omit the chart visualization for a more streamlined analysis:
 
@@ -71,9 +73,9 @@ Compare their content quality and provide a summary table of the results.
 
 This is particularly useful for batch analysis and content comparison tasks where visual charts for each piece might be overwhelming.
 
-### Step 2: Review the Evaluation Results
+### Step 2: Review the evaluation results
 
-The agent will return detailed analysis results including:
+Agent WordLift returns detailed analysis results including:
 
 - An overall quality score (0-100)
 - Breakdown of scores across multiple dimensions
@@ -82,7 +84,7 @@ The agent will return detailed analysis results including:
 
 ![Content Quality Evaluation](./images/agent-wordlift-content-evaluation.png)
 
-### Step 3: Implement Content Improvements
+### Step 3: Implement content improvements
 
 Based on the evaluation, you can then request specific improvements:
 
@@ -90,35 +92,35 @@ Based on the evaluation, you can then request specific improvements:
 based on the content quality evaluation, please suggest improvements to enhance the content purpose, depth, and readability
 ```
 
-The agent will provide tailored recommendations to address the specific areas where your content needs improvement.
+Agent WordLift provides tailored recommendations to address the specific areas where your content needs improvement.
 
-## Understanding the Evaluation Metrics
+## Understand the evaluation metrics {#understanding-the-evaluation-metrics}
 
-### Content Quality Metrics
+### Content quality metrics
 
 - **Purpose**: How well the content fulfills its intended goal and satisfies user intent
 - **Accuracy**: Factual correctness and trustworthiness of the information
 - **Depth**: Comprehensiveness and thoroughness of topic coverage
 
-### Readability Metrics
+### Readability metrics
 
 - **Score**: Overall readability level of the content
-- **Grade Level**: Educational level required to easily understand the content
-- **Complex Sentences**: Analysis of sentence complexity and suggestions for improvement
+- **Grade level**: Educational level required to easily understand the content
+- **Complex sentences**: Analysis of sentence complexity and suggestions for improvement
 
-### SEO Metrics
+### SEO metrics
 
 - **Score**: Overall search optimization assessment
-- **Keyword Density**: Analysis of keyword usage and distribution
-- **Top Entities**: Important concepts and topics identified in the content
+- **Keyword density**: Analysis of keyword usage and distribution
+- **Top entities**: Important concepts and topics identified in the content
 
-## Best Practices for Content Evaluation
+## Best practices for content evaluation
 
-1. **Evaluate Regularly**: Periodically assess your most important pages to ensure they remain optimized
-2. **Compare with Competitors**: Evaluate your content against top-ranking competitors for the same keywords
-3. **Focus on Weakest Areas First**: Prioritize improvements for dimensions with the lowest scores
-4. **Balance All Dimensions**: Aim for consistent performance across all metrics rather than excellence in just one area
-5. **Test Improvements**: After making changes, re-evaluate to confirm the enhancements were effective
+1. **Evaluate regularly**: Periodically assess your most important pages to ensure they remain optimized
+2. **Compare with competitors**: Evaluate your content against top-ranking competitors for the same keywords
+3. **Focus on the weakest areas first**: Prioritize improvements for dimensions with the lowest scores
+4. **Balance all dimensions**: Aim for consistent performance across all metrics rather than excellence in just one area
+5. **Test improvements**: After making changes, re-evaluate to confirm the enhancements were effective
 
 By following this workflow, you can systematically improve your content across multiple dimensions, resulting in better engagement, higher authority, and improved search visibility.
 
@@ -126,7 +128,7 @@ By following this workflow, you can systematically improve your content across m
 For content that targets multiple keywords or topics, consider running separate evaluations for each major keyword to ensure comprehensive optimization.
 :::
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 ### How was this tool developed?
 
@@ -135,16 +137,17 @@ We've worked closely with professional content teams to align the Content Qualit
 - Assess the quality standards of successful content
 - Understand what experienced editors consider valuable
 - Measure the SEO value of different content approaches
-- Compare professionally-edited content with AI-generated content created with tools like ChatGPT
+- Compare professionally edited content with content generated by general-purpose AI assistants
 
 This real-world validation ensures the tool provides evaluations that align with both editorial excellence and SEO performance requirements, bridging the gap between content quality and search optimization.
 
 ### How does the tool measure content accuracy?
 
 The Content Quality Evaluator assesses accuracy through a sophisticated dual approach:
-- **Factual Verification**: Analyzes internal coherence of claims and statements within the content
-- **Logical Consistency Assessment**: Uses LLM-guided evaluation to check for logical consistency throughout the text
-- **Cross-Reference Capability**: For specific domains, can reference known facts against reliable sources
+
+- **Factual verification**: Analyzes internal coherence of claims and statements within the content
+- **Logical consistency assessment**: Uses LLM-guided evaluation to check for logical consistency throughout the text
+- **Cross-reference capability**: For specific domains, can reference known facts against reliable sources
 
 The accuracy score represents how well the content presents factually correct and logically consistent information that readers can trust.
 
@@ -152,17 +155,18 @@ The accuracy score represents how well the content presents factually correct an
 
 Content depth is evaluated through multiple signals that collectively determine how thoroughly a topic is covered:
 
-- **Topic Coverage Breadth**: How comprehensively the content addresses various aspects of the main topic
-- **Supporting Detail Density**: The richness of examples, statistics, and evidence provided
-- **Analysis Complexity**: Whether the content goes beyond surface-level explanations to provide deeper insights
-- **Citation Quality/Diversity**: The strength and variety of supporting references and sources
-- **Semantic Richness Metrics**: The sophistication of vocabulary and concept relationships within the text
+- **Topic coverage breadth**: How comprehensively the content addresses various aspects of the main topic
+- **Supporting detail density**: The richness of examples, statistics, and evidence provided
+- **Analysis complexity**: Whether the content goes beyond surface-level explanations to provide deeper insights
+- **Citation quality and diversity**: The strength and variety of supporting references and sources
+- **Semantic richness metrics**: The sophistication of vocabulary and concept relationships within the text
 
 Higher depth scores indicate content that provides comprehensive, nuanced coverage rather than superficial treatment of topics.
 
 ### Can I use this tool for different content types?
 
-Yes, the Content Quality Evaluator works effectively across various content types including:
+Yes, the Content Quality Evaluator works effectively across various content types, including:
+
 - Blog posts and articles
 - Product descriptions
 - Landing pages
@@ -174,6 +178,7 @@ The evaluation adapts to the specific purpose and audience of your content type,
 ### How often should I re-evaluate my content?
 
 For high-value pages, we recommend re-evaluation:
+
 - After significant content updates
 - Quarterly for cornerstone content
 - When search rankings fluctuate

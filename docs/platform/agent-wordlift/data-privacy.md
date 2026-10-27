@@ -1,33 +1,69 @@
 ---
-title: 🛡️ Data Privacy and Security
+title: "Data privacy and security in Agent WordLift"
+description: "What Agent WordLift stores and for how long, how connected data is encrypted, and why the data you submit is not used to train models."
+sidebar_label: "Data privacy and security"
 sidebar_position: 4
+last_updated: 2026-10-27
 ---
 
-# Our Commitment to Your Data
+# Data privacy and security in Agent WordLift
 
-At WordLift, we take data privacy and security very seriously. We are committed to **safeguarding any data entrusted to us** and have implemented **robust security measures** to ensure its protection.
+Agent WordLift keeps your files in a temporary workspace that is deleted after inactivity, and encrypts connected data at rest with AES-256. The model provider behind Agent WordLift does not use the data you submit to train or improve its models.
 
-## Our Security Measures
+This page describes how Agent WordLift handles your prompts, files and connected data. The [WordLift Terms of Service](https://wordlift.io/terms-of-service/) and the [WordLift Privacy Policy](https://wordlift.io/privacy-policy/) govern that handling.
 
-- **Secure access controls:** Each user has a dedicated, temporary workspace that stores files only during active use. These workspaces are automatically deleted after inactivity, minimizing data retention.
-- **Encryption at rest:** All data sources connected to WordLift are encrypted using the industry-standard AES-256 algorithm, including any PII (personally identifiable information) that may be detected, such as names, addresses, or social security numbers. This ensures confidentiality even if storage systems are compromised.
+## What Agent WordLift stores {#our-security-measures}
 
-## Our Service Provider's Data Security
+- **A temporary workspace per user.** Each user has a dedicated, temporary workspace that stores files only during active use. Agent WordLift deletes the workspace after a period of inactivity, which keeps data retention to a minimum.
+- **Encrypted connected data.** All data sources connected to WordLift are encrypted at rest with the AES-256 algorithm. This includes any personally identifiable information (PII) that is detected, such as names, addresses or social security numbers.
 
-We partner with Microsoft, which adheres to the following data privacy principles for the [Azure OpenAI Service](https://azure.microsoft.com/en-us/products/ai-services/openai-service):
+:::warning[Review needed]
+TODO [SME]: State how long the inactivity window is before a workspace is deleted, whether it holds uploads, chat history or both, and whether and in which region conversation histories are stored.
+:::
 
-- **No data usage for model training:** Azure OpenAI does not use any data you submit (prompts, completions, embeddings, or training data) to train or improve its models. This ensures your data is used solely for the intended purpose within WordLift's functionalities.
-- **Limited data retention:** Azure OpenAI stores your prompts and completions for up to 30 days solely for abuse monitoring and human review. This data is deleted unless legal requirements dictate otherwise. Customers can also apply to disable abuse monitoring, in which case their data is not stored. WordLift doesn’t have access to your prompts and completions at all unless we mutually agree to do so to improve the service.
-- **Industry-standard security practices:** Azure OpenAI employs rigorous security measures, including:
-  - **Double encryption at rest:** Your data is encrypted by default with Microsoft's AES-256 and can be optionally encrypted with your key.
-  - **Limited human access:** Only authorized Microsoft personnel can access flagged data for abuse monitoring using secure methods with strict access controls.
+## How the model provider handles your data {#our-service-providers-data-security}
 
-## Transparency and Access to Information
+Agent WordLift uses language models from a model provider. That provider commits to these principles for the data Agent WordLift sends to it:
 
-We believe in transparency and empower you to access information about your data and how it is handled.
+- **No training on your data.** The provider does not use the data you submit (prompts, completions, embeddings or training data) to train or improve its models.
+- **Limited retention.** The provider keeps prompts and completions for up to 30 days, only for abuse monitoring, and then deletes them unless legal requirements say otherwise.
+- **Encryption at rest.** The provider encrypts your data at rest.
+- **Limited human access.** Only authorized provider personnel can access flagged data for abuse monitoring, through secure methods with strict access controls.
 
-- **Azure OpenAI Service data privacy:** For further details on Azure OpenAI's security measures and data usage policies, please refer to their documentation: [Azure OpenAI Data Privacy](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy)
-- **WordLift's terms of service:** Our terms of service outline our commitment to data privacy and security in greater detail. You can access them here: [WordLift Terms of Service](https://wordlift.io/terms-of-service/)
-- **WordLift’s Privacy Policy:** Other companies track your conversations to create detailed profiles about you. We developed Agent WordLift to adhere to a strict privacy policy. You can access it here: [WordLift Privacy Policy](https://wordlift.io/privacy-policy/)
+WordLift has no access to your prompts and completions unless you and WordLift both agree to it, to improve the service.
 
-By choosing WordLift, you can be confident that your data is protected by industry-leading security practices and handled with the utmost care. We are committed to providing all our users with a safe and secure environment.
+:::warning[Review needed]
+TODO [Jason]: Legal review: confirm the page may state these provider-level commitments (no training use, up to 30 days of abuse-monitoring retention, limited human access) without naming the provider.
+:::
+
+## Connected data sources
+
+When you connect a data source such as Google Search Console or Google Analytics, access follows the provider's OAuth2 consent model:
+
+- **The account owner grants consent.** The owner of the provider account grants access on the provider's consent screen.
+- **Access is limited to the requested scopes.** The connector can use only the permissions it asked for.
+- **Tokens stay hidden.** WordLift stores the authorization state for your account, and Dashboard users never see the raw provider tokens.
+- **Disconnecting has two sides.** Disconnecting a source removes the authorization in WordLift. You may still need to revoke access in the provider account.
+
+For setup steps, see [Data sources: OAuth2 connections](/platform/data-sources/oauth2/).
+
+Treat your WordLift Key and any tokens as secrets. Store them in a secret manager your organization approves, and never expose them in client-side code.
+
+## Using Agent WordLift through other assistants
+
+You can reach Agent WordLift from AI assistants such as Claude, ChatGPT or Microsoft 365 Copilot through the [MCP Server](/tools/mcp-server/). This page describes how Agent WordLift handles data. It does not describe how the assistant you connect handles the data you send to it, so review that assistant's own terms.
+
+:::warning[Review needed]
+TODO [SME]: Describe what data flows between the assistant, the MCP Server and Agent WordLift, and which terms apply when Agent WordLift is used through the MCP Server in Claude, ChatGPT or Microsoft 365 Copilot.
+:::
+
+## Policies and terms {#transparency-and-access-to-information}
+
+- **[WordLift Terms of Service](https://wordlift.io/terms-of-service/)** set out WordLift's commitments on data privacy and security in detail.
+- **[WordLift Privacy Policy](https://wordlift.io/privacy-policy/)** explains how WordLift collects, uses and protects data.
+
+## Related
+
+- [Agent WordLift FAQ](/platform/agent-wordlift/faq/): short answers on data, usage and output.
+- [Security operating rules](/plans-and-pricing/enterprise/#security-operating-rules): how Enterprise teams store and rotate keys and credentials.
+- [Data ownership and portability](/platform/knowledge-graph/#data-ownership-and-portability): who owns your Knowledge Graph data and how to export it.

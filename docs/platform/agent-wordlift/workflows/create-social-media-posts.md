@@ -1,15 +1,20 @@
 ---
-title: Create social media posts using content on your website
+title: "Create social media posts using content on your website"
+description: "Write LinkedIn posts and X threads from your existing website content with Agent WordLift, matching your writing style and linking back to your pages."
+sidebar_label: "Social media posts"
 sidebar_position: 13
+last_updated: 2026-10-27
 ---
+
+# Create social media posts using content on your website
 
 ## Introduction
 
-Today, our goal is to **create, with the help of WordLift, compelling posts for LinkedIn** using the content we have on our website. In this example, we will use the agent’s multifunctional capability to **perform several tasks based on a single prompt**. WordLift AI SEO Agent will analyze content, extract entities, suggest keywords, and generate SEO-optimized posts for a specific audience on LinkedIn.
+This workflow shows how to **create LinkedIn posts with Agent WordLift** using the content you already have on your website. The example uses Agent WordLift's ability to **perform several tasks from a single prompt**. Agent WordLift analyzes content, extract entities, suggest keywords, and generate SEO-optimized posts for a specific audience on LinkedIn.
 
-## Writing Posts for LinkedIn
+## Write posts for LinkedIn {#writing-posts-for-linkedin}
 
-We will start with a first example related to our website to write content around “neuro-symbolic AI.”
+The first example writes content about "neuro-symbolic AI" using the WordLift website.
 
 ### Here goes the prompt
 
@@ -19,9 +24,9 @@ Search for 'neuro-symbolic AI' and carefully analyze the writing style on my web
 
 ![image](./images/agent-wordlift-social-media-posts-ideas.png)
 
-## Creating a Thread on X
+## Create a thread on X {#creating-a-thread-on-x}
 
-Let's craft now a similar prompt for creating *a Twitter thread*.
+Now use a similar prompt to create *a Twitter thread*.
 
 ### Here goes the prompt for X
 
@@ -31,19 +36,19 @@ Search for 'neuro-symbolic AI' and carefully analyze the writing style on my web
 
 ![image](./images/agent-wordlift-x-thread.png)
 
-## How Things Work Behind the Scenes
+## How it works {#how-things-work-behind-the-scenes}
 
-Using the prompt above, WordLift effectively assists you by:
+With the prompt above, Agent WordLift helps you by:
 
-- **Analyzing Your Website:** It searches your website for content related to "neuro-symbolic AI" to gather relevant information and understand your writing style. This ensures the generated content aligns with your existing content and voice.
-- **Identifying Key Terms:** It analyzes keywords related to "neuro-symbolic AI" and suggests relevant search terms to enhance your LinkedIn posts (or to create a thread on X). This expands your reach by including trending and related terms.
-- **Crafting Engaging Content:** It leverages the insights from the website analysis and keyword suggestions to create social media posts highlighting the innovative aspects of neuro-symbolic AI, its relevance to the publishing sector, and its benefits. These posts are designed to engage a business audience on LinkedIn or X and include links to your website content.
+- **Analyzing your website:** It searches your website for content related to "neuro-symbolic AI" to gather relevant information and understand your writing style. This ensures the generated content aligns with your existing content and voice.
+- **Identifying key terms:** It analyzes keywords related to "neuro-symbolic AI" and suggests relevant search terms to enhance your LinkedIn posts (or to create a thread on X). This expands your reach by including trending and related terms.
+- **Writing the content:** It uses the insights from the website analysis and keyword suggestions to create social media posts highlighting the innovative aspects of neuro-symbolic AI, its relevance to the publishing sector, and its benefits. These posts are designed to engage a business audience on LinkedIn or X and include links to your website content.
 
-Understanding these steps helps you trust the process and ensures the generated content aligns with your website's content and target audience.
+Understanding these steps helps you check that the generated content aligns with your website's content and target audience.
 
-## Final Review
+## Final review
 
-Finally, we can review the key concepts behind the generated posts for LinkedIn with a new prompt:
+Finally, review the key concepts behind the generated posts for LinkedIn with a new prompt:
 
 ```md className=wlx-send-to-agent
 Draw a mind map of the key concepts behind each post.
@@ -51,6 +56,4 @@ Draw a mind map of the key concepts behind each post.
 
 ![image](./images/agent-wordlift-mind-map-social-media-posts.png)
 
-This will produce the following result.
-
-By following this workflow, you can efficiently produce targeted, **SEO-optimized social media content** that resonates with your audience, leveraging the comprehensive capabilities of the WordLift AI SEO Agent.
+By following this workflow, you can efficiently produce targeted, **SEO-optimized social media content** for your audience with Agent WordLift.

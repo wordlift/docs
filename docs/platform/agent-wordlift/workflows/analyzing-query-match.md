@@ -1,33 +1,36 @@
 ---
-title: Align Content with the Intended Search Query
+title: "Align content with the intended search query"
+description: "Evaluate a page against its target query and search intent with Agent WordLift, then get suggestions to improve and expand it in one or two prompts."
+sidebar_label: "Align content with a query"
 sidebar_position: 9
+last_updated: 2026-10-27
 ---
 
-# Search Intent Match
+# Align content with the intended search query
 
-This workflow is designed to help us **align our content with the intended search query** to ensure maximum relevance and engagement from our target audience. By understanding and [matching the search intent](https://wordlift.io/blog/en/search-intent-optimization/), we can create content that not only ranks well but also satisfies the user's informational needs.
+This workflow helps you **align your content with the intended search query** so it stays relevant and engaging for your target audience. By understanding and [matching the search intent](https://wordlift.io/blog/en/search-intent-optimization/), you can create content that ranks well and answers the searcher's informational needs.
 
 ## Here are the steps
 
 To ensure your webpage aligns perfectly with the intended search query, follow this streamlined workflow:
 
-## 1. Identify the Core Query and Intent
+## 1. Identify the core query and intent
 
-Start by pinpointing the exact query you aim to target. Understand the intent behind the search - is it informational, navigational, transactional, or investigational? You can try a prompt like the one below:
+Start by pinpointing the exact query you aim to target. Understand the intent behind the search: is it informational, navigational, transactional, or investigational? You can try a prompt like the one below:
 
 ```md className=wlx-send-to-agent
 evaluate the content quality for the keyword 'Future-Proof Your Content From Google Core Updates' in relation to the content on 'https://wordlift.io/blog/en/google-core-update-ai-interview/' the intent is to gain information on how to improve existing content.
 ```
 
-With this prompt, we define the **query**, the **url** as well as the narrative behind the searcher's intent.
+With this prompt, you define the **query**, the **URL** and the narrative behind the searcher's intent.
 
-### Here is what we get
+### Here is what you get {#here-is-what-we-get}
 
 ![image](./images/agent-wordlift-query-match.png)
 
 ## 2. Expand the content based on the analysis
 
-Within the first response, we can now proceed with the following step to gain new insights on how to improve the article in order to match the provided query and search intent:
+After the first response, continue with the following prompt to get insights on how to improve the article to match the provided query and search intent:
 
 ```md className=wlx-send-to-agent
 Can you help me improve and expand the blog post to match the query?
@@ -37,9 +40,9 @@ Can you help me improve and expand the blog post to match the query?
 
 ![image](./images/agent-wordlift-query-match-expansion.png)
 
-### Can we do it all in one step?
+### Do it all in one step {#can-we-do-it-all-in-one-step}
 
-Of course you can. Here is the prompt:
+You can run both steps with a single prompt:
 
 ```md className=wlx-send-to-agent
 evaluate the content quality for the keyword 'Future-Proof Your Content From Google AI Core Updates' in relation to the content on 'https://wordlift.io/blog/en/google-core-update-ai-interview/' the intent is to gain information on how to improve content. After that help me improve and expand the blog post accordingly.

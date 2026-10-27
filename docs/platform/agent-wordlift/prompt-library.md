@@ -1,19 +1,21 @@
 ---
-title: 📚 Prompt Library
+title: "Prompt Library"
+description: "Copy ready-to-use Agent WordLift prompts for analysis, content creation, SEO, Search Console, Analytics, local SEO and AI Overview tasks."
 sidebar_position: 5
+last_updated: 2026-10-27
 ---
 
-# Unleash the Power of Agent WordLift: Explore a Range of Capabilities
+# Prompt Library
 
-This comprehensive library contains ready-to-use prompts for Agent WordLift, optimized for both the web interface and Chrome extension. Each prompt is formatted for easy copying and immediate use.
+This library contains ready-to-use prompts for Agent WordLift, for both the web app and the Chrome extension. Each prompt is formatted so you can copy it and use it right away.
 
-These prompts also ship inside the downloadable [Agent WordLift Skill](./integrations.md#agent-wordlift-claude-skill), ready to use from any MCP-capable AI assistant.
+These prompts also ship inside the downloadable [Agent WordLift Skill](/tools/agent-wordlift-skill/), ready to use from any MCP-capable AI assistant.
 
-For an explanation of how Agent WordLift capabilities are organized into tool families, data sources, workflows, and integration surfaces, see [Agent WordLift Tools](./tool-families.md).
+To see how Agent WordLift capabilities are organized into tool families, data sources, workflows and integration surfaces, see [Agent WordLift tool families](/platform/agent-wordlift/tool-families/).
 
-## 🔍 Analysis & Research
+## Analysis and research {#-analysis--research}
 
-### Analyze Text
+### Analyze text
 
 ```md className=wlx-send-to-agent
 analyze this text to identify the main entities and keywords: [your text here]
@@ -25,13 +27,13 @@ analyze this text to identify the main entities and keywords: [your text here]
 analyze the entities on this webpage: [URL]
 ```
 
-### Analyze Query
+### Analyze query
 
 ```md className=wlx-send-to-agent
 analyze the query '[query]' on [google.co.uk]
 ```
 
-### Domain-Specific Search
+### Domain-specific search
 
 ```md className=wlx-send-to-agent
 perform a domain-specific search for articles related to '[topic]' on my website
@@ -49,15 +51,15 @@ analyze the trends for '[keyword1]' and '[keyword2]'
 Provide me with insights on the Reddit exposure of the following domains: [URL]
 ```
 
-## 📝 Content Creation & Enhancement
+## Content creation and enhancement {#-content-creation--enhancement}
 
-### Content Expansion
+### Content expansion
 
 ```md className=wlx-send-to-agent
 expand the content of this URL '[URL]' by focusing on the entities '[entity1]' and '[entity2]'
 ```
 
-### Content Creation
+### Content creation
 
 ```md className=wlx-send-to-agent
 create a new article about '[topic]' using insights from our website's existing content
@@ -69,51 +71,51 @@ create a new article about '[topic]' using insights from our website's existing 
 run a search on '[topic]' using only the content on this website. Develop an AI-powered snapshot that provides a quick overview, offering links with text anchors to supporting articles. Be extremely concise, using only three sentences. Embed links directly in the key text of each statement.
 ```
 
-### Generate Meta Titles and Descriptions
+### Generate meta titles and descriptions
 
 ```md className=wlx-send-to-agent
 search the site and generate an SEO-optimized meta title and meta description for this webpage: [URL]. Use the Keyword Suggestion tool to incorporate high-impact keywords relevant to the content, and maintain a clear, concise tone. For the meta description, aim for an informative and engaging tone that aligns with user search intent and encourages clicks. Ensure the meta title is under 60 characters and the description under 160 characters for optimal discoverability.
 ```
 
-## 🎯 SEO & Technical Analysis
+## SEO and technical analysis {#-seo--technical-analysis}
 
-### Entity Gap Analysis
+### Entity gap analysis
 
 ```md className=wlx-send-to-agent
 perform an entity gap analysis for '[URL]' against the query '[query]'
 ```
 
-### Content Evaluation
+### Content evaluation
 
 ```md className=wlx-send-to-agent
 evaluate the content quality for the keyword '[keyword]' in relation to the content on '[URL]'
 ```
 
-### Google Search Console Analysis
+### Google Search Console analysis
 
 ```md className=wlx-send-to-agent
 show me the top 10 queries that have high impressions but low CTR over the last 30 days
 ```
 
-### Performance Comparison
+### Performance comparison
 
 ```md className=wlx-send-to-agent
 analyze my Google Search Console data and compare desktop vs. mobile performance for my top 20 landing pages in the last 14 days
 ```
 
-### Opportunity Discovery
+### Opportunity discovery
 
 ```md className=wlx-send-to-agent
 identify new keyword opportunities from my Google Search Console data where I'm ranking on page 2 (positions 11-20)
 ```
 
-### Google Discover Analysis
+### Google Discover analysis
 
 ```md className=wlx-send-to-agent
 analyze my Google Search Console data for the search type "discover". Show me the top 20 pages with the highest clicks over the last 30 days. Include clicks, impressions, and CTR for each page.
 ```
 
-### Google Analytics 4 (GA4) Analysis
+### Google Analytics 4 (GA4) analysis
 
 ```md className=wlx-send-to-agent
 provide an analysis of all AI referral traffic over the last week
@@ -127,25 +129,25 @@ analyze my GA4 data and show the top landing pages by sessions, engagement rate,
 compare organic search traffic vs AI referral traffic in GA4 for the last 28 days, including sessions, engaged sessions, and conversion rate
 ```
 
-### Generate Diagram
+### Generate diagram
 
 ```md className=wlx-send-to-agent
 generate a mind map to visualize the topic clusters for '[topic]'
 ```
 
-### Fact-Checking
+### Fact-checking
 
 ```md className=wlx-send-to-agent
 fact-check this statement: '[statement]'
 ```
 
-### Keyword Suggestions
+### Keyword suggestions
 
 ```md className=wlx-send-to-agent
 generate keyword suggestions based on '[keyword]' to refine content focus and enhance discoverability online
 ```
 
-### Analyze and Differentiate Webpages
+### Analyze and differentiate webpages
 
 ```md className=wlx-send-to-agent
 analyze the following pages from the website:
@@ -160,13 +162,13 @@ For each page:
 5. Recommend optimizations
 ```
 
-### Audit the Markup
+### Audit the markup
 
 ```md className=wlx-send-to-agent
 analyze the markup of the page at [URL], focusing on the JSON-LD. Provide a brief review and include your recommendations for improvement. Keep the analysis concise.
 ```
 
-### Analyze Schema Types
+### Analyze schema types
 
 ```md className=wlx-send-to-agent
 1. Analyze the schema types and properties used in the JSON-LD of this article: [URL]
@@ -177,15 +179,15 @@ analyze the markup of the page at [URL], focusing on the JSON-LD. Provide a brie
 6. Write recommendations for improvement
 ```
 
-## 🤖 AI Sub-Agent Workflows
+## AI sub-agent workflows {#-ai-sub-agent-workflows}
 
-### Instagram Indexing Analysis
+### Instagram indexing analysis
 
 ```md className=wlx-send-to-agent
 Generate a comprehensive Instagram indexing report for @[instagram_handle]. Please analyze my website's entity structure, audit Instagram content indexing using search operators, and provide content alignment recommendations.
 ```
 
-### Instagram Content Audit
+### Instagram content audit
 
 ```md className=wlx-send-to-agent
 Using search operators, audit my Instagram presence:
@@ -194,78 +196,77 @@ Using search operators, audit my Instagram presence:
 3. Compare findings with my website's content coverage
 ```
 
-### Cross-Platform Content Strategy
+### Cross-platform content strategy
 
 ```md className=wlx-send-to-agent
 Analyze content alignment between my website and Instagram account @[handle]. Identify entities that are well-covered on Instagram but missing from my website, and suggest content opportunities for both platforms.
 ```
 
-### Instagram SERP Monitoring
+### Instagram SERP monitoring
 
 ```md className=wlx-send-to-agent
 Set up monitoring for key search queries where my Instagram content @[handle] could rank. Compare current visibility against main website pages and identify optimization opportunities.
 ```
 
-## 🔍 Enhanced Knowledge Graph Research {#enhanced-knowledge-graph-research}
+## Enhanced Knowledge Graph research {#enhanced-knowledge-graph-research}
 
-### Enhanced Entity Lookup
+### Enhanced entity lookup
 
 ```md className=wlx-send-to-agent
 research comprehensive information about [entity name] using the enhanced Google Knowledge Graph with WordLift semantic enrichment
 ```
 
-### Corporate Intelligence Research
+### Corporate intelligence research
 
 ```md className=wlx-send-to-agent
 analyze the company [company name] using enhanced knowledge graph data. Include headquarters, key people, industry classification, founding details, and semantic relationships with competitors
 ```
 
-### Person Entity Deep Dive
+### Person entity deep dive
 
 ```md className=wlx-send-to-agent
 provide enhanced biographical data for [person name] including occupation, education, nationality, and semantic connections using the enhanced knowledge graph
 ```
 
-### Entity Relationship Mapping
+### Entity relationship mapping
 
 ```md className=wlx-send-to-agent
 map the semantic relationships between [entity1] and [entity2] using enhanced knowledge graph data. Identify shared attributes, connections, and contextual relationships
 ```
 
-### Multi-Entity Comparative Analysis
+### Multi-entity comparative analysis
 
 ```md className=wlx-send-to-agent
 compare and analyze the following entities using enhanced knowledge graph data: [entity1], [entity2], [entity3]. Highlight similarities, differences, and competitive positioning
 ```
 
-### Content Enhancement Research
+### Content enhancement research
 
 ```md className=wlx-send-to-agent
 research [entity name] for content creation purposes using enhanced knowledge graph data. Focus on unique details, lesser-known facts, notable achievements, and semantic connections that would enhance article depth and authority
 ```
 
-### Corporate Leadership Analysis
+### Corporate leadership analysis
 
 ```md className=wlx-send-to-agent
 analyze the leadership team of [company name] using enhanced knowledge graph data. Include biographical details, career backgrounds, education, and cross-company relationships
 ```
 
-### Geographic Entity Intelligence
+### Geographic entity intelligence
 
 ```md className=wlx-send-to-agent
 research comprehensive geographic and demographic data for [location name] using enhanced knowledge graph. Include population, administrative divisions, economic data, and regional relationships
 ```
 
+## Internal linking {#-internal-linking}
 
-## 🔗 Internal Linking
-
-### Create Internal Links
+### Create internal links
 
 ```md className=wlx-send-to-agent
 find content on my website from the '[title]' page ([URL]). Analyze the text to identify up to 5 related articles. For each article, determine a relevant keyword, generate keyword suggestions, and create an anchor text of no more than 30 characters. Compile the HTML for all 5 links with their respective anchor texts.
 ```
 
-### Create Internal Links In Batch
+### Create internal links in batch
 
 ```md className=wlx-send-to-agent
 do the same internal linking work for the following pages:
@@ -275,31 +276,31 @@ do the same internal linking work for the following pages:
 Remember: never link to the homepage; choose anchors based on content relevance and keyword opportunity.
 ```
 
-## 🛍️ Product Content
+## Product content
 
-### Generate Product Highlights
+### Generate product highlights
 
 ```md className=wlx-send-to-agent
 find everything on the website about [product]. Based on this information, write short bullet points of the most relevant product highlights. The highlights should help shoppers with easily consumable, quick-to-scan sentence fragments that answer common consumer questions or focus on the most important attributes of the product. Instructions: Limit 1-150 characters per highlight; recommend 4-6 highlights; minimum 2 highlights; do not mention discounts; ensure content complies with data privacy regulations.
 ```
 
-## 📱 Social Media
+## Social media {#-social-media}
 
-### Content Buckets
+### Content buckets
 
 ```md className=wlx-send-to-agent
 search for content related to '[topic1]', '[topic2]' and create content buckets for social media.
 ```
 
-### Create a Thread on X
+### Create a thread on X
 
 ```md className=wlx-send-to-agent
 search for '[topic]' and analyze the writing style on my website. Create a Twitter thread to promote the topic to [target audience], adding links back to the website to help users discover additional information.
 ```
 
-## 🔧 HTML & Technical Analysis
+## HTML and technical analysis {#-html--technical-analysis}
 
-### HTML Analysis
+### HTML analysis
 
 ```md className=wlx-send-to-agent
 extract html from '[URL]' and analyze the page focusing on:
@@ -311,9 +312,9 @@ extract html from '[URL]' and analyze the page focusing on:
 Provide specific recommendations for improving conversion rates.
 ```
 
-## 📈 Conversion Rate Optimization
+## Conversion rate optimization {#-conversion-rate-optimization}
 
-### Comprehensive SEO and CRO Analysis
+### Comprehensive SEO and CRO analysis
 
 ```md className=wlx-send-to-agent
 **Task: Comprehensive HTML Extraction, SEO, and Conversion Optimization Analysis**
@@ -386,34 +387,33 @@ Provide specific recommendations for improving conversion rates.
 - Use both qualitative and quantitative data to support recommendations.
 ```
 
+## Local SEO {#-local-seo}
 
-## 🏪 Local SEO
-
-### Analyze Business Profile
+### Analyze a Business Profile {#analyze-business-profile}
 
 ```md className=wlx-send-to-agent
 Analyze the Google Business Profile for "[business name]" in "[City,State,Country]". Identify strengths, weaknesses, and opportunities for optimization.
 ```
 
-### Research Local Pack Results
+### Research Local Pack results
 
 ```md className=wlx-send-to-agent
 Show me the Local Pack results for "[keyword]" in "[City,State,Country]". Analyze what factors might be helping these businesses rank in the Local Pack.
 ```
 
-### Track Business Rankings
+### Track business rankings
 
 ```md className=wlx-send-to-agent
 Track the rankings of "[business name]" for "[keyword]" in "[City,State,Country]".
 ```
 
-### Analyze Customer Q&A
+### Analyze customer Q&A
 
 ```md className=wlx-send-to-agent
 Analyze questions and answers for "[business name]" in "[City,State,Country]". Identify common themes, response patterns, and opportunities for better engagement.
 ```
 
-### Comprehensive Local SEO Audit
+### Comprehensive local SEO audit
 
 ```md className=wlx-send-to-agent
 Conduct a complete local SEO audit for "[business name]" in "[City,State,Country]":
@@ -424,33 +424,33 @@ Conduct a complete local SEO audit for "[business name]" in "[City,State,Country
 5. Provide actionable recommendations for improvement
 ```
 
-### Compare with Competitors
+### Compare with competitors
 
 ```md className=wlx-send-to-agent
 Compare the Google Business Profile for "[my business]" with competitors "[competitor 1]" and "[competitor 2]" in "[City,State,Country]". Highlight key differences and competitive advantages.
 ```
 
-### Local Business Visibility Strategy
+### Local business visibility strategy
 
 ```md className=wlx-send-to-agent
 Create a comprehensive strategy to help "[business name]" in "[City,State,Country]" improve local search visibility for "[target keyword]". Include profile optimization, review management, and Q&A engagement tactics.
 ```
 
-## 🧠 Google AI Overview & SERP Intelligence
+## Google AI Overview and SERP intelligence {#-google-ai-overview--serp-intelligence}
 
-### Check AI Overview Presence
+### Check AI Overview presence
 
 ```md className=wlx-send-to-agent
 Check if Google is showing an AI Overview for the query "[keyword]" in [Country].
 ```
 
-### Get AI Overview Insights
+### Get AI Overview insights
 
 ```md className=wlx-send-to-agent
 Analyze the Google AI Overview for "[keyword]" and tell me which websites are being cited.
 ```
 
-### Batch AI Overview Detection
+### Batch AI Overview detection
 
 ```md className=wlx-send-to-agent
 For the following keywords, check which ones trigger a Google AI Overview:
@@ -459,24 +459,24 @@ For the following keywords, check which ones trigger a Google AI Overview:
 - "[keyword3]"
 ```
 
-### Compare organic search vs AI mode
+### Compare organic search vs AI Mode
 
 ```md className=wlx-send-to-agent
 Compare the Google AI Overview (standard search) with the Google AI Mode response for the query "[keyword]". Highlight differences in cited sources, answer depth, and follow-up topics.
 ```
 
-## Tips for Using Prompts
+## Tips for using prompts
 
-1. **Be Specific**: Include exact URLs, keywords, or text you want to analyze
-2. **Customize**: Modify prompts to match your specific needs
-3. **Combine**: Use multiple prompts together for comprehensive analysis
-4. **Verify**: Always review and verify the generated content
-5. **Iterate**: Refine prompts based on results
+1. **Be specific.** Include the exact URLs, keywords or text you want to analyze.
+2. **Customize.** Change the prompts to match your needs.
+3. **Combine.** Use several prompts together for a fuller analysis.
+4. **Verify.** Always review and verify the generated content.
+5. **Iterate.** Refine your prompts based on the results.
 
-Need help? Contact our support team at [support@wordlift.io](mailto:support@wordlift.io)
+Need help? Contact support at [support@wordlift.io](mailto:support@wordlift.io).
 
 :::tip
 
-For tasks involving multiple entities, such as products, it is advisable to utilize the [Content Generation Tool](/platform/agent-wordlift/content-generation/).
+For tasks that involve many entities, such as products, use [Content Generation](/platform/agent-wordlift/content-generation/).
 
 :::

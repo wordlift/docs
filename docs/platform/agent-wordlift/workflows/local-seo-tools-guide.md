@@ -1,13 +1,15 @@
 ---
-title: Local SEO Tools Reference
+title: "Local SEO tools reference"
+description: "Look up Agent WordLift's Local SEO tools, their prompt syntax, location and language formats, data limits and common errors."
 sidebar_position: 21
+last_updated: 2026-10-27
 ---
 
-# Local SEO Tools Reference
+# Local SEO tools reference
 
-This guide provides detailed information about Agent WordLift's Local SEO tools, their capabilities, and technical specifications. For a strategic overview of local SEO best practices, see our article on [Optimizing Local SEO - How to Create Winning Strategies](https://wordlift.io/blog/en/optimizing-local-seo/).
+This guide provides detailed information about Agent WordLift's Local SEO tools, their capabilities, and technical specifications. For a strategic overview of local SEO best practices, see the article [Optimizing Local SEO: How to Create Winning Strategies](https://wordlift.io/blog/en/optimizing-local-seo/).
 
-## Available Tools
+## Available tools
 
 ### Google Business Profile Analyzer
 
@@ -88,7 +90,7 @@ Track the rankings of "[business name]" for "[keyword]" in "[City,State,Country]
 Track the rankings of "[business name]" for these keywords: "[keyword1]", "[keyword2]", "[keyword3]" in "[City,State,Country]"
 ```
 
-### Q&A Analysis Tool
+### Q&A analysis tool
 
 Examines customer questions and business responses on Google Business Profiles.
 
@@ -114,9 +116,9 @@ Analyze questions and answers for "[business name]" in "[City,State,Country]"
 Analyze questions and answers for "[business name]" in "[City,State,Country]" with depth:50
 ```
 
-## Technical Notes
+## Technical notes
 
-### Location Format
+### Location format
 
 For optimal results, use the following format for locations:
 
@@ -124,7 +126,7 @@ For optimal results, use the following format for locations:
 - Examples: `Manhattan,New York,United States` or `Rome,Lazio,Italy`
 - For general searches, you can use just the country: `United States`
 
-### Language Support
+### Language support
 
 These tools support multiple languages. Specify the language code for non-English searches:
 
@@ -134,18 +136,18 @@ Analyze the Google Business Profile for "[business name]" in "[City,State,Countr
 
 Supported language codes include:
 
-- `en` - English (default)
-- `fr` - French
-- `es` - Spanish
-- `de` - German
-- `it` - Italian
+- `en`: English (default)
+- `fr`: French
+- `es`: Spanish
+- `de`: German
+- `it`: Italian
 - And many more
 
-### Data Freshness
+### Data freshness
 
 The data returned by these tools is typically current within 24-48 hours of changes to Google's search results or business listings.
 
-### Data Limitations
+### Data limitations
 
 While these tools provide comprehensive information, some limitations apply:
 
@@ -154,9 +156,9 @@ While these tools provide comprehensive information, some limitations apply:
 - Internal business metrics are not accessible
 - Some data may be unavailable for businesses with minimal online presence
 
-## Integration Examples
+## Integration examples
 
-### Combining Multiple Tools
+### Combining multiple tools
 
 For comprehensive analysis, combine multiple tools in a single request:
 
@@ -168,7 +170,7 @@ For "Mountain View Cafe" in "Denver,Colorado,United States":
 4. Provide an overall assessment and recommendations
 ```
 
-### Cross-Location Analysis
+### Cross-location analysis
 
 Compare the same business across different locations:
 
@@ -181,7 +183,7 @@ Compare the Google Business Profiles and local rankings for:
 Highlight key differences and location-specific factors.
 ```
 
-### Competitive Analysis
+### Competitive analysis
 
 Compare multiple businesses in the same location:
 
@@ -193,11 +195,11 @@ Analyze and compare these three restaurants in "Boston,Massachusetts,United Stat
 Compare their profiles, rankings, and customer engagement.
 ```
 
-## Common Error Troubleshooting
+## Common error troubleshooting
 
 If you encounter errors, try these solutions:
 
-| Error Message | Likely Cause | Solution |
+| Error message | Likely cause | Solution |
 |---------------|--------------|----------|
 | "Invalid location format" | Incorrect location formatting | Use format "City,State,Country" without spaces after commas |
 | "No Google Business Profile found" | Business name not recognized | Try adding location to name, use more popular name variation, or use identifier if available |

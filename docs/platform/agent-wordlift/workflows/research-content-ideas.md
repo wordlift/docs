@@ -1,11 +1,16 @@
 ---
-title: Research Content Ideas Using Reddit Discussions
+title: "Research content ideas using Reddit discussions"
+description: "Find questions, pain points and trends in Reddit discussions with Agent WordLift, compare them with your site and get a content proposal."
+sidebar_label: "Research content ideas"
 sidebar_position: 18
+last_updated: 2026-10-27
 ---
 
-Reddit is a powerful platform for SEO research and content ideation. Learn more about leveraging Reddit for SEO in our guide: [How to use Reddit for SEO: Best Practices, Tips & Strategies](https://wordlift.io/blog/en/reddit-for-seo-best-practices/).
+# Research content ideas using Reddit discussions
 
-## Watch the Workflow in Action
+Reddit is a useful platform for SEO research and content ideation. Learn more about using Reddit for SEO in our guide: [How to use Reddit for SEO: Best Practices, Tips & Strategies](https://wordlift.io/blog/en/reddit-for-seo-best-practices/).
+
+## Watch the workflow in action
 
 Learn how to effectively research content ideas using Reddit discussions with Agent WordLift:
 
@@ -25,7 +30,7 @@ In this video, you'll see how to:
 - Create content proposals based on Reddit insights
 - Align your content with genuine user needs
 
-## Quick Topic Research
+## Quick topic research
 
 The most effective way to start is with a comprehensive analysis prompt:
 
@@ -33,7 +38,7 @@ The most effective way to start is with a comprehensive analysis prompt:
 Search for top-engaged discussions and frequent questions about skincare routines on Reddit, focusing on user pain points and emerging trends. Then analyze my website's content to identify gaps and create a content proposal that aligns with genuine user needs while highlighting opportunities to enhance existing articles.
 ```
 
-The Agent will analyze:
+Agent WordLift analyzes:
 
 - Popular Reddit discussions
 - User pain points and questions
@@ -45,21 +50,21 @@ The Agent will analyze:
 
 The image above shows Agent WordLift analyzing both Reddit discussions and your website content using specialized APIs to gather comprehensive insights.
 
-## Understanding the Analysis
+## Understanding the analysis
 
 Agent WordLift provides structured analysis in several key areas:
 
-1. Key Topics and User Questions from Reddit
-2. Existing Content on Your Website
-3. Detailed Content Proposal with:
+1. Key topics and user questions from Reddit
+2. Existing content on your website
+3. Detailed content proposal with:
    - Introduction approach
    - Section breakdowns
    - Enhancement opportunities
    - Call to action suggestions
 
-## Advanced Research Options
+## Advanced research options
 
-### Analyze Specific Websites
+### Analyze specific websites
 
 For deeper competitive analysis:
 
@@ -72,7 +77,7 @@ https://example3.com/routines
 Then find relevant discussions on Reddit and create a content proposal.
 ```
 
-### Discover Top Rankings
+### Discover top rankings
 
 To analyze top-ranking domains and Reddit discussions:
 
@@ -80,7 +85,7 @@ To analyze top-ranking domains and Reddit discussions:
 Find the top 5 ranking domains for "skincare routines", analyze their content, and compare with Reddit discussions to create a content proposal.
 ```
 
-## Next Steps
+## Next steps
 
 Get more detailed insights with follow-up analysis:
 

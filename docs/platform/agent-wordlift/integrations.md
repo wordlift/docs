@@ -1,487 +1,101 @@
 ---
-title: ⚙️ Integrations
+title: "Agent WordLift integrations"
+description: "Use Agent WordLift in AI assistants, the terminal, your own code and automation tools. Pick the integration that fits and go to its setup guide."
+sidebar_label: "Integrations"
 sidebar_position: 7
+last_updated: 2026-10-27
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# Agent WordLift integrations
 
-:::info Version Notice
-Latest Documentation Update: September 2026 - Added a Microsoft 365 Copilot walkthrough for connecting WordLift's MCP tools through Copilot Studio.
+Agent WordLift works outside its web app too: in AI assistants, in the terminal, in your own applications and in automation tools. Use the table to pick an integration, then follow its guide.
+
+| Integration | Use it when | Guide |
+| --- | --- | --- |
+| MCP Server | You want an AI assistant such as Claude, Cursor or Windsurf to call Agent WordLift and query your Knowledge Graph. | [MCP Server](/tools/mcp-server/) |
+| Microsoft 365 Copilot | You want Agent WordLift inside Copilot chat through a Copilot Studio agent. | [Microsoft 365 Copilot](/tools/mcp-server/microsoft-365-copilot/) |
+| Agent WordLift Skill | You want an MCP-capable assistant to follow WordLift tool routing, SEO audits and workflow recipes. | [Agent WordLift Skill](/tools/agent-wordlift-skill/) |
+| wordlift-cli | You want to work with Agent WordLift from the terminal. | [wordlift-cli](/tools/wordlift-cli/) |
+| Agent WordLift API | You want to send messages to Agent WordLift from your own application. | [Agent WordLift API](#agent-wordlift-api-integration) |
+| Zapier | You want to run Agent WordLift in automated workflows with other apps. | [Zapier](/integrations/zapier/) |
+| Chrome Extension | You want to use Agent WordLift in your browser. | [Agent WordLift Extension](/tools/chrome-extension/) |
+| Google AI Edge GraphQL | You are building agentic workflows on edge-capable models and want to query WordLift GraphQL. | [Google AI Edge GraphQL](#agent-wordlift-google-ai-edge-graphql-integration) |
+
+For how the capabilities are organized, see [Agent WordLift tool families](/platform/agent-wordlift/tool-families/). For ready-to-use prompts, see the [Prompt Library](/platform/agent-wordlift/prompt-library/), and for end-to-end recipes, see [Agent WordLift workflows](/platform/agent-wordlift/workflows/).
+
+## MCP Server {#agent-wordlift-model-context-protocol-mcp-integration}
+
+The WordLift MCP Server connects AI assistants to Agent WordLift through the Model Context Protocol (MCP). It is reachable at `https://mcp.wordlift.io/streamable-http` and supports direct calls to Agent WordLift capabilities and GraphQL queries on your Knowledge Graph. The MCP Server is currently experimental.
+
+Setup steps for each assistant now live on their own page: [MCP Server](/tools/mcp-server/).
+
+:::warning[Review needed]
+TODO [SME]: Confirm whether the MCP Server is still experimental.
 :::
 
-# Integrations
+## Microsoft 365 Copilot {#microsoft-365-copilot-via-copilot-studio}
 
-This page is the canonical place for Agent WordLift integration surfaces and setup instructions (MCP, CLI, API, and automation platforms).
+You can bring Agent WordLift into Microsoft 365 Copilot by building a Copilot Studio agent that connects to the MCP Server with OAuth 2.0, then publishing it to Copilot.
 
-For architecture and tool-family organization, see [Agent WordLift Tools](./tool-families.md).
-
-For ready-to-use prompts, see the [Prompt Library](./prompt-library.md).
-
-For end-to-end recipes that combine multiple tools, see [Workflows](./workflows/index.md).
-
-## Agent WordLift Model Context Protocol (MCP) Integration
-
-Your preferred AI models and agents can use our official MCP server to access your Knowledge Graph and leverage Agent WordLift in a simple and secure way.
-
-Connect WordLift to various AI assistants through our **experimental Model Context Protocol (MCP) integration**. This integration enables AI models like Claude to directly interact with your content and knowledge graph, unlocking powerful new workflows.
-
-Our MCP server is reachable at `https://mcp.wordlift.io/streamable-http` and currently supports:
-- Direct calls to Agent WordLift's capabilities
-- Execution of GraphQL queries on your knowledge graph
-- Seamless integration with supported AI assistants
-
-To ask about your Monitor results through the MCP Server, see [Ask your AI assistant about Monitor](../monitor/ask-your-ai-assistant.md).
-
-Watch how Claude, integrated with WordLift via Model Context Protocol, analyzes the WordLift Blog to uncover actionable insights around the "Agentic SEO" content cluster:
-
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/6dz_-LbP3eQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-
-### Setup Instructions
-
-**For Claude:**
-1. Navigate to Settings in Claude
-2. Scroll to Integrations at the bottom and click Add more
-3. In the prompt, enter:
-   - Integration name: WordLift
-   - Integration URL: https://mcp.wordlift.io/streamable-http
-4. Make sure to enable the tools in any new chats
-
-**For Cursor:**
-1. Press CTRL/CMD+Shift+J to open Cursor Settings
-2. Select MCP
-3. Select Add new global MCP server
-4. Add the following configuration:
-```json
-{
-  "mcpServers": {
-    "wordlift": {
-      "command": "npx",
-      "args": ["-y", "mcp-remote", "https://mcp.wordlift.io/streamable-http"]
-    }
-  }
-}
-```
-
-:::tip Advanced: Header-based Authorization
-For programmatic use or advanced configurations, you can provide the API key directly in the configuration using the `--header` flag:
-```json
-{
-  "mcpServers": {
-    "wordlift": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "mcp-remote",
-        "https://mcp.wordlift.io/streamable-http",
-        "--header",
-        "Authorization: Key YOUR_WORDLIFT_API_KEY_HERE"
-      ]
-    }
-  }
-}
-```
-:::
-
-**For Visual Studio:**
-1. Press CTRL/CMD+P and search for "MCP: Add Server"
-2. Select "Command (stdio)"
-3. Enter the following configuration and hit enter:
-   ```
-   npx mcp-remote https://mcp.wordlift.io/streamable-http
-   ```
-4. Enter the name "WordLift" and hit enter
-5. Activate the server using "MCP: List Servers", selecting "WordLift", and selecting "Start Server"
-
-**For Windsurf:**
-1. Press CTRL/CMD+, to open Windsurf settings
-2. Under Cascade -> MCP servers
-3. Select Add Server -> Add custom server
-4. Add the same JSON configuration as shown above for Cursor
-
-**For Microsoft 365 Copilot (via Copilot Studio):** build a Copilot Studio agent, connect it to WordLift's MCP server (`https://mcp.wordlift.io/streamable-http`, OAuth 2.0), and publish it to Microsoft 365 Copilot. See the full walkthrough in [Microsoft 365 Copilot (via Copilot Studio)](#microsoft-365-copilot-via-copilot-studio) below.
-
-This experimental integration opens up new possibilities by combining the reasoning capabilities of large language models with WordLift's structured knowledge and SEO expertise. From identifying content gaps to suggesting improvements, this integration showcases how symbolic AI and LLMs can work together to power the next generation of marketing strategies.
-
-**🚀 New: AI Sub-Agent Workflows**
-The MCP integration enables a new category of workflows where Agent WordLift operates as a specialized SEO sub-agent within other AI platforms. These workflows leverage the conversational capabilities of Claude, ChatGPT, Copilot, or Gemini while providing deep SEO expertise through WordLift. Explore our [Instagram Indexing Analysis workflow](./workflows/instagram-indexing-analysis.md) to see this in action.
-
-:::note
-The MCP integration is **currently experimental** and we're actively expanding its capabilities. If you have questions or feedback, please reach out to our support team.
-:::
-
-:::tip Related Resources
-- [Google announcement: Bring state-of-the-art agentic skills to the edge with Gemma 4](https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/)
-- [Gemma 4 E2B on Hugging Face](https://huggingface.co/google/gemma-4-E2B)
-:::
-
-## Microsoft 365 Copilot (via Copilot Studio)
-
-A click-by-click walkthrough for connecting WordLift's MCP tools to Microsoft 365 Copilot: build a Copilot Studio agent, connect it to WordLift's MCP server, and publish it so it's available directly in Copilot chat.
-
-:::info Prerequisites
-You'll need a Microsoft 365 account with access to [Copilot Studio](https://copilotstudio.microsoft.com), and your WordLift API key from [my.wordlift.io](https://my.wordlift.io).
-:::
-
-### Build the agent in Copilot Studio
-
-**1. Open Copilot Studio.** Go to `https://copilotstudio.microsoft.com` and sign in with your Microsoft 365 account.
-
-![Microsoft Copilot Studio home page](./images/agent-wordlift-copilot-01-copilot-studio-home.jpg)
-
-**2. Create the agent.** Open **Agents** in the left menu, then click the small arrow (▾) next to **New agent** and choose **Build using standard orchestration**.
-
-![New agent dropdown showing Build using standard orchestration](./images/agent-wordlift-copilot-02-copilot-studio-new-agent.jpg)
-
-**3. Name it.** Give the agent a name and continue.
-
-![Naming the agent in Microsoft Copilot Studio](/img/agent-wordlift-copilot/agent-wordlift-copilot-03-copilot-studio-name-agent.jpg)
-
-**4. Open the Tools tab.** In the header menu, click on **Tools**, then click **Add a tool**.
-
-![Tools tab highlighted in the agent's header menu](./images/agent-wordlift-copilot-04-copilot-studio-tools-tab.jpg)
-
-**5. Add WordLift as an MCP tool.** In the **Add tool** panel, under **Create new**, select **Model Context Protocol**.
-
-![Model Context Protocol option highlighted in the Add tool panel](./images/agent-wordlift-copilot-05-copilot-studio-add-mcp-tool.jpg)
-
-**6. Point it at WordLift's MCP server.** Server URL: `https://mcp.wordlift.io/streamable-http`. Authentication: **OAuth 2.0**, type **Dynamic discovery**.
-
-![Adding the WordLift MCP server in Copilot Studio](./images/agent-wordlift-copilot-06-copilot-studio-mcp-server-details.jpg)
-
-**7. Authenticate with your WordLift API key.** Copilot Studio opens a WordLift sign-in popup. Paste in your **WordLift API Key** and click **Authenticate & Approve**.
-
-:::tip
-Find your WordLift API key on your user dashboard at [my.wordlift.io](https://my.wordlift.io).
-:::
-
-![Authenticate with WordLift popup asking for the API key](/img/agent-wordlift-copilot/agent-wordlift-copilot-07-copilot-studio-authenticate-wordlift.jpg)
-
-### Publish to Microsoft 365 Copilot
-
-**8. Open the Microsoft 365 and Teams channel.** In the header menu, click on **Channels**, then open the **Microsoft 365 and Microsoft Teams** tile under **Microsoft channels**.
-
-![Channels tab highlighted with an arrow to the Microsoft 365 and Microsoft Teams tile](./images/agent-wordlift-copilot-08-copilot-studio-channels-tab.jpg)
-
-**9. Turn it on and publish.** Check **Make agent available in Microsoft 365 Copilot**, click **Add channel**, then click **Publish** at the top of the page.
-
-![Microsoft 365 and Teams channel panel with the Make agent available checkbox and Add channel button highlighted](./images/agent-wordlift-copilot-10-copilot-studio-m365-teams-channel.jpg)
-
-:::note
-Any later change to the agent (tools, instructions, knowledge, etc.) stays local until you click **Publish** again. If the agent is already in active use — for example in Microsoft Teams conversations — also check **Force newest version** in the publish dialog, so people get the update right away instead of finishing their current session on the old version.
-
-<img src="/img/agent-wordlift-copilot/agent-wordlift-copilot-09-copilot-studio-publish-force-newest.jpg" alt="Publish this agent dialog with Force newest version checked" width="360" style={{display: 'block', margin: '10px auto 0'}} />
-:::
-
-**10. Jump straight into Microsoft 365.** In the same channel panel, click **See agent in Microsoft 365** — it opens the agent directly in Copilot.
-
-![See agent in Microsoft 365 link after publishing](./images/agent-wordlift-copilot-11-copilot-studio-see-agent-in-m365.jpg)
-
-**11. Add it.** Microsoft 365 Copilot opens the agent's card in the Agent Store. Click **Add**.
-
-![Adding the WordLift DEMO Agent from the Microsoft 365 Agent Store](./images/agent-wordlift-copilot-12-m365-copilot-add-agent-store.jpg)
-
-### Use it in Copilot chat
-
-**12. Pin it (optional, recommended).** Hover the agent under **Agents** in the left sidebar and click the pin icon — it now stays under **Pinned**, one click away every time.
-
-<img src="/img/agent-wordlift-copilot/agent-wordlift-copilot-13-m365-copilot-pin-agent.jpg" alt="WordLift DEMO Agent pinned to the top of the Copilot sidebar" width="320" />
-
-**13. Connect WordLift's tools when asked.** The first time you use a WordLift tool in a chat — or if a previous connection has expired — Copilot may say it needs to connect first. Click **Open connection manager**.
-
-![Copilot chat prompt asking to open the connection manager, with a Retry button](./images/agent-wordlift-copilot-14-m365-copilot-connect-prompt.jpg)
-
-**14. Create the connection, then retry.** Find **WordLift MCP** in the list and click **Connect**, then **Submit**. Back in the chat, click **Retry** to run your question again.
-
-![Manage your connections page with WordLift MCP, Connect and Submit highlighted](./images/agent-wordlift-copilot-15-m365-copilot-manage-connections.jpg)
-
-Once connected, WordLift's tools are available right inside Copilot chat — the agent calls them over the MCP connection and cites its source beneath the answer.
-
-![WordLift agent answering inside Microsoft 365 Copilot chat](./images/agent-wordlift-copilot-16-m365-copilot-chat-answer.jpg)
-
-> **You:** Ask wordlift agent what is my domain url
->
-> **WordLift DEMO Agent:** The connected website/domain for the current account is: `https://demo.copilotagent.localhost`
+The step-by-step walkthrough now lives on its own page: [Microsoft 365 Copilot](/tools/mcp-server/microsoft-365-copilot/).
 
 ## Agent WordLift Skill {#agent-wordlift-claude-skill}
 
-The **Agent WordLift Skill** is the official Agent Skill for operating WordLift from any MCP-capable AI assistant — Claude, ChatGPT, Copilot, or Gemini. While the [MCP connection](#agent-wordlift-model-context-protocol-mcp-integration) gives an assistant access to WordLift's tools, the skill teaches it *how to use them well*.
+The Agent WordLift Skill teaches an MCP-capable AI assistant how to use WordLift's tools well. It adds tool routing, SEO audits, a verified GraphQL reference, the Prompt Library and workflow recipes on top of the MCP Server connection.
 
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/DRIVYxFB60I?si=LgmmSzs8S9Td8q-1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+Installation, contents and example prompts now live on their own page: [Agent WordLift Skill](/tools/agent-wordlift-skill/).
 
-### What is a Claude Skill?
+## Command line {#agent-wordlift-cli-integration}
 
-Agent Skills (called "Skills" in Claude) are specialized packages that extend an AI assistant's capabilities with domain-specific expertise. The unified Agent WordLift Skill combines the assistant's reasoning with WordLift's SEO intelligence and Knowledge Graph, turning it into an AI-powered SEO analyst that can route work across the right tools, audit any URL, query your graph with GraphQL, and run multi-tool workflows—all through natural conversation.
+wordlift-cli runs Agent WordLift in your terminal. Install it with `npm install -g wordlift-cli`, or run it without installing with `npx wordlift-cli`.
 
-### What's Inside
+Installation, usage and examples now live on their own page: [wordlift-cli](/tools/wordlift-cli/).
 
-- **Tool routing** — when to delegate to Agent WordLift (SERP, AI Overview/AI Mode, Google Search Console, GA4, Trends, entity gap, local SEO) versus querying the Knowledge Graph directly with GraphQL (inventories, audits, counts, exports) versus semantic retrieval with neural search.
-- **SEO Audits with competitive intelligence** — the complete audit workflow formerly shipped as the standalone WordLift SEO Audit Skill: audit any URL, compare schema coverage with SERP competitors, and get a professional, WordLift-branded report with prioritized issues and ROI-ranked opportunities. See [SEO Audit reports](#seo-audit-reports) below.
-- **A live-verified GraphQL reference** — every documented pattern was executed against a production Knowledge Graph: introspection-first workflow, constraints, vector search, aggregations, nested traversal, URL→entity lookup, plus a gotchas section covering silent failure modes.
-- **The Prompt Library and 11 workflow recipes** — keyword research, cannibalization, rankings drop audit, AI visibility analysis, internal linking, FAQ generation, authorship markup, local SEO, and more, each as a concrete tool chain: *locate → extract → enrich → synthesize*.
+For Knowledge Graph and site operations from the command line, use the separate worai CLI. See [Install the worai CLI](/tools/worai-cli/install/).
 
-### How It Works
+## Agent WordLift API {#agent-wordlift-api-integration}
 
-The Agent WordLift Skill leverages the **WordLift MCP Server** (described above) to access Agent WordLift's capabilities. This architecture ensures:
+The Agent WordLift API lets you work with Agent WordLift from your own code. Its `/ask` endpoint takes a message and returns Agent WordLift's response.
 
-1. **Claude (with Skill)** → Provides methodology and formatting instructions
-2. **WordLift MCP Server** → Makes API calls and processes data
-3. **Agent WordLift** → Delivers SEO intelligence and competitive analysis
+- **Send a message.** Post your request in the `message` field and read the answer from the response.
+- **Flag sensitive requests.** Set the optional `security` parameter for requests that need it.
+- **Build it into your tools.** Call the endpoint from your applications or scripts to automate tasks such as content optimization, keyword research and entity analysis.
 
-```
-┌─────────────────────────────────────────────┐
-│   Claude with WordLift Skill                │
-│   ├── Audit methodology                     │
-│   ├── Report formatting                     │
-│   └── WordLift branding                     │
-└──────────────────────┬──────────────────────┘
-                       │
-                       │ Uses MCP Tools
-                       │
-┌──────────────────────▼──────────────────────┐
-│   WordLift MCP Server                       │
-│   https://mcp.wordlift.io/streamable-http   │
-│   ├── Agent WordLift API                    │
-│   └── Knowledge Graph Access                │
-└─────────────────────────────────────────────┘
-```
-
-### Installation
-
-1. Configure the WordLift MCP Server (see [setup instructions](#setup-instructions) above).
-2. Download: **[📦 Download Agent WordLift Skill v1.1.0](/downloads/claude-skills/agent-wordlift-skill-v1.1.0.zip)**
-3. In Claude: **Settings → Capabilities → Upload Skill**, select the zip, and enable it. For other assistants, unzip and add `SKILL.md` (plus the relevant reference file) to the assistant's instructions or project context — the content is host-agnostic.
-
-:::info Upgrading from the WordLift SEO Audit Skill?
-The standalone SEO Audit Skill (v1.0.0) has been merged into the Agent WordLift Skill as of v1.1.0 — all audit capabilities, report formats, and branding are included. Uninstall the old skill after installing this one to avoid double-triggering.
+:::warning[Review needed]
+TODO [SME]: Confirm whether `/ask` still accepts a `model` parameter and how to document it without naming a model, and what the `security` parameter does.
 :::
 
-### Example Prompts
+### Example use case {#example-use-case}
 
-```
-"Audit https://example.com/products/backpack and compare with top 5 competitors"
-"What's in my knowledge graph? Give me an inventory by type."
-"List all FAQ pages with their questions and answers."
-"Run an AI visibility check for 'best CRM software' and map the gaps to my KG content."
-"Which of my articles are missing an author? Suggest authorship markup using existing Person entities."
-```
+Use the `/ask` endpoint to add a chat feature to your application that answers SEO questions, suggests content or answers technical queries with Agent WordLift.
 
-### SEO Audit reports
+For request and response details, see the [Agent WordLift API reference](/apis-and-sdks/api-reference/agent/wordlift-agent-api/).
 
-Every audit delivers a comprehensive report including:
+## Zapier {#agent-wordlift-zapier-integration}
 
-1. **Executive Summary** with overall SEO and AI-readiness score (0-100)
-2. **Quick Stats Dashboard** — schema types, critical issues, quick wins, allowed AI bots
-3. **Score Breakdown** across the seven audited criteria:
-   - 📁 Site files (`robots.txt`, `llms.txt`, `SKILL.md`, `.well-known/`)
-   - 🔎 SEO fundamentals (title, description, H1)
-   - 🏷️ Structured data (Schema.org, JSON-LD, Microdata)
-   - ✍️ Content structure & token budget
-   - 🖼️ Image accessibility
-   - 🤖 Automation readiness (WCAG / agent compatibility)
-   - ⚡ JavaScript rendering
-4. **Quick Wins** ranked by impact (from the API `quickWins.wins[]` field)
-5. **Site Files & Discovery Surfaces** — including the AI bot allow/block matrix and MCP / WebMCP / Agent Skills detection
-6. **Structured Data Inventory** — detected schemas and missing recommendations
-7. **Automation Readiness Issues** — prioritized WCAG / agent compatibility findings
+The Agent WordLift Zapier integration connects Agent WordLift to the other apps your team uses:
 
-### Why Use the Claude Skill vs. Direct MCP?
+- **Analyze new content automatically.** Run Agent WordLift on content as soon as it is published.
+- **Use the results elsewhere.** Extract entities and insights with Agent WordLift and pass them to the next step in your workflow.
+- **Build your own pipelines.** Combine Agent WordLift with other Zapier apps to automate SEO tasks.
 
-| Feature | Claude Skill | Direct MCP Integration |
-|---------|-------------|----------------------|
-| **Pre-built Workflow** | ✅ Complete methodology | ❌ You build from scratch |
-| **Report Formatting** | ✅ Professional branded reports | ❌ Manual formatting needed |
-| **Best Practices** | ✅ Built-in SEO expertise | ⚠️ Requires your knowledge |
-| **Progressive Disclosure** | ✅ Optimized token usage | ⚠️ Manual management |
-| **Updates** | ✅ Version-tracked improvements | ❌ Manual updates |
-| **Branding** | ✅ WordLift design system | ❌ Custom styling needed |
+For setup steps, see [Zapier](/integrations/zapier/).
 
-:::tip
-The Claude Skill integrates seamlessly with all other WordLift integrations (Chrome Extension, CLI, API, Zapier) for a complete SEO automation ecosystem. For custom workflows, explore the [MCP Integration](#agent-wordlift-model-context-protocol-mcp-integration) section above.
-:::
+## Chrome Extension {#agent-wordlift-chrome-extension}
 
-## Agent WordLift Extension {#agent-wordlift-chrome-extension}
+The Agent WordLift Extension brings Agent WordLift into your browser, and its icon checks your WordLift Cloud setup on the page you are viewing.
 
-Use Agent WordLift directly in your browser to validate WordLift Cloud setup and accelerate SEO tasks.
+For install steps, icon status states and usage, see [Agent WordLift Extension](/tools/chrome-extension/).
 
-For install steps, icon status states, and usage details, see the dedicated page: [Agent WordLift Extension](/tools/chrome-extension/).
+## Google AI Edge GraphQL {#agent-wordlift-google-ai-edge-graphql-integration}
 
-## Agent WordLift Zapier Integration
+The Google AI Edge integration runs Agent WordLift GraphQL capabilities in AI-powered workflows. Use it to connect WordLift GraphQL to AI assistants and edge-driven pipelines for semantic SEO and Knowledge Graph use cases.
 
-Connect Agent WordLift to your favorite apps with our [Zapier integration](/integrations/zapier/). This powerful integration allows you to:
-
-- **Automate content analysis:** Automatically analyze new content as it's published
-- **Extract entities and insights:** Process content through Agent WordLift and use the results in your workflows
-- **Streamline SEO tasks:** Connect Agent WordLift's capabilities with over 6,000+ apps
-- **Create custom workflows:** Build automated pipelines that leverage Agent WordLift's AI capabilities
-
-Whether you're managing a content team, running an e-commerce site, or optimizing your SEO strategy, the Zapier integration helps you automate and scale your workflows. [Learn more about the Zapier integration](/integrations/zapier/).
-
-## Agent WordLift API Integration
-
-The **WordLift Agent API** empowers developers and SEO professionals to programmatically interact with the Agent WordLift’s advanced AI capabilities. The newly introduced `/ask` endpoint allows users to send specific queries to the WordLift Agent and receive tailored responses that enhance their SEO workflows.
-
-Key Features of the `/ask` Endpoint:
-
-- **Customizable Interactions:** Send a message and specify a model (default: gpt-4o) to receive AI-powered insights tailored to your SEO needs.
-- **Secure Queries:** Enable an optional security parameter to ensure sensitive requests are handled appropriately.
-- **Seamless Integration:** Easily incorporate the endpoint into your existing tools or workflows to automate tasks such as content optimization, keyword research, and entity analysis.
-
-### Example Use Case
-
-With the `/ask` endpoint, you can create a chatbot-like feature within your application that provides instant SEO advice, content suggestions, or answers to technical queries based on the WordLift Agent’s expertise.
-
-To get started, check out the [WordLift Agent API documentation](/apis-and-sdks/api-reference/agent/wordlift-agent-api/) and explore how the `/ask` endpoint can revolutionize your SEO strategy!
-
-## Agent WordLift CLI Integration
-
-Transform your command-line workflow with Agent WordLift CLI! This powerful terminal-based tool brings the full capabilities of Agent WordLift directly to your development environment, making it perfect for developers, content creators, and SEO professionals who prefer working in the command line.
-
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/sXzRclE-6ik" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-
-**Why CLI Over Web UI for AI Workflows?**
-
-When working with AI-powered SEO tools, the command line offers distinct advantages over web interfaces. CLI provides superior speed with instant input/output, complete system prompt control for precise agent behavior, seamless file I/O for loading instructions and automating pipelines, and the ability to chain commands and build scalable workflows. For professional SEO workflows that demand efficiency, automation, and control, the CLI is where serious work gets done.
-
-**Key Features:**
-
-• **Seamless Development Integration**: Work with Agent WordLift directly from your terminal without switching contexts
-• **Advanced Content Creation**: Generate SEO-optimized content with access to 20+ specialized SEO tools via MCP integration
-• **Gemini Pro 2.5 Powered**: Leverage Google's most advanced language model for superior content analysis and generation
-• **Knowledge Graph Access**: Query and interact with your WordLift knowledge graph directly from the command line
-• **Batch Processing**: Automate content optimization tasks and run bulk SEO analyses
-• **Team Collaboration**: Integrate Agent WordLift capabilities into CI/CD pipelines and development workflows
-
-**Perfect for:**
-- Content teams building automated SEO workflows
-- Developers integrating SEO analysis into applications
-- Technical SEO professionals requiring programmatic access
-- Agencies managing multiple client projects from the command line
-
-### Installation
-
-Install globally for system-wide access:
-
-```bash
-npm install -g wordlift-cli
-```
-
-Or run directly without installation:
-
-```bash
-npx wordlift-cli
-```
-
-### Quick Start
-
-Launch the interactive Agent WordLift session:
-
-```bash
-wordlift-cli
-```
-
-For direct queries, use the prompt mode:
-
-```bash
-wordlift-cli -p "Analyze the semantic SEO potential of my latest blog post"
-```
-
-### Example Use Cases
-
-**Keyword Research with HTML Output:**
-```bash
-wordlift-cli -p "run a comprehensive keyword research for 'sustainable fashion' and store the findings in HTML format with competitor analysis"
-```
-
-**Content Analysis Pipeline:**
-```bash
-wordlift-cli -p "analyze the entities on https://example.com/blog-post" | wordlift-cli -p "generate internal linking suggestions based on this analysis"
-```
-
-**Batch SEO Audit:**
-```bash
-wordlift-cli -p "perform an entity gap analysis for 'https://example.com/product-page' against the query 'eco-friendly clothing'" > seo-audit-report.html
-```
-
-**Schema Generation with Validation:**
-```bash
-wordlift-cli -p "generate JSON-LD schema markup for a local business: organic restaurant in Portland" | wordlift-cli -p "validate this schema and suggest improvements"
-```
-
-**Google Search Console Integration:**
-```bash
-wordlift-cli -p "show me the top 10 queries with high impressions but low CTR from my GSC data, then suggest content optimization strategies"
-```
-
-### Integration with Development Workflows
-
-The WordLift CLI seamlessly integrates with modern development practices:
-
-- **CI/CD Pipelines**: Automate content analysis and SEO scoring in your deployment workflows
-- **Git Hooks**: Run SEO checks on content changes before commits
-- **Build Scripts**: Generate schema markup and optimize content during build processes
-- **Testing Suites**: Include SEO validation as part of your automated testing
-
-### Advanced Features
-
-**Batch Processing:** Process multiple files or URLs in a single command for efficient workflow automation.
-
-**Custom Workflows:** Combine with shell scripts and automation tools to create sophisticated SEO processing pipelines.
-
-**Team Integration:** Share configurations and workflows across development teams for consistent SEO implementation.
-
-**API Integration:** Access the full WordLift Agent API capabilities through command-line interfaces.
-
-#### Advanced CLI Configuration (Experimental)
-
-For advanced users or programmatic setups, you can manually configure the CLI settings including header-based authorization.
-
-:::warning
-Direct configuration modification is intended for advanced users. The API key must be manually edited in the configuration file as environment variables are not currently interpolated.
-:::
-
-To edit the configuration, locate `settings.json` based on your installation:
-
-```bash
-# If installed locally (git clone)
-vim .gemini/settings.json
-
-# If installed globally via npm
-vim $(dirname $(which wordlift-cli))/../lib/node_modules/wordlift-cli/.gemini/settings.json
-```
-
-A sample header-based authorization configuration looks like this:
-
-```json
-{
-  "Wordlift - via header auth": {
-    "command": "npx",
-    "args": [
-      "mcp-remote",
-      "https://mcp.wordlift.io/streamable-http",
-      "--header",
-      "Authorization: Key YOUR_WORDLIFT_API_KEY_HERE"
-    ]
-  }
-}
-```
-
-Ready to supercharge your command-line SEO workflow? [Install WordLift CLI](https://www.npmjs.com/package/wordlift-cli) and bring Agent WordLift's power directly to your terminal!
-
----
-
-*The WordLift CLI is powered by the same MCP integration that enables Agent WordLift to work across multiple platforms, ensuring consistent access to your knowledge graph and SEO tools regardless of your preferred development environment.*
-
-## Agent WordLift Google AI Edge GraphQL Integration
-
-Use the official Google AI Edge integration to run Agent WordLift GraphQL capabilities in AI-powered workflows.
-
-:::note Experimental
-This integration is currently **experimental** and intended for early adopters building agentic workflows on edge-capable models.
+:::note[Experimental]
+This integration is experimental and intended for early adopters building agentic workflows on edge-capable models.
 :::
 
 - **Repository:** [wordlift/google-ai-edge/tree/main/wordlift-graphql](https://github.com/wordlift/google-ai-edge/tree/main/wordlift-graphql)
-- **Use case:** connect WordLift GraphQL to AI assistants and edge-driven pipelines for semantic SEO and Knowledge Graph use cases.
 - **Google announcement:** [Bring state-of-the-art agentic skills to the edge with Gemma 4](https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/)
 - **Model reference:** [Gemma 4 E2B on Hugging Face](https://huggingface.co/google/gemma-4-E2B)
 
@@ -489,4 +103,8 @@ Watch the walkthrough video:
 
 <iframe width="100%" height="500" src="https://www.youtube.com/embed/kpE8Qs-HVw4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
-To get started, follow the setup instructions and examples in the GitHub repository linked above.
+To get started, follow the setup instructions and examples in the GitHub repository.
+
+:::warning[Review needed]
+TODO [Jason]: Keep Google AI Edge GraphQL on this page, or move it to Interfaces and tools or Integrations?
+:::

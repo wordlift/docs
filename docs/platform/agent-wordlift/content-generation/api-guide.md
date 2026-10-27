@@ -1,10 +1,14 @@
 ---
+title: "Content Generation API guide"
+description: "Create, configure and run Content Generation projects through the API: authorization, project setup, completions, validation rules and exports."
+sidebar_label: "API guide"
 sidebar_position: 10
 toc_min_heading_level: 2
 toc_max_heading_level: 5
+last_updated: 2026-10-27
 ---
 
-# API Guide
+# Content Generation API guide
 
 ## Introduction
 
@@ -14,15 +18,15 @@ The Content Generation API is based on Projects. Each Project contains the confi
 1. Define a Prompt Template that is filled with the selected data
 1. Configure the Model and its parameters
 
-This webpage will provide a step-by-step guide on how to create, configure and run a Content Generation Project.
+This page is a step-by-step guide to creating, configuring and running a Content Generation Project.
 
 The API is organized according to the REST principles and in particular the [Zalando's Best Practices](https://opensource.zalando.com/restful-api-guidelines/).
 
 :::tip
 
-[The Content Generation API Reference is available here](/apis-and-sdks/api-reference/content-generation/content-generation/).
+See the [Content Generation API reference](/apis-and-sdks/api-reference/content-generation/content-generation/).
 
-The [openapi.yaml is available here](https://raw.githubusercontent.com/wordlift/docs/main/api/content-generation.yaml), it can be used to automatically generate clients.
+You can use the [Content Generation openapi.yaml](https://raw.githubusercontent.com/wordlift/docs/main/api/content-generation.yaml) to generate clients automatically.
 
 :::
 
@@ -34,9 +38,9 @@ Using the Content Generation API requires an OAuth2 Access Token.
 
 :::
 
-### Get an Access Token
+### Get an access token
 
-An Access Token can be requested using User Credentials (username and password). This is a very simple method which only requires using the API Client ID (`W8sGqXvefG9XgnMXJYzk6nTiV6MWc3N8TyQJQJcO`). This method is useful when building client apps that don't have a direct interaction with the user.
+An Access Token can be requested using User Credentials (username and password). This is a very simple method which only requires using the API Client ID (`W8sGqXvefG9XgnMXJYzk6nTiV6MWc3N8TyQJQJcO`). This method is useful when you build client apps that don't interact directly with a person.
 
 This is an example CURL:
 
@@ -61,7 +65,7 @@ The server will reply with an Access Token (which expires after one hour) and Re
 }
 ```
 
-### Refresh Access Token
+### Refresh access token
 
 An expired Access Token can't be used anymore. In this case it is possible to request a new Access Token using the Refresh Token at the previous step.
 
@@ -87,15 +91,15 @@ The server will reply with an Access Token (which expires after one hour) and re
 
 :::caution
 
-Please note that also the Refresh Token is updated.
+The Refresh Token is also updated.
 
 :::
 
-## Create a Project
+## Create a project
 
-A the very core of the Content Generation API, there are Projects which define the configuration.
+At the very core of the Content Generation API are Projects, which define the configuration.
 
-### Project Model
+### Project model
 
 Following is a brief explanation of the properties of a Content Generation Project:
 
@@ -119,7 +123,7 @@ Following is a brief explanation of the properties of a Content Generation Proje
 | deleted         | Whether the project is deleted                                                                 | true/false |
 
 
-### New Project
+### New project
 
 To create a Project the following parameters are required:
 
@@ -173,9 +177,9 @@ This is an example **response** JSON payload:
 }
 ```
 
-#### Knowledge Graph Account ID {#account-id}
+#### Knowledge Graph account ID {#account-id}
 
-The Account ID is used to connect to a Knowledge Graph. To retrive the list of Accounts use the List Accounts API:
+The Account ID is used to connect to a Knowledge Graph. To retrieve the list of Accounts use the List Accounts API:
 
 ```sh
 curl 'https://api.wordlift.io/accounts?limit=2147483647&can_content_generation=true' \
@@ -185,7 +189,7 @@ curl 'https://api.wordlift.io/accounts?limit=2147483647&can_content_generation=t
 
 :::note
 
-The `content_generation` query parameter must be set to `true` in order to retrieve only Accounts that support Content Generation.
+The `content_generation` query parameter must be set to `true` to retrieve only Accounts that support Content Generation.
 
 :::
 
@@ -225,7 +229,7 @@ The `key` contains the WordLift Key that can be used with the [GraphQL API](#gra
 :::
 
 
-#### GraphQL Query {#graphql-api}
+#### GraphQL query {#graphql-api}
 
 The GraphQL Query runs against the Knowledge Graph to query and select the data. This is an example GraphQL Query to retrieve the default Products' data:
 
@@ -249,7 +253,7 @@ query {
  }
  ```
 
-It is possible to retrieve other GraphQL sample queryies by using the [GraphQL Query presets API](#graphql-presets).
+It is possible to retrieve other GraphQL sample queries by using the [GraphQL Query presets API](#graphql-presets).
 
 ```sh
 curl 'https://api.wordlift.io/graphql' -X POST \
@@ -261,13 +265,13 @@ curl 'https://api.wordlift.io/graphql' -X POST \
 
 :::tip
 
-Before creating a Project it is advised to test the GraphQL query using the GraphQL Query endpoint.
+Before you create a Project, test the GraphQL query using the GraphQL Query endpoint.
 
 :::
 
 :::caution
 
-The GraphQL query requires to use the WordLift Key associated with a Knowledge Graph (Account). The key can be found in the [Dashboard](https://my.wordlift.io) or by calling the [Accounts API](#account-id).
+The GraphQL query requires the WordLift Key associated with a Knowledge Graph (Account). The key can be found in the [Dashboard](https://my.wordlift.io) or by calling the [Accounts API](#account-id).
 
 :::
 
@@ -320,11 +324,11 @@ Almost all of the list API use cursor-based navigation.
 
 :::
 
-#### Prompt Template
+#### Prompt template
 
-The Prompt Template is used to dynamically create the Prompts by replacing placeholders with actual values from the selected records. Templates use the [Liquid template language](https://shopify.github.io/liquid/) which allows to build an extensive logic into the template.
+The Prompt Template is used to dynamically create the Prompts by replacing placeholders with actual values from the selected records. Templates use the [Liquid template language](https://shopify.github.io/liquid/) which lets you build extensive logic into the template.
 
-In order to retrieve the list of available fields it is possible to use the [Fields API](#list-fields). A template can be tested with actual data by calling the [Template Render API](#render-template).
+To retrieve the list of available fields, use the [Fields API](#list-fields). A template can be tested with actual data by calling the [Template Render API](#render-template).
 
 A template can be as simple as this:
 
@@ -510,15 +514,15 @@ Or as complex as this:
 ```
 
 
-## Run the Project
+## Run the project
 
-### Load the KG Data into the Project's Records
+### Load the KG data into the project's records
 
 This will finally load the data from the Knowledge Graph based on the GraphQL query into the Project's records.
 
 :::info
 
-This step is required in order to create the completions.
+This step is required to create the completions.
 
 :::
 
@@ -530,7 +534,7 @@ curl 'https://api.wordlift.io/content-generation/content-generations/<project-id
 
 If successful, the server will return a 200 OK with no content.
 
-### List Completions
+### List completions
 
 Once the Records have been imported, it is possible to access them along with their completion. This endpoint returns a JSONL formatted response which allows client to read the response as it loads without waiting for all the completions to be generated.
 
@@ -551,11 +555,11 @@ This is an example **response**, note that it is a [JSONL (JSON Lines)](https://
 
 :::info
 
-The API uses JSONL (JSON Lines) in order to provide fast access to the completions results as they're generated.
+The API uses JSONL (JSON Lines) to provide fast access to the completions results as they're generated.
 
 :::
 
-###  Get Stats
+### Get stats
 
 Once the Project runs, the completions are generated and they're validated against the [Rules](#rules). For each completion a state is assigned: error, warning, valid and accepted. The Stats endpoint will provide a summary of these states for the Project:
 
@@ -571,7 +575,7 @@ This is an example **response**:
 { "total": 4, "accepted": 0, "valid": 0, "warnings": 4, "errors": 4 }
 ```
 
-This is an explation of the properties in the response:
+This is an explanation of the properties in the response:
 
 | Property | Description                                                            |
 |----------|------------------------------------------------------------------------|
@@ -582,7 +586,7 @@ This is an explation of the properties in the response:
 | errors   | The number of records with errors                                      |
 
 
-### Regenerate a Record Completion {#regenerate-record-completion}
+### Regenerate a record completion {#regenerate-record-completion}
 
 To regenerate a Completion, just update it by setting the `completion` to `null`. The API will then regenerate and return the Record with the new Completion.
 
@@ -668,7 +672,7 @@ Example JSON Payload, note the `completion` set to `null`:
 }
 ```
 
-### Get a Record Validation Report
+### Get a record validation report
 
 Get a Record validation report with details about the Rules that failed:
 
@@ -680,7 +684,7 @@ curl 'https://api.wordlift.io/content-generation/content-generations/<project-id
 
 Calling this API will force the platform to revalidate the completion against the configured rules. The response format is the same as the [Regenerate Completion API](#regenerate-record-completion).
 
-### Bulk Operations on Record: Regenerate Completions
+### Bulk operations on record: regenerate completions
 
 It is also possible to regenerate completions in bulk:
 
@@ -692,7 +696,7 @@ curl 'https://api.wordlift.io/content-generation/content-generations/<project-id
      --data-raw '[...json payload 1...,...json payload 2...,...,...json payload n....]'
 ```
 
-### Accept a Record
+### Accept a record
 
 To mark a Record as Accepted, set `is_accepted` to `true`:
 
@@ -777,7 +781,7 @@ Example JSON Payload:
 }
 ```
 
-### Upvote a Completion
+### Upvote a completion
 
 ```sh
 curl 'https://api.wordlift.io/content-generation/content-generations/<project-id>/records/<record-id>' -X PUT \
@@ -860,7 +864,7 @@ Example JSON Payload:
 }
 ```
 
-### Manually set and accept a Completion
+### Manually set and accept a completion
 
 It is also possible to manually update and accept a completion by setting the `completion` property to the desired value and `is_accepted` to `true`:
 
@@ -945,7 +949,7 @@ Example JSON Payload:
 }
 ```
 
-### Bulk Operations
+### Bulk operations
 
 It is always possible to combine several updates in one call:
 
@@ -971,7 +975,7 @@ This will export a tabulated file with all the Records.
 
 ## Rules
 
-### List Rules
+### List rules
 
 List the Rules connected to a Project:
 
@@ -981,7 +985,7 @@ curl 'https://api.wordlift.io/content-generation/content-generations/<project-id
     -H 'Authorization: Bearer <your-oauth2-access-token>'
 ```
 
-### Create a Field Rule {#create-field-rule}
+### Create a field rule {#create-field-rule}
 
 Create a Field Rule for the Project:
 
@@ -1043,7 +1047,7 @@ This is an example **response** JSON:
 }
 ```
 
-### Create a Word Rule
+### Create a word rule
 
 Create a Word Rule for the Project:
 
@@ -1059,7 +1063,7 @@ For the example **request** and **response** payloads see the [Create Field Rule
 
 ## Other useful API
 
-### List Projects
+### List projects
 
 To retrieve the list of existing projects, use the following request:
 
@@ -1077,7 +1081,7 @@ The following query parameter are accepted:
 | deleted         | When `false` deleted projects are not returned                                                 | true/false |
 
 
-### Get an existing Project
+### Get an existing project
 
 A Content Generation Project contains the required configuration. Each Content Generation Project is assigned a unique ID. It is possible to retrieve the configuration for a Project by using the following request:
 
@@ -1111,7 +1115,7 @@ This is an example response:
 }
 ```
 
-### List GraphQL Presets {#graphql-presets}
+### List GraphQL presets {#graphql-presets}
 
 The platform can provide some GraphQL Presets for common scenarios:
 
@@ -1146,7 +1150,7 @@ This is an example response:
 ```
 
 
-### List Property Fields {#list-fields}
+### List property fields {#list-fields}
 
 By providing a GraphQL Query, this API will return the available fields in the response. The list of fields can be used to determine the placeholders to use in the Liquid template:
 
@@ -1192,13 +1196,13 @@ Example response:
 ]
 ```
 
-### GraphQL Queries and Pagination
+### GraphQL queries and pagination
 
 Following are a couple of GraphQL sample queries using pagination (`page` and `rows` parameters).
 
 :::danger
 
-On large datasets, GraphQL queries may take time to load and may timeout. In this case we recommend to use pagination like in the following examples.
+On large datasets, GraphQL queries may take time to load and may timeout. In this case, use pagination as in the following examples.
 
 :::
 
@@ -1222,9 +1226,9 @@ curl 'https://api.wordlift.io/graphql' -X POST \
      --data-raw '{"variables":{},"query":"{\n  products(\n    query: {nameConstraint: {in: [\"0AR6123B__30028E\", \"0AR8107__5017R5\", \"0AR8110__501787\", \"06S9034__903417\"]}}\n    page: 1\n    rows: 1000\n  ) {\n    id: iri\n    brand: string(name: \"schema:brand\")\n    name: string(name: \"schema:name\")\n    type: string(name: \"rdf:type\")\n    category: string(name: \"eyewear:category\")\n    productGroup: string(name: \"eyewear:eyewearProductGroup\")\n    bridgeType: string(name: \"eyewear:bridgeType\")\n    frameShape: string(name: \"eyewear:frameShape\")\n    faceShape: string(name: \"eyewear:faceShape\")\n    frameFitting: string(name: \"eyewear:frameFitting\")\n    frontColorFinish: string(name: \"eyewear:frontColorFinish\")\n    macroAgeRange: string(name: \"eyewear:macroAgeRange\")\n    ageGroupEnumeration: string(name: \"eyewear:ageGroupEnumeration\")\n    lensAssemblyTypeOnFrame: string(name: \"eyewear:lensAssemblyTypeOnFrame\")\n    frameType: string(name: \"eyewear:frameType\")\n    eyewearLensMaterial: string(name: \"eyewear:eyewearLensMaterial\")\n    eyewearTempleMaterial: string(name: \"eyewear:eyewearTempleMaterial\")\n    nosepadType: string(name: \"eyewear:nosepadType\")\n    release: string(name: \"eyewear:release\")\n    specialProjectCollection: string(name: \"eyewear:specialProjectCollection\")\n    specialProjectSponsor: string(name: \"eyewear:specialProjectSponsor\")\n    specialProjectType: string(name: \"eyewear:specialProjectType\")\n    specialProjectFeaturesFlag: string(name: \"eyewear:specialProjectFeaturesFlag\")\n    lensTreatment: string(name: \"eyewear:lensTreatment\")\n    lensColor: string(name: \"eyewear:lensColor\")\n    productStyleName: string(name: \"eyewear:productStyleName\")\n    productFamilyModel: string(name: \"eyewear:productFamilyModel\")\n    frameFoldability: string(name: \"eyewear:frameFoldability\")\n    roXability: string(name: \"eyewear:roXability\")\n    isLensPhotochromic: string(name: \"eyewear:isLensPhotochromic\")\n    isLensPolar: string(name: \"eyewear:isLensPolar\")\n    modelCodeDisplay: string(name: \"eyewear:modelCodeDisplay\")\n    progressiveFriendly: string(name: \"eyewear:progressiveFriendly\")\n    materialType: string(name: \"eyewear:materialType\")\n    maskShield: string(name: \"eyewear:maskShield\")\n    strassPresence: string(name: \"eyewear:strassPresence\")\n    strassPosition: string(name: \"eyewear:strassPosition\")\n    lensContrastEnhancement: string(name: \"eyewear:lensContrastEnhancement\")\n    lensBaseCurve: string(name: \"eyewear:lensBaseCurve\")\n    isLensGradient: string(name: \"eyewear:isLensGradient\")\n    isLensMirror: string(name: \"eyewear:isLensMirror\")\n    modelFit: string(name: \"eyewear:modelFit\")\n    modelName: string(name: \"eyewear:modelName\")\n    frontMaterial: string(name: \"eyewear:frontMaterial\")\n    lensProtection: string(name: \"eyewear:lensProtection\")\n    templeColor: string(name: \"eyewear:templeColor\")\n    frontColor: string(name: \"eyewear:frontColor\")\n    isLensBlueLightFiltered: string(name: \"eyewear:isLensBlueLightFiltered\")\n    genderType: string(name: \"eyewear:genderType\")\n    lensProtection: string(name: \"eyewear:lensProtection\")\n    channelAttributes: resources(name: \"eyewear:channelAttributes\") {\n      channel: string(name: \"eyewear:channel\")\n      styleName: string(name: \"eyewear:styleName\")\n      __typename\n    }\n    __typename\n  }\n}"}'
 ```
 
-### Render Template {#render-template}
+### Render template {#render-template}
 
-When writing a Liquid template, it is helpful to test it with actual data. By providig a `template` and a `data` map, this API will return the rendered prompt:
+When writing a Liquid template, it is helpful to test it with actual data. By providing a `template` and a `data` map, this API will return the rendered prompt:
 
 ```sh
 curl 'https://api.wordlift.io/content-generation/content-generations/renders' -X POST \
@@ -1306,14 +1310,14 @@ This is the example **request** JSON payload:
 }
 ```
 
-The is an example **response** payload, it is a plain text with the rendition:
+This is an example **response** payload, it is a plain text with the rendition:
 
 ```text
 Las Vegas is a pair of sunglasses. Las Vegas are designed for men. The lens treatment is mirror. The lens color facet is gray silver mirror. The lenses are polarized. The shape is rectangle. The frame color finish is matte. The frame color is matte black. This pair of sunglasses feature lens contrast enhancements. ####
 ```
 
 
-#### Render a Collection of Templates
+#### Render a collection of templates
 
 It is also possible to generate multiple renders at once by using the Bulk API:
 
@@ -1339,9 +1343,9 @@ This is an example **response** JSON payload:
 ```
 
 
-### Generate a Preview Completion
+### Generate a preview completion
 
-It is possible to test different settings by create a completion on the fly:
+It is possible to test different settings by creating a completion on the fly:
 
 ```sh
 curl 'https://api.wordlift.io/content-generation/completions' -X POST \
@@ -1351,7 +1355,7 @@ curl 'https://api.wordlift.io/content-generation/completions' -X POST \
      --data-raw '{"frequency_penalty":0.5,"stop":"###","prompt":"John Smith is a pair of sunglasses. The lens treatment is gradient. The lens color facet is gradient green. The frame material is metal. The shape is square. The frame color finish is polished. The frame color is pale gold. There are strass on these sunglasses. These sunglasses feature strass on strass on metal component and. ####","max_tokens":110,"temperature":0.7,"model_id":162,"presence_penalty":0.5,"min_words":45,"logit_bias":{}}'
 ```
 
-This an example **request** JSON payload:
+This is an example **request** JSON payload:
 
 ```json
 {
@@ -1374,7 +1378,7 @@ This is an example **response**, it's plain text with the completion:
  ```
 
 
-### Add Word Biases to a Content Generation Project
+### Add word biases to a Content Generation project
 
 Once the Project is created and its ID is known, to add Word Biases to a Project use the following API:
 

@@ -1,19 +1,22 @@
 ---
-title: Google Instagram Indexing Report
+title: "Google Instagram indexing report"
+description: "Audit how Google indexes your Instagram content with search operators and Agent WordLift as an MCP sub-agent, then align it with your website."
+sidebar_label: "Instagram indexing report"
 sidebar_position: 8
+last_updated: 2026-10-27
 ---
 
-# Google Instagram Indexing Report
+# Google Instagram indexing report
 
 As of **July 10, 2025**, Instagram content has switched from "part-indexed" to "fully indexable" in Google Search, making every reel, carousel, and highlight a potential search asset. This workflow demonstrates how to use Agent WordLift as a specialized sub-agent within Claude to analyze Instagram content alignment with your website and organic search rankings.
 
-:::info Important Context
-With AI Overviews reducing organic CTR by 34-37%, social media indexing becomes critical for visibility. We've documented cases of Instagram accounts ranking above medical directories for competitive terms even before July 10th.
+:::info Important context
+With AI Overviews reducing organic CTR by 34 to 37%, social media indexing becomes critical for visibility. We've documented cases of Instagram accounts ranking above medical directories for competitive terms even before July 10th.
 :::
 
-## Why This Workflow Matters
+## Why this workflow matters
 
-This approach leverages **Agent WordLift's MCP integration** as a specialized SEO sub-agent, allowing you to:
+This approach uses **Agent WordLift's MCP integration** as a specialized SEO sub-agent, allowing you to:
 
 - Combine Claude's conversational AI with WordLift's deep SEO expertise
 - Analyze content correlation between your website and Instagram posts
@@ -24,16 +27,19 @@ Watch the complete workflow demonstration:
 
 <iframe width="100%" height="500" src="https://www.youtube.com/embed/qPzidYw0ITA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
-## Setup Requirements
+## Setup requirements
 
 ### Prerequisites
+
 - Claude account with MCP integration enabled
-- Agent WordLift MCP server configured (see [MCP Integration Guide](../integrations.md#agent-wordlift-model-context-protocol-mcp-integration))
+- Agent WordLift MCP Server configured (see [MCP Server](/tools/mcp-server/))
 - Instagram business account
 - Google Search Console access
 
-### MCP Configuration
-Ensure Agent WordLift is configured as your MCP server in Claude:
+### MCP configuration
+
+Make sure Agent WordLift is configured as your MCP server in Claude:
+
 ```json
 {
   "mcpServers": {
@@ -45,9 +51,9 @@ Ensure Agent WordLift is configured as your MCP server in Claude:
 }
 ```
 
-## Workflow Steps
+## Workflow steps
 
-### Step 1: Initialize the Analysis
+### Step 1: Initialize the analysis
 
 Start by prompting Claude with Agent WordLift as the sub-agent:
 
@@ -62,41 +68,46 @@ I need to generate a comprehensive Instagram indexing report for [your_instagram
 Let's start by connecting to my Google Search Console data and analyzing my website's entity structure.
 ```
 
-### Step 2: Search Operators Audit
+### Step 2: Search operators audit
 
 Use these specific search operators to audit Instagram exposure:
 
-#### 1. Total Profile Footprint
-```
+#### 1. Total profile footprint
+
+```text
 site:instagram.com/{yourhandle}
 ```
 **Purpose:** See how many of your posts (reels, tags, stories, etc.) are indexed by Google.
 
-#### 2. Topic-Specific Posts
-```
+#### 2. Topic-specific posts
+
+```text
 site:instagram.com/{yourhandle} "{keyword}"
 ```
 **Purpose:** Track exposure for key topics relevant to your business.
 
-#### 3. Content Clusters (Synonyms/Multilingual)
-```
+#### 3. Content clusters (synonyms/multilingual)
+
+```text
 site:instagram.com/{yourhandle} ("{keyword1}" OR "{keyword2}" OR "{keyword3}")
 ```
 **Purpose:** Capture variations and multilingual content.
 
-#### 4. Recent Content Pulse
-```
+#### 4. Recent content pulse
+
+```text
 site:instagram.com/{yourhandle} ("2024" OR "2025" OR "recent")
 ```
 **Purpose:** Measure how much recent or time-sensitive content is being indexed.
 
-#### 5. Brand-Topic Crossover
-```
+#### 5. Brand-topic crossover
+
+```text
 site:instagram.com "{yourhandle}" "{niche_keyword}"
 ```
 **Purpose:** Check if your brand appears in conversations beyond your profile.
 
-### Step 3: Content Correlation Analysis
+### Step 3: Content correlation analysis
 
 Prompt Claude to use Agent WordLift for deep analysis:
 
@@ -110,7 +121,7 @@ Using Agent WordLift, please:
 5. Provide specific recommendations for improving content alignment
 ```
 
-### Step 4: Competitive Intelligence
+### Step 4: Competitive intelligence
 
 ```md
 Analyze how competitors are leveraging Instagram indexing:
@@ -121,7 +132,7 @@ Analyze how competitors are leveraging Instagram indexing:
 4. Suggest content opportunities based on gaps found
 ```
 
-### Step 5: Performance Monitoring Setup
+### Step 5: Performance monitoring setup
 
 ```md
 Help me establish a monitoring system:
@@ -132,31 +143,35 @@ Help me establish a monitoring system:
 4. Create a reporting schedule for ongoing monitoring
 ```
 
-## Key Analysis Components
+## Key analysis components
 
-### Live SERP Queries
+### Live SERP queries
+
 - Real-time visibility checks using verified rankings
 - Monitor how Instagram content performs against website pages
 - Track changes in SERP features (AI Overviews, People Also Ask, etc.)
 
-### Search Console Integration
+### Search Console integration
+
 - Pull actual performance data for comparative analysis
 - Identify queries where Instagram content could complement website rankings
 - Monitor click-through rates and impression data
 
-### Trend Analysis
+### Trend analysis
+
 - Use Google Trends data (January-June 2025) for topical validation
 - Identify seasonal patterns in Instagram content performance
 - Predict future content opportunities
 
-### Content Correlation Measurement
+### Content correlation measurement
+
 - Assess alignment between website content and Instagram posts
 - Identify content themes that perform well on both platforms
 - Suggest optimization strategies for maximum cross-platform synergy
 
-## Expected Outcomes
+## Expected outcomes
 
-By the end of this workflow, you'll have:
+By the end of this workflow, you have:
 
 - **Comprehensive audit** of your Instagram content's Google indexing status
 - **Content gap analysis** between your website and Instagram presence
@@ -164,48 +179,54 @@ By the end of this workflow, you'll have:
 - **Optimization roadmap** for maximizing cross-platform visibility
 - **Monitoring system** for ongoing performance tracking
 
-## Advanced Prompts
+## Advanced prompts
 
-### Entity Alignment Analysis
+### Entity alignment analysis
+
 ```md
 Using Agent WordLift's entity analysis capabilities, compare the entity coverage between my website's knowledge graph and my Instagram content. Identify entities that are well-represented on Instagram but missing from my website, and vice versa.
 ```
 
-### Local SEO Integration
+### Local SEO integration
+
 ```md
 For businesses with local presence: Analyze how Instagram content supports local SEO efforts. Check if location-based Instagram posts are appearing in local search results and suggest geo-targeted content strategies.
 ```
 
-### Content Calendar Optimization
+### Content calendar optimization
+
 ```md
 Based on the analysis, create a content calendar that optimizes for both Instagram engagement and Google search visibility. Include specific posting recommendations, hashtag strategies, and cross-promotion opportunities.
 ```
 
 ## Troubleshooting
 
-### Common Issues
+### Common issues
 
-**Low Instagram Indexing:**
+**Low Instagram indexing:**
+
 - Check if your Instagram account is set to public
-- Ensure consistent posting schedule
+- Keep a consistent posting schedule
 - Verify that captions include relevant keywords
 
-**Poor Content Alignment:**
+**Poor content alignment:**
+
 - Review entity overlap between platforms
 - Identify content themes that work on both platforms
 - Consider repurposing website content for Instagram
 
-**Limited SERP Visibility:**
+**Limited SERP visibility:**
+
 - Focus on long-tail keywords where competition is lower
 - Optimize Instagram captions for search intent
 - Use relevant hashtags that align with search queries
 
-## Related Workflows
+## Related workflows
 
-- [Google Search Console Integration](./google-search-console.md)
-- [Content Quality Evaluation](./content-evaluation.md)
-- [Keyword Discovery](./keyword-discovery.md)
-- [Social Media Content Creation](./create-social-media-posts.md)
+- [Google Search Console integration](./google-search-console.md)
+- [Evaluate content quality](./content-evaluation.md)
+- [Run keyword research](./keyword-discovery.md)
+- [Create social media posts](./create-social-media-posts.md)
 
 ---
 

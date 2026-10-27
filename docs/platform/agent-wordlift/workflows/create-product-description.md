@@ -1,17 +1,27 @@
 ---
-title: Create product descriptions using keyword insights
+title: "Create product descriptions from keyword insights"
+description: "Draft several keyword-informed product descriptions in your language and brand tone with Agent WordLift, then review them before you publish."
+sidebar_label: "Product descriptions"
 sidebar_position: 11
+last_updated: 2026-10-27
 ---
 
-## Introduction
+# Create product descriptions from keyword insights
 
-In this workflow, we'll demonstrate how to leverage **WordLift's AI SEO Agent** to craft compelling **e-commerce product descriptions** that stand out. The focus is to use *keyword insights* to enhance product visibility and appeal, especially for e-commerce platforms. Our example will center around creating enticing descriptions for a product using a strategic approach that involves analyzing keywords and integrating them seamlessly into the product descriptions.
+Use this workflow to draft several product descriptions for one product, informed by keyword research, in the language and brand tone you choose. You get a set of variants to pick from and edit instead of writing from scratch.
 
-## Crafting Product Descriptions
+## Before you start
 
-Our journey begins with an example that illustrates how to create an engaging description for an e-commerce product, using "Creamy Concealer" by Acme as our focal point.
+Have these details ready for the product:
 
-### Here's the prompt
+- **Product name and brand.** For example, "Creamy Concealer" by ACME.
+- **Current description and category.** Agent WordLift works from the details you provide.
+- **Target language.** The language you want the descriptions in.
+- **Number of variants.** How many descriptions you want to compare.
+
+## Run the prompt
+
+Send this prompt to Agent WordLift, then adapt it for your own product.
 
 ```md className=wlx-send-to-agent
 Analyze the "Creamy Concealer" by ACME using the query tool, using its description and product category to extract key insights. Suggest relevant keywords that could enhance its online visibility. Based on these insights, generate 10 SEO-optimized product descriptions in French, each incorporating:
@@ -21,20 +31,51 @@ Analyze the "Creamy Concealer" by ACME using the query tool, using its descripti
 - Characteristics that highlight the product's unique selling points
 ```
 
-![image](./images/agent-wordlift-product-description.png)
+Change these parts of the prompt:
 
-## How Things Work Behind the Scenes
+| Part of the prompt | Example value | Replace with |
+|---|---|---|
+| Product | "Creamy Concealer" | Your product name |
+| Brand | ACME | Your brand |
+| Language | French | Your target language |
+| Number of variants | 10 | The number of descriptions you want |
+| Required elements | Brand and product name, keywords, brand tone, unique selling points | The elements every description must include |
 
-The WordLift AI SEO Agent assists in this process by:
-
-- **Analyzing Product Information**: It starts by examining the provided product details, including its description and category. This helps in understanding the product's key features and target audience.
-- **Identifying Key Keywords**: The agent then identifies relevant keywords associated with the product. These keywords are essential for ensuring the product ranks well in search engine results. Agent will analyze keyword data.
-- **Creating Engaging Descriptions**: Leveraging the product insights and identified keywords, WordLift crafts SEO-optimized product descriptions. These descriptions are designed to capture the attention of potential buyers and improve the product's search visibility.
-
-:::info
-
-To address the need for generating content at scale, particularly when businesses require more than just a few descriptions, we have a groundbreaking solution that amplifies this transformative process. With WordLift's advanced [Content Generation](https://wordlift.io/content-generation/) capabilities, you're no longer limited by the constraints of manual content creation. This feature is specifically designed for enterprises looking to produce a vast amount of content without sacrificing quality, relevance, or SEO optimization.
-
+:::warning[Review needed]
+TODO [SME]: confirm that "query tool" is still the name Agent WordLift recognizes for the Analyze Query tool.
 :::
 
-Understanding this workflow allows you to trust the process, ensuring the descriptions are not only aligned with the brand's voice but are also optimized to attract and engage your target audience.
+## What Agent WordLift does
+
+Agent WordLift works through the prompt in 3 stages:
+
+1. **Analyzes the product.** It reads the description and category you provide to identify the product's key features and audience.
+2. **Finds relevant keywords.** It uses the query tool to analyze keyword data for the product.
+3. **Drafts the descriptions.** It writes the number of variants you asked for, each built from the product details and the keywords.
+
+![Agent WordLift response with a table of keyword insights and a list of 10 French product titles](./images/agent-wordlift-product-description.png)
+
+:::warning[Review needed]
+TODO [Jason]: the screenshot shows 10 titles for "Radiant Creamy Concealer", not 10 descriptions for "Creamy Concealer". Replace it with output from the prompt on this page.
+:::
+
+## Review the output
+
+Agent WordLift drafts from the details you provide and the keyword data it finds, so check every variant before you publish:
+
+- **Product facts and claims.** Confirm that features, ingredients, sizes and benefits match the product. Remove any claim you cannot support.
+- **Brand tone.** Edit the wording to match your brand guidelines.
+- **Keyword use.** Check that keywords read naturally and fit the product.
+
+Pick the strongest variant, edit it, and publish it on your product page.
+
+## Scale to a catalog
+
+This workflow suits one product at a time. To produce descriptions across a catalog, use [Content Generation](/platform/agent-wordlift/content-generation/): log in to the dashboard and select **Content Generation** in the left menu.
+
+To structure your product data in your Knowledge Graph, see [Product Knowledge Graph](/platform/knowledge-graph/product-knowledge-graph/).
+
+## Related
+
+- **Product highlights.** The [Prompt Library](/platform/agent-wordlift/prompt-library/) includes a Generate Product Highlights prompt for short, scannable product bullet points.
+- **Social media planning.** [Create social media content buckets](/platform/agent-wordlift/workflows/create-social-media-content-buckets/) from the content you already publish.

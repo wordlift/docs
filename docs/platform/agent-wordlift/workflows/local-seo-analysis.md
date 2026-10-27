@@ -1,13 +1,15 @@
 ---
-title: Local SEO Analysis
+title: "Local SEO analysis"
+description: "Analyze your Google Business Profile, Local Pack results, local rankings, customer Q&A and competitors with Agent WordLift's Local SEO tools."
 sidebar_position: 20
+last_updated: 2026-10-27
 ---
 
-# Optimizing Local Search Performance
+# Local SEO analysis
 
-Local SEO is critical for businesses that serve specific geographic areas. This workflow demonstrates how to use **Agent WordLift's Local SEO tools** to analyze and optimize your business's local search presence. For more background on local SEO strategies, read our comprehensive guide: [Optimizing Local SEO - How to Create Winning Strategies](https://wordlift.io/blog/en/optimizing-local-seo/).
+Local SEO is critical for businesses that serve specific geographic areas. This workflow demonstrates how to use **Agent WordLift's Local SEO tools** to analyze and optimize your business's local search presence. For more background on local SEO strategies, read our comprehensive guide: [Optimizing Local SEO: How to Create Winning Strategies](https://wordlift.io/blog/en/optimizing-local-seo/).
 
-## Watch the Workflow in Action
+## Watch the workflow in action
 
 Learn how to effectively transform your local search performance with Agent WordLift:
 
@@ -20,7 +22,7 @@ Learn how to effectively transform your local search performance with Agent Word
   allowfullscreen referrerpolicy="strict-origin-when-cross-origin">
 </iframe>
 
-## Business Profile Analysis
+## Business Profile analysis
 
 Start by analyzing your Google Business Profile to understand its current state and identify optimization opportunities.
 
@@ -38,7 +40,7 @@ This analysis provides comprehensive information about:
 
 ![image](./images/agent-wordlift-local-seo-profile.png)
 
-## Local Pack Research
+## Local Pack research
 
 Understanding which businesses appear in Google's Local Pack for relevant keywords helps you identify competitive factors and optimization opportunities.
 
@@ -46,7 +48,7 @@ Understanding which businesses appear in Google's Local Pack for relevant keywor
 Show me the Local Pack results for "coffee shops" in "Denver,Colorado,United States"
 ```
 
-The Agent will return:
+Agent WordLift returns:
 
 - Businesses currently ranking in the Local Pack
 - Their ratings and review counts
@@ -54,7 +56,7 @@ The Agent will return:
 
 ![image](./images/agent-wordlift-local-seo-local-pack.png)
 
-## Business Ranking Analysis
+## Business ranking analysis
 
 Track your business's position in both Local Pack and organic search results for important keywords:
 
@@ -71,7 +73,7 @@ This analysis reveals:
 
 ![image](./images/agent-wordlift-local-seo-tracking.png)
 
-## Customer Q&A Analysis
+## Customer Q&A analysis
 
 The questions customers ask on your Google Business Profile provide valuable insights into their needs and interests.
 
@@ -88,7 +90,7 @@ This provides:
 
 ![image](./images/agent-wordlift-local-seo-qa.png)
 
-## Comprehensive Local SEO Audit
+## Comprehensive local SEO audit
 
 For a complete assessment, combine multiple analyses into a comprehensive audit:
 
@@ -103,7 +105,7 @@ Perform a complete local SEO audit for "Mountain View Cafe" in "Denver,Colorado,
 
 This comprehensive approach delivers a detailed report with actionable insights for improving your local search presence.
 
-## Competitor Analysis
+## Competitor analysis
 
 Compare your business against local competitors to identify strengths, weaknesses, and opportunities:
 
@@ -117,32 +119,32 @@ This analysis helps you understand:
 - What factors might be helping competitors rank better
 - Specific opportunities to improve your competitive position
 
-## Best Practices for Local SEO
+## Best practices for local SEO
 
 Based on the insights gathered, implement these best practices:
 
-1. **Complete Your Business Profile**
-   - Ensure all information is accurate and comprehensive
+1. **Complete your Business Profile**
+   - Make sure all information is accurate and comprehensive
    - Add high-quality photos of your business
    - Select all relevant categories and attributes
 
-2. **Actively Manage Reviews**
+2. **Actively manage reviews**
    - Respond promptly to all reviews, both positive and negative
    - Thank customers for positive feedback
    - Address concerns professionally in negative reviews
 
-3. **Answer Customer Questions**
+3. **Answer customer questions**
    - Monitor and respond to all questions in a timely manner
    - Provide clear, helpful answers that showcase your expertise
    - Use questions to identify information gaps in your profile
 
-4. **Optimize for Local Keywords**
+4. **Optimize for local keywords**
    - Include location-specific terms in your business description
    - Target keywords that show local intent
    - Create content addressing local needs and interests
 
-5. **Maintain Consistent NAP Information**
-   - Ensure your Name, Address, and Phone number are consistent across all platforms
+5. **Maintain consistent NAP information**
+   - Keep your name, address, and phone number (NAP) consistent across all platforms
    - Verify information on popular directories and citation sites
    - Update all listings when information changes
 
@@ -150,6 +152,6 @@ Based on the insights gathered, implement these best practices:
 Use the Local SEO tools regularly to monitor your progress and identify new opportunities for optimization. Local search rankings can change frequently, so consistent monitoring is key to maintaining and improving your position.
 :::
 
-For detailed information about each Local SEO tool and its capabilities, see our [Local SEO Tools Reference Guide](./local-seo-tools-guide.md).
+For detailed information about each Local SEO tool and its capabilities, see the [Local SEO tools guide](./local-seo-tools-guide.md).
 
 By following this workflow and implementing the recommended optimizations, you can improve your business's visibility in local search results, attract more relevant customers, and gain an advantage over competitors in your area.
