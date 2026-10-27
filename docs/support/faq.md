@@ -1,62 +1,49 @@
 ---
+title: "Frequently asked questions"
+description: "Answers on WordLift plans and access, data ownership and export, the Knowledge Graph, Agent WordLift and the classic WordPress plugin, grouped by product."
+sidebar_label: "FAQ"
+last_updated: 2026-10-27
 ---
 
-# Who is WordLift for?
+# Frequently asked questions
 
-**WordLift** is for all *bloggers*, *journalists*, and *content marketers* publishing and fighting for readers’ attention on the web.
-**WordLift** democratizes the field, bringing to the hands of all web content creators the technology that web publisher giants such as *Google*, *Facebook* and the *BBC* are using to organize and monetize their content.
-**WordLift** helps you create richer and more engaging content, optimizes it for all search engines and efficiently organizes your content creation process, allowing you to reach and speak directly to your tribe.
+Answers are grouped by product. Each question has a stable link you can share.
 
-## Why shall I use WordLift?
+## About WordLift {#general}
 
-Organizing web content around an internal vocabulary rather than traditional web pages helps both users and machines finding and accessing it, improving navigation, content re-use, content repurposing, and search engine rankings.
-**WordLift** **organizes** content, reducing the complexity of content management and content marketing operations, letting bloggers and site owners focus on stories and communities.
-**WordLift** **enriches** your content with *contextual information*, *links*, and *media*, from custom vocabularies and/or the wealth of open data available on the web, bringing your user experience to a new level of engagement.
-**WordLift** **connects** content with cross-media *discovery* and *recommendations* widgets, increasing content quality, exposure, trustworthiness and readership engagement.
-**WordLift** **optimizes** content, complementing the offer of plug-ins such as *SEO Ultimate +* or *Yoast*, automatically adding [schema markup](https://wordlift.io/blog/en/entity/schema-org/) to your text, allowing all search engines to properly index your pages and deliver more traffic to your site.
+### What is WordLift? {#what-is-wordlift}
 
-## How does it work?
+WordLift is a knowledge graph platform. It builds a [Knowledge Graph](/platform/knowledge-graph/) from your content and data, publishes it as structured data, and powers Agent WordLift and the WordLift APIs on top of it. AI Search and SEO are one application of the graph. Start with the [Welcome page](/welcome/).
 
-:::info Note
-To know more about how **WordLift** works, please [watch the step by step video tutorials](https://wordlift.io/how-it-works/) on our [website](https://wordlift.io).
-:::
+### Which plans are available? {#which-plans-are-available}
 
-**WordLift** works in subsequent stages.
+There are two plans, Business+ and Enterprise. Enterprise includes everything in Business+, and Agent WordLift is included in both. See [Plans and pricing](/plans-and-pricing/) and the [Feature Matrix](/plans-and-pricing/feature-matrix/).
 
-1. The first step provides a **full text analysis** and suggests concepts and relationships found in open vocabularies (such as *DBpedia*, *Wikidata*, *GeoNames*, etc) to help writers **classify** and **enrich** their content and structure it for search engines like Google, according to schema.org vocabulary.
-2. Writers can then create new entities, to complement the ones suggested automatically, and to be published as part of a **proprietary vocabulary**, acting both as a **reference** and a **search magnet** for their readers, according to the editorial plans.
-3. **WordLift** also assists writers suggesting **links**, **media** and providing a set of powerful **visualization widgets** to connect and recommend alternative content, to boost readers’ engagement.
-4. Finally **WordLift** provides means to record all these relationships in a graph database allowing search queries like *“find all contents related to concept_y and relevant for target_z”*.
+### How do I get access to WordLift? {#is-there-a-free-trial}
 
-## What are the languages supported by WordLift?
+Business+ and Enterprise start with a conversation with the WordLift team: [book a Business+ discovery session](https://wordlift.io/business-plus-get-started/) or [send an Enterprise enquiry](https://wordlift.io/enterprise-enquiry/). The Resolve API is the exception: developers can get access directly, without a sales conversation. See [Get access](/apis-and-sdks/#get-access).
 
-WordLift currently supports 32 languages: Chinese, Danish, German, English, French, Italian, Dutch, Russian, Spanish, Portuguese, Swedish, Turkish, Albanian, Belarusian, Bulgarian, Catalan, Croatian, Czech, Estonian, Finnish, Hungarian, Icelandic, Indonesian, Latvian, Lithuanian, Norwegian, Polish, Romanian, Serbian, Slovak, Slovenian, Ukrainian.
+### Where do I find billing and credit information? {#billing}
 
-:::info Note
-WordLift supports one language at the time. The main language of the website can be configured from the WordLift settings.
-Review the [configuration settings](/integrations/wordpress-plugin/getting-started/#configuration) for more information.
-:::
+[Billing](/plans-and-pricing/billing/) covers billing cycles, Smart Credits, usage allowances and closing an account.
 
-## Is there a free trial?
+## Data ownership, export and security {#data-and-security}
 
-Yes! All of our subscriptions come with a **14-day free trial**. If after two weeks you are not happy with WordLift, [contact us](mailto:support@wordlift.io) and we will cancel your subscription, no questions asked.
-In addition, with the purchase of our 12-month packages, we offer 20% discount. [Check it out](https://wordlift.io/pricing)!
+### Who owns the structured metadata created with WordLift? {#who-owns-the-structured-metadata-created-with-wordlift}
 
-## Who owns the structured metadata created with WordLift?
+You do. Customers own the structured metadata they create with WordLift. See [Data ownership and portability](/platform/knowledge-graph/#data-ownership-and-portability) for access, export, migration and identifier-continuity guidance.
 
-**You do.** Customers own the structured metadata they create with WordLift. See [Data ownership and portability](/platform/knowledge-graph/#data-ownership-and-portability) for access, export, migration, and identifier-continuity guidance.
+### What happens if I stop using WordLift? {#what-happens-if-i-stop-using-wordlift}
 
-## What happens if I stop using WordLift?
+Content created through the WordPress plugin remains in the website's WordPress database. Knowledge Graph hosting, publishing, synchronization and other managed capabilities depend on an active WordLift service.
 
-Content created through the WordPress plugin remains in the website's WordPress database. Knowledge Graph hosting, publishing, synchronization, and other managed capabilities depend on an active WordLift service.
+The graph data remains portable. See [Data ownership and portability](/platform/knowledge-graph/#data-ownership-and-portability) for the general policy, and [download your Knowledge Graph data](#how-can-i-download-my-knowledge-graph-data) before you change or end the integration.
 
-The graph data remains portable. See [Data ownership and portability](/platform/knowledge-graph/#data-ownership-and-portability) for the general policy and [download your Knowledge Graph data](#how-can-i-download-my-knowledge-graph-data) before changing or ending the integration.
+### How can I download my Knowledge Graph data? {#how-can-i-download-my-knowledge-graph-data}
 
-## How can I download my Knowledge Graph data?
+Export your entire Knowledge Graph dataset with the [Dataset Export API endpoint](/apis-and-sdks/kg-rest/#export). The API supports RDF/XML, JSON-LD, Turtle and N3.
 
-You can export your entire Knowledge Graph dataset using the [Dataset Export API endpoint](/apis-and-sdks/kg-rest/#export). The API supports multiple formats including RDF/XML, JSON-LD, Turtle, and N3.
-
-**Quick example using wget:**
+For example, with wget:
 
 ```bash
 wget 'https://api.wordlift.io/dataset/export' \
@@ -65,213 +52,123 @@ wget 'https://api.wordlift.io/dataset/export' \
   -O "export.jsonld"
 ```
 
-Replace `<WORDLIFT_API_KEY>` with your actual WordLift API key. For detailed documentation and more examples, see the [Export section in the KG-REST API documentation](/apis-and-sdks/kg-rest/#export).
+Replace `<WORDLIFT_API_KEY>` with your WordLift API key. For more formats and examples, see the [Export section of the KG-REST documentation](/apis-and-sdks/kg-rest/#export).
 
-## Is WordLift Secure?
+### Is WordLift secure? {#is-wordlift-secure}
 
-Security has been a consideration from day one. We have worked for many years in high-security environments such as parliaments and telco operators and we leverage on all of our experience to protect the data of our users.
+See [Data ownership and portability](/platform/knowledge-graph/#data-ownership-and-portability) for how your graph data is owned and exported, and [Agent WordLift data privacy](/platform/agent-wordlift/data-privacy/) for how Agent WordLift handles your data. For a security question about your account, [contact WordLift](/support/contact/).
 
-#### So, what are some of the ways we do this?
-
-- WordLift plugin and front end only use [SSL](http://info.ssl.com/article.aspx?id=10241).
-- Your data from the WordLift store is in a dedicated database, with access granted only to the WordLift store web site account originating from the WordLift store network address.
-- Keys for accessing your account page are transmitted securely over SSL and encrypted from the moment we receive them.
-- Any data transmitted between WordLift and our server farm is done over SSL.
-- Your data is **not shared with or handled by** any other services or companies, with the exception of the data published as open data.
-- WordLift itself is a small team, which limits the number of people with any access to your data.
-- There are regular security reviews of all WordLift servers and components.
-- You can ask us to delete your account information at any time. Contact us by by [email](mailto:hello-gdpr@wordlift.io), or by [making a request here](https://wordlift.gdprform.io/).
-
-If you have any other questions, concerns, or want to clarify anything listed on this page, please let us know.
-
-## Why and how should I customize the url of the entity pages created in my vocabulary?
-
-When selecting or creating new entities with WordLift, you are actively [building your internal vocabulary](https://wordlift.io/8-rules-create-vocabulary-wordpress-website/), adding pages to your website. When you first built your website, you chose a pattern for the url of the pages you were going to add, such as www.domain.com/name-of-the-page or www.domain.com/seo-keyword/name-of-the-page.
-The same applies with all the pages created with WordLift inside your vocabulary.
-
-1. By default WordLift will add the word “vocabulary” between your root domain and the name of the page: www.domain.com/vocabulary/name-of-the-entity-page.
-2. You can delete the word vocabulary if you want the new entity page to be inside your root domain folder: www.domain.com/name-of-the-entity-page.
-3. Or you can replace vocabulary with another keyword (or keywords) of your choice, for SEO or branding reason: www.domain.com/seo-keyword/name-of-the-entity-page.
-
-## Why is it important to organize my content and publish it as Linked Data?
-
-Organizing web content around concepts rather than traditional web pages helps both users and machines finding and accessing it, improves **navigation**, **content re-use**, **content repurposing** and **search engine rankings**.
-**Enriching content** with *contextual information*, *links* and *media*, from custom vocabularies and/or the wealth of **open data** available on the web, brings the user experience to a new level of engagement.
-Structuring content with **richer metadata** and publishing it as [linked data](https://wordlift.io/blog/en/entity/linked-data/) makes it **discoverable and searchable**, providing new ways of reaching targets.
-
-## Why is WordLift innovative?
-
-**WordLift** is **first-to-market** following a **“content organization” approach** which allows the classification and direct exploitation of proprietary content and structured metadata.
-**Wordlift** helps publishers create their **knowledge graph**, *exploit it* and *monetize it*.
-
-Finally **WordLift** complements the offer of plug-ins such as *SEO Ultimate +* or *Yoast* automatically adding [schema markup](https://wordlift.io/blog/en/entity/schema-org/) to content, allowing search engines to properly index pages, increasing traffic from organic searches.
-
-## What is content enrichment?
-
-Content enrichment is a processes used to refine and improve textual content by embedding structured data (*metadata*) on web pages. This *metadata* is made available to search engines and other data consumers.
-
-## What entity types are supported and how they map to Schema.org?
-
-*Thing*, *Person*, *Place*, *Event*, *Organization*, *LocalBusiness*, *Creative Work* and *Recipe* are the supported types.
-Review the [Edit Entity page](/integrations/wordpress-plugin/edit-entity/#entity-types-and-properties-table) for more information.
-
-## When should I create a new entity?
-
-You should create a new entity when this is directly relevant to the content you're writing and it doesn't already exist. When an entity is properly recognised by WordLift you shall edit this entity rather then creating a new one.
-
-You can add as many entities as you like.
-
-## What are the guidelines for creating new entities to annotate a blog post or a page?
-
-A basic guideline for adding a new entity is:
-
-> "*people should create entities that a librarian would plausibly use to classify the content as if it was a book.*"
-
-The purpose of using WordLift is to (1) categorize your content, (2) help people find content of interest to them, and (3) help WordLift describe your contents in *machine-readable* format so that other computers can re-use it.
-
-In some cases key concepts that are important for (1), (2) and (3) are not automatically detected by WordLift and need to be taught. To teach WordLift new concepts a new entity shall be created.
-
-:::info Note
-When entities already exist on a website in the form of posts or pages we shall always avoid creating a new entity and instead turn these posts or pages into entities. [Here is how](https://wordlift.io/blog/en/wordlift-3-15/).
+:::warning[Review needed]
+TODO [Jason]: confirm which legacy security statements can stay in this answer (SSL for the plugin and front end, a dedicated database, keys encrypted on receipt, no sharing with other services, regular security reviews).
 :::
 
-People should add entities that are accurate and directly relevant to the content they're writing.
+### How do I ask WordLift to delete my account data? {#delete-account-data}
 
-Excessively broad entities should not be added to content.
+Send a deletion request through the privacy route on [Contact WordLift](/support/contact/#privacy-and-data-requests).
 
-Content should not be overloaded with entities to increase its distribution online. As a general guideline, 6–8 entities should be adequate for most blog posts (based on the lenght of the article). If an article has too many entities it may be that some of the entities could be replaced with a single broader entity.
+## Knowledge Graph and structured data {#knowledge-graph}
 
-All entities shall be matched to the proper language of the content. There are two important articles to read on this topic:
+### Which schema types does WordLift support? {#which-schema-types-does-wordlift-support}
 
-1. [8 Rules To Create A Vocabulary For Your WordPress Website](https://wordlift.io/blog/en/8-rules-create-vocabulary-wordpress-website/)
-2. [Entity Based SEO: How To Optimize Your Entity Vocabulary](https://wordlift.io/blog/en/use-vocabulary/)
+WordLift describes entities with the [Schema.org](https://schema.org/) vocabulary. For the types the classic WordPress plugin supports, see the [entity types and properties table](/integrations/wordpress-plugin/edit-entity/#entity-types-and-properties-table) and the [schema types supported by Mappings](/integrations/wordpress-plugin/mappings/#supported-schema-types).
 
-## How can I search for the equivalent entity in the web of data?
-
-A published datasets like the knowledge graph that users create with WordLift shall link to other existing datasets using the OWL `owl:sameAs` property. This property creates an equivalence class between two nodes of an RDF graph. [Tim Berners Lee](https://wordlift.io/blog/en/entity/tim-berners-lee/) in his "Linked Data" note of 2006 outlined 4 principles of [linked data](https://wordlift.io/blog/en/entity/linked-data/):
-
-1. Use URIs to name (identify) things.
-2. Use HTTP URIs so that these things can be looked up (interpreted, "dereferenced").
-3. Provide useful information about what a name identifies when it's looked up, using open standards such as RDF, SPARQL, etc.
-4. Refer to other things using their HTTP URI-based names when publishing data on the Web.
-
-Specifically the **4th linked data principle** is meant to ensure a Web of data and not just a set of unconnected data islands. WordLift during the analysis automatically interlinks all detected entities with several datasets (DBpedia, Yago, Freebase etc.) but what if we are creating a new entity from scratch? How can we find an equivalent resource in the Web of linked data?
-
-There are basically four ways of doing it. The goal is to provide an information that can be understood by semantic search engines like Google, Bing and Yandex:
-
-1. **use WordLift sameAs search box**. WordLift will look for entities in Wikidata, DBpedia and on the datasets configured behind the WordLift key for the equivalent entity. This feature has been introduced with WordLift 3.15 [learn more about this feature here](https://wordlift.io/blog/en/wordlift-3-15/).
-2. **ask Google Search** a query by adding "site:dbpedia.org" to the name of the entity (ie "*site:dbpedia.org apache marmotta*"). Google will provide a list of results, chose the URL that start with *dbpedia.org/page/* (ie *dbpedia.org/page/Apache_Marmotta*), replace `/page/` with `/resource/` and you will have the `owl:sameAs` link to be added to your entity;
-3. **look for the entity in Wikidata** by using the search bar on the [wikidata](https://wikidata.org) website. The search bar is on the top right corner. The URL for the equivalent entity of Apache Marmotta in Wikidata is *https://www.wikidata.org/wiki/Q16928009*;
-4. **use the Google Knowledge Graph Search API** (here is [a link](https://developers.google.com/knowledge-graph/) to the documentation by Google). You will need an API Key from Google. Using your personal API key you will be able to search the Google Knowledge Graph with simple HTTP request. Here is an example `https://kgsearch.googleapis.com/v1/entities:search?query=andrea+volpini&key=API_KEY&limit=1&indent=True` (simply replace `API_KEY` with your personal API Key). The API responds with a [JSON LD](https://wordlift.io/blog/en/entity/json-ld/); look for the `machine id` that is located under `itemListElement` > `result` > `@id`. This should be something like `kg:/m/0djtw2h` now take the id and rewrite it by adding in front *http://rdf.freebase.com/ns/* than replace `/m/` with `/m.` and you should have something like: *http://rdf.freebase.com/ns/m.0ndhxqz*.
-
-:::info Note
-While Freebase no longer exists the `machine id` remains valid. We prefer to have such links in the `owl:sameAs` property of entities created with WordLift as these links point to RDF resources. As a matter of fact DBpedia, to interlink with Freebase, still uses these type of links rather than just the `machine id`.
+:::warning[Review needed]
+TODO [SME]: confirm which schema.org types WordLift supports today (the old answer said "all schema types") and whether support differs by plan or product.
 :::
 
-## Can I prevent the analysis to run?
+### What is the advantage of using a custom domain for publishing the Knowledge Graph? {#what-is-the-advantage-of-using-a-custom-domain-for-publishing-the-knowledge-graph}
 
-Yes. You can switch WordLift's analysis ON and OFF by clicking on the *open|close* arrow on the top right corner of the WordLift's Edit widget. See the *.gif* below:
+With a custom domain, you publish the Knowledge Graph under a domain you own, such as `https://data.example.org`. Custom domains are available on Enterprise. For setup options and DNS requirements, see [Custom domain configuration](/plans-and-pricing/custom-domain/).
 
-![image](../integrations/wordpress-plugin/images/wl_toggle_3-13-3.gif)
+### What is a triple? {#what-is-a-triple}
 
-What factors determine Wordlift's rating of an entity?
+A triple is a set of three elements: a subject, a predicate and an object. Triples link together to form a [graph](/concepts/#knowledge-graph) that has no hierarchy, is machine readable and can be used to infer new facts. In WordLift, triples describe facts as metadata about an article or an entity. See also [RDF](/concepts/#rdf).
 
-## Can I prevent WordLift from loading Wikimedia images?
+### How can I find the equivalent entity in the web of data? {#how-can-i-search-for-the-equivalent-entity-in-the-web-of-data}
 
-Yes. You can prevent WordLift from loading images that come from Wikipedia. In your `wp-config.php`, add the following line:
-`define( 'WL_EXCLUDE_IMAGES_REGEX', 'https?://[^.]*\.wikimedia\.org/.*' );`
+A published dataset, such as the Knowledge Graph you build with WordLift, links to equivalent entities in other datasets with the OWL `owl:sameAs` property. This property states that two nodes in an RDF graph describe the same thing. It applies the fourth [linked data](/concepts/#linked-open-data) principle: refer to other things by their HTTP URIs, so that datasets connect instead of standing alone.
 
-**before** the line
+When you create an entity from scratch, find its equivalent in one of these ways:
 
-`/* That's all, stop editing! Happy blogging. */`
+1. **Use the sameAs search box.** In the WordPress plugin, the sameAs search box looks for the equivalent entity in Wikidata, DBpedia and the datasets configured for your WordLift key.
+2. **Search Wikidata.** Use the search bar on [wikidata.org](https://www.wikidata.org). For example, the Wikidata URL for Apache Marmotta is `https://www.wikidata.org/wiki/Q16928009`.
 
-## I have already published a JSON-LD on the page. How can I integrate it with the JSON-LD that WordLift creates?
+### Are there any integrations with Neo4j? {#are-there-any-integrations-with-neo4j}
 
-We provide several options to help you integrate WordLift with the existing markup:
+Neo4j is a graph database. WordLift exposes your Knowledge Graph for live queries through the [GraphQL API](/apis-and-sdks/graphql-api/), and you can [export the full dataset](#how-can-i-download-my-knowledge-graph-data) in RDF formats.
 
-1. Completely disable WordLift’s JSON-LD by adding `add_filter( 'wl_jsonld_enabled', '__return_false' );` in your theme.
-2. Edit WordLift’s JSON-LD by using WordPress filters (this requires PHP development skills), see [here on Stack Overflow](https://stackoverflow.com/questions/52925820/how-do-i-change-the-json-ld-type-from-article-to-newsarticle-in-wordlift).
-3. Use [WordLift’s Mappings](https://wordlift.io/academy-entries/wordlift-mappings-tutorial/) to customize the JSON-LD using the UI provided by the plugin in *Dashboard > WordLift > Mappings*
-4. Augment WordLift’s JSON-LD by adding your own custom JSON-LD matching the same @id (in this case Google will merge the data from WordLift’s JSON-LD and your JSON-LD)
+:::warning[Review needed]
+TODO [SME]: confirm whether WordLift still stores data in a Linked Data store (Apache Marmotta) with SPARQL endpoints that a Neo4j connector could use.
+:::
 
-## What factors determine Wordlift's rating of an entity?
+## Agent WordLift {#agent-wordlift}
 
-The entity rating in WordLift takes under account the following factors:
+Agent WordLift has its own FAQ. Go straight to the topic you need:
 
-- Every entity should be linked to one or more related posts.
-- Every entity should have its own description.
-- Every entity should link to other entities - when we select other entities to enrich the description of an entity we create relationships in the site's [knowledge graph](/concepts/#knowledge-graph).
-- Entities, just like any post in WordPress, can be kept as draft. Only when we publish them they become available in the analysis and we can use them to classify our contents.
-- Entities shall have a featured image. When we add a featured image to an entity we’re adding the `schema-org:image` attribute to it.
-- Every entity (unless we’re creating something completely new) should be interlinked with the same entity contained in at least one other dataset. This is called data interlinking and can be done by adding a link to the equivalent entity using the `sameAs` attribute.
-- Every entity has a type (i.e. Person, Place, Organization, …) and every type has its own set of properties. When we complete all the properties of an entity we increase the entity visibility and usefulness.
+- **[About Agent WordLift](/platform/agent-wordlift/faq/#about-agent-wordlift).** What it is, how it uses your Knowledge Graph and what you can do with it.
+- **[Plans and usage](/platform/agent-wordlift/faq/#plans-and-usage).** Which plans include it, how interactions and Smart Credits are counted, and what happens at the limit.
+- **[Working with output](/platform/agent-wordlift/faq/#working-with-output).** How to export answers to Google Docs and generate FAQs for your pages.
+- **[Languages](/platform/agent-wordlift/faq/#languages).** Supported languages and known limits.
+- **[Data and privacy](/platform/agent-wordlift/faq/#data-and-privacy).** Whether your data is used for training and what is stored.
 
-## I have a vocabulary term appearing several times in a page, should I link all of the occurrences to the term, or just once per page?
+## WordPress plugin {#wordpress-plugin}
 
-While on an average length blog post (> 500 words) we shall use a limited number of entities to classify the content, there is not an actual limit for the number of internal links pointing to the same entity page.
+These answers apply to existing installs of the classic WordPress plugin. New customers start with [WordLift Cloud](/welcome/install-wordlift-cloud/).
 
-In SEO the link juice is transferred equally from every single link: if Google transfers let's say 85% of your article's Page Rank each link will equally get its own share. Five links pointing to the same page will therefore transfer the same amount of link juice of one single link. If I link too many different pages by annotating the blog post with too many entities the link juice will be diluted (and this is why we don't expect to have too many entities per article).
+### What are the languages supported by WordLift? {#what-are-the-languages-supported-by-wordlift}
 
-Now we need to consider the following:
+The WordPress plugin supports 32 languages: Albanian, Belarusian, Bulgarian, Catalan, Chinese, Croatian, Czech, Danish, Dutch, English, Estonian, Finnish, French, German, Hungarian, Icelandic, Indonesian, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Russian, Serbian, Slovak, Slovenian, Spanish, Swedish, Turkish and Ukrainian.
 
-- if on the page (including navigation links, footer links and so on) you have too many links already - you easily might hit the [100 link limit](https://moz.com/blog/how-many-links-is-too-many); there is no penalty for that but still it is a good rule to keep the number of links (both internal and external) below the *100-link mark*;
-- WordLift is keen on helping you create a good internal linking structure to reduce the bounce rate on your site and to increase the number of pages visited during each browsing session by your readers; if your internal links for the same entity are too many they simply become irrelevant. On the contrary if your article is long enough it is probably good to have 2-3 links pointing to the same entity page (as a reader I might miss the first one and might instead find useful the second or third one).
+The plugin supports one language at a time. Set the main language of the website in the WordLift settings. See [Review the settings](/integrations/wordpress-plugin/getting-started/#configuration).
 
-## When should I link one entity to another?
+:::warning[Review needed]
+TODO [SME]: confirm that this language list is current for the WordPress plugin.
+:::
 
-By running the analysis on the property description text of an entity you can *link* it to other entities. WordLift will store these relationships between one entity and other entities in the [graph](/concepts/#knowledge-graph) using the Dublin Core property `dct:related`. This information will be used to suggest new connections between the contents of your site. Creating links among relevant entities will create more structure for your content, even though it is not mandatory to do so. You should always link entities that can help other users discover relevant contents (i.e. the entity *\[Berners-Lee\]* shall be linked to entity *\[Web\]* as the two concepts are strictly related.)
+### Do I need administrator rights to configure the plugin? {#do-i-need-to-be-administrator-to-configure-it}
 
-## How can I enable or disable links to entities?
+Yes. You need admin privileges to configure WordLift.
 
-You can enable or disable the link to an entity by toggling the "Link" option for each annotation. See below
+### Why and how should I customize the URL of entity pages? {#why-and-how-should-i-customize-the-url-of-the-entity-pages-created-in-my-vocabulary}
 
-![image](./images/wordlift-edit-entity-link.gif)
+When you select or create entities with WordLift, you [build your internal vocabulary](https://wordlift.io/8-rules-create-vocabulary-wordpress-website/) and add pages to your website. Choose a URL pattern for these entity pages, as you did for the rest of the site:
 
-You can also enable or disable links site-wide from the WordLift Settings screen in the General tab as shown below.
+1. **Keep the default.** WordLift adds the word `vocabulary` between your root domain and the page name: `www.domain.com/vocabulary/name-of-the-entity-page`.
+2. **Remove the base.** Delete `vocabulary` to place entity pages in your root folder: `www.domain.com/name-of-the-entity-page`.
+3. **Replace the base.** Use another keyword for SEO or branding: `www.domain.com/seo-keyword/name-of-the-entity-page`.
 
-![image](./images/wordlift-settings-menu-link.png)
+Decide before you finish setup. The entity base becomes read-only after setup.
 
-## Why do I get 404 error on pages linked by WordLift?
+### Can I stop the analysis from running? {#can-i-prevent-the-analysis-to-run}
 
-WordPress is a powerful CMS. Nevertheless, in some cases, posts or pages newly created might return a *scary* **404 Error**. Pages created with WordLift are not an exception and you might end up in a situation where WordLift is creating links to pages that *apparently* do not exist. Don't worry this is a well-known WordPress issue and it can be easily fixed. Head into the dashboard of your website, click *Settings* » *Permalinks* and than press the *Save Changes* button. WordPress will re-generate all the permalinks and the error will be fixed.
+Yes. Switch the WordLift analysis on and off with the open and close arrow in the top right corner of the WordLift Edit widget.
 
-![image](./images/wordlift-updatepermalinks.png)
+![Toggling the WordLift analysis on and off in the Edit widget](../integrations/wordpress-plugin/images/wl_toggle_3-13-3.gif)
 
-Read [this article](http://www.wpbeginner.com/wp-tutorials/how-to-fix-wordpress-posts-returning-404-error/) to learn more about this issue from the WPbeginner website.
+### Can I prevent WordLift from loading Wikimedia images? {#can-i-prevent-wordlift-from-loading-wikimedia-images}
 
-## What are the datasets WordLift uses for named entity recognition?
+Yes. To stop WordLift from loading images from Wikipedia, add this line to your `wp-config.php`:
 
-WordLift by default uses DBpedia and Freebase to detect and link named entities. With a custom configuration, the content analysis services provided by [Redlink](http://www.redlink.co) and available via our professional services, can use any RDF-based [graph](/concepts/#knowledge-graph). It is also possible to use *multiple graphs* for named entity recognition and [dereferencing](/concepts/#dereferencing-http-uris).
-
-## How can I prevent WordLift from creating new entity pages?
-
-The best soution is to convert existing posts, pages and taxonomy terms to entities that will become part of your Knowledge Graph. This way you’ll not create new pages but re-link the existing pages on your web site.
-
-## What is a triple?
-
-A triple is a set of three elements: a subject, a predicate, and an object. Triples are linked together to form a [graph](/concepts/#knowledge-graph) that is without hierarchy, is machine readable, and can be used to infer new facts. Triples in WordLift describe facts as metadata about an article or an entity.
-
-## Are there any integrations with Neo4j?
-
-Neo4j is a graph database. WordLift stores data in a Linked Data store ([Apache Marmotta](https://marmotta.apache.org)) which provides linked data and SPARQL end-points. As long as Neo4j provides connectors for those interfaces, then an integration is possible.
-
-## Do I need to be Administrator to configure it?
-
-Yes. To configure WordLift you will need to have admin privileges.
-
-## Which Schema Types does WordLift support?
-
-WordLift, using the [Business plan](https://wordlift.io/pricing/), **supports all the schema types** listed in the [Schema.org](https://schema.org/) vocabulary.
-
-## What is the advantage of using a custom domain for publishing the knowledge graph?
-
-With a custom domain, you can publish the Knowledge Graph under a customer-owned domain such as `https://data.example.org`. For setup options and DNS requirements, see [Custom Domain Configuration](/plans-and-pricing/custom-domain/).
-
-## How can I change the JSON-LD *@type* from *Article* to *NewsArticle* in WordLift?
-
-WordLift, allows you to filter the the JSON-LD output before it is sent to the client and change any part of it, e.g. in this specific case::
-
+```php
+define( 'WL_EXCLUDE_IMAGES_REGEX', 'https?://[^.]*\.wikimedia\.org/.*' );
 ```
+
+Add it before the comment line that begins `/* That's all, stop editing`.
+
+### How do I combine my existing JSON-LD with WordLift's JSON-LD? {#i-have-already-published-a-json-ld-on-the-page-how-can-i-integrate-it-with-the-json-ld-that-wordlift-creates}
+
+If a page already has JSON-LD, choose one of these options:
+
+1. **Disable WordLift's JSON-LD.** Add `add_filter( 'wl_jsonld_enabled', '__return_false' );` to your theme.
+2. **Edit WordLift's JSON-LD with WordPress filters.** This requires PHP development skills. See the [NewsArticle example below](#how-can-i-change-the-json-ld-type-from-article-to-newsarticle-in-wordlift) and [this answer on Stack Overflow](https://stackoverflow.com/questions/52925820/how-do-i-change-the-json-ld-type-from-article-to-newsarticle-in-wordlift).
+3. **Use Mappings.** Customize the JSON-LD in the plugin UI at **Dashboard > WordLift > Mappings**. See [Mappings](/integrations/wordpress-plugin/mappings/).
+4. **Add your own JSON-LD with the same `@id`.** Google merges the data from WordLift's JSON-LD and yours.
+
+### How can I change the JSON-LD @type from Article to NewsArticle? {#how-can-i-change-the-json-ld-type-from-article-to-newsarticle-in-wordlift}
+
+Filter the JSON-LD output before WordLift sends it to the browser. The `wl_post_jsonld` filter lets you change any part of it. This example changes `Article` to `NewsArticle`:
+
+```php
 add_filter( 'wl_post_jsonld',  function( $jsonld ) {
 
 // Bail out if `@type` isn't set or isn't `Article`.
@@ -284,3 +181,95 @@ $jsonld['@type'] = 'NewsArticle';
 return $jsonld;
 } );
 ```
+
+### What entity types are supported and how do they map to Schema.org? {#what-entity-types-are-supported-and-how-they-map-to-schemaorg}
+
+See the [entity types and properties table](/integrations/wordpress-plugin/edit-entity/#entity-types-and-properties-table) on the Edit Entity page.
+
+### When should I create a new entity? {#when-should-i-create-a-new-entity}
+
+Create a new entity when it is directly relevant to the content you are writing and it does not exist yet. When WordLift already recognizes the entity, edit it instead of creating a new one.
+
+You can add as many entities as you like.
+
+### What are the guidelines for creating new entities to annotate a blog post or a page? {#what-are-the-guidelines-for-creating-new-entities-to-annotate-a-blog-post-or-a-page}
+
+A basic guideline: create the entities a librarian would use to classify your content if it were a book.
+
+You use WordLift to:
+
+1. Categorize your content.
+2. Help people find content that interests them.
+3. Describe your content in a machine-readable format that other computers can reuse.
+
+WordLift does not detect every key concept automatically. To teach WordLift a new concept, create a new entity.
+
+:::info Note
+When a post or page on your website already covers the concept, turn that post or page into an entity instead of creating a new one. [See how](https://wordlift.io/blog/en/wordlift-3-15/).
+:::
+
+Follow these rules:
+
+- **Stay accurate and relevant.** Add entities that are accurate and directly relevant to the content.
+- **Avoid broad entities.** Do not add excessively broad entities.
+- **Do not overload content.** Do not add entities only to increase distribution. As a general guideline, 6 to 8 entities are adequate for most blog posts, depending on the length of the article. If an article has too many entities, replace some of them with a single broader entity.
+- **Match the language.** Match every entity to the language of the content.
+
+For more, read [8 rules to create a vocabulary for your WordPress website](https://wordlift.io/blog/en/8-rules-create-vocabulary-wordpress-website/) and [Entity-based SEO: how to optimize your entity vocabulary](https://wordlift.io/blog/en/use-vocabulary/).
+
+### How can I prevent WordLift from creating new entity pages? {#how-can-i-prevent-wordlift-from-creating-new-entity-pages}
+
+Convert existing posts, pages and taxonomy terms into entities that become part of your Knowledge Graph. You then re-link existing pages on your website instead of creating new ones.
+
+### What factors determine WordLift's rating of an entity? {#what-factors-determine-wordlifts-rating-of-an-entity}
+
+The entity rating takes these factors into account:
+
+- **Related posts.** The entity is linked to one or more related posts.
+- **Description.** The entity has its own description.
+- **Links to other entities.** The entity links to other entities. Each link creates a relationship in the site's [Knowledge Graph](/concepts/#knowledge-graph).
+- **Published status.** The entity is published. Like any WordPress post, an entity can stay in draft, but only published entities are available in the analysis.
+- **Featured image.** The entity has a featured image, which adds the `schema-org:image` attribute.
+- **sameAs links.** Unless the entity is new to the web, it links to the same entity in at least one other dataset with the `sameAs` attribute. This is called data interlinking.
+- **Completed properties.** Every entity has a type, such as Person, Place or Organization, and each type has its own properties. Completing them makes the entity more visible and useful.
+
+### Should I link every occurrence of a vocabulary term in a page? {#i-have-a-vocabulary-term-appearing-several-times-in-a-page-should-i-link-all-of-the-occurrences-to-the-term-or-just-once-per-page}
+
+You do not have to. There is no limit on the number of internal links that point to the same entity page, but keep the number of different entities per article limited.
+
+Too many links to the same entity become irrelevant to readers. In a long article, 2 or 3 links to the same entity page can help readers who miss the first one.
+
+### When should I link one entity to another? {#when-should-i-link-one-entity-to-another}
+
+Run the analysis on an entity's description to link it to other entities. WordLift stores these relationships in the [graph](/concepts/#knowledge-graph) with the Dublin Core property `dct:related`, and uses them to suggest new connections between the content on your site.
+
+Linking entities is optional, but it gives your content more structure. Link entities that help readers discover relevant content. For example, link the entity *Berners-Lee* to the entity *Web*, because the two concepts are closely related.
+
+### How can I enable or disable links to entities? {#how-can-i-enable-or-disable-links-to-entities}
+
+To enable or disable the link for one annotation, toggle its **Link** option.
+
+![Toggling the Link option on an entity annotation](./images/wordlift-edit-entity-link.gif)
+
+To enable or disable links site-wide, use the **General** tab of the WordLift Settings screen.
+
+![The link setting in the General tab of the WordLift Settings screen](./images/wordlift-settings-menu-link.png)
+
+### Why do I get a 404 error on pages linked by WordLift? {#why-do-i-get-404-error-on-pages-linked-by-wordlift}
+
+New WordPress posts or pages, including pages WordLift creates, sometimes return a 404 error. This is a known WordPress issue. To fix it, open **Settings > Permalinks** in your WordPress dashboard and select **Save Changes**. WordPress regenerates all permalinks.
+
+![The Save Changes button on the WordPress Permalinks settings screen](./images/wordlift-updatepermalinks.png)
+
+To learn more about this issue, read [how to fix WordPress posts returning a 404 error](http://www.wpbeginner.com/wp-tutorials/how-to-fix-wordpress-posts-returning-404-error/) on WPBeginner.
+
+### What are the datasets WordLift uses for named entity recognition? {#what-are-the-datasets-wordlift-uses-for-named-entity-recognition}
+
+:::warning[Review needed]
+TODO [SME]: confirm which datasets entity recognition uses today (the old answer named DBpedia, Freebase and Redlink; Freebase no longer exists).
+:::
+
+## Still need help? {#still-need-help}
+
+- **[Troubleshooting](/support/troubleshooting/).** Find your symptom and the fix.
+- **[Contact WordLift](/support/contact/).** Reach technical support, sales or the privacy team.

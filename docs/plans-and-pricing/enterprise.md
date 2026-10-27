@@ -1,7 +1,9 @@
 ---
-title: Enterprise Onboarding Guide
-description: A practical onboarding playbook for Enterprise teams adopting WordLift as part of their Knowledge Graph, SEO, data, and AI operations.
+title: "Enterprise onboarding guide"
+description: "Plan your WordLift Enterprise onboarding: owners, graph topology, access and credentials, the first ingestion path and a production-ready milestone."
+sidebar_label: "Enterprise"
 sidebar_position: 0
+last_updated: 2026-10-27
 keywords:
   - WordLift Enterprise onboarding
   - enterprise Knowledge Graph onboarding
@@ -12,11 +14,13 @@ keywords:
   - semantic SEO onboarding
 ---
 
-# Enterprise Onboarding Guide
+# Enterprise onboarding guide
 
-This guide is for Enterprise teams adopting WordLift as part of their semantic SEO, content, data, or AI infrastructure.
+Enterprise is the WordLift plan for organizations that need a custom scope. It includes everything in [Business+](/plans-and-pricing/business-plus/), including Agent WordLift, and adds Enterprise-only features such as [SAML single sign-on](/plans-and-pricing/sso-saml/) and a [custom domain](/plans-and-pricing/custom-domain/). The [Feature Matrix](/plans-and-pricing/feature-matrix/) compares the two plans. To start, [send an Enterprise enquiry](https://wordlift.io/enterprise-enquiry/).
 
-It is written for the people who need to make onboarding work in practice: SEO leads, platform engineers, data teams, AI teams, security owners, and executive sponsors. The goal is not only to log in or configure a graph. The goal is to reach a point where the customer team can safely operate a Knowledge Graph, populate it with trusted data, connect it to workflows, and expand it without creating governance or security debt.
+This guide is for Enterprise teams adopting WordLift as part of their semantic SEO, content, data or AI infrastructure. It is written for the people who make onboarding work in practice: SEO leads, platform engineers, data teams, AI teams, security owners and executive sponsors.
+
+Logging in and configuring a graph is the start. The goal is a customer team that can safely operate a Knowledge Graph, populate it with trusted data, connect it to workflows and expand it without creating governance or security debt.
 
 ## Onboarding outcomes
 
@@ -40,7 +44,7 @@ A successful Enterprise onboarding gives the customer clear answers to these que
 | Graph population | Choose one primary ingestion path and validate it with a controlled dataset. | First ingestion workflow and validation loop. |
 | Operations | Define governance, monitoring, change management, escalation, and expansion rules. | Production-ready operating model. |
 
-Enterprise onboarding should be treated as a phased journey rather than a feature checklist. Start narrow, validate quickly, and expand incrementally.
+Treat Enterprise onboarding as a phased journey, not a feature checklist. Start narrow, validate quickly and expand incrementally.
 
 ## Enterprise readiness checklist
 
@@ -56,14 +60,14 @@ Enterprise onboarding should be treated as a phased journey rather than a featur
 
 ## Graph topology worksheet
 
-Use the smallest graph topology that supports the first use case. Expanding from a clean single-graph or production-staging model is easier than cleaning up fragmented graph architecture later.
+Use the smallest graph topology that supports the first use case. Expanding from a clean single-graph or production-staging model is easier than cleaning up a fragmented graph architecture later.
 
 | Question | Why it matters | Decision |
 | --- | --- | --- |
 | Which graph is production? | Prevents accidental testing on live data. | Record the production graph and owner. |
 | Is there a staging or sandbox graph? | Supports safer validation and experimentation. | Record the non-production graph and test policy. |
 | Are graphs mapped to brands, countries, regions, or business units? | Defines naming, governance, and reporting rules. | Record each mapping and accountable owner. |
-| Which dataset URI strategy is used? | Affects linked data, integrations, structured data, and long-term namespace ownership. | Choose WordLift-hosted or [customer-controlled domain](/plans-and-pricing/custom-domain/). |
+| Which dataset URI strategy is used? | Affects linked data, integrations, structured data and long-term namespace ownership. | Choose WordLift-hosted or [customer-controlled domain](/plans-and-pricing/custom-domain/). |
 | Who owns DNS and domain changes? | Custom domains require customer-side ownership and coordination. | Record DNS owner and approval path. |
 
 For the recommended population workflow and a comparison of specialized alternatives, see [Create a Knowledge Graph](/platform/knowledge-graph/create/).
@@ -74,8 +78,8 @@ Treat access as operational infrastructure, not as a personal account owned by o
 
 | Access type | Purpose | Typical owner | Where it is used | Secret or source handling | Lifecycle or approval question | Canonical route |
 | --- | --- | --- | --- | --- | --- | --- |
-| Dashboard access | Human access to subscription and graph configuration. | Customer admin, SEO lead, account owner | WordLift Dashboard at `https://my.wordlift.io` | Managed through customer-approved admin process. | Who is primary admin, backup admin, and recovery contact? | Contact the WordLift account team if access is missing. |
-| SAML SSO | Enterprise identity and centralized access governance. | Identity owner, security owner | Enterprise login flow | Managed by the customer's identity provider. | Is SSO required, and who owns IdP configuration and access review? | [SAML Single Sign-On](/plans-and-pricing/sso-saml/) |
+| Dashboard access | Human access to subscription and graph configuration. | Customer admin, SEO lead, account owner | WordLift Dashboard at `https://my.wordlift.io` | Managed through customer-approved admin process. | Who is primary admin, backup admin and recovery contact? | Contact the WordLift account team or [support@wordlift.io](mailto:support@wordlift.io) if access is missing. |
+| SAML SSO | Enterprise identity and centralized access governance. | Identity owner, security owner | Enterprise login flow | Managed by the customer's identity provider. | Is SSO required, and who owns IdP configuration and access review? | [SAML single sign-on](/plans-and-pricing/sso-saml/) |
 | Graph Key / WordLift Key | Programmatic access to graph-backed APIs and automation. | Platform, data, or engineering owner | API, GraphQL, SDK, MCP, automation, and selected tools | Store only in a customer-approved secret manager. Use `Authorization: Key ...` where product docs require Key authentication. | Who can retrieve, rotate, revoke, and audit key use? | [GraphQL support](/apis-and-sdks/api-reference/graphql/graphql-support/) and [Monitoring API Guide](/apis-and-sdks/monitoring/) |
 | OAuth2 Bearer tokens | Delegated access for product-specific APIs and workflows. | Identity owner, application owner, system owner | Product-specific APIs that require Bearer tokens | Use the identity and security pattern approved by your organization. | Which application owner approves the flow, scopes, token storage, and revocation path? | Follow the relevant product documentation after your identity and security owners approve the pattern. |
 | Third-party service authorization | Authorization to external services such as Google Search Console. | Service owner, analytics owner, security owner | Analytics, search, or connector workflows | Authorized by the external service owner through the current product or support path. | Who owns the third-party account, scopes, consent, and revocation? | See [Data Sources](/platform/data-sources/oauth2/) for Dashboard and API connector setup, and [Analytics API](/apis-and-sdks/analytics-api/) for product-specific implementation details. |
@@ -96,21 +100,21 @@ Use these rules before any production integration:
 
 ## First ingestion path
 
-Choose one primary ingestion path for the first phase. Multiple paths can coexist later, but onboarding should prove one path first.
+Choose one primary ingestion path for the first phase. Multiple paths can coexist later, but prove one path first.
 
 | Customer situation | Better starting point | Validation output | Canonical route |
 | --- | --- | --- | --- |
 | Website or content platform | GraphSync | A controlled pilot with validated entities, relationships, and stable identities | [GraphSync](/platform/knowledge-graph/graph-sync/) |
 | Google Merchant Center product catalog | Product Knowledge Graph Builder | A validated product subset synchronized from the selected feed | [Product Knowledge Graph Builder](/platform/knowledge-graph/product-knowledge-graph/) |
-| WordPress editorial workflow | WordPress Plugin | Editors can create, annotate, and publish the agreed entity model | [WordPress Plugin](/integrations/wordpress-plugin/) |
+| WordPress editorial workflow on an existing classic plugin install | WordPress plugin | Editors can create, annotate and publish the agreed entity model | [WordPress plugin](/integrations/wordpress-plugin/) |
 | Existing Botify crawl workflow | Botify Crawl Import | Selected crawl fields are mapped and written to the graph | [Botify Crawl Import](/platform/data-sources/botify/) |
 | Customer-owned entity model and lifecycle | Direct API or SDK integration | A repeatable write and validation process owned by the customer team | [Create a Knowledge Graph](/platform/knowledge-graph/create/) |
 
-GraphSync is the recommended general path for Business+ and Enterprise content graphs. Sitemap Import and Web Page Import are limited page-oriented tools, while GraphQL, analytics, monitoring, and publishing services operate on or around a graph rather than replacing its primary population workflow.
+GraphSync is the recommended general path for Business+ and Enterprise content graphs. Sitemap Import and Web Page Import are limited page-oriented tools. GraphQL, analytics, monitoring and publishing services operate on or around a graph; they do not replace its primary population workflow.
 
 ## Production-ready milestone
 
-The first meaningful milestone is not only the creation of a graph. A graph can exist before it is useful.
+Creating a graph is not the first meaningful milestone, because a graph can exist before it is useful.
 
 A production-ready milestone proves that:
 
@@ -138,7 +142,8 @@ Example milestone:
 ## Canonical resources
 
 - [Knowledge Graph](/platform/knowledge-graph/)
-- [Custom Domain Configuration](/plans-and-pricing/custom-domain/)
+- [Feature Matrix](/plans-and-pricing/feature-matrix/)
+- [Custom domain configuration](/plans-and-pricing/custom-domain/)
 - [GraphQL support](/apis-and-sdks/api-reference/graphql/graphql-support/)
 - [Monitoring API Guide](/apis-and-sdks/monitoring/)
 - [Data Sources](/platform/data-sources/oauth2/) - Dashboard and API connector setup
@@ -146,4 +151,5 @@ Example milestone:
 - [Content Generation API Guide](/platform/agent-wordlift/content-generation/api-guide/) - product-specific implementation details
 - [worai install](/tools/worai-cli/install/)
 - [worai configuration](/tools/worai-cli/configuration/)
-- [SAML Single Sign-On](/plans-and-pricing/sso-saml/)
+- [SAML single sign-on](/plans-and-pricing/sso-saml/)
+- [Contact WordLift](/support/contact/)

@@ -1,7 +1,10 @@
 ---
-title: Custom Domain Configuration
-description: Configure a customer-owned domain for WordLift Enterprise Knowledge Graph dataset URIs using a CNAME record or a reverse proxy.
+title: "Custom domain configuration"
+description: "Configure a customer-owned domain for WordLift Enterprise Knowledge Graph dataset URIs using a CNAME record or a reverse proxy."
+sidebar_label: "Custom domain"
 sidebar_position: 1
+last_updated: 2026-10-27
+tiers: [enterprise]
 keywords:
   - WordLift custom domain
   - Enterprise custom domain
@@ -11,7 +14,7 @@ keywords:
   - custom.wordlift.io
 ---
 
-# Custom Domain Configuration
+# Custom domain configuration
 
 Enterprise customers can publish WordLift Knowledge Graph data under a customer-owned domain, such as `https://data.example.org`.
 
@@ -134,6 +137,6 @@ WordLift also provides a custom domain validation endpoint in the [Manager API r
 
 ## Related docs
 
-- [Enterprise Onboarding Guide](/plans-and-pricing/enterprise/)
+- [Enterprise onboarding guide](/plans-and-pricing/enterprise/)
 - [Knowledge Graph](/platform/knowledge-graph/)
 - [Custom domain validation API](/apis-and-sdks/api-reference/manager/validate/)

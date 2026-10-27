@@ -1,7 +1,10 @@
 ---
-title: SAML Single Sign-On for Enterprise
-description: WordLift supports SAML-based single sign-on for Enterprise customers who want centralized identity management with their supported identity provider.
+title: "SAML single sign-on for Enterprise"
+description: "WordLift supports SAML-based single sign-on for Enterprise customers who want centralized identity management with their supported identity provider."
+sidebar_label: "SAML single sign-on"
 sidebar_position: 1
+last_updated: 2026-10-27
+tiers: [enterprise]
 keywords:
   - WordLift SAML SSO
   - SAML single sign-on
@@ -14,7 +17,7 @@ keywords:
   - enterprise SEO platform security
 ---
 
-# SAML Single Sign-On for Enterprise
+# SAML single sign-on for Enterprise
 
 WordLift supports SAML-based single sign-on (SSO) for Enterprise customers. With SAML SSO, your organization can let users access WordLift through a supported identity provider instead of managing a separate WordLift-specific login flow.
 
@@ -22,7 +25,7 @@ SAML SSO is available for Enterprise customers who need centralized authenticati
 
 ## What is SAML?
 
-SAML, or Security Assertion Markup Language, is an open standard used to exchange authentication and authorization data between an identity provider and a service provider. In an enterprise SSO flow, the identity provider authenticates the user and sends WordLift the information needed to grant access.
+SAML, or Security Assertion Markup Language, is an open standard used to exchange authentication and authorization data between an identity provider and a service provider. In an enterprise SSO flow, the identity provider authenticates the person signing in and sends WordLift the information needed to grant access.
 
 In this relationship:
 
