@@ -51,7 +51,7 @@ jobs:
 
           if [ "$api_changed" = "false" ]; then
             while IFS= read -r id; do
-              if [ ! -f "docs/api/$id/sidebar.ts" ] && [ ! -f "docs/api/$id/sidebar.js" ]; then
+              if [ ! -f "docs/apis-and-sdks/api-reference/$id/sidebar.ts" ] && [ ! -f "docs/apis-and-sdks/api-reference/$id/sidebar.js" ]; then
                 api_changed=true
                 break
               fi

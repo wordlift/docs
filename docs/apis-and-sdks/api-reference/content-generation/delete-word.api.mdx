@@ -1,0 +1,71 @@
+---
+id: delete-word
+title: "Delete"
+description: "Delete"
+sidebar_label: "Delete"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVE1P3EAM/SuRT0UKZFmhHnJqxUeFhFqpgHpAKzTMeDcWyUyYcaBLlP9eeZIsu+yCED0lcZ7tZz/bLbgavWJy9txADgZLZPzjvIEUauVVhYw+QH7TgsGgPdWChRyuCkyOnWW0nPxAOwRJyBxACiSIWnEBKVhVIeSge+wL9FxSeHxoyKOBnH2DKQRdYKUgb4GXtbiRZVyghxTmzleKe9PXI+i6dBcloZ6wS/pC3uBC/5t6Ju6hdjZgEI/pZCKPTTrHHhWjgS6Fo8nh9v/vDRdomXTfuTNFZeOxhx9tw386Ts5cY42UDgF144mXUZnx49aphosp5DczochqIcrBDplim+5ICf9Z+irTSewdpFAhF+5lLOJIcAE5ZIOa+4tVyJC1OyTusifnTchaMh0Ia/84jlPjS8ihYK5DnmWqpgOBljTnA3Ig/MeyLkWZvtFblbYwL91T/CcW5+k5pj52BreM1xspw3rCLAbMRjhmwla7uk97pwJpyPtnEu2iE7t7/EDQCMuibMNoDezFQnbuJIU0T2mWV6wUxZhYlu7beldWEyz6XdCcIX3Vx40evhZ2UAYT7aq6xChbcqcCmsTZRDeBXUXPaJKS7KKhwKSTyhksgyxSSRptiF0dWHzRe4l29dLTouBkOplO92uPQWbtowQZfRV+zS/RP5LG3bgsgvbdfD/0MBGHiUvBbw83pCBD1pd8eDCRNLULXCm7xn015BstWi0/41/O6lKRFfdYQjtM/w3smH5IId994uICyG8ysmqFCywx2lYaf+3LrhPzQ4NelnmWwqPypO6kODm6FOTdQD5XZcAtukNOEeP3cND2kndv884CB6OyS+meKhv5ghTucfnG7Y7n97Pktq/0J1iRgW7WrV2pk9OL06tTSOPSr2k5bFsKq/PY7g7dr/kYf1zzN8Af2PgxktIaQ7gar8WnQm5cpiFsw8W78TaO362Wkzj6LryyfBu9ulnXdf8A70LFJw==
+sidebar_class_name: "delete api-method"
+info_path: apis-and-sdks/api-reference/content-generation/content-generation
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/content-generations/{contentGenerationId}/words/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"The Content Generation id.","in":"path","name":"contentGenerationId","required":true,"schema":{"type":"integer","format":"int64"}},{"description":"The Word to delete.","in":"path","name":"id","required":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Created"},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

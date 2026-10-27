@@ -290,3 +290,13 @@ h2[title="Graph KPI"] {
   font-family: 'Open Sans', sans-serif !important;
   color: var(--white-07) !important;
 }
+
+/* Sidebar cluster headings (Product, Reference, Account and support) */
+.sidebar-cluster-heading {
+  margin: 1rem 0 0.25rem;
+  color: var(--ifm-color-secondary-darkest);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

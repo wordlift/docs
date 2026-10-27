@@ -2,572 +2,306 @@
 
 const { loadSidebar } = require("./scripts/sidebars-utils");
 
-/** @type {any[]} */
-const agentWordLiftWorkflowItems = [
-  "agent-wordlift/workflows/keyword-discovery",
-  "agent-wordlift/workflows/keyword-cannibalization",
-  "agent-wordlift/workflows/google-search-console",
-  "agent-wordlift/workflows/rankings-drop-audit",
-  "agent-wordlift/workflows/research-content-ideas",
-  "agent-wordlift/workflows/enhanced-entity-research",
-  "agent-wordlift/workflows/create-social-media-posts",
-  "agent-wordlift/workflows/create-social-media-content-buckets",
-  "agent-wordlift/workflows/ideas-for-newsletters",
-  "agent-wordlift/workflows/faq",
-  "agent-wordlift/workflows/create-product-description",
-  "agent-wordlift/workflows/content-evaluation",
-  "agent-wordlift/workflows/analyzing-query-match",
-  "agent-wordlift/workflows/adding-authorship-markup",
-  "agent-wordlift/workflows/local-seo-analysis",
-  "agent-wordlift/workflows/local-seo-tools-guide",
-  "agent-wordlift/workflows/create-internal-links",
-  "agent-wordlift/workflows/instagram-indexing-analysis",
-  "agent-wordlift/workflows/instagram-indexing-report",
+/**
+ * Docs v3 information architecture: nine sections in three clusters
+ * (Product, Reference, Account and support). The generated API reference
+ * lives in its own sidebar so it never crowds the hand-written guides.
+ */
+
+/** @param {string} label */
+const clusterHeading = (label) => ({
+  type: "html",
+  value: `<p class="sidebar-cluster-heading">${label}</p>`,
+  defaultStyle: true,
+});
+
+/**
+ * @param {string} label
+ * @param {string} id
+ * @param {any[]} items
+ */
+const section = (label, id, items) => ({
+  type: "category",
+  label,
+  link: { type: "doc", id },
+  items,
+});
+
+const agentWordLiftWorkflows = [
+  "platform/agent-wordlift/workflows/ai-visibility-analysis",
+  "platform/agent-wordlift/workflows/keyword-discovery",
+  "platform/agent-wordlift/workflows/keyword-cannibalization",
+  "platform/agent-wordlift/workflows/google-search-console",
+  "platform/agent-wordlift/workflows/rankings-drop-audit",
+  "platform/agent-wordlift/workflows/research-content-ideas",
+  "platform/agent-wordlift/workflows/enhanced-entity-research",
+  "platform/agent-wordlift/workflows/create-social-media-posts",
+  "platform/agent-wordlift/workflows/create-social-media-content-buckets",
+  "platform/agent-wordlift/workflows/ideas-for-newsletters",
+  "platform/agent-wordlift/workflows/generate-faqs",
+  "platform/agent-wordlift/workflows/create-product-description",
+  "platform/agent-wordlift/workflows/content-evaluation",
+  "platform/agent-wordlift/workflows/analyzing-query-match",
+  "platform/agent-wordlift/workflows/adding-authorship-markup",
+  "platform/agent-wordlift/workflows/local-seo-analysis",
+  "platform/agent-wordlift/workflows/local-seo-tools-guide",
+  "platform/agent-wordlift/workflows/create-internal-links",
+  "platform/agent-wordlift/workflows/instagram-indexing-analysis",
+  "platform/agent-wordlift/workflows/instagram-indexing-report",
 ];
 
-/** @type {any[]} */
-const agentWordLiftSidebarItems = [
-  {
-    type: "doc",
-    id: "agent-wordlift/index",
-    label: "Overview"
-  },
-  "agent-wordlift/getting-started",
-  "agent-wordlift/tips",
-  "agent-wordlift/highlights",
-  "agent-wordlift/data-privacy-and-security",
-  "agent-wordlift/prompt-reference",
-  "agent-wordlift/faq",
-  "agent-wordlift/integrations",
-  {
-    type: "doc",
-    id: "agent-wordlift/tools",
-    label: "🧰 Tools",
-  },
-  {
-    type: "category",
-    label: "🛠️ Workflows",
-    link: {
-      type: "doc",
-      id: "agent-wordlift/workflows",
-    },
-    items: agentWordLiftWorkflowItems,
-  },
-];
+const woraiCommands = [
+  "seocheck",
+  "entity-matrix",
+  "seoreport",
+  "google-search-console",
+  "canonicals",
+  "dedupe",
+  "canonicalize-duplicate-pages",
+  "delete-entities-from-csv",
+  "find-faq-page-wrong-type",
+  "find-missing-names",
+  "find-url-by-type",
+  "graph",
+  "graph-kpis",
+  "link-groups",
+  "patch",
+  "self",
+  "structured-data",
+  "agent",
+  "web-pages",
+  "list-entities-outside-dataset",
+  "validate",
+  "upload-entities-from-turtle",
+].map((name) => `tools/worai-cli/commands/${name}`);
+
+const wordpressPluginPages = [
+  "getting-started",
+  "user-manual",
+  "editors",
+  "edit-entity",
+  "sidebar",
+  "analysis",
+  "publishing",
+  "widgets",
+  "mappings",
+  "jsonld",
+  "entity-types",
+  "import-export-vocabulary",
+  "semantic-analytics",
+  "theme-development",
+  "customization",
+  "advanced-topics",
+  "troubleshooting",
+  "support",
+].map((name) => `integrations/wordpress-plugin/${name}`);
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
   docs: [
-    {
-      type: "html",
-      value: `<p style="color: var(--ifm-color-secondary-darkest)">DOCUMENTATION</p>`,
-      defaultStyle: true,
-    },
-    {
-      type: "doc",
-      id: "introduction",
-      label: "👋 Welcome to WordLift",
-    },
-    {
-      type: "category",
-      label: "🛠️ Core Features",
-      items: [
-        {
-          type: "category",
-          label: "🏗️ Knowledge Graph",
-          link: {
-            type: "doc",
-            id: "knowledge-graph/index",
-          },
-          items: [
-            {
-              type: "category",
-              label: "Create a Knowledge Graph",
-              link: {
-                type: "doc",
-                id: "knowledge-graph/create-a-knowledge-graph",
-              },
-              items: [
-                {
-                  type: "category",
-                  label: "GraphSync",
-                  link: {
-                    type: "doc",
-                    id: "knowledge-graph/graphsync",
-                  },
-                  items: [
-                    {
-                      type: "doc",
-                      id: "knowledge-graph/graphsync-changes",
-                      label: "Find what changed",
-                    },
-                  ],
-                },
-                {
-                  type: "doc",
-                  id: "knowledge-graph/sitemap-import",
-                  label: "Sitemap Import"
-                },
-                {
-                  type: "doc",
-                  id: "knowledge-graph/web-page-import",
-                  label: "Web Page Import"
-                },
-              ],
-            },
-            {
-              type: "category",
-              label: "Product Knowledge Graph",
-              link: {
-                type: "doc",
-                id: "product-knowledge-graph-builder/introduction",
-              },
-              items: [
-                {
-                  type: "doc",
-                  id: "product-knowledge-graph-builder/webhooks",
-                  label: "Webhooks",
-                },
-                {
-                  type: "doc",
-                  id: "product-knowledge-graph-builder/feed-specifications",
-                  label: "Feed Specifications",
-                },
-              ],
-            },
-            {
-              type: "category",
-              label: "Data API",
-              link: {
-                type: "doc",
-                id: "knowledge-graph/data-api",
-              },
-              items: [
-                {
-                  type: "doc",
-                  id: "knowledge-graph/migrate-client-side-to-server-side-data-api",
-                  label: "Migrate to Server-Side Data API"
-                },
-                {
-                  type: "doc",
-                  id: "knowledge-graph/out-of-band-data-api-cache",
-                  label: "Out-of-Band Cache Prefill"
-                },
-                {
-                  type: "doc",
-                  id: "knowledge-graph/cloudflare-integration",
-                  label: "Cloudflare Integration"
-                },
-              ],
-            },
-            {
-              type: "doc",
-              id: "knowledge-graph/data-sources-oauth2",
-              label: "Data Sources"
-            },
-            {
-              type: "doc",
-              id: "knowledge-graph/kg-rest",
-              label: "KG-REST"
-            },
-            {
-              type: "doc",
-              id: "knowledge-graph/multilingual",
-              label: "Multilingual"
-            },
-          ],
-        },
-        {
-          type: "category",
-          label: "📡 Monitor",
-          link: {
-            type: "doc",
-            id: "monitor/index",
-          },
-          items: [
-            "monitor/define-segments-and-expectations",
-            "monitor/read-monitor-status",
-            "monitor/inspect-url-results",
-            "monitor/ask-your-ai-assistant",
-            "monitor/reference",
-          ],
-        },
-        {
-          type: "doc",
-          id: "business-plus/index",
-          label: "📈 Business+",
-        },
-        {
-          type: "category",
-          label: "🏢 Enterprise",
-          items: [
-            {
-              type: "doc",
-              id: "enterprise/onboarding",
-              label: "Enterprise Onboarding"
-            },
-            {
-              type: "doc",
-              id: "enterprise/custom-domain-configuration",
-              label: "Custom Domain Configuration"
-            },
-            {
-              type: "doc",
-              id: "enterprise/saml-sso",
-              label: "SAML Single Sign-On"
-            },
-            {
-              type: "category",
-              label: "Integrations",
-              items: [
-                {
-                  type: "doc",
-                  id: "knowledge-graph/botify",
-                  label: "Botify Integration"
-                },
-                {
-                  type: "doc",
-                  id: "knowledge-graph/analytics-api",
-                  label: "Analytics Import"
-                },
-              ]
-            },
-          ],
-        },
-        {
-          type: "category",
-          label: "🤖 Smart Content",
-          items: [
-            ...agentWordLiftSidebarItems,
-            {
-              type: "doc",
-              id: "content-generation/content-generation",
-              label: "Content Generation"
-            },
-            {
-              type: "category",
-              label: "AI & LLM Integrations",
-              link: {
-                type: "doc",
-                id: "llm-connectors/index",
-              },
-              items: [
-                {
-                  type: "doc",
-                  id: "llm-connectors/wordlift-vector-store",
-                  label: "WordLift Vector Store",
-                },
-                {
-                  type: "doc",
-                  id: "llm-connectors/wordlift-reader",
-                  label: "WordLift Reader",
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "🧩 Apps, Tools & Plugins",
-      items: [
-        {
-          type: "doc",
-          id: "apps-tools-plugins/agent-wordlift-extension",
-          label: "🤖 Agent WordLift Extension",
-        },
-        {
-          type: "category",
-          label: "☁️ WordLift Cloud",
-          items: [
-            {
-              type: "category",
-              label: "WordPress Plugin",
-              link: {
-                type: "doc",
-                id: "cloud/wordpress-plugin",
-              },
-              items: [
-                {
-                  type: "doc",
-                  id: "cloud/wordpress-plugin-entity-types",
-                  label: "Select Entity Types for Web Pages"
-                },
-              ],
-            },
-            {
-              type: "doc",
-              id: "cloud/index",
-              label: "Install the WordLift Cloud script"
-            },
-            {
-              type: "doc",
-              id: "cloud/google-tag-manager",
-              label: "WordLift Cloud via GTM"
-            },
-          ],
-        },
-        {
-          type: "category",
-          label: "🧰 worai CLI",
-          items: [
-            "worai/install",
-            "worai/configuration",
-            {
-              type: "category",
-              label: "Commands",
-              items: [
-                "worai/commands/seocheck",
-                "worai/commands/entity-matrix",
-                "worai/commands/seoreport",
-                "worai/commands/google-search-console",
-                "worai/commands/canonicals",
-                "worai/commands/dedupe",
-                "worai/commands/canonicalize-duplicate-pages",
-                "worai/commands/delete-entities-from-csv",
-                "worai/commands/find-faq-page-wrong-type",
-                "worai/commands/find-missing-names",
-                "worai/commands/find-url-by-type",
-                "worai/commands/graph",
-                "worai/commands/graph-kpis",
-                "worai/commands/link-groups",
-                "worai/commands/patch",
-                "worai/commands/self",
-                "worai/commands/structured-data",
-                "worai/commands/agent",
-                "worai/commands/web-pages",
-                "worai/commands/list-entities-outside-dataset",
-                "worai/commands/validate",
-                "worai/commands/upload-entities-from-turtle",
-              ],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "🔌 Platform Integrations",
-      items: [
-        {
-          type: "category",
-          label: "CMS & E-commerce",
-          items: [
-            {
-              type: "doc",
-              id: "wordpress-plugin/index",
-              label: "WordPress Plugin"
-            },
-            {
-              type: "doc",
-              id: "woocommerce/introduction",
-              label: "WooCommerce SEO"
-            },
-          ],
-        },
-        {
-          type: "category",
-          label: "Marketing Tools",
-          items: [
-            {
-              type: "doc",
-              id: "seo-add-on-google-sheets/introduction",
-              label: "Google Sheets Add-on"
-            },
-            {
-              type: "doc",
-              id: "looker-studio-connector/introduction",
-              label: "Google Looker Studio"
-            },
-            {
-              type: "doc",
-              id: "marketing-automation/zapier/introduction",
-              label: "Zapier Integration"
-            },
-            {
-              type: "doc",
-              id: "marketing-automation/power-automate/introduction",
-              label: "Microsoft Power Automate"
-            },
-            {
-              type: "doc",
-              id: "marketing-automation/brightedge/introduction",
-              label: "BrightEdge"
-            },
-          ],
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "📚 Developer Resources",
-      items: [
-        {
-          type: "doc",
-          id: "developer-resources/ip-user-agent-whitelist",
-          label: "IP & UA Whitelist"
-        },
-        {
-          type: "doc",
-          id: "developer-resources/monitoring",
-          label: "Monitoring API Guide"
-        },
-        {
-          type: "doc",
-          id: "developer-resources/resolve",
-          label: "Resolve API Guide"
-        },
-        {
-          type: "doc",
-          id: "developer-resources/resolve-errors",
-          label: "Resolve API Errors"
-        },
-        {
-          type: "doc",
-          id: "developer-resources/resolve-migrate-from-azure",
-          label: "Migrate from Azure Entity Linking"
-        },
-        {
-          type: "link",
-          href: "/category/api",
-          label: "API Documentation"
-        },
-      ],
-    },
+    clusterHeading("Product"),
+    section("Welcome", "welcome/index", [
+      section("Install WordLift Cloud", "welcome/install-wordlift-cloud/index", [
+        "welcome/install-wordlift-cloud/google-tag-manager",
+      ]),
+      {
+        type: "category",
+        label: "Choose your path",
+        items: [
+          "welcome/paths/business-plus",
+          "welcome/paths/enterprise",
+          "welcome/paths/developer",
+          "welcome/paths/content-team",
+          "welcome/paths/marketing-team",
+          "welcome/paths/e-commerce",
+        ],
+      },
+    ]),
+    section("Platform", "platform/index", [
+      "platform/dashboard",
+      section("Data sources", "platform/data-sources/index", [
+        "platform/data-sources/sitemap",
+        "platform/data-sources/web-page-import",
+        "platform/data-sources/botify",
+        "platform/data-sources/oauth2",
+      ]),
+      section("Knowledge Graph", "platform/knowledge-graph/index", [
+        "platform/knowledge-graph/create",
+        section("GraphSync", "platform/knowledge-graph/graph-sync/index", [
+          "platform/knowledge-graph/graph-sync/find-what-changed",
+        ]),
+        "platform/knowledge-graph/entity-management",
+        "platform/knowledge-graph/schema-publishing",
+        section(
+          "Product Knowledge Graph",
+          "platform/knowledge-graph/product-knowledge-graph/index",
+          [
+            "platform/knowledge-graph/product-knowledge-graph/feed-specifications",
+            "platform/knowledge-graph/product-knowledge-graph/webhooks",
+          ]
+        ),
+        "platform/knowledge-graph/multilingual",
+      ]),
+      section("Agent WordLift", "platform/agent-wordlift/index", [
+        "platform/agent-wordlift/getting-started",
+        "platform/agent-wordlift/tool-families",
+        section(
+          "Workflows",
+          "platform/agent-wordlift/workflows/index",
+          agentWordLiftWorkflows
+        ),
+        "platform/agent-wordlift/prompt-library",
+        section(
+          "Content Generation",
+          "platform/agent-wordlift/content-generation/index",
+          ["platform/agent-wordlift/content-generation/api-guide"]
+        ),
+        "platform/agent-wordlift/integrations",
+        "platform/agent-wordlift/data-privacy",
+        "platform/agent-wordlift/faq",
+      ]),
+      section("Monitor", "platform/monitor/index", [
+        "platform/monitor/define-segments-and-expectations",
+        "platform/monitor/read-monitor-status",
+        "platform/monitor/inspect-url-results",
+        "platform/monitor/ask-your-ai-assistant",
+        "platform/monitor/reference",
+      ]),
+    ]),
+    section("Interfaces and tools", "tools/index", [
+      section("MCP Server", "tools/mcp-server/index", [
+        "tools/mcp-server/microsoft-365-copilot",
+      ]),
+      "tools/agent-wordlift-skill",
+      {
+        type: "category",
+        label: "worai CLI",
+        link: { type: "doc", id: "tools/worai-cli/install" },
+        items: [
+          "tools/worai-cli/install",
+          "tools/worai-cli/configuration",
+          { type: "category", label: "Commands", items: woraiCommands },
+        ],
+      },
+      "tools/wordlift-cli",
+      "tools/google-sheets-addon",
+      "tools/chrome-extension",
+    ]),
+    section("Integrations", "integrations/index", [
+      section(
+        "WordPress plugin",
+        "integrations/wordpress-plugin/index",
+        wordpressPluginPages
+      ),
+      "integrations/woocommerce",
+      "integrations/zapier",
+      "integrations/power-automate",
+      "integrations/looker-studio",
+      "integrations/brightedge",
+    ]),
+    clusterHeading("Reference"),
+    section("APIs and SDKs", "apis-and-sdks/index", [
+      section("Data API", "apis-and-sdks/data-api/index", [
+        "apis-and-sdks/data-api/migrate",
+        "apis-and-sdks/data-api/out-of-band-cache-prefill",
+        "apis-and-sdks/data-api/cloudflare-integration",
+      ]),
+      "apis-and-sdks/graphql-api",
+      "apis-and-sdks/kg-rest",
+      section("Resolve API", "apis-and-sdks/resolve/index", [
+        "apis-and-sdks/resolve/errors",
+        "apis-and-sdks/resolve/migrate-from-azure-entity-linking",
+      ]),
+      "apis-and-sdks/analytics-api",
+      "apis-and-sdks/monitoring",
+      "apis-and-sdks/python-sdk",
+      {
+        type: "category",
+        label: "LLM connectors",
+        items: [
+          "apis-and-sdks/llm-connectors/wordlift-reader",
+          "apis-and-sdks/llm-connectors/wordlift-vector-store",
+        ],
+      },
+      "apis-and-sdks/ip-user-agent-whitelist",
+      {
+        type: "link",
+        href: "/apis-and-sdks/api-reference/",
+        label: "API reference",
+      },
+    ]),
+    section("Concepts", "concepts/index", [
+      "concepts/knowledge-graph",
+      "concepts/entities",
+      "concepts/schema-org",
+      "concepts/json-ld",
+      "concepts/linked-data",
+      "concepts/vocabulary",
+      "concepts/ai-visibility",
+      "concepts/rag-and-llms",
+      "concepts/glossary",
+    ]),
+    clusterHeading("Account and support"),
+    section("Plans and pricing", "plans-and-pricing/index", [
+      "plans-and-pricing/feature-matrix",
+      "plans-and-pricing/business-plus",
+      "plans-and-pricing/enterprise",
+      "plans-and-pricing/sso-saml",
+      "plans-and-pricing/custom-domain",
+      "plans-and-pricing/billing",
+    ]),
+    "whats-new/index",
+    section("Support", "support/index", [
+      "support/faq",
+      "support/troubleshooting",
+      "support/status",
+      "support/contact",
+    ]),
   ],
-  // Section-specific sidebars
-  "agent-wordlift": agentWordLiftSidebarItems,
 
-  "wordpress-plugin": [
+  // Generated from the OpenAPI specs (docusaurus-plugin-openapi-docs).
+  apiReference: [
     {
-      type: "autogenerated",
-      dirName: "wordpress-plugin",
+      type: "link",
+      href: "/apis-and-sdks/",
+      label: "Back to APIs and SDKs",
     },
-  ],
-  "llm-connectors": [
-    {
-      type: "autogenerated",
-      dirName: "llm-connectors",
-    },
-  ],
-  "content-generation": [
-    {
-      type: "autogenerated",
-      dirName: "content-generation",
-    },
-  ],
-  "marketing-automation": [
-    {
-      type: "autogenerated",
-      dirName: "marketing-automation",
-    },
-  ],
-  wordlift: [
     {
       type: "category",
-      label: "API",
+      label: "API reference",
+      collapsible: false,
       link: {
         type: "generated-index",
-        slug: "/category/api",
+        slug: "/apis-and-sdks/api-reference",
+        title: "API reference",
+        description:
+          "Endpoint reference generated from the WordLift OpenAPI specifications.",
       },
       items: [
-        {
-          type: "category",
-          label: "Agent WordLift",
-          items: loadSidebar("./docs/api/agent/sidebar"),
-        },
-        {
-          type: "category",
-          label: "Audit",
-          items: loadSidebar("./docs/api/audit/sidebar"),
-        },
-        {
-          type: "category",
-          label: "Analysis",
-          items: loadSidebar("./docs/api/analysis/sidebar"),
-        },
-        {
-          type: "category",
-          label: "Classification",
-          items: loadSidebar("./docs/api/classification/sidebar"),
-        },
-        {
-          type: "category",
-          label: "Content Generation",
-          items: loadSidebar("./docs/api/content-generation/sidebar"),
-        },
-        {
-          type: "category",
-          label: "Content Evaluations",
-          items: loadSidebar("./docs/api/content-evaluations/sidebar"),
-        },
-        {
-          type: "category",
-          label: "Fact Check",
-          items: loadSidebar("./docs/api/fact-check/sidebar"),
-        },
-        {
-          type: "category",
-          label: "GraphQL",
-          items: loadSidebar("./docs/api/graphql/sidebar"),
-        },
-        {
-          type: "category",
-          label: "Inspector",
-          items: loadSidebar("./docs/api/inspector/sidebar"),
-        },
-        {
-          type: "category",
-          label: "KPI Events",
-          items: loadSidebar("./docs/api/events/sidebar"),
-        },
-        {
-          type: "category",
-          label: "Long Tail",
-          items: loadSidebar("./docs/api/long-tail/sidebar"),
-        },
-        {
-          type: "category",
-          label: "Manager",
-          items: loadSidebar("./docs/api/manager/sidebar"),
-        },
-        {
-          type: "category",
-          label: "Google Search Console",
-          items: loadSidebar("./docs/api/gsc-url-inspections/sidebar"),
-        },
-        {
-          type: "category",
-          label: "Middleware",
-          items: loadSidebar("./docs/api/middleware/sidebar"),
-        },
-        {
-          type: "category",
-          label: "Summarization",
-          items: loadSidebar("./docs/api/summarizer/sidebar"),
-        },
-        {
-          type: "category",
-          label: "Sitemap Generator",
-          items: loadSidebar("./docs/api/sitemap-generator/sidebar"),
-        },
-        {
-          type: "category",
-          label: "Query Fan-Out",
-          items: loadSidebar("./docs/api/query-fan-out/sidebar"),
-        },
-        {
-          type: "category",
-          label: "Graph KPI",
-          items: loadSidebar("./docs/api/graph-kpi/sidebar"),
-        },
-        {
-          type: "category",
-          label: "Resolve",
-          items: loadSidebar("./docs/api/resolve/sidebar"),
-        },
-      ],
+        ["Agent WordLift", "agent"],
+        ["Audit", "audit"],
+        ["Analysis", "analysis"],
+        ["Classification", "classification"],
+        ["Content Generation", "content-generation"],
+        ["Content Evaluations", "content-evaluations"],
+        ["Fact Check", "fact-check"],
+        ["GraphQL", "graphql"],
+        ["Inspector", "inspector"],
+        ["KPI Events", "events"],
+        ["Long Tail", "long-tail"],
+        ["Manager", "manager"],
+        ["Google Search Console", "gsc-url-inspections"],
+        ["Middleware", "middleware"],
+        ["Summarization", "summarizer"],
+        ["Sitemap Generator", "sitemap-generator"],
+        ["Query Fan-Out", "query-fan-out"],
+        ["Graph KPI", "graph-kpi"],
+        ["Resolve", "resolve"],
+      ].map(([label, dir]) => ({
+        type: "category",
+        label,
+        items: loadSidebar(`./docs/apis-and-sdks/api-reference/${dir}/sidebar`),
+      })),
     },
   ],
 };

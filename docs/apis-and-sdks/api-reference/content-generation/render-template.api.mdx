@@ -1,0 +1,71 @@
+---
+id: render-template
+title: "Render"
+description: "[GET with body payload](https://opensource.zalando.com/restful-api-guidelines/#get-with-body) - no resources created"
+sidebar_label: "Render"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVd9v2zYQ/leI20sLyFZq9ElP64q22DAsQ+JiD0YQ0ORZYkORDEnFVQz978WRkiPH2RbsZU+Wyfvx3XffHQ8gMQivXFTWQAWbL5/WbK9iw7ZW9szxXlsub940MbpQlaV1aILtvMDlI9fcSLsUti09hrjr9II7tag7JVErg6H8qca4oGgLivaWLZixzGMOEJjwyCNKKMA69Jwg/CqhAo9Gol9j6zSPCAV4vO8wxF+s7KE6gLAmoon0yZ3TSiTX8lugEg4QRIMtp6/YO4QK7PYbigjFs1o/sDEui4SKcjLO4piWdUGZmsUGmfP2QUmUTPLIWYi+E7HzuIQCnCfoUWGgfHT/73nXDeZIO29bdmfsXqOskdWeu4bxXSQczul+yp8u7jW779D3y8QHl5dG91BF32EBUUVNCX8jBoYCphpmWEL0ytQvYtHqvlPyWPgShiFTrjxKqDa5rFnUm6eMV4m2q8wjDKeeBC4dBGdNyBStLi6etTDi91g6zdXLzRuBp9Cn2D/bzsgl1fv+4l2i/7S9XWzQxFEd7DNXuvOYzd+fm/9hI0sRU/kBRedV7KHaHI5/bi3vYrOCanMzEAe8DkTPx1wL+4JmVDHLtARiqsXYWFK1s4G04HhsoIJyZGBRH71C6Uc3yu8f6IvSd15DBdMEcqeWe+ulVru4VBYIyQTwmsjLPJ9hPsBO2326oxPr1WPK+tFKPDv8epIyzBOWKWA5mWNJaIV1Oe2WByWgyr8snSdB2jt8RdBkVqYGTCOU0dMJjffV0yL49J23TmeJH+V+VEsByuzspDQuktKw5SpBQK3tz3MSCzC8Jf+/rJe/qx016pT2E8qfK3HsPDJhCVNqJtvygJJZw0QXom3VI0qmlak7FaISrLUSdaBp1kqgCamSEcUb8ZYJ63qv6iay1cVqtXAeA4nstQAj+jZc7q7RPyiBL9uVyWhhd4uQzaiX02SfqxoKIE3mkt8tLygNibrlZoY9S//5oplN/P/1xoyKmq2bYeTwMA7lBl4YyrRuj9Pc0BBXGzgcqL1fvR4GOk6bmfZCAQ/cK74lCjc3QwENcqKD5vgO+ydeF2uCQ+a6I1hnD9lQTB4fhEAXZ7bzEuYb5s/L6zUUsB2fyTZNNni+pxr4HipIT20uqzrkswNobuqO12SbM9O00dzNn7I8hwUcV+Dxipt+hi0vgGKEPi2AvzF+xS6YInEhMIT1tEf+U8iTnTWG7WLzj/FO1uKtIEon39pzE2+T13AzDMMP4H1A9A==
+sidebar_class_name: "post api-method"
+info_path: apis-and-sdks/api-reference/content-generation/content-generation
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Render"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/content-generations/renders"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+[GET with body payload](https://opensource.zalando.com/restful-api-guidelines/#get-with-body) - no resources created
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","description":"A request to render a template using the provided data structure.","properties":{"data":{"type":"object","description":"The data from knowledge graph after applying the graphql query.","readOnly":true,"title":"Json"},"template":{"type":"string","description":"The liquid template."}},"required":["data","template"],"title":"RenderRequest"}}},"required":true}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"text/plain":{"schema":{"type":"string"}}},"description":"Found."},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

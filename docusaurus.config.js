@@ -9,6 +9,38 @@ const nodeCoreModuleFallbacks = {
     path: require.resolve("path-browserify"),
 };
 
+// Docs v3 IA moves (old URL -> new URL). Single source for the server-side
+// 301s (scripts/generate-staticwebapp-config.js) and these client fallbacks.
+// /problems/* is never in this map: those URLs are Resolve API contract IDs.
+const movedPageRedirects = require("./redirects/redirect-map.json")
+    .filter(({from}) => from !== "/")
+    .map(({from, to}) => ({from: from.replace(/\/$/, ""), to}));
+
+// Legacy Read the Docs URLs, retargeted to the v3 paths.
+const legacyRedirects = [
+    {from: "/en/latest/wordlift-cloud.html", to: "/welcome/install-wordlift-cloud/"},
+    {from: "/pages/wordlift-cloud", to: "/welcome/install-wordlift-cloud/"},
+    {from: "/en/latest/troubleshooting.html", to: "/integrations/wordpress-plugin/troubleshooting/"},
+    {from: "/en/latest/key-concepts.html", to: "/concepts/"},
+    {from: "/en/latest/edit-entity.html", to: "/integrations/wordpress-plugin/edit-entity/"},
+    {from: "/en/latest/import-export-vocabulary.html", to: "/integrations/wordpress-plugin/import-export-vocabulary/"},
+    {from: "/en/latest/data-studio-connector.html", to: "/integrations/looker-studio/"},
+    {from: "/en/latest/customization-and-development.html", to: "/integrations/wordpress-plugin/customization/"},
+    {from: "/en/latest/publishing.html", to: "/integrations/wordpress-plugin/publishing/"},
+    {from: "/en/latest/editors.html", to: "/integrations/wordpress-plugin/editors/"},
+    {from: "/en/latest/publish.html", to: "/integrations/wordpress-plugin/publishing/"},
+    {from: "/en/latest/analysis.html", to: "/integrations/wordpress-plugin/analysis/"},
+    {from: "/en/latest/discover.html", to: "/welcome/"},
+    {from: "/en/latest/mappings.html", to: "/integrations/wordpress-plugin/mappings/"},
+    {from: "/en/latest/support.html", to: "/integrations/wordpress-plugin/support/"},
+    {from: "/en/latest/advanced-topics.html", to: "/integrations/wordpress-plugin/advanced-topics/"},
+    {from: "/en/latest/about.html", to: "/welcome/"},
+    {from: "/en/latest/wordlift-theme-development.html", to: "/welcome/"},
+    {from: "/en/latest/", to: "/welcome/"},
+    {from: "/zapier/introduction/", to: "/integrations/zapier/"},
+    {from: "/zapier/", to: "/integrations/zapier/"},
+];
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
     title: "WordLift Developer Documentation",
@@ -88,84 +120,38 @@ const config = {
                 items: [
                     {
                         type: "doc",
-                        docId: "introduction",
+                        docId: "welcome/index",
                         position: "left",
-                        label: "Start Here",
+                        label: "Welcome",
                     },
                     {
-                        type: "dropdown",
-                        label: "Products",
+                        type: "doc",
+                        docId: "platform/index",
                         position: "left",
-                        items: [
-                            {
-                                label: "Search Demand / Google Sheets Add-on",
-                                to: "seo-add-on-google-sheets/introduction",
-                            },
-                            {
-                                label: "Knowledge Graph / Botify Connector",
-                                to: "knowledge-graph/botify/",
-                            },
-                            {
-                                label: "Knowledge Graph / Create a Knowledge Graph",
-                                to: "knowledge-graph/create-a-knowledge-graph/",
-                            },
-                            {
-                                label: "Knowledge Graph / Analytics Import",
-                                to: "knowledge-graph/analytics-api/",
-                            },
-                            {
-                                label: "Knowledge Graph / Product Knowledge Graph Builder",
-                                to: "product-knowledge-graph-builder/introduction",
-                            },
-                            {
-                                label: "Knowledge Graph / WordPress Plugin",
-                                to: "wordpress-plugin",
-                            },
-                            {
-                                label: "Knowledge Graph / WooCommerce Plugin",
-                                to: "woocommerce/introduction",
-                            },
-                            {label: "Knowledge Graph / Cloud", to: "cloud"},
-                            {
-                                label: "Knowledge Graph / KG-REST",
-                                to: "knowledge-graph/kg-rest",
-                            },
-                            {
-                                label: "Knowledge Graph / Multilingual Graphs",
-                                to: "knowledge-graph/multilingual",
-                            },
-                            {label: "Smart Content / AI SEO Agent", to: "agent-wordlift"},
-                            {
-                                label: "Smart Content / Content Generation",
-                                to: "content-generation",
-                            },
-                            {
-                                label: "Smart Content / AI & LLM Integrations",
-                                to: "llm-connectors/wordlift-reader",
-                            },
-                            {
-                                label: "Marketing Automation / Zapier",
-                                to: "marketing-automation/zapier/introduction",
-                            },
-                            {
-                                label: "Marketing Automation / Power Automate",
-                                to: "marketing-automation/power-automate/introduction",
-                            },
-                            {
-                                label: "Semantic Reporting / Looker Studio Connector ",
-                                to: "looker-studio-connector/introduction",
-                            },
-                        ],
+                        label: "Platform",
                     },
                     {
-                        label: "AI SEO Agent",
+                        type: "doc",
+                        docId: "tools/index",
                         position: "left",
-                        to: "/agent-wordlift",
+                        label: "Tools",
                     },
                     {
-                        label: "API",
+                        type: "doc",
+                        docId: "integrations/index",
                         position: "left",
-                        to: "/category/api",
+                        label: "Integrations",
+                    },
+                    {
+                        type: "doc",
+                        docId: "apis-and-sdks/index",
+                        position: "left",
+                        label: "APIs and SDKs",
+                    },
+                    {
+                        label: "API reference",
+                        position: "left",
+                        to: "/apis-and-sdks/api-reference/",
                     },
                     {
                         href: "https://github.com/wordlift",
@@ -228,11 +214,19 @@ const config = {
                             },
                             {
                                 label: "Documentation",
-                                to: "/",
+                                to: "/welcome/",
                             },
                             {
-                                label: "API Reference",
-                                to: "/category/api",
+                                label: "Plans and pricing",
+                                to: "/plans-and-pricing/",
+                            },
+                            {
+                                label: "API reference",
+                                to: "/apis-and-sdks/api-reference/",
+                            },
+                            {
+                                label: "Support",
+                                to: "/support/",
                             },
                         ],
                     },
@@ -301,100 +295,17 @@ const config = {
         [
             "@docusaurus/plugin-client-redirects",
             {
-                redirects: [
-                    {
-                        to: "/worai/install/",
-                        from: "/worai",
-                    },
-                    {
-                        to: "/cloud",
-                        from: "/en/latest/wordlift-cloud.html",
-                    },
-                    {
-                        to: "/cloud/",
-                        from: "/pages/wordlift-cloud",
-                    },
-                    {
-                        to: "/wordpress-plugin/troubleshooting/",
-                        from: "/en/latest/troubleshooting.html",
-                    },
-                    {
-                        to: "/pages/key-concepts/",
-                        from: "/en/latest/key-concepts.html",
-                    },
-                    {
-                        to: "/pages/edit-entity/",
-                        from: "/en/latest/edit-entity.html",
-                    },
-                    {
-                        to: "/pages/import-export-vocabulary/",
-                        from: "/en/latest/import-export-vocabulary.html",
-                    },
-                    {
-                        to: "/looker-studio-connector/introduction/",
-                        from: "/en/latest/data-studio-connector.html",
-                    },
-                    {
-                        to: "/wordpress-plugin/customization-and-development/",
-                        from: "/en/latest/customization-and-development.html",
-                    },
-                    {
-                        to: "/pages/publishing/",
-                        from: "/en/latest/publishing.html",
-                    },
-                    {
-                        to: "/pages/editors/",
-                        from: "/en/latest/editors.html",
-                    },
-                    {
-                        to: "/pages/publish/",
-                        from: "/en/latest/publish.html",
-                    },
-                    {
-                        to: "/pages/analysis/",
-                        from: "/en/latest/analysis.html",
-                    },
-                    {
-                        to: "/pages/discover/",
-                        from: "/en/latest/discover.html",
-                    },
-                    {
-                        to: "/pages/mappings/",
-                        from: "/en/latest/mappings.html",
-                    },
-                    {
-                        to: "/wordpress-plugin/support/",
-                        from: "/en/latest/support.html",
-                    },
-                    {
-                        to: "/wordpress-plugin/advanced-topics/",
-                        from: "/en/latest/advanced-topics.html",
-                    },
-                    {
-                        to: "/",
-                        from: [
-                            "/en/latest/about.html",
-                            "/en/latest/wordlift-theme-development.html",
-                            "/en/latest/",
-                        ],
-                    },
-                    {
-                        to: "/marketing-automation/zapier/introduction/",
-                        from: "/zapier/introduction/",
-                    },
-                    {
-                        to: "/marketing-automation/zapier/introduction/",
-                        from: "/zapier/",
-                    },
-                    {
-                        to: "/product-knowledge-graph-builder/introduction/",
-                        from: "/pages/pkg-builder/",
-                    },
-                    {
-                        to: "/",
-                        from: "/:any*", // this will match any path
-                    },
-                ],
+                // Client-side fallback. The primary 301s are server-side in
+                // static/staticwebapp.config.json, generated from the same map.
+                redirects: [...movedPageRedirects, ...legacyRedirects],
+                createRedirects(existingPath) {
+                    // Generated API reference moved from /api/* page by page.
+                    const prefix = "/apis-and-sdks/api-reference/";
+                    if (existingPath.startsWith(prefix) && existingPath !== prefix) {
+                        return [`/api/${existingPath.slice(prefix.length)}`];
+                    }
+                    return undefined;
+                },
             },
         ],
         [
@@ -405,7 +316,7 @@ const config = {
                 config: {
                     analysis: {
                         specPath: "api/analysis.yaml", // path or URL to the OpenAPI spec
-                        outputDir: "docs/api/analysis", // output directory for generated *.mdx and sidebar.js files
+                        outputDir: "docs/apis-and-sdks/api-reference/analysis", // output directory for generated *.mdx and sidebar.js files
                         sidebarOptions: {
                             groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
                             categoryLinkSource: "tag",
@@ -413,7 +324,7 @@ const config = {
                     },
                     classification: {
                         specPath: "api/classification.yaml", // path or URL to the OpenAPI spec
-                        outputDir: "docs/api/classification", // output directory for generated *.mdx and sidebar.js files
+                        outputDir: "docs/apis-and-sdks/api-reference/classification", // output directory for generated *.mdx and sidebar.js files
                         sidebarOptions: {
                             groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
                             categoryLinkSource: "tag",
@@ -421,7 +332,7 @@ const config = {
                     },
                     "content-generation": {
                         specPath: "api/content-generation.yaml", // path or URL to the OpenAPI spec
-                        outputDir: "docs/api/content-generation", // output directory for generated *.mdx and sidebar.js files
+                        outputDir: "docs/apis-and-sdks/api-reference/content-generation", // output directory for generated *.mdx and sidebar.js files
                         sidebarOptions: {
                             groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
                             categoryLinkSource: "tag",
@@ -430,7 +341,7 @@ const config = {
                     // This API is deprecated.
                     // embeddings: {
                     //   specPath: "api/embeddings.yaml", // path or URL to the OpenAPI spec
-                    //   outputDir: "docs/api/embeddings", // output directory for generated *.mdx and sidebar.js files
+                    //   outputDir: "docs/apis-and-sdks/api-reference/embeddings", // output directory for generated *.mdx and sidebar.js files
                     //   sidebarOptions: {
                     //     groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
                     //     categoryLinkSource: "tag",
@@ -438,7 +349,7 @@ const config = {
                     // },
                     "content-evaluations": {
                         specPath: "api/content-evaluations.yaml",
-                        outputDir: "docs/api/content-evaluations",
+                        outputDir: "docs/apis-and-sdks/api-reference/content-evaluations",
                         sidebarOptions: {
                             groupPathsBy: "tag",
                             categoryLinkSource: "tag",
@@ -446,7 +357,7 @@ const config = {
                     },
                     events: {
                         specPath: "api/events.yaml", // path or URL to the OpenAPI spec
-                        outputDir: "docs/api/events", // output directory for generated *.mdx and sidebar.js files
+                        outputDir: "docs/apis-and-sdks/api-reference/events", // output directory for generated *.mdx and sidebar.js files
                         sidebarOptions: {
                             groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
                             categoryLinkSource: "tag",
@@ -454,7 +365,7 @@ const config = {
                     },
                     "fact-check": {
                         specPath: "api/fact-check.yaml", // path or URL to the OpenAPI spec
-                        outputDir: "docs/api/fact-check", // output directory for generated *.mdx and sidebar.js files
+                        outputDir: "docs/apis-and-sdks/api-reference/fact-check", // output directory for generated *.mdx and sidebar.js files
                         sidebarOptions: {
                             groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
                             categoryLinkSource: "tag",
@@ -462,7 +373,7 @@ const config = {
                     },
                     graphql: {
                         specPath: "api/graphql.yaml", // path or URL to the OpenAPI spec
-                        outputDir: "docs/api/graphql", // output directory for generated *.mdx and sidebar.js files
+                        outputDir: "docs/apis-and-sdks/api-reference/graphql", // output directory for generated *.mdx and sidebar.js files
                         sidebarOptions: {
                             groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
                             categoryLinkSource: "tag",
@@ -470,7 +381,7 @@ const config = {
                     },
                     inspector: {
                         specPath: "api/inspector.yaml", // path or URL to the OpenAPI spec
-                        outputDir: "docs/api/inspector", // output directory for generated *.mdx and sidebar.js files
+                        outputDir: "docs/apis-and-sdks/api-reference/inspector", // output directory for generated *.mdx and sidebar.js files
                         sidebarOptions: {
                             groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
                             categoryLinkSource: "tag",
@@ -478,7 +389,7 @@ const config = {
                     },
                     "long-tail": {
                         specPath: "api/long-tail.yaml", // path or URL to the OpenAPI spec
-                        outputDir: "docs/api/long-tail", // output directory for generated *.mdx and sidebar.js files
+                        outputDir: "docs/apis-and-sdks/api-reference/long-tail", // output directory for generated *.mdx and sidebar.js files
                         sidebarOptions: {
                             groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
                             categoryLinkSource: "tag",
@@ -486,7 +397,7 @@ const config = {
                     },
                     manager: {
                         specPath: "api/manager.yaml", // path or URL to the OpenAPI spec
-                        outputDir: "docs/api/manager", // output directory for generated *.mdx and sidebar.js files
+                        outputDir: "docs/apis-and-sdks/api-reference/manager", // output directory for generated *.mdx and sidebar.js files
                         sidebarOptions: {
                             groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
                             categoryLinkSource: "tag",
@@ -494,7 +405,7 @@ const config = {
                     },
                     middleware: {
                         specPath: "api/middleware.yaml", // path or URL to the OpenAPI spec
-                        outputDir: "docs/api/middleware", // output directory for generated *.mdx and sidebar.js files
+                        outputDir: "docs/apis-and-sdks/api-reference/middleware", // output directory for generated *.mdx and sidebar.js files
                         sidebarOptions: {
                             groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
                             categoryLinkSource: "tag",
@@ -502,7 +413,7 @@ const config = {
                     },
                     summarizer: {
                         specPath: "api/summarizer.yaml", // path or URL to the OpenAPI spec
-                        outputDir: "docs/api/summarizer", // output directory for generated *.mdx and sidebar.js files
+                        outputDir: "docs/apis-and-sdks/api-reference/summarizer", // output directory for generated *.mdx and sidebar.js files
                         sidebarOptions: {
                             groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
                             categoryLinkSource: "tag",
@@ -510,7 +421,7 @@ const config = {
                     },
                     "sitemap-generator": {
                         specPath: "api/sitemap-generator.yaml", // path or URL to the OpenAPI spec
-                        outputDir: "docs/api/sitemap-generator", // output directory for generated *.mdx and sidebar.js files
+                        outputDir: "docs/apis-and-sdks/api-reference/sitemap-generator", // output directory for generated *.mdx and sidebar.js files
                         sidebarOptions: {
                             groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
                             categoryLinkSource: "tag",
@@ -518,7 +429,7 @@ const config = {
                     },
                     agent: {
                         specPath: "api/agent.yaml", // path or URL to the OpenAPI spec
-                        outputDir: "docs/api/agent", // output directory for generated *.mdx and sidebar.js files
+                        outputDir: "docs/apis-and-sdks/api-reference/agent", // output directory for generated *.mdx and sidebar.js files
                         sidebarOptions: {
                             groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
                             categoryLinkSource: "tag",
@@ -526,7 +437,7 @@ const config = {
                     },
                     audit: {
                         specPath: "api/audit.yaml", // path or URL to the OpenAPI spec
-                        outputDir: "docs/api/audit", // output directory for generated *.mdx and sidebar.js files
+                        outputDir: "docs/apis-and-sdks/api-reference/audit", // output directory for generated *.mdx and sidebar.js files
                         sidebarOptions: {
                             groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
                             categoryLinkSource: "tag",
@@ -534,7 +445,7 @@ const config = {
                     },
                     "query-fan-out": {
                         specPath: "api/ai_visibility_audits.yaml", // path or URL to the OpenAPI spec
-                        outputDir: "docs/api/query-fan-out", // output directory for generated *.mdx and sidebar.js files
+                        outputDir: "docs/apis-and-sdks/api-reference/query-fan-out", // output directory for generated *.mdx and sidebar.js files
                         sidebarOptions: {
                             groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
                             categoryLinkSource: "tag",
@@ -542,7 +453,7 @@ const config = {
                     },
                     "graph-kpi": {
                         specPath: "api/graph-kpi.yaml",
-                        outputDir: "docs/api/graph-kpi",
+                        outputDir: "docs/apis-and-sdks/api-reference/graph-kpi",
                         sidebarOptions: {
                             groupPathsBy: "tag",
                             categoryLinkSource: "tag",
@@ -550,7 +461,7 @@ const config = {
                     },
                     resolve: {
                         specPath: "api/resolve.yaml",
-                        outputDir: "docs/api/resolve",
+                        outputDir: "docs/apis-and-sdks/api-reference/resolve",
                         sidebarOptions: {
                             groupPathsBy: "tag",
                             categoryLinkSource: "tag",

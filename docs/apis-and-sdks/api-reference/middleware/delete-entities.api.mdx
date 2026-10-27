@@ -1,0 +1,71 @@
+---
+id: delete-entities
+title: "Delete"
+description: "Delete entities with the provided ids."
+sidebar_label: "Delete"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v2zgQ/SvEnBJAsVNjTzptgQSLIFkUaLbooTA2jDiyiFCkMhw5qxX03xdDWbHsJG0WaC+2xJnhmzcfTz2w3kTIv8GlZ8sWI6wzMBgLsg3b4CGHC3TIqHDnoJ4sV4orVA2FrTVolDVxARmEBklL0JWBHEwKe742g0aTrpGRBK8Hr2uEHKyBDKzgPLZIHRyjf/KoAqk6EApOpqxP4GWgWoVSffl8k8AJH1tLaCBnajGDWFRYa8h7aL19bPGKsY6TkbtGsDWRFkQ72vrpPDJZv4EMBEQz5NCShWEYsn3avnCtwb+LyjpD6L9P4muFXCEpDmosi9LOJRr7qlYhJoYqsiZ+vcqZuu+UwVK3jlWpXcRD6ulozv2Y0C4Wckiu8BolwhIJfYE/6MzbpPY37Pmd4GKzkObdjdnltZiCj3env4DVWuJjE3zE1NjV+bn8HRK4bYsCY4Qhg98+rF7ar/xWO2uUZIKR1WyAhyGDiEVLlrs0zR8be43yuBbsGrkK+yVIw88V5LDE/T5EpO20DC05yKFibmK+XOrGLp4CGWdLXtgAcuWEditVGElNmM8F0ePBcaPurrFTfRdaUg/YDXeQTS3/2HIVyP6btnbqdoXaICWK1pch3W/Zif+f1hiHT5rwBci1D08OzQbVH6SbShnNWtXa6w1Kp6WjjFTHT+Ut0tYWOOM747pMTmehPIuj2xIyKIJnXbBkskv8ayBzY0uG7Kh087JlgLW2yYrOhd8PSpqBswX6iLNbT4pTVYSmI7upWK3OV6uzhjCiZ/UuwCED6ehYkA+LczloQuRa+xnKxTQTBwXsE0v0/H8Ud9d3xn942ThtvSCm/PrdxH0DnAl7FSLLWd/f64hfyA2DHI/7LXNobNT3brZ0b+Z48nm3n6fqvRL9arYPMsHjV2CrXSsOIKL0/kx+rbh+L+mX34CfTuGnSOk7OByI/p7FWl7ICo2kbTNpu7i8ufzrEjLQrQzaXIQekgjtHmSsJpPvZrcfi8+YkPxK8V4N6ftR4obh2X80vRmxE7M9XRjWwzD8B3UcFWE=
+sidebar_class_name: "delete api-method"
+info_path: apis-and-sdks/api-reference/middleware/middleware
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/entities"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete entities with the provided ids.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"id","in":"query","description":"One or more ids, in the form of URLs.","required":true,"schema":{"uniqueItems":true,"type":"array","items":{"type":"string","format":"uri"}}},{"name":"include_children","in":"query","description":"Whether to delete all the entities whose ids start with the provided ids, by default false.","required":false,"schema":{"type":"string","default":"false"}},{"name":"include_referenced","in":"query","description":"Whether to delete all the referenced entities (e.g. in `schema:mentions`), by default false.","required":false,"schema":{"type":"string","default":"false"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Success"},"412":{"description":"Invalid request parameters"}}}
+>
+  
+</StatusCodes>
+
+
+      

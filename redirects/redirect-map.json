@@ -1,0 +1,550 @@
+[
+  {
+    "from": "/",
+    "to": "/welcome/"
+  },
+  {
+    "from": "/agent-wordlift/",
+    "to": "/platform/agent-wordlift/"
+  },
+  {
+    "from": "/agent-wordlift/data-privacy-and-security/",
+    "to": "/platform/agent-wordlift/data-privacy/"
+  },
+  {
+    "from": "/agent-wordlift/faq/",
+    "to": "/platform/agent-wordlift/faq/"
+  },
+  {
+    "from": "/agent-wordlift/getting-started/",
+    "to": "/platform/agent-wordlift/getting-started/"
+  },
+  {
+    "from": "/agent-wordlift/highlights/",
+    "to": "/platform/agent-wordlift/"
+  },
+  {
+    "from": "/agent-wordlift/integrations/",
+    "to": "/platform/agent-wordlift/integrations/"
+  },
+  {
+    "from": "/agent-wordlift/prompt-reference/",
+    "to": "/platform/agent-wordlift/prompt-library/"
+  },
+  {
+    "from": "/agent-wordlift/tips/",
+    "to": "/platform/agent-wordlift/"
+  },
+  {
+    "from": "/agent-wordlift/tools/",
+    "to": "/platform/agent-wordlift/tool-families/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/",
+    "to": "/platform/agent-wordlift/workflows/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/adding-authorship-markup/",
+    "to": "/platform/agent-wordlift/workflows/adding-authorship-markup/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/ai-visibility-analysis/",
+    "to": "/platform/agent-wordlift/workflows/ai-visibility-analysis/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/analyzing-query-match/",
+    "to": "/platform/agent-wordlift/workflows/analyzing-query-match/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/content-evaluation/",
+    "to": "/platform/agent-wordlift/workflows/content-evaluation/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/create-internal-links/",
+    "to": "/platform/agent-wordlift/workflows/create-internal-links/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/create-product-description/",
+    "to": "/platform/agent-wordlift/workflows/create-product-description/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/create-social-media-content-buckets/",
+    "to": "/platform/agent-wordlift/workflows/create-social-media-content-buckets/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/create-social-media-posts/",
+    "to": "/platform/agent-wordlift/workflows/create-social-media-posts/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/enhanced-entity-research/",
+    "to": "/platform/agent-wordlift/workflows/enhanced-entity-research/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/faq/",
+    "to": "/platform/agent-wordlift/workflows/generate-faqs/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/google-search-console/",
+    "to": "/platform/agent-wordlift/workflows/google-search-console/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/ideas-for-newsletters/",
+    "to": "/platform/agent-wordlift/workflows/ideas-for-newsletters/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/instagram-indexing-analysis/",
+    "to": "/platform/agent-wordlift/workflows/instagram-indexing-analysis/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/instagram-indexing-report/",
+    "to": "/platform/agent-wordlift/workflows/instagram-indexing-report/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/keyword-cannibalization/",
+    "to": "/platform/agent-wordlift/workflows/keyword-cannibalization/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/keyword-discovery/",
+    "to": "/platform/agent-wordlift/workflows/keyword-discovery/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/local-seo-analysis/",
+    "to": "/platform/agent-wordlift/workflows/local-seo-analysis/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/local-seo-tools-guide/",
+    "to": "/platform/agent-wordlift/workflows/local-seo-tools-guide/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/rankings-drop-audit/",
+    "to": "/platform/agent-wordlift/workflows/rankings-drop-audit/"
+  },
+  {
+    "from": "/agent-wordlift/workflows/research-content-ideas/",
+    "to": "/platform/agent-wordlift/workflows/research-content-ideas/"
+  },
+  {
+    "from": "/apps-tools-plugins/agent-wordlift-extension/",
+    "to": "/tools/chrome-extension/"
+  },
+  {
+    "from": "/business-plus/",
+    "to": "/plans-and-pricing/business-plus/"
+  },
+  {
+    "from": "/category/api/",
+    "to": "/apis-and-sdks/api-reference/"
+  },
+  {
+    "from": "/cloud/",
+    "to": "/welcome/install-wordlift-cloud/"
+  },
+  {
+    "from": "/cloud/google-tag-manager/",
+    "to": "/welcome/install-wordlift-cloud/google-tag-manager/"
+  },
+  {
+    "from": "/cloud/wordpress-plugin-entity-types/",
+    "to": "/integrations/wordpress-plugin/entity-types/"
+  },
+  {
+    "from": "/cloud/wordpress-plugin/",
+    "to": "/welcome/install-wordlift-cloud/"
+  },
+  {
+    "from": "/content-generation/",
+    "to": "/platform/agent-wordlift/content-generation/"
+  },
+  {
+    "from": "/content-generation/api-guide/",
+    "to": "/platform/agent-wordlift/content-generation/api-guide/"
+  },
+  {
+    "from": "/developer-resources/ip-user-agent-whitelist/",
+    "to": "/apis-and-sdks/ip-user-agent-whitelist/"
+  },
+  {
+    "from": "/developer-resources/monitoring/",
+    "to": "/apis-and-sdks/monitoring/"
+  },
+  {
+    "from": "/developer-resources/resolve-errors/",
+    "to": "/apis-and-sdks/resolve/errors/"
+  },
+  {
+    "from": "/developer-resources/resolve/",
+    "to": "/apis-and-sdks/resolve/"
+  },
+  {
+    "from": "/developer-resources/resolve/migrate-from-azure-entity-linking/",
+    "to": "/apis-and-sdks/resolve/migrate-from-azure-entity-linking/"
+  },
+  {
+    "from": "/enterprise/custom-domain-configuration/",
+    "to": "/plans-and-pricing/custom-domain/"
+  },
+  {
+    "from": "/enterprise/onboarding/",
+    "to": "/plans-and-pricing/enterprise/"
+  },
+  {
+    "from": "/enterprise/saml-sso/",
+    "to": "/plans-and-pricing/sso-saml/"
+  },
+  {
+    "from": "/knowledge-graph/",
+    "to": "/platform/knowledge-graph/"
+  },
+  {
+    "from": "/knowledge-graph/analytics-api/",
+    "to": "/apis-and-sdks/analytics-api/"
+  },
+  {
+    "from": "/knowledge-graph/botify/",
+    "to": "/platform/data-sources/botify/"
+  },
+  {
+    "from": "/knowledge-graph/cloudflare-integration/",
+    "to": "/apis-and-sdks/data-api/cloudflare-integration/"
+  },
+  {
+    "from": "/knowledge-graph/create-a-knowledge-graph/",
+    "to": "/platform/knowledge-graph/create/"
+  },
+  {
+    "from": "/knowledge-graph/data-api/",
+    "to": "/apis-and-sdks/data-api/"
+  },
+  {
+    "from": "/knowledge-graph/data-sources-oauth2/",
+    "to": "/platform/data-sources/oauth2/"
+  },
+  {
+    "from": "/knowledge-graph/graphsync-changes/",
+    "to": "/platform/knowledge-graph/graph-sync/find-what-changed/"
+  },
+  {
+    "from": "/knowledge-graph/graphsync/",
+    "to": "/platform/knowledge-graph/graph-sync/"
+  },
+  {
+    "from": "/knowledge-graph/kg-rest/",
+    "to": "/apis-and-sdks/kg-rest/"
+  },
+  {
+    "from": "/knowledge-graph/migrate-client-side-to-server-side-data-api/",
+    "to": "/apis-and-sdks/data-api/migrate/"
+  },
+  {
+    "from": "/knowledge-graph/multilingual/",
+    "to": "/platform/knowledge-graph/multilingual/"
+  },
+  {
+    "from": "/knowledge-graph/out-of-band-data-api-cache/",
+    "to": "/apis-and-sdks/data-api/out-of-band-cache-prefill/"
+  },
+  {
+    "from": "/knowledge-graph/sitemap-import/",
+    "to": "/platform/data-sources/sitemap/"
+  },
+  {
+    "from": "/knowledge-graph/web-page-import/",
+    "to": "/platform/data-sources/web-page-import/"
+  },
+  {
+    "from": "/llm-connectors/",
+    "to": "/concepts/rag-and-llms/"
+  },
+  {
+    "from": "/llm-connectors/wordlift-reader/",
+    "to": "/apis-and-sdks/llm-connectors/wordlift-reader/"
+  },
+  {
+    "from": "/llm-connectors/wordlift-vector-store/",
+    "to": "/apis-and-sdks/llm-connectors/wordlift-vector-store/"
+  },
+  {
+    "from": "/looker-studio-connector/introduction/",
+    "to": "/integrations/looker-studio/"
+  },
+  {
+    "from": "/marketing-automation/brightedge/introduction/",
+    "to": "/integrations/brightedge/"
+  },
+  {
+    "from": "/marketing-automation/power-automate/introduction/",
+    "to": "/integrations/power-automate/"
+  },
+  {
+    "from": "/marketing-automation/zapier/introduction/",
+    "to": "/integrations/zapier/"
+  },
+  {
+    "from": "/monitor/",
+    "to": "/platform/monitor/"
+  },
+  {
+    "from": "/monitor/ask-your-ai-assistant/",
+    "to": "/platform/monitor/ask-your-ai-assistant/"
+  },
+  {
+    "from": "/monitor/define-segments-and-expectations/",
+    "to": "/platform/monitor/define-segments-and-expectations/"
+  },
+  {
+    "from": "/monitor/inspect-url-results/",
+    "to": "/platform/monitor/inspect-url-results/"
+  },
+  {
+    "from": "/monitor/read-monitor-status/",
+    "to": "/platform/monitor/read-monitor-status/"
+  },
+  {
+    "from": "/monitor/reference/",
+    "to": "/platform/monitor/reference/"
+  },
+  {
+    "from": "/pages/about/",
+    "to": "/welcome/"
+  },
+  {
+    "from": "/pages/analysis/",
+    "to": "/integrations/wordpress-plugin/analysis/"
+  },
+  {
+    "from": "/pages/api/",
+    "to": "/apis-and-sdks/"
+  },
+  {
+    "from": "/pages/discover/",
+    "to": "/welcome/"
+  },
+  {
+    "from": "/pages/edit-entity/",
+    "to": "/integrations/wordpress-plugin/edit-entity/"
+  },
+  {
+    "from": "/pages/editors/",
+    "to": "/integrations/wordpress-plugin/editors/"
+  },
+  {
+    "from": "/pages/faq/",
+    "to": "/support/faq/"
+  },
+  {
+    "from": "/pages/features/",
+    "to": "/welcome/"
+  },
+  {
+    "from": "/pages/import-export-vocabulary/",
+    "to": "/integrations/wordpress-plugin/import-export-vocabulary/"
+  },
+  {
+    "from": "/pages/installation/",
+    "to": "/integrations/wordpress-plugin/getting-started/"
+  },
+  {
+    "from": "/pages/jsonld/",
+    "to": "/integrations/wordpress-plugin/jsonld/"
+  },
+  {
+    "from": "/pages/key-concepts/",
+    "to": "/concepts/"
+  },
+  {
+    "from": "/pages/mappings/",
+    "to": "/integrations/wordpress-plugin/mappings/"
+  },
+  {
+    "from": "/pages/overview/",
+    "to": "/welcome/"
+  },
+  {
+    "from": "/pages/pkg-builder/",
+    "to": "/platform/knowledge-graph/product-knowledge-graph/"
+  },
+  {
+    "from": "/pages/publish/",
+    "to": "/integrations/wordpress-plugin/publishing/"
+  },
+  {
+    "from": "/pages/publishing/",
+    "to": "/integrations/wordpress-plugin/publishing/"
+  },
+  {
+    "from": "/pages/releases/",
+    "to": "/whats-new/"
+  },
+  {
+    "from": "/pages/semantic-analytics/",
+    "to": "/integrations/wordpress-plugin/semantic-analytics/"
+  },
+  {
+    "from": "/pages/shortcodes/",
+    "to": "/integrations/wordpress-plugin/widgets/"
+  },
+  {
+    "from": "/pages/sidebar/",
+    "to": "/integrations/wordpress-plugin/sidebar/"
+  },
+  {
+    "from": "/pages/troubleshooting/",
+    "to": "/support/troubleshooting/"
+  },
+  {
+    "from": "/pages/widgets/",
+    "to": "/integrations/wordpress-plugin/widgets/"
+  },
+  {
+    "from": "/pages/wordlift-theme-development/",
+    "to": "/integrations/wordpress-plugin/theme-development/"
+  },
+  {
+    "from": "/product-knowledge-graph-builder/feed-specifications/",
+    "to": "/platform/knowledge-graph/product-knowledge-graph/feed-specifications/"
+  },
+  {
+    "from": "/product-knowledge-graph-builder/introduction/",
+    "to": "/platform/knowledge-graph/product-knowledge-graph/"
+  },
+  {
+    "from": "/product-knowledge-graph-builder/webhooks/",
+    "to": "/platform/knowledge-graph/product-knowledge-graph/webhooks/"
+  },
+  {
+    "from": "/seo-add-on-google-sheets/introduction/",
+    "to": "/tools/google-sheets-addon/"
+  },
+  {
+    "from": "/woocommerce/introduction/",
+    "to": "/integrations/woocommerce/"
+  },
+  {
+    "from": "/worai/",
+    "to": "/tools/worai-cli/install/"
+  },
+  {
+    "from": "/worai/commands/agent/",
+    "to": "/tools/worai-cli/commands/agent/"
+  },
+  {
+    "from": "/worai/commands/canonicalize-duplicate-pages/",
+    "to": "/tools/worai-cli/commands/canonicalize-duplicate-pages/"
+  },
+  {
+    "from": "/worai/commands/canonicals/",
+    "to": "/tools/worai-cli/commands/canonicals/"
+  },
+  {
+    "from": "/worai/commands/dedupe/",
+    "to": "/tools/worai-cli/commands/dedupe/"
+  },
+  {
+    "from": "/worai/commands/delete-entities-from-csv/",
+    "to": "/tools/worai-cli/commands/delete-entities-from-csv/"
+  },
+  {
+    "from": "/worai/commands/entity-matrix/",
+    "to": "/tools/worai-cli/commands/entity-matrix/"
+  },
+  {
+    "from": "/worai/commands/find-faq-page-wrong-type/",
+    "to": "/tools/worai-cli/commands/find-faq-page-wrong-type/"
+  },
+  {
+    "from": "/worai/commands/find-missing-names/",
+    "to": "/tools/worai-cli/commands/find-missing-names/"
+  },
+  {
+    "from": "/worai/commands/find-url-by-type/",
+    "to": "/tools/worai-cli/commands/find-url-by-type/"
+  },
+  {
+    "from": "/worai/commands/google-search-console/",
+    "to": "/tools/worai-cli/commands/google-search-console/"
+  },
+  {
+    "from": "/worai/commands/graph-kpis/",
+    "to": "/tools/worai-cli/commands/graph-kpis/"
+  },
+  {
+    "from": "/worai/commands/graph/",
+    "to": "/tools/worai-cli/commands/graph/"
+  },
+  {
+    "from": "/worai/commands/link-groups/",
+    "to": "/tools/worai-cli/commands/link-groups/"
+  },
+  {
+    "from": "/worai/commands/list-entities-outside-dataset/",
+    "to": "/tools/worai-cli/commands/list-entities-outside-dataset/"
+  },
+  {
+    "from": "/worai/commands/patch/",
+    "to": "/tools/worai-cli/commands/patch/"
+  },
+  {
+    "from": "/worai/commands/self/",
+    "to": "/tools/worai-cli/commands/self/"
+  },
+  {
+    "from": "/worai/commands/seocheck/",
+    "to": "/tools/worai-cli/commands/seocheck/"
+  },
+  {
+    "from": "/worai/commands/seoreport/",
+    "to": "/tools/worai-cli/commands/seoreport/"
+  },
+  {
+    "from": "/worai/commands/structured-data/",
+    "to": "/tools/worai-cli/commands/structured-data/"
+  },
+  {
+    "from": "/worai/commands/upload-entities-from-turtle/",
+    "to": "/tools/worai-cli/commands/upload-entities-from-turtle/"
+  },
+  {
+    "from": "/worai/commands/validate/",
+    "to": "/tools/worai-cli/commands/validate/"
+  },
+  {
+    "from": "/worai/commands/web-pages/",
+    "to": "/tools/worai-cli/commands/web-pages/"
+  },
+  {
+    "from": "/worai/configuration/",
+    "to": "/tools/worai-cli/configuration/"
+  },
+  {
+    "from": "/worai/install/",
+    "to": "/tools/worai-cli/install/"
+  },
+  {
+    "from": "/wordpress-plugin/",
+    "to": "/integrations/wordpress-plugin/"
+  },
+  {
+    "from": "/wordpress-plugin/advanced-topics/",
+    "to": "/integrations/wordpress-plugin/advanced-topics/"
+  },
+  {
+    "from": "/wordpress-plugin/customization-and-development/",
+    "to": "/integrations/wordpress-plugin/customization/"
+  },
+  {
+    "from": "/wordpress-plugin/getting-started/",
+    "to": "/integrations/wordpress-plugin/getting-started/"
+  },
+  {
+    "from": "/wordpress-plugin/support/",
+    "to": "/integrations/wordpress-plugin/support/"
+  },
+  {
+    "from": "/wordpress-plugin/troubleshooting/",
+    "to": "/integrations/wordpress-plugin/troubleshooting/"
+  },
+  {
+    "from": "/wordpress-plugin/user-manual/",
+    "to": "/integrations/wordpress-plugin/user-manual/"
+  }
+]

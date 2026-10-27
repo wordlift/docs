@@ -1,0 +1,697 @@
+{
+ "routes": [
+  {
+   "route": "/developer-resources/resolve/migrate-from-azure-entity-linking*",
+   "redirect": "/apis-and-sdks/resolve/migrate-from-azure-entity-linking/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/create-social-media-content-buckets*",
+   "redirect": "/platform/agent-wordlift/workflows/create-social-media-content-buckets/",
+   "statusCode": 301
+  },
+  {
+   "route": "/knowledge-graph/migrate-client-side-to-server-side-data-api*",
+   "redirect": "/apis-and-sdks/data-api/migrate/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/instagram-indexing-analysis*",
+   "redirect": "/platform/agent-wordlift/workflows/instagram-indexing-analysis/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/create-product-description*",
+   "redirect": "/platform/agent-wordlift/workflows/create-product-description/",
+   "statusCode": 301
+  },
+  {
+   "route": "/product-knowledge-graph-builder/feed-specifications*",
+   "redirect": "/platform/knowledge-graph/product-knowledge-graph/feed-specifications/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/create-social-media-posts*",
+   "redirect": "/platform/agent-wordlift/workflows/create-social-media-posts/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/instagram-indexing-report*",
+   "redirect": "/platform/agent-wordlift/workflows/instagram-indexing-report/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/adding-authorship-markup*",
+   "redirect": "/platform/agent-wordlift/workflows/adding-authorship-markup/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/enhanced-entity-research*",
+   "redirect": "/platform/agent-wordlift/workflows/enhanced-entity-research/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/keyword-cannibalization*",
+   "redirect": "/platform/agent-wordlift/workflows/keyword-cannibalization/",
+   "statusCode": 301
+  },
+  {
+   "route": "/marketing-automation/power-automate/introduction*",
+   "redirect": "/integrations/power-automate/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/ai-visibility-analysis*",
+   "redirect": "/platform/agent-wordlift/workflows/ai-visibility-analysis/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/research-content-ideas*",
+   "redirect": "/platform/agent-wordlift/workflows/research-content-ideas/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/analyzing-query-match*",
+   "redirect": "/platform/agent-wordlift/workflows/analyzing-query-match/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/create-internal-links*",
+   "redirect": "/platform/agent-wordlift/workflows/create-internal-links/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/google-search-console*",
+   "redirect": "/platform/agent-wordlift/workflows/google-search-console/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/ideas-for-newsletters*",
+   "redirect": "/platform/agent-wordlift/workflows/ideas-for-newsletters/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/local-seo-tools-guide*",
+   "redirect": "/platform/agent-wordlift/workflows/local-seo-tools-guide/",
+   "statusCode": 301
+  },
+  {
+   "route": "/wordpress-plugin/customization-and-development*",
+   "redirect": "/integrations/wordpress-plugin/customization/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/rankings-drop-audit*",
+   "redirect": "/platform/agent-wordlift/workflows/rankings-drop-audit/",
+   "statusCode": 301
+  },
+  {
+   "route": "/marketing-automation/brightedge/introduction*",
+   "redirect": "/integrations/brightedge/",
+   "statusCode": 301
+  },
+  {
+   "route": "/product-knowledge-graph-builder/introduction*",
+   "redirect": "/platform/knowledge-graph/product-knowledge-graph/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/list-entities-outside-dataset*",
+   "redirect": "/tools/worai-cli/commands/list-entities-outside-dataset/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/content-evaluation*",
+   "redirect": "/platform/agent-wordlift/workflows/content-evaluation/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/local-seo-analysis*",
+   "redirect": "/platform/agent-wordlift/workflows/local-seo-analysis/",
+   "statusCode": 301
+  },
+  {
+   "route": "/apps-tools-plugins/agent-wordlift-extension*",
+   "redirect": "/tools/chrome-extension/",
+   "statusCode": 301
+  },
+  {
+   "route": "/developer-resources/ip-user-agent-whitelist*",
+   "redirect": "/apis-and-sdks/ip-user-agent-whitelist/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/canonicalize-duplicate-pages*",
+   "redirect": "/tools/worai-cli/commands/canonicalize-duplicate-pages/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/keyword-discovery*",
+   "redirect": "/platform/agent-wordlift/workflows/keyword-discovery/",
+   "statusCode": 301
+  },
+  {
+   "route": "/knowledge-graph/out-of-band-data-api-cache*",
+   "redirect": "/apis-and-sdks/data-api/out-of-band-cache-prefill/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/upload-entities-from-turtle*",
+   "redirect": "/tools/worai-cli/commands/upload-entities-from-turtle/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/data-privacy-and-security*",
+   "redirect": "/platform/agent-wordlift/data-privacy/",
+   "statusCode": 301
+  },
+  {
+   "route": "/knowledge-graph/create-a-knowledge-graph*",
+   "redirect": "/platform/knowledge-graph/create/",
+   "statusCode": 301
+  },
+  {
+   "route": "/marketing-automation/zapier/introduction*",
+   "redirect": "/integrations/zapier/",
+   "statusCode": 301
+  },
+  {
+   "route": "/monitor/define-segments-and-expectations*",
+   "redirect": "/platform/monitor/define-segments-and-expectations/",
+   "statusCode": 301
+  },
+  {
+   "route": "/product-knowledge-graph-builder/webhooks*",
+   "redirect": "/platform/knowledge-graph/product-knowledge-graph/webhooks/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/delete-entities-from-csv*",
+   "redirect": "/tools/worai-cli/commands/delete-entities-from-csv/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/find-faq-page-wrong-type*",
+   "redirect": "/tools/worai-cli/commands/find-faq-page-wrong-type/",
+   "statusCode": 301
+  },
+  {
+   "route": "/enterprise/custom-domain-configuration*",
+   "redirect": "/plans-and-pricing/custom-domain/",
+   "statusCode": 301
+  },
+  {
+   "route": "/knowledge-graph/cloudflare-integration*",
+   "redirect": "/apis-and-sdks/data-api/cloudflare-integration/",
+   "statusCode": 301
+  },
+  {
+   "route": "/seo-add-on-google-sheets/introduction*",
+   "redirect": "/tools/google-sheets-addon/",
+   "statusCode": 301
+  },
+  {
+   "route": "/llm-connectors/wordlift-vector-store*",
+   "redirect": "/apis-and-sdks/llm-connectors/wordlift-vector-store/",
+   "statusCode": 301
+  },
+  {
+   "route": "/looker-studio-connector/introduction*",
+   "redirect": "/integrations/looker-studio/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/google-search-console*",
+   "redirect": "/tools/worai-cli/commands/google-search-console/",
+   "statusCode": 301
+  },
+  {
+   "route": "/cloud/wordpress-plugin-entity-types*",
+   "redirect": "/integrations/wordpress-plugin/entity-types/",
+   "statusCode": 301
+  },
+  {
+   "route": "/knowledge-graph/data-sources-oauth2*",
+   "redirect": "/platform/data-sources/oauth2/",
+   "statusCode": 301
+  },
+  {
+   "route": "/developer-resources/resolve-errors*",
+   "redirect": "/apis-and-sdks/resolve/errors/",
+   "statusCode": 301
+  },
+  {
+   "route": "/knowledge-graph/graphsync-changes*",
+   "redirect": "/platform/knowledge-graph/graph-sync/find-what-changed/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/find-missing-names*",
+   "redirect": "/tools/worai-cli/commands/find-missing-names/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/wordlift-theme-development*",
+   "redirect": "/integrations/wordpress-plugin/theme-development/",
+   "statusCode": 301
+  },
+  {
+   "route": "/wordpress-plugin/advanced-topics*",
+   "redirect": "/integrations/wordpress-plugin/advanced-topics/",
+   "statusCode": 301
+  },
+  {
+   "route": "/wordpress-plugin/getting-started*",
+   "redirect": "/integrations/wordpress-plugin/getting-started/",
+   "statusCode": 301
+  },
+  {
+   "route": "/wordpress-plugin/troubleshooting*",
+   "redirect": "/integrations/wordpress-plugin/troubleshooting/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/prompt-reference*",
+   "redirect": "/platform/agent-wordlift/prompt-library/",
+   "statusCode": 301
+  },
+  {
+   "route": "/knowledge-graph/web-page-import*",
+   "redirect": "/platform/data-sources/web-page-import/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/find-url-by-type*",
+   "redirect": "/tools/worai-cli/commands/find-url-by-type/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/getting-started*",
+   "redirect": "/platform/agent-wordlift/getting-started/",
+   "statusCode": 301
+  },
+  {
+   "route": "/developer-resources/monitoring*",
+   "redirect": "/apis-and-sdks/monitoring/",
+   "statusCode": 301
+  },
+  {
+   "route": "/knowledge-graph/sitemap-import*",
+   "redirect": "/platform/data-sources/sitemap/",
+   "statusCode": 301
+  },
+  {
+   "route": "/llm-connectors/wordlift-reader*",
+   "redirect": "/apis-and-sdks/llm-connectors/wordlift-reader/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/import-export-vocabulary*",
+   "redirect": "/integrations/wordpress-plugin/import-export-vocabulary/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/structured-data*",
+   "redirect": "/tools/worai-cli/commands/structured-data/",
+   "statusCode": 301
+  },
+  {
+   "route": "/knowledge-graph/analytics-api*",
+   "redirect": "/apis-and-sdks/analytics-api/",
+   "statusCode": 301
+  },
+  {
+   "route": "/monitor/ask-your-ai-assistant*",
+   "redirect": "/platform/monitor/ask-your-ai-assistant/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows/faq*",
+   "redirect": "/platform/agent-wordlift/workflows/generate-faqs/",
+   "statusCode": 301
+  },
+  {
+   "route": "/content-generation/api-guide*",
+   "redirect": "/platform/agent-wordlift/content-generation/api-guide/",
+   "statusCode": 301
+  },
+  {
+   "route": "/knowledge-graph/multilingual*",
+   "redirect": "/platform/knowledge-graph/multilingual/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/entity-matrix*",
+   "redirect": "/tools/worai-cli/commands/entity-matrix/",
+   "statusCode": 301
+  },
+  {
+   "route": "/wordpress-plugin/user-manual*",
+   "redirect": "/integrations/wordpress-plugin/user-manual/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/integrations*",
+   "redirect": "/platform/agent-wordlift/integrations/",
+   "statusCode": 301
+  },
+  {
+   "route": "/developer-resources/resolve*",
+   "redirect": "/apis-and-sdks/resolve/",
+   "statusCode": 301
+  },
+  {
+   "route": "/monitor/inspect-url-results*",
+   "redirect": "/platform/monitor/inspect-url-results/",
+   "statusCode": 301
+  },
+  {
+   "route": "/monitor/read-monitor-status*",
+   "redirect": "/platform/monitor/read-monitor-status/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/link-groups*",
+   "redirect": "/tools/worai-cli/commands/link-groups/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/highlights*",
+   "redirect": "/platform/agent-wordlift/",
+   "statusCode": 301
+  },
+  {
+   "route": "/knowledge-graph/graphsync*",
+   "redirect": "/platform/knowledge-graph/graph-sync/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/canonicals*",
+   "redirect": "/tools/worai-cli/commands/canonicals/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/graph-kpis*",
+   "redirect": "/tools/worai-cli/commands/graph-kpis/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/workflows*",
+   "redirect": "/platform/agent-wordlift/workflows/",
+   "statusCode": 301
+  },
+  {
+   "route": "/cloud/google-tag-manager*",
+   "redirect": "/welcome/install-wordlift-cloud/google-tag-manager/",
+   "statusCode": 301
+  },
+  {
+   "route": "/knowledge-graph/data-api*",
+   "redirect": "/apis-and-sdks/data-api/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/semantic-analytics*",
+   "redirect": "/integrations/wordpress-plugin/semantic-analytics/",
+   "statusCode": 301
+  },
+  {
+   "route": "/woocommerce/introduction*",
+   "redirect": "/integrations/woocommerce/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/seoreport*",
+   "redirect": "/tools/worai-cli/commands/seoreport/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/web-pages*",
+   "redirect": "/tools/worai-cli/commands/web-pages/",
+   "statusCode": 301
+  },
+  {
+   "route": "/wordpress-plugin/support*",
+   "redirect": "/integrations/wordpress-plugin/support/",
+   "statusCode": 301
+  },
+  {
+   "route": "/knowledge-graph/kg-rest*",
+   "redirect": "/apis-and-sdks/kg-rest/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/seocheck*",
+   "redirect": "/tools/worai-cli/commands/seocheck/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/validate*",
+   "redirect": "/tools/worai-cli/commands/validate/",
+   "statusCode": 301
+  },
+  {
+   "route": "/cloud/wordpress-plugin*",
+   "redirect": "/welcome/install-wordlift-cloud/",
+   "statusCode": 301
+  },
+  {
+   "route": "/knowledge-graph/botify*",
+   "redirect": "/platform/data-sources/botify/",
+   "statusCode": 301
+  },
+  {
+   "route": "/enterprise/onboarding*",
+   "redirect": "/plans-and-pricing/enterprise/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/troubleshooting*",
+   "redirect": "/support/troubleshooting/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/dedupe*",
+   "redirect": "/tools/worai-cli/commands/dedupe/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/tools*",
+   "redirect": "/platform/agent-wordlift/tool-families/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/agent*",
+   "redirect": "/tools/worai-cli/commands/agent/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/graph*",
+   "redirect": "/tools/worai-cli/commands/graph/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/patch*",
+   "redirect": "/tools/worai-cli/commands/patch/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/tips*",
+   "redirect": "/platform/agent-wordlift/",
+   "statusCode": 301
+  },
+  {
+   "route": "/enterprise/saml-sso*",
+   "redirect": "/plans-and-pricing/sso-saml/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/commands/self*",
+   "redirect": "/tools/worai-cli/commands/self/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/configuration*",
+   "redirect": "/tools/worai-cli/configuration/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift/faq*",
+   "redirect": "/platform/agent-wordlift/faq/",
+   "statusCode": 301
+  },
+  {
+   "route": "/content-generation*",
+   "redirect": "/platform/agent-wordlift/content-generation/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/installation*",
+   "redirect": "/integrations/wordpress-plugin/getting-started/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/key-concepts*",
+   "redirect": "/concepts/",
+   "statusCode": 301
+  },
+  {
+   "route": "/monitor/reference*",
+   "redirect": "/platform/monitor/reference/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/edit-entity*",
+   "redirect": "/integrations/wordpress-plugin/edit-entity/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/pkg-builder*",
+   "redirect": "/platform/knowledge-graph/product-knowledge-graph/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/publishing*",
+   "redirect": "/integrations/wordpress-plugin/publishing/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/shortcodes*",
+   "redirect": "/integrations/wordpress-plugin/widgets/",
+   "statusCode": 301
+  },
+  {
+   "route": "/wordpress-plugin*",
+   "redirect": "/integrations/wordpress-plugin/",
+   "statusCode": 301
+  },
+  {
+   "route": "/knowledge-graph*",
+   "redirect": "/platform/knowledge-graph/",
+   "statusCode": 301
+  },
+  {
+   "route": "/agent-wordlift*",
+   "redirect": "/platform/agent-wordlift/",
+   "statusCode": 301
+  },
+  {
+   "route": "/llm-connectors*",
+   "redirect": "/concepts/rag-and-llms/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/analysis*",
+   "redirect": "/integrations/wordpress-plugin/analysis/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/discover*",
+   "redirect": "/welcome/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/features*",
+   "redirect": "/welcome/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/mappings*",
+   "redirect": "/integrations/wordpress-plugin/mappings/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/overview*",
+   "redirect": "/welcome/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/releases*",
+   "redirect": "/whats-new/",
+   "statusCode": 301
+  },
+  {
+   "route": "/business-plus*",
+   "redirect": "/plans-and-pricing/business-plus/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/editors*",
+   "redirect": "/integrations/wordpress-plugin/editors/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/publish*",
+   "redirect": "/integrations/wordpress-plugin/publishing/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/sidebar*",
+   "redirect": "/integrations/wordpress-plugin/sidebar/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/widgets*",
+   "redirect": "/integrations/wordpress-plugin/widgets/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai/install*",
+   "redirect": "/tools/worai-cli/install/",
+   "statusCode": 301
+  },
+  {
+   "route": "/category/api*",
+   "redirect": "/apis-and-sdks/api-reference/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/jsonld*",
+   "redirect": "/integrations/wordpress-plugin/jsonld/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/about*",
+   "redirect": "/welcome/",
+   "statusCode": 301
+  },
+  {
+   "route": "/index.html",
+   "redirect": "/welcome/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/api*",
+   "redirect": "/apis-and-sdks/",
+   "statusCode": 301
+  },
+  {
+   "route": "/pages/faq*",
+   "redirect": "/support/faq/",
+   "statusCode": 301
+  },
+  {
+   "route": "/monitor*",
+   "redirect": "/platform/monitor/",
+   "statusCode": 301
+  },
+  {
+   "route": "/cloud*",
+   "redirect": "/welcome/install-wordlift-cloud/",
+   "statusCode": 301
+  },
+  {
+   "route": "/worai*",
+   "redirect": "/tools/worai-cli/install/",
+   "statusCode": 301
+  },
+  {
+   "route": "/",
+   "redirect": "/welcome/",
+   "statusCode": 301
+  }
+ ],
+ "globalHeaders": {
+  "X-Robots-Tag": "noindex, nofollow"
+ }
+}
