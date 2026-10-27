@@ -2,7 +2,7 @@
 title: Read Monitor status
 description: Use the Monitor Status tab to review AI readiness, then find the page checks and segment rules that lower your bot readiness and data quality scores.
 sidebar_position: 2
-last_updated: 2026-10-26
+last_updated: 2026-10-27
 ---
 
 # Read Monitor status
@@ -33,23 +33,23 @@ AI readiness has no score, because the right answer depends on your goals. A pub
 
    ![AI readiness before the first audit](/img/monitor/status-ai-readiness-no-results.jpg)
 
-3. Review the checks in each of the 3 areas: **Reachability** (can AI reach your content?), **Discoverability** (can AI find and understand you?) and **Actionability** (can AI agents act for your customers?). Monitor lists opportunities first and highlights them. Each check shows a state such as **In place**, **Opportunity** or **Your policy**. For every check, area and state, see [Site-wide checks in the Monitor reference](./reference.md#site-wide-checks).
+3. Review the checks in each of the 3 areas: **Reach** (can AI reach your content?), **Understand** (can AI find and understand you?) and **Act** (can AI agents act for your customers?). Monitor lists opportunities first and highlights them. Each check shows a state such as **In place**, **Opportunity** or **Your policy**. For every check, area and state, see [Site-wide checks in the Monitor reference](./reference.md#site-wide-checks).
 
-   Actionability matters only if you want agents to act on your site, for example to check availability, request a quote or book. Many sites choose not to.
+   The Act checks matter only if you want agents to act on your site, for example to check availability, request a quote or book. Many sites choose not to.
 
 4. Select a check to open its details. The details explain what Monitor found, why it matters, and a suggested next step: **How to add it**, **How to fix it** or **If this is intentional**. **Raw check result** shows the output of the check.
 
-   ![Details of an Actionability check](/img/monitor/status-ai-readiness-check-details.jpg)
+   ![Details of an Act check](/img/monitor/status-ai-readiness-check-details.jpg)
 
    For **AI crawler access**, the details also list which known AI bots your `robots.txt` allows and which it blocks.
 
    ![AI crawler access with allowed and blocked bots](/img/monitor/status-ai-readiness-crawler-access.jpg)
 
-5. To continue at page level, follow the links at the bottom of the panel: **Bot readiness** under Reachability and **Semantic data quality** under Discoverability.
+5. To continue at page level, follow the links at the bottom of the panel: **Bot readiness** under Reach and **Semantic data quality** under Understand.
 
 ## Review bot readiness
 
-1. In **Bot readiness**, read the score. It measures the technical foundation (valid markup, fast responses, clean delivery) that crawlers and AI need to reach and parse every page.
+1. In **Bot readiness**, read the score and its color (see [Scores in the Monitor reference](./reference.md#scores)). It measures the technical foundation (valid markup, fast responses, clean delivery) that crawlers and AI need to reach and parse every page.
 2. Find the check that lowers the score. Checks are grouped into Markup, Delivery, SEO fundamentals and WordLift, and each check shows its own pass, warning and fail counts.
 
    ![The bot readiness panel](/img/monitor/status-bot-readiness.jpg)

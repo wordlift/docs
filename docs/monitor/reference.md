@@ -2,7 +2,7 @@
 title: Monitor reference
 description: Every Monitor check, segment matcher, expectation kind, severity, score and default limit, plus the current limitations of the feature and how to reach the API.
 sidebar_position: 5
-last_updated: 2026-10-26
+last_updated: 2026-10-27
 ---
 
 # Monitor reference
@@ -15,12 +15,12 @@ Site-wide checks run once per account against your website. The dashboard shows 
 
 | Check | Area | Dashboard name | What it verifies |
 | --- | --- | --- | --- |
-| `account_robots_check` | Reachability | Crawl rules | `robots.txt` is published. |
-| `ai_bot_access_check` | Reachability | AI crawler access | Which known AI bots `robots.txt` allows or blocks. |
-| `account_llms_txt_check` | Discoverability | Content guide for AI | `llms.txt` is published. |
-| `account_mcp_check` | Actionability | Tools for AI agents | A Model Context Protocol (MCP) manifest (`mcp.json` or an MCP server card) is published under `/.well-known`. |
-| `account_webmcp_check` | Actionability | In-browser agent actions | A WebMCP discovery surface is published. |
-| `account_skill_md_check` | Actionability | Agent instructions | `SKILL.md` or an agent skills index is published. |
+| `account_robots_check` | Reach | Crawl rules | `robots.txt` is published. |
+| `ai_bot_access_check` | Reach | AI crawler access | Which known AI bots `robots.txt` allows or blocks. |
+| `account_llms_txt_check` | Understand | Content guide for AI | `llms.txt` is published. |
+| `account_mcp_check` | Act | Tools for AI agents | A Model Context Protocol (MCP) manifest (`mcp.json` or an MCP server card) is published under `/.well-known`. |
+| `account_webmcp_check` | Act | In-browser agent actions | A WebMCP discovery surface is published. |
+| `account_skill_md_check` | Act | Agent instructions | `SKILL.md` or an agent skills index is published. |
 
 Each site-wide check shows one of these states:
 
@@ -82,6 +82,8 @@ AI readiness has no score. The 2 page-level panels are scored as follows:
 | --- | --- |
 | Bot readiness | The share of page checks that pass, across all URLs. |
 | Semantic data quality | The share of required expectation evaluations that pass, overall and per segment. Recommended rules affect status but not the score. |
+
+The dashboard colors both scores by the same bands: green from 80%, amber from 50% and red below 50%.
 
 ## Defaults and limits
 

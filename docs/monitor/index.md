@@ -2,7 +2,7 @@
 title: Monitor
 description: Monitor checks how well AI assistants and crawlers can reach your site, whether every page is technically sound, and whether it carries the structured data you expect.
 sidebar_position: 0
-last_updated: 2026-10-26
+last_updated: 2026-10-27
 ---
 
 # Monitor
@@ -11,7 +11,7 @@ Monitor shows how ready your website is for search engines and AI assistants. It
 
 ## What you can do with Monitor
 
-- **See how AI can reach and act on your site.** AI readiness runs 6 site-wide checks, grouped into Reachability, Discoverability and Actionability. It shows which AI crawlers your crawl rules allow, such as GPTBot, ClaudeBot and PerplexityBot. It also shows whether you publish `llms.txt`, and whether AI agents have tools and instructions to act on the site.
+- **See how AI can reach and act on your site.** AI readiness runs 6 site-wide checks, grouped into Reach, Understand and Act. It shows which AI crawlers your crawl rules allow, such as GPTBot, ClaudeBot and PerplexityBot. It also shows whether you publish `llms.txt`, and whether AI agents have tools and instructions to act on the site.
 - **Confirm that every page is technically sound.** Bot readiness checks that structured data is valid and that pages respond quickly with no broken resources. It also checks that SEO fundamentals are present and the WordLift script is installed.
 - **Hold each kind of page to its own structured data standard.** Semantic data quality lets you group pages into segments, such as all products, all articles or all locations. You then set the structured data every page in a segment must carry. Each run checks every page against its segment and scores each segment.
 - **Catch markup drift early.** A template, content management system (CMS) or plugin update can remove markup from many pages at once. When it does, the segment score drops and shows you which rule broke. You see it before rich results or AI citations disappear.
