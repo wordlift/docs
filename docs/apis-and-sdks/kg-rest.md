@@ -1,7 +1,10 @@
 ---
+title: "KG-REST"
+description: "Create, read, update, delete, batch and export entities in your WordLift Knowledge Graph with the KG-REST API, using curl or the Python SDK."
 sidebar_position: 50
 toc_min_heading_level: 2
 toc_max_heading_level: 5
+last_updated: 2026-10-27
 ---
 
 # KG-REST
@@ -10,11 +13,11 @@ A RESTful API for interacting with and managing knowledge graphs. KG-REST provid
 
 ## Introduction
 
-Welcome to the KG-REST API documentation. KG-REST is designed to seamlessly integrate the principles of Representational State Transfer (REST) with Knowledge Graphs (KGs). Our goal is to provide developers with a straightforward and intuitive API to perform Create, Read, Update, and Delete (CRUD) operations on Knowledge Graphs.
+Welcome to the KG-REST API documentation. KG-REST is designed to integrate the principles of Representational State Transfer (REST) with Knowledge Graphs (KGs). Our goal is to provide developers with a straightforward and intuitive API to perform Create, Read, Update, and Delete (CRUD) operations on Knowledge Graphs.
 
 Knowledge Graphs are powerful tools for structuring and interlinking data, enabling complex relationships and insights. However, interacting with them can often be complex and challenging. KG-REST addresses these challenges by offering a RESTful interface, making it easier to manage and manipulate knowledge graph data within your applications.
 
-## Getting Started
+## Getting started
 
 We'll assist you in setting up and performing Create, Read, Update, and Delete (CRUD) operations on your Knowledge Graph using two methods:
 
@@ -25,21 +28,21 @@ We'll assist you in setting up and performing Create, Read, Update, and Delete (
 
 Before you begin, ensure you have the following:
 
-- **API Key:** An active API key is required for authentication. If you don't have one, please request it from the [WordLift website](https://wordlift.io). he API key is used to authenticate your requests to the KG-REST API.
+- **API Key:** An active API key is required for authentication. If you don't have one, see [Get access](/apis-and-sdks/#get-access). The API key is used to authenticate your requests to the KG-REST API.
 - **HTTP Client:** Tools like [`curl`](https://curl.se/) can be used to send HTTP requests to the API.
-- **Python Environment:** If you prefer using Python, ensure you have Python installed along with the [WordLift Python SDK](https://pypi.org/project/wordlift-sdk/).
+- **Python Environment:** If you prefer using Python, ensure you have Python installed along with the [WordLift Python SDK](/apis-and-sdks/python-sdk/).
 
-### Obtaining Your API Key
+### Obtaining your API key
 
 To interact with the KG-REST API, you'll need an API key:
 
-- **Requesting an API Key:** isit the [WordLift website](https://wordlift.io) and sign up or log in to your account.
+- **Finding your API key:** Sign in to the [Dashboard](https://my.wordlift.io); your keys are listed on the home page. If you don't have an account yet, see [Get access](/apis-and-sdks/#get-access).
 
 ### Base URL
 
 All API requests are made to the following base URL:
 
-```
+```text
 https://api.wordlift.io
 ```
 
@@ -47,17 +50,17 @@ https://api.wordlift.io
 
 KG-REST uses API keys to authenticate requests. Include your API key in the `Authorization` header of each request:
 
-```
+```http
 Authorization: Key YOUR_API_KEY
 ```
 
-### Making Your First Request Using `curl`
+### Making your first request using `curl`
 
 Here's how to make a simple `GET` request to retrieve entities from your Knowledge Graph:
 
 **Request:**
 
-```
+```http
 GET /entities?id=ENTITY_ID
 ```
 
@@ -89,7 +92,7 @@ If you prefer to use Python, follow these steps:
 pip install wordlift-sdk
 ```
 
-📦 [View on PyPI](https://pypi.org/project/wordlift-sdk/)
+See [Python SDK](/apis-and-sdks/python-sdk/) for installation options, or view the package on [PyPI](https://pypi.org/project/wordlift-sdk/). The SDK installs `wordlift_client`, the generated API client used below.
 
 **b. Initialize the Client:**
 
@@ -140,7 +143,7 @@ async with wordlift_client.ApiClient(configuration) as api_client:
         print("Exception when calling create_or_update_entities: %s\n" % e)
 ```
 
-## API Endpoints
+## API endpoints
 
 KG-REST provides a comprehensive set of endpoints to perform Create, Read, Update, and Delete (CRUD) operations on your Knowledge Graph. Below is an overview of the available endpoints:
 
@@ -213,7 +216,7 @@ Authorization: Key YOUR_API_KEY
 
 If successful the response will return OK 200.
 
-### Batch Processing
+### Batch processing
 
 **Endpoint:** `POST /dataset/batch`
 
@@ -313,7 +316,7 @@ The endpoint returns the complete dataset in the requested format. The response 
 This endpoint exports your entire Knowledge Graph. For large datasets, the download may take some time. Ensure you have sufficient storage space for the exported file.
 :::
 
-:::tip Use Cases
+:::tip Use cases
 - **Backup:** Create regular backups of your Knowledge Graph data
 - **Migration:** Export data when moving to a different infrastructure
 - **Analysis:** Download data for offline analysis or processing

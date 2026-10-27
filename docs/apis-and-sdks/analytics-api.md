@@ -1,7 +1,10 @@
 ---
+title: "Analytics API"
+description: "Connect Google Search Console to your Knowledge Graph and import search analytics for every URL in the graph with the WordLift Analytics API."
 sidebar_position: 30
 toc_min_heading_level: 2
 toc_max_heading_level: 5
+last_updated: 2026-10-27
 ---
 
 # Analytics API
@@ -25,9 +28,9 @@ Using the Analytics API requires a WordLift Key. If you're unsure which one is t
 
 ## Connect Google Search Console
 
-In order to connect the Google Search Console to your Knowledge Graph, a client needs to perform an interactive authentication and authorization process with Google by using a Web Browser.
+To connect the Google Search Console to your Knowledge Graph, a client needs to perform an interactive authentication and authorization process with Google by using a Web Browser.
 
-### Determine the Resource Id {#determine-the-resource-id}
+### Determine the resource ID {#determine-the-resource-id}
 
 Each website or domain in Google Search Console has a resource ID. The resource ID is required to configure the Analytics API properly.
 
@@ -48,7 +51,7 @@ Take note of the decoded resource ID, it will be used later (in this example `ht
 ![Copy and paste the decoded resource ID](./images/google-search-console-use-duckduckgo-to-urldecode-url-copy-paste.png)
 
 
-### Create an Authorization URI
+### Create an authorization URI
 
 The process starts using a specially crafted URL. To get the URL use the "Build Authorization URI" API (replace `<key>` with your WordLift Key):
 
@@ -77,7 +80,7 @@ This will yield the following response:
 
 Open the above URL in a Web Browser.
 
-### Authenticate and Authorize with Google
+### Authenticate and authorize with Google
 
 When requested provide your Google e-mail address. The account must be able to access the Google Search Console for the target account:
 
@@ -97,13 +100,13 @@ Then finally click "Allow" to authorize the Analytics API to access the Google S
 
 After clicking "Allow", the browser is redirected to a URL like this:
 
-```
+```text
 https://developers.google.com/oauthplayground/?code=<authorization-code>&scope=https://www.googleapis.com/auth/webmasters.readonly
 ```
 
 Copy the value in `code=<authorization-code>` (the `<authorization-code>` part) to use it with the Exchange Authorization Code API.
 
-### Create an Authorization Code Exchange
+### Create an authorization code exchange
 
 Send the `authorization-code` to the Exchange Authorization Code API:
 
@@ -146,7 +149,7 @@ You can only connect one platform at a time.
 
 :::
 
-## Update the Account with the URL
+## Update the account with the URL
 
 The last step before calling the Analytics import is to configure the website URL:
 
@@ -163,9 +166,9 @@ Set the following parameters:
 * `key`: is the WordLift key associated with the account
 * `url`: is the URL of the target website (in the example above `https://example.org`)
 * `country`, optional: the 2 letters country code, e.g. `US`
-* `language`, optional: the 2 letters langauge code, e.g. `EN`
+* `language`, optional: the 2 letters language code, e.g. `EN`
 
-If successful the API will response with 200 and the following JSON:
+If successful the API responds with 200 and the following JSON:
 
 ```json
 {
@@ -174,9 +177,9 @@ If successful the API will response with 200 and the following JSON:
 }
 ```
 
-## Call the Analytics Import
+## Call the Analytics import
 
-Calling the Analytics import is as simple as submitting the following request:
+To call the Analytics import, submit the following request:
 
 ```sh
 curl -X "POST" "https://api.wordlift.io/analytics-imports" \

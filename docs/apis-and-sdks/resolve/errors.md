@@ -1,10 +1,11 @@
 ---
-sidebar_label: Resolve API Errors
-title: Resolve API Errors
+sidebar_label: Resolve API errors
+title: Resolve API errors
 description: Every error of the Resolve API is an RFC 9457 Problem Details document with a stable code; this page lists the codes and what to do about each.
+last_updated: 2026-10-27
 ---
 
-# Resolve API Errors
+# Resolve API errors
 
 Every error answered by the [Resolve API](/apis-and-sdks/resolve/) is an
 [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457) Problem Details document,
@@ -38,7 +39,7 @@ given, the `Retry-After` header is authoritative.
 
 | HTTP status | `code` | Meaning |
 |---|---|---|
-| 401 | [`unauthorized`](/problems/unauthorized/) | The request carried no WordLift key, an empty one, or one the account service does not recognise |
+| 401 | [`unauthorized`](/problems/unauthorized/) | The request carried no WordLift key, an empty one, or one the account service does not recognize |
 | 422 | [`invalid_request`](/problems/invalid_request/) | The request body does not match the schema: a required field is missing, a value has the wrong type, or `text` is empty or longer than 100,000 characters |
 | 422 | [`invalid_span`](/problems/invalid_span/) | A mention you sent does not lie in `text` as written: the characters between `start` and `end` are not the mention's `text`, or the offsets fall outside the text |
 | 422 | [`invalid_identity`](/problems/invalid_identity/) | A candidate id is not in a form the engine accepts |
@@ -48,8 +49,8 @@ given, the `Retry-After` header is authoritative.
 | 422 | [`unknown_include`](/problems/unknown_include/) | `include` lists a value the engine does not know |
 | 422 | [`candidates_not_supported`](/problems/candidates_not_supported/) | A mention carries `candidates` while the request resolves against a user dataset (`wordlift://dataset/me` or `inline`) |
 | 429 | [`too_many_requests`](/problems/too_many_requests/) | The replica serving your request has its limit of requests in flight and waiting, so this one was refused before any work was done |
-| 503 | [`dataset_warming`](/problems/dataset_warming/) | Your knowledge graph is being read for the first time in a while |
-| 502 or 503 | [`dataset_unavailable`](/problems/dataset_unavailable/) | With status 502: the knowledge graph named in `dataset_uri` could not be read from its source |
+| 503 | [`dataset_warming`](/problems/dataset_warming/) | Your Knowledge Graph is being read for the first time in a while |
+| 502 or 503 | [`dataset_unavailable`](/problems/dataset_unavailable/) | With status 502: the Knowledge Graph named in `dataset_uri` could not be read from its source |
 | 404 | [`not_found`](/problems/not_found/) | The requested path does not exist |
 | 500 | [`internal_error`](/problems/internal_error/) | The engine failed while handling the request |
 | 502 | [`upstream_error`](/problems/upstream_error/) | A service the engine depends on answered with an error while your request was handled |

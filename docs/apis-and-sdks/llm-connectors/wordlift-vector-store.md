@@ -1,28 +1,35 @@
 ---
-title: Llama Index - WordLift Vector Store
+title: "WordLift Vector Store for LlamaIndex"
+description: "Use your WordLift Knowledge Graph as a LlamaIndex vector store to add nodes and run retrieval-augmented generation from your own code."
+sidebar_label: "WordLift Vector Store"
 sidebar_position: 1
+last_updated: 2026-10-27
 ---
 
-# WordLift Vector Store for LlamaIndex 🦙
+# WordLift Vector Store for LlamaIndex
 
-[WordLift Vector Store](https://llamahub.ai/l/vector_stores/llama-index-vector-stores-wordlift?from=) is a **Knowledge Graph-based Vector SLlamaIndex**. This integration enables WordLift to be used as a vector store for LlamaIndex, allowing you to **work with your knowledge graph directly from your codebase**.
+[WordLift Vector Store](https://llamahub.ai/l/vector_stores/llama-index-vector-stores-wordlift?from=) is a **Knowledge Graph-based vector store for LlamaIndex**. This integration enables WordLift to be used as a vector store for LlamaIndex, allowing you to **work with your Knowledge Graph directly from your codebase**.
 
 With WordLift Vector Store, you can:
 
-- Perform **Knowledge Graph retrieval-augmented generation (Knowledge-enabled RAG)** using your knowledge graph data directly in your codebase.
-- Add new nodes and search within your knowledge graph effortlessly.
+- Perform **Knowledge Graph retrieval-augmented generation (Knowledge-enabled RAG)** using your Knowledge Graph data directly in your codebase.
+- Add new nodes and search within your Knowledge Graph.
 
-## Getting Started
+## Getting started
 
-To start using the WordLift Vector Store, you need to configure your LlamaIndex project. Please read the [documentation on the LlamaIndex website](https://docs.llamaindex.ai/en/stable/getting_started/installation/).
+To start using the WordLift Vector Store, you need to configure your LlamaIndex project. Read the [documentation on the LlamaIndex website](https://docs.llamaindex.ai/en/stable/getting_started/installation/).
 
-⚠️ To use the WordLift Vector Store, you will need your WordLift Key. You can obtain a WordLift Key by subscribing to one of WordLift's plans. Start using this and other integrations by choosing the [**WordLift Business Plan**](https://s.wordlift.io/get-started/?product_id=51698&lang=en&_ga=2.229910552.580544220.1719219882-1472873283.1715336664). Once subscribed, you will receive your WordLift Key, which you can use to access the Vector Store and other features.
+:::note
+
+To use the WordLift Vector Store, you need your WordLift Key. You get a WordLift Key with a Business+ or Enterprise plan; see [Get access](/apis-and-sdks/#get-access). Use the key to access the Vector Store and other features.
+
+:::
 
 ## Usage
 
 See the example below to set up your first project.
 
-```
+```python
 # import the necessary modules
 from llama_index.core import SimpleDirectoryReader, StorageContext
 from llama_index.core import VectorStoreIndex
@@ -84,18 +91,10 @@ print(response)
 
 ```
 
-## Additional Resources
+## Additional resources
 
-For more information on using WordLift Reader, check out:
+For more information on using WordLift Vector Store, check out:
 
 - our [Python Notebook](https://github.com/run-llama/llama_index/blob/main/docs/docs/examples/vector_stores/WordLiftDemo.ipynb)
-- our blog post about [LLMs for SEO & Marketing Automation](https://wordlift.io/blog/en/semantic-search-with-wordlift-vector-store/), introducing the WordLift Vectore Store and its advantages,
+- our blog post about [LLMs for SEO & Marketing Automation](https://wordlift.io/blog/en/semantic-search-with-wordlift-vector-store/), introducing the WordLift Vector Store and its advantages,
 - the [official documentation from LlamaIndex](https://docs.llamaindex.ai/en/stable/community/integrations/vector_stores/).
-
-## Conclusion
-
-**WordLift Vector Store** represents a significant leap forward in our mission to make the web more intelligent and accessible. By transforming your knowledge graph into interactive and contextually aware conversations, we are not only enhancing the user experience but also paving the way for more effective and precise SEO strategies.
-
-This integration is meticulously designed for SEO and marketing automation, **ensuring that your content is not only optimized but also dynamically adaptable to the ever-evolving digital landscape**. With WordLift Vector Store, you gain the ability to harness the power of AI, natural language processing, and high-dimensional vector spaces, **making your search capabilities more robust and your marketing efforts more impactful**.
-
-By leveraging this cutting-edge technology, you can achieve **scalability and precision**, ultimately driving better engagement and higher conversion rates. WordLift Vector Store is your gateway to a smarter, more efficient web presence, tailored to meet the demands of modern SEO and marketing automation.

@@ -1,56 +1,64 @@
 ---
-sidebar_label: Monitoring API Guide
+title: "Monitoring API"
+description: "Fetch the latest Monitor results for a URL, including status, title, canonical, performance and structured data checks, with field and state reference."
+last_updated: 2026-10-27
 ---
 
-# Developer API Guide
+# Monitoring API
 
-This document describes how to query monitor results for a specific URL. For what Monitor checks and how to read the same results in the dashboard, see [Monitor](../platform/monitor/index.md).
+The Monitoring API returns the latest Monitor results for a URL in your Knowledge Graph: the overall status of the latest run, a summary per monitor, and detailed results such as the JSON-LD found on the page compared with the JSON-LD WordLift publishes. Use it to bring check results into your own dashboards, alerts or CI.
 
-## Base Host
+Monitor is in Early Access on Business+ and Enterprise. For what Monitor checks and how to read the same results in the dashboard, see [Monitor](/platform/monitor/).
 
-All examples use:
+## Base URL and authentication {#base-url-and-authentication}
 
-```
-https://api.wordlift.io
-```
+All requests use the base URL `https://api.wordlift.io`. Authenticate with either method in the `Authorization` header:
 
-## Endpoint
+| Method | Header |
+| --- | --- |
+| OAuth2 access token | `Authorization: Bearer <access-token>` |
+| WordLift key (Graph Key) | `Authorization: Key <your-wordlift-key>` |
 
-Get the latest monitor results for a URL in a graph:
+See [Authentication and API keys](/apis-and-sdks/#authentication) for where to find your key and how to store it.
 
-```
+## Get the latest results for a URL {#endpoint}
+
+```http
 GET /monitor/graphs/{graph_id}/urls/results?url=<full_url>
 ```
 
-## Security
+| Parameter | In | Required | Description |
+| --- | --- | --- | --- |
+| `graph_id` | Path | Yes | The identifier of the graph that holds the URL. |
+| `url` | Query | Yes | The full URL of the page, including the scheme. |
 
-You can authenticate in two ways:
-1. OAuth2 with a Bearer token in the `Authorization` header.
-2. Graph Key with a Key token in the `Authorization` header.
+:::warning[Review needed]
+TODO [SME]: confirm that `GET /monitor/graphs/{graph_id}/urls/results` is still supported. The Monitor OpenAPI specification exposes account-scoped endpoints under `/accounts/{account_id}/monitoring/` with Key authentication only.
+:::
 
-## Example: OAuth2 Bearer Token
+## Example request and response {#example-request-and-response}
 
-```
+With an OAuth2 access token:
+
+```bash
 curl -sS \
   -H "Authorization: Bearer $ACCESS_TOKEN" \
-  "https://api.wordlift.io/monitor/graphs/1234567/urls/results?url=https://www.example.com/frames/aria-ar5051"
+  "https://api.wordlift.io/monitor/graphs/1234567/urls/results?url=https://www.example.com/products/example-product"
 ```
 
-## Example: Graph Key Token
+With a WordLift key:
 
-```
+```bash
 curl -sS \
-  -H "Authorization: Key $GRAPH_KEY" \
-  "https://api.wordlift.io/monitor/graphs/1234567/urls/results?url=https://www.example.com/frames/aria-ar5051"
+  -H "Authorization: Key $WL_KEY" \
+  "https://api.wordlift.io/monitor/graphs/1234567/urls/results?url=https://www.example.com/products/example-product"
 ```
 
-## Example Response
-
-Note: The response below is truncated for brevity.
+The response below is shortened.
 
 ```json
 {
-  "url": "https://www.example.com/frames/aria-ar5051",
+  "url": "https://www.example.com/products/example-product",
   "graph_id": "1234567",
   "status": "OK",
   "run_id": "c2b4b364-4f4c-4ef1-b8f4-7b02d5c9e0f7",
@@ -113,7 +121,7 @@ Note: The response below is truncated for brevity.
             {
               "@context": "https://schema.org",
               "@type": "Product",
-              "name": "Aria AR5051 Eyeglasses"
+              "name": "Example Product"
             }
           ]
         },
@@ -122,16 +130,16 @@ Note: The response below is truncated for brevity.
             {
               "@context": "https://schema.org",
               "@type": "Product",
-              "name": "Aria AR5051 Eyeglasses",
-              "brand": "Aria Eyewear",
-              "model": "AR5051",
+              "name": "Example Product",
+              "brand": "Example Brand",
+              "model": "EX-100",
               "offers": {
                 "@type": "Offer",
                 "priceCurrency": "USD"
               }
             }
           ],
-          "url": "https://api.wordlift.io/data/https/www.example.com/frames/aria-ar5051?__wl_lang=en",
+          "url": "https://api.wordlift.io/data/https/www.example.com/products/example-product?__wl_lang=en",
           "status_code": 200,
           "error": null
         }
@@ -143,35 +151,92 @@ Note: The response below is truncated for brevity.
 }
 ```
 
-## Response Structure
+## Response fields {#response-structure}
 
-Top-level fields:
-- `url`: the requested URL.
-- `graph_id`: the graph identifier used for the query.
-- `status`: overall status for the latest run (`OK`, `WARNING`, `ERROR`, or `PENDING`).
-- `run_id`: identifier for the latest run.
-- `created_at`: when the run was queued.
-- `processed_at`: when the run finished.
-- `monitors`: a compact list of monitor summaries.
-- `results`: detailed per-monitor results.
+### Top-level fields {#top-level-fields}
 
-Each result contains:
-- `monitor_name`: identifier of the monitor.
-- `state`: `OK`, `WARN`, or `FAIL`.
-- `details`: human-readable summary.
-- `score`: numeric score if the monitor provides one.
-- `metadata`: structured, monitor-specific data.
-- `created_at`, `processed_at`: timestamps for the run.
+| Field | Description |
+| --- | --- |
+| `url` | The requested URL. |
+| `graph_id` | The graph identifier used for the query. |
+| `status` | The overall status of the latest run: `OK`, `WARNING`, `ERROR` or `PENDING`. |
+| `run_id` | The identifier of the latest run. |
+| `created_at` | When the run was queued. |
+| `processed_at` | When the run finished. |
+| `monitors` | A compact list of monitor summaries. |
+| `results` | Detailed results per monitor. |
 
-### Structured Data Metadata
+### Monitor summary fields {#monitor-summary-fields}
 
-The structured data monitor includes:
-- `jsonld_blocks`: number of JSON-LD script blocks found in the page.
-- `jsonld_bytes`: total JSON-LD size in bytes.
-- `errors`: validation errors (missing required properties).
-- `warnings`: validation warnings (missing recommended properties).
-- `monitor_version`: version of `wordlift-monitors-structured-data`.
-- `monitor_build`: optional build identifier (image digest or git SHA).
-- `page.jsonld`: JSON-LD extracted from the page.
-- `api.jsonld`: JSON-LD returned by `api.wordlift.io` for the same URL (not validated).
-- `execution_ms`: total execution time for this task.
+Each item in `monitors` contains:
+
+| Field | Description |
+| --- | --- |
+| `name` | The monitor identifier, for example `status_check`, `title_check`, `canonical_check`, `performance_check` or `structured_data`. |
+| `state` | The monitor state: `OK`, `WARN` or `FAIL`. |
+| `details` | A human-readable summary. |
+| `score` | A numeric score, when the monitor provides one. |
+
+### Result fields {#result-fields}
+
+Each item in `results` contains:
+
+| Field | Description |
+| --- | --- |
+| `monitor_name` | The monitor identifier. |
+| `state` | The monitor state: `OK`, `WARN` or `FAIL`. |
+| `details` | A human-readable summary. |
+| `score` | A numeric score, when the monitor provides one. |
+| `metadata` | Structured, monitor-specific data. See [Structured data metadata](#structured-data-metadata). |
+| `created_at`, `processed_at` | Timestamps for the run. |
+
+## States and statuses {#states-and-statuses}
+
+The overall `status` and the per-monitor `state` use different values.
+
+| Value | Where | Meaning |
+| --- | --- | --- |
+| `OK` | `status` and `state` | The checks passed. |
+| `WARNING` | `status` | The latest run has warnings. |
+| `WARN` | `state` | The monitor passed with warnings. |
+| `ERROR` | `status` | The latest run has errors. |
+| `FAIL` | `state` | The monitor failed. |
+| `PENDING` | `status` | The run is queued and has not finished. |
+
+:::warning[Review needed]
+TODO [SME]: confirm the meaning of each value and how per-monitor `WARN` and `FAIL` roll up into the overall `WARNING` and `ERROR`.
+:::
+
+## Structured data metadata {#structured-data-metadata}
+
+The `metadata` object of the structured data monitor contains:
+
+| Field | Description |
+| --- | --- |
+| `jsonld_blocks` | The number of JSON-LD script blocks found in the page. |
+| `jsonld_bytes` | The total JSON-LD size in bytes. |
+| `errors` | Validation errors: missing required properties. |
+| `warnings` | Validation warnings: missing recommended properties. |
+| `monitor_version` | The version of `wordlift-monitors-structured-data`. |
+| `monitor_build` | An optional build identifier (image digest or git SHA). |
+| `page.jsonld` | The JSON-LD extracted from the page. |
+| `api.jsonld` | The JSON-LD returned by the [Data API](/apis-and-sdks/data-api/) for the same URL. It is not validated. |
+| `api.url` | The Data API URL requested for the page. |
+| `execution_ms` | The total execution time for this task, in milliseconds. |
+
+Compare `page.jsonld` with `api.jsonld` to see whether the page carries the JSON-LD that WordLift publishes for it.
+
+## Errors {#errors}
+
+:::warning[Review needed]
+TODO [SME]: list the status codes and response bodies this endpoint returns (for example for a missing key, an unknown graph or a URL with no results).
+:::
+
+For conventions shared across WordLift APIs, see [Errors](/apis-and-sdks/#errors).
+
+## Related {#related}
+
+- [Monitor](/platform/monitor/), the product documentation
+- [Inspect URL results](/platform/monitor/inspect-url-results/), to read the same results in the dashboard
+- [Data API](/apis-and-sdks/data-api/), the source of `api.jsonld`
+- [schema.org](https://schema.org/), the vocabulary the structured data checks use

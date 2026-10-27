@@ -1,14 +1,15 @@
 ---
-title: Out-of-Band Data API Cache Prefill
+title: "Out-of-band Data API cache prefill"
 description: Refresh WordLift Data API responses on a schedule and serve JSON-LD from an application cache without fetching it during page rendering.
 keywords:
   - Data API cache
   - scheduled cache refresh
   - out-of-band cache prefill
   - Next.js JSON-LD
+last_updated: 2026-10-27
 ---
 
-# Out-of-Band Data API Cache Prefill
+# Out-of-band Data API cache prefill
 
 Use an out-of-band process when you want server-rendered WordLift JSON-LD without calling the [Data API](./index.md) during a page request. A scheduled job fetches and validates the JSON-LD for a known set of canonical URLs, stores it in a shared application cache, and lets the page renderer read only from that cache.
 

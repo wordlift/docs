@@ -1,16 +1,17 @@
 ---
-sidebar_label: Resolve API Guide
-title: Resolve API Guide
-description: Resolve mentions in a text to identities in Wikidata, your WordLift knowledge graph or an inline vocabulary, or get an honest "unresolved".
+sidebar_label: Resolve API guide
+title: Resolve API guide
+description: Resolve mentions in a text to identities in Wikidata, your WordLift Knowledge Graph or an inline vocabulary, or get an honest "unresolved".
+last_updated: 2026-10-27
 ---
 
-# Resolve API Guide
+# Resolve API guide
 
 `resolve()` takes a text and tells you who or what each mention refers to, as a
 stable identifier, or returns `unresolved` with a reason. A resolver is allowed
 to abstain. It never returns the least-bad candidate as a match.
 
-```
+```http
 POST https://api.wordlift.io/accounts/{accountId}/resolve
 Authorization: Key <your WordLift key>
 ```
@@ -91,7 +92,7 @@ mention stops at the first world that resolves it.
 | `dataset_uri` | World |
 |---|---|
 | `wikidata://public` | Wikidata, the default |
-| `wordlift://dataset/me` | your WordLift knowledge graph, read with your key |
+| `wordlift://dataset/me` | your WordLift Knowledge Graph, read with your key |
 | `wordlift://dataset/me,wikidata://public` | your graph first, Wikidata for the rest |
 | `inline` | a vocabulary sent in the request's `dataset` field, up to 5,000 entities |
 
@@ -146,7 +147,7 @@ building a vocabulary or reviewing abstentions.
 
 Every error is an RFC 9457 Problem Details document with a stable `code` and a
 `type` URI that leads to the code's page; the list of codes and what to do about
-each is in [Resolve API Errors](/apis-and-sdks/resolve/errors/).
+each is in [Resolve API errors](/apis-and-sdks/resolve/errors/).
 
 ## Requests and limits
 

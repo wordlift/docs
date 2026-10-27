@@ -1,10 +1,14 @@
 ---
+title: "Migrate from client-side API to server-side API"
+description: "Move WordLift JSON-LD injection from the client-side WordLift Cloud script to your server-side rendering pipeline with the Data API, step by step."
+sidebar_label: "Migrate to server-side"
 sidebar_position: 36
 toc_min_heading_level: 2
 toc_max_heading_level: 4
+last_updated: 2026-10-27
 ---
 
-# Migrate from Client-Side API to Server-Side API
+# Migrate from client-side API to server-side API
 
 Use this guide when you already publish WordLift JSON-LD with the client-side WordLift Cloud API and want to move JSON-LD injection into your server-side rendering pipeline.
 
@@ -176,7 +180,7 @@ Start with a minimum cache TTL of 1 minute. Depending on your publishing cadence
 
 See [Performance and caching](./index.md#performance-and-caching) for the full caching model and observability recommendations.
 
-Alternatively, if the canonical URL inventory is bounded and daily freshness is acceptable, you can keep Data API calls entirely outside page requests by using [Out-of-Band Data API Cache Prefill](./out-of-band-cache-prefill.md).
+Alternatively, if the canonical URL inventory is bounded and daily freshness is acceptable, you can keep Data API calls entirely outside page requests by using [Out-of-band Data API cache prefill](./out-of-band-cache-prefill.md).
 
 <a id="5-handle-multilingual-pages"></a>
 
@@ -188,7 +192,7 @@ If the site is multilingual, pass the `__wl_lang` query parameter when requestin
 https://api.wordlift.io/data/https/www.acme.example/running-shoes?__wl_lang=en
 ```
 
-See [Multilingual requests](./index.md#multilingual-requests) and [Multilingual Graphs](../../platform/knowledge-graph/multilingual.md) for language routing details.
+See [Multilingual requests](./index.md#multilingual-requests) and [Multilingual graphs](../../platform/knowledge-graph/multilingual.md) for language routing details.
 
 <a id="6-validate-before-rollout"></a>
 
@@ -211,4 +215,4 @@ After validation, remove or disable the client-side JSON-LD injection for the mi
 - [Choosing client-side or server-side injection](./index.md#choosing-client-side-or-server-side-injection)
 - [Performance and caching](./index.md#performance-and-caching)
 - [WordLift Cloud script](../../welcome/install-wordlift-cloud/index.md)
-- [Multilingual Graphs](../../platform/knowledge-graph/multilingual.md)
+- [Multilingual graphs](../../platform/knowledge-graph/multilingual.md)

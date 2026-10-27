@@ -1,14 +1,15 @@
 ---
-title: Cloudflare Integration
+title: "Cloudflare integration"
 description: Fetch WordLift JSON-LD at the Cloudflare edge and inject it into the initial HTML response with HTMLRewriter.
 keywords:
   - Cloudflare Worker
   - HTMLRewriter
   - edge JSON-LD injection
   - WordLift Data API
+last_updated: 2026-10-27
 ---
 
-# Cloudflare Integration
+# Cloudflare integration
 
 Use a Cloudflare Worker when the website is already behind Cloudflare and WordLift JSON-LD must be present in the initial HTML response. The Worker fetches the page from the origin, retrieves the page-specific JSON-LD from the [Data API](./index.md), and inserts an `application/ld+json` script into the HTML `<head>` with [`HTMLRewriter`](https://developers.cloudflare.com/workers/runtime-apis/html-rewriter/).
 

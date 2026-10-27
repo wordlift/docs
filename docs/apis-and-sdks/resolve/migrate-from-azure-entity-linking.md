@@ -2,6 +2,7 @@
 sidebar_label: Migrate from Azure Entity Linking
 title: Migrate from Azure Entity Linking to resolve()
 description: Azure AI Language retires Entity Linking on 1 September 2028. Move an Azure Entity Linking call to resolve() in under an hour; the request, the response field map, and what to do with "unresolved".
+last_updated: 2026-10-27
 ---
 
 # Migrate from Azure Entity Linking to resolve()
@@ -153,10 +154,10 @@ export WL_KEY=... AZURE_LANGUAGE_ENDPOINT=... AZURE_LANGUAGE_KEY=...
 ## Errors
 
 Every error is an RFC 9457 Problem Details document with a stable code; the
-codes and what to do about each are on [Resolve API Errors](/apis-and-sdks/resolve/errors/).
+codes and what to do about each are on [Resolve API errors](/apis-and-sdks/resolve/errors/).
 
 ## Related
 
-- [Resolve API Guide](/apis-and-sdks/resolve/)
-- [Resolve API Errors](/apis-and-sdks/resolve/errors/)
+- [Resolve API guide](/apis-and-sdks/resolve/)
+- [Resolve API errors](/apis-and-sdks/resolve/errors/)
 - [Live demos, no sign-up](https://wordlift.io/resolve/demos/)
