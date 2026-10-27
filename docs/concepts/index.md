@@ -1,119 +1,105 @@
 ---
+title: "Concepts"
+description: "Plain definitions of the ideas behind WordLift, from entities and knowledge graphs to linked data and AI visibility, with links to each full explanation."
+last_updated: 2026-10-27
 ---
 
-# Key Concepts
+# Concepts
 
-Here is the terminology describing the core concepts that will help you set up and manage your content with WordLift:
+Concepts explain the ideas behind WordLift in plain language. WordLift is a knowledge graph platform, and AI visibility is one application built on it. Use this page to look up a term, then follow the link to its full explanation. The step-by-step guides live in the [Platform](/platform/) section.
 
-## Entity
+## Key concepts
 
-An **entity** (or thing) is something that exists in the real-world: celebrities, cities, sport teams, buildings, geographical features, movies, celestial objects and works of art are all entities. For a long time, more than four decades, we've been teaching computers to recognise things by simply matching keywords.
+Each definition below is short on purpose. The linked page covers the concept in depth.
 
-Now computers, just like humans do, understand that a text like *\[Thubten Gyatso\]* is not just made of two words but, it has a much richer meaning. *\[Thubten Gyatso\]* is a person, more specifically he's the 13th Dalai Lama who was born in the Tsang-Ü province in Tibet on the 12th of February 1876.
+### Entity {#entity}
 
-All this information - collectively shared in public sources like Wikipedia and Freebase - is organised in intelligent models known as **Graphs** that are helping computers think the way we do and helping us find this information more quickly and even compute it (i.e. providing answers to question like *"Was Trinley Gyatso his predecessor?"*).
+An entity is a thing that exists in the real world, such as a person, organization, place, product, event or work of art. In a knowledge graph, each entity is a node with a stable identifier, a type and properties, so machines can tell it apart from other things with the same name. Read [Entities](/concepts/entities/).
 
-### Entity Types
+### Entity types {#entity-types}
 
-Web pages are about many different kind of "things". WordLift uses the [Schema.org](http://schema.org) vocabulary to describe a variety of entity types, each of which has its own set of properties that can be used to describe the entity. The broadest item type is **Thing**, which has four properties: *name*, *description*, *url*, and *image*. WordLift supports all the entity types of the schema vocabulary.
+An entity type says what kind of thing an entity is. WordLift describes types with the schema.org vocabulary, where the broadest type is `Thing`, with the properties `name`, `description`, `url` and `image`. Read [Schema.org](/concepts/schema-org/).
 
-### Related Entities
+### Related entities {#related-entities}
 
-In WordLift **related entities** are primarily the entities being used for annotating a blog post or a page.
-Each entity we curate can be eventually *linked* to other entities by running the analysis on its description text.
-Entities being *linked* with other entities with the analysis are also known as **related entities**.
+Related entities are the entities used to annotate a post or page: the things the content is about or mentions. Read [Entities on a page](/concepts/entities/#entities-on-a-page).
 
-## Vocabulary
+### Vocabulary {#vocabulary}
 
-A **vocabulary** is a collection of things (or entities).
+In WordLift, your vocabulary is the collection of entities you create and describe so you can reuse them across your content. The same word also names schema vocabularies, such as schema.org, which define types and properties instead of things. Read [Vocabulary](/concepts/vocabulary/).
 
-With WordLift, users can create their own custom vocabulary by creating entities and describing their properties (i.e. *\[Europe Day\]* is held on 9 May and celebrates peace and unity in Europe). These entities might already exist in publicly available sources like Wikipedia and Freebase. In this case WordLift provides a list of suggested entities that can be *linked* to (or reconciled with).
+### Knowledge graph {#knowledge-graph}
 
-When linking entities to each other, WordLift uses the `owl:sameAs` property; this means that we're talking about the same *thing* (or simply that both entities share the same "identity"): "Yes, I'm talking about that same *\[Europe Day\]* that Freebase describes with machine id **m/04f6ymq**".
+A knowledge graph is a network of the entities that matter to a domain or organization, together with the relationships between them. Unlike a vocabulary, it also holds the instances it describes and the facts about them. Capitalized, Knowledge Graph is the WordLift product. Read [Knowledge graph](/concepts/knowledge-graph/) for the concept and the [Knowledge Graph overview](/platform/knowledge-graph/) for the product.
 
-This linking process is also called [reconciliation] or disambiguation. Find out more on [how to import and export the user vocabulary](/integrations/wordpress-plugin/import-export-vocabulary/).
+### RDF {#rdf}
 
-## Knowledge Graph
+RDF (Resource Description Framework) is a W3C standard for representing information as triples of subject, predicate and object. A WordLift Knowledge Graph can be exported in RDF formats such as RDF/XML, JSON-LD, Turtle and N3. Read [Linked data](/concepts/linked-data/).
 
-A **knowledge graph** is a network of all kind of entities that are relevant to a specific domain or to an organization.
-They are not limited to abstract concepts and relations (as with a vocabulary) but also contain the instances of the things they describe.
+### Linked Open Data {#linked-open-data}
 
-Using WordLift as new entities are added in the vocabulary, properties for these entities are populated using the
-*ease-to-use* WordPress editing interfaces and new posts are enriched with these entities a knowledge graph is
-created and published as [RDF](#rdf) graph in the cloud.
+Linked Open Data is linked data published as open content that anyone can reuse. DBpedia and Wikidata are large examples, and WordLift entities can point to them with `sameAs` links. Read [Linking to Linked Open Data](/concepts/linked-data/#linking-to-linked-open-data).
 
-## RDF
+### Reconciliation {#reconciliation}
 
-**RDF** stands for Resource Description Framework.
+Reconciliation links an entity in your data to the same entity in another dataset, so machines can identify without ambiguity what you mean. "Apple" in an article can mean a band, a company or a fruit, and reconciliation records which one. Read [Reconciliation and sameAs](/concepts/entities/#reconciliation-and-sameas).
 
-RDF is a W3C standard language for representing information.
+### Dereferencing HTTP URIs {#dereferencing-http-uris}
 
-## Linked Open Data
+Dereferencing is looking up a URI on the web to get information about the resource it identifies. WordLift uses dereferencing to get a snapshot of the properties that describe an entity. Read [URIs, dereferencing and your dataset URI](/concepts/linked-data/#uris-dereferencing-and-your-dataset-uri).
 
-**Linked Open Data** is [Linked Data](http://en.wikipedia.org/wiki/Linked_data) that is made available as **open content**.
-Large linked open datasets (or [Knowledge Graph](#knowledge-graph)) include DBpedia and Freebase.
+### WordLift key {#wordlift-key}
 
-## Reconciliation
+The WordLift key is the credential that authenticates your requests to WordLift APIs and connectors, such as GraphQL, KG-REST, the Resolve API and the LlamaIndex connectors. Each Knowledge Graph has its own key, so an account with several graphs has several keys. Read [Authentication](/apis-and-sdks/#authentication).
 
-**Reconciling** entities we store in our own [vocabulary](#vocabulary) with entities available elsewhere provides computers with an unambiguous way to identify the things we're talking about.
+## WordPress plugin terms
 
-*\[Apple\]* in a specific article might refer to a rather typical British psychedelic-pop band rather than to a World famous computer company or the forbidden fruit. This becomes important when third party applications like search engines need to provide valuable content for users searching for articles on *\[Apple\]* the psychedelic-pop band and not the other two *Apples*.
+These terms belong to the classic WordPress plugin, which WordLift supports for existing installs. New customers start with [WordLift Cloud](/welcome/install-wordlift-cloud/).
 
-[Reconciling](#reconciliation) entities means providing computers with unambiguous identifications of the *entities* we talk about.
+### Semantic fingerprint {#semantic-fingerprint}
 
-## Semantic Fingerprint
+A semantic fingerprint is the unique linked identifier that semantic annotation adds to the HTML of a post to mark which entity a passage refers to. The WordPress plugin reuses these identifiers to add schema.org markup and to feed its widgets. Read [Analysis](/integrations/wordpress-plugin/analysis/).
 
-The result of semantic annotation of a text is a *unique linked identifier* added to the HTML code. This identifier is known as **semantic fingerprint**.
+### Widget {#widget}
 
-Annotating contents, also known as *semantic enrichment* or *lifting*, creates metadata that computers can understand.
-Just like in forensic science human fingerprints are used to identify humans appearing on a crime scene, in computer science we use semantic fingerprints to tell computers what [entities](#entity) we're referring to.
+A widget is a dynamic visualization that editors add to a page with a shortcode or from the WordLift menu. It runs in the visitor's browser and shows information from the knowledge graph, such as connections between posts or details about the entities in a post. Read [Widgets](/integrations/wordpress-plugin/widgets/).
 
-WordLift re-uses these semantic fingerprints for adding Schema.org markup and for re-purposing contents using [Widgets](#widget).
+### WordLift Edit Post Widget {#wordlift-edit-post-widget}
 
-## Dereferencing HTTP URIs
+The WordLift Edit Post Widget is the panel in the WordPress editor where you annotate a post with entities and create new entities in your vocabulary. The full walkthrough, with screenshots, is in [WordLift Edit Post Widget](/integrations/wordpress-plugin/analysis/#wordlift-edit-post-widget).
 
-**URI Dereferencing** is the process of looking up a URI on the Web in order to get information about the referenced resource. WordLift uses dereferencing to obtain a snapshot of the properties describing a [named entity](#entity).
+#### Top-down post annotation {#top-down-post-annotation}
 
-## Widget
+You choose entities from the list the analysis detects to describe the whole post, without selecting a passage. The chosen entities describe the entire post, not a single occurrence in the text.
 
-A **widget** in WordLift is a dynamic visualisation that can be added by the editors to a page via [Shortcode](http://codex.wordpress.org/Shortcode) or using the WordLift menu.
+#### Bottom-up entity annotation {#bottom-up-entity-annotation}
 
-A Widget is executed by the end-user's browser when accessing a page.
-A Widget typically displays informations being stored in the [knowledge graph](#knowledge-graph) and creates dynamic connections between different posts or provides additional information about entities in the post.
+You select one occurrence in the text, such as "Expo 2015", and annotate that occurrence with an entity.
 
-## WordLift Edit Post Widget
+#### Edit entity properties {#edit-entity-properties}
 
-Contents editors using WordLift can identify the basic '*who*, *what*, *when* and *where*' of an
-article and structure information around it by creating new entities in the [custom vocabulary](#vocabulary). These annotations are added to the posts using the **WordLift Edit Post Widget**.
+You edit the main properties of an entity from the widget while you write. The complete list of properties is on the [Edit entity](/integrations/wordpress-plugin/edit-entity/) page.
 
-### Top down post annotation
+#### Image suggestor {#image-suggestor}
 
-The content editor, from the list of entities being detected in the text, uses these entities to describe his/her post without selecting any specific text annotations.
-Entities being selected, in this case, describe the entire post (and not the single occurrence of the entity in the text).
+The widget shows images for each entity, and you can drag them into the visual editor.
 
-![image](../integrations/wordpress-plugin/images/wordlift-edit-post-widget-01.png)
+## Go deeper
 
-### Bottom up entity annotation
+Each concept page gives the definition, why it matters and how it works, with links to the guides that apply it.
 
-The content editor has choosen the “Expo 2015” occurence in the text. In this case, this specific occurrence, is annotated with the entity "Expo 2015".
+- **[Knowledge graph](/concepts/knowledge-graph/).** What a knowledge graph is, how entities, properties and triples fit together, and how data goes in and out of a WordLift Knowledge Graph.
+- **[Entities](/concepts/entities/).** How an entity is identified with a stable `@id`, a schema.org type and `sameAs` links, and what reconciliation does.
+- **[Schema.org](/concepts/schema-org/).** The shared vocabulary of types and properties, how WordLift uses it and how markup is validated.
+- **[JSON-LD](/concepts/json-ld/).** The anatomy of WordLift JSON-LD and the difference between client-side and server-side delivery.
+- **[Linked data](/concepts/linked-data/).** RDF, URIs, dataset URIs, `sameAs` links to public datasets and standard export formats.
+- **[Vocabulary](/concepts/vocabulary/).** Your collection of entities compared with schema vocabularies, and how vocabulary entities link to each other.
+- **[AI visibility](/concepts/ai-visibility/).** What it means to be found, cited and recommended in AI-generated answers, and how WordLift measures it.
+- **[RAG and LLMs](/concepts/rag-and-llms/).** How retrieval-augmented generation grounds a large language model in your Knowledge Graph, and which connectors support it.
+- **[Glossary](/concepts/glossary/).** One-line definitions of WordLift product names and semantic web terms.
 
-![image](../integrations/wordpress-plugin/images/wordlift-edit-post-widget-02.png)
+## Next steps
 
-### Edit Entity Properties
-
-The content editor is editing the main properties for the entity "Expo 2015" while writing the post.
-The complete list of properties can be edited from the [Edit Entity](/integrations/wordpress-plugin/edit-entity/) page.
-
-![image](../integrations/wordpress-plugin/images/wordlift-edit-post-widget-03.png)
-
-### Image Suggestor
-
-![image](../integrations/wordpress-plugin/images/wordlift-edit-post-widget-04.png)
-
-Images for each entity appear in the WordLift Edit Post Widget and can be dragged and dropped in the visual editor.
-
-## WordLift key
-
-The **WordLift key** is a *unique value* that is assigned to each user after he/she has subscribed to the WordLift service.
-
-You can now continue to the [Analysis](/integrations/wordpress-plugin/analysis/) page.
+- **See the product.** The [Knowledge Graph overview](/platform/knowledge-graph/) explains what the WordLift Knowledge Graph does for your organization.
+- **Build a graph.** [Create a Knowledge Graph](/platform/knowledge-graph/create/) compares the ways to populate one, with GraphSync as the recommended path.
+- **Work with the data.** [APIs and SDKs](/apis-and-sdks/) covers authentication and the interfaces for querying and publishing your graph.
