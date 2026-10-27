@@ -1,7 +1,12 @@
 ---
+title: "Install the worai CLI"
+description: "Install or upgrade the worai CLI on macOS, Linux or Windows with the installer scripts or pipx, then run your first commands and turn on autocompletion."
+sidebar_label: "Install and quickstart"
 sidebar_position: 1
-title: Install and Quickstart
+last_updated: 2026-10-27
 ---
+
+# Install the worai CLI
 
 ## Install
 
@@ -69,7 +74,7 @@ If you plan to run `seocheck`, install Playwright browsers:
 playwright install chromium
 ```
 
-## Quick Start
+## Quick start
 
 ```bash
 worai --help

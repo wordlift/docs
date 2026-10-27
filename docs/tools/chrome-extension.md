@@ -1,17 +1,18 @@
 ---
-title: Agent WordLift Extension
+title: "Agent WordLift Extension"
+description: "Install the Agent WordLift Extension for Chrome to check WordLift Cloud setup on any page and use Agent WordLift from your browser."
+sidebar_label: "Chrome Extension"
 sidebar_position: 1
+last_updated: 2026-10-27
 ---
 
 # Agent WordLift Extension
 
-Supercharge your SEO workflow directly in your browser with the **Agent WordLift Extension**. It helps content creators, SEO professionals, and marketers improve rankings and grow organic traffic by:
+The Agent WordLift Extension brings Agent WordLift into Chrome. Use it to check whether WordLift Cloud is set up correctly on the page you are viewing, and to work with Agent WordLift without leaving your browser.
 
-- **Optimizing content in real-time:** Get instant feedback on keywords, readability, and semantic relevance as you write.
-- **Automating key SEO tasks:** Run entity analysis and schema-related workflows faster.
-- **Finding content opportunities:** Spot gaps in existing content and get actionable optimization insights.
-
-Powered by AI and WordLift's knowledge graph technology, the extension makes content optimization faster and easier.
+:::warning[Review needed]
+TODO [SME]: confirm what the extension does beyond the WordLift Cloud status check. The previous version of this page claimed real-time feedback on keywords, readability and semantic relevance, entity analysis and schema workflows, and content gap insights.
+:::
 
 ## Watch the extension in action
 
@@ -19,28 +20,31 @@ Powered by AI and WordLift's knowledge graph technology, the extension makes con
 
 ## Install
 
-[Install the Agent WordLift Extension](https://chromewebstore.google.com/detail/agent-wordlift/jegfjceighmfpbklniiakflbhceejddb)
+[Install the Agent WordLift Extension from the Chrome Web Store](https://chromewebstore.google.com/detail/agent-wordlift/jegfjceighmfpbklniiakflbhceejddb).
 
-## Icon Status Line
+## Icon status line
 
-The icon status line is a quick health check for your WordLift Cloud setup. It validates whether `bootstrap.js` is present and correctly configured on the current page.
+The icon status line is a quick health check for your WordLift Cloud setup. It checks whether `bootstrap.js` is present and correctly configured on the current page.
 
 | Status | Icon | Meaning | What to do |
 |---|---|---|---|
 | **Red** | <img src="/img/agent-wordlift-extension/status-red.png" alt="Red status icon" width="64" /> | `bootstrap.js` is missing. | [Add the script to the page](/welcome/install-wordlift-cloud/) and reload. |
-| **Orange** | <img src="/img/agent-wordlift-extension/status-orange.png" alt="Orange status icon" width="64" /> | `bootstrap.js` is present but configuration is likely incorrect and may fail. | Contact **hello@wordlift.io** or your account manager for configuration validation. |
-| **Green** | <img src="/img/agent-wordlift-extension/status-green.png" alt="Green status icon" width="64" /> | Configuration is valid. | WordLift Cloud `bootstrap.js` is configured correctly. |
+| **Orange** | <img src="/img/agent-wordlift-extension/status-orange.png" alt="Orange status icon" width="64" /> | `bootstrap.js` is present but the configuration is likely incorrect and may fail. | Contact [support@wordlift.io](mailto:support@wordlift.io) or your account manager to validate the configuration. |
+| **Green** | <img src="/img/agent-wordlift-extension/status-green.png" alt="Green status icon" width="64" /> | The configuration is valid. | No action needed. WordLift Cloud `bootstrap.js` is configured correctly. |
 
 ## Pin in Chrome
 
 To pin the extension icon to the Chrome toolbar:
 
-1. Click the Extensions icon (puzzle piece) in Chrome.
+1. Select the Extensions icon (puzzle piece) in Chrome.
 2. Find **Agent WordLift** in the list.
-3. Click the pin icon next to it.
+3. Select the pin icon next to it.
 
-Official Chrome guide: [Install and manage extensions](https://support.google.com/chrome/answer/2664769?hl=en).
+For more help, see Google's guide [Install and manage extensions](https://support.google.com/chrome/answer/2664769?hl=en).
 
 ## Related docs
 
+- [Install WordLift Cloud](/welcome/install-wordlift-cloud/)
+- [Interfaces and tools](/tools/)
+- [Prompt Library](/platform/agent-wordlift/prompt-library/)
 - [All Agent WordLift integrations](/platform/agent-wordlift/integrations/)

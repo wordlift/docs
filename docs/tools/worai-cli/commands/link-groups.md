@@ -1,10 +1,16 @@
 ---
-title: link-groups
+title: "worai link-groups"
+description: "Convert a link-group CSV to RDF in Turtle, JSON-LD, XML or N3, and optionally apply the changes through the WordLift API."
+sidebar_label: "link-groups"
+last_updated: 2026-10-27
 ---
+
+# worai link-groups
 
 Convert a link-group CSV to RDF and optionally apply changes via WordLift API.
 
 ## Usage
+
 - `worai link-groups <links.csv> [options]`
 
 ## Arguments
@@ -24,8 +30,10 @@ Convert a link-group CSV to RDF and optionally apply changes via WordLift API.
 | `--retries` | int | `3` | Number of retries for failed API requests. |
 
 ## Examples
+
 - `worai link-groups ./links.csv --format turtle`
 - `worai link-groups ./links.csv --apply --dry-run --concurrency 4`
 
 ## Notes
+
 - `--apply` requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config).

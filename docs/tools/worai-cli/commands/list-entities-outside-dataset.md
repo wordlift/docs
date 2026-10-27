@@ -1,12 +1,18 @@
 ---
-title: list-entities-outside-dataset
+title: "worai list-entities-outside-dataset"
+description: "List entities whose IRIs do not start with your account dataset URI, using the WordLift GraphQL endpoint."
+sidebar_label: "list-entities-outside-dataset"
+last_updated: 2026-10-27
 ---
+
+# worai list-entities-outside-dataset
 
 List entities that do not belong to the account dataset.
 
 This command fetches the `dataset_uri` via `get_me`, queries GraphQL for all entity IRIs, and prints those that do not start with the dataset URI.
 
 ## Usage
+
 - `worai list-entities-outside-dataset [options]`
 
 ## Options
@@ -20,10 +26,12 @@ This command fetches the `dataset_uri` via `get_me`, queries GraphQL for all ent
 | `--query-template` | string |  | GraphQL query template with `{dataset_uri}` placeholder (optional). |
 
 ## Examples
+
 - `worai list-entities-outside-dataset`
 - `worai list-entities-outside-dataset --limit 100`
 - `worai list-entities-outside-dataset --dataset-uri https://example.com/dataset`
 
 ## Notes
+
 - Requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config).
 - If your GraphQL schema differs, pass a custom `--query-template`. The default query is `entities { iri }`.

@@ -1,12 +1,18 @@
 ---
-title: entity-matrix
+title: "worai entity-matrix"
+description: "Build a URL by entity-type pivot table from an exported Turtle graph and print it or write it to CSV, JSON, Parquet or Google Sheets."
+sidebar_label: "entity-matrix"
+last_updated: 2026-10-27
 ---
+
+# worai entity-matrix
 
 Build a URL x entity-type pivot table from an exported graph file.
 
 Use this command when you need to audit which Schema.org entity types appear on each URL in a Turtle graph exported from WordLift. The command reads a local graph file, builds a URL-centered subgraph for each page, counts the entity types found in that subgraph, and prints or writes a pivot table.
 
 ## Usage
+
 - `worai entity-matrix [options] <file>`
 
 ## Argument

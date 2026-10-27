@@ -1,10 +1,16 @@
 ---
-title: canonicalize-duplicate-pages
+title: "worai canonicalize-duplicate-pages"
+description: "Choose canonical URLs for duplicate pages from WordLift entity type and name plus Google Search Console KPIs, with options, defaults and examples."
+sidebar_label: "canonicalize-duplicate-pages"
+last_updated: 2026-10-27
 ---
+
+# worai canonicalize-duplicate-pages
 
 Choose canonical URLs based on WordLift entity type+name and GSC KPIs.
 
 ## Usage
+
 - `worai canonicalize-duplicate-pages --input <gsc_csv> [options]`
 
 ## Options
@@ -21,10 +27,12 @@ Choose canonical URLs based on WordLift entity type+name and GSC KPIs.
 | `--kpi-metric` | choice | `clicks` | KPI metric: `clicks`, `impressions`, `ctr`. |
 
 ## Examples
+
 - `worai canonicalize-duplicate-pages --input gsc_pages.csv --output canonical_targets.csv`
 - `worai canonicalize-duplicate-pages --input gsc_pages.csv --kpi-window 28d --kpi-metric clicks`
 - `worai canonicalize-duplicate-pages --input gsc_pages.csv --entity-type Product`
 
 ## Notes
+
 - Requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config).
 - If multiple entities are returned for the same URL, use `--entity-type` to select the expected type.

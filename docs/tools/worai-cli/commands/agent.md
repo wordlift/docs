@@ -1,12 +1,21 @@
-# agent
+---
+title: "worai agent"
+description: "Launch Codex, Claude or Gemini agent CLIs with the worai MCP server and skills, and look up the agent options, MCP tools and profile precedence."
+sidebar_label: "agent"
+last_updated: 2026-10-27
+---
+
+# worai agent
 
 Launch external agent CLIs with worai MCP server + skills.
 
 ## Usage
+
 - `worai agent [options] [-- <agent-cli-args...>]`
 - `worai agent mcp serve [--config <path>] [--profile <name>]`
 
 ## Options
+
 - `--agent-cli` / `--cli`: `codex|claude|gemini` (default: `codex`)
 - `--agent-exec`: override executable path
 - `--config`: session default config path for MCP tool calls
@@ -16,6 +25,7 @@ Launch external agent CLIs with worai MCP server + skills.
 - `--keep-temp`: keep generated temporary skills/MCP config files after exit
 
 ## Notes
+
 - `worai agent` generates:
   - a temporary skills file (`WORAI_SKILL.md`)
   - a temporary MCP config file pointing to `worai agent mcp serve`
@@ -43,7 +53,7 @@ Launch external agent CLIs with worai MCP server + skills.
   - then `WORAI_PROFILE`
   - then `default`
 - Codex launcher behavior:
-  - default mode injects runtime model config for WordLift provider (`agent.codex_model`, default `gpt-5-5-graph-sync`)
+  - default mode injects runtime model config for WordLift provider (`agent.codex_model`)
   - in default mode, `X-API-Key` is resolved from the selected profile `api_key` (with `WORDLIFT_API_KEY` fallback)
   - in default mode, if no profile is provided, falls back to `default` with a warning
   - in default mode, exits with a human-readable error when fallback `default` profile is missing in the resolved config
@@ -53,6 +63,7 @@ Launch external agent CLIs with worai MCP server + skills.
   - set `agent.codex_model` globally or under a profile to override the default Codex WordLift model
 
 ## Examples
+
 - `worai agent --agent-cli codex`
 - `worai agent --agent-cli codex --codex-use-user-config`
 - `worai agent --agent-cli codex --config ./worai.toml` (falls back to `default` profile with warning when `--profile` and `WORAI_PROFILE` are not set)

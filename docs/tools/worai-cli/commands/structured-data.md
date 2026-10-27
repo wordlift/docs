@@ -1,10 +1,16 @@
 ---
-title: structured-data
+title: "worai structured-data"
+description: "Generate JSON-LD and YARRRML mappings, materialize RDF from YARRRML, and build structured-data inventories with the worai CLI."
+sidebar_label: "structured-data"
+last_updated: 2026-10-27
 ---
+
+# worai structured-data
 
 Generate JSON-LD/YARRRML mappings or materialize RDF from YARRRML using Playwright-rendered pages.
 
 ## Usage
+
 - `worai structured-data create <url> [schema_type] [options]`
 - `worai structured-data generate <input> --yarrrml <mapping.yarrrml> [options]`
 - `worai structured-data inventory <source> (--output <file.csv> | --destination-sheet-id <spreadsheet_id> --destination-sheet-name <tab>) [options]`
@@ -38,6 +44,7 @@ Generate JSON-LD and YARRRML for a rendered web page using Playwright and Agent 
 | `--wait-until` | choice | `networkidle` | Playwright wait strategy: `domcontentloaded`, `load`, `networkidle`. |
 
 ### Notes
+
 - Requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config) to resolve the dataset URI.
 - Requires `yarrrml-parser` (`npm install -g @rmlio/yarrrml-parser`).
 - `morph-kgc` is included in project dependencies.
@@ -49,6 +56,7 @@ Generate JSON-LD and YARRRML for a rendered web page using Playwright and Agent 
 - Missing Google-required properties are reported as warnings (not hard failures).
 
 ### Examples
+
 - `worai structured-data create https://example.com/article Review --output-dir ./structured-data`
 - `worai structured-data create https://example.com/article --type Review --output-dir ./structured-data`
 - `worai structured-data create https://example.com/article Review --jsonld ./out/page.jsonld --yarrml ./out/page.yarrml`
@@ -80,12 +88,14 @@ Render pages from a sitemap (or a single URL), apply a YARRRML mapping, and emit
 | `--verbose` | bool | `true` | Emit progress logs to stderr. |
 
 ### Notes
+
 - Requires `yarrrml-parser` (`npm install -g @rmlio/yarrrml-parser`).
 - Uses Playwright to render HTML and converts it to XHTML before mapping.
 - Output filenames use `{slug}--{hash}.{ext}` to avoid collisions.
 - Blank nodes are rejected by default.
 
 ### Examples
+
 - `worai structured-data generate https://example.com/sitemap.xml --yarrrml ./mapping.yarrrml --output-dir ./out`
 - `worai structured-data generate https://example.com/page --yarrrml ./mapping.yarrrml --format jsonld`
 - `worai structured-data generate ./sitemap.xml --yarrrml ./mapping.yarrrml --regex "/product/" --concurrency auto`
@@ -119,6 +129,7 @@ Generate a structured-data inventory from ingestion sources and export it to CSV
 | `--ingest-passthrough-when-html / --no-ingest-passthrough-when-html` | bool | config/default | Prefer passthrough when source records include embedded HTML. |
 
 ### Output columns
+
 - `url`
 - `faq_markup` (`yes`/`no`)
 - `faq_markup_from_graph` (`yes`/`no`)
@@ -126,6 +137,7 @@ Generate a structured-data inventory from ingestion sources and export it to CSV
 - `structured_data`
 
 ### Notes
+
 - Uses `wordlift-sdk` ingestion inventory API (`create_structured_data_inventory_from_ingestion`).
 - Shows one CLI-owned progress bar during execution, powered by SDK `inventory.progress.*` callbacks.
 - Migration note:
@@ -163,6 +175,7 @@ urls = ["https://example.com/page"]
 ingest_source = "local"
 ingest_loader = "passthrough"
 ```
+
 - Local URL list file support:
   - `.txt`: one URL per line
   - `.csv`: requires `url` column
@@ -172,6 +185,7 @@ ingest_loader = "passthrough"
   - HTML from `https://w3id.org/seovoc/html`
 
 ### Examples
+
 - `worai structured-data inventory https://example.com/sitemap.xml --output ./structured-data-inventory.csv`
 - `worai structured-data inventory ./urls.txt --output ./structured-data-inventory.csv`
 - `worai structured-data inventory https://docs.google.com/spreadsheets/d/<id>/edit --sheet-name URLs_US --output ./structured-data-inventory.csv`

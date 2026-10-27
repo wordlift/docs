@@ -1,15 +1,24 @@
-# graph
+---
+title: "worai graph"
+description: "Run graph workflows with the worai CLI: GraphSync runs and project setup, export, validation, audit, KPIs, property deletion and account reset."
+sidebar_label: "graph"
+last_updated: 2026-10-27
+---
+
+# worai graph
 
 Run graph-specific workflows.
 
 For customer-facing guidance on GraphSync and assisted Business+ or Enterprise onboarding, see [GraphSync](/platform/knowledge-graph/graph-sync/).
 
 Mapping docs:
+
 - Reference: `docs/graph-sync-mappings-reference.md`
 - Guide: `docs/graph-sync-mappings-guide.md`
 - Examples: `docs/graph-sync-mappings-examples.md`
 
 ## Usage
+
 - `worai graph sync run [--debug]`
 - `worai --config <path> --profile <name> graph sync run [--debug]`
 - `worai graph sync create <destination> [--template <src>] [--defaults] [--data-file <path>] [--vcs-ref <ref>] [--non-interactive] [--force]`
@@ -22,6 +31,7 @@ Mapping docs:
 - `worai graph reset [--keep-country] [--keep-language] [--keep-url] [--yes]`
 
 ## Notes
+
 - `graph sync run` executes the graph sync workflow for a profile in `worai.toml`.
 - `graph sync create` bootstraps a new graph sync project from a Copier template.
 - `graph sync create` enables Copier trusted mode by default, so template `_tasks` run automatically.
@@ -113,6 +123,7 @@ ingest_passthrough_when_html = true
 ingest_timeout_ms = 30000
 playwright_wait_until = "domcontentloaded"
 ```
+
 - `sheets_service_account` is required only when using Google Sheets source (`sheets_url` + `sheets_name`).
 - Failure cases for `sheets_service_account` (Sheets source only):
   - value is missing or empty
@@ -154,13 +165,14 @@ sheets_service_account = "./service-account.json"
   - `--no-builtin-shapes` runs only shapes passed with `--shape`, useful for fast scheduled KPI gates.
   - `--shacl-workers` parallelizes URL-level SHACL validation for larger graphs.
 - `graph reset` resets the WordLift account associated with the current profile (requires wordlift-sdk>=6.12.0).
-  - **Destructive and irreversible** — prompts for confirmation unless `--yes` is passed.
+  - **Destructive and irreversible.** The command prompts for confirmation unless `--yes` is passed.
   - `--keep-country` preserves the account country on reset.
   - `--keep-language` preserves the account language on reset.
   - `--keep-url` preserves the account URL on reset.
   - API key is resolved from the active profile (`profiles.<name>.api_key`) or `WORDLIFT_API_KEY`.
 
 ## Examples
+
 - `worai --profile acme graph sync run`
 - `worai --config ./worai.toml --profile acme graph sync run`
 - `worai --profile acme graph sync run --debug`

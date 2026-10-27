@@ -1,10 +1,16 @@
 ---
-title: google-search-console
+title: "worai google-search-console"
+description: "Export Google Search Console page metrics to CSV for 7-day, 28-day and 3-month windows, with OAuth, search type and row limit options."
+sidebar_label: "google-search-console"
+last_updated: 2026-10-27
 ---
+
+# worai google-search-console
 
 Export Google Search Console page metrics to CSV for 7d, 28d, and 3m windows.
 
 ## Usage
+
 - `worai google-search-console --site <property> --client-secrets <path> [options]`
 
 ## Options
@@ -21,6 +27,7 @@ Export Google Search Console page metrics to CSV for 7d, 28d, and 3m windows.
 | `--data-state` | choice | `all` | Data state: `all` or `final`. |
 
 ## Examples
+
 - `worai google-search-console --site sc-domain:example.com --client-secrets ./client_secrets.json`
   - Uses OAuth redirect port 8080 by default.
 - `worai google-search-console --site https://example.com/ --client-secrets ./client_secrets.json --output gsc.csv`

@@ -1,10 +1,16 @@
 ---
-title: find-url-by-type
+title: "worai find-url-by-type"
+description: "Extract schema:url values from a Turtle graph for one or more schema.org types, or print the subject URIs instead."
+sidebar_label: "find-url-by-type"
+last_updated: 2026-10-27
 ---
+
+# worai find-url-by-type
 
 Extract schema:url values from a Turtle graph for one or more schema types.
 
 ## Usage
+
 - `worai find-url-by-type <file.ttl> schema:Type [schema:OtherType...] [--show-id]`
 
 ## Arguments
@@ -21,5 +27,6 @@ Extract schema:url values from a Turtle graph for one or more schema types.
 | `--show-id` | bool | `false` | Print subject URI instead of schema:url. |
 
 ## Examples
+
 - `worai find-url-by-type ./data.ttl schema:Service schema:Product`
 - `worai find-url-by-type ./data.ttl schema:Service --show-id`

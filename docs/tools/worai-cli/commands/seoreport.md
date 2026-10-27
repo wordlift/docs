@@ -1,6 +1,11 @@
 ---
-title: seoreport
+title: "worai seoreport"
+description: "Generate an SEO performance report from Google Search Console, optionally enriched with GA4 data that separates web and AI traffic."
+sidebar_label: "seoreport"
+last_updated: 2026-10-27
 ---
+
+# worai seoreport
 
 Generate an SEO performance report from Google Search Console, optionally enriched with GA4 Analytics (Web vs AI).
 

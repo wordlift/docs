@@ -1,13 +1,19 @@
 ---
-title: canonicals
+title: "worai canonicals"
+description: "Run canonical URL workflows backed by Search Console impressions: dedupe options, service account and OAuth modes, and profile defaults."
+sidebar_label: "canonicals"
+last_updated: 2026-10-27
 ---
+
+# worai canonicals
 
 Canonical URL workflows backed by SDK Search Console impressions.
 
 ## Usage
+
 - `worai canonicals dedupe --input <csv_with_url_title> --site <property> [options]`
 
-## Dedupe Options
+## Dedupe options
 
 | Option | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -23,14 +29,16 @@ Canonical URL workflows backed by SDK Search Console impressions.
 | `--token` | string | `oauth_token.json` | OAuth user token path. |
 | `--port` | int | `8080` | OAuth local redirect port. |
 
-## Auth Modes
+## Auth modes
+
 - Service account mode:
   - Use `--service-account`; no client secrets needed.
 - OAuth mode:
   - If `--token` exists and is valid, `--client-secrets` is not required.
   - If token is missing/invalid, provide `--client-secrets` once to bootstrap OAuth.
 
-## Profile Defaults
+## Profile defaults
+
 - `profiles.<name>.gsc_site_id`
 - `profiles.<name>.oauth.service_account`
 - `profiles.<name>.oauth.client_secrets`
@@ -41,8 +49,10 @@ Canonical URL workflows backed by SDK Search Console impressions.
 - `profiles.<name>.canonicals.request_timeout_sec`
 
 `canonicals.output` supports interpolation:
+
 - `{profile}`, `{yyyy}`, `{MM}`, `{dd}`, `{HH}`, `{mm}`, `{ss}`, `{date}`, `{time}`, `{seq}` or `{seq:3}`
 
 ## Examples
+
 - `worai canonicals dedupe --input pages_with_titles.csv --site sc-domain:example.com --service-account ./service-account.json`
 - `worai canonicals dedupe --input pages_with_titles.csv --site sc-domain:example.com --token oauth_token.json`

@@ -1,12 +1,21 @@
-# graph kpis
+---
+title: "worai graph kpis"
+description: "Calculate graph KPI snapshots from a local RDF export and generate the numeric WordLift API payload for a dated snapshot."
+sidebar_label: "graph kpis"
+last_updated: 2026-10-27
+---
+
+# worai graph kpis
 
 Calculate graph KPI snapshots from a local RDF export and generate WordLift API payloads.
 
 ## Usage
+
 - `worai graph kpis calculate <file> [--website-host <host>] [--graph-host <host>] [--builtin-shape <name>] [--exclude-builtin-shape <name>] [--shape <file>] [--no-builtin-shapes] [--depth <n>] [--issue-level warning|error] [--shacl-workers <n>] [--memory-mode auto|full|streaming] [--max-full-graph-bytes <bytes>] [--rdf-error-policy fail|repair-iris] [--output <file>]`
 - `worai graph kpis payload <file> [--snapshot-date YYYY-MM-DD] [--website-host <host>] [--memory-mode auto|full|streaming] [--max-full-graph-bytes <bytes>] [--rdf-error-policy fail|repair-iris] [--output <file>]`
 
 ## Notes
+
 - Requires `wordlift-sdk>=8.3.6`.
 - `<file>` accepts any graph format supported by the SDK graph loader, including Turtle and JSON-LD.
 - `calculate` writes the detailed KPI JSON, including graph totals, URL coverage, duplicate URL groups, rich snippet candidate counts, graph topology, and URL-rooted schema compliance.
@@ -24,5 +33,6 @@ Calculate graph KPI snapshots from a local RDF export and generate WordLift API 
 - `--output` writes the API payload for `payload`; it writes the detailed KPI JSON for `calculate`.
 
 ## Examples
+
 - `worai --profile acme graph kpis calculate ./acme-export.ttl --website-host www.example.com --output graph-kpis.json`
 - `worai --profile acme graph kpis payload ./acme-export.ttl --snapshot-date 2026-06-29 --website-host www.example.com --output graph-kpi-payload.json`

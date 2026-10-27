@@ -1,10 +1,16 @@
 ---
-title: seocheck
+title: "worai seocheck"
+description: "Run SEO checks against every URL in a remote or local sitemap and write text, JSON or HTML reports with timing thresholds and check filters."
+sidebar_label: "seocheck"
+last_updated: 2026-10-27
 ---
+
+# worai seocheck
 
 Run SEO checks against URLs found in a sitemap. Supports remote sitemap URLs and local files.
 
 ## Usage
+
 - `worai seocheck <sitemap_url_or_path> [options]`
 
 ## Arguments
@@ -37,6 +43,7 @@ Run SEO checks against URLs found in a sitemap. Supports remote sitemap URLs and
 | `--concurrency` | string | `1` | Number of pages to process concurrently, or `auto`. |
 
 ## Examples
+
 - `worai seocheck https://example.com/sitemap.xml`
 - `worai seocheck ./sitemap.xml --max-urls 50 --format json`
 - `worai seocheck https://example.com/sitemap.xml --output-dir ./seocheck-report --save-html`

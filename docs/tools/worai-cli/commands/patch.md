@@ -1,17 +1,23 @@
 ---
-title: patch
+title: "worai patch"
+description: "Patch WordLift entities from a Turtle or JSON-LD file, with dry-run, type-only, subject filter, worker and retry options."
+sidebar_label: "patch"
+last_updated: 2026-10-27
 ---
+
+# worai patch
 
 Patch WordLift entities from RDF (Turtle or JSON-LD).
 
 ## Usage
+
 - `worai patch <file.ttl|file.jsonld> [options]`
 
 ## Arguments
 
 | Argument | Type | Description |
 | --- | --- | --- |
-| `file.ttl|file.jsonld` | string | Path to RDF input file (.ttl or .jsonld). |
+| `file.ttl\|file.jsonld` | string | Path to RDF input file (.ttl or .jsonld). |
 
 ## Options
 
@@ -25,8 +31,10 @@ Patch WordLift entities from RDF (Turtle or JSON-LD).
 | `--retries` | int | `3` | Number of retries for failed requests. |
 
 ## Examples
+
 - `worai patch ./data.ttl --dry-run --add-types`
 - `worai patch ./data.jsonld --types-only --workers 4`
 
 ## Notes
+
 - Requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config).
