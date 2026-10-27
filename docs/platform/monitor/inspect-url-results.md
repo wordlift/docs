@@ -2,7 +2,7 @@
 title: Inspect URL results
 description: Use the Monitor URLs tab to find failing pages and see each page's expectation results, detected entities, page metadata and JSON-LD differences.
 sidebar_position: 3
-last_updated: 2026-10-26
+last_updated: 2026-10-27
 ---
 
 # Inspect URL results

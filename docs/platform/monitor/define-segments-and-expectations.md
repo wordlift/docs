@@ -2,7 +2,7 @@
 title: Define segments and expectations
 description: Group your pages into segments and attach structured data rules, so Monitor checks every product page, blog post or store page against its own standard.
 sidebar_position: 1
-last_updated: 2026-10-26
+last_updated: 2026-10-27
 ---
 
 # Define segments and expectations

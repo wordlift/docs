@@ -9,6 +9,10 @@ last_updated: 2026-10-27
 
 Monitor shows how ready your website is for search engines and AI assistants. It checks the whole site for AI access signals. It also checks every monitored page for technical health and for the structured data you define as your standard.
 
+:::info[Early Access]
+Monitor is in Early Access on both plans, Business+ and Enterprise. See the [Feature Matrix](/plans-and-pricing/feature-matrix/).
+:::
+
 ## What you can do with Monitor
 
 - **See how AI can reach and act on your site.** AI readiness runs 6 site-wide checks, grouped into Reach, Understand and Act. It shows which AI crawlers your crawl rules allow, such as GPTBot, ClaudeBot and PerplexityBot. It also shows whether you publish `llms.txt`, and whether AI agents have tools and instructions to act on the site.

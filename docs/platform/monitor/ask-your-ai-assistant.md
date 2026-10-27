@@ -2,7 +2,7 @@
 title: Ask your AI assistant about Monitor
 description: Ask your AI assistant about your Monitor results through the WordLift MCP Server, and decide which segments and structured data gaps to fix first.
 sidebar_position: 4
-last_updated: 2026-10-26
+last_updated: 2026-10-27
 ---
 
 # Ask your AI assistant about Monitor
@@ -14,7 +14,7 @@ Use it to get a quick summary of your site, compare segments, or decide which fi
 ## Prerequisites
 
 - WordLift has set up the pages to monitor for your account, and at least 1 monitoring run has finished.
-- You have connected the WordLift MCP Server to your AI assistant. For the setup steps, see [Agent WordLift MCP integration](../agent-wordlift/integrations.md#agent-wordlift-model-context-protocol-mcp-integration).
+- You have connected the WordLift MCP Server to your AI assistant. For the setup steps, see [Connect AI assistants with the MCP Server](/tools/mcp-server/).
 - For answers about segments, you have segments with expectations (see [Define segments and expectations](./define-segments-and-expectations.md)).
 
 ## Ask about your monitored pages
