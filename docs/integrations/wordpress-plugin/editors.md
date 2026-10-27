@@ -1,12 +1,15 @@
 ---
+title: "Editors"
+description: "Annotate posts with the classic WordPress plugin in the Classic Editor or the Block Editor, and generate summaries for excerpts and meta descriptions."
+last_updated: 2026-10-27
 ---
 
 # Editors
 
-## Classic Editors
+## Classic editors
 
-WordLift works on the Classic Editor in WordPress. 
-**Attention**: the WordLift plugin works only in Visual mode. 
+WordLift works in the Classic Editor in WordPress.
+**Attention:** the WordLift plugin works only in Visual mode.
 
 **New post**
 
@@ -16,14 +19,14 @@ Once the article is finished, save the draft.
 
 ![image](./images/classic-editor.png)
 
-Go back to the article draft and select entities you wish to annotate your article with, just by clicking on each tile in the WordLift sidebar on the right.
+Go back to the article draft. To annotate your article with an entity, select its tile in the WordLift sidebar on the right.
 
-Once you’ve finished annotating and curating the article's metadata publish and you’re  set.
+When you finish annotating and curating the article's metadata, publish the article.
 
-## Block Editors
+## Block editors
 
-WordLift works on the Block Editor in WordPress. 
-**Attention**: the WordLift plugin works only in Visual mode. 
+WordLift works in the Block Editor in WordPress.
+**Attention:** the WordLift plugin works only in Visual mode.
 
 **New post**
 
@@ -33,25 +36,24 @@ Once the article is finished, save the draft.
 
 ![image](./images/block-editor.png)
 
-Go back to the article draft and click on the W.
+Go back to the article draft and select the **W** icon.
 
-Clicking on W the WordLift sidebar will appear, from there you can select entities you wish to annotate your article with, just by clicking on each tile.
+The WordLift sidebar opens. To annotate your article with an entity, select its tile.
 
-Once you’ve finished annotating and curating the article's metadata, publish and you’re  set.
+When you finish annotating and curating the article's metadata, publish the article.
 
-## Automatic Summarization
+## Automatic summarization
 
-WordLift uses state of the art [Natural Language Processing](https://wordlift.io/blog/en/entity/natural-language-processing/) to summarize the content that you write. You can use the summarization for writing the meta description, for promoting your article on social networks and a lot more!
+WordLift uses [Natural Language Processing](https://wordlift.io/blog/en/entity/natural-language-processing/) to summarize the content that you write. You can use the summary to write the meta description, to promote your article on social networks, and more.
 
 :::info Note
+Automatic text summarization is available on Business+ and Enterprise. To upgrade your subscription, [contact our sales team](https://wordlift.io/contact-us/).
 :::
 
-Automatic Text Summarization is available on all Business and Enterprises licenses. [Contact our sales team](https://wordlift.io/contact-us/) to upgrade your subscription.
+WordLift uses the summarized content for the schema description property [(schema:description)](https://schema.org/description). [WordLift's context cards](https://wordlift.io/blog/en/entity/context-card/) also use it.
 
-WordLift uses the summarized content for the description property of schema [(schema:description)](https://schema.org/description) . This is also used in [WordLift’s context cards](https://wordlift.io/blog/en/entity/context-card/) .
-
-Here is how it works: first of all make sure that excerpts are visible in your WordPress installation. Excerpts are used in WordPress to add summaries of your content. WordLift will generate the summary when you hit the Refresh button. By clicking on the Use button you will be able to edit the provided summary and save it as an excerpt for your blog post.
+To use it, first make sure that excerpts are visible in your WordPress installation. WordPress uses excerpts for summaries of your content. WordLift generates the summary when you select **Refresh**. Select **Use** to edit the summary and save it as the excerpt for your post.
 
 ![image](./images/automatic-summarization.gif)
 
-Want to learn more about text summarization for SEO? Here is a video tutorial on [how to use content summarization to create meta descriptions](https://wordlift.io/academy-entries/generating-meta-descriptions-bert/) .
+To learn more about text summarization for SEO, watch the video tutorial on [how to use content summarization to create meta descriptions](https://wordlift.io/academy-entries/generating-meta-descriptions-bert/).

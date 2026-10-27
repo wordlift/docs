@@ -1,36 +1,39 @@
 ---
-title: Introduction
+title: "WordLift Zapier integration"
+description: "Connect Agent WordLift and your Knowledge Graph to thousands of apps with Zapier, using the Ask Agent WordLift and Query Knowledge Graph actions."
+sidebar_label: "Zapier"
 sidebar_position: 1
+last_updated: 2026-10-27
 ---
 
 import AuthImage from './images/step-1-authentication.png';
 import AgentImage from './images/agent-wordlift.png';
 import GraphQLImage from './images/graphql.png';
 
-# WordLift Zapier Integration
+# WordLift Zapier integration
 
-The [WordLift Zapier Integration](https://zapier.com/apps/wordlift/integrations) allows you to **automate your semantic SEO workflows** by connecting WordLift with over 6,000+ apps. You can now leverage the power of Agent WordLift and your Knowledge Graph data across your entire marketing stack.
+The [WordLift Zapier Integration](https://zapier.com/apps/wordlift/integrations) lets you **automate your semantic SEO workflows** by connecting WordLift with thousands of other apps. Use Agent WordLift and your Knowledge Graph data across your marketing stack.
 
-## Get Started
+## Get started
 
 ### 1. Authentication
 
-To get started with the WordLift Zapier integration, you'll need your WordLift API Key. This is the same key you use to access your Knowledge Graph.
+To get started with the WordLift Zapier integration, you need your WordLift API key. This is the same key you use to access your Knowledge Graph.
 
-1. Search for "WordLift" in the Zapier integrations directory
-2. Click on "Add Connection"
-3. Enter your WordLift API Key
-4. Click "Continue" to validate your credentials
+1. Search for "WordLift" in the Zapier integrations directory.
+2. Select **Add Connection**.
+3. Enter your WordLift API key.
+4. Select **Continue** to validate your credentials.
 
 <img src={AuthImage} style={{width: 600}} alt="Authentication Step" />
 
-### 2. Available Actions
+### 2. Available actions
 
-The WordLift Zapier integration provides two powerful actions:
+The WordLift Zapier integration provides two actions:
 
 #### Ask Agent WordLift
 
-Send commands or questions to Agent WordLift and receive intelligent responses. Use this to:
+Send commands or questions to Agent WordLift and receive responses. Use this to:
 
 - Extract entities from text
 - Analyze content for SEO optimization
@@ -42,7 +45,7 @@ Send commands or questions to Agent WordLift and receive intelligent responses. 
 
 #### Query Knowledge Graph
 
-Run GraphQL queries to retrieve specific data from your WordLift Knowledge Graph. This allows you to:
+Run GraphQL queries to retrieve specific data from your WordLift Knowledge Graph. Use this to:
 
 - Extract structured data
 - Monitor entity relationships
@@ -51,9 +54,9 @@ Run GraphQL queries to retrieve specific data from your WordLift Knowledge Graph
 
 <img src={GraphQLImage} style={{width: 600}} alt="GraphQL Query" />
 
-### 3. Popular Use Cases
+### 3. Popular use cases
 
-With WordLift's Zapier integration, marketers can:
+With the WordLift Zapier integration, you can:
 
 - Automatically analyze new blog posts when published
 - Send content data to reporting tools
@@ -62,9 +65,9 @@ With WordLift's Zapier integration, marketers can:
 - Create automated content briefs
 - Monitor SEO performance metrics
 
-## Create Your First Zap
+## Create your first Zap
 
-Get started with our pre-built workflows or create your own custom automation:
+Start from a prebuilt workflow or create your own automation:
 
 <div
   dangerouslySetInnerHTML={{
@@ -86,31 +89,25 @@ Get started with our pre-built workflows or create your own custom automation:
   }}
 />
 
-<!--
-:::info Note
-Watch our tutorial video to learn how to create powerful automation workflows with WordLift and Zapier.
-:::
--->
-
 ## Examples
 
-Here are some popular workflow templates to get you started:
+These workflow templates are a good starting point:
 
-1. **Content Optimization Pipeline**
+1. **Content optimization pipeline**
    - Trigger: New WordPress post
    - Action: Ask Agent WordLift to analyze content
    - Action: Send optimization recommendations to Slack
 
-2. **Automated SEO Reporting**
+2. **Automated SEO reporting**
    - Trigger: Daily schedule
    - Action: Query Knowledge Graph for performance metrics
    - Action: Update Google Sheets dashboard
 
-3. **Content Distribution Workflow**
+3. **Content distribution workflow**
    - Trigger: Daily schedule
    - Action: Query Knowledge Graph for entity data
    - Action: Create social media posts via Buffer
 
-## Need Help?
+## Get help {#need-help}
 
-If you need assistance setting up your WordLift Zapier integration or have questions about specific workflows, please contact our support team at [support@wordlift.io](mailto:support@wordlift.io).
+For help setting up the WordLift Zapier integration, or for questions about specific workflows, contact [support@wordlift.io](mailto:support@wordlift.io).

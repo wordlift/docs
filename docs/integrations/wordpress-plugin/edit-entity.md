@@ -1,14 +1,17 @@
 ---
+title: "Edit entity"
+description: "Edit entity pages in the classic WordPress plugin: set properties for each entity type, link related entities and add the Faceted Search widget."
+last_updated: 2026-10-27
 ---
 
-# Edit Entity
+# Edit entity
 
 **WordLift** uses [entities](/concepts/#entity) to annotate and organize blog posts and pages.
-All entities can be edited using the [WordLift Edit Post widget](/integrations/wordpress-plugin/analysis/#wordlift-edit-post-widget) or from the **Entity Page** itself. To access all entities or add a new entity click on the **Vocabolary** icon on the dashboard menu.
+All entities can be edited using the [WordLift Edit Post widget](/integrations/wordpress-plugin/analysis/#wordlift-edit-post-widget) or from the **Entity Page** itself. To access all entities or add a new entity, select the **Vocabulary** icon in the dashboard menu.
 
 ![image](./images/wordlift-edit-entity-vocabulary.png)
 
-When annotating a post with an entity WordLift adds a link to the **entity page**.
+When you annotate a post with an entity, WordLift adds a link to the **entity page**.
 These links are useful for three reasons:
 
 1. They allow users to navigate the website
@@ -18,24 +21,24 @@ These links are useful for three reasons:
 Curating **entity pages** with WordLift is similar to writing an article on [Wikipedia](http://wikipedia.org). These *entity posts* are useful for:
 
 - Providing contextual information to articles
-- Aggregate all contents referring to the same entity
+- Aggregating all content that refers to the same entity
 
 ## Edit entity properties
 
-The entity page provides the following set of properties that can be edited from the corresponding *meta box*:
+You can edit these properties of the entity page from the corresponding *meta box*:
 
 > - **Name:** the title of the article
 > - **Description:** the body of the article
 > - **Image:** the featured image of the article
-> - **Entity Types:** the corresponding type (i.e. *Thing*, *Person*, *Place*, *Event*, *Organization*, *Creative Work*, ...) that can be managed via the *WordLift - Entity Type* box in the editing window
+> - **Entity Types:** the corresponding type (such as *Thing*, *Person*, *Place*, *Event*, *Organization*, *Creative Work*, ...) that can be managed via the *WordLift - Entity Type* box in the editing window
 > - **Permalink:** the URL describing the entity
 > - **Same-As:** the URLs of same entity on the different sources
 
 ![image](./images/wordlift-edit-entity-informations.png)
 
-### Entity types and properties Table
+### Entity types and properties table
 
-Here follows the list of properties that can be edited with WordLift for each entity type.
+This table lists the properties you can edit with WordLift for each entity type.
 
 | Type           | Description                                            | Properties                                                                                                                                                                            | Schema.org      |
 | -------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
@@ -49,68 +52,67 @@ Here follows the list of properties that can be edited with WordLift for each en
 | Creative Work  | The most generic kind of Creative Work(i.e. Software). | name,description,image, type,URL,sameAs, additionalType.                                                                                                                              | [CreativeWork]  |
 | Recipe         | A food recipe.                                         | name,description,image, type,URL,sameAs, additionalType, cookTime, prepTime, totalTime, recipeCuisine, recipeIngredient, recipeInstructions, recipeYield, author, nutrition.calories. | [Recipe]        |
 
-### Edit an Event
+### Edit an event
 
-Events, occuring in a specific time are also entities. To personalise the *startDate*, *endDate* and *location* of an event you can use the **Event Properties** box.
+Events, which occur at a specific time, are also entities. To personalize the *startDate*, *endDate* and *location* of an event, use the **Event Properties** box.
 
 ![image](./images/wordlift-edit-entity-event.png)
 
-It is also possible to link an event with the *performer* (a presenter, a musician, or a group of speakers) by adding a reference to either a Person or an Organization.
+You can also link an event with the *performer* (a presenter, a musician, or a group of speakers) by adding a reference to either a Person or an Organization.
 
-Event can also be linked with an Offer - *this is an entity type* - that help us define for example the price for the tickets to an event.
+You can also link an event with an Offer (an entity type), which defines, for example, the ticket price for the event.
 
-### Edit a Place
+### Edit a place
 
-Places are also entities. To personalise the *geo coordinates* (longitude and latitude) of a place I can use the **Coordinates** box and either edit the *Latitude* and *Longitude* fields or simply place the pinpoint on the map.
+Places are also entities. To personalize the *geo coordinates* (longitude and latitude) of a place, use the **Coordinates** box: either edit the *Latitude* and *Longitude* fields or place the pin on the map.
 
 ![image](./images/wordlift-edit-entity-place.png)
 
-### Edit a Recipe
+### Edit a recipe
 
-Recipes are also considered entities. To personalise *ingredients*, *cuisine*, *preparation time*, *cooking time*, *total time*, *number of portions*, *author* and *calories* I can edit the data using the Recipe meta boxes (make sure to choose the entity type *Recipe* in order to see these additional fields).
+Recipes are also entities. To personalize *ingredients*, *cuisine*, *preparation time*, *cooking time*, *total time*, *number of portions*, *author* and *calories*, edit the data in the Recipe meta boxes. Choose the entity type *Recipe* to see these additional fields.
 
 ![image](./images/wordlift-edit-entity-recipe-01.png)
 
 ![image](./images/wordlift-edit-entity-recipe-02.png)
 
-### Edit a Offer
+### Edit an offer {#edit-a-offer}
 
-An offer can be linked from an event and it helps us define for instance the pricing of an event.
+You can link an offer from an event to define, for example, the pricing of the event.
 
 ![image](./images/wordlift-edit-entity-offer.png)
 
 ## Updating the description
 
-When we have something meanigful to say on a specific concept **we shall curate the information and edit the data that has been fetched automatically by WordLift** (*this will create our own version of Wikipedia*).
+When you have something meaningful to say about a specific concept, **curate the information and edit the data that WordLift fetched automatically** (*this creates your own version of Wikipedia*).
 
 ## Linking other entities
 
-Entity pages can be annotated just like you would do with a blog posts.
+You can annotate entity pages just like blog posts.
 
-After saving the new description you wrote, WordLift will analyze the text and suggest related entities. You can now *link* an entity with other entities. WordLift will store these relationships between one entity and other entities in the [graph](/concepts/#knowledge-graph) using the Dublin Core property `dct:related`. This information will be used to infer new connections between the contents of the site. For more information on *entity linking* [read the faq](/support/faq/#when-should-i-link-one-entity-to-another).
+After you save the new description, WordLift analyzes the text and suggests related entities. You can now *link* an entity with other entities. WordLift stores these relationships between entities in the [graph](/concepts/#knowledge-graph) using the Dublin Core property `dct:related`. WordLift uses this information to infer new connections between the content of the site. For more on *entity linking*, see the FAQ on [when to link one entity to another](/support/faq/#when-should-i-link-one-entity-to-another).
 
-## The Faceted Search Widget
+## The Faceted Search widget
 
-**Entity pages** can be used for helping users browse the content of your website. This is done using the **Faceted Search Widget**.
-The Widget can be added on the entity page using the **Faceted Search** option from the [Widgets Dropodown Menu](/integrations/wordpress-plugin/analysis/#wordlift-widgets-menu)
+Use **entity pages** to help readers browse the content of your website, with the **Faceted Search Widget**.
+To add the widget to the entity page, use the **Faceted Search** option in the [widgets dropdown menu](/integrations/wordpress-plugin/analysis/#wordlift-widgets-menu).
 
 ![image](./images/wordlift-edit-entity-faceted-search-widget.png)
 
-Alternatively, the `[wl_faceted_search]` shortcode can be used.
+You can also use the `[wl_faceted_search]` shortcode.
 
-- **Faceted Search**
-  : Provides a faceted search user interface to help readers discover relevant articles using the network of entities.
+- **Faceted Search:** provides a faceted search interface that helps readers discover relevant articles through the network of entities.
 
 ![image](./images/wordlift-edit-entity-faceted-search-widget-frontend.gif)
 
-The example above represents the widget displayed in the front-end. The reader can select multiple concepts and highlight the list of articles related to these concepts.
+The example above shows the widget on the front end. Readers can select multiple concepts to highlight the list of articles related to them.
 
 ## Save data
 
-In order to save the information on the entity press the "Publish" button.
-When making changes to an already existing entity press the "Update" button. In both cases data will be stored simultaneously on the WordPress site as well as in the [graph](/concepts/#knowledge-graph).
+To save the entity, select **Publish**.
+When you change an existing entity, select **Update**. In both cases, WordLift stores the data on the WordPress site and in the [graph](/concepts/#knowledge-graph) at the same time.
 
-You can now continue to the [publish](/integrations/wordpress-plugin/publishing/) page.
+Next, see [Publishing](/integrations/wordpress-plugin/publishing/).
 
 [creativework]: http://schema.org/CreativeWork
 [event]: http://schema.org/Event

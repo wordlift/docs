@@ -1,55 +1,51 @@
 ---
+title: "Semantic analytics"
+description: "Build an entity-based web analytics dashboard in Looker Studio from Google Analytics traffic and the entities the classic WordPress plugin sends."
+last_updated: 2026-10-27
 ---
 
-# Semantics Analytics
+# Semantic analytics
 
-You can use **WordLift** to create an *entity-based* [Web Analytics Dashboard](https://wordlift.io/blog/en/semantic-web-analytics/) using Google Data Studio and traffic data from Google Analytics.
+:::note
+This page supports existing installs of the classic WordPress plugin; new customers start with [WordLift Cloud](/welcome/install-wordlift-cloud/).
+:::
 
-## How to configure Semantics Analytics
+Use WordLift to create an entity-based [web analytics dashboard](https://wordlift.io/blog/en/semantic-web-analytics/) in Looker Studio (formerly Google Data Studio), with traffic data from Google Analytics.
 
-### Step One
+:::warning[Review needed]
+TODO [SME]: confirm the dashboard template and these steps still work with current Google Analytics properties and the current Looker Studio interface.
+:::
 
-Copy the Web Analytics Dashboard from [here](https://datastudio.google.com/u/0/reporting/1_Hu7hcfMhzE5EXDrZi3RTInZQcUjkiWt?s=l_0Vbo5t_bs).
+## Configure semantic analytics {#how-to-configure-semantics-analytics}
 
-![image](./images/semantics-analytics-step-1.png)
+1. Copy the [Web Analytics Dashboard template](https://datastudio.google.com/u/0/reporting/1_Hu7hcfMhzE5EXDrZi3RTInZQcUjkiWt?s=l_0Vbo5t_bs).
 
-### Step Two
+   ![image](./images/semantics-analytics-step-1.png)
 
-On the pop-up window select “create new data source”.
+2. In the pop-up window, select **create new data source**.
 
-![image](./images/semantics-analytics-step-2.png)
+   ![image](./images/semantics-analytics-step-2.png)
 
-### Step Three
+3. Under Google Analytics, select **select**.
 
-Click on “select” under Google Analytics.
+   ![image](./images/semantics-analytics-step-3.png)
 
-![image](./images/semantics-analytics-step-3.png)
+4. From the list of sites associated with your Google Analytics account, select the one you want to connect.
 
-### Step Four
+   ![image](./images/semantics-analytics-step-4.png)
 
-You will see a list of your current sites associated with your Google Analytics. Select the one you want to connect.
+5. In the top right, select **connect**.
 
-![image](./images/semantics-analytics-step-4.png)
+   ![image](./images/semantics-analytics-step-5.png)
 
-### Step Five
+6. In the top right, select **add to report**.
 
-Go to the top right and click on “connect”.
+   ![image](./images/semantics-analytics-step-6.png)
 
-![image](./images/semantics-analytics-step-5.png)
+7. In the pop-up window, select **copy report**.
 
-### Step Six
+   ![image](./images/semantics-analytics-step-7.png)
 
-Go to the top right and click on “add to report”.
+## Result
 
-![image](./images/semantics-analytics-step-6.png)
-
-### Step Seven
-
-On the pop-up window click on “copy report”.
-
-![image](./images/semantics-analytics-step-7.png)
-
-That’s it!
-
-You will see showing up your Semantic Analytics visualization with the semantic data WordLift is sending to it.
-Read this article on our blog ([Web Analytics Dashboard](https://wordlift.io/blog/en/semantic-web-analytics/)) to learn more about it.
+Your semantic analytics visualization opens, showing the semantic data that WordLift sends to it. To learn more, read [Web Analytics Dashboard](https://wordlift.io/blog/en/semantic-web-analytics/) on the WordLift blog.

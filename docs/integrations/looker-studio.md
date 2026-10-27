@@ -1,44 +1,47 @@
 ---
-title: Introduction
+title: "WordLift Looker Studio connector"
+description: "Load your Knowledge Graph data into Looker Studio and blend it with Search Console to build semantic SEO reports from a ready-made template."
+sidebar_label: "Looker Studio"
+last_updated: 2026-10-27
 ---
 
-# WordLift Looker Studio Connector
+# WordLift Looker Studio connector
 
-With the [WordLift Looker Studio Connector](https://wordlift.io/blog/en/wordlift-data-studio-connector/), you can **create semantic SEO reports** by loading data from your Knowledge Graph directly into Looker Studio and merging it with Search Console or any other web analytics platform.
+With the [WordLift Looker Studio connector](https://wordlift.io/blog/en/wordlift-data-studio-connector/), you can **create semantic SEO reports** by loading data from your Knowledge Graph directly into Looker Studio and merging it with Search Console or any other web analytics platform.
 
-## Get Started
+## Get started
 
 ### 1. Search for it
 
-The first step to start creating your semantic SEO report is to search for WordLift on the [Google Looker Studio connectors page](https://datastudio.google.com/datasources).
+To start creating your semantic SEO report, search for WordLift on the [Google Looker Studio connectors page](https://datastudio.google.com/datasources).
 
 ![image](./images/wordlift-datastudio-connector-get-started.png)
 
-```{raw} html <video controls src="https://wordlift.io/blog/en/wp-content/uploads/sites/3/2022/08/semantic-seo-report.mp4"></video>
-```
+:::warning[Review needed]
+TODO [SME]: confirm whether to embed the video at https://wordlift.io/blog/en/wp-content/uploads/sites/3/2022/08/semantic-seo-report.mp4 here; the legacy embed did not render.
+:::
 
-Just click on it and **enter the WordLift key**.
+Select it and **enter your WordLift key**.
 
-We have a GraphQL query ready for you, so you don’t need to do anything to get started. In case you are a power user and you know the query that you want to run, just continue. For example, if you are running an e-commerce website, maybe you want to query for product attributes or prices. Then be sure to keep checking the box “use report template for new report”, so you can get a shiny new report premade for you.
+A GraphQL query is ready for you, so you don't need to change anything to get started. If you already know the query you want to run, you can use it instead. For example, an e-commerce website might query product attributes or prices. Keep the **use report template for new report** box checked to get a prebuilt report.
 
-Then click **Connect**. Here you can see the fields that come from the report. Finally, click **Create Report**.
+Select **Connect**. The fields that come from the report appear. Then select **Create Report**.
 
 ![image](./images/wordlift-datastudio-connector-create-report.png)
 
 ### 2. Add GSC as a data source and check the blend
 
-At this point, you are close to creating your report, but two more steps are needed:
+Two more steps complete your report:
 
-1. To go to the managed data sources and add your Search Console data source: choose your website, choose URL Impressions and choose Web Type, and then click on Create.
-2. Check the blends to verify that the data is merged from the Knowledge Graph and GSC.
+1. Go to the managed data sources and add your Google Search Console (GSC) data source: choose your website, choose **URL Impressions**, choose **Web Type**, and select **Create**.
+2. Check the blends to verify that the data from the Knowledge Graph and GSC is merged.
 
 ![image](./images/wordlift-datastudio-connector-check.png)
 
-You can filter the data for EntityType and choose the period of time you prefer.
+You can filter the data by EntityType and choose the time period you prefer.
 
 :::info Note
-Learn how to [create your Semantic SEO reports](https://youtu.be/mWMEbx3qIVI) in 3 simple steps, watch this video.
+Watch this video to learn how to [create your semantic SEO reports](https://youtu.be/mWMEbx3qIVI) in 3 steps.
 :::
-
 
 <iframe src="https://www.youtube-nocookie.com/embed/mWMEbx3qIVI" width="100%" height="540" frameborder="0" scrolling="auto"></iframe>

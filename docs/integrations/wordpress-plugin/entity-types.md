@@ -1,8 +1,12 @@
 ---
+title: "Select entity types for a web page"
+description: "Set one or more wl_entity_type values on a WordPress post or page in the Block Editor or Classic Editor, then verify the meta tags on the front end."
+sidebar_label: "Entity types"
 sidebar_position: 30
+last_updated: 2026-10-27
 ---
 
-# Select Entity Types for a Web Page
+# Select entity types for a web page
 
 Use this workflow to set one or more `wl_entity_type` values on a post or page.
 
@@ -12,7 +16,7 @@ Use this workflow to set one or more `wl_entity_type` values on a post or page.
 2. In the right sidebar, open **Entity Types**.
 3. Use the **Selected**, **All**, **Most Used**, and **A-Z** tabs to find types.
 4. Check one or more entity types.
-5. Click **Update** (or **Publish**) to save.
+5. Select **Update** (or **Publish**) to save.
 
 ![Entity Types panel in block editor](/img/cloud-plugin/step-3-block-editor-entity-types.png)
 
@@ -25,7 +29,7 @@ Use this workflow to set one or more `wl_entity_type` values on a post or page.
    - **All** for the hierarchical view.
    - **Most Used** for common types.
    - **A-Z** for a flat alphabetical list.
-4. Click **Update**.
+4. Select **Update**.
 
 ![Entity Types metabox in classic editor](/img/cloud-plugin/step-4-classic-editor-entity-types.png)
 

@@ -1,11 +1,14 @@
 ---
-title: Introduction
+title: "WordLift Power Automate connector"
+description: "Query your Knowledge Graph with GraphQL from Power Automate, Logic Apps and Power Apps using the WordLift connector and your Knowledge Graph key."
+sidebar_label: "Power Automate"
 sidebar_position: 1
+last_updated: 2026-10-27
 ---
 
-# WordLift Power Automate Connector
+# WordLift Power Automate connector
 
-The [WordLift Power Automate Connector](https://learn.microsoft.com/en-us/connectors/wordliftgraphql/) allows you to **integrate your Knowledge Graph data with the Microsoft Power Platform**. This connector provides access to the WordLift GraphQL API, enabling you to extract and utilize entity data across Power Automate, Logic Apps, and Power Apps.
+The [WordLift Power Automate Connector](https://learn.microsoft.com/en-us/connectors/wordliftgraphql/) lets you **integrate your Knowledge Graph data with the Microsoft Power Platform**. The connector gives you access to the WordLift GraphQL API, so you can extract and use entity data across Power Automate, Logic Apps, and Power Apps.
 
 ## Availability
 
@@ -39,7 +42,7 @@ The connector is available in the following products and regions:
 
 ## Prerequisites
 
-Before getting started, you'll need:
+Before you start, you need:
 
 - A WordLift subscription
 - A Knowledge Graph and its related access key
@@ -47,31 +50,31 @@ Before getting started, you'll need:
 
 ## Authentication
 
-The connector uses API Key authentication. You'll need to provide your WordLift Knowledge Graph key in the format:
+The connector uses API key authentication. Provide your WordLift Knowledge Graph key in this format:
 
-```
+```text
 Key YOUR_KEY_HERE
 ```
 
-For example, if your key is `123`, you would enter: `Key 123`
+For example, if your key is `123`, enter `Key 123`.
 
 To obtain your key:
 
-1. Go to [my.wordlift.io](https://my.wordlift.io)
-2. Your available keys will be displayed on the home page
+1. Go to [my.wordlift.io](https://my.wordlift.io).
+2. Find your available keys on the home page.
 
-## Using the Connector
+## Using the connector
 
-### Getting Started
+### Getting started
 
-1. Add the WordLift connector to your automation
-2. Provide your authentication key (prefixed with `Key`)
-3. Create your GraphQL query
-4. Use the returned data in your automation scenario
+1. Add the WordLift connector to your automation.
+2. Provide your authentication key (prefixed with `Key`).
+3. Create your GraphQL query.
+4. Use the returned data in your automation scenario.
 
-### Example Query
+### Example query
 
-Here's a sample query to get you started:
+Use this sample query to start:
 
 ```graphql
 query {
@@ -83,7 +86,7 @@ query {
 }
 ```
 
-### Known Limitations
+### Known limitations
 
 When querying a Knowledge Graph with large amounts of data, use the `rows` and `page` parameters to limit the results to a specific subset:
 
@@ -95,20 +98,20 @@ query {
 }
 ```
 
-### Common Issues and Solutions
+### Common issues and solutions
 
 | Issue | Solution |
 |-------|----------|
-| 401 Unauthenticated | Check that you've provided the authentication key |
+| 401 Unauthenticated | Check that you provided the authentication key |
 | 403 Access Denied | Verify your key is valid and includes the `Key` prefix |
 | Timeouts | Add `rows` and `page` parameters to limit result size |
 
-## Throttling Limits
+## Throttling limits
 
-| Limit Type | Calls | Renewal Period |
+| Limit type | Calls | Renewal period |
 |------------|-------|----------------|
 | API calls per connection | 100 | 60 seconds |
 
-## Need Help?
+## Get help {#need-help}
 
-If you need assistance setting up your WordLift Power Automate connector or have questions about specific workflows, please contact our support team at [support@wordlift.io](mailto:support@wordlift.io).
+For help setting up the WordLift Power Automate connector, or for questions about specific workflows, contact [support@wordlift.io](mailto:support@wordlift.io).

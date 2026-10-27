@@ -1,15 +1,19 @@
 ---
+title: "WordLift theme development"
+description: "Extend a WordPress theme to support the classic WordLift plugin: the data model, content APIs, entity templates, Navigator and context card styling."
+sidebar_label: "Theme development"
+last_updated: 2026-10-27
 ---
 
-# WordLift Theme Development
+# WordLift theme development
 
 ## Who should read this
 
-This document is intended for Web Developers that would like to extend their themes to support WordLift's data model and features.
+This page is for web developers who want to extend their themes to support WordLift's data model and features.
 
-In the first paragraph we describe the WordLift data model, i.e. *how additional properties for entities are stored in WordPress*.
+The first section describes the WordLift data model, that is, *how WordPress stores additional properties for entities*.
 
-## WordLift Data Model
+## WordLift data model
 
 1. WordLift Entities are **custom posts**;
 2. Entity properties are managed as standard posts' metadata;
@@ -17,10 +21,10 @@ In the first paragraph we describe the WordLift data model, i.e. *how additional
 4. **When a property references another entity:**
      - Its value is the entity ID (if the entity is inside the same WordPress site),
      - Its value is the entity URI (if the entity is outside the WordPress site).
-5. The 4Ws classification, i.e. the relationships among posts and entities, are stored in a custom table called *wl_relation_instances*.
+5. The 4Ws classification, that is, the relationships among posts and entities, are stored in a custom table called *wl_relation_instances*.
 6. WordLift's Topics are a [custom taxonomy](https://codex.wordpress.org/Taxonomies#Custom_Taxonomies)
 
-## Content Filtering - Available APIs
+## Content filtering: available APIs {#content-filtering---available-apis}
 
 1. Standard WordPress methods (such as [get_posts](https://codex.wordpress.org/Template_Tags/get_posts) and [get_post_meta](https://developer.wordpress.org/reference/functions/get_post_meta/)) can be used on entities;
 2. [get_post_terms](https://codex.wordpress.org/Function_Reference/wp_get_post_terms) can be used to extract topics from posts see the example below;
@@ -29,22 +33,22 @@ In the first paragraph we describe the WordLift data model, i.e. *how additional
 wp_get_post_terms( <post_id>, Wordlift_Topic_Taxonomy_Service::TAXONOMY_NAME, <args> )
 ```
 
-3. WordLift's *Properties API* can be used to read/write entity properties using schema.org property names. See [here](https://github.com/insideout10/wordlift-plugin/blob/master/src/modules/core/wordlift_core_schema_api.php);
-4. WordLift's *Relations API* can be used to access 4W relationships. See [here](https://github.com/insideout10/wordlift-plugin/blob/master/src/modules/core/wordlift_core_post_entity_relations.php).
+3. WordLift's *Properties API* can be used to read/write entity properties using schema.org property names. See the [Properties API source](https://github.com/insideout10/wordlift-plugin/blob/master/src/modules/core/wordlift_core_schema_api.php);
+4. WordLift's *Relations API* can be used to access 4W relationships. See the [Relations API source](https://github.com/insideout10/wordlift-plugin/blob/master/src/modules/core/wordlift_core_post_entity_relations.php).
 
-## Personalization of Entity pages - Single Post
+## Personalization of entity pages: single post {#personalization-of-entity-pages---single-post}
 
 Entities are configured in WordPress as [Custom Post Types](https://codex.wordpress.org/Post_Types#Custom_Post_Types) and the post type is called **entity**.
 
-To personalise the design of entity pages the template file to be used is called [Single Post](https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post).
+To personalize the design of entity pages, use the template file called [Single Post](https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post).
 
-Template files in WordPress are modular, reusable files, to create web pages on your web site. To learn more how to customize an existing WordPress theme or create a new one read the [template hirarchy page](https://developer.wordpress.org/themes/basics/template-hierarchy/) on the WordPress website or visualise the [WordPress template hierarchy](https://wphierarchy.com/).
+Template files in WordPress are modular, reusable files that create the web pages on your website. To learn how to customize an existing WordPress theme or create a new one, read the [template hierarchy page](https://developer.wordpress.org/themes/basics/template-hierarchy/) on the WordPress website or visualize the [WordPress template hierarchy](https://wphierarchy.com/).
 
 :::info Note
-When [articles or pages are turned into entities](https://wordlift.io/blog/en/wordlift-3-15/) they mantain their existing post type.
+When [articles or pages are turned into entities](https://wordlift.io/blog/en/wordlift-3-15/) they maintain their existing post type.
 :::
 
-To personalise the template based on the entity type use the following:
+To personalize the template based on the entity type, use the following:
 
 ```php
 Wordlift_Entity_Type_Service::get_instance()->get( $post_id )
@@ -64,7 +68,7 @@ This will return:
 * }
 ```
 
-## Personalization of the Navigator Widget
+## Personalization of the Navigator widget
 
 The [Navigator widget](/integrations/wordpress-plugin/widgets/#navigator) by default is wrapped in a `wl-navigator` class. You can style this class and the child element classes using CSS.
 
@@ -86,27 +90,27 @@ Here's a sample code that you can use as reference:
 </script>
 ```
 
-As a theme developer you have complete flexibility on both: the contents of these templates and the CSS styling.
-Read here the [parameters supported](/integrations/wordpress-plugin/widgets/#navigator-widget) by the Navigator widget.
+As a theme developer, you have complete flexibility over both the contents of these templates and the CSS styling.
+See the [parameters supported](/integrations/wordpress-plugin/widgets/#navigator-widget) by the Navigator widget.
 
-## Personalization of the Context Cards
+## Personalization of the context cards
 
-[Context Cards](/integrations/wordpress-plugin/widgets/#context-cards) provide an immediate preview of an entity. If the entity has been annotated and, if links are active, WordLift will show a preview of the annotated entity.
+[Context Cards](/integrations/wordpress-plugin/widgets/#context-cards) provide an immediate preview of an entity. If the entity is annotated and links are active, WordLift shows a preview of the annotated entity.
 
-By default context cards will show up on hovering if Links to Entity Pages are enabled. To disable context cards, add the following code to your theme:
+By default, context cards appear on hover if Links to Entity Pages are enabled. To disable context cards, add the following code to your theme:
 
-The context card itself is wrapped within a class `wl-context-card` You can style this class and the child element classes using CSS. Other classes that you can use to style the context cards:
+The context card itself is wrapped in a `wl-context-card` class. You can style this class and the child element classes using CSS. Other classes that you can use to style the context cards:
 
-- `wl-context-card__image` - Image element
-- `wl-context-card__description` - Wrapper element around complete description
-- `wl-context-card__description__logo` - Publisher logo image element
-- `wl-context-card__description__text` - Wrapper element around description text
+- `wl-context-card__image`: image element
+- `wl-context-card__description`: wrapper element around the complete description
+- `wl-context-card__description__logo`: publisher logo image element
+- `wl-context-card__description__text`: wrapper element around the description text
 
-### Advanced Filters to override default behaviour
+### Advanced filters to override default behavior {#advanced-filters-to-override-default-behaviour}
 
-#### Javascript Filter `wl_context_cards_load_fn_supplier`
+#### JavaScript filter `wl_context_cards_load_fn_supplier`
 
-This is a function supplier filter that the context card applies if provided. This filter can be used to supply a function that overrides the the default function that returns a fetch (or any other request library) promise.
+This is a function supplier filter that the context card applies if provided. Use it to supply a function that overrides the default function that returns a fetch (or any other request library) promise.
 
 This filter receives two arguments:
 
@@ -150,9 +154,9 @@ addFilter("wl_context_cards_load_fn_supplier", "wordlift", (defaultFn) => {
 });
 ```
 
-#### PHP Filter `wl_anchor_data_attributes`
+#### PHP filter `wl_anchor_data_attributes`
 
-This filter lets you add custom data attributes to `<a class="wl-anchor" />` links in the post. This received existing `attributes` and the `post_id`. Here's a sample implementation of this filter:
+This filter lets you add custom data attributes to `<a class="wl-anchor" />` links in the post. It receives the existing `attributes` and the `post_id`. Here's a sample implementation of this filter:
 
 ```PHP
 add_filter( 'wl_anchor_data_attributes', function ( $attributes, $post_id ) {

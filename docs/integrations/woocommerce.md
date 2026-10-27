@@ -1,68 +1,68 @@
 ---
-title: Introduction
+title: "WooCommerce SEO by WordLift"
+description: "Add extended product markup, category structured data and product widgets to a WooCommerce store, and connect products, brands and categories in one graph."
+sidebar_label: "WooCommerce"
+last_updated: 2026-10-27
 ---
 
 # WooCommerce SEO by WordLift
 
-[WooCommerce SEO by WordLift](https://woocommerce.com/products/e-commerce-seo-by-wordlift/) has been specifically designed for e-commerce websites running on WordPress with WooCommerce.
+[WooCommerce SEO by WordLift](https://woocommerce.com/products/e-commerce-seo-by-wordlift/) is built for e-commerce websites that run on WordPress with WooCommerce. It adds structured data and extended product markup to your products, so search engines like Google get a fuller description of each item.
 
-E-commerce SEO by WordLift adds to your products **state-of-the-art structured data** and **extended product markup** that allows you to get more visibility on Google’s retail listing.
+It also connects your products, brands, product categories and features in a [Product Knowledge Graph](/platform/knowledge-graph/product-knowledge-graph/). You can use these connections to improve internal linking and product recommendations.
 
-Furthermore, E-commerce SEO by WordLift allows you to create a **Product Graph** out of the relevant connections between products, brands, product categories, and features.
+## Overview
 
-This e-commerce specific form of knowledge graph is a powerful tool to enhance the findability of your products. On one side, it helps you **get better results in terms of organic search traffic** and, on the other, it helps you improve the internal linking structure and **refine your product recommendations**.
+WooCommerce SEO by WordLift adds these features to your WordPress site:
 
-**Overview**
+1. **Structured data:** schema.org linked data for your products.
+2. **Extended markup:** support for additional product markup properties.
+3. **Category markup:** structured data on your category pages.
+4. **Product Knowledge Graph:** connections between products, brands, categories and features.
+5. **Product widgets:** the Product Navigator and Product Faceted Search connect blog posts with products and product categories.
+6. **Image sizes:** images sized to Google's requirements.
 
-WooCommerce SEO by WordLift enhances your Content Management System adding new features and allowing you to:
-
-1. Produce **state-of-the-art structured linked data**
-2. Add support for **extended mark-up properties**
-3. Introduce **structured data on your category pages**
-4. Create a **Product Graph** that improves the rankings
-5. Connect **blog posts with products** and **product categories** with the Product Navigator and Product Faceted Search
-6. Optimize **image sizes** as required by Google.
-
-In this video you will learn how to add schema markup to your WooCommerce store with E-commerce SEO by WordLift.
-
+This video shows how to add schema markup to your WooCommerce store with WooCommerce SEO by WordLift.
 
 <iframe src="https://www.youtube-nocookie.com/embed/om8wgy7IXfk" width="100%" height="540" frameborder="0" scrolling="auto"></iframe>
 
 ## Editors
 
-The WooCommerce extension of WordLift adds **additional fields to the backend of your product page** so that you can better describe your products to semantic search engines like Google and make them more relevant and visible to your audience.
-
-Here are the new custom fields that will appear in your WordPress Editor for Products. As you fill these fields, WordLift adds to your products an **extended product markup** that allows you to get more visibility on Google’s retail listing.
+The WooCommerce extension adds fields to the product editor in WordPress. Use them to describe your products in more detail. As you fill in the fields, WordLift adds extended product markup to the product.
 
 ![image](./images/editor.png)
 
-Looking more into the details, you will be able to add:
+You can add:
 
-1. Product conditions, choosing from different options
+1. The product condition, chosen from a list of options.
 
 ![image](./images/editor-1.png)
 
-2. Connect the product with the manufacturer (which can be a brand or an organization)
+2. The manufacturer, which can be a brand or an organization.
 
 ![image](./images/editor-2.png)
 
-3. Say the color of the product (it’s a nice to have, if relevant)
+3. The color of the product, where relevant.
 
 ![image](./images/editor-3.png)
 
-4. Select related products or services
+4. Related products or services.
 
 ![image](./images/editor-4.png)
 
-5. Add product codes if relevant in order to unambiguously refer to your products.
+5. Product codes that identify your products unambiguously, where relevant.
 
 ![image](./images/editor-5.png)
 
 ## Categories
 
-You can turn category pages into entities by choosing an entity from your vocabulary. In this way, you will enrich category pages adding a layer of structured data.
+Turn a category page into an entity by linking it to an entity from your vocabulary. This adds a layer of structured data to the category page.
 
-To link a category to an existing entity, just type the name of the entity (a few letters will be enough) and then select it, then click on save.
+To link a category to an existing entity:
+
+1. Type the first few letters of the entity name.
+2. Select the entity from the suggestions.
+3. Select **Save**.
 
 ![image](./images/category.gif)
 
@@ -70,12 +70,15 @@ To link a category to an existing entity, just type the name of the entity (a fe
 
 ### Products Navigator
 
-The **Product Navigator** suggests to your customers a series of products that they might be interested in.
+The Product Navigator suggests other products that your customers might be interested in.
 
-To add it to your product or article template just use this shortcode:
-\[wl_products_navigator\]
+To add it to a product or article template, use this shortcode:
 
-The Product Navigator widget supports the same parameters as the Navigator.
+```text
+[wl_products_navigator]
+```
+
+The Product Navigator widget supports the same parameters as the [Navigator](/integrations/wordpress-plugin/widgets/#navigator).
 
 ![image](./images/product-navigator-woocommerce.png)
 
@@ -83,12 +86,12 @@ The Product Navigator widget supports the same parameters as the Navigator.
 
 ### Product Card
 
-The Product Card allows the customers to see a preview of your product just placing their mouse over the link to the product itself. To activate the link and the Product Card just annotate the Product on your articles and pages. Learn more about [how to anotate your content](/integrations/wordpress-plugin/analysis/#wordlift-edit-post-widget)
+The Product Card shows customers a preview of a product when they hover over a link to it. To activate the link and the Product Card, annotate the product in your articles and pages. To learn how, see [annotating content with the WordLift Edit Post Widget](/integrations/wordpress-plugin/analysis/#wordlift-edit-post-widget).
 
 ![image](./images/product-card-woocommerce.png)
 
-*How The Product Card of WordLift looks like on articles and other pages*
+*The WordLift Product Card on an article*
 
 :::info Note
-Read from our blog how to [improve your WooCommerce product pages](https://wordlift.io/blog/en/woocommerce-product-pages/) to increase your sales.
+Read [how to improve your WooCommerce product pages](https://wordlift.io/blog/en/woocommerce-product-pages/) on the WordLift blog.
 :::

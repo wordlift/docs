@@ -1,5 +1,7 @@
 ---
-title: BrightEdge
+title: "BrightEdge"
+description: "Run WordLift alongside BrightEdge Autopilot for Schema: keep WordLift as the source of truth for entities and keep structured data consistent."
+last_updated: 2026-10-27
 ---
 
 # BrightEdge
@@ -20,7 +22,7 @@ WordLift integrates with BrightEdge AutoPilot. Consumers such as Google can proc
 
 ## Autopilot for Schema
 
-Autopilot for Schema can coexist with WordLift’s Knowledge Graph approach. When both systems are used, keep structured data consistent across sources and avoid conflicting statements. WordLift can remain the source of truth for entities and relationships, while BrightEdge focuses on page-level schema output where required.
+Autopilot for Schema can coexist with WordLift's Knowledge Graph approach. When both systems are used, keep structured data consistent across sources and avoid conflicting statements. WordLift can remain the source of truth for entities and relationships, while BrightEdge focuses on page-level schema output where required.
 
 ## FAQ
 
@@ -35,7 +37,7 @@ Not necessarily. You can selectively enable, disable, or integrate schema output
 
 ## AI Audit
 
-Ready to see your data quality opportunities? Run an AI Audit here: https://wordlift.io/ai-audit/
+To see your data quality opportunities, run an [AI Audit](https://wordlift.io/ai-audit/).
 
 ## Related documentation
 

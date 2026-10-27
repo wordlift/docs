@@ -1,250 +1,96 @@
 ---
+title: "Publish and check structured data"
+description: "See what the classic WordLift plugin publishes for posts, pages and entities, and check the structured data and Linked Data from the editor."
+sidebar_label: "Publishing"
+last_updated: 2026-10-27
 ---
 
-# Publishing
+# Publish and check structured data
 
-## Rich Snippets
+When you publish a post, a page or an entity with the classic WordLift plugin, WordLift publishes structured data that describes it and the entities it mentions. Use this page to understand that output and to check it from the editor before you move on. This guide is for existing installs of the classic plugin. New customers start with [Install WordLift Cloud](/welcome/install-wordlift-cloud/).
 
-By clicking on the **Test Google Rich Snippets** button (right after the *Permalink* in the editor) you can see the list of entities being added to the content from the **Google Structured Data Testing Tool**.
+## What WordLift publishes {#publish-entity}
 
-![image](./images/wordlift-publish-post-test-structured-data.png)
+WordLift publishes two kinds of content: entities and the posts or pages that mention them.
 
-![image](./images/wordlift-publish-structured-data-testing.png)
+### Entities
 
-In this example we're telling search engines that this post could be relevant for searches related to the *\[Solar System\]*.
+When you save an entity, WordLift creates it as a custom post (post type `entity`) in your WordPress installation. The entity appears in your [vocabulary](/concepts/#vocabulary) and has its own entity page with its own URL.
 
-## Linked Data
+By default, entity page URLs include the entity base path you set in [Settings](/integrations/wordpress-plugin/getting-started/#configuration), as in `www.domain.com/vocabulary/name-of-the-entity-page`.
 
-By clicking on the **View Linked Data** button (right after the *Permalink* in the editor) the **RDF representation of the entity** is displayed using [LodView](http://lodview.it/).
-
-![image](./images/wordlift-publish-entity-view-linked-data.png)
-
-![image](./images/wordlift-publish-entity-lodview.png)
-
-In this example you can see the relation being created between the entity *\[Mars\]* and the entity *\[Solar System\]* (`dcterms:relation`). This relation has been created from the [entity page](/integrations/wordpress-plugin/edit-entity/#linking-other-entities) page by annotating the description of the entity.
-
-![image](./images/wordlift-publish-entity-lodlive.png)
-
-You can also see (in this last image using [LodLive](http://lodlive.it/)) the `sameAs` attributes.
-
-As of today, the data being represented in RDF for each post or page include:
-
-- schema-org:**datePublished**
-- schema-org:**dateModified**
-- schema-org:**interactionCount**
-- rdfs:**label**
-- rdf:**type**
-- schema-org:**url**
-- dcterms:**references**
-- schema-org:**author**
-
-![image](./images/wordlift-publish-post-lodview.png)
-
-:::info Note
-In the RDF representation of the posts you can find all entities related to a post (or a page) by looking at the `dcterms:references` attribute
+:::warning[Review needed]
+TODO [SME]: Confirm the current entity page URL format (older docs show `http://<site>/?entity=<name>`; the settings use the `/vocabulary/` base path).
 :::
 
-The attributes describing the posts can be browsed. In this example by clicking on the entity *\[Solar System\]* you will be able (directly from [LodView](http://lodview.it/)) to consult and read the data publish on that entity by **WordLift**.
+### Posts and pages
 
-## Widgets and Shortcodes
+WordLift annotates posts and pages with the schema.org vocabulary. This schema markup tells search engines which entities the content is about, so they can return more informative results.
 
-### Shortcodes
+## Check rich results for a post {#rich-snippets}
 
-WordLift provides several useful shortcodes to provide enhanced visualizations on your web site.
+The post editor shows a **Test Google Rich Snippets** button next to the permalink.
 
-### Widgets
+![The Test Google Rich Snippets button next to the permalink](./images/wordlift-publish-post-test-structured-data.png)
 
-WordLift widgets can be inserted in a post or page to give a rich visual presentation of the entities populating the blog. As the blog grows and entities are created and mentioned, the widgets update their content without intervention from the editor.
+1. Open the post in the editor.
+2. Select **Test Google Rich Snippets**.
+3. Check that the entities you annotated appear in the structured data for the post.
 
-### Faceted Search
-
-```html
-[wl_faceted_search]
-```
-
-The Faceted Search widget can be used on entity pages to display and filter the posts related to the current and other entities. It is useful for [content discovery](/integrations/wordpress-plugin/widgets/#navigator).
-
-![image](./images/wordlift-edit-entity-faceted-search-widget-frontend.gif)
-
-### Navigator
-
-```html
-[wl_navigator]
-```
-
-The Navigator widget offers links to **semantic-related posts** in the blog.
-The search is made by considering the entities mentioned in the current post and by finding other blog posts that mentions the same entities. It is useful for [content discovery](/integrations/wordpress-plugin/widgets/#faceted-search).
-
-![image](./images/wordlift-discover-navigator.png)
-
-Here follows the list of the supported parameters:
-
-title
-
-*(optional)* Title to be displayed above navigator. Defaults to 'Related articles'.
-
-limit
-
-*(optional)* The total number of posts to display. Defaults to 4.
-
-offset
-
-*(optional)* Offset for posts to display. It helps you break the list of recommended articles in different blocks (to add advertising and/or CTAs). Defaults to 0. Defaults to 4.
-
-template_id
-
-*(optional)* The id of the script element which has mustache template. For example if the template is in `<script id="wordlift_navigator_sidebar_template" type="text/mustache">...</script>` then `template_id` would be `wordlift_navigator_sidebar_template`.
-
-post_id
-
-*(optional)* The post ID of a post of which navigator you want to display. Defaults to the current post. This is helpful if you want to display the navigator of post 'A' on post 'B' or add the navigator shortcode for a specific post in a non-post page.
-
-uniqid
-
-*(optional)* The Unique ID for the navigator. This can be used to style or to apply navigator filters that are specific to an instance of the navigator (instead of acting on multiple navigators).
-
-Here is a sample code for personalizing the template to be used as reference:
-
-```html
-<script id="wordlift_navigator_sidebar_template" type="text/mustache">
-{{#items}}
-<div class="related-articles__item">
-    <a class="related-articles__img" href="{{post.permalink}}"><img src="{{{post.thumbnail}}}" alt="{{{post.title}}}" title="{{{post.title}}}"></a>
-    <div class="related-articles__content">
-        <h4 class="related-articles__title"><a href="{{post.permalink}}">{{{post.title}}}</a></h4>
-    </div>
-</div>
-{{/items}}
-</script>
-```
-
-The filters available for the navigator widget are:
-
-- `wl_navigator_data_post`: Gets each navigator post item, post ID and uniqid. Returns the customized post item.
-- `wl_navigator_data_entity`: Gets each entity post item, post ID and uniqid. Returns the customized entity item.
-- `wl_navigator_data_placeholder`: Gets the complete result array and uniqid. Returns the customized result array. Can be used to seed navigator with placeholder
-
-### Chord
-
-```html
-[wl_chord width=... height=... main_color=... depth=... global=...]
-```
-
-![image](./images/wordlift-shortcodes-chord.png)
-
-The Chord widget visualizes relations between entities, starting from the current post and the entities mentioned in it.
-
-width
-
-*(optional)* Width of the chord. Can be expressed in pixels or percentages (e.g. *120px* or *70%*).
-
-height
-
-*(optional)* Height of the chord. Can be expressed in pixels or percentages (e.g. *120px* or *70%*).
-
-main_color
-
-*(optional)* The chord's *base* color.
-
-depth
-
-*(optional)* Maximum distance to travel in the entity graph in order to populate the chord. A small number limits the exploration of the main entity.
-
-global
-
-*(optional)* When *global=true* the main entity of the chord is not the current post, but the most mentioned entity in the latest posts.
-
-### Geomap
-
-```html
-[wl_geomap width=... height=... global=...]
-```
-
-![image](./images/wordlift-shortcodes-geomap.png)
-
-The Geomap widget displays "Place" entities on a map. Each Place has its own marker with a popup containing a thumbnail and links of the place. Here are the parameters:
-
-width
-
-*(optional)* Width of the geomap. Can be expressed in pixels or percentages (e.g. *120px* or *70%*).
-
-height
-
-*(optional)* Height of the geomap. Can be expressed in pixels or percentages (e.g. *120px* or *70%*).
-
-global
-
-*(optional)* By default the geomap displays places mentioned in the current post. When *global=true* the geomap displays all places mentioned in the blog.
-
-### Timeline
-
-```html
-[wl_timeline width=... height=... global=...]
-```
-
-![image](./images/wordlift-shortcodes-timeline.png)
-
-The Timeline widget displays a navigable list of chronologically ordered Event entities. The window on top shows details of the selected Events.
-Here follows the list of the supported parameters:
-
-width
-
-*(optional)* Width of the timeline. Can be expressed in pixels or percentages (e.g. *120px* or *70%*).
-
-height
-
-*(optional)* Height of the timeline. Can be expressed in pixels or percentages (e.g. *120px* or *70%*).
-
-global
-
-*(optional)* By default the timeline displays events (or events related to places) mentioned in the current post. When *global=true* the timeline displays events mentioned in the latest posts.
-
-display_images_as
-
-*(optional)* When *display_images_as='background'* the timeline displays for each event the featured image of the entity as background.
-
-excerpt_length
-
-*(optional)* Allows you to set the number of words that appear in the the excerpts of the timeline.
-
-:::info Note
-When you create a timeline with WordLift you can pass in the shortcode optional parameters to set a variety of presentation options. These are derived from the TimelineJS library [read more here](https://timeline.knightlab.com/docs/options.html).
+:::warning[Review needed]
+TODO [SME]: Confirm that the "Test Google Rich Snippets" button still exists and what it opens now that Google's Structured Data Testing Tool is retired.
 :::
 
-### Entity Cloud
+## View the Linked Data for a post or entity {#linked-data}
 
-```html
-[wl_cloud]
-```
+The editor shows a **View Linked Data** button next to the permalink of a post or an entity. Select it to see the RDF representation of the post or entity.
 
-The **WordLift Entities Cloud Widget** is also available as a shortcode. The widget displays entities related to the current post/entity in a tag cloud.
+![The View Linked Data button next to the permalink](./images/wordlift-publish-entity-view-linked-data.png)
 
-![image](./images/wordlift-entities-cloud-widget.png)
+For an entity, the RDF shows its relations to other entities and its `sameAs` links. In this example, the description of the entity Mars was annotated with the entity Solar System on the [entity page](/integrations/wordpress-plugin/edit-entity/#linking-other-entities). That annotation creates a `dcterms:relation` between the two entities.
 
-### Glossary
+![The RDF representation of the Mars entity with a dcterms:relation to Solar System](./images/wordlift-publish-entity-lodview.png)
 
-```html
-[wl_vocabulary limit=... type=... orderby=...]
-```
+The related entities in the RDF are links. Select one to read the data WordLift publishes for that entity.
 
-The **Glossary** is a site-wide Widget that displays all the entities in alphabetical order. Here you can see an example of the [Semantic SEO Glossary](https://wordlift.io/blog/en/glossary)
+:::warning[Review needed]
+TODO [SME]: Confirm that the "View Linked Data" button still exists and which viewer it opens (older docs name LodView and LodLive).
+:::
 
-![image](./images/wordlift-discover-vocabulary.gif)
+## Properties published for posts and pages
 
-By default the widget takes into account the latest 100 entities from all types (i.e. Person, Place, Organization, ...).
-The following paramenters can be used to personalise the entities beind displayed in the vocabulary:
+The RDF representation of each post or page includes these properties.
 
-limit
+| Property | What it holds |
+| --- | --- |
+| `schema:datePublished` | The date the post was published. |
+| `schema:dateModified` | The date the post was last modified. |
+| `schema:interactionCount` | The interaction count for the post. |
+| `rdfs:label` | The post's label. |
+| `rdf:type` | The post's type. |
+| `schema:url` | The post's URL. |
+| `dcterms:references` | The entities related to the post. |
+| `schema:author` | The post's author. |
 
-the total number of entities to displaye (*100* is the defualt value). Use `-1` to remove the limit.
+To find every entity related to a post or page, look at its `dcterms:references` property.
 
-type
+![The RDF representation of a post](./images/wordlift-publish-post-lodview.png)
 
-the type of entities to display (*all* is the default value). Use Person\`to display only entities of type Person.
+:::warning[Review needed]
+TODO [SME]: Confirm that this property list matches what the current plugin publishes.
+:::
 
-orderby
+## Widgets and shortcodes {#widgets-and-shortcodes}
 
-the selection is by default related to the alphabetical order (*title* is the default value). Selected entities can be ordered using different parameters. [Read more here](https://developer.wordpress.org/reference/classes/WP_Query/parse_query/)
+To add entity-driven widgets such as the Navigator or Faceted Search to your posts and pages, see [Widgets and shortcodes](/integrations/wordpress-plugin/widgets/).
 
-[php date]: http://php.net/manual/en/function.date.php
-[php dateinterval format]: http://php.net/manual/en/dateinterval.format.php
+## Troubleshooting
+
+- **An entity page or a page linked by WordLift returns a 404 error.** In the WordPress dashboard, go to **Settings > Permalinks** and select **Save Changes**. WordPress regenerates the permalinks and the page loads.
+- **The author's `@id` is null in the structured data.** Set a valid author on the post. See [Author's @id is null](/integrations/wordpress-plugin/troubleshooting/#authors-id-is-null).
+
+## Related
+
+- [JSON-LD output](/integrations/wordpress-plugin/jsonld/)
+- [Mappings](/integrations/wordpress-plugin/mappings/)
+- [Edit entity](/integrations/wordpress-plugin/edit-entity/)
