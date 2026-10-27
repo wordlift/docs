@@ -51,6 +51,8 @@ GraphSync defines a source-specific mapping for a representative page or source 
 
 The mapping is reusable, but the graph output remains page-specific: each URL contributes its own entities, properties, and relationships. After a recurring synchronization run processes a source change, the [Data API](./data-api.md) returns the updated JSON-LD for the affected URL.
 
+To list the pages a run changed since a given date, see [Find what changed with GraphSync](./graphsync-changes.md).
+
 Materially different templates or source structures can require separate mappings. Validate each distinct page type in the pilot instead of assuming that one mapping fits the entire website.
 
 ## Prepare for onboarding
