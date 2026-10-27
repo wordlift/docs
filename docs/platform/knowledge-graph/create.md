@@ -1,6 +1,7 @@
 ---
-title: Create a Knowledge Graph
-description: Choose the right way to create and populate a WordLift Knowledge Graph, with GraphSync as the recommended path for Business+ and Enterprise customers.
+title: "Create a Knowledge Graph"
+description: "Choose the right way to create and populate a WordLift Knowledge Graph, with GraphSync as the recommended path for Business+ and Enterprise customers."
+last_updated: 2026-10-27
 sidebar_position: 1
 keywords:
   - create a Knowledge Graph
@@ -27,7 +28,7 @@ For Business+ and Enterprise content graphs, **[GraphSync](./graph-sync/index.md
 | --- | --- | --- |
 | **[GraphSync](./graph-sync/index.md)** | You need a scalable content graph with custom mappings, stable identities, multiple connected entities, or recurring synchronization. | This is the recommended general path for Business+ and Enterprise content graphs. [Contact WordLift](https://wordlift.io/contact-us/) to get started. |
 | [Product Knowledge Graph Builder](/platform/knowledge-graph/product-knowledge-graph/) | Your primary source is a Google Merchant Center product feed. | It is specialized for product catalogs and commerce data. |
-| [WordPress Plugin](/integrations/wordpress-plugin/) | Editors manage entities and annotations directly in WordPress. | It is designed for WordPress editorial workflows rather than headless, source-mapped synchronization. |
+| [WordPress plugin](/integrations/wordpress-plugin/) | Editors manage entities and annotations directly in WordPress. | It is designed for WordPress editorial workflows rather than headless, source-mapped synchronization. |
 | [Botify Crawl Import](../data-sources/botify.md) | Botify crawl data is the source you want to map into WordLift. | It requires an existing Botify setup and is specific to Botify crawl fields. |
 | [Sitemap Import](../data-sources/sitemap.md) | You need to seed a small, simple set of page-oriented entities from a sitemap or URL list. | It creates one page-oriented entity per URL, defaults to `WebPage`, does not provide custom multi-entity mappings, and supports a maximum of 50 web pages per synchronous request. |
 | [Web Page Import](../data-sources/web-page-import.md) | You need to import one or a few individual pages, or use page import as a narrow integration primitive. | It is page-oriented and defaults to `WebPage`; it is not the recommended way to model and synchronize a complete graph. |

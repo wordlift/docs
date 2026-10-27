@@ -1,5 +1,8 @@
 ---
+title: "Botify Crawl Imports"
+description: "Populate a Knowledge Graph with web page entities from an existing Botify crawl, with custom field mappings, filters and optional embeddings."
 sidebar_position: 40
+last_updated: 2026-10-27
 toc_min_heading_level: 2
 toc_max_heading_level: 5
 ---
@@ -8,22 +11,22 @@ toc_max_heading_level: 5
 
 :::note Review the population options first
 
-Before using the Botify Integration, review [Create a Knowledge Graph](../knowledge-graph/create.md) to confirm that this specialized connector is the right population method for your source and use case.
+Before using the Botify integration, review [Create a Knowledge Graph](../knowledge-graph/create.md) to confirm that this specialized connector is the right population method for your source and use case.
 
 :::
 
 Use the Botify Crawl Imports endpoint (`https://api.wordlift.io/botify-crawl-imports`) to populate a Knowledge Graph with data from Botify. This is a specialized path for customers whose source is an existing Botify crawl.
 
-The import will create Web Pages extracting basic data:
+The import creates web pages with this basic data:
 
 - Headline
 - Abstract
 - Text
-- Url
+- URL
 
 :::tip
 
-Optionally, the Botify Crawl Import can create embeddings to support Vector Search. If you're interested into this feature, inquire at hello@wordlift.io.
+Optionally, the Botify Crawl Import can create embeddings to support Vector Search. If you're interested in this feature, contact [support@wordlift.io](mailto:support@wordlift.io).
 
 :::
 
@@ -38,17 +41,17 @@ Prepare the following data:
 - Botify Token
 - WordLift Key
 
-The Botify data can be found at [botify.com](https://app.botify.com), the folder structure provides the username and the project, e.g. if the project is located at https://app.botify.com/my-user-name/my-project-name/, it means that the Botify Username is _my-user-name_ and that the Botify Project is _my-project-name_. The Botify Token is located in the User Profile screen.
+You can find the Botify data at [botify.com](https://app.botify.com). The folder structure provides the username and the project. For example, if the project is located at https://app.botify.com/my-user-name/my-project-name/, the Botify Username is _my-user-name_ and the Botify Project is _my-project-name_. The Botify Token is in the User Profile screen.
 
-The WordLift Key can be found at [my.wordlift.io](https://my.wordlift.io). If you're unsure how to access the Dashboard, contact us at hello@wordlift.io.
+You can find the WordLift Key at [my.wordlift.io](https://my.wordlift.io). If you're unsure how to access the Dashboard, contact [support@wordlift.io](mailto:support@wordlift.io).
 
 :::info
-At the moment is is not possible to configure the Botify parameters from my.wordlift.io, you'll need to contact us at hello@wordlift.io in order for us to perform the configuration.
+You can't configure the Botify parameters from my.wordlift.io yet. Contact [support@wordlift.io](mailto:support@wordlift.io) and WordLift performs the configuration for you.
 :::
 
 ## How to call the API
 
-Create a POST request to https://api.wordlift.io/botify-crawl-imports. The `Authorization` header is required with the value of `Key __YOUR_WORDLIFT_KEY__`. This is an example request body:
+Send a POST request to https://api.wordlift.io/botify-crawl-imports. The `Authorization` header is required with the value of `Key __YOUR_WORDLIFT_KEY__`. This is an example request body:
 
 ```json
 {
@@ -76,19 +79,19 @@ Create a POST request to https://api.wordlift.io/botify-crawl-imports. The `Auth
 }
 ```
 
-With this request we tell the API to:
+This request tells the API to:
 
 1. Use the Botify collection called `crawl.20240127`.
 1. Filter the data by the field `crawl.20240127.extract.plp_header_description_extracted_text_part_1`. The Botify filters can be used here.
-1. We ask the API to generate embeddings by using the resulting `headline` and `text` properties from the schema.org namespace.
-1. We tell the API to generate the `text` property by joining the data present in the `{collection}.extract.plp_header_description_extracted_text_part_...` Botify property.
-1. We also set the target `@type` to `CollectionPage` (the default being `WebPage`).
+1. Generate embeddings from the resulting `headline` and `text` properties in the schema.org namespace.
+1. Generate the `text` property by joining the data in the `{collection}.extract.plp_header_description_extracted_text_part_...` Botify property.
+1. Set the target `@type` to `CollectionPage` (the default is `WebPage`).
 
 :::tip
-`{collection}` is a placeholder, it is replaced with the value set in `collection`.
+`{collection}` is a placeholder. The API replaces it with the value set in `collection`.
 :::
 
-This is the complete example CURL:
+This is the complete example curl request:
 
 ```shell
 ## Request
@@ -120,7 +123,7 @@ curl -X "POST" "https://api.wordlift.io/botify-crawl-imports" \
 }'
 ```
 
-The API will respond with streaming data of content-type [NDJSON](https://github.com/ndjson/ndjson-spec) (`application/x-ndjson`), basically a valid JSON per line:
+The API responds with streaming data of content type [NDJSON](https://github.com/ndjson/ndjson-spec) (`application/x-ndjson`), one valid JSON object per line:
 
 ```json
 {"headline":"The headline","text":"The text","image":null,"url":"https://example.org/the-url","date_published":null,"abstract":"The abstract."}
@@ -130,29 +133,29 @@ The API will respond with streaming data of content-type [NDJSON](https://github
 ```
 
 :::info
-Embeddings are generated asynchronously from a queue, so they may not be immediately available for Vector Search. Depending on the queue size it may take up to an hour for the embeddings to be generated.
+WordLift generates embeddings asynchronously from a queue, so they may not be immediately available for Vector Search. Depending on the queue size, generating the embeddings can take up to an hour.
 :::
 
-## How does the API work
+## How the API works {#how-does-the-api-work}
 
-The API will use the provided request to call the Botify endpoint. Although not necessary, it may be helpful to familiarize with [Botify API](https://developers.botify.com/docs/welcome-to-botifys-api-documentation).
+The API uses the provided request to call the Botify endpoint. It is not required, but it can help to be familiar with the [Botify API](https://developers.botify.com/docs/welcome-to-botifys-api-documentation).
 
-It is possible to restrict the data requested from Botify by using the `filters`, which map to Botify's own filters.
+You can restrict the data requested from Botify with `filters`, which map to Botify's own filters.
 
-The API maps the source data in Botify to semantic data in Knowledge Graph, based on the schema.org vocabulary.
+The API maps the source data in Botify to semantic data in the Knowledge Graph, based on the schema.org vocabulary.
 
-Following are the default mappings:
+These are the default mappings:
 
 - `{collection}.metadata.title.content` is mapped to schema.org/headline.
 - `{collection}.metadata.description.content` is mapped to schema.org/description.
 - `url` is mapped to schema.org/url.
 
-It is possible to customize the default and additional map Botify properties to schema.org/text, to customize:
+You can customize the default mappings and map additional Botify properties:
 
 - schema.org/headline, use the request `headline` property, only one value is accepted.
 - schema.org/description, use the request `description` property. An array is provided, the values from the specified properties are joined together.
 - schema.org/text, use the request `text` property. As for `description`, an array is provided, the values from the specified properties are joined together.
 
-Moreover by default the generated entity in KG is assigned the `WebPage` type. It is possibile to customize the type by passing it in `types`. An array is provided, all the specified types will be assigned.
+By default, the generated entity in the Knowledge Graph has the `WebPage` type. To customize the type, pass it in `types`. `types` is an array, and the API assigns all the specified types.
 
-The API reads the data from Botify, converts it to semantic data and writes it data to the KG while returning it to the client in a streaming fashion (NDJSON).
+The API reads the data from Botify, converts it to semantic data and writes it to the Knowledge Graph while streaming it back to the client as NDJSON.

@@ -1,11 +1,14 @@
 ---
+title: "Data Sources: OAuth2 connections"
+description: "Connect Google Search Console, Google Analytics and other OAuth2 Data Sources in the WordLift Dashboard or through the Manager API, then reuse them in your workflows."
+sidebar_label: "OAuth2 connections"
 sidebar_position: 32
-description: Connect OAuth2-based Data Sources such as Google Search Console and Google Analytics in the WordLift Dashboard or through the Manager API, then use those authorized sources in Knowledge Graph, analytics, and integration workflows.
+last_updated: 2026-10-27
 toc_min_heading_level: 2
 toc_max_heading_level: 4
 ---
 
-# Data Sources: OAuth2 Connections
+# Data Sources: OAuth2 connections
 
 Data Sources connect a WordLift account to external platforms that require OAuth2 authorization. Use them to authorize services such as search and analytics providers once, then use the connected data in WordLift Dashboard workflows and API-driven integrations.
 
@@ -51,7 +54,7 @@ The generic OAuth2 connector flow is:
 
 1. List available connectors with [`GET /oauth2/connectors`](/apis-and-sdks/api-reference/manager/connectors/).
 2. Create an authorization request with [`POST /accounts/{account_id}/oauth2/connectors/{connector_id}/authorization-requests`](/apis-and-sdks/api-reference/manager/create-authorization-request/).
-3. Redirect the user to the provider authorization URL returned by the API.
+3. Redirect the account owner to the provider authorization URL returned by the API.
 4. Check the account authorization status with [`GET /accounts/{account_id}/oauth2/connectors/{connector_id}/authorization`](/apis-and-sdks/api-reference/manager/authorization/).
 5. Read source-specific fields with [`GET /accounts/{account_id}/oauth2/connectors/{connector_id}/fields`](/apis-and-sdks/api-reference/manager/fields/).
 6. Save a source-specific field with [`PUT /accounts/{account_id}/oauth2/connectors/{connector_id}/fields/{field_name}`](/apis-and-sdks/api-reference/manager/put-field/).
@@ -72,7 +75,7 @@ curl -X POST "https://api.wordlift.io/accounts/{account_id}/oauth2/connectors/{c
   }'
 ```
 
-The response contains the provider authorization URL. Open or redirect the user to that URL to complete the OAuth2 consent flow.
+The response contains the provider authorization URL. Open that URL, or redirect the account owner to it, to complete the OAuth2 consent flow.
 
 ### Authorization status
 
@@ -83,7 +86,7 @@ curl "https://api.wordlift.io/accounts/{account_id}/oauth2/connectors/{connector
   -H "Authorization: Bearer <access_token>"
 ```
 
-Use the response to decide whether to show a connected state, prompt the user to reconnect, or request additional source configuration.
+Use the response to decide whether to show a connected state, prompt for reconnection, or request additional source configuration.
 
 ### Source fields
 
@@ -140,7 +143,7 @@ Data Sources follow the provider's OAuth2 consent model:
 
 ## Troubleshooting
 
-If a source is not available in the Dashboard, confirm that the selected account supports the connector and that the user has permission to manage the account.
+If a source is not available in the Dashboard, confirm that the selected account supports the connector and that you have permission to manage the account.
 
 If authorization succeeds but no sites or properties appear, confirm that the provider account used during consent has access to the expected resource.
 

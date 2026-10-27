@@ -1,6 +1,7 @@
 ---
-title: GraphSync
-description: Learn how WordLift GraphSync creates and maintains scalable content Knowledge Graphs for Business+ and Enterprise customers.
+title: "GraphSync"
+description: "GraphSync creates and maintains your content Knowledge Graph with source-specific mappings, stable identifiers and recurring synchronization."
+last_updated: 2026-10-27
 keywords:
   - GraphSync
   - Knowledge Graph synchronization
@@ -14,11 +15,11 @@ GraphSync is the recommended way for Business+ and Enterprise customers to creat
 
 It turns website pages or other approved sources into a repeatable graph-building workflow. Unlike simple page import APIs, GraphSync can apply source-specific mappings, create multiple connected entities from a page, preserve stable entity identities, and keep the graph synchronized as the source changes.
 
-If you are still comparing population methods, review [Create a Knowledge Graph](../create.md) first.
+If you're still comparing population methods, review [Create a Knowledge Graph](../create.md) first.
 
 :::tip Start a GraphSync project
 
-[Contact WordLift](https://wordlift.io/contact-us/) to plan your GraphSync onboarding. WordLift will help your team select the source content, define the graph model, validate a pilot, and prepare the recurring synchronization workflow.
+[Contact WordLift](https://wordlift.io/contact-us/) to plan your GraphSync onboarding. WordLift helps your team select the source content, define the graph model, validate a pilot and prepare the recurring synchronization workflow.
 
 :::
 

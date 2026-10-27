@@ -1,17 +1,19 @@
 ---
-title: Feed Specifications
+title: "Feed specifications"
+description: "See how Product Knowledge Graph Builder maps Google Merchant Center product data to Schema.org, including product categories and sale price validity."
 sidebar_position: 100
+last_updated: 2026-10-27
 ---
 
-# Feed Specifications
+# Feed specifications
 
 ## Google Merchant-to-Schema.org mapping
 
-The following table describes how Product KG Builder maps Google Merchant product data to Schema.org. The **Status** column reflects Product KG Builder's current mapping expectations. Because Google Merchant requirements can change, also consult Google's [product data specification](https://support.google.com/merchants/answer/7052112?hl=en).
+The following table describes how Product Knowledge Graph Builder maps Google Merchant product data to Schema.org. The **Status** column reflects Product Knowledge Graph Builder's current mapping expectations. Because Google Merchant requirements can change, also consult Google's [product data specification](https://support.google.com/merchants/answer/7052112?hl=en).
 
 You can transform the generated product graphs before they are written to the Graph store by using [webhooks](./webhooks.md).
 
-| Google Merchant Product Property | Status | Schema.org Property | Description |
+| Google Merchant product property | Status | Schema.org property | Description |
 |----------------------------------|----------|---------------------|-------------|
 | offerId                          | required | sku                 | The product SKU |
 | title                            | required | name                | The product name |
@@ -49,7 +51,7 @@ You can transform the generated product graphs before they are written to the Gr
 
 ## Google product category
 
-When `googleProductCategory` is present and not blank, Product KG Builder adds a structured `CategoryCode` alongside the textual categories generated from `product_type`. The category value can be either a Google taxonomy ID or a `>`-separated taxonomy path.
+When `googleProductCategory` is present and not blank, Product Knowledge Graph Builder adds a structured `CategoryCode` alongside the textual categories generated from `product_type`. The category value can be either a Google taxonomy ID or a `>`-separated taxonomy path.
 
 ```json
 {
@@ -64,7 +66,7 @@ When `googleProductCategory` is present and not blank, Product KG Builder adds a
 
 ## Sale price validity
 
-Product KG Builder applies `salePrice` according to `salePriceEffectiveDate`:
+Product Knowledge Graph Builder applies `salePrice` according to `salePriceEffectiveDate`:
 
 - During an active sale, including at either endpoint of the interval, the offer uses the sale price and includes `validFrom` and `priceValidUntil`. The regular price is also exposed as a `UnitPriceSpecification` with `priceType` set to `http://schema.org/StrikethroughPrice`.
 - Before a sale starts or after it ends, the offer uses the regular price, omits sale-specific price specifications and `validFrom`, and keeps the existing end-of-year `priceValidUntil` value.

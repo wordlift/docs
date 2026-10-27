@@ -1,5 +1,8 @@
 ---
+title: "Sitemap Import API"
+description: "Import a small set of page entities from a sitemap.xml file or a URL list, up to 50 pages per synchronous request, and query them with GraphQL."
 sidebar_position: 20
+last_updated: 2026-10-27
 toc_min_heading_level: 2
 toc_max_heading_level: 5
 ---
@@ -33,7 +36,7 @@ You can import web pages by providing a `sitemap.xml` file or a list of URLs.
 
 ### Import URLs from a sitemap.xml file
 
-Call the Sitemap import API by specifying the `sitemap.xml` URL in the `sitemap_url` property:
+Call the Sitemap Import API with the `sitemap.xml` URL in the `sitemap_url` property:
 
 ```sh
 curl -X "POST" "https://api.wordlift.io/sitemap-imports" \
@@ -44,11 +47,11 @@ curl -X "POST" "https://api.wordlift.io/sitemap-imports" \
 }'
 ```
 
-The response is of type [NDJSON](https://en.wikipedia.org/wiki/JSON_streaming#Newline-delimited_JSON). Each line is a valid JSON with the details about the imported web page.
+The response uses [NDJSON](https://en.wikipedia.org/wiki/JSON_streaming#Newline-delimited_JSON). Each line is a valid JSON object with the details of the imported web page.
 
 ### Import URLs by providing them to the request
 
-Call the Sitemap import API by specifying a list of URLs `urls` property:
+Call the Sitemap Import API with a list of URLs in the `urls` property:
 
 ```sh
 curl -X "POST" "https://api.wordlift.io/sitemap-imports" \
@@ -63,15 +66,15 @@ curl -X "POST" "https://api.wordlift.io/sitemap-imports" \
 }'
 ```
 
-The response is of type [NDJSON](https://en.wikipedia.org/wiki/JSON_streaming#Newline-delimited_JSON). Each line is a valid JSON with the details about the imported web page.
+The response uses [NDJSON](https://en.wikipedia.org/wiki/JSON_streaming#Newline-delimited_JSON). Each line is a valid JSON object with the details of the imported web page.
 
-## Import Analytics data
+## Import analytics data
 
-To import Analytics data see the [Analytics API](../../apis-and-sdks/analytics-api.md)
+To import analytics data, see the [Analytics API](../../apis-and-sdks/analytics-api.md).
 
 ## Query the data
 
-Query the imported data by using the GraphQL endpoint. This is an example GraphQL query:
+Query the imported data with the GraphQL endpoint. This is an example GraphQL query:
 
 ```graphql
 query {

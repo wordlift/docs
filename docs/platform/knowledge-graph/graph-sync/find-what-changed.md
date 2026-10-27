@@ -1,6 +1,7 @@
 ---
-title: Find what changed with GraphSync
-description: Query the WordLift GraphQL endpoint for the entities and URLs that GraphSync updated since a given date.
+title: "Find what changed with GraphSync"
+description: "Query the WordLift GraphQL endpoint for the entities and URLs that GraphSync updated since a given date."
+last_updated: 2026-10-27
 keywords:
   - GraphSync
   - changed entities
@@ -58,7 +59,7 @@ The query returns every changed entity with its `iri`. `url` is `null` for entit
 
 ## Call the endpoint with curl
 
-Replace `$WORDLIFT_KEY` with your WordLift key:
+Replace `$WORDLIFT_KEY` with your WordLift Key:
 
 ```bash
 curl -s https://api.wordlift.io/graphql \
