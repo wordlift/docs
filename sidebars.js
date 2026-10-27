@@ -89,9 +89,19 @@ const sidebars = {
               },
               items: [
                 {
-                  type: "doc",
-                  id: "knowledge-graph/graphsync",
-                  label: "GraphSync"
+                  type: "category",
+                  label: "GraphSync",
+                  link: {
+                    type: "doc",
+                    id: "knowledge-graph/graphsync",
+                  },
+                  items: [
+                    {
+                      type: "doc",
+                      id: "knowledge-graph/graphsync-changes",
+                      label: "Find what changed",
+                    },
+                  ],
                 },
                 {
                   type: "doc",
