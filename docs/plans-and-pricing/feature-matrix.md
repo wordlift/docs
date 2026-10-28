@@ -12,24 +12,24 @@ WordLift has two plans, Business+ and Enterprise, and Enterprise includes everyt
 
 | Capability | Business+ | Enterprise | Docs |
 | --- | --- | --- | --- |
-| Agent WordLift | Included | Included | [Agent WordLift](/platform/agent-wordlift/) |
-| Knowledge Graph | Included | Included | [Knowledge Graph](/platform/knowledge-graph/) |
-| GraphSync | Included | Included | [GraphSync](/platform/knowledge-graph/graph-sync/) |
-| Product Knowledge Graph Builder | Included | Included | [Product Knowledge Graph](/platform/knowledge-graph/product-knowledge-graph/) |
-| Schema markup and structured data publishing | Included | Included | [Schema publishing](/platform/knowledge-graph/schema-publishing/) |
-| WordLift Cloud | Included | Included | [Install WordLift Cloud](/welcome/install-wordlift-cloud/) |
-| Data Sources | Included | Included | [Data Sources](/platform/data-sources/) |
-| AI content creation | Included | Included | [Content generation](/platform/agent-wordlift/content-generation/) |
-| Monitor (Early Access) | Included | Included | [Monitor](/platform/monitor/) |
-| Data API | Included | Included | [Data API](/apis-and-sdks/data-api/) |
-| GraphQL API | Included | Included | [GraphQL API](/apis-and-sdks/graphql-api/) |
-| Resolve API | Monthly allowance | Monthly allowance | [Resolve API](/apis-and-sdks/resolve/) |
-| MCP Server | Included | Included | [MCP Server](/tools/mcp-server/) |
-| worai CLI | Included | Included | [worai CLI](/tools/worai-cli/install/) |
-| Google Sheets add-on | Included | Included | [Google Sheets add-on](/tools/google-sheets-addon/) |
-| Dedicated project manager, strategy sessions and guided implementation | Included | Included | [Business+](/plans-and-pricing/business-plus/) |
-| SAML single sign-on | Not included | Included | [SAML single sign-on](/plans-and-pricing/sso-saml/) |
-| Custom domain for Knowledge Graph publishing | Not included | Included | [Custom domain](/plans-and-pricing/custom-domain/) |
+| Agent WordLift | <Yes /> | <Yes /> | [Agent WordLift](/platform/agent-wordlift/) |
+| Knowledge Graph | <Yes /> | <Yes /> | [Knowledge Graph](/platform/knowledge-graph/) |
+| GraphSync | <Yes /> | <Yes /> | [GraphSync](/platform/knowledge-graph/graph-sync/) |
+| Product Knowledge Graph Builder | <Yes /> | <Yes /> | [Product Knowledge Graph](/platform/knowledge-graph/product-knowledge-graph/) |
+| Schema markup and structured data publishing | <Yes /> | <Yes /> | [Schema publishing](/platform/knowledge-graph/schema-publishing/) |
+| WordLift Cloud | <Yes /> | <Yes /> | [Install WordLift Cloud](/welcome/install-wordlift-cloud/) |
+| Data Sources | <Yes /> | <Yes /> | [Data Sources](/platform/data-sources/) |
+| AI content creation | <Yes /> | <Yes /> | [Content generation](/platform/agent-wordlift/content-generation/) |
+| Monitor <Tag type="early-access" /> | <Yes /> | <Yes /> | [Monitor](/platform/monitor/) |
+| Data API | <Yes /> | <Yes /> | [Data API](/apis-and-sdks/data-api/) |
+| GraphQL API | <Yes /> | <Yes /> | [GraphQL API](/apis-and-sdks/graphql-api/) |
+| Resolve API | <Yes>Monthly allowance</Yes> | <Yes>Monthly allowance</Yes> | [Resolve API](/apis-and-sdks/resolve/) |
+| MCP Server | <Yes /> | <Yes /> | [MCP Server](/tools/mcp-server/) |
+| worai CLI | <Yes /> | <Yes /> | [worai CLI](/tools/worai-cli/install/) |
+| Google Sheets add-on | <Yes /> | <Yes /> | [Google Sheets add-on](/tools/google-sheets-addon/) |
+| Dedicated project manager, strategy sessions and guided implementation | <Yes /> | <Yes /> | [Business+](/plans-and-pricing/business-plus/) |
+| SAML single sign-on <Tag type="enterprise" /> | <No /> | <Yes /> | [SAML single sign-on](/plans-and-pricing/sso-saml/) |
+| Custom domain for Knowledge Graph publishing <Tag type="enterprise" /> | <No /> | <Yes /> | [Custom domain](/plans-and-pricing/custom-domain/) |
 
 The Model Context Protocol (MCP) Server is an access surface, not a plan. It can authenticate with your WordLift API key.
 
@@ -48,8 +48,14 @@ TODO [Jason]: confirm the Enterprise URL and Knowledge Graph allowances (custom 
 
 Two capabilities are available only on Enterprise:
 
-- **[SAML single sign-on](/plans-and-pricing/sso-saml/).** Your team signs in through your organization's identity provider.
-- **[Custom domain](/plans-and-pricing/custom-domain/).** WordLift publishes your Knowledge Graph data under a domain you own.
+<Cards cols={2}>
+  <Card title="SAML single sign-on" href="/plans-and-pricing/sso-saml/" tag="enterprise">
+    Your team signs in through your organization's identity provider.
+  </Card>
+  <Card title="Custom domain" href="/plans-and-pricing/custom-domain/" tag="enterprise">
+    WordLift publishes your Knowledge Graph data under a domain you own.
+  </Card>
+</Cards>
 
 ## Related
 

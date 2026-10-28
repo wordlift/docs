@@ -1,0 +1,311 @@
+/* WordLift MDX components. Colors come from the tokens in src/css/brand.css. */
+
+/* ---------- Cards ---------- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(var(--wl-cards-cols, 3), minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 2rem;
+}
+
+@media (max-width: 996px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.card {
+  --wl-card-accent: transparent;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem 1.3rem 1.3rem;
+  background: var(--wl-bg-surface);
+  border: 1px solid var(--wl-border-default);
+  border-top: 3px solid var(--wl-card-accent);
+  border-radius: var(--wl-radius-md);
+  transition: border-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+}
+
+.card:not(.accent_sky):not(.accent_moss):not(.accent_berry):not(.accent_leaf):not(.accent_sand):not(.accent_petal) {
+  border-top-width: 1px;
+  border-top-color: var(--wl-border-default);
+}
+
+.card:has(.cardLink):hover {
+  border-color: var(--wl-sky);
+  border-top-color: var(--wl-card-accent);
+  box-shadow: var(--wl-shadow-card);
+  transform: translateY(-1px);
+}
+
+.card:not(.accent_sky):not(.accent_moss):not(.accent_berry):not(.accent_leaf):not(.accent_sand):not(.accent_petal):has(.cardLink):hover {
+  border-top-color: var(--wl-sky);
+}
+
+.accent_sky { --wl-card-accent: var(--wl-sky); }
+.accent_moss { --wl-card-accent: var(--wl-moss); }
+.accent_berry { --wl-card-accent: var(--wl-berry); }
+.accent_leaf { --wl-card-accent: var(--wl-leaf); }
+.accent_sand { --wl-card-accent: var(--wl-sand); }
+.accent_petal { --wl-card-accent: var(--wl-petal); }
+
+.cardMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.eyebrow {
+  color: var(--wl-fg-3);
+  font-family: var(--wl-font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.card .cardTitle {
+  margin: 0;
+  font-family: var(--wl-font-display);
+  font-weight: 400;
+  font-synthesis: none;
+  font-size: 1.15rem;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+
+.card .cardLink {
+  color: var(--wl-fg-1);
+  text-decoration: none;
+}
+
+/* The whole card is clickable; links inside the body stay clickable above it */
+.card .cardLink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.card .cardLink:focus-visible {
+  outline: none;
+}
+
+.card:has(.cardLink:focus-visible) {
+  outline: 2px solid var(--wl-sky);
+  outline-offset: 2px;
+}
+
+.card .cardBody {
+  color: var(--wl-fg-2);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.card .cardBody p {
+  margin: 0;
+  color: inherit;
+}
+
+.card .cardBody p + p {
+  margin-top: 0.5rem;
+}
+
+.card .cardBody a {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Tags ---------- */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  height: 1.35rem;
+  padding: 0 0.55rem;
+  border-radius: var(--wl-radius-pill);
+  font-family: var(--wl-font-mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  vertical-align: 0.15em;
+}
+
+.tag_sky { background: var(--wl-sky-tint-strong); color: var(--wl-sky-ink); }
+.tag_moss { background: var(--wl-moss-tint); color: var(--wl-moss-ink); }
+.tag_berry { background: var(--wl-berry-tint); color: var(--wl-berry-ink); }
+.tag_neutral { background: var(--wl-bg-muted); color: var(--wl-fg-2); border: 1px solid var(--wl-border-subtle); }
+
+/* ---------- Steps ---------- */
+
+.steps {
+  counter-reset: wl-step;
+  list-style: none;
+  margin: 1.5rem 0 2rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.step {
+  counter-increment: wl-step;
+  position: relative;
+  padding: 0 0 1.4rem 3.1rem;
+  margin: 0;
+}
+
+.step::before {
+  content: counter(wl-step);
+  position: absolute;
+  left: 0;
+  top: -0.1rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  background: var(--wl-sky-tint-strong);
+  color: var(--wl-sky-ink);
+  font-family: var(--wl-font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.step::after {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 2.2rem;
+  bottom: 0.2rem;
+  width: 1px;
+  background: var(--wl-border-default);
+}
+
+.step:last-child {
+  padding-bottom: 0;
+}
+
+.step:last-child::after {
+  display: none;
+}
+
+.stepHead {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  min-height: 1.8rem;
+}
+
+.stepTitle {
+  font-family: var(--wl-font-display);
+  font-weight: 400;
+  font-synthesis: none;
+  font-size: 1.12rem;
+  line-height: 1.3;
+  color: var(--wl-fg-1);
+}
+
+.stepBody {
+  margin-top: 0.3rem;
+  color: var(--wl-fg-2);
+}
+
+.stepBody > :last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Included / not included marks ---------- */
+
+.mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.markIcon {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: none;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  border-radius: 999px;
+  padding: 0.15rem;
+}
+
+.markYes {
+  color: var(--wl-fg-1);
+}
+
+.markYes .markIcon {
+  stroke: var(--wl-leaf-ink);
+  background: rgba(34, 162, 134, 0.16);
+}
+
+.markNo {
+  color: var(--wl-fg-3);
+}
+
+.markNo .markIcon {
+  stroke: var(--wl-fg-3);
+  background: var(--wl-bg-muted);
+}
+
+/* ---------- Platform diagram ---------- */
+
+.diagram {
+  margin: 1.5rem 0 2rem;
+  padding: 1.5rem;
+  background: var(--wl-bg-muted);
+  border: 1px solid var(--wl-border-subtle);
+  border-radius: var(--wl-radius-md);
+  overflow-x: auto;
+}
+
+.diagram svg {
+  display: block;
+  width: 100%;
+  min-width: 600px;
+  height: auto;
+  color: var(--wl-fg-1);
+}
+
+.dBox { fill: var(--wl-bg-surface); stroke: var(--wl-border-default); stroke-width: 1.5; }
+.dSky { fill: var(--wl-bg-surface); stroke: var(--wl-sky); stroke-width: 2; }
+.dMoss { fill: var(--wl-bg-surface); stroke: var(--wl-moss); stroke-width: 2; }
+.dLine { stroke: var(--wl-fg-3); stroke-width: 1.5; fill: none; }
+.dRule { stroke: var(--wl-border-default); stroke-width: 1; }
+.dHead { fill: var(--wl-fg-3); }
+.dTitle { fill: currentColor; font-family: var(--wl-font-display); font-size: 17px; }
+.dSub { fill: var(--wl-fg-2); font-family: var(--wl-font-sans); font-size: 12.5px; }
+.dEdge { fill: var(--wl-fg-3); font-family: var(--wl-font-mono); font-size: 11px; }
+.dLabel { fill: var(--wl-fg-3); font-family: var(--wl-font-mono); font-size: 10.5px; letter-spacing: 0.14em; }
+.dLabelSky { fill: var(--wl-sky); }
+.dLabelMoss { fill: var(--wl-moss); }
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+  .card:has(.cardLink):hover {
+    transform: none;
+  }
+}

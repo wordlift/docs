@@ -17,40 +17,69 @@ TODO [Jason]: confirm that "A knowledge graph for the agentic web. One platform,
 
 Data Sources bring your site, search, analytics and product data into the Knowledge Graph. The Knowledge Graph stores the entities that matter to your organization, their relationships, structured data, search signals, provenance and reusable context. Agent WordLift uses specialized tools on top of the graph to retrieve evidence, analyze content, reason over entities, generate outputs, validate claims and automate workflows. WordLift Cloud and the Data API publish graph-backed structured data on your website, and you reach everything through the Dashboard, your own tools and the APIs.
 
-```text
-Data Sources  ->  Knowledge Graph (memory)  ->  Agent WordLift (agentic AI)
-                         |
-                         v
-          Structured data published on your website
-
-Access: Dashboard, Interfaces and tools, Integrations, APIs and SDKs
-```
+<PlatformDiagram />
 
 ## Knowledge Graph
 
-- **[Knowledge Graph](/platform/knowledge-graph/):** Represents the people, places, products, content and other entities that matter to your website or organization, with the relationships between them. You own the structured metadata you create and can export the complete graph as RDF/XML, JSON-LD, Turtle or N3.
-- **[GraphSync](/platform/knowledge-graph/graph-sync/):** Creates and maintains a content Knowledge Graph from your pages or other approved sources. It is the recommended route for Business+ and Enterprise customers.
-- **[Product Knowledge Graph](/platform/knowledge-graph/product-knowledge-graph/):** Builds a Knowledge Graph of your catalog from a Google Merchant Center feed and publishes structured product data on your site.
-- **[Schema publishing](/platform/knowledge-graph/schema-publishing/):** Compares the ways WordLift delivers JSON-LD from the graph to your pages, client-side or server-side.
+<Cards cols={2}>
+  <Card title="Knowledge Graph" href="/platform/knowledge-graph/" accent="sky">
+    Represents the people, places, products, content and other entities that matter to your website or organization, with the relationships between them. You own the structured metadata you create and can export the complete graph as RDF/XML, JSON-LD, Turtle or N3.
+  </Card>
+  <Card title="GraphSync" href="/platform/knowledge-graph/graph-sync/" accent="sky">
+    Creates and maintains a content Knowledge Graph from your pages or other approved sources. It is the recommended route for Business+ and Enterprise customers.
+  </Card>
+  <Card title="Product Knowledge Graph" href="/platform/knowledge-graph/product-knowledge-graph/" accent="sky">
+    Builds a Knowledge Graph of your catalog from a Google Merchant Center feed and publishes structured product data on your site.
+  </Card>
+  <Card title="Schema publishing" href="/platform/knowledge-graph/schema-publishing/" accent="sky">
+    Compares the ways WordLift delivers JSON-LD from the graph to your pages, client-side or server-side.
+  </Card>
+</Cards>
 
 ## Agent WordLift
 
-- **[Agent WordLift](/platform/agent-wordlift/):** Puts the Knowledge Graph to work for SEO, content and marketing tasks. Agent WordLift is a product included in both Business+ and Enterprise.
-- **[Getting started](/platform/agent-wordlift/getting-started/):** Opens Agent WordLift at agent.wordlift.io and connects it to your Knowledge Graph with your WordLift Key.
-- **[Workflows](/platform/agent-wordlift/workflows/):** Combine several tools into repeatable processes, such as a rankings drop audit or keyword discovery.
-- **[Integrations](/platform/agent-wordlift/integrations/):** Reach Agent WordLift through the MCP Server, wordlift-cli, the Agent API and Zapier.
+<Cards cols={2}>
+  <Card title="Agent WordLift" href="/platform/agent-wordlift/" accent="moss">
+    Puts the Knowledge Graph to work for SEO, content and marketing tasks. Agent WordLift is a product included in both Business+ and Enterprise.
+  </Card>
+  <Card title="Getting started" href="/platform/agent-wordlift/getting-started/" accent="moss">
+    Opens Agent WordLift at agent.wordlift.io and connects it to your Knowledge Graph with your WordLift Key.
+  </Card>
+  <Card title="Workflows" href="/platform/agent-wordlift/workflows/" accent="moss">
+    Combine several tools into repeatable processes, such as a rankings drop audit or keyword discovery.
+  </Card>
+  <Card title="Integrations" href="/platform/agent-wordlift/integrations/" accent="moss">
+    Reach Agent WordLift through the MCP Server, wordlift-cli, the Agent API and Zapier.
+  </Card>
+</Cards>
 
 ## Set up and operate
 
-- **[Dashboard](/platform/dashboard/):** Sign in at my.wordlift.io, choose a Knowledge Graph, find your WordLift Key and reach the tools and settings.
-- **[Data Sources](/platform/data-sources/):** Connect Google Search Console and Google Analytics, and import web pages, Botify crawl data and product feeds into the graph.
-- **[Monitor](/platform/monitor/) (Early Access):** Check how ready your site is for search engines and AI assistants, and whether every page carries the structured data you expect.
+<Cards cols={2}>
+  <Card title="Dashboard" href="/platform/dashboard/">
+    Sign in at my.wordlift.io, choose a Knowledge Graph, find your WordLift Key and reach the tools and settings.
+  </Card>
+  <Card title="Data Sources" href="/platform/data-sources/">
+    Connect Google Search Console and Google Analytics, and import web pages, Botify crawl data and product feeds into the graph.
+  </Card>
+  <Card title="Monitor" href="/platform/monitor/" tag="early-access">
+    Check how ready your site is for search engines and AI assistants, and whether every page carries the structured data you expect.
+  </Card>
+</Cards>
 
 ## Work from your own tools
 
-- **[Interfaces and tools](/tools/):** Operate WordLift from an AI assistant through the MCP Server, or from the command line with the worai CLI and wordlift-cli.
-- **[Integrations](/integrations/):** Connect WordLift to your CMS, store, automation or reporting tool.
-- **[APIs and SDKs](/apis-and-sdks/):** Program the Knowledge Graph and Agent WordLift from your own stack.
+<Cards cols={2}>
+  <Card title="Interfaces and tools" href="/tools/">
+    Operate WordLift from an AI assistant through the MCP Server, or from the command line with the worai CLI and wordlift-cli.
+  </Card>
+  <Card title="Integrations" href="/integrations/">
+    Connect WordLift to your CMS, store, automation or reporting tool.
+  </Card>
+  <Card title="APIs and SDKs" href="/apis-and-sdks/">
+    Program the Knowledge Graph and Agent WordLift from your own stack.
+  </Card>
+</Cards>
 
 ## What's new
 

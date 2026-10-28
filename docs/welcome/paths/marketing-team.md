@@ -12,22 +12,40 @@ This path is for marketing and growth teams that want Agent WordLift drafting ca
 
 Start at Agent WordLift, the direct entry point for marketing teams.
 
-- **[Agent WordLift](/platform/agent-wordlift/).** See how Agent WordLift uses your Knowledge Graph and search data to research, analyze, create and optimize content.
+<Cards cols={2}>
+  <Card title="Agent WordLift" href="/platform/agent-wordlift/">
+    See how Agent WordLift uses your Knowledge Graph and search data to research, analyze, create and optimize content.
+  </Card>
+</Cards>
 
 ## Onboard
 
 Get Agent WordLift and your workspace ready.
 
-- **[Get started with Agent WordLift](/platform/agent-wordlift/getting-started/).** Open [agent.wordlift.io](https://agent.wordlift.io), enter your WordLift key in the Settings panel and run your first prompts.
-- **[Dashboard](/platform/dashboard/).** Sign in and find your Knowledge Graphs, tools and settings.
+<Cards cols={2}>
+  <Card title="Get started with Agent WordLift" href="/platform/agent-wordlift/getting-started/">
+    Open [agent.wordlift.io](https://agent.wordlift.io), enter your WordLift key in the Settings panel and run your first prompts.
+  </Card>
+  <Card title="Dashboard" href="/platform/dashboard/">
+    Sign in and find your Knowledge Graphs, tools and settings.
+  </Card>
+</Cards>
 
 ## Configure
 
 Bring performance data in and connect WordLift to your marketing automation.
 
-- **[Connect Google Search Console and Google Analytics](/platform/data-sources/oauth2/).** Authorize your search and analytics data from **Data Sources** in the Dashboard. Developers who import analytics data through the API can use the [Analytics API](/apis-and-sdks/analytics-api/).
-- **[Zapier](/integrations/zapier/).** Connect Agent WordLift and your Knowledge Graph to other apps in your marketing stack.
-- **[Power Automate](/integrations/power-automate/).** Query your Knowledge Graph from Power Automate, Logic Apps and Power Apps. You need a WordLift subscription and a key.
+<Cards cols={2}>
+  <Card title="Connect Google Search Console and Google Analytics" href="/platform/data-sources/oauth2/">
+    Authorize your search and analytics data from **Data Sources** in the Dashboard. Developers who import analytics data through the API can use the [Analytics API](/apis-and-sdks/analytics-api/).
+  </Card>
+  <Card title="Zapier" href="/integrations/zapier/">
+    Connect Agent WordLift and your Knowledge Graph to other apps in your marketing stack.
+  </Card>
+  <Card title="Power Automate" href="/integrations/power-automate/">
+    Query your Knowledge Graph from Power Automate, Logic Apps and Power Apps. You need a WordLift subscription and a key.
+  </Card>
+</Cards>
 
 :::warning[Review needed]
 TODO [Jason]: confirm "Analytics import" links to the Dashboard Data Sources flow for marketing readers, with the developer Analytics API page as the secondary link.
@@ -37,16 +55,30 @@ TODO [Jason]: confirm "Analytics import" links to the Dashboard Data Sources flo
 
 Draft campaign content from your website content. Agent WordLift generates drafts for you to review and publish.
 
-- **[Create social media posts](/platform/agent-wordlift/workflows/create-social-media-posts/).** Write LinkedIn posts and X threads from your existing pages.
-- **[Create social media content buckets](/platform/agent-wordlift/workflows/create-social-media-content-buckets/).** Group your published content into buckets and refine them into a posting plan.
-- **[Ideas for newsletters](/platform/agent-wordlift/workflows/ideas-for-newsletters/).** Generate newsletter ideas and a first draft for an audience and topic you choose.
+<Cards cols={2}>
+  <Card title="Create social media posts" href="/platform/agent-wordlift/workflows/create-social-media-posts/">
+    Write LinkedIn posts and X threads from your existing pages.
+  </Card>
+  <Card title="Create social media content buckets" href="/platform/agent-wordlift/workflows/create-social-media-content-buckets/">
+    Group your published content into buckets and refine them into a posting plan.
+  </Card>
+  <Card title="Ideas for newsletters" href="/platform/agent-wordlift/workflows/ideas-for-newsletters/">
+    Generate newsletter ideas and a first draft for an audience and topic you choose.
+  </Card>
+</Cards>
 
 ## Expand
 
 Scale your reporting and connect to your wider SEO stack.
 
-- **[Looker Studio](/integrations/looker-studio/).** Build semantic SEO reports that blend Knowledge Graph data with Search Console.
-- **[BrightEdge](/integrations/brightedge/).** Run WordLift alongside BrightEdge and keep your structured data consistent.
+<Cards cols={2}>
+  <Card title="Looker Studio" href="/integrations/looker-studio/">
+    Build semantic SEO reports that blend Knowledge Graph data with Search Console.
+  </Card>
+  <Card title="BrightEdge" href="/integrations/brightedge/">
+    Run WordLift alongside BrightEdge and keep your structured data consistent.
+  </Card>
+</Cards>
 
 ## Other paths
 

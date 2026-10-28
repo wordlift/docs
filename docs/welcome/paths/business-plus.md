@@ -12,8 +12,14 @@ This path is for marketing, SEO and digital teams starting on Business+. It list
 
 Learn what WordLift is and how its two pillars, the Knowledge Graph and Agent WordLift, fit together before your team commits.
 
-- **[Platform overview](/platform/).** See how Data Sources, the Knowledge Graph and Agent WordLift work together.
-- **[Business+ plan](/plans-and-pricing/business-plus/).** Check what Business+ includes, including headless and API-first use without the WordPress plugin.
+<Cards cols={2}>
+  <Card title="Platform overview" href="/platform/">
+    See how Data Sources, the Knowledge Graph and Agent WordLift work together.
+  </Card>
+  <Card title="Business+ plan" href="/plans-and-pricing/business-plus/">
+    Check what Business+ includes, including headless and API-first use without the WordPress plugin.
+  </Card>
+</Cards>
 
 :::warning[Review needed]
 TODO [Jason]: confirm the Business+ plan page replaces the journey map's self-referencing "Business+ path" item in Discover.
@@ -23,35 +29,71 @@ TODO [Jason]: confirm the Business+ plan page replaces the journey map's self-re
 
 Get your account live and your data flowing.
 
-- **[Onboarding overview](/welcome/#onboarding-overview).** Follow the onboarding steps in order, from credentials to Agent WordLift.
-- **[Install WordLift Cloud](/welcome/install-wordlift-cloud/).** Add the launcher script that publishes your graph's structured data on your pages.
-- **[Dashboard](/platform/dashboard/).** Sign in and find your Knowledge Graphs, tools and settings.
-- **[Data Sources](/platform/data-sources/).** See which sources can feed your Knowledge Graph.
+<Cards cols={2}>
+  <Card title="Onboarding overview" href="/welcome/#onboarding-overview">
+    Follow the onboarding steps in order, from credentials to Agent WordLift.
+  </Card>
+  <Card title="Install WordLift Cloud" href="/welcome/install-wordlift-cloud/">
+    Add the launcher script that publishes your graph's structured data on your pages.
+  </Card>
+  <Card title="Dashboard" href="/platform/dashboard/">
+    Sign in and find your Knowledge Graphs, tools and settings.
+  </Card>
+  <Card title="Data Sources" href="/platform/data-sources/">
+    See which sources can feed your Knowledge Graph.
+  </Card>
+</Cards>
 
 ## Configure
 
 Connect your search and analytics sources, then build the Knowledge Graph that everything else depends on. Start here after you log in.
 
-- **[Connect Google Search Console and Google Analytics](/platform/data-sources/oauth2/).** Authorize the primary supported Data Sources from the Dashboard.
-- **[Sitemap import](/platform/data-sources/sitemap/).** Import a small set of pages from a sitemap or a URL list.
-- **[Create a Knowledge Graph](/platform/knowledge-graph/create/).** Choose how to populate your graph.
-- **[GraphSync](/platform/knowledge-graph/graph-sync/).** Build and maintain your content graph with GraphSync, the recommended path for Business+.
+<Cards cols={2}>
+  <Card title="Connect Google Search Console and Google Analytics" href="/platform/data-sources/oauth2/">
+    Authorize the primary supported Data Sources from the Dashboard.
+  </Card>
+  <Card title="Sitemap import" href="/platform/data-sources/sitemap/">
+    Import a small set of pages from a sitemap or a URL list.
+  </Card>
+  <Card title="Create a Knowledge Graph" href="/platform/knowledge-graph/create/">
+    Choose how to populate your graph.
+  </Card>
+  <Card title="GraphSync" href="/platform/knowledge-graph/graph-sync/">
+    Build and maintain your content graph with GraphSync, the recommended path for Business+.
+  </Card>
+</Cards>
 
 ## Activate
 
 Put Agent WordLift to work on everyday SEO and content jobs. Agent WordLift is included in Business+.
 
-- **[Agent WordLift](/platform/agent-wordlift/).** See what Agent WordLift does and how to reach it.
-- **[Workflows](/platform/agent-wordlift/workflows/).** Pick a ready-made workflow for a specific SEO or content task.
-- **[Content Generation](/platform/agent-wordlift/content-generation/).** Generate content from the data in your Knowledge Graph.
+<Cards cols={2}>
+  <Card title="Agent WordLift" href="/platform/agent-wordlift/">
+    See what Agent WordLift does and how to reach it.
+  </Card>
+  <Card title="Workflows" href="/platform/agent-wordlift/workflows/">
+    Pick a ready-made workflow for a specific SEO or content task.
+  </Card>
+  <Card title="Content Generation" href="/platform/agent-wordlift/content-generation/">
+    Generate content from the data in your Knowledge Graph.
+  </Card>
+</Cards>
 
 ## Expand
 
 Compare plans or go programmatic as your team grows.
 
-- **[Feature Matrix](/plans-and-pricing/feature-matrix/).** Compare what Business+ and Enterprise include.
-- **[Enterprise](/plans-and-pricing/enterprise/).** See what Enterprise adds for larger organizations.
-- **[APIs and SDKs](/apis-and-sdks/).** Work with your graph from your own code.
+<Cards cols={2}>
+  <Card title="Feature Matrix" href="/plans-and-pricing/feature-matrix/">
+    Compare what Business+ and Enterprise include.
+  </Card>
+  <Card title="Enterprise" href="/plans-and-pricing/enterprise/">
+    See what Enterprise adds for larger organizations.
+  </Card>
+  <Card title="APIs and SDKs" href="/apis-and-sdks/">
+    Work with your graph from your own code.
+  </Card>
+</Cards>
 
 ## Other paths
 

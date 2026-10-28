@@ -12,34 +12,60 @@ This path is for e-commerce managers and SEO leads who own a product catalog in 
 
 Start at the Product Knowledge Graph, the data model that matters for catalogs.
 
-- **[Product Knowledge Graph](/platform/knowledge-graph/product-knowledge-graph/).** See how Product Knowledge Graph Builder maps your Merchant feed to Schema.org and syncs it with your Knowledge Graph.
+<Cards cols={2}>
+  <Card title="Product Knowledge Graph" href="/platform/knowledge-graph/product-knowledge-graph/">
+    See how Product Knowledge Graph Builder maps your Merchant feed to Schema.org and syncs it with your Knowledge Graph.
+  </Card>
+</Cards>
 
 ## Onboard
 
 Set up the product graph and bring your catalog in.
 
-- **[Create a Knowledge Graph](/platform/knowledge-graph/create/).** See where the Product Knowledge Graph fits among the ways to populate a graph.
-- **[Connect your Merchant Center feed](/platform/knowledge-graph/product-knowledge-graph/#get-started).** In the Dashboard, select **+ Add Merchant**, link your Google account and choose the Merchant feed. The structured data is added with a script, so the setup is not tied to a specific CMS.
+<Cards cols={2}>
+  <Card title="Create a Knowledge Graph" href="/platform/knowledge-graph/create/">
+    See where the Product Knowledge Graph fits among the ways to populate a graph.
+  </Card>
+  <Card title="Connect your Merchant Center feed" href="/platform/knowledge-graph/product-knowledge-graph/#get-started">
+    In the Dashboard, select **+ Add Merchant**, link your Google account and choose the Merchant feed. The structured data is added with a script, so the setup is not tied to a specific CMS.
+  </Card>
+</Cards>
 
 ## Configure
 
 Structure the feed correctly and control what each sync writes to the graph.
 
-- **[Feed specifications](/platform/knowledge-graph/product-knowledge-graph/feed-specifications/).** See how Google Merchant product data maps to Schema.org properties.
-- **[Webhooks](/platform/knowledge-graph/product-knowledge-graph/webhooks/).** Transform product graphs during synchronization, before they are written to your graph.
+<Cards cols={2}>
+  <Card title="Feed specifications" href="/platform/knowledge-graph/product-knowledge-graph/feed-specifications/">
+    See how Google Merchant product data maps to Schema.org properties.
+  </Card>
+  <Card title="Webhooks" href="/platform/knowledge-graph/product-knowledge-graph/webhooks/">
+    Transform product graphs during synchronization, before they are written to your graph.
+  </Card>
+</Cards>
 
 ## Activate
 
 Generate product content at scale from your enriched catalog.
 
-- **[Create product descriptions from keyword insights](/platform/agent-wordlift/workflows/create-product-description/).** Draft keyword-informed product descriptions in your language and brand tone, then review them before you publish.
-- **[Content Generation](/platform/agent-wordlift/content-generation/).** Generate content at scale from the data in your Knowledge Graph.
+<Cards cols={2}>
+  <Card title="Create product descriptions from keyword insights" href="/platform/agent-wordlift/workflows/create-product-description/">
+    Draft keyword-informed product descriptions in your language and brand tone, then review them before you publish.
+  </Card>
+  <Card title="Content Generation" href="/platform/agent-wordlift/content-generation/">
+    Generate content at scale from the data in your Knowledge Graph.
+  </Card>
+</Cards>
 
 ## Expand
 
 Extend your product setup programmatically.
 
-- **[APIs and SDKs](/apis-and-sdks/).** Work with your product data through the WordLift APIs.
+<Cards cols={2}>
+  <Card title="APIs and SDKs" href="/apis-and-sdks/">
+    Work with your product data through the WordLift APIs.
+  </Card>
+</Cards>
 
 ## Other paths
 
