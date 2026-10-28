@@ -81,10 +81,6 @@ const config = {
         {
             href: "https://cdn.zapier.com/packages/partner-sdk/v0/zapier-elements/zapier-elements.css",
         },
-        {
-            href: "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap",
-            type: "text/css",
-        },
     ],
     presets: [
         [
@@ -101,7 +97,19 @@ const config = {
                 },
                 blog: false,
                 theme: {
-                    customCss: require.resolve("./src/css/custom.css"),
+                    customCss: [
+                        // Brand fonts, self-hosted (all open source). Denim INK is
+                        // licensed and loaded by src/plugins/denim-ink.
+                        require.resolve("@fontsource/open-sauce-sans/400.css"),
+                        require.resolve("@fontsource/open-sauce-sans/500.css"),
+                        require.resolve("@fontsource/open-sauce-sans/600.css"),
+                        require.resolve("@fontsource/open-sauce-sans/400-italic.css"),
+                        require.resolve("@fontsource/bricolage-grotesque/400.css"),
+                        require.resolve("@fontsource/dm-mono/400.css"),
+                        require.resolve("@fontsource/dm-mono/500.css"),
+                        require.resolve("./src/css/custom.css"),
+                        require.resolve("./src/css/brand.css"),
+                    ],
                 },
             }),
         ],
@@ -119,32 +127,32 @@ const config = {
                 },
                 items: [
                     {
-                        type: "doc",
-                        docId: "welcome/index",
+                        to: "/welcome/",
+                        activeBaseRegex: "^/welcome/(?!api-reference)",
                         position: "left",
                         label: "Welcome",
                     },
                     {
-                        type: "doc",
-                        docId: "platform/index",
+                        to: "/platform/",
+                        activeBaseRegex: "^/platform/(?!api-reference)",
                         position: "left",
                         label: "Platform",
                     },
                     {
-                        type: "doc",
-                        docId: "tools/index",
+                        to: "/tools/",
+                        activeBaseRegex: "^/tools/(?!api-reference)",
                         position: "left",
                         label: "Tools",
                     },
                     {
-                        type: "doc",
-                        docId: "integrations/index",
+                        to: "/integrations/",
+                        activeBaseRegex: "^/integrations/(?!api-reference)",
                         position: "left",
                         label: "Integrations",
                     },
                     {
-                        type: "doc",
-                        docId: "apis-and-sdks/index",
+                        to: "/apis-and-sdks/",
+                        activeBaseRegex: "^/apis-and-sdks/(?!api-reference)",
                         position: "left",
                         label: "APIs and SDKs",
                     },
@@ -152,6 +160,7 @@ const config = {
                         label: "API reference",
                         position: "left",
                         to: "/apis-and-sdks/api-reference/",
+                        activeBasePath: "apis-and-sdks/api-reference",
                     },
                     {
                         href: "https://github.com/wordlift",
@@ -280,6 +289,7 @@ const config = {
         }),
 
     plugins: [
+        require.resolve("./src/plugins/denim-ink"),
         function nodeCoreModuleFallbackPlugin() {
             return {
                 name: "node-core-module-fallback-plugin",

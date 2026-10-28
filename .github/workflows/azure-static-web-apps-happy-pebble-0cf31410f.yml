@@ -71,6 +71,22 @@ jobs:
         if: steps.api_changes.outputs.api_changed == 'true'
         run: ./.bin/rebuild-api.sh
 
+      - name: Add the licensed Denim INK webfont (production only)
+        # Displaay licence: wordlift.io and its subdomains only, files never
+        # shared. Previews on azurestaticapps.net build without it.
+        if: github.event_name == 'push'
+        env:
+          PART_1: ${{ secrets.DENIM_INK_WOFF2_PART_1 }}
+          PART_2: ${{ secrets.DENIM_INK_WOFF2_PART_2 }}
+          PART_3: ${{ secrets.DENIM_INK_WOFF2_PART_3 }}
+        run: |
+          if [ -n "$PART_1" ] && [ -n "$PART_2" ] && [ -n "$PART_3" ]; then
+            mkdir -p static/fonts
+            printf '%s%s%s' "$PART_1" "$PART_2" "$PART_3" | base64 -d > static/fonts/DenimINK-Regular.woff2
+          else
+            echo "Denim INK secrets are not set; headings use the fallback font."
+          fi
+
       - name: Build static site
         run: npm run build
 
