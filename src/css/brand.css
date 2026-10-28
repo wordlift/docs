@@ -61,6 +61,7 @@
   --wl-border-default: rgba(25, 25, 25, 0.13);
   --wl-shadow-card: 0 1px 2px rgba(25, 25, 25, 0.04), 0 8px 24px -12px rgba(25, 25, 25, 0.12);
   --wl-hover: rgba(25, 25, 25, 0.055);
+  --wl-scroll-shadow: rgba(25, 25, 25, 0.16);
   /* Docs type scale. Denser than the brand's marketing scale: docs are read
      in long sessions next to the product. Body 15px, steps of about 1.25,
      set in rem so browser zoom and font-size preferences still apply. */
@@ -171,6 +172,7 @@
   --wl-border-default: rgba(246, 246, 247, 0.15);
   --wl-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
   --wl-hover: rgba(255, 255, 255, 0.06);
+  --wl-scroll-shadow: rgba(0, 0, 0, 0.55);
   --wl-zoom-backdrop: rgba(12, 12, 12, 0.92);
   --wl-shot-frame: linear-gradient(135deg, rgba(142, 160, 247, 0.12), rgba(95, 169, 173, 0.08));
 
@@ -309,15 +311,29 @@ h1, h2, h3, h4, h5, h6,
 
 /* ---------- Tables ---------- */
 
+/* Tables size to their content up to the reading column, then scroll
+   sideways inside their own box, so wide tables never run under the
+   table of contents. */
 .markdown table {
-  display: table;
-  width: 100%;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
   border-collapse: separate;
   border-spacing: 0;
   border: 1px solid var(--wl-border-default);
   border-radius: var(--wl-radius-md);
-  overflow: hidden;
   font-size: var(--wl-text-ui);
+  /* Scroll hint: a soft shadow at an edge only while more table hides
+     beyond it (the "local" covers slide away with the content). */
+  background:
+    linear-gradient(to right, var(--wl-bg-surface) 40%, transparent) left / 2rem 100% no-repeat local,
+    linear-gradient(to left, var(--wl-bg-surface) 40%, transparent) right / 2rem 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, var(--wl-scroll-shadow), transparent) left / 0.75rem 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, var(--wl-scroll-shadow), transparent) right / 0.75rem 100% no-repeat scroll;
+  background-color: var(--wl-bg-surface);
 }
 
 .markdown table thead tr {
@@ -381,13 +397,6 @@ h1, h2, h3, h4, h5, h6,
   background: var(--wl-bg-muted);
 }
 
-/* Wide tables scroll inside their own box on small screens */
-@media (max-width: 996px) {
-  .markdown table {
-    display: block;
-    overflow-x: auto;
-  }
-}
 
 /* ---------- Admonitions ---------- */
 
