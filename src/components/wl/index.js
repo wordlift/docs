@@ -29,7 +29,7 @@ const ACCENTS = ["sky", "moss", "berry", "leaf", "sand", "petal"];
 
 export function Cards({ cols = 3, children }) {
     return (
-        <div className={styles.cards} style={{ "--wl-cards-cols": cols }}>
+        <div className={styles.cards} data-wl="cards" style={{ "--wl-cards-cols": cols }}>
             {children}
         </div>
     );
@@ -37,7 +37,7 @@ export function Cards({ cols = 3, children }) {
 
 export function Card({ title, href, eyebrow, accent, tag, children }) {
     return (
-        <div className={clsx(styles.card, ACCENTS.includes(accent) && styles[`accent_${accent}`])}>
+        <div className={clsx(styles.card, ACCENTS.includes(accent) && styles[`accent_${accent}`])} data-wl="card">
             {(eyebrow || tag) && (
                 <div className={styles.cardMeta}>
                     {eyebrow && <span className={styles.eyebrow}>{eyebrow}</span>}
@@ -75,13 +75,13 @@ export function Tag({ type, tone, children }) {
 }
 
 export function Steps({ children }) {
-    return <ol className={styles.steps}>{children}</ol>;
+    return <ol className={styles.steps} data-wl="steps">{children}</ol>;
 }
 
 export function Step({ title, tag, children }) {
     const tags = Array.isArray(tag) ? tag : tag ? [tag] : [];
     return (
-        <li className={styles.step}>
+        <li className={styles.step} data-wl="step">
             <div className={styles.stepHead}>
                 <span className={styles.stepTitle}>{title}</span>
                 {tags.map((t) => (
@@ -118,7 +118,7 @@ export function No({ children }) {
 
 export function PlatformDiagram() {
     return (
-        <figure className={styles.diagram}>
+        <figure className={styles.diagram} data-wl="diagram">
             <svg
                 viewBox="0 0 760 300"
                 role="img"
@@ -130,32 +130,32 @@ export function PlatformDiagram() {
                     </marker>
                 </defs>
 
-                <rect x="0" y="40" width="180" height="76" rx="12" className={styles.dBox} />
+                <rect data-wl="node" x="0" y="40" width="180" height="76" rx="12" className={styles.dBox} />
                 <text x="20" y="66" className={styles.dLabel}>INPUT</text>
                 <text x="20" y="90" className={styles.dTitle}>Data Sources</text>
                 <text x="20" y="107" className={styles.dSub}>site, search, analytics, products</text>
 
-                <line x1="180" y1="78" x2="268" y2="78" className={styles.dLine} markerEnd="url(#wl-arrow)" />
+                <line x1="180" y1="78" x2="268" y2="78" data-wl="edge" className={styles.dLine} markerEnd="url(#wl-arrow)" />
                 <text x="224" y="68" textAnchor="middle" className={styles.dEdge}>feed</text>
 
-                <rect x="270" y="28" width="220" height="100" rx="12" className={styles.dSky} />
+                <rect data-wl="node" x="270" y="28" width="220" height="100" rx="12" className={styles.dSky} />
                 <text x="290" y="56" className={clsx(styles.dLabel, styles.dLabelSky)}>MEMORY</text>
                 <text x="290" y="82" className={styles.dTitle}>Knowledge Graph</text>
                 <text x="290" y="100" className={styles.dSub}>entities, relationships,</text>
                 <text x="290" y="116" className={styles.dSub}>structured data, context</text>
 
-                <line x1="490" y1="78" x2="578" y2="78" className={styles.dLine} markerEnd="url(#wl-arrow)" />
+                <line x1="490" y1="78" x2="578" y2="78" data-wl="edge" className={styles.dLine} markerEnd="url(#wl-arrow)" />
                 <text x="534" y="68" textAnchor="middle" className={styles.dEdge}>context</text>
 
-                <rect x="580" y="40" width="180" height="76" rx="12" className={styles.dMoss} />
+                <rect data-wl="node" x="580" y="40" width="180" height="76" rx="12" className={styles.dMoss} />
                 <text x="600" y="66" className={clsx(styles.dLabel, styles.dLabelMoss)}>AGENTIC AI</text>
                 <text x="600" y="90" className={styles.dTitle}>Agent WordLift</text>
                 <text x="600" y="107" className={styles.dSub}>workflows and tools</text>
 
-                <line x1="380" y1="128" x2="380" y2="172" className={styles.dLine} markerEnd="url(#wl-arrow)" />
+                <line x1="380" y1="128" x2="380" y2="172" data-wl="edge" className={styles.dLine} markerEnd="url(#wl-arrow)" />
                 <text x="392" y="155" className={styles.dEdge}>publishes</text>
 
-                <rect x="270" y="174" width="220" height="56" rx="12" className={styles.dBox} />
+                <rect data-wl="node" x="270" y="174" width="220" height="56" rx="12" className={styles.dBox} />
                 <text x="290" y="198" className={styles.dTitle}>Your website</text>
                 <text x="290" y="216" className={styles.dSub}>JSON-LD via WordLift Cloud or Data API</text>
 

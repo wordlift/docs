@@ -89,6 +89,38 @@
   text-decoration: none;
 }
 
+/* Linked cards show an arrow that slides in on hover */
+.card:has(.cardLink) .cardTitle {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.card:has(.cardLink) .cardTitle::after {
+  content: "";
+  flex: none;
+  width: 0.95rem;
+  height: 0.95rem;
+  align-self: center;
+  background-color: var(--wl-sky);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 8h10M9 4l4 4-4 4'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 8h10M9 4l4 4-4 4'/%3E%3C/svg%3E") center / contain no-repeat;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 180ms ease, transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card:has(.cardLink):hover .cardTitle::after,
+.card:has(.cardLink:focus-visible) .cardTitle::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.card:has(.cardLink):hover .cardLink {
+  color: var(--wl-sky-ink);
+}
+
 /* The whole card is clickable; links inside the body stay clickable above it */
 .card .cardLink::after {
   content: "";
@@ -167,7 +199,11 @@
   margin: 0;
 }
 
+/* --wl-pop and --wl-line default to 1 (fully drawn); src/client/motion.js
+   animates them from 0 as each step scrolls into view */
 .step::before {
+  transform: scale(var(--wl-pop, 1));
+  transform-origin: 50% 50%;
   content: counter(wl-step);
   position: absolute;
   left: 0;
@@ -193,6 +229,8 @@
   bottom: 0.2rem;
   width: 1px;
   background: var(--wl-border-default);
+  transform: scaleY(var(--wl-line, 1));
+  transform-origin: 50% 0;
 }
 
 .step:last-child {
@@ -302,7 +340,8 @@
 .dLabelMoss { fill: var(--wl-moss); }
 
 @media (prefers-reduced-motion: reduce) {
-  .card {
+  .card,
+  .card:has(.cardLink) .cardTitle::after {
     transition: none;
   }
   .card:has(.cardLink):hover {

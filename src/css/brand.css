@@ -41,6 +41,8 @@
   --wl-border-subtle: rgba(25, 25, 25, 0.07);
   --wl-border-default: rgba(25, 25, 25, 0.13);
   --wl-shadow-card: 0 1px 2px rgba(25, 25, 25, 0.04), 0 8px 24px -12px rgba(25, 25, 25, 0.12);
+  --wl-hover: rgba(25, 25, 25, 0.055);
+  --wl-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
   /* Type */
   --wl-font-display: "Denim INK", "Bricolage Grotesque", system-ui, sans-serif;
@@ -87,7 +89,7 @@
   --ifm-menu-color: var(--wl-fg-2);
   --ifm-menu-color-active: var(--wl-sky-ink);
   --ifm-menu-color-background-active: var(--wl-sky-tint);
-  --ifm-menu-color-background-hover: var(--wl-bg-muted);
+  --ifm-menu-color-background-hover: var(--wl-hover);
   --ifm-menu-link-padding-vertical: 0.4rem;
   --ifm-menu-link-padding-horizontal: 0.75rem;
   --ifm-global-radius: var(--wl-radius-sm);
@@ -125,6 +127,7 @@
   --wl-border-subtle: rgba(246, 246, 247, 0.08);
   --wl-border-default: rgba(246, 246, 247, 0.15);
   --wl-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  --wl-hover: rgba(255, 255, 255, 0.06);
 
   --ifm-color-primary: var(--wl-sky);
   --ifm-color-primary-dark: #6e85f4;
@@ -289,6 +292,34 @@ h1, h2, h3, h4, h5, h6,
 
 .markdown table tr {
   background: transparent;
+  transition: background-color 140ms ease;
+}
+
+.markdown table tbody tr:hover td {
+  background: var(--wl-sky-tint);
+}
+
+/* Group rows: a row whose second cell is empty, such as
+   | **Knowledge Graph** | | | |, reads as a section header */
+.markdown table tr:has(> td:nth-child(2):empty) td {
+  background: var(--wl-bg-muted);
+  color: var(--wl-sky-ink);
+  font-family: var(--wl-font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--wl-border-default);
+}
+
+.markdown table tr:has(> td:nth-child(2):empty) td strong {
+  font-weight: 500;
+}
+
+.markdown table tr:has(> td:nth-child(2):empty):hover td {
+  background: var(--wl-bg-muted);
 }
 
 /* Wide tables scroll inside their own box on small screens */
@@ -367,7 +398,51 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .navbar__logo {
-  height: 1.75rem;
+  height: 1.9rem;
+  margin-right: 0.6rem;
+}
+
+.navbar__logo img {
+  border-radius: 7px;
+  transition: transform 220ms var(--wl-ease-out);
+}
+
+.navbar__brand:hover .navbar__logo img {
+  transform: rotate(-6deg) scale(1.04);
+}
+
+/* Brand lockup: square mark, wordmark, then a mono "Docs" label */
+.navbar__title {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--wl-font-display);
+  font-weight: 400;
+  font-synthesis: none;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+  color: var(--wl-fg-1);
+}
+
+.navbar__title::after {
+  content: "Docs";
+  margin-left: 0.7rem;
+  padding-left: 0.7rem;
+  border-left: 1px solid var(--wl-border-default);
+  color: var(--wl-fg-3);
+  font-family: var(--wl-font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Raised navbar once the page scrolls (class set by src/client/motion.js) */
+.navbar {
+  transition: box-shadow 200ms ease, background-color 200ms ease;
+}
+
+html.wl-scrolled .navbar {
+  box-shadow: 0 1px 0 var(--wl-border-subtle), 0 10px 30px -18px rgba(25, 25, 25, 0.25);
 }
 
 .navbar__link {
@@ -378,7 +453,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .navbar__link:hover {
-  background: var(--wl-bg-muted);
+  background: var(--wl-hover);
 }
 
 .navbar__link--active {
@@ -413,13 +488,47 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .menu__link {
+  position: relative;
   border-radius: 7px;
   line-height: 1.35;
+  transition: background-color 160ms var(--wl-ease-out), color 160ms var(--wl-ease-out);
 }
 
+.menu__link:hover {
+  color: var(--wl-fg-1);
+}
+
+/* Active page: tinted row plus a Sky marker that grows in */
 .menu__link--active:not(.menu__link--sublist) {
   font-weight: 500;
   background: var(--wl-sky-tint-strong);
+}
+
+.menu__link:not(.menu__link--sublist)::before {
+  content: "";
+  position: absolute;
+  left: -0.4rem;
+  top: 22%;
+  bottom: 22%;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--wl-sky);
+  transform: scaleY(0);
+  transition: transform 220ms var(--wl-ease-out);
+}
+
+.menu__link--active:not(.menu__link--sublist)::before {
+  transform: scaleY(1);
+}
+
+.menu__caret::before,
+.menu__link--sublist-caret::after {
+  transition: transform 200ms var(--wl-ease-out), opacity 160ms ease;
+}
+
+.menu__caret:hover,
+.menu__link--sublist-caret:hover {
+  background: var(--wl-hover);
 }
 
 .menu__list .menu__list {
@@ -572,9 +681,132 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
+/* ---------- Micro-interactions ---------- */
+
+::selection {
+  background: rgba(52, 82, 219, 0.2);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.markdown :is(h2, h3, h4)[id] {
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 1.25rem);
+}
+
+/* Heading anchors fade in on hover */
+.hash-link {
+  opacity: 0;
+  color: var(--wl-fg-3);
+  transition: opacity 160ms ease, color 160ms ease;
+}
+
+:is(h2, h3, h4):hover .hash-link,
+.hash-link:focus-visible {
+  opacity: 1;
+}
+
+.hash-link:hover {
+  color: var(--wl-sky);
+}
+
+/* Visible, on-brand keyboard focus */
+:is(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--wl-sky);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Table of contents: active entry carries a Sky marker */
+.table-of-contents__link {
+  position: relative;
+  display: inline-block;
+  transition: color 160ms ease, transform 200ms var(--wl-ease-out);
+}
+
+.table-of-contents__link:hover {
+  transform: translateX(2px);
+}
+
+.theme-doc-toc-desktop .table-of-contents__link--active::before {
+  content: "";
+  position: absolute;
+  left: calc(-0.25rem - var(--ifm-toc-padding-horizontal, 0.5rem) - 1px);
+  top: 0.15em;
+  bottom: 0.15em;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--wl-sky);
+}
+
+/* Prev and next: the arrow nudges toward its direction */
+.pagination-nav__label {
+  transition: transform 220ms var(--wl-ease-out);
+}
+
+.pagination-nav__link--next:hover .pagination-nav__label {
+  transform: translateX(3px);
+}
+
+.pagination-nav__link--prev:hover .pagination-nav__label {
+  transform: translateX(-3px);
+}
+
+/* Code blocks: copy button appears on hover */
+.theme-code-block button {
+  transition: opacity 160ms ease, background-color 160ms ease;
+}
+
+.DocSearch-Button {
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.DocSearch-Button:hover {
+  border-color: var(--wl-sky);
+  box-shadow: 0 0 0 3px var(--wl-sky-tint);
+}
+
+/* Theme toggle turns a little on hover */
+.navbar [class*="toggleButton"] svg {
+  transition: transform 300ms var(--wl-ease-out);
+}
+
+.navbar [class*="toggleButton"]:hover svg {
+  transform: rotate(25deg);
+}
+
+/* Reading progress line under the navbar (element added by src/client/motion.js) */
+.wl-progress {
+  position: fixed;
+  top: var(--ifm-navbar-height);
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: calc(var(--ifm-z-index-fixed) + 1);
+  background: linear-gradient(90deg, var(--wl-sky), #5f7bf0);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .markdown a,
-  .pagination-nav__link {
+  .pagination-nav__link,
+  .pagination-nav__label,
+  .menu__link,
+  .menu__link::before,
+  .table-of-contents__link,
+  .navbar__logo img,
+  .navbar [class*="toggleButton"] svg {
     transition: none;
+  }
+
+  .wl-progress {
+    display: none;
   }
 }

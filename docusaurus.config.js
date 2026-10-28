@@ -119,49 +119,13 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             navbar: {
-                title: "Guide",
+                title: "WordLift",
                 logo: {
-                    alt: "WordLift",
-                    src: "img/logo.svg",
-                    srcDark: "img/logo-dark.svg",
+                    alt: "WordLift Docs",
+                    src: "img/logo-icon.svg",
                 },
+                // Sections live in the sidebar; the top bar is brand, search and GitHub.
                 items: [
-                    {
-                        to: "/welcome/",
-                        activeBaseRegex: "^/welcome/(?!api-reference)",
-                        position: "left",
-                        label: "Welcome",
-                    },
-                    {
-                        to: "/platform/",
-                        activeBaseRegex: "^/platform/(?!api-reference)",
-                        position: "left",
-                        label: "Platform",
-                    },
-                    {
-                        to: "/tools/",
-                        activeBaseRegex: "^/tools/(?!api-reference)",
-                        position: "left",
-                        label: "Tools",
-                    },
-                    {
-                        to: "/integrations/",
-                        activeBaseRegex: "^/integrations/(?!api-reference)",
-                        position: "left",
-                        label: "Integrations",
-                    },
-                    {
-                        to: "/apis-and-sdks/",
-                        activeBaseRegex: "^/apis-and-sdks/(?!api-reference)",
-                        position: "left",
-                        label: "APIs and SDKs",
-                    },
-                    {
-                        label: "API reference",
-                        position: "left",
-                        to: "/apis-and-sdks/api-reference/",
-                        activeBasePath: "apis-and-sdks/api-reference",
-                    },
                     {
                         href: "https://github.com/wordlift",
                         label: "GitHub",
@@ -287,6 +251,9 @@ const config = {
               contextualSearch: false,
             },
         }),
+
+    // Motion and micro-interactions (GSAP), run on every route change.
+    clientModules: [require.resolve("./src/client/motion.js")],
 
     plugins: [
         require.resolve("./src/plugins/denim-ink"),
