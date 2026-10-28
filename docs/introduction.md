@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.24 (October 2026) — Added a GraphSync guide to find the pages that changed since a date, with a sample GraphQL query and a curl example.
+Latest Release: 3.20.25 (October 2026) — Added a Query the Knowledge Graph section with GraphQL and SPARQL guides, including the new SPARQL endpoint and its W3C conformance, and public Monitor documentation.
 :::
 
 # 👋 Welcome to WordLift
