@@ -43,7 +43,7 @@ Connect the search data the workflows draw on and set up reusable prompts. Conne
     Copy ready-to-use prompts for common jobs.
   </Card>
   <Card title="WordPress plugin" href="/integrations/wordpress-plugin/">
-    If your team already runs the classic WordPress plugin, use it to manage entities in WordPress. New sites start with [WordLift Cloud](/welcome/install-wordlift-cloud/).
+    If your team already runs the classic WordPress plugin, use it to manage entities in WordPress. New sites start with [WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/).
   </Card>
 </Cards>
 

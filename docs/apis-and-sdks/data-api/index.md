@@ -23,7 +23,7 @@ You can inject structured data in two places: in the browser (client-side) or on
 
 WordLift Cloud loads `bootstrap.js` in the browser. The script detects the current page URL, fetches the structured data from the Data API, and injects it into the page as JSON-LD.
 
-Use this option when you can add a script to the page but do not control the server-side rendering pipeline. See [Install WordLift Cloud](/welcome/install-wordlift-cloud/) for the full setup.
+Use this option when you can add a script to the page but do not control the server-side rendering pipeline. See [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/) for the full setup.
 
 ### Server-side rendering {#server-side-rendering}
 
@@ -126,7 +126,7 @@ Client-side injection remains useful when implementation speed and minimal appli
 
 | Option | JSON-LD in initial HTML | Data API call happens | Follow |
 | --- | --- | --- | --- |
-| Client-side with WordLift Cloud | No | In the browser, after `bootstrap.js` runs | [Install WordLift Cloud](/welcome/install-wordlift-cloud/) |
+| Client-side with WordLift Cloud | No | In the browser, after `bootstrap.js` runs | [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/) |
 | Server-side rendering | Yes | On your server or edge, with a request-time cache | [Performance and caching](#performance-and-caching), [Cloudflare integration](/apis-and-sdks/data-api/cloudflare-integration/) |
 | Out-of-band cache prefill | Yes | In a scheduled job, never during rendering | [Out-of-band Data API cache prefill](/apis-and-sdks/data-api/out-of-band-cache-prefill/) |
 
@@ -292,6 +292,6 @@ Useful references:
 - [Migrate from client-side API to server-side API](/apis-and-sdks/data-api/migrate/)
 - [Out-of-band Data API cache prefill](/apis-and-sdks/data-api/out-of-band-cache-prefill/)
 - [Cloudflare integration](/apis-and-sdks/data-api/cloudflare-integration/)
-- [Install WordLift Cloud](/welcome/install-wordlift-cloud/)
+- [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/)
 - [Multilingual](/platform/knowledge-graph/multilingual/)
 - [Concepts](/concepts/), for definitions of JSON-LD and linked data

@@ -8,7 +8,7 @@ last_updated: 2026-10-27
 # WordPress plugin
 
 :::info[For existing installs]
-This section supports sites that already run the classic WordLift plugin. If you are a new customer, start with [Install WordLift Cloud](/welcome/install-wordlift-cloud/).
+This section supports sites that already run the classic WordLift plugin. If you are a new customer, start with [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/).
 :::
 
 The classic WordLift plugin analyzes your WordPress posts and pages, helps you build a vocabulary of entities that becomes your Knowledge Graph, publishes schema.org markup as JSON-LD, and adds blocks and widgets that help readers discover related content. It requires WordPress 5.3 or higher and PHP 7.4 or higher.
@@ -20,7 +20,7 @@ WordLift has two separate WordPress plugins. Check which one your site runs befo
 | Plugin | How to recognize it | Who it is for | Where to start |
 | --- | --- | --- | --- |
 | Classic WordLift plugin | Installed from the [WordPress plugin directory](https://wordpress.org/plugins/wordlift/). Adds a WordLift menu to the WordPress dashboard, a setup wizard and content analysis in the editor. | Existing customers | This section, starting with [Get started with the WordPress plugin](/integrations/wordpress-plugin/getting-started/) |
-| WordLift Cloud plugin | Listed as **WordLift Cloud** in **Plugins > Installed Plugins**. Loads the WordLift Cloud `bootstrap.js` script and adds an **Entity Types** panel to the editor. | New customers and sites on WordLift Cloud | [Install WordLift Cloud](/welcome/install-wordlift-cloud/), then [Select entity types for a web page](/integrations/wordpress-plugin/entity-types/) |
+| WordLift Cloud plugin | Listed as **WordLift Cloud** in **Plugins > Installed Plugins**. Loads the WordLift Cloud `bootstrap.js` script and adds an **Entity Types** panel to the editor. | New customers and sites on WordLift Cloud | [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/), then [Select entity types for a web page](/integrations/wordpress-plugin/entity-types/) |
 
 ## Get started
 

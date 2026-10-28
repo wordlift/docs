@@ -54,7 +54,7 @@ The WordLift key is the credential that authenticates your requests to WordLift 
 
 ## WordPress plugin terms
 
-These terms belong to the classic WordPress plugin, which WordLift supports for existing installs. New customers start with [WordLift Cloud](/welcome/install-wordlift-cloud/).
+These terms belong to the classic WordPress plugin, which WordLift supports for existing installs. New customers start with [WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/).
 
 ### Semantic fingerprint {#semantic-fingerprint}
 

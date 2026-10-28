@@ -33,7 +33,7 @@ Get your account live and your data flowing.
   <Card title="Onboarding overview" href="/welcome/#onboarding-overview">
     Follow the onboarding steps in order, from credentials to Agent WordLift.
   </Card>
-  <Card title="Install WordLift Cloud" href="/welcome/install-wordlift-cloud/">
+  <Card title="Install WordLift Cloud" href="/platform/knowledge-graph/schema-publishing/wordlift-cloud/">
     Add the launcher script that publishes your graph's structured data on your pages.
   </Card>
   <Card title="Dashboard" href="/platform/dashboard/">

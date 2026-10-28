@@ -45,7 +45,7 @@ Set up the workspace, then the identity and domain pieces your IT and admin team
   <Card title="Custom domain" href="/plans-and-pricing/custom-domain/" tag="enterprise">
     Publish your graph under a domain you control.
   </Card>
-  <Card title="Install WordLift Cloud" href="/welcome/install-wordlift-cloud/">
+  <Card title="Install WordLift Cloud" href="/platform/knowledge-graph/schema-publishing/wordlift-cloud/">
     After the domain decision, add the launcher script that publishes your graph's structured data.
   </Card>
 </Cards>

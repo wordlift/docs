@@ -30,13 +30,13 @@ Pick the surface that matches how your graph is built and how many entities you 
 | Surface | Best for | Guide |
 | --- | --- | --- |
 | WordPress plugin (existing installs) | Editing single entities and their entity pages in WordPress, from the Edit Post widget or the entity page. You can edit the name, description, image, entity types, permalink and same-as links. Publish or Update saves the change to WordPress and the graph. | [Edit entity](/integrations/wordpress-plugin/edit-entity/) and [Import and export the vocabulary](/integrations/wordpress-plugin/import-export-vocabulary/) |
-| WordLift Cloud sidebar | Annotating a page that has the WordLift Cloud script installed. Press `Ctrl + Alt + W`, point and click the area to annotate and pick entities. WordLift saves and publishes the JSON-LD. | [Annotate a page](/welcome/install-wordlift-cloud/#annotate-a-page) |
+| WordLift Cloud sidebar | Annotating a page that has the WordLift Cloud script installed. Press `Ctrl + Alt + W`, point and click the area to annotate and pick entities. WordLift saves and publishes the JSON-LD. | [Annotate a page](/platform/knowledge-graph/schema-publishing/wordlift-cloud/#annotate-a-page) |
 | WordLift Cloud WordPress plugin | Setting entity types on a post or page through the Entity Types panel. The plugin outputs a `wl:entity_type` meta tag for each selected type. | [Select entity types](/integrations/wordpress-plugin/entity-types/) |
 | GraphSync | Creating and updating entities for many pages from source-specific mappings. GraphSync keeps entity identities stable across synchronization runs. | [GraphSync](/platform/knowledge-graph/graph-sync/) |
 | KG-REST | Programmatic create, read, update and delete: `GET /entities?id=...`, `PUT /entities` (JSON-LD), `DELETE /entities?id=...` and `POST /dataset/batch` for batches. | [KG-REST](/apis-and-sdks/kg-rest/) |
 | worai CLI | Bulk changes from files: `worai patch` from Turtle or JSON-LD, `worai upload-entities-from-turtle` and `worai delete-entities-from-csv`. | [patch](/tools/worai-cli/commands/patch/), [upload-entities-from-turtle](/tools/worai-cli/commands/upload-entities-from-turtle/), [delete-entities-from-csv](/tools/worai-cli/commands/delete-entities-from-csv/) |
 
-The classic WordPress plugin is documented for existing installs. New customers start with [WordLift Cloud](/welcome/install-wordlift-cloud/).
+The classic WordPress plugin is documented for existing installs. New customers start with [WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/).
 
 Don't assume that an edit in one surface reaches the others. For example, an entity you change in WordPress or through KG-REST is not documented to keep that change after a GraphSync run.
 

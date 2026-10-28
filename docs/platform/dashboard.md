@@ -7,7 +7,7 @@ last_updated: 2026-10-27
 
 # WordLift Dashboard
 
-The WordLift Dashboard at [my.wordlift.io](https://my.wordlift.io) is where you sign in, choose a Knowledge Graph and reach WordLift's tools and settings. Installing WordLift Cloud on your website is a separate onboarding step: see [Install WordLift Cloud](/welcome/install-wordlift-cloud/).
+The WordLift Dashboard at [my.wordlift.io](https://my.wordlift.io) is where you sign in, choose a Knowledge Graph and reach WordLift's tools and settings. Installing WordLift Cloud on your website is a separate onboarding step: see [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/).
 
 :::warning[Review needed]
 TODO [SME]: confirm the current Dashboard navigation labels (home, websites or graphs list, Data Sources, + Add Merchant, Content Generation, Monitor, settings) and replace the screenshots below if the UI has changed.

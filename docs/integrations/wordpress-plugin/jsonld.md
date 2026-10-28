@@ -6,7 +6,7 @@ last_updated: 2026-10-27
 
 # JSON-LD output
 
-The classic WordLift plugin adds JSON-LD to each post. The JSON-LD describes the post with schema.org types and properties, and links it to the entities and terms connected to it. This page lists the rules that decide what goes into the `about` and `mentions` properties and which entities are expanded, so you can predict the output, fix annotations and customize the result. It is for existing installs of the classic plugin. New customers start with [Install WordLift Cloud](/welcome/install-wordlift-cloud/). For a definition of JSON-LD, see [Concepts](/concepts/).
+The classic WordLift plugin adds JSON-LD to each post. The JSON-LD describes the post with schema.org types and properties, and links it to the entities and terms connected to it. This page lists the rules that decide what goes into the `about` and `mentions` properties and which entities are expanded, so you can predict the output, fix annotations and customize the result. It is for existing installs of the classic plugin. New customers start with [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/). For a definition of JSON-LD, see [Concepts](/concepts/).
 
 ## How WordLift builds a post's JSON-LD
 

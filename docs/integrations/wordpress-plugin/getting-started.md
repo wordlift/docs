@@ -8,7 +8,7 @@ last_updated: 2026-10-27
 
 # Get started with the WordPress plugin
 
-Install, activate and configure the classic WordLift plugin once per site, for example when you add WordLift to a new environment, a rebuilt site or an additional site on your account. This guide is for existing customers who already use the classic plugin. New customers start with [Install WordLift Cloud](/welcome/install-wordlift-cloud/).
+Install, activate and configure the classic WordLift plugin once per site, for example when you add WordLift to a new environment, a rebuilt site or an additional site on your account. This guide is for existing customers who already use the classic plugin. New customers start with [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/).
 
 ## Before you begin {#requirements}
 

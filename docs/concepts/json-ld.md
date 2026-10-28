@@ -68,7 +68,7 @@ Treat JSON-LD as data, not text. Parse and serialize it with a JSON-LD or RDF li
 
 The same JSON-LD can reach the page in two places:
 
-- **Client-side.** [WordLift Cloud](/welcome/install-wordlift-cloud/) loads `bootstrap.js` in the browser. The script detects the page URL, fetches the JSON-LD from the Data API and adds it to the rendered page. The JSON-LD is not in the initial HTML the server returns.
+- **Client-side.** [WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/) loads `bootstrap.js` in the browser. The script detects the page URL, fetches the JSON-LD from the Data API and adds it to the rendered page. The JSON-LD is not in the initial HTML the server returns.
 - **Server-side, build-time or edge.** Your server, static-site generator, edge function or application framework fetches the JSON-LD from the Data API and puts it in the HTML before the page is returned. The [Cloudflare integration](/apis-and-sdks/data-api/cloudflare-integration/) and [out-of-band cache prefill](/apis-and-sdks/data-api/out-of-band-cache-prefill/) are examples.
 
 The difference matters because consumers read pages in different ways. Googlebot renders JavaScript, so it sees client-side JSON-LD. Some AI crawlers, retrieval systems and agentic tools inspect only the raw HTML response, so they miss JSON-LD that a script adds later. When AI search visibility or access by crawlers that do not run JavaScript is a priority, prefer server-side delivery. Client-side delivery suits cases where speed of setup and minimal application changes come first. The [Data API](/apis-and-sdks/data-api/#choosing-client-side-or-server-side-injection) explains the tradeoffs and the setup.

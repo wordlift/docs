@@ -28,7 +28,7 @@ The icon status line is a quick health check for your WordLift Cloud setup. It c
 
 | Status | Icon | Meaning | What to do |
 |---|---|---|---|
-| **Red** | <img src="/img/agent-wordlift-extension/status-red.png" alt="Red status icon" width="64" /> | `bootstrap.js` is missing. | [Add the script to the page](/welcome/install-wordlift-cloud/) and reload. |
+| **Red** | <img src="/img/agent-wordlift-extension/status-red.png" alt="Red status icon" width="64" /> | `bootstrap.js` is missing. | [Add the script to the page](/platform/knowledge-graph/schema-publishing/wordlift-cloud/) and reload. |
 | **Orange** | <img src="/img/agent-wordlift-extension/status-orange.png" alt="Orange status icon" width="64" /> | `bootstrap.js` is present but the configuration is likely incorrect and may fail. | Contact [support@wordlift.io](mailto:support@wordlift.io) or your account manager to validate the configuration. |
 | **Green** | <img src="/img/agent-wordlift-extension/status-green.png" alt="Green status icon" width="64" /> | The configuration is valid. | No action needed. WordLift Cloud `bootstrap.js` is configured correctly. |
 
@@ -44,7 +44,7 @@ For more help, see Google's guide [Install and manage extensions](https://suppor
 
 ## Related docs
 
-- [Install WordLift Cloud](/welcome/install-wordlift-cloud/)
+- [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/)
 - [Interfaces and tools](/tools/)
 - [Prompt Library](/platform/agent-wordlift/prompt-library/)
 - [All Agent WordLift integrations](/platform/agent-wordlift/integrations/)

@@ -20,10 +20,10 @@ Check [status.wordlift.io](https://status.wordlift.io) first. If it shows an inc
 
 | Symptom | What to check | Full fix |
 | --- | --- | --- |
-| The WordLift Cloud script or its API requests are blocked | Your Content Security Policy and any ad blockers. | [Install WordLift Cloud](/welcome/install-wordlift-cloud/#validate-the-markup) |
-| Google misses the markup, or the markup loads late | `bootstrap.js` must be loaded directly in the page `<head>`. Google Tag Manager is the only supported alternative loader. | [Install WordLift Cloud](/welcome/install-wordlift-cloud/#validate-the-markup) |
-| The WordLift Cloud widget does not open | You are logged in, and the launcher is present in `<head>`. | [Install WordLift Cloud](/welcome/install-wordlift-cloud/#validate-the-markup) |
-| Markup appears in the wrong language | The `lang` attribute on the `<html>` element. The launcher reads the language from it. | [Install WordLift Cloud](/welcome/install-wordlift-cloud/#validate-the-markup) |
+| The WordLift Cloud script or its API requests are blocked | Your Content Security Policy and any ad blockers. | [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/#validate-the-markup) |
+| Google misses the markup, or the markup loads late | `bootstrap.js` must be loaded directly in the page `<head>`. Google Tag Manager is the only supported alternative loader. | [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/#validate-the-markup) |
+| The WordLift Cloud widget does not open | You are logged in, and the launcher is present in `<head>`. | [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/#validate-the-markup) |
+| Markup appears in the wrong language | The `lang` attribute on the `<html>` element. The launcher reads the language from it. | [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/#validate-the-markup) |
 | The WordPress plugin outputs an Author whose `@id` is null | The post still points to an author who was removed. Select a valid author on the Edit Post screen and update the post. | [WordPress plugin troubleshooting](/integrations/wordpress-plugin/troubleshooting/) |
 | Pages linked by the WordPress plugin return a 404 error | Open **Settings > Permalinks** in WordPress and select **Save Changes**. | [FAQ: 404 errors](/support/faq/#why-do-i-get-404-error-on-pages-linked-by-wordlift) |
 

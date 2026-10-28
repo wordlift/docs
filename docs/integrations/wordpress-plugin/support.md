@@ -8,7 +8,7 @@ last_updated: 2026-10-27
 
 # Get help with the WordPress plugin
 
-When something in the classic WordLift plugin isn't working, check the common fixes first, then contact the right channel with the details it needs. This page supports existing installs of the classic plugin. New customers start with [Install WordLift Cloud](/welcome/install-wordlift-cloud/).
+When something in the classic WordLift plugin isn't working, check the common fixes first, then contact the right channel with the details it needs. This page supports existing installs of the classic plugin. New customers start with [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/).
 
 ## Check these first
 

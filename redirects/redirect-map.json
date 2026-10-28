@@ -137,11 +137,11 @@
   },
   {
     "from": "/cloud/",
-    "to": "/welcome/install-wordlift-cloud/"
+    "to": "/platform/knowledge-graph/schema-publishing/wordlift-cloud/"
   },
   {
     "from": "/cloud/google-tag-manager/",
-    "to": "/welcome/install-wordlift-cloud/google-tag-manager/"
+    "to": "/platform/knowledge-graph/schema-publishing/wordlift-cloud/google-tag-manager/"
   },
   {
     "from": "/cloud/wordpress-plugin-entity-types/",
@@ -149,7 +149,7 @@
   },
   {
     "from": "/cloud/wordpress-plugin/",
-    "to": "/welcome/install-wordlift-cloud/"
+    "to": "/platform/knowledge-graph/schema-publishing/wordlift-cloud/"
   },
   {
     "from": "/content-generation/",

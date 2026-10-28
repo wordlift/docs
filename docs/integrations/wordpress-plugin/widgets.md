@@ -6,7 +6,7 @@ last_updated: 2026-10-27
 
 # Widgets and shortcodes
 
-WordLift widgets help readers discover related content through the entities on your WordPress site. As you create and mention more entities, the widgets update their content without any work from the editor. Each widget on this page has a shortcode, and most also have a block. This reference is for existing installs of the classic plugin. New customers start with [Install WordLift Cloud](/welcome/install-wordlift-cloud/).
+WordLift widgets help readers discover related content through the entities on your WordPress site. As you create and mention more entities, the widgets update their content without any work from the editor. Each widget on this page has a shortcode, and most also have a block. This reference is for existing installs of the classic plugin. New customers start with [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/).
 
 ## Choose a widget {#widget-shortcodes}
 

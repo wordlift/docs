@@ -7,7 +7,7 @@ last_updated: 2026-10-27
 
 # Publish and check structured data
 
-When you publish a post, a page or an entity with the classic WordLift plugin, WordLift publishes structured data that describes it and the entities it mentions. Use this page to understand that output and to check it from the editor before you move on. This guide is for existing installs of the classic plugin. New customers start with [Install WordLift Cloud](/welcome/install-wordlift-cloud/).
+When you publish a post, a page or an entity with the classic WordLift plugin, WordLift publishes structured data that describes it and the entities it mentions. Use this page to understand that output and to check it from the editor before you move on. This guide is for existing installs of the classic plugin. New customers start with [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/).
 
 ## What WordLift publishes {#publish-entity}
 

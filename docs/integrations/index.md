@@ -12,7 +12,7 @@ Two other sections cover different needs. To operate WordLift directly (for exam
 
 ## Content management and e-commerce
 
-- **[WordPress plugin](/integrations/wordpress-plugin/):** Supports existing installs of the classic WordLift plugin, from installation to structured data output, widgets and customization. New customers start with [WordLift Cloud](/welcome/install-wordlift-cloud/) instead.
+- **[WordPress plugin](/integrations/wordpress-plugin/):** Supports existing installs of the classic WordLift plugin, from installation to structured data output, widgets and customization. New customers start with [WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/) instead.
 - **[WooCommerce](/integrations/woocommerce/):** WooCommerce SEO by WordLift adds structured data to your WooCommerce products and builds a Product Graph from the connections between products, brands, product categories and features.
 
 ## Automation
@@ -34,4 +34,4 @@ Two other sections cover different needs. To operate WordLift directly (for exam
 
 - **AI assistants:** Use the [MCP Server](/tools/mcp-server/) to work with your Knowledge Graph from an AI assistant.
 - **Product feeds:** Use the [Product Knowledge Graph](/platform/knowledge-graph/product-knowledge-graph/) to build a graph from your product data.
-- **Any website:** Load the WordLift Cloud script on any site with [Install WordLift Cloud](/welcome/install-wordlift-cloud/).
+- **Any website:** Load the WordLift Cloud script on any site with [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/).

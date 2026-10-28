@@ -7,7 +7,7 @@ last_updated: 2026-10-27
 # Semantic analytics
 
 :::note
-This page supports existing installs of the classic WordPress plugin; new customers start with [WordLift Cloud](/welcome/install-wordlift-cloud/).
+This page supports existing installs of the classic WordPress plugin; new customers start with [WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/).
 :::
 
 Use WordLift to create an entity-based [web analytics dashboard](https://wordlift.io/blog/en/semantic-web-analytics/) in Looker Studio (formerly Google Data Studio), with traffic data from Google Analytics.

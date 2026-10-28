@@ -7,7 +7,7 @@ last_updated: 2026-10-27
 # Analysis
 
 :::note
-This page supports existing installs of the classic WordPress plugin; new customers start with [WordLift Cloud](/welcome/install-wordlift-cloud/).
+This page supports existing installs of the classic WordPress plugin; new customers start with [WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/).
 :::
 
 WordLift suggests relevant facts, images and links that help you organize and enrich your content.

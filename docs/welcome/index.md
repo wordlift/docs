@@ -9,6 +9,8 @@ last_updated: 2026-10-27
 
 WordLift is a knowledge graph technology and platform. It has two pillars. The **Knowledge Graph** is the memory: Data Sources feed it your content, products and search data, and it stores them as entities and relationships. **Agent WordLift** is the agentic AI that operates on the graph. SEO and AI visibility are one application of the platform, and these docs show you how to set it up and use it.
 
+<PlatformDiagram />
+
 ## What you can do with WordLift
 
 <Cards cols={2}>
@@ -16,7 +18,7 @@ WordLift is a knowledge graph technology and platform. It has two pillars. The *
     Turn your website content and product catalog into a graph of entities and relationships, and keep it current with GraphSync. Start at [Knowledge Graph](/platform/knowledge-graph/).
   </Card>
   <Card title="Publish structured data">
-    Deliver schema.org JSON-LD from your graph to your pages with [WordLift Cloud](/welcome/install-wordlift-cloud/), or server side through the Data API. See [Schema publishing](/platform/knowledge-graph/schema-publishing/).
+    Deliver schema.org JSON-LD from your graph to your pages with [WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/), or server side through the Data API. See [Schema publishing](/platform/knowledge-graph/schema-publishing/).
   </Card>
   <Card title="Put Agent WordLift to work">
     Run workflows that evaluate content, build internal links, research keywords and write product descriptions from your graph. Start at [Agent WordLift](/platform/agent-wordlift/).
@@ -93,7 +95,7 @@ Decide your dataset URI strategy before production, because changing it later ca
 
 <Step title="Install WordLift Cloud">
 
-Add the `bootstrap.js` launcher to the head of every page, or load it with Google Tag Manager or the WordLift Cloud WordPress plugin. The script publishes what your graph holds for each URL, so JSON-LD appears once steps 7 or 8 populate the graph. See [Install WordLift Cloud](/welcome/install-wordlift-cloud/).
+Add the `bootstrap.js` launcher to the head of every page, or load it with Google Tag Manager or the WordLift Cloud WordPress plugin. The script publishes what your graph holds for each URL, so JSON-LD appears once steps 7 or 8 populate the graph. See [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/).
 
 </Step>
 

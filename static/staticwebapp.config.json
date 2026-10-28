@@ -402,7 +402,7 @@
   },
   {
    "route": "/cloud/google-tag-manager*",
-   "redirect": "/welcome/install-wordlift-cloud/google-tag-manager/",
+   "redirect": "/platform/knowledge-graph/schema-publishing/wordlift-cloud/google-tag-manager/",
    "statusCode": 301
   },
   {
@@ -452,7 +452,7 @@
   },
   {
    "route": "/cloud/wordpress-plugin*",
-   "redirect": "/welcome/install-wordlift-cloud/",
+   "redirect": "/platform/knowledge-graph/schema-publishing/wordlift-cloud/",
    "statusCode": 301
   },
   {
@@ -677,7 +677,7 @@
   },
   {
    "route": "/cloud*",
-   "redirect": "/welcome/install-wordlift-cloud/",
+   "redirect": "/platform/knowledge-graph/schema-publishing/wordlift-cloud/",
    "statusCode": 301
   },
   {

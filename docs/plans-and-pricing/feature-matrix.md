@@ -23,7 +23,7 @@ WordLift has two plans, Business+ and Enterprise, and Enterprise includes everyt
 | Data Sources | <Yes /> | <Yes /> | [Data Sources](/platform/data-sources/) |
 | **Publishing and content** | | | |
 | Schema markup and structured data publishing | <Yes /> | <Yes /> | [Schema publishing](/platform/knowledge-graph/schema-publishing/) |
-| WordLift Cloud | <Yes /> | <Yes /> | [Install WordLift Cloud](/welcome/install-wordlift-cloud/) |
+| WordLift Cloud | <Yes /> | <Yes /> | [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/) |
 | AI content creation | <Yes /> | <Yes /> | [Content generation](/platform/agent-wordlift/content-generation/) |
 | **Visibility** | | | |
 | Monitor <Tag type="early-access" /> | <Yes /> | <Yes /> | [Monitor](/platform/monitor/) |

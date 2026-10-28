@@ -163,7 +163,7 @@ The command-line tool for building, synchronizing and auditing a Knowledge Graph
 
 ### WordLift Cloud {#wordlift-cloud}
 
-The hosted way to publish your Knowledge Graph's structured data on any website through one script, `bootstrap.js`. Read [Install WordLift Cloud](/welcome/install-wordlift-cloud/).
+The hosted way to publish your Knowledge Graph's structured data on any website through one script, `bootstrap.js`. Read [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/).
 
 ### WordLift key {#wordlift-key}
 

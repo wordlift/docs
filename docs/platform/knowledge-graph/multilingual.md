@@ -36,7 +36,7 @@ See [Data API](../../apis-and-sdks/data-api/index.md) for URL formatting, output
 
 ## WordLift Cloud script {#cloud-script}
 
-The [WordLift Cloud](/welcome/install-wordlift-cloud/) script (`bootstrap.js`) selects the correct language automatically by parsing the `html` element's `lang` attribute. For example, the `<html lang="en">` tag tells `bootstrap.js` to request the structured data for English, and the script appends `__wl_lang=en` to the request.
+The [WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/) script (`bootstrap.js`) selects the correct language automatically by parsing the `html` element's `lang` attribute. For example, the `<html lang="en">` tag tells `bootstrap.js` to request the structured data for English, and the script appends `__wl_lang=en` to the request.
 
 ## WordLift Data API multilingual request flow
 

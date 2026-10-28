@@ -8,7 +8,7 @@ last_updated: 2026-10-27
 
 # Customize the WordPress plugin
 
-Change how the classic WordLift plugin's widgets, entity pages and JSON-LD look and behave without editing plugin code. This page lists the supported routes and links to the details and sample code. It is for developers working on existing installs of the classic plugin. New customers start with [Install WordLift Cloud](/welcome/install-wordlift-cloud/).
+Change how the classic WordLift plugin's widgets, entity pages and JSON-LD look and behave without editing plugin code. This page lists the supported routes and links to the details and sample code. It is for developers working on existing installs of the classic plugin. New customers start with [Install WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/).
 
 ## Choose your approach
 

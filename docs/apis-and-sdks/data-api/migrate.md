@@ -23,7 +23,7 @@ Confirm that your team can:
 - add a cache for Data API responses;
 - validate JSON-LD in the rendered HTML.
 
-If you cannot change the server-side rendering pipeline, continue using the [WordLift Cloud script](../../welcome/install-wordlift-cloud/index.md).
+If you cannot change the server-side rendering pipeline, continue using the [WordLift Cloud script](../../platform/knowledge-graph/schema-publishing/wordlift-cloud/index.md).
 
 ## What changes
 
@@ -214,5 +214,5 @@ After validation, remove or disable the client-side JSON-LD injection for the mi
 - [Data API](./index.md)
 - [Choosing client-side or server-side injection](./index.md#choosing-client-side-or-server-side-injection)
 - [Performance and caching](./index.md#performance-and-caching)
-- [WordLift Cloud script](../../welcome/install-wordlift-cloud/index.md)
+- [WordLift Cloud script](../../platform/knowledge-graph/schema-publishing/wordlift-cloud/index.md)
 - [Multilingual graphs](../../platform/knowledge-graph/multilingual.md)

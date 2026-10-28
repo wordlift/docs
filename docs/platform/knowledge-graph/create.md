@@ -43,4 +43,4 @@ Some related APIs and tools are useful around a Knowledge Graph but are not alte
 - [Web Page Scrape](/apis-and-sdks/api-reference/manager/create-web-page-scrape/) retrieves extracted page content but does not write it to the graph.
 - [GraphQL](/apis-and-sdks/api-reference/graphql/graphql-support/) queries data that is already in the graph.
 - [Analytics Import](../../apis-and-sdks/analytics-api.md) and [Data Sources](../data-sources/oauth2.md) enrich graph pages with authorized search or analytics data after the page entities exist.
-- [WordLift Cloud](/welcome/install-wordlift-cloud/) and the [Data API](../../apis-and-sdks/data-api/index.md) publish graph-backed structured data on a website; they do not define the source-to-graph model.
+- [WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/) and the [Data API](../../apis-and-sdks/data-api/index.md) publish graph-backed structured data on a website; they do not define the source-to-graph model.

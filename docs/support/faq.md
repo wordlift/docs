@@ -113,7 +113,7 @@ Agent WordLift has its own FAQ. Go straight to the topic you need:
 
 ## WordPress plugin {#wordpress-plugin}
 
-These answers apply to existing installs of the classic WordPress plugin. New customers start with [WordLift Cloud](/welcome/install-wordlift-cloud/).
+These answers apply to existing installs of the classic WordPress plugin. New customers start with [WordLift Cloud](/platform/knowledge-graph/schema-publishing/wordlift-cloud/).
 
 ### What are the languages supported by WordLift? {#what-are-the-languages-supported-by-wordlift}
 

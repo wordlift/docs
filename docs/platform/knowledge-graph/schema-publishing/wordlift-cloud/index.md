@@ -47,7 +47,7 @@ Once installed, the script:
 
 WordLift stores your annotations in WordLift Cloud and publishes them on the page as `schema.org` JSON-LD.
 
-Load `bootstrap.js` in `<head>` directly. Other loaders can delay the markup so Google misses it. Google Tag Manager is the only supported alternative loader: see [Load WordLift Cloud with Google Tag Manager](/welcome/install-wordlift-cloud/google-tag-manager/). On WordPress, use the [WordLift Cloud plugin](#wordpress-plugin) instead.
+Load `bootstrap.js` in `<head>` directly. Other loaders can delay the markup so Google misses it. Google Tag Manager is the only supported alternative loader: see [Load WordLift Cloud with Google Tag Manager](/platform/knowledge-graph/schema-publishing/wordlift-cloud/google-tag-manager/). On WordPress, use the [WordLift Cloud plugin](#wordpress-plugin) instead.
 
 ### Multilingual sites {#multilingual-behavior}
 

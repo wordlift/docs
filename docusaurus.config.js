@@ -18,8 +18,8 @@ const movedPageRedirects = require("./redirects/redirect-map.json")
 
 // Legacy Read the Docs URLs, retargeted to the v3 paths.
 const legacyRedirects = [
-    {from: "/en/latest/wordlift-cloud.html", to: "/welcome/install-wordlift-cloud/"},
-    {from: "/pages/wordlift-cloud", to: "/welcome/install-wordlift-cloud/"},
+    {from: "/en/latest/wordlift-cloud.html", to: "/platform/knowledge-graph/schema-publishing/wordlift-cloud/"},
+    {from: "/pages/wordlift-cloud", to: "/platform/knowledge-graph/schema-publishing/wordlift-cloud/"},
     {from: "/en/latest/troubleshooting.html", to: "/integrations/wordpress-plugin/troubleshooting/"},
     {from: "/en/latest/key-concepts.html", to: "/concepts/"},
     {from: "/en/latest/edit-entity.html", to: "/integrations/wordpress-plugin/edit-entity/"},

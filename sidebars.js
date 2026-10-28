@@ -106,21 +106,12 @@ const sidebars = {
   docs: [
     clusterHeading("Product"),
     section("Welcome", "welcome/index", [
-      section("Install WordLift Cloud", "welcome/install-wordlift-cloud/index", [
-        "welcome/install-wordlift-cloud/google-tag-manager",
-      ]),
-      {
-        type: "category",
-        label: "Choose your path",
-        items: [
-          "welcome/paths/business-plus",
-          "welcome/paths/enterprise",
-          "welcome/paths/developer",
-          "welcome/paths/content-team",
-          "welcome/paths/marketing-team",
-          "welcome/paths/e-commerce",
-        ],
-      },
+      "welcome/paths/business-plus",
+      "welcome/paths/enterprise",
+      "welcome/paths/developer",
+      "welcome/paths/content-team",
+      "welcome/paths/marketing-team",
+      "welcome/paths/e-commerce",
     ], icon("welcome")),
     section("Platform", "platform/index", [
       "platform/dashboard",
@@ -136,7 +127,13 @@ const sidebars = {
           "platform/knowledge-graph/graph-sync/find-what-changed",
         ]),
         "platform/knowledge-graph/entity-management",
-        "platform/knowledge-graph/schema-publishing",
+        section("Schema publishing", "platform/knowledge-graph/schema-publishing/index", [
+          section(
+            "Install WordLift Cloud",
+            "platform/knowledge-graph/schema-publishing/wordlift-cloud/index",
+            ["platform/knowledge-graph/schema-publishing/wordlift-cloud/google-tag-manager"]
+          ),
+        ]),
         section(
           "Product Knowledge Graph",
           "platform/knowledge-graph/product-knowledge-graph/index",
