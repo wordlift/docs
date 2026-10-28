@@ -12,7 +12,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 let mm;
-let progress;
 
 if (ExecutionEnvironment.canUseDOM) {
     gsap.registerPlugin(ScrollTrigger);
@@ -24,16 +23,28 @@ if (ExecutionEnvironment.canUseDOM) {
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
+
+    // Tabs: keep the sliding underline under the active tab.
+    const onTabsChange = () => window.requestAnimationFrame(syncTabs);
+    document.addEventListener("click", (e) => {
+        if (e.target.closest && e.target.closest(".tabs__item")) onTabsChange();
+    });
+    document.addEventListener("keyup", (e) => {
+        if (e.target.closest && e.target.closest(".tabs")) onTabsChange();
+    });
+    window.addEventListener("resize", onTabsChange, { passive: true });
 }
 
-function ensureProgressBar() {
-    if (!progress) {
-        progress = document.createElement("div");
-        progress.className = "wl-progress";
-        progress.setAttribute("aria-hidden", "true");
-        document.body.appendChild(progress);
-    }
-    return progress;
+function syncTabs() {
+    document.querySelectorAll(".theme-tabs-container > .tabs").forEach((list) => {
+        const active = list.querySelector(".tabs__item--active");
+        if (!active) {
+            return;
+        }
+        list.style.setProperty("--wl-tab-x", `${active.offsetLeft}px`);
+        list.style.setProperty("--wl-tab-w", `${active.offsetWidth}px`);
+        list.classList.add("wl-tabs-ready");
+    });
 }
 
 function animatePage() {
@@ -108,21 +119,6 @@ function animatePage() {
                     ease: "power2.inOut",
                 }, "-=0.2");
         });
-
-        // Reading progress along the navbar edge, on pages long enough to need it.
-        const bar = ensureProgressBar();
-        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-        bar.style.display = scrollable > 600 ? "" : "none";
-        const setScale = gsap.quickSetter(bar, "scaleX");
-        ScrollTrigger.create({
-            start: 0,
-            end: "max",
-            onUpdate: (self) => setScale(self.progress),
-        });
-
-        return () => {
-            bar.style.display = "none";
-        };
     });
 }
 
@@ -134,6 +130,7 @@ export function onRouteDidUpdate({ location, previousLocation }) {
         return; // same page, only the hash changed
     }
     window.requestAnimationFrame(() => {
+        syncTabs();
         animatePage();
         ScrollTrigger.refresh();
     });

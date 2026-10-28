@@ -404,11 +404,6 @@ h1, h2, h3, h4, h5, h6,
 
 .navbar__logo img {
   border-radius: 7px;
-  transition: transform 220ms var(--wl-ease-out);
-}
-
-.navbar__brand:hover .navbar__logo img {
-  transform: rotate(-6deg) scale(1.04);
 }
 
 /* Brand lockup: square mark, wordmark, then a mono "Docs" label */
@@ -555,6 +550,56 @@ html.wl-scrolled .navbar {
 
 .theme-doc-sidebar-menu > li:first-child .sidebar-cluster-heading {
   margin-top: 0.5rem;
+}
+
+/* ---------- Sidebar section icons ----------
+ * Outline icons from Untitled UI (untitledui.com/icons), the WordLift
+ * brand icon set. Licensed for use in our products; not for redistribution
+ * as an icon set. Drawn as CSS masks so they take the text color. */
+
+.wl-ico-welcome { --wl-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 17h8M11.018 2.764 4.235 8.039c-.453.353-.68.53-.843.75a2 2 0 0 0-.318.65C3 9.704 3 9.991 3 10.565V17.8c0 1.12 0 1.68.218 2.108a2 2 0 0 0 .874.874C4.52 21 5.08 21 6.2 21h11.6c1.12 0 1.68 0 2.108-.218a2 2 0 0 0 .874-.874C21 19.48 21 18.92 21 17.8v-7.235c0-.574 0-.861-.074-1.126a2.002 2.002 0 0 0-.318-.65c-.163-.22-.39-.397-.843-.75l-6.783-5.275c-.351-.273-.527-.41-.72-.462a1 1 0 0 0-.523 0c-.194.052-.37.189-.721.462Z'/%3E%3C/svg%3E"); }
+.wl-ico-platform { --wl-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m2 12 9.642 4.821c.131.066.197.099.266.111.06.012.123.012.184 0 .069-.012.135-.045.266-.11L22 12M2 17l9.642 4.821c.131.066.197.099.266.111.06.012.123.012.184 0 .069-.012.135-.045.266-.11L22 17M2 7l9.642-4.821c.131-.066.197-.098.266-.111a.5.5 0 0 1 .184 0c.069.013.135.045.266.11L22 7l-9.642 4.821a1.028 1.028 0 0 1-.266.111.501.501 0 0 1-.184 0c-.069-.012-.135-.045-.266-.11L2 7Z'/%3E%3C/svg%3E"); }
+.wl-ico-tools { --wl-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 6 4.5 4.5M6 6H3L2 3l1-1 3 1v3Zm13.259-3.259-2.628 2.628c-.396.396-.594.594-.668.822a1 1 0 0 0 0 .618c.074.228.272.426.668.822l.238.238c.396.396.594.594.822.668a1 1 0 0 0 .618 0c.228-.074.426-.272.822-.668L21.59 5.41a5.5 5.5 0 0 1-6.16 7.485c-.485-.096-.729-.144-.876-.13a.836.836 0 0 0-.373.114c-.13.07-.261.201-.523.463L6.5 20.5a2.121 2.121 0 0 1-3-3l7.157-7.157c.262-.262.393-.393.463-.524a.836.836 0 0 0 .113-.372c.015-.148-.033-.39-.129-.877a5.5 5.5 0 0 1 8.155-5.83ZM12 15l5.5 5.5a2.121 2.121 0 0 0 3-3l-4.525-4.525a5.475 5.475 0 0 1-.934-.17c-.39-.107-.816-.03-1.101.255L12 15Z'/%3E%3C/svg%3E"); }
+.wl-ico-integrations { --wl-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7.5 4.5a2.5 2.5 0 0 1 5 0V6h1c1.398 0 2.097 0 2.648.228a3 3 0 0 1 1.624 1.624C18 8.403 18 9.102 18 10.5h1.5a2.5 2.5 0 0 1 0 5H18v1.7c0 1.68 0 2.52-.327 3.162a3 3 0 0 1-1.311 1.311C15.72 22 14.88 22 13.2 22h-.7v-1.75a2.25 2.25 0 0 0-4.5 0V22H6.8c-1.68 0-2.52 0-3.162-.327a3 3 0 0 1-1.311-1.311C2 19.72 2 18.88 2 17.2v-1.7h1.5a2.5 2.5 0 0 0 0-5H2c0-1.398 0-2.097.228-2.648a3 3 0 0 1 1.624-1.624C4.403 6 5.102 6 6.5 6h1V4.5Z'/%3E%3C/svg%3E"); }
+.wl-ico-apis { --wl-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m17 17 5-5-5-5M7 7l-5 5 5 5m7-14-4 18'/%3E%3C/svg%3E"); }
+.wl-ico-concepts { --wl-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m12 21-.1-.15c-.695-1.042-1.042-1.563-1.5-1.94a4 4 0 0 0-1.378-.737C8.453 18 7.827 18 6.575 18H5.2c-1.12 0-1.68 0-2.108-.218a2 2 0 0 1-.874-.874C2 16.48 2 15.92 2 14.8V6.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C3.52 3 4.08 3 5.2 3h.4c2.24 0 3.36 0 4.216.436a4 4 0 0 1 1.748 1.748C12 6.04 12 7.16 12 9.4M12 21V9.4M12 21l.1-.15c.695-1.042 1.042-1.563 1.5-1.94a3.999 3.999 0 0 1 1.378-.737C15.547 18 16.173 18 17.425 18H18.8c1.12 0 1.68 0 2.108-.218a2 2 0 0 0 .874-.874C22 16.48 22 15.92 22 14.8V6.2c0-1.12 0-1.68-.218-2.108a2 2 0 0 0-.874-.874C20.48 3 19.92 3 18.8 3h-.4c-2.24 0-3.36 0-4.216.436a4 4 0 0 0-1.748 1.748C12 6.04 12 7.16 12 9.4'/%3E%3C/svg%3E"); }
+.wl-ico-plans { --wl-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 10H2m9 4H6M2 8.2v7.6c0 1.12 0 1.68.218 2.108a2 2 0 0 0 .874.874C3.52 19 4.08 19 5.2 19h13.6c1.12 0 1.68 0 2.108-.218a2 2 0 0 0 .874-.874C22 17.48 22 16.92 22 15.8V8.2c0-1.12 0-1.68-.218-2.108a2 2 0 0 0-.874-.874C20.48 5 19.92 5 18.8 5H5.2c-1.12 0-1.68 0-2.108.218a2 2 0 0 0-.874.874C2 6.52 2 7.08 2 8.2Z'/%3E%3C/svg%3E"); }
+.wl-ico-whats-new { --wl-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 22v-5m0-10V2M2 4.5h5m-5 15h5M13 3l-1.734 4.509c-.282.733-.423 1.1-.643 1.408a3 3 0 0 1-.706.707c-.308.219-.675.36-1.408.642L4 12l4.509 1.734c.733.282 1.1.423 1.408.643.273.194.512.433.707.706.219.308.36.675.642 1.408L13 21l1.734-4.509c.282-.733.423-1.1.643-1.408.194-.273.433-.512.706-.707.308-.219.675-.36 1.408-.642L22 12l-4.509-1.734c-.733-.282-1.1-.423-1.408-.642a3 3 0 0 1-.706-.707c-.22-.308-.36-.675-.643-1.408L13 3Z'/%3E%3C/svg%3E"); }
+.wl-ico-support { --wl-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9.136 9.136 4.93 4.93m0 14.142 4.239-4.239m5.693.032 4.207 4.207m0-14.142-4.24 4.24M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Zm-6 0a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z'/%3E%3C/svg%3E"); }
+
+.theme-doc-sidebar-menu .wl-ico > .menu__list-item-collapsible > .menu__link,
+.theme-doc-sidebar-menu .wl-ico > .menu__link {
+  justify-content: flex-start;
+  gap: 0.6rem;
+}
+
+.theme-doc-sidebar-menu .wl-ico > .menu__list-item-collapsible > .menu__link::after,
+.theme-doc-sidebar-menu .wl-ico > .menu__link::after {
+  content: "";
+  order: -1;
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+  background: currentColor;
+  opacity: 0.7;
+  -webkit-mask: var(--wl-ico) center / contain no-repeat;
+  mask: var(--wl-ico) center / contain no-repeat;
+  transform: none;
+  transition: opacity 160ms ease, transform 240ms var(--wl-ease-out);
+}
+
+.theme-doc-sidebar-menu .wl-ico > .menu__list-item-collapsible:hover > .menu__link::after,
+.theme-doc-sidebar-menu .wl-ico > .menu__link:hover::after {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.theme-doc-sidebar-menu .wl-ico > .menu__list-item-collapsible > .menu__link--active::after,
+.theme-doc-sidebar-menu .wl-ico > .menu__link--active::after {
+  opacity: 1;
+  color: var(--wl-sky);
+  background: var(--wl-sky);
 }
 
 /* ---------- Breadcrumbs, TOC, pagination ---------- */
@@ -753,9 +798,64 @@ html {
   transform: translateX(-3px);
 }
 
-/* Code blocks: copy button appears on hover */
-.theme-code-block button {
-  transition: opacity 160ms ease, background-color 160ms ease;
+/* Code blocks: a calm copy button that confirms with a Leaf check */
+.theme-code-block [class*="buttonGroup"] button {
+  border: 1px solid var(--wl-border-default);
+  border-radius: 8px;
+  background: var(--wl-bg-surface);
+  transition: opacity 160ms ease, background-color 200ms ease, border-color 200ms ease, box-shadow 260ms var(--wl-ease-out);
+}
+
+.theme-code-block [class*="buttonGroup"] button:hover {
+  border-color: var(--wl-sky);
+}
+
+.theme-code-block button[class*="copyButtonCopied"] {
+  border-color: var(--wl-leaf);
+  background: rgba(34, 162, 134, 0.12);
+  box-shadow: 0 0 0 4px rgba(34, 162, 134, 0.14);
+}
+
+.theme-code-block [class*="copyButtonSuccessIcon"] {
+  color: var(--wl-leaf);
+}
+
+.theme-code-block button[class*="copyButtonCopied"] [class*="copyButtonSuccessIcon"] {
+  animation: wl-copied 380ms var(--wl-ease-out);
+}
+
+/* Keeps Docusaurus's centering translate while the check pops in */
+@keyframes wl-copied {
+  0% { transform: translate(-50%, -50%) scale(0.5); }
+  60% { transform: translate(-50%, -50%) scale(1.1); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Tabs: the active underline slides between tabs (position set by src/client/motion.js) */
+.theme-tabs-container > .tabs {
+  position: relative;
+}
+
+.theme-tabs-container > .tabs .tabs__item {
+  border-radius: 8px 8px 0 0;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.theme-tabs-container > .tabs.wl-tabs-ready .tabs__item--active {
+  border-bottom-color: transparent;
+}
+
+.theme-tabs-container > .tabs.wl-tabs-ready::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: var(--wl-tab-w, 0);
+  border-radius: 2px;
+  background: var(--wl-sky);
+  transform: translateX(var(--wl-tab-x, 0));
+  transition: transform 280ms var(--wl-ease-out), width 280ms var(--wl-ease-out);
 }
 
 .DocSearch-Button {
@@ -767,28 +867,6 @@ html {
   box-shadow: 0 0 0 3px var(--wl-sky-tint);
 }
 
-/* Theme toggle turns a little on hover */
-.navbar [class*="toggleButton"] svg {
-  transition: transform 300ms var(--wl-ease-out);
-}
-
-.navbar [class*="toggleButton"]:hover svg {
-  transform: rotate(25deg);
-}
-
-/* Reading progress line under the navbar (element added by src/client/motion.js) */
-.wl-progress {
-  position: fixed;
-  top: var(--ifm-navbar-height);
-  left: 0;
-  right: 0;
-  height: 2px;
-  z-index: calc(var(--ifm-z-index-fixed) + 1);
-  background: linear-gradient(90deg, var(--wl-sky), #5f7bf0);
-  transform: scaleX(0);
-  transform-origin: 0 50%;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -801,12 +879,13 @@ html {
   .menu__link,
   .menu__link::before,
   .table-of-contents__link,
-  .navbar__logo img,
-  .navbar [class*="toggleButton"] svg {
+  .theme-tabs-container > .tabs.wl-tabs-ready::after,
+  .theme-doc-sidebar-menu .wl-ico > .menu__link::after,
+  .theme-doc-sidebar-menu .wl-ico > .menu__list-item-collapsible > .menu__link::after {
     transition: none;
   }
 
-  .wl-progress {
-    display: none;
+  .theme-code-block button[class*="copyButtonCopied"] [class*="copyButtonSuccessIcon"] {
+    animation: none;
   }
 }

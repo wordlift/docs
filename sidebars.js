@@ -20,12 +20,17 @@ const clusterHeading = (label) => ({
  * @param {string} id
  * @param {any[]} items
  */
-const section = (label, id, items) => ({
+const section = (label, id, items, className) => ({
   type: "category",
   label,
   link: { type: "doc", id },
   items,
+  ...(className ? { className } : {}),
 });
+
+/** Top-level sections carry a sidebar icon (see "Sidebar section icons" in src/css/brand.css). */
+/** @param {string} key */
+const icon = (key) => `wl-ico wl-ico-${key}`;
 
 const agentWordLiftWorkflows = [
   "platform/agent-wordlift/workflows/ai-visibility-analysis",
@@ -116,7 +121,7 @@ const sidebars = {
           "welcome/paths/e-commerce",
         ],
       },
-    ]),
+    ], icon("welcome")),
     section("Platform", "platform/index", [
       "platform/dashboard",
       section("Data sources", "platform/data-sources/index", [
@@ -167,7 +172,7 @@ const sidebars = {
         "platform/monitor/ask-your-ai-assistant",
         "platform/monitor/reference",
       ]),
-    ]),
+    ], icon("platform")),
     section("Interfaces and tools", "tools/index", [
       section("MCP Server", "tools/mcp-server/index", [
         "tools/mcp-server/microsoft-365-copilot",
@@ -186,7 +191,7 @@ const sidebars = {
       "tools/wordlift-cli",
       "tools/google-sheets-addon",
       "tools/chrome-extension",
-    ]),
+    ], icon("tools")),
     section("Integrations", "integrations/index", [
       section(
         "WordPress plugin",
@@ -198,7 +203,7 @@ const sidebars = {
       "integrations/power-automate",
       "integrations/looker-studio",
       "integrations/brightedge",
-    ]),
+    ], icon("integrations")),
     clusterHeading("Reference"),
     section("APIs and SDKs", "apis-and-sdks/index", [
       section("Data API", "apis-and-sdks/data-api/index", [
@@ -229,7 +234,7 @@ const sidebars = {
         href: "/apis-and-sdks/api-reference/",
         label: "API reference",
       },
-    ]),
+    ], icon("apis")),
     section("Concepts", "concepts/index", [
       "concepts/knowledge-graph",
       "concepts/entities",
@@ -240,7 +245,7 @@ const sidebars = {
       "concepts/ai-visibility",
       "concepts/rag-and-llms",
       "concepts/glossary",
-    ]),
+    ], icon("concepts")),
     clusterHeading("Account and support"),
     section("Plans and pricing", "plans-and-pricing/index", [
       "plans-and-pricing/feature-matrix",
@@ -249,14 +254,14 @@ const sidebars = {
       "plans-and-pricing/sso-saml",
       "plans-and-pricing/custom-domain",
       "plans-and-pricing/billing",
-    ]),
-    "whats-new/index",
+    ], icon("plans")),
+    { type: "doc", id: "whats-new/index", className: icon("whats-new") },
     section("Support", "support/index", [
       "support/faq",
       "support/troubleshooting",
       "support/status",
       "support/contact",
-    ]),
+    ], icon("support")),
   ],
 
   // Generated from the OpenAPI specs (docusaurus-plugin-openapi-docs).
