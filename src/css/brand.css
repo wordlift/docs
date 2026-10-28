@@ -829,7 +829,12 @@ html {
   box-shadow: 0 0 0 4px rgba(34, 162, 134, 0.14);
 }
 
+/* Docusaurus centres the tick with top/left 50% plus translate(-50%, -50%),
+   but in the built CSS its base rule (top/left 0) lands later and wins, so
+   the tick sat 9px up and left, outside the button. Pin the centre here. */
 .theme-code-block [class*="copyButtonSuccessIcon"] {
+  top: 50%;
+  left: 50%;
   color: var(--wl-leaf);
 }
 
