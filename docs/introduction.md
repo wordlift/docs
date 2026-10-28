@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.24 (October 2026) — Added a GraphSync guide to find the pages that changed since a date, with a sample GraphQL query and a curl example.
+Latest Release: 3.20.25 (October 2026) — Added a Query the Knowledge Graph section with GraphQL and SPARQL guides, including the new SPARQL endpoint and its W3C conformance, and public Monitor documentation.
 :::
 
 # 👋 Welcome to WordLift
@@ -74,7 +74,7 @@ Remember the LEGO® analogy? Here's what happens behind the scenes:
 You love APIs, code, and building things? We've got:
 
 - [API Reference](/category/api) for custom development
-- [GraphQL API](/api/graphql/graphql-support/) for flexible queries
+- [GraphQL and SPARQL](/knowledge-graph/query/) to query your Knowledge Graph
 - [MCP Integration](/agent-wordlift/integrations/#agent-wordlift-model-context-protocol-mcp-integration) and the [Agent WordLift Skill](/agent-wordlift/integrations/#agent-wordlift-claude-skill) for AI assistants
 - Custom integrations and enterprise solutions
 
