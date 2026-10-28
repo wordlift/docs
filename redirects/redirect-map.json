@@ -244,6 +244,22 @@
     "to": "/apis-and-sdks/data-api/out-of-band-cache-prefill/"
   },
   {
+    "from": "/knowledge-graph/query/",
+    "to": "/platform/knowledge-graph/query/"
+  },
+  {
+    "from": "/knowledge-graph/query/graphql/",
+    "to": "/platform/knowledge-graph/query/graphql/"
+  },
+  {
+    "from": "/knowledge-graph/query/sparql-support/",
+    "to": "/platform/knowledge-graph/query/sparql-support/"
+  },
+  {
+    "from": "/knowledge-graph/query/sparql/",
+    "to": "/platform/knowledge-graph/query/sparql/"
+  },
+  {
     "from": "/knowledge-graph/sitemap-import/",
     "to": "/platform/data-sources/sitemap/"
   },

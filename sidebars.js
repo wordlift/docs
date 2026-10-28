@@ -126,6 +126,11 @@ const sidebars = {
         section("GraphSync", "platform/knowledge-graph/graph-sync/index", [
           "platform/knowledge-graph/graph-sync/find-what-changed",
         ]),
+        section("Query the Knowledge Graph", "platform/knowledge-graph/query/index", [
+          "platform/knowledge-graph/query/graphql",
+          "platform/knowledge-graph/query/sparql",
+          "platform/knowledge-graph/query/sparql-support",
+        ]),
         "platform/knowledge-graph/entity-management",
         section("Schema publishing", "platform/knowledge-graph/schema-publishing/index", [
           section(

@@ -211,6 +211,11 @@
    "statusCode": 301
   },
   {
+   "route": "/knowledge-graph/query/sparql-support*",
+   "redirect": "/platform/knowledge-graph/query/sparql-support/",
+   "statusCode": 301
+  },
+  {
    "route": "/llm-connectors/wordlift-vector-store*",
    "redirect": "/apis-and-sdks/llm-connectors/wordlift-vector-store/",
    "statusCode": 301
@@ -321,6 +326,11 @@
    "statusCode": 301
   },
   {
+   "route": "/knowledge-graph/query/graphql*",
+   "redirect": "/platform/knowledge-graph/query/graphql/",
+   "statusCode": 301
+  },
+  {
    "route": "/monitor/ask-your-ai-assistant*",
    "redirect": "/platform/monitor/ask-your-ai-assistant/",
    "statusCode": 301
@@ -338,6 +348,11 @@
   {
    "route": "/knowledge-graph/multilingual*",
    "redirect": "/platform/knowledge-graph/multilingual/",
+   "statusCode": 301
+  },
+  {
+   "route": "/knowledge-graph/query/sparql*",
+   "redirect": "/platform/knowledge-graph/query/sparql/",
    "statusCode": 301
   },
   {
@@ -463,6 +478,11 @@
   {
    "route": "/enterprise/onboarding*",
    "redirect": "/plans-and-pricing/enterprise/",
+   "statusCode": 301
+  },
+  {
+   "route": "/knowledge-graph/query*",
+   "redirect": "/platform/knowledge-graph/query/",
    "statusCode": 301
   },
   {

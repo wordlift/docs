@@ -18,7 +18,7 @@ WordLift is built on two layers. The Knowledge Graph is the memory layer: it sto
 Because the memory is one shared graph, the same entities serve several uses:
 
 - **Structured data on your pages:** WordLift Cloud and the [Data API](/apis-and-sdks/data-api/) publish graph-backed JSON-LD for each URL. See [Schema publishing](/platform/knowledge-graph/schema-publishing/).
-- **Queries from your own stack:** The [GraphQL API](/apis-and-sdks/graphql-api/) gives query access to the data in the graph, and [KG-REST](/apis-and-sdks/kg-rest/) provides graph operations and a full export.
+- **Queries from your own stack:** [GraphQL and SPARQL](/platform/knowledge-graph/query/) give query access to the data in the graph, and [KG-REST](/apis-and-sdks/kg-rest/) provides graph operations and a full export.
 - **Context for Agent WordLift:** Agent WordLift draws on the entities, relationships and search signals stored in your graph.
 
 ## Build and maintain the graph
@@ -38,7 +38,7 @@ Go further with these pages:
 
 ## Data ownership and portability {#data-ownership-and-portability}
 
-WordLift hosts and operates the managed Knowledge Graph while the service is active. You own the structured metadata you create with WordLift. [GraphQL](/apis-and-sdks/api-reference/graphql/graphql-support/) provides query access to data in the Knowledge Graph, while KG-REST provides graph operations and a [complete dataset export](/apis-and-sdks/kg-rest/#export).
+WordLift hosts and operates the managed Knowledge Graph while the service is active. You own the structured metadata you create with WordLift. [GraphQL and SPARQL](/platform/knowledge-graph/query/) provide query access to data in the Knowledge Graph, while KG-REST provides graph operations and a [complete dataset export](/apis-and-sdks/kg-rest/#export).
 
 The export includes the entities, properties and relationships in the graph and is available as RDF/XML, JSON-LD, Turtle or N3. These open RDF serializations and the use of Schema.org make the data portable to other RDF-compatible systems. WordLift hosting, publishing, synchronization, monitoring and other managed capabilities depend on an active service; this documentation does not define a post-service retention period.
 
