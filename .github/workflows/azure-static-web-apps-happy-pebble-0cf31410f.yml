@@ -5,6 +5,13 @@ on:
     branches:
       - main
   workflow_dispatch:  # Allow manual trigger
+  # Docs v3 migration: Azure preview (staging) environment for PR #59 only.
+  # The jobs below check the head branch, so no other PR deploys a preview.
+  # TODO: remove this trigger and the head_ref checks before merging.
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
 
 concurrency:
   group: swa-${{ github.workflow }}-${{ github.ref }}
@@ -12,7 +19,7 @@ concurrency:
 
 jobs:
   build_and_deploy_job:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed' && github.head_ref == 'docs-v3-ia-migration')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
@@ -82,7 +89,7 @@ jobs:
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.head_ref == 'docs-v3-ia-migration'
     runs-on: ubuntu-latest
     name: Close Pull Request Job
     steps:
@@ -94,6 +101,8 @@ jobs:
           action: "close"
 
   run_docsearch:
+    # Crawls the live site, so only after production deploys, never previews.
+    if: github.event_name == 'push'
     needs: ["build_and_deploy_job"]
     runs-on: ubuntu-latest
     name: Run DocSearch
