@@ -10,6 +10,25 @@
  * font-synthesis is off, so no browser fakes a bold or italic style.
  */
 
+/* Open Sauce Sans 400: @fontsource 5.3.0 ships the latin 400 WOFF2 files as
+   PostScript data browsers reject, so load the valid WOFF files directly.
+   Weights 500 and 600 come from the package as WOFF2. */
+@font-face {
+  font-family: "Open Sauce Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../node_modules/@fontsource/open-sauce-sans/files/open-sauce-sans-latin-400-normal.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Open Sauce Sans";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../node_modules/@fontsource/open-sauce-sans/files/open-sauce-sans-latin-400-italic.woff") format("woff");
+}
+
 :root {
   /* WordLift palette */
   --wl-sky: #3452db;
@@ -42,7 +61,16 @@
   --wl-border-default: rgba(25, 25, 25, 0.13);
   --wl-shadow-card: 0 1px 2px rgba(25, 25, 25, 0.04), 0 8px 24px -12px rgba(25, 25, 25, 0.12);
   --wl-hover: rgba(25, 25, 25, 0.055);
-  --wl-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Motion tokens (aligned with Linear's docs): hover appears instantly and
+     fades out; state changes are quick; one quad easing family. */
+  --wl-speed-quick: 100ms;
+  --wl-speed-fade-out: 150ms;
+  --wl-speed-regular: 250ms;
+  --wl-ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --wl-ease-in: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --wl-ease-in-out: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --wl-zoom-backdrop: rgba(246, 246, 247, 0.94);
+  --wl-shot-frame: linear-gradient(135deg, rgba(52, 82, 219, 0.1), rgba(18, 80, 84, 0.07));
 
   /* Type */
   --wl-font-display: "Denim INK", "Bricolage Grotesque", system-ui, sans-serif;
@@ -128,6 +156,8 @@
   --wl-border-default: rgba(246, 246, 247, 0.15);
   --wl-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
   --wl-hover: rgba(255, 255, 255, 0.06);
+  --wl-zoom-backdrop: rgba(12, 12, 12, 0.92);
+  --wl-shot-frame: linear-gradient(135deg, rgba(142, 160, 247, 0.12), rgba(95, 169, 173, 0.08));
 
   --ifm-color-primary: var(--wl-sky);
   --ifm-color-primary-dark: #6e85f4;
@@ -200,7 +230,7 @@ h1, h2, h3, h4, h5, h6,
   text-decoration-color: var(--wl-sky-tint-strong);
   text-decoration-thickness: 1.5px;
   text-underline-offset: 3px;
-  transition: text-decoration-color 120ms ease;
+  transition: text-decoration-color var(--wl-speed-fade-out) var(--wl-ease-out);
 }
 
 .markdown a:hover {
@@ -292,7 +322,7 @@ h1, h2, h3, h4, h5, h6,
 
 .markdown table tr {
   background: transparent;
-  transition: background-color 140ms ease;
+  transition: background-color var(--wl-speed-fade-out) var(--wl-ease-out);
 }
 
 .markdown table tbody tr:hover td {
@@ -433,7 +463,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* Raised navbar once the page scrolls (class set by src/client/motion.js) */
 .navbar {
-  transition: box-shadow 200ms ease, background-color 200ms ease;
+  transition: box-shadow var(--wl-speed-regular) var(--wl-ease-out), background-color var(--wl-speed-regular) var(--wl-ease-out);
 }
 
 html.wl-scrolled .navbar {
@@ -486,7 +516,7 @@ html.wl-scrolled .navbar {
   position: relative;
   border-radius: 7px;
   line-height: 1.35;
-  transition: background-color 160ms var(--wl-ease-out), color 160ms var(--wl-ease-out);
+  transition: background-color var(--wl-speed-fade-out) var(--wl-ease-out), color var(--wl-speed-fade-out) var(--wl-ease-out);
 }
 
 .menu__link:hover {
@@ -509,7 +539,7 @@ html.wl-scrolled .navbar {
   border-radius: 3px;
   background: var(--wl-sky);
   transform: scaleY(0);
-  transition: transform 220ms var(--wl-ease-out);
+  transition: transform var(--wl-speed-regular) var(--wl-ease-out);
 }
 
 .menu__link--active:not(.menu__link--sublist)::before {
@@ -518,7 +548,7 @@ html.wl-scrolled .navbar {
 
 .menu__caret::before,
 .menu__link--sublist-caret::after {
-  transition: transform 200ms var(--wl-ease-out), opacity 160ms ease;
+  transition: transform 120ms var(--wl-ease-in-out), opacity var(--wl-speed-fade-out) ease;
 }
 
 .menu__caret:hover,
@@ -586,13 +616,12 @@ html.wl-scrolled .navbar {
   -webkit-mask: var(--wl-ico) center / contain no-repeat;
   mask: var(--wl-ico) center / contain no-repeat;
   transform: none;
-  transition: opacity 160ms ease, transform 240ms var(--wl-ease-out);
+  transition: opacity var(--wl-speed-fade-out) var(--wl-ease-out), background-color var(--wl-speed-fade-out) var(--wl-ease-out);
 }
 
 .theme-doc-sidebar-menu .wl-ico > .menu__list-item-collapsible:hover > .menu__link::after,
 .theme-doc-sidebar-menu .wl-ico > .menu__link:hover::after {
   opacity: 1;
-  transform: scale(1.08);
 }
 
 .theme-doc-sidebar-menu .wl-ico > .menu__list-item-collapsible > .menu__link--active::after,
@@ -638,12 +667,12 @@ html.wl-scrolled .navbar {
   border: 1px solid var(--wl-border-default);
   border-radius: var(--wl-radius-md);
   padding: 1rem 1.2rem;
-  transition: border-color 120ms ease, box-shadow 120ms ease;
+  transition: border-color var(--wl-speed-fade-out) var(--wl-ease-out), background-color var(--wl-speed-fade-out) var(--wl-ease-out);
 }
 
 .pagination-nav__link:hover {
   border-color: var(--wl-sky);
-  box-shadow: var(--wl-shadow-card);
+  background: var(--wl-sky-tint);
 }
 
 .pagination-nav__sublabel {
@@ -744,7 +773,7 @@ html {
 .hash-link {
   opacity: 0;
   color: var(--wl-fg-3);
-  transition: opacity 160ms ease, color 160ms ease;
+  transition: opacity var(--wl-speed-fade-out) var(--wl-ease-out), color var(--wl-speed-fade-out) var(--wl-ease-out);
 }
 
 :is(h2, h3, h4):hover .hash-link,
@@ -767,11 +796,7 @@ html {
 .table-of-contents__link {
   position: relative;
   display: inline-block;
-  transition: color 160ms ease, transform 200ms var(--wl-ease-out);
-}
-
-.table-of-contents__link:hover {
-  transform: translateX(2px);
+  transition: color var(--wl-speed-fade-out) var(--wl-ease-out);
 }
 
 .theme-doc-toc-desktop .table-of-contents__link--active::before {
@@ -785,18 +810,6 @@ html {
   background: var(--wl-sky);
 }
 
-/* Prev and next: the arrow nudges toward its direction */
-.pagination-nav__label {
-  transition: transform 220ms var(--wl-ease-out);
-}
-
-.pagination-nav__link--next:hover .pagination-nav__label {
-  transform: translateX(3px);
-}
-
-.pagination-nav__link--prev:hover .pagination-nav__label {
-  transform: translateX(-3px);
-}
 
 /* Code blocks: a calm copy button that confirms with a Leaf check */
 .theme-code-block [class*="buttonGroup"] button {
@@ -859,14 +872,75 @@ html {
 }
 
 .DocSearch-Button {
-  transition: border-color 160ms ease, box-shadow 160ms ease;
+  transition: border-color var(--wl-speed-fade-out) var(--wl-ease-out);
 }
 
 .DocSearch-Button:hover {
   border-color: var(--wl-sky);
-  box-shadow: 0 0 0 3px var(--wl-sky-tint);
 }
 
+
+/* Hover feedback appears instantly and fades out on leave, and only on
+   devices that can hover, so taps never leave a stuck highlight */
+@media (any-hover: hover) {
+  .menu__link:hover,
+  .navbar__link:hover,
+  .markdown a:hover,
+  .markdown table tbody tr:hover td,
+  .pagination-nav__link:hover,
+  .table-of-contents__link:hover,
+  .hash-link:hover,
+  .DocSearch-Button:hover {
+    transition-duration: 0s;
+  }
+}
+
+@media (hover: none) {
+  .markdown table tbody tr:hover td {
+    background: transparent;
+  }
+}
+
+/* Screenshots: a branded frame, a fade-in once loaded, and click to zoom
+   (classes set by src/client/motion.js for images at least 480px wide) */
+.markdown img {
+  transition: opacity 600ms var(--wl-ease-out);
+}
+
+.markdown img.wl-img-pending {
+  opacity: 0;
+}
+
+.markdown img.wl-shot {
+  display: block;
+  box-sizing: border-box;
+  max-width: 100%;
+  height: auto;
+  margin: 1.25rem 0;
+  padding: 12px;
+  border: 1px solid var(--wl-border-subtle);
+  border-radius: 14px;
+  background: var(--wl-shot-frame);
+  cursor: zoom-in;
+}
+
+.medium-zoom-overlay {
+  z-index: calc(var(--ifm-z-index-fixed) + 10);
+  transition: opacity var(--wl-speed-regular) var(--wl-ease-out) !important;
+}
+
+.medium-zoom-image--opened {
+  z-index: calc(var(--ifm-z-index-fixed) + 11);
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+  background: none !important;
+  cursor: zoom-out;
+}
+
+.medium-zoom-image {
+  transition: transform 400ms var(--wl-ease-out) !important;
+}
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -879,6 +953,9 @@ html {
   .menu__link,
   .menu__link::before,
   .table-of-contents__link,
+  .markdown img,
+  .medium-zoom-image,
+  .medium-zoom-overlay,
   .theme-tabs-container > .tabs.wl-tabs-ready::after,
   .theme-doc-sidebar-menu .wl-ico > .menu__link::after,
   .theme-doc-sidebar-menu .wl-ico > .menu__list-item-collapsible > .menu__link::after {

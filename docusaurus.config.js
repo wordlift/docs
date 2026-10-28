@@ -100,10 +100,8 @@ const config = {
                     customCss: [
                         // Brand fonts, self-hosted (all open source). Denim INK is
                         // licensed and loaded by src/plugins/denim-ink.
-                        require.resolve("@fontsource/open-sauce-sans/400.css"),
                         require.resolve("@fontsource/open-sauce-sans/500.css"),
                         require.resolve("@fontsource/open-sauce-sans/600.css"),
-                        require.resolve("@fontsource/open-sauce-sans/400-italic.css"),
                         require.resolve("@fontsource/bricolage-grotesque/400.css"),
                         require.resolve("@fontsource/dm-mono/400.css"),
                         require.resolve("@fontsource/dm-mono/500.css"),
