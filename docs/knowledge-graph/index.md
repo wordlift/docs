@@ -14,7 +14,7 @@ Use [Data Sources](./data-sources-oauth2.md) to connect OAuth2-based search and 
 
 ## Data ownership and portability
 
-WordLift hosts and operates the managed Knowledge Graph while the service is active. Customers own the structured metadata they create with WordLift. [GraphQL](/api/graphql/graphql-support/) provides query access to data in the Knowledge Graph, while KG-REST provides graph operations and a [complete dataset export](./kg-rest.md#export).
+WordLift hosts and operates the managed Knowledge Graph while the service is active. Customers own the structured metadata they create with WordLift. [GraphQL and SPARQL](./query/index.md) provide query access to data in the Knowledge Graph, while KG-REST provides graph operations and a [complete dataset export](./kg-rest.md#export).
 
 The export includes the entities, properties, and relationships in the graph and is available as RDF/XML, JSON-LD, Turtle, or N3. These open RDF serializations and the use of Schema.org make the data portable to other RDF-compatible systems. WordLift hosting, publishing, synchronization, monitoring, and other managed capabilities depend on an active service; this documentation does not define a post-service retention period.
 

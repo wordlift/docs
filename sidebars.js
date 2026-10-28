@@ -137,6 +137,31 @@ const sidebars = {
             },
             {
               type: "category",
+              label: "Query the Knowledge Graph",
+              link: {
+                type: "doc",
+                id: "knowledge-graph/query/index",
+              },
+              items: [
+                {
+                  type: "doc",
+                  id: "knowledge-graph/query/graphql",
+                  label: "GraphQL",
+                },
+                {
+                  type: "doc",
+                  id: "knowledge-graph/query/sparql",
+                  label: "SPARQL",
+                },
+                {
+                  type: "doc",
+                  id: "knowledge-graph/query/sparql-support",
+                  label: "SPARQL Support",
+                },
+              ],
+            },
+            {
+              type: "category",
               label: "Data API",
               link: {
                 type: "doc",
