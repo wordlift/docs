@@ -255,6 +255,7 @@ const config = {
 
     plugins: [
         require.resolve("./src/plugins/denim-ink"),
+        require.resolve("./src/plugins/page-markdown"),
         function nodeCoreModuleFallbackPlugin() {
             return {
                 name: "node-core-module-fallback-plugin",

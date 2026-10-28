@@ -42,7 +42,8 @@ for (const { from, to } of map) {
 }
 routes.sort((a, b) => b.route.length - a.route.length);
 
-const config = { routes };
+// Markdown copies of each page (src/plugins/page-markdown) are served as text.
+const config = { routes, mimeTypes: { ".md": "text/markdown; charset=utf-8" } };
 if (PREVIEW_NOINDEX) {
   config.globalHeaders = { "X-Robots-Tag": "noindex, nofollow" };
 }

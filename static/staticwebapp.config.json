@@ -691,6 +691,9 @@
    "statusCode": 301
   }
  ],
+ "mimeTypes": {
+  ".md": "text/markdown; charset=utf-8"
+ },
  "globalHeaders": {
   "X-Robots-Tag": "noindex, nofollow"
  }
