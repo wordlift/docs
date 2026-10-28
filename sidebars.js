@@ -144,6 +144,13 @@ const sidebars = {
         ),
         "platform/knowledge-graph/multilingual",
       ]),
+      section("Monitor", "platform/monitor/index", [
+        "platform/monitor/define-segments-and-expectations",
+        "platform/monitor/read-monitor-status",
+        "platform/monitor/inspect-url-results",
+        "platform/monitor/ask-your-ai-assistant",
+        "platform/monitor/reference",
+      ]),
       section("Agent WordLift", "platform/agent-wordlift/index", [
         "platform/agent-wordlift/getting-started",
         "platform/agent-wordlift/tool-families",
@@ -161,13 +168,6 @@ const sidebars = {
         "platform/agent-wordlift/integrations",
         "platform/agent-wordlift/data-privacy",
         "platform/agent-wordlift/faq",
-      ]),
-      section("Monitor", "platform/monitor/index", [
-        "platform/monitor/define-segments-and-expectations",
-        "platform/monitor/read-monitor-status",
-        "platform/monitor/inspect-url-results",
-        "platform/monitor/ask-your-ai-assistant",
-        "platform/monitor/reference",
       ]),
     ], icon("platform")),
     section("Interfaces and tools", "tools/index", [
