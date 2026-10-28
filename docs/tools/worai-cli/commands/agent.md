@@ -62,6 +62,10 @@ Launch external agent CLIs with worai MCP server + skills.
 - Config:
   - set `agent.codex_model` globally or under a profile to override the default Codex WordLift model
 
+:::warning[Review needed]
+TODO [SME]: this page no longer states the default value of `agent.codex_model`, because the default is a named model ID and the docs name no models. Confirm whether to restore the literal default for CLI users or keep it out.
+:::
+
 ## Examples
 
 - `worai agent --agent-cli codex`

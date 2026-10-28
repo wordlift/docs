@@ -14,6 +14,10 @@ As of **July 10, 2025**, Instagram content has switched from "part-indexed" to "
 With AI Overviews reducing organic CTR by 34 to 37%, social media indexing becomes critical for visibility. We've documented cases of Instagram accounts ranking above medical directories for competitive terms even before July 10th.
 :::
 
+:::warning[Review needed]
+TODO [SME]: the 34 to 37% CTR figure has no source on the page. Add a citation or cut the number.
+:::
+
 ## Why this workflow matters
 
 This approach uses **Agent WordLift's MCP integration** as a specialized SEO sub-agent, allowing you to:

@@ -16,6 +16,10 @@ In this example, choose *\[Web\]* as a relevant entity, because the post refers 
 [Reconciling](/concepts/#reconciliation) entities means **linking** the entity appearing in this text with its equivalent in other sources (such as DBpedia or Freebase).
 :::
 
+:::warning[Review needed]
+TODO [SME]: Freebase was shut down. Confirm which sources the plugin reconciles against today.
+:::
+
 ![image](./images/wordlift-edit-post-widget-05.png)
 
 The [WordLift Edit Post Widget](/integrations/wordpress-plugin/analysis/#wordlift-edit-post-widget) now shows these parameters:

@@ -10,6 +10,10 @@ last_updated: 2026-10-27
 
 Get comprehensive entity intelligence by combining Google's Enterprise Knowledge Graph with WordLift's semantic enrichment. This workflow provides 3-5x richer entity data for superior content creation, competitive analysis, and SEO optimization.
 
+:::warning[Review needed]
+TODO [SME]: "3-5x richer data", "most comprehensive" and the response times on this page (200 to 1,300 ms) have no source. Confirm with measurements or cut.
+:::
+
 :::info Enhanced Knowledge Graph Technology
 This workflow uses Agent WordLift's Enhanced Google Knowledge Graph tool, which automatically enriches basic entity data with semantic attributes like gender, occupation, nationality, education, and detailed relationships, providing the most comprehensive entity profiles available.
 :::

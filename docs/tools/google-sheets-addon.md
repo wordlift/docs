@@ -58,6 +58,10 @@ With the **Content Expander**, you can enrich your content by adding relevant en
 
 First, from the main screen, click **"Expand Content"**. You need an OpenAI key to configure this feature. To find out how to get one, see [Where do I find my OpenAI API key?](https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key)
 
+:::warning[Review needed]
+TODO [Jason]: the Content Expander asks customers for their own OpenAI key, which names a vendor (decision 4). Decide whether to keep this requirement on the page, describe it generically, or retire the feature.
+:::
+
 ![The Expand Content option on the SEO add-on home screen](./images/step1-content-expander-homepage.png)
 
 #### Step 1: Choose a URL
@@ -100,6 +104,10 @@ Watch this demo to learn how to use the SEO add-on for Google Sheets:
 
 :::info Note
 The **SEO add-on for Google Sheets™ is included in the [Business+ plan](https://wordlift.io/pricing/)**, and in Enterprise, which includes everything in Business+. You can use the Content Expander only on these plans. Alternatively, you can buy the [SEO Add-On for Google Sheets](https://deals.thenextweb.com/sales/lifetime-subscription-wordlift-standard?aid=&utm_campaign=feed&utm_medium=RSS&utm_source=thenextweb) from the TNW website (in this case, the Content Expander is not included).
+:::
+
+:::warning[Review needed]
+TODO [Jason]: the TNW lifetime subscription conflicts with sales-led access. Confirm whether the offer still exists; if not, remove the sentence.
 :::
 
 ## Why the add-on asks for a country {#why-is-it-asking-for-the-country-to-be-added}

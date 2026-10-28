@@ -9,6 +9,10 @@ last_updated: 2026-10-27
 
 Author credibility matters for SEO. Google's January 2025 update to the Search Quality Rater Guidelines puts more emphasis on E-E-A-T principles. This workflow shows how to use Agent WordLift to create comprehensive authorship markup that makes your content more trustworthy.
 
+:::warning[Review needed]
+TODO [SME]: confirm the January 2025 Search Quality Rater Guidelines update this page cites, and link the source.
+:::
+
 ## Watch the workflow in action
 
 See how Agent WordLift creates and manages authorship markup automatically:

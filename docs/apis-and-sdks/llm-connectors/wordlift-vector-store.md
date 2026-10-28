@@ -91,6 +91,10 @@ print(response)
 
 ```
 
+:::warning[Review needed]
+TODO [SME]: the code sample above configures OpenAI as the LLM, which names a vendor (decision 4). Rewrite it around a generic LLM setting, or confirm the exception for code samples.
+:::
+
 ## Additional resources
 
 For more information on using WordLift Vector Store, check out:

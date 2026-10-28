@@ -33,9 +33,9 @@ When you import a web page, WordLift performs these actions:
 To import a web page with default settings, send a `POST` request to the `/web-page-imports` endpoint.
 
 ```sh
-curl -X "POST" "https://api.wordlift.io/web-page-imports" 
-     -H 'Authorization: Key <YOUR_API_KEY>' 
-     -H 'Content-Type: application/json' 
+curl -X "POST" "https://api.wordlift.io/web-page-imports" \
+     -H 'Authorization: Key <YOUR_API_KEY>' \
+     -H 'Content-Type: application/json' \
      -d '{
   "url": "https://example.com/some-page"
 }'

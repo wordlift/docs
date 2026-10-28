@@ -21,6 +21,10 @@ created and published as [RDF](#rdf) graph in the cloud.
 **Linked Open Data** is [Linked Data](http://en.wikipedia.org/wiki/Linked_data) that is made available as **open content**.
 Large linked open datasets (or [Knowledge Graph](#knowledge-graph)) include DBpedia and Freebase.
 
+:::warning[Review needed]
+TODO [SME]: Freebase was shut down, so it is no longer a current dataset. The structured data benefits below also say it can lead to better rankings, which is unsourced. Update or cut both.
+:::
+
 ### Reconciliation
 
 **Reconciling** entities we store in our own [vocabulary](/concepts/#vocabulary) with entities available elsewhere provides computers with an unambiguous way to identify the things we're talking about.

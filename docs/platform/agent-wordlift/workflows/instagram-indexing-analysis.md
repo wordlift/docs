@@ -45,6 +45,10 @@ Unlike traditional social media analytics, this workflow provides **verified sea
 
 With **AI Overviews reducing organic CTR by 34 to 37%**, social media indexing becomes critical for visibility. Instagram accounts are already ranking above medical directories for competitive terms even before the July 10th switch.
 
+:::warning[Review needed]
+TODO [SME]: the 34 to 37% CTR figure has no source on the page. Add a citation or cut the number.
+:::
+
 ## Prerequisites
 
 1. **Set up the MCP Server**: Follow the [MCP Server setup guide](/tools/mcp-server/) to connect Agent WordLift with your preferred AI assistant
@@ -180,6 +184,10 @@ The analysis is delivered as a **fully formatted HTML report** with:
 
 :::tip Real client example
 The report shown above for @ortognaticaroma demonstrates how this workflow identified a **100/100 Google Trends spike** for "chirurgia estetica mandibola" in May 2025, directly correlating with their Instagram content performance and providing immediate strategic opportunities.
+:::
+
+:::warning[Review needed]
+TODO [Jason]: this page names a real client (Instagram handle, medical search terms, results) and refers to a report that is not on the page. Confirm permission or anonymize, and fix the reference.
 :::
 
 ## Learn more
