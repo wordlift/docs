@@ -137,6 +137,31 @@ const sidebars = {
             },
             {
               type: "category",
+              label: "Query the Knowledge Graph",
+              link: {
+                type: "doc",
+                id: "knowledge-graph/query/index",
+              },
+              items: [
+                {
+                  type: "doc",
+                  id: "knowledge-graph/query/graphql",
+                  label: "GraphQL",
+                },
+                {
+                  type: "doc",
+                  id: "knowledge-graph/query/sparql",
+                  label: "SPARQL",
+                },
+                {
+                  type: "doc",
+                  id: "knowledge-graph/query/sparql-support",
+                  label: "SPARQL Support",
+                },
+              ],
+            },
+            {
+              type: "category",
               label: "Data API",
               link: {
                 type: "doc",
@@ -175,6 +200,21 @@ const sidebars = {
               id: "knowledge-graph/multilingual",
               label: "Multilingual"
             },
+          ],
+        },
+        {
+          type: "category",
+          label: "📡 Monitor",
+          link: {
+            type: "doc",
+            id: "monitor/index",
+          },
+          items: [
+            "monitor/define-segments-and-expectations",
+            "monitor/read-monitor-status",
+            "monitor/inspect-url-results",
+            "monitor/ask-your-ai-assistant",
+            "monitor/reference",
           ],
         },
         {

@@ -31,6 +31,8 @@ Our MCP server is reachable at `https://mcp.wordlift.io/streamable-http` and cur
 - Execution of GraphQL queries on your knowledge graph
 - Seamless integration with supported AI assistants
 
+To ask about your Monitor results through the MCP Server, see [Ask your AI assistant about Monitor](../monitor/ask-your-ai-assistant.md).
+
 Watch how Claude, integrated with WordLift via Model Context Protocol, analyzes the WordLift Blog to uncover actionable insights around the "Agentic SEO" content cluster:
 
 <iframe width="100%" height="500" src="https://www.youtube.com/embed/6dz_-LbP3eQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
