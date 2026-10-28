@@ -106,5 +106,5 @@ Watch the walkthrough video:
 To get started, follow the setup instructions and examples in the GitHub repository.
 
 :::warning[Review needed]
-TODO [Jason]: Keep Google AI Edge GraphQL on this page, or move it to Interfaces and tools or Integrations?
+TODO [SME]: Keep Google AI Edge GraphQL on this page, or move it to Interfaces and tools or Integrations?
 :::

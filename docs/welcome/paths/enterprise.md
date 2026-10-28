@@ -22,7 +22,7 @@ Frame the platform for the people evaluating fit and scale.
 </Cards>
 
 :::warning[Review needed]
-TODO [Jason]: confirm the Feature Matrix (or Plans and pricing) replaces the journey map's self-referencing "Enterprise path" item in Discover.
+TODO [SME]: confirm the Feature Matrix (or Plans and pricing) replaces the journey map's self-referencing "Enterprise path" item in Discover.
 :::
 
 ## Onboard

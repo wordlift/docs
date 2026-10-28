@@ -59,7 +59,7 @@ Replace `<WORDLIFT_API_KEY>` with your WordLift API key. For more formats and ex
 See [Data ownership and portability](/platform/knowledge-graph/#data-ownership-and-portability) for how your graph data is owned and exported, and [Agent WordLift data privacy](/platform/agent-wordlift/data-privacy/) for how Agent WordLift handles your data. For a security question about your account, [contact WordLift](/support/contact/).
 
 :::warning[Review needed]
-TODO [Jason]: confirm which legacy security statements can stay in this answer (SSL for the plugin and front end, a dedicated database, keys encrypted on receipt, no sharing with other services, regular security reviews).
+TODO [SME]: confirm which legacy security statements can stay in this answer (SSL for the plugin and front end, a dedicated database, keys encrypted on receipt, no sharing with other services, regular security reviews).
 :::
 
 ### How do I ask WordLift to delete my account data? {#delete-account-data}

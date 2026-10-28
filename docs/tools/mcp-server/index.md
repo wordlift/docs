@@ -17,7 +17,7 @@ The MCP Server exposes two things to your assistant:
 The MCP Server is an access surface, not a plan. It is available on Business+ and Enterprise.
 
 :::warning[Review needed]
-TODO [Jason]: confirm whether the MCP Server is still labeled experimental; if so, add a one-line note here.
+TODO [SME]: confirm whether the MCP Server is still labeled experimental; if so, add a one-line note here.
 :::
 
 Watch Claude, connected to WordLift through the MCP Server, analyze the WordLift blog to find insights about the "Agentic SEO" content cluster:

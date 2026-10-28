@@ -48,7 +48,7 @@ Bring performance data in and connect WordLift to your marketing automation.
 </Cards>
 
 :::warning[Review needed]
-TODO [Jason]: confirm "Analytics import" links to the Dashboard Data Sources flow for marketing readers, with the developer Analytics API page as the secondary link.
+TODO [SME]: confirm "Analytics import" links to the Dashboard Data Sources flow for marketing readers, with the developer Analytics API page as the secondary link.
 :::
 
 ## Activate

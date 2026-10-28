@@ -24,7 +24,7 @@ If the fixes above don't solve the problem, email [support@wordlift.io](mailto:s
 Business+ includes a dedicated project manager, and Enterprise includes dedicated onboarding and support.
 
 :::warning[Review needed]
-TODO [Jason]: Should Business+ and Enterprise customers contact their project manager first, and which public channels should this page advertise besides support@wordlift.io (WordPress.org forum, GitHub issues, Stack Overflow)?
+TODO [SME]: Should Business+ and Enterprise customers contact their project manager first, and which public channels should this page advertise besides support@wordlift.io (WordPress.org forum, GitHub issues, Stack Overflow)?
 :::
 
 ## What to include in your request

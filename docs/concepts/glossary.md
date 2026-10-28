@@ -66,7 +66,7 @@ The canonical table of which WordLift capabilities are in Business+ and Enterpri
 Acronyms for practices that aim to make content visible in AI-generated answers; WordLift recommends server-side JSON-LD when they are a priority. Read [AI visibility](/concepts/ai-visibility/).
 
 :::warning[Review needed]
-TODO [Jason]: confirm the expansions WordLift uses for GEO and AEO, whether to keep this entry, and whether to link the marketing site's SEO glossary.
+TODO [SME]: confirm the expansions WordLift uses for GEO and AEO, whether to keep this entry, and whether to link the marketing site's SEO glossary.
 :::
 
 ### GraphQL API {#graphql-api}

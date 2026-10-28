@@ -56,7 +56,7 @@ Agent WordLift works through the prompt in 3 stages:
 ![Agent WordLift response with a table of keyword insights and a list of 10 French product titles](./images/agent-wordlift-product-description.png)
 
 :::warning[Review needed]
-TODO [Jason]: the screenshot shows 10 titles for "Radiant Creamy Concealer", not 10 descriptions for "Creamy Concealer". Replace it with output from the prompt on this page.
+TODO [SME]: the screenshot shows 10 titles for "Radiant Creamy Concealer", not 10 descriptions for "Creamy Concealer". Replace it with output from the prompt on this page.
 :::
 
 ## Review the output

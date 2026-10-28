@@ -22,7 +22,7 @@ Learn what WordLift is and how its two pillars, the Knowledge Graph and Agent Wo
 </Cards>
 
 :::warning[Review needed]
-TODO [Jason]: confirm the Business+ plan page replaces the journey map's self-referencing "Business+ path" item in Discover.
+TODO [SME]: confirm the Business+ plan page replaces the journey map's self-referencing "Business+ path" item in Discover.
 :::
 
 ## Onboard

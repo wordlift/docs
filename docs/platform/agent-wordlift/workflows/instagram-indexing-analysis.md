@@ -187,7 +187,7 @@ The report shown above for @ortognaticaroma demonstrates how this workflow ident
 :::
 
 :::warning[Review needed]
-TODO [Jason]: this page names a real client (Instagram handle, medical search terms, results) and refers to a report that is not on the page. Confirm permission or anonymize, and fix the reference.
+TODO [SME]: this page names a real client (Instagram handle, medical search terms, results) and refers to a report that is not on the page. Confirm permission or anonymize, and fix the reference.
 :::
 
 ## Learn more

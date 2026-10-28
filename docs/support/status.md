@@ -16,7 +16,7 @@ WordLift publishes the current state of its services at [status.wordlift.io](htt
 | Past incidents | A day-by-day history of recent incidents. |
 
 :::warning[Review needed]
-TODO [Jason]: confirm that status.wordlift.io is the official, maintained status page, which services it covers (APIs, Dashboard, Agent WordLift, WordLift Cloud) and whether you can subscribe to updates.
+TODO [SME]: confirm that status.wordlift.io is the official, maintained status page, which services it covers (APIs, Dashboard, Agent WordLift, WordLift Cloud) and whether you can subscribe to updates.
 :::
 
 ## If status is operational

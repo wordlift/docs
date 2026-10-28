@@ -48,7 +48,7 @@ The Model Context Protocol (MCP) Server is an access surface, not a plan. It can
 - **API capacity.** Business+ supports API-first use within its usage limits; its rate limits are not published. Enterprise adds higher throughput and concurrency, dedicated SLAs and custom integrations, scoped per contract.
 
 :::warning[Review needed]
-TODO [Jason]: confirm the Enterprise URL and Knowledge Graph allowances (custom per contract, or a published figure).
+TODO [SME]: confirm the Enterprise URL and Knowledge Graph allowances (custom per contract, or a published figure).
 :::
 
 ## Enterprise-only features

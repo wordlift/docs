@@ -57,7 +57,7 @@ Agent WordLift is included in both WordLift plans, Business+ and Enterprise. It 
 Business+ includes a monthly allowance of Smart Credits, and Agent WordLift interactions consume those credits. Unused credits expire at the end of the month on monthly billing, or at the end of the subscription year on yearly billing. To add credits, contact your account manager.
 
 :::warning[Review needed]
-TODO [Jason]: Confirm whether the docs may state "1 credit = 10 Agent interactions" from the pricing page, and how Agent WordLift usage is counted on Enterprise.
+TODO [SME]: Confirm whether the docs may state "1 credit = 10 Agent interactions" from the pricing page, and how Agent WordLift usage is counted on Enterprise.
 :::
 
 ### What happens when I reach my limit? {#what-happens-when-i-reach-my-limit}
@@ -97,7 +97,7 @@ TODO [SME]: Confirm which languages have known limits (the previous docs said so
 No. The model provider that Agent WordLift uses does not use the data you submit to train or improve its models. WordLift has no access to your prompts and completions unless both parties agree to it to improve the service.
 
 :::warning[Review needed]
-TODO [Jason]: These provider commitments are pending the same legal review as the data privacy page; confirm they may be stated without naming the provider.
+TODO [SME]: These provider commitments are pending the same legal review as the data privacy page; confirm they may be stated without naming the provider.
 :::
 
 ### What does Agent WordLift store? {#what-does-agent-wordlift-store}

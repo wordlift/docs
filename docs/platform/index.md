@@ -10,7 +10,7 @@ last_updated: 2026-10-27
 A knowledge graph for the agentic web. WordLift is one platform with two pillars: the Knowledge Graph, which is the memory, and Agent WordLift, which is the agentic AI that works on it. SEO and generative engine optimization (GEO) are one application of the platform.
 
 :::warning[Review needed]
-TODO [Jason]: confirm that "A knowledge graph for the agentic web. One platform, two pillars" is approved as public lede wording.
+TODO [SME]: confirm that "A knowledge graph for the agentic web. One platform, two pillars" is approved as public lede wording.
 :::
 
 ## How the platform fits together

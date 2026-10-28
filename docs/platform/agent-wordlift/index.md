@@ -20,7 +20,7 @@ Agent WordLift is included in Business+ and Enterprise. To get access, [compare 
 - **Strengthen your local presence.** The [local SEO analysis](/platform/agent-wordlift/workflows/local-seo-analysis/) reviews your Google Business Profile, Local Pack results and local rankings against nearby competitors.
 
 :::warning[Review needed]
-TODO [Jason]: Confirm these five workflows are the ones to lead with on this page.
+TODO [SME]: Confirm these five workflows are the ones to lead with on this page.
 :::
 
 See every recipe, grouped by job, in [Agent WordLift workflows](/platform/agent-wordlift/workflows/).

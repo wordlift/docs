@@ -33,7 +33,7 @@ Agent WordLift uses language models from a model provider. That provider commits
 WordLift has no access to your prompts and completions unless you and WordLift both agree to it, to improve the service.
 
 :::warning[Review needed]
-TODO [Jason]: Legal review: confirm the page may state these provider-level commitments (no training use, up to 30 days of abuse-monitoring retention, limited human access) without naming the provider.
+TODO [SME]: Legal review: confirm the page may state these provider-level commitments (no training use, up to 30 days of abuse-monitoring retention, limited human access) without naming the provider.
 :::
 
 ## Connected data sources

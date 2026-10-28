@@ -15,7 +15,7 @@ Agent WordLift gives SEO, content and technical teams specialized tools for sear
 The families describe what the tools do. They are not a complete list of individual tools.
 
 :::warning[Review needed]
-TODO [Jason]: Agree the canonical Agent WordLift capability inventory (the open "20+ tools" versus listed-tools question) before this page states any tool count.
+TODO [SME]: Agree the canonical Agent WordLift capability inventory (the open "20+ tools" versus listed-tools question) before this page states any tool count.
 :::
 
 For ready-to-use prompts, see the [Prompt Library](/platform/agent-wordlift/prompt-library/). For end-to-end recipes, see [Agent WordLift workflows](/platform/agent-wordlift/workflows/). For MCP Server, CLI, API and automation setup, see [Agent WordLift integrations](/platform/agent-wordlift/integrations/).

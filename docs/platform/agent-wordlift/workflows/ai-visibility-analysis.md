@@ -65,7 +65,7 @@ The AI Mode tool returns the conversational answer and its sources. Compare the 
 In the example run, the AI Overview did not cite wordlift.io for "knowledge graph for SEO" and AI Mode did. Citations change over time, so record the date and country of every check.
 
 :::warning[Review needed]
-TODO [Jason]: keep wordlift.io as a dated worked example in this section, or replace it with a placeholder domain.
+TODO [SME]: keep wordlift.io as a dated worked example in this section, or replace it with a placeholder domain.
 :::
 
 ## Find the entity gap

@@ -20,7 +20,7 @@ The pricing page shows the current difference between monthly and yearly billing
 You can also subscribe to the Product Knowledge Graph Builder through Microsoft Marketplace and manage that subscription through your Microsoft account. See [Microsoft Marketplace integration](/platform/knowledge-graph/product-knowledge-graph/#microsoft-marketplace-integration).
 
 :::warning[Review needed]
-TODO [Jason]: confirm what the docs can say about invoices, payment methods, VAT, currency options, renewal and notice periods, or whether all of it routes to the account manager.
+TODO [SME]: confirm what the docs can say about invoices, payment methods, VAT, currency options, renewal and notice periods, or whether all of it routes to the account manager.
 :::
 
 ## Smart Credits
@@ -63,7 +63,7 @@ The [WordLift terms of service](https://wordlift.io/terms-of-service/) set these
 - **Refunds.** WordLift does not issue a refund when you close your account.
 
 :::warning[Review needed]
-TODO [Jason]: confirm whether the 48-hour refund window from the 2024 marketing FAQ is still policy; the pricing page does not mention it.
+TODO [SME]: confirm whether the 48-hour refund window from the 2024 marketing FAQ is still policy; the pricing page does not mention it.
 :::
 
 ## Your data when an account closes
@@ -73,7 +73,7 @@ Export your Knowledge Graph before you close the account. The [Knowledge Graph e
 After closure, WordLift deletes the data related to the account, as described in the [terms of service](https://wordlift.io/terms-of-service/).
 
 :::warning[Review needed]
-TODO [Jason]: the terms say deletion can take up to 90 days, while the Knowledge Graph overview says the docs define no retention period after the service ends. Confirm which line the docs use.
+TODO [SME]: the terms say deletion can take up to 90 days, while the Knowledge Graph overview says the docs define no retention period after the service ends. Confirm which line the docs use.
 :::
 
 ## Billing questions

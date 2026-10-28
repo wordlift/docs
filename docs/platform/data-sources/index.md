@@ -40,7 +40,7 @@ Data Sources add data to a graph, but most of them are not the way to build a fu
 Compare every method in [Create a Knowledge Graph](/platform/knowledge-graph/create/), or go straight to [GraphSync](/platform/knowledge-graph/graph-sync/).
 
 :::warning[Review needed]
-TODO [Jason]: the IA lists "Custom Imports" as a data source, but no page or route exists. Confirm whether to add it here at cutover or leave it out.
+TODO [SME]: the IA lists "Custom Imports" as a data source, but no page or route exists. Confirm whether to add it here at cutover or leave it out.
 :::
 
 ## Next steps

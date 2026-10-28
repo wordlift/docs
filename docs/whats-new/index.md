@@ -38,7 +38,7 @@ For releases of the classic WordPress plugin, which is supported for existing in
 ## Releases
 
 :::warning[Review needed]
-TODO [Jason]: confirm each release month below (they come from documentation dates) and how far back the seed entries should go at cutover.
+TODO [SME]: confirm each release month below (they come from documentation dates) and how far back the seed entries should go at cutover.
 :::
 
 ### October 2026: Resolve API
