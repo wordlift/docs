@@ -461,6 +461,17 @@ h1, h2, h3, h4, h5, h6,
 
 .navbar {
   border-bottom: 1px solid var(--wl-border-subtle);
+  background-color: transparent;
+}
+
+/* The frosted glass sits on a pseudo-element. A backdrop-filter on .navbar
+   itself would trap the fixed mobile drawer inside the navbar's height. */
+.navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   backdrop-filter: saturate(160%) blur(10px);
   background-color: color-mix(in srgb, var(--wl-bg-page) 88%, transparent);
 }
@@ -501,7 +512,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* Raised navbar once the page scrolls (class set by src/client/motion.js) */
 .navbar {
-  transition: box-shadow var(--wl-speed-regular) var(--wl-ease-out), background-color var(--wl-speed-regular) var(--wl-ease-out);
+  transition: box-shadow var(--wl-speed-regular) var(--wl-ease-out);
 }
 
 html.wl-scrolled .navbar {
