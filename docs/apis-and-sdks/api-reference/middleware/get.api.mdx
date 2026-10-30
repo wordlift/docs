@@ -1,0 +1,71 @@
+---
+id: get
+title: "Get"
+description: "The autocomplete endpoint suggests entities from Linked Data that match the provided query."
+sidebar_label: "Get"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1Vllv4zYQ/ivEvOwBxXaCffJTU7QbBMm2QDZBHxYGlqHGEhseCjlMVjX034vRkcjHOomLvlgWNcc3w2+OFZAsIsy/wWkir7ytDBLCIoMcowq6Iu0dzOG6RCFHEgJdXnntSMRUFBgpCnSkSWMUy+CtuNTuDnPxmyQpqJQkrCRVCipRVME/6BxzcZ8w1BPIwFcYJHs6z2EOBRJkUMkgLRIGRrcCJy3CHFoVyEC70cs61HEgYhAJeJ90wBzmFBJmEFWJVsJ8BVRXbDhS0K6ApsmefBnpiiQL3O/u5MggEQYxiAvlc8wEToqJeIfu3eRA91H56gXfX3uRZ/NLaeIe+2xgKZMhmIMyPuWQAbpkmQDd+2ItA9pq2g/hi/yhbbLCJXuLQfilCBiToTgRv9ai9yaOZ5NDYR7P1rKCP5RJ+Qt5udSRGEpLyVrcXJ1HQV70ui9ASU7fJzwntHG4rh6dDEG25Ou+bV9es2DLsfIuYitwMpvxY+PWklIYI2SgvCN0xCIfpx/5sZURf/s3qrYeAlcJFxh/1fmurC19sJKTloKGJgMjb9GMkb4YwVom36jJJ29QWYNrWgspvAXtDgPaymInho0WIUzPkFZB3Fxdxsk+R69T34ITpcXT+N9C6trADsmhbo1X0kAGDunRhzumVV/JG7i37iwDK7W7rnfb32w1TEzBQiKaVDzRa6fdB2nSDqOMSMfKyPp6gytjGmkyuNHHr9qewhXWZPBpdrxdVKeJSi531c4R8VlqkwJCK/5pW/wPT+KzTy7vcowqBU11O2lOK32B/HfB5WyRSj+eSlTCHKbjWQhsIDwMk4ovbg4lURXn06ms9OTRh9zoJU20B7Y5uGtz2qVhcPpMlO5g8xq+X2AtVrVPQdxh3Xzne+8aIyfAB/1PG//QHkuUOYauNNzSt/b79H7ReW7wUQbccnLh/KPBvEBxFmRVipyHuJVOFmjREVOdMNj45/IrhgetcBTvKNZpK3Tkl0exE5v2LU+qtuX1wP/yIb/US87ueurGacsArdTtVzTG/7KW0gyMVugijqy+Vx+E8lUddFGSOJmdnBxVASM6Eq9yyCTGELuEHE9mfFD5SFa6kZezlhQbVfbU1f/nralnCuEPmlZGagdNH9Gq5+k3kBtbXekj8flqdSsj3gTTNHzcjVFmb66jvDWjwfjT4N5f9TP0g9i5cu2Ed8ckf5rafZsA4AF/kOdXbV97kIx2vAPBDDvYHifDJnegh7esWPtC7Ze5A1G8vFPt8f28tT17X/BL0Oy+bbbZ0K2Yhp3aqVJYjTHzlrTWlc9+v4aMWV6u9867tnf2f9jg8MmNebfZMzuv/Mu52amyWnWduWme5LtPP9XooxqkOS2Lpmn+BbYdlmg=
+sidebar_class_name: "get api-method"
+info_path: apis-and-sdks/api-reference/middleware/middleware
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/autocomplete"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The autocomplete endpoint suggests entities from Linked Data that match the provided query.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"query","in":"query","description":"Autocomplete query","required":true,"schema":{"type":"string"}},{"name":"language","in":"query","description":"2-letter language code, e.g. 'en'.","required":true,"schema":{"type":"string"}},{"name":"scope","in":"query","description":"Scope","required":false,"schema":{"type":"string","default":"cloud","enum":["cloud"]}},{"name":"limit","in":"query","description":"Maximum number of results. By default 10.","required":false,"schema":{"type":"string","default":"10"}},{"name":"exclude","in":"query","description":"List of entity URIs to exclude.","required":false,"schema":{"uniqueItems":true,"type":"array","items":{"type":"string"}}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Success","content":{"*/*":{"schema":{"type":"object","properties":{"id":{"type":"string","format":"uri"},"labels":{"type":"array","items":{"type":"string"}},"descriptions":{"type":"array","items":{"type":"string"}},"types":{"type":"array","items":{"type":"string","format":"url"}},"urls":{"type":"array","items":{"type":"string","format":"url"}},"images":{"type":"array","description":"A list of image URLs.","items":{"type":"string","description":"A list of image URLs.","format":"url"}},"sameAss":{"type":"array","items":{"type":"string","format":"url"}},"scope":{"type":"string","enum":["local","network","cloud"]},"description":{"type":"string"},"mainType":{"type":"string","description":"Schema type slug"},"label":{"type":"string"},"value":{"type":"string"},"displayTypes":{"type":"string"}},"title":"AutocompleteResult"}}}},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

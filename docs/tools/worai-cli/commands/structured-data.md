@@ -1,0 +1,197 @@
+---
+title: "worai structured-data"
+description: "Generate JSON-LD and YARRRML mappings, materialize RDF from YARRRML, and build structured-data inventories with the worai CLI."
+sidebar_label: "structured-data"
+last_updated: 2026-10-27
+---
+
+# worai structured-data
+
+Generate JSON-LD/YARRRML mappings or materialize RDF from YARRRML using Playwright-rendered pages.
+
+## Usage
+
+- `worai structured-data create <url> [schema_type] [options]`
+- `worai structured-data generate <input> --yarrrml <mapping.yarrrml> [options]`
+- `worai structured-data inventory <source> (--output <file.csv> | --destination-sheet-id <spreadsheet_id> --destination-sheet-name <tab>) [options]`
+
+## structured-data create
+Generate JSON-LD and YARRRML for a rendered web page using Playwright and Agent WordLift.
+
+### Arguments
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `url` | string | Target page URL. |
+| `schema_type` | string | Schema.org type to generate (e.g., `Review`). Required unless provided with `--type`. |
+
+### Options
+
+| Option | Type | Default | Description |
+| --- | --- | --- | --- |
+| `--type` | string | none | Schema.org type to generate (e.g., `Review`). Required if `schema_type` is omitted. |
+| `--output-dir` | string | `.` | Output directory for generated files. |
+| `--base-name` | string | `structured-data` | Base output filename. |
+| `--jsonld` | string | none | Write JSON-LD to this file path. |
+| `--yarrml` | string | none | Write YARRRML to this file path. |
+| `--debug` | bool | `false` | Write agent prompt/response to `.structured-data/agent_debug.json` and echo to stderr. |
+| `--headed` | bool | `false` | Run the browser with a visible UI instead of headless. |
+| `--timeout-ms` | int | `30000` | Timeout (ms) for page loads. |
+| `--max-xhtml-chars` | int | `40000` | Max characters to keep in cleaned XHTML sent to the agent. |
+| `--max-text-node-chars` | int | `400` | Max characters per text node in cleaned XHTML. |
+| `--max-nesting-depth` | int | `2` | Max depth for related schema types in the property guide. |
+| `--verbose` | bool | `true` | Emit progress logs to stderr. |
+| `--wait-until` | choice | `networkidle` | Playwright wait strategy: `domcontentloaded`, `load`, `networkidle`. |
+
+### Notes
+
+- Requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config) to resolve the dataset URI.
+- Requires `yarrrml-parser` (`npm install -g @rmlio/yarrrml-parser`).
+- `morph-kgc` is included in project dependencies.
+- Each JSON-LD node includes an `@id` built as `<dataset_uri>/<pluralized-type>/<name>-<hash>`.
+- YARRRML uses XPath selectors.
+- `schema:url` is replaced with `__URL__` and source paths with `__XHTML__` when `--reusable` is enabled.
+- Intermediate artifacts are stored under `<output-dir>/.structured-data/` (HTML, XHTML, cleaned XHTML, mapping, validation reports).
+- The generator rejects hard-coded literals (except `schema:url`) and checks XPath evidence before accepting a mapping.
+- Missing Google-required properties are reported as warnings (not hard failures).
+
+### Examples
+
+- `worai structured-data create https://example.com/article Review --output-dir ./structured-data`
+- `worai structured-data create https://example.com/article --type Review --output-dir ./structured-data`
+- `worai structured-data create https://example.com/article Review --jsonld ./out/page.jsonld --yarrml ./out/page.yarrml`
+
+## structured-data generate
+Render pages from a sitemap (or a single URL), apply a YARRRML mapping, and emit one RDF file per page.
+
+### Arguments
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `input` | string | Sitemap URL/path or a page URL. |
+
+### Options
+
+| Option | Type | Default | Description |
+| --- | --- | --- | --- |
+| `--yarrrml` | string | none | Path to the YARRRML mapping file. |
+| `--regex` | string | `.*` | Regex to filter URLs (matches full URL). |
+| `--output-dir` | string | `.` | Output directory for generated RDF. |
+| `--format` | string | `ttl` | Output format: `ttl`, `jsonld`, `rdf`, `nt`, `nq`. |
+| `--concurrency` | string | `auto` | Worker count or `auto` to adapt to responses. |
+| `--headed` | bool | `false` | Run the browser with a visible UI instead of headless. |
+| `--timeout-ms` | int | `30000` | Timeout (ms) for page loads. |
+| `--wait-until` | choice | `networkidle` | Playwright wait strategy: `domcontentloaded`, `load`, `networkidle`. |
+| `--max-xhtml-chars` | int | `40000` | Max characters to keep in cleaned XHTML. |
+| `--max-text-node-chars` | int | `400` | Max characters per text node in cleaned XHTML. |
+| `--max-pages` | int | none | Max number of pages to process. |
+| `--verbose` | bool | `true` | Emit progress logs to stderr. |
+
+### Notes
+
+- Requires `yarrrml-parser` (`npm install -g @rmlio/yarrrml-parser`).
+- Uses Playwright to render HTML and converts it to XHTML before mapping.
+- Output filenames use `{slug}--{hash}.{ext}` to avoid collisions.
+- Blank nodes are rejected by default.
+
+### Examples
+
+- `worai structured-data generate https://example.com/sitemap.xml --yarrrml ./mapping.yarrrml --output-dir ./out`
+- `worai structured-data generate https://example.com/page --yarrrml ./mapping.yarrrml --format jsonld`
+- `worai structured-data generate ./sitemap.xml --yarrrml ./mapping.yarrrml --regex "/product/" --concurrency auto`
+
+## structured-data inventory
+Generate a structured-data inventory from ingestion sources and export it to CSV or Google Sheets.
+
+### Arguments
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `source` | string | Sitemap URL/path, local URL list file, or Google Spreadsheet URL/ID containing input URLs. |
+
+### Options
+
+| Option | Type | Default | Description |
+| --- | --- | --- | --- |
+| `--sheet-name` | string | none | Source sheet tab name when `source` is a Google Spreadsheet (reads the `url` column). |
+| `--output` | string | none | Write inventory to CSV. |
+| `--destination-sheet-id` | string | none | Google Spreadsheet ID where inventory should be written. |
+| `--destination-sheet-name` | string | none | Destination sheet tab name for inventory output. |
+| `--client-secrets` | string | none | OAuth client secrets JSON path (used when Sheets auth needs re-consent). |
+| `--token` | string | `oauth_token.json` | OAuth token path (shared token file). |
+| `--port` | int | `8080` | Local redirect port for OAuth flow. |
+| `--timeout` | float | `30.0` | HTTP timeout in seconds for source resolution and ingestion requests. |
+| `--concurrency` | string | `auto` | Retained for CLI backward compatibility. |
+| `--source-type` | string | none | Optional source parser override (e.g., `debug-cloud`). |
+| `--ingest-source` | string | none | SDK 5 source axis: `auto`, `urls`, `sitemap`, `sheets`, `local`. |
+| `--ingest-loader` | string | none | SDK 5 loader axis: `auto`, `simple`, `proxy`, `playwright`, `premium_scraper`, `web_scrape_api`, `passthrough`. |
+| `--url-regex` | string | none | Optional regex filter applied to discovered URLs before processing. |
+| `--ingest-passthrough-when-html / --no-ingest-passthrough-when-html` | bool | config/default | Prefer passthrough when source records include embedded HTML. |
+
+### Output columns
+
+- `url`
+- `faq_markup` (`yes`/`no`)
+- `faq_markup_from_graph` (`yes`/`no`)
+- `types`
+- `structured_data`
+
+### Notes
+
+- Uses `wordlift-sdk` ingestion inventory API (`create_structured_data_inventory_from_ingestion`).
+- Shows one CLI-owned progress bar during execution, powered by SDK `inventory.progress.*` callbacks.
+- Migration note:
+  - before: worai inventory fetched pages and parsed JSON-LD locally.
+  - after: worai inventory builds a source bundle and delegates inventory generation to SDK ingestion.
+- Requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config).
+- Requires exactly one destination: `--output` or `--destination-sheet-id` + `--destination-sheet-name`.
+- Google Sheet destination writing is handled by worai from returned inventory rows.
+- `--concurrency` is accepted for CLI compatibility.
+- Ingestion precedence:
+  - new ingest settings (`--ingest-*` or `ingest_*` config) win over legacy when both are set
+  - legacy remains supported when new is unset
+  - disagreements emit a structured warning event
+- URL filtering:
+  - `--url-regex` filters discovered URLs before inventory processing
+  - when omitted, no URL regex filter is applied
+  - config fallback key: `ingest.url_regex`
+- Loader defaults:
+  - default and `auto` loader resolve to `web_scrape_api`
+  - passthrough behavior is delegated to SDK ingestion when embedded HTML is available
+- `worai.toml` examples:
+```toml
+[ingest]
+source = "auto"
+loader = "web_scrape_api"
+passthrough_when_html = true
+url_regex = "/blog/"
+```
+
+```toml
+[profiles.inventory_local]
+api_key = "${WORDLIFT_API_KEY}"
+mapping = "default.yarrrml"
+urls = ["https://example.com/page"]
+ingest_source = "local"
+ingest_loader = "passthrough"
+```
+
+- Local URL list file support:
+  - `.txt`: one URL per line
+  - `.csv`: requires `url` column
+- When using a Google Spreadsheet as source, `--sheet-name` is required.
+- `--source-type debug-cloud` (legacy alias of `--ingest-source local`) supports `.ttl` debug artifacts by reading:
+  - URL from `http://schema.org/url`
+  - HTML from `https://w3id.org/seovoc/html`
+
+### Examples
+
+- `worai structured-data inventory https://example.com/sitemap.xml --output ./structured-data-inventory.csv`
+- `worai structured-data inventory ./urls.txt --output ./structured-data-inventory.csv`
+- `worai structured-data inventory https://docs.google.com/spreadsheets/d/<id>/edit --sheet-name URLs_US --output ./structured-data-inventory.csv`
+- `worai structured-data inventory https://example.com/sitemap.xml --destination-sheet-id 1AbCdEfGhIjKlMnOp --destination-sheet-name Inventory`
+- `worai structured-data inventory https://example.com/sitemap.xml --output ./structured-data-inventory.csv --concurrency auto`
+- `worai structured-data inventory https://example.com/sitemap.xml --url-regex "/blog/" --output ./structured-data-inventory.csv`
+- `worai structured-data inventory /path/to/debug_cloud/us --source-type debug-cloud --output ./structured-data-inventory.csv`
+- `worai structured-data inventory /path/to/debug_cloud/us --ingest-source local --ingest-loader passthrough --output ./structured-data-inventory.csv`
+- `worai structured-data inventory https://example.com/sitemap.xml --ingest-loader web_scrape_api --output ./structured-data-inventory.csv`

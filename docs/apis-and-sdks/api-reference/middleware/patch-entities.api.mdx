@@ -1,0 +1,71 @@
+---
+id: patch-entities
+title: "Patch Entity"
+description: "Patch entity"
+sidebar_label: "Patch Entity"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVlFv4zYM/isCn1qck/SCPeVp3aHYbt12RdthD4cAYS3G1lWWdJKc1DP83wfKduo0bXcvrSGJ5MePH8m0ELEIsPoKVyaqqCjAOgNJIffKRWUNrOAGY14K4vsGMrCOPPLVZwkrcHx5sM3AoceKInl22oLBimAFSkIGip19r8mzl+MQyUEjlJxDBp6+18qThFX0NWUQ8pIqhFULsXHsLUSvTAEZbK2vMMIKaq+g69a9LYX4i5UNG+TWRDKRP9E5rfIEfPEtWDNLyD/wJ1+fBEHv8RTofUkDE2IIlQkOgsooU4hYksA81qhFoApNVLmQGJHTUpGqMAlgH75RHpkyz5Qm/lYtWPdapqcoEnxxKEYm6Akrp0lsUMoNByRTV1xZlDKxWtkdpQ+nMeev4SC3jhONFBjNG6/XHdc2lj8Irk+pEdEKJr5JzEzA/n735a8bjKXoSxhJijNNKJnEoDGU5yLlNC/mYrMoY3RhtVj0RZpbXyxUhQWJM2MjJd/HxnPoMtihrukUb9dlEFXUdNBdEvhtX07oOn5wrMF0EJw1oa/R8uKC/x3nfVfnOYWQCH1VdVq+rbYJtqmJl9sPT5X+P5NIT3ERa5+Seu8pP/7p4/IU/GezQ63kKGoxaWO2CZTXntufe/rSqWvizzV3XEWxtIdJAKNKYEHPQyGQ340TofYaVjBWFJ2a762XWm3jXFlgj2OwO06jJ3wM+dyd/cFL7W2uqRFtY2svHqnpNpCNE+iyjqX16t/E6ziMSkJJPmXIlbl9Hh5XfTMlxNyRQ1sMuR2UP0jsQPCaHW9tAjpI7E8lpaY9ejpBe23sXpMsSPzq0ZVpUogKDRZUkYnz1JS+Cl+2d+R3KqcJcRPSFunRzG5noX+2GDSIedLgwMA/1ss/1JZ7/LgGU/4zoApVuiWt7c9HtclAq5xMoInXs/xc8ADxqiijWF4slzPnKZCJ4ocCcp+SDz0hH+cXfOBsiBWaSZR+BV2NK+iIxsmUf7mqBrGk9nAalWHvCUs7lPIr0GTvlTZEPmvbBwz0t9ddx8f9zmIpSBXwQfNY2KIO9A6Ss9thgpyLo+X2KqRH1na/JEdFJS3t0CuOl3otG+XKQHqLT3242T07fbZ9b9V12Wh8mefk4htm46w66vCby/tPv0EGD8N2raxkO497XhS4Z9j8+4A9pLZNZy1oNEWNBb/tnaYxVx8tE3TqMTX08MFJjlemmaB82ch9MvyXU3vVpG37cdF1h/f91ZsWA9OHyjARXdf9B42mJes=
+sidebar_class_name: "patch api-method"
+info_path: apis-and-sdks/api-reference/middleware/middleware
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Patch Entity"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/entities"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Patch entity
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"id","in":"query","description":"Entity id.","required":true,"schema":{"type":"string","format":"uri"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json-patch+json":{"schema":{"type":"array","description":"The entity request, containing the actual semantic data.","items":{"type":"object","properties":{"op":{"type":"string","description":"The patch operation, example `add`.","enum":["add","remove","replace","move","copy","test","add","remove","replace"]},"path":{"type":"string","description":"The property to apply the operation, JSONPath formatted (leading slash) on, e.g. `/https://schema.org/image (note the leading slash)."},"value":{"type":"string"}},"title":"EntityPatchRequest"}}}},"required":true}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Success","content":{"application/ld+json":{"schema":{"type":"string"}},"application/rdf+xml":{"schema":{"type":"string"}},"text/turtle":{"schema":{"type":"string"}}}},"412":{"description":"Invalid request parameters"}}}
+>
+  
+</StatusCodes>
+
+
+      

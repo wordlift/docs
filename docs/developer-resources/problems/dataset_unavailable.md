@@ -3,7 +3,6 @@ id: dataset_unavailable
 slug: /problems/dataset_unavailable
 title: "Dataset unavailable"
 sidebar_label: "dataset_unavailable"
-displayed_sidebar: docs
 pagination_prev: null
 pagination_next: null
 description: "Resolve API problem type dataset_unavailable (HTTP 502 or 503): what it means and what to do."
@@ -27,7 +26,7 @@ On a 502 retry shortly; if it persists, check that the key's graph exists and is
 
 - `dataset_uri`
 
-This is one of the [Resolve API errors](/developer-resources/resolve-errors). Errors are
+This is one of the [Resolve API errors](/apis-and-sdks/resolve/errors/). Errors are
 [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457) Problem Details documents with
 `Content-Type: application/problem+json`; `code` is the stable identifier and
-`type` is this page. See the [Resolve API Guide](/developer-resources/resolve).
+`type` is this page. See the [Resolve API Guide](/apis-and-sdks/resolve/).

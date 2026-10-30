@@ -1,0 +1,71 @@
+---
+id: update-records
+title: "Update"
+description: "Update"
+sidebar_label: "Update"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVduO2zYQ/RVinhJAtmxj06R6arpoigBFW2y8KNCFYdDS2GJCiQw58sYR9O/FkJIvKydd5Mn2+HDmzOXMtGAsOknK1O8LyKCxhSS8w9y4wkMCVjpZIaHzkD20UKDPnbIMhwyWJYpbUxPWJH7HuvcjVDGFBBQjrKQSEqhlhZBBHrEn6PsCEnD4uVEOC8jINZiAz0usJGQt0MHyM1UT7tBBAlvjKknR9NMNdF3ylNKtqazGQEPmOVrCYuDyuUF3OJFRfn2G+F8SG2M0yhq6bhXR6OlXUxwY0ufFX6W1WuUhufSjZ0rt2JfZfMScIHnC/a3o/QoyIjZCUInCOu4RKfTCbEXVaFJWo3CxSVzrE4Kj7KVW/LhYSzqL6smpendeRQZNSFU4osKd7d1wKRnDsZlNDDvl4gMp0uz6/nxq7mIS0DHisq7B4K2pfWS6mM344zL2O9PU7D+Bm9l8/PfbhkqsqS+yeCeVbhxG+M0Y/qchETwGwh7zxik6hGEefqyNbKhcQPaw4uaS3PGww5XJHnSxelqvWABIoEIqDQvJNhTkQyVkkPYTMtkdffm0vSKHLnVH6Xl0+0F3jdOQQUlkfZam0qrpo3GFVluaKgPMekjmAw9brO4ovxa22jyG/9hinPoa4t6aAkfG+4uQ/jxgGhymAxxTZpsbG8NupFc5K4Y/RbBzd8h8wmc4DbA0TlevlsieLayou5P2fvsiWe3jmYfFbHEzmb2eLH5ezl9lr+bZ4s109nr+LxNR9dYMqpV5UAhWUgViqLX55by0x3Xxj3HFH2rLTb1sxkUjns5F31sU+XEvebGRHgthapE3nkylvmIhtKp3jfKkclGZAnWQtVY51j7k17N4kb8UubEHp3YlicVssZhYh57H9LkECV3l/9p+QLdXOV7HpQE0MduJjzDu8CD2sS4gAZ7UmPJ8OuMw1niqZH3G/aiRixId1xPhF0qtlqrm5yGFttfPA1zRDySQfeugHFVaGk/8vm256PdOdx2b4ykIB015udG8n7ZSexyRO652eHHXr7KX4vqRuZrHJzyMbs1e6oaRQbd76RQz+HE2373CV0n1RlkfztkMZK8VtVt1CZQoC3SBaET2USdL9nfyNLqBnOdxMf59v4QENv3prMLqAScfuXHyMRIxNrY4a6OtBS3rXSN3jI0ueR3wYjg/q3FRJHDc5+31VOOGGvIdNtQ3wM9YVoMn7rH3y2HR/ZDLi6Xau22o/K6/i729zrmkw9udkzWtw6tu1XXdfyKAcrk=
+sidebar_class_name: "put api-method"
+info_path: apis-and-sdks/api-reference/content-generation/content-generation
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/content-generations/{contentGenerationId}/records"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"The Content Generation id.","in":"path","name":"contentGenerationId","required":true,"schema":{"type":"integer","format":"int64"}},{"description":"Completion accepted","in":"query","name":"is_accepted","required":true,"schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","description":"A request to update the properties of multiple records.","properties":{"validated_at":{"type":"string","format":"date-time","description":"The validation time of the record."}},"title":"UpdateRecordsRequest"}}},"required":true}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Found."},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      
