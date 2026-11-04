@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import ThemedImage from '@theme/ThemedImage';
 
 :::info Version Notice
-Latest Release: 3.20.25 (October 2026) — Added a Query the Knowledge Graph section with GraphQL and SPARQL guides, including the new SPARQL endpoint and its W3C conformance, and public Monitor documentation.
+Latest Release: 3.20.26 (November 2026) — Updated the worai patch command page with how failed writes are reported, including which responses count as failures, which are retried, the summary line, and exit code 4.
 :::
 
 # 👋 Welcome to WordLift
