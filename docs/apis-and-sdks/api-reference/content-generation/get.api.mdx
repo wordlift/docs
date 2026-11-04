@@ -1,0 +1,71 @@
+---
+id: get
+title: "Get"
+description: "Get"
+sidebar_label: "Get"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVdFu1DoQ/RVrnkBKN8uq4iFPVBVUSFcXRIt4qFaV15lsDIlt7EnLEuXf0djJsuku3IrLUxJn5syZ8ZyZHqxDL0lb87aEArZIkIGTXrZI6AMUtz2UGJTXjo2ggJsaxaU1hIbEFZrRW+hyARlotnCSasjAyBahAJVsf5q+LSEDj1877bGEgnyHGQRVYyuh6IF2jt20Idyihwwq61tJ6ejlOQzDmt2DsyZgYI/VcsmPMRC/SucarWK0/HNg2v1xBLv5jIrTned3TZJ0IK2CkBvbkZCn0n3vLXtzzs5zDUknMlIpdMSJ/Xcqj0NzaU3XbtALW4kJSXhU1pdhAUMG6L314f+Dj5jiQVMtEmjEJ0uy+VP46HwcJALfy0b/haJEmBnwg/RGm+3frskEu4CBy6KpYeTLx83M3RJgYJs59BvbmTISPF++YG7z3xcd1WhobFLxRuqm85jMz4/N/7UkImJkE1B1XtMuqnP6uLOyo3oFxe2aFUKSS3ILJ3o3cV4/ZnwVtd8i1fZwFFANBeSjuM62e5iQ9yekPeQhojNJfz9NkM43UEBN5EKR59LpxYP1ZaMrWmgLTHfK4ppVmpR0lFgPVWMfkso6qq3X32PUS1vi0eHHWchwGDCPgPlkjjmzVdalsBsZtIIiPUU8T8L4gk8AjWZ56plxzCT2fKJNZadJJVWcVNhKHTGxaeyrw6rsB+gn68t/dMW3Ma/jrIbHtxkvBYWyrWsw3pjYyIClsEaoLpBt9XcsRaPNtosDT7S2xCbwTGu0QhNiVUcWz9Rzoazbeb2tSayWq9WZ8xi4tZ5KkNC34V11jf5eKzxtl0ejM1udhWTGl/NIfQe9DBlwk6WUXyyWHMbZQK00B9xTZ8/qs58VhN8od43Uhn0j/37s+ls40fWQQXF6pYVJVrUNxN59z/X+6Jth4OOvHXqW7JqHoddywznxetWB30soKtkEPCK632vw7MO4NZ+L327hk6mNh9LsIE7jjr8ggy+4+8WWHtZDBjXKEn0kmiwv4lo6wDhatqzn/Ri5en0DWZTm4epNmshgP7P60/ySGCeSkxh/YfwEXU5IvFtDuJk0/UeQs/kxwnZU/xZvNqLuFA+uyXfrpaG76DWsh2H4AY7/VGg=
+sidebar_class_name: "get api-method"
+info_path: apis-and-sdks/api-reference/content-generation/content-generation
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/content-generations/{contentGenerationId}/stats"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"The Content Generation id.","in":"path","name":"contentGenerationId","required":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"type":"object","description":"Statistics about a Content Generation Project.","properties":{"accepted":{"type":"integer","format":"int64","description":"The number of accepted records."},"errors":{"type":"integer","format":"int64","description":"The number of records with errors."},"total":{"type":"integer","format":"int64","description":"The total number of records."},"valid":{"type":"integer","format":"int64","description":"The number of valid records."},"warnings":{"type":"integer","format":"int64","description":"The number of records with warnings."}},"title":"ContentGenerationStats"}}},"description":"Found."},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: get
+title: "Get by id"
+description: "Get a Web Async operation by its id."
+sidebar_label: "Get by id"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVE1vEzEQ/SvWnAC5Tah62hM5AEIgQFDUQ1UJx55kh+7aiz0bCCv/dzTeJGzTgMol64zn643fmwHYrBNUN3CNS7VIW2+TapGNM2zgVoPDZCN1TMFDBa+RlVEHVxU6jEbu1HKriJMidw4aDuY3DipYI4OGzkTTImOUagN40yJUQA40kKTuDNdwXO+qxkm14hzxe08RHVQce9SQbI2tgWoA3naSMnEkvwYNqxBbw1BB35ODnG8lOHXBJ0zifzGfy+d+xVeh9wWDDZ7Rs3g8mz2Tz4NKYfkNbcEWBTHTmJfcI7rRYCMaxn/7OsN4xtRiCQht1+B/hThsaIPxf0Ja5Dqc8M8a+tictFvTNEtj705eRmwD48K5iCmd8MgamLgR0zUuy0NDzmK+nD9/+D6Lnmv0THak3StDTR9L45fzy4fu7wOr8qSlUELbR+JtYeCio7cox1thxh72ga1cQwWzH7g0RRSzgVwGSRE3ew6XeUDN3KVqNjMdnf8I0TW04nMKsyb4NRtqQNLvK38WDo002dc/TMSMhmMNfH2LWzVsQx/VHW7zV9B78cgsQqRfZRR7HdVoHMYCl/wqlPy7+b4Lfq2upKXjGh9j2JBDlfr1GpMYk1qFqASDEhAqdF2I3HsSlos+GGObPqw+Y9yQxckcpjMoTmdhdZZGt9lOWMYWYe1wXIfo3tFK5n5/pJNUoAFbaV0QNk14Mb3LGhqy6BNOsj6xT5UN3TbSumZ1Mb+4OOsiJvSsHlUwa5CXHgf0/Hwuhi4kbo2fVJGNKLvPHc90+LNBHrs2dzxg/MmzrjHkJ6IbCXkDB0KChoqcrOg6JJarYViahF9ik7OYv/cYC701bEwksxQO3AzgKMnZQbUyTcJ/tP3k027XPlUnFvHJbvdU9sLjjWl6+Qca7oTpshnzbdZ7jko348XCWux4EiIr954sX7+8Ag2mlylMFXNXFLM7SMKTHRwrZawqv1n/JWQYRj3mfPAfr/4asUN1AOsFbM6/AV3hfh4=
+sidebar_class_name: "get api-method"
+info_path: apis-and-sdks/api-reference/long-tail/long-tail
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get by id"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/webasyncs/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get a Web Async operation by its id.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"id","in":"path","description":"The Web Async id","required":true,"schema":{"type":"string","format":"uuid"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Found.","content":{"*/*":{"schema":{"type":"object","properties":{"id":{"type":"string","format":"uuid"},"created":{"type":"string","format":"date-time"},"completed":{"type":"string","format":"date-time"},"delivered":{"type":"string","format":"date-time"},"method":{"type":"string"},"url":{"type":"string"},"callback":{"type":"string"},"remoteAddress":{"type":"string"}},"title":"WebAsync"}}}},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

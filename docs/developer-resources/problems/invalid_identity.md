@@ -3,7 +3,6 @@ id: invalid_identity
 slug: /problems/invalid_identity
 title: "Invalid identity"
 sidebar_label: "invalid_identity"
-displayed_sidebar: docs
 pagination_prev: null
 pagination_next: null
 description: "Resolve API problem type invalid_identity (HTTP 422): what it means and what to do."
@@ -29,7 +28,7 @@ Send Wikidata identities as `Q312`, `wd:Q312` or `https://www.wikidata.org/entit
 - `id`
 - `accepted`
 
-This is one of the [Resolve API errors](/developer-resources/resolve-errors). Errors are
+This is one of the [Resolve API errors](/apis-and-sdks/resolve/errors/). Errors are
 [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457) Problem Details documents with
 `Content-Type: application/problem+json`; `code` is the stable identifier and
-`type` is this page. See the [Resolve API Guide](/developer-resources/resolve).
+`type` is this page. See the [Resolve API Guide](/apis-and-sdks/resolve/).

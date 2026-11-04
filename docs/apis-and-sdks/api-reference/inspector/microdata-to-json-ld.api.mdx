@@ -1,0 +1,71 @@
+---
+id: microdata-to-json-ld
+title: "Microdata to JSON-LD"
+description: "Provided a URL, converts any microdata found on that URL to JSON-LD."
+sidebar_label: "Microdata to JSON-LD"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVE1v00AQ/SurOVGxaUIFF5+oBEWFQqt+iAOK1O16Em/r7C6z4xRj+b+jsZ3gtAFxIAfH8ny9efNmGmCzTJB9g8/OUsgNG5hryDFZcpFd8JDBBYW1yzFXRt1cnmllg18jcVLG12q1iVOLUPlcBa+4MCyeioP6eHX+ZXL27hA0hIhkJOVpDhls467DxxT8WQ4aoiGzQkYSRA14s0LIoAINTnB8r5BqeIruukD1iHcqmiVKVdBA+L1yhDlkTBVqSLbAlYGsAa6jpExMzi+hbefinGLwCZPYj2Yz+dutcCKNSQc2eEbP4mFiLJ3t2pmW+cv7JJ7N80rh7h4tgwaT5068TXlBwgS7vuKuXys/Da9nr57DOK64QM9DVXViXFkRQqvhzT7UV0hrJPWeKBBI0oS2Isd1x+1xdJ9QXufCwQq5CDKVJXI3By4gg+l2RhMOE2mxlCmlLnE/oopKyKBgjimbTk10h4+B8tIt+NCFqfMpomWpP/9d/0o46pvfoNjSYPoPT2d8+wlr1dShIvWAdXsLeiMOISWQ+9lxshFKgSbHvmnnF6HL77gU/9MeUu+8W2QwbcWU1CKQSkyV5YowV8KEyICRVul8IQQ7i6P+x713TpOwmKTebTrox9hOPwP8r4HyM7cQ0nepHKUCDbgyrrNiWYa3Y1uroXQWfcJR1hf2QNkQa3LLgtXR7OhoEgkTelb/VLDVIBPuaXl1OJMPMSReGT+qsr0Yoz1/Smrze2f+1xkZlML4g6exNM4Luq6XZhDuN9gn3LmGIiQWc9PcmYQ3VLatfO7visg5d8nclXI4FqZM+JdmXlwON+ZA7TlAezE+iNK7a7Y2ZSX2bi3WhpwU7XZRb7QraPqAY2sx8ihq3+nZWeIP76/l4FTCxXizHrrNGl6kwMbk61H6pxvVo5Bnq/8Q0jT93rbt1r83/TFi6HLjLQTN27b9BZNBO2s=
+sidebar_class_name: "get api-method"
+info_path: apis-and-sdks/api-reference/inspector/inspection
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Microdata to JSON-LD"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/microdata-to-jsonld"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Provided a URL, converts any microdata found on that URL to JSON-LD.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"u","in":"query","description":"The web page URL","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Found.","content":{"application/ld+json":{"schema":{"type":"object","additionalProperties":{"type":"object"}}}}},"401":{"description":"Authentication Failure"},"500":{"description":"Server Error"}}}
+>
+  
+</StatusCodes>
+
+
+      

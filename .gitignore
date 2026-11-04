@@ -20,3 +20,6 @@ yarn-debug.log*
 yarn-error.log*
 .idea/
 .private/
+
+# Licensed webfonts (Denim INK): injected by CI for production, never committed
+/static/fonts/

@@ -1,0 +1,71 @@
+---
+id: create-or-update-entities-1
+title: "Create or update many"
+description: "Create or update many entities in the Knowledge Graph."
+sidebar_label: "Create or update many"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVd9vGzcM/lcEPm3AxXaCPt3T0q4dimTLlh/og2Gs8on2qdFJqsRLej3c/z5QkmvXzoZtL7bAIz+SHz9KI5DcRqiX8LMkGZFgVYHC2ATtSTsLNbwJKAmFC6L3ik+dtINAS5o0RqGtoBbFlXXPBtUWxS9B+nYGFTiPQTLIewU1NAnmJjwkkLcl/M9zqCDg5x4jvXZqgHqExllCS3yU3hvdJJD5p8jljBCbFjvJJxo8Qg0yBDnAcdmXwuhIwm1EgY9QgSbsIoeyTQdU3HnnFBqooA+auy+obv0JG4IKfOBGuFgOZKd96khB2+1J7vsWM0GDeLh9P4OpKklOIifG10+S8ODb2jmD0p7AfmiRWgyJ7wIfW9cbJdYoWq0UWrEJrhPX2j6iEjxSIa3KI/njmoeCX2TnDUJNocdpOmWtsCW8DIk9KdaSmjRQ0sSR8JoNt9kPpolR9nwmXDZE72zMpF0sFvz3faq7vmkw8lT+68DLaHLmV4vzU+zLnlpmKCOJd1KbPiAk91en7r85Eu9cbxUwYsSmD5oGqJcjXHp9hXxcTasKOqTWsZq9i0kbklqoYa7y8swTVcAQ4QlDTAh9MFBDS+RjPZ9Lr2fPLiijNzTTDhh1l/COG82M7dLuRZ4Nx/P6eIWDGAfXB/GIw/QRKrCyw0KBC/prYoClz+4tSoUhdcns3u4X7+1OF8ui8b22i3T3hm+KTbNeMfbGpVqLQH7VShl8lgFPCj66JwQzxzeK3GKHlpLMMHTxZnOH4Uk3eMDdAW/z5HTmNmcxu82LjmSTdFRI+OCCutYbStttXobipeikTl/RGPfTd+OpwOgGbcQD1B+aH0Xj/BD0tiVxsbi4OPMBI1oS/yrhVAGrIxNyPlukW8BF6qQ9yPLivXvM58Ft+f8v6iIxwi8090ZqywWl8sei8CUUhUMFWeOrClregXoJ47iWER+CmSY2f+4xpIWp4EkGLddJVaup2qmPJfbI4oY3ufazey6A3U2ftX50CUzVLuKyadDTP/oerunvN3f3XHJ5WVjJUEOQz/zqyGeoIb1THJ2fBbaNYKTd9nLLvhmTF0b2zMThQj6mhSwH7mr3Kc1pV+HxIuZG+JfbejFkHPO6T9M3//zpbyMKtTtvHuFqmqa/AEJps8c=
+sidebar_class_name: "post api-method"
+info_path: apis-and-sdks/api-reference/middleware/middleware
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create or update many"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/dataset/batch"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create or update many entities in the Knowledge Graph.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"array","description":"A list of requests","items":{"required":["model","uri"],"type":"object","properties":{"uri":{"type":"string","description":"The entity URI."},"model":{"type":"string"},"private":{"type":"boolean","description":"Whether the entity should be hidden from Linked Data and GraphQL.","example":true}},"description":"A request part of a batch.","title":"BatchRequest"}}}},"required":true}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Success","content":{"application/json":{"schema":{"type":"object"}}}},"401":{"description":"Authentication Failure"},"404":{"description":"Not Found"}}}
+>
+  
+</StatusCodes>
+
+
+      

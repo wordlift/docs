@@ -1,0 +1,71 @@
+---
+id: get
+title: "Inspect"
+description: "Inspect a URL to perform a variety of tasks defined by the list of applied filters."
+sidebar_label: "Inspect"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v2zgQ/SvEnFqAttNg9+LT5tAWQQvsIm2xh8BAx9LIYkyR7JBKogr674uRrFhOlKDbRffiD3I48+bN42MLCXcR1tdw6WKgLHmGjYacYsYmJOMdrMctherL1UeVvArEhedKobpFNpQa5QuVMO6jyqkwjnK1bVQqSVkTk2xiCNZQrgpjE3FcggYfiFEqXOawhh0l0BCQsSKJgPV1Cw4rgjXUoMEIkG81cQOP4X0uaQRmBqSggelbbZhyWCeuSUPMSqoQ1i2kJkjSmNi4HXQa6B6rYGWtTCnE9Wp15zm3pkhL46HTDziKl3G8G3oTHFt66Ni7ngimWNuklSlU42t1hy5JoEQ1qqptMsHSSI+caFQsfW1zyRVJiEkDrZmvKvwXHU4bvEVrcpQhayBXVzL46VrmXSKXFujQNtFE0FD5bL+w6HY17miRU6Ks71fDlv1dJF4wxeBdJNBwQw4XO8ZQggZr3D7Ox1kj+ebTzi4y5ZJuMQMw1lWFbL5L3kT3MvxpS/eVTWSkN4sxmqKBTTdLiX6SezL6/jDFlwVw8SD3DBPtPBsa1RDY35pcLoBnNSI5jHt5MswCbZybJjKjlDSJqjij467bSJqB4j7g/OxMvh6J1NcuXx5HLRG9VLP+Lq5uooS1T+v77c1wswLLzU1mKEJVSM0kbOu9JXTQdRowz40kRfvXyZnTjJ2GZFI/i4PRXI1C6TpJ89vZm6d9XNSpJJcOsNU7NLZmkmS/z7X9ifiWWL1l9txji5TVbAT6dQsXwXwg+bkREitKpZ96UiphDaujt8Q+2WBRNduJcWAwy4l5jGek5uZY85NwO1AxVj6OeVh4LK2vH6hRbeNrVntquq+gR2UKEZ7NdzzclF6fJWFOQ6PGFb7Pf8rxEDzv83e0VQF3FHu1xsR1lmqmXOWYcNlfM67in4WQarJnjHPVBy18sYhD2OogOsx60R3g/+05/2gKofWUyqkHa6AKTb9L1vo/Tv0ZrMlI5HLM+ip7rTIfGja7Mqnzs/PzRWCK5JL6oYKdBpnwQMub5ZksBB9ThW5S5fJBESc8tse79YuezoNWxO1WwaJxgq/vpj3I9RpGuW40lD4mWWrbLUb6wrbrZHkwMRFxbiJu7cR9nu3n1dXBqF6r2Wd3FtleFN6/4rdoa9nvrfWnqv7Pj+wL/RQ/389/eCheAHR8o46wNvKHjeDq7U2P1iBjH45dZBmFNDn15Dk4McX3bz+DBqxFZVPX2veudfgh2cct10xyP3arAYJ8CoOzR9p28MSue4gftp49cWhxjBaONl3X/QNFWsb/
+sidebar_class_name: "get api-method"
+info_path: apis-and-sdks/api-reference/inspector/inspection
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Inspect"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/inspect"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Inspect a URL to perform a variety of tasks defined by the list of applied filters.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"u","in":"query","description":"The URL to inspect","required":true,"schema":{"type":"string"},"example":"https://wordlift.io"},{"name":"f","in":"query","description":"Filters to be applied on the result, if you want to apply multiple filters they should be separated by comma","required":true,"schema":{"type":"string","example":"validator","enum":["validator","content-analysis","mock-language-detection","browser-response","jena-graph","links","browser-response","lingua-language-detection","language-detection","redlink-content-analysis","summarize","text","validator","xmltei","classify"]},"example":"validator,content-analysis"},{"name":"classes","in":"query","description":"A list of categories to be provided for classify filter.","required":false,"schema":{"type":"array","items":{"type":"string"}}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Found.","content":{"application/json":{"schema":{"type":"object","properties":{"empty":{"type":"boolean"}},"additionalProperties":{"type":"object"},"title":"InspectResponse"}}}},"401":{"description":"Authentication Failure"},"500":{"description":"Server Error"}}}
+>
+  
+</StatusCodes>
+
+
+      

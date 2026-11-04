@@ -5,6 +5,13 @@ on:
     branches:
       - main
   workflow_dispatch:  # Allow manual trigger
+  # Docs v3 migration: Azure preview (staging) environment for PR #59 only.
+  # The jobs below check the head branch, so no other PR deploys a preview.
+  # TODO: remove this trigger and the head_ref checks before merging.
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
 
 concurrency:
   group: swa-${{ github.workflow }}-${{ github.ref }}
@@ -12,7 +19,7 @@ concurrency:
 
 jobs:
   build_and_deploy_job:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed' && github.head_ref == 'docs-v3-ia-migration')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
@@ -51,7 +58,7 @@ jobs:
 
           if [ "$api_changed" = "false" ]; then
             while IFS= read -r id; do
-              if [ ! -f "docs/api/$id/sidebar.ts" ] && [ ! -f "docs/api/$id/sidebar.js" ]; then
+              if [ ! -f "docs/apis-and-sdks/api-reference/$id/sidebar.ts" ] && [ ! -f "docs/apis-and-sdks/api-reference/$id/sidebar.js" ]; then
                 api_changed=true
                 break
               fi
@@ -63,6 +70,22 @@ jobs:
       - name: Rebuild API docs
         if: steps.api_changes.outputs.api_changed == 'true'
         run: ./.bin/rebuild-api.sh
+
+      - name: Add the licensed Denim INK webfont (production only)
+        # Displaay licence: wordlift.io and its subdomains only, files never
+        # shared. Previews on azurestaticapps.net build without it.
+        if: github.event_name == 'push'
+        env:
+          PART_1: ${{ secrets.DENIM_INK_WOFF2_PART_1 }}
+          PART_2: ${{ secrets.DENIM_INK_WOFF2_PART_2 }}
+          PART_3: ${{ secrets.DENIM_INK_WOFF2_PART_3 }}
+        run: |
+          if [ -n "$PART_1" ] && [ -n "$PART_2" ] && [ -n "$PART_3" ]; then
+            mkdir -p static/fonts
+            printf '%s%s%s' "$PART_1" "$PART_2" "$PART_3" | base64 -d > static/fonts/DenimINK-Regular.woff2
+          else
+            echo "Denim INK secrets are not set; headings use the fallback font."
+          fi
 
       - name: Build static site
         run: npm run build
@@ -82,7 +105,7 @@ jobs:
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.head_ref == 'docs-v3-ia-migration'
     runs-on: ubuntu-latest
     name: Close Pull Request Job
     steps:
@@ -94,6 +117,8 @@ jobs:
           action: "close"
 
   run_docsearch:
+    # Crawls the live site, so only after production deploys, never previews.
+    if: github.event_name == 'push'
     needs: ["build_and_deploy_job"]
     runs-on: ubuntu-latest
     name: Run DocSearch

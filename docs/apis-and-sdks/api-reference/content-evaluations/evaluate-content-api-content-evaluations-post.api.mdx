@@ -1,0 +1,71 @@
+---
+id: evaluate-content-api-content-evaluations-post
+title: "Evaluate Content"
+description: "Submit text content for evaluation."
+sidebar_label: "Evaluate Content"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVV99z2zYM/ld0eFadrLcnvXVb79prtuSabHvI+XywBNtsKFIlKaeuT//7DiRl/XTsvSQyCYAfgA8geASHWwvZM/yulSPlko97lDU6oZWFZQoF2dyIin9DBo/1uhQucfTDJXlU2GiT0ElpASnoioz/8bmADOIeraLCCitx+u4U7arS1kEKhr7XZN1vujhAdoQoyZ9YVVLkXvrmm2VAR7D5jkrkr8rwuU6Q5V8M0f8/VAQZWGeE2kIKTjjJC0+8P3bvaUdD35xO1tR6R8UCmhRe6PCqTWF71tEYPPSMf2lFxgfcCesSvUlaG3wAKpSHn5S8CrcTKnEjDBxQ4ai0U2+apknbJb3+RnkbPmGo4Jz6ICw7XDHHXYq/hlgHS52mMzX5BVtpZUNA39/e8r8xH/KcrN3UMvkahSG9PmVvYf9eoxTusLK5Nmy0JIcFOmR/hqkeSl4wq/dkUEpIYW0IXwr9qqYWW6HOlqrLNRlIYaNNiQ4y2EiN8wyK2knElXhcnjrdkRdQthHkVSxwLdgQpGBJT9H2wv2Wzao2lfb5wTyvDeYHj75yu6nJVrYzKZSjLRn24qQ+uxsszmwFinXeXIDb5n1rsKCVpD1JT62ykvRjZYl9zslOsY9pcC51zdD2rDPT4y6g3qEpIIU9mcMqfjvtUE5h+t3ZQzvl2e1gbzbAHGKmyAWQsfusClI28MrpakXKCQ8ujSGcQB7rcaUout9A9jw9cFgX937Z97i2+SUVmZyUwy3Z5HVHquuKaCipjN6LgjiCWBSC7aB8GPb4Cwlu0p6Mr/khqL9qKcPJSp85vFk2o+jMxPYCvvZ2GHfx8y2biVcrN83A/K3WtPLnSTGqicE2C5y66wV4Pv/hMKaacqIMfaoi48Ovci5avjFXopg60NOfJXdn8lI30xJNbIq1FxB7/jltZa3gVR1hYOsaijVD1y+gxtrpkieJVUnOiJyLra0qPwdYwUtSlr3JKLS9tVDU0xpeehOvpwdd5f4Ey1VaI7hX6Yw9mmXDuZt9cKe0XJsbj5o3Z584sAS5X9+/n843/6AUhZdOPhqjzf8ZboYJKcih8G371AaGAlLng11Uh2FnPRX7NAzLbg4cj6J3OgDkcJZ2+9ZI/CdZi1uCk7Hzoj4YyRPvXppB2a9wdJTrzaNdeEN0z7vxRwjf3GGtyKenp4eJwfZOzOvQA56P8KESX4g/l83SN76d5mdKfH1UyNML3MQ0v+s9UHzHM3sy1tupjYQMds5VNru5wUosuHSk2LiF0JO75l9tijuxccmHh8/JozcDfH4L7ZF5E5jQAuwukLCQgmBLO8LCF5XC0u/WbqeN+BnT3KTAXPzavaI+/kCeYrr7o8tn95Z5bheZS0JtwhARQ3sCP/NIZIcm3rKT/Xeh2g7fVWu0VCRaJbaiXGxEnuRGODICF2F6ssHOL4vbxS3TgrNToq+w6HaEQC2mMYbeXHzlszVGm6VuKonC14zP8jHS4jSYD2ixTGHH5Mme4Xhkz/42sml4+XtNxjMthT0agWuO5jNHOCaRefTCuW7b0ztfUywu65D6UYvh8g8aH/KcKvembJ/fD/ePT/zqic/qUhesY/CV6xVfIQP/cg8uZcewdgSJaltzV8gg2GSCMeWG/Hzx/IwfvaaF6tBHOKBqGh3hv72uNlQ5HgP7m+YkH7bOapzqI0hzGpdN0/wHonvtrQ==
+sidebar_class_name: "post api-method"
+info_path: apis-and-sdks/api-reference/content-evaluations/wordlift-content-evaluations-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Evaluate Content"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/content-evaluations"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Submit text content for evaluation.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"properties":{"text":{"type":"string","title":"Text","description":"The text content to be evaluated."},"keywords":{"type":"array","title":"Keywords","description":"List of keywords to analyze within the text content.","items":{"type":"string"}}},"type":"object","required":["text"],"title":"ContentEvaluationRequest"}}},"required":true}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"object","required":["quality_score","metadata"],"properties":{"quality_score":{"type":"object","required":["overall","breakdown"],"properties":{"overall":{"type":"number","format":"float","description":"The overall quality score."},"breakdown":{"type":"object","required":["content","readability","seo"],"properties":{"content":{"type":"object","required":["purpose","accuracy","depth"],"properties":{"purpose":{"type":"integer"},"accuracy":{"type":"integer"},"depth":{"type":"integer"}}},"readability":{"type":"object","required":["score","grade_level","complex_sentences"],"properties":{"score":{"type":"number","format":"float"},"grade_level":{"type":"integer"},"complex_sentences":{"type":"object","required":["hard","very_hard","total"],"properties":{"hard":{"type":"integer"},"very_hard":{"type":"integer"},"total":{"type":"integer"}}}}},"seo":{"type":"object","required":["keyword_density","top_entities","score"],"properties":{"keyword_density":{"oneOf":[{"type":"object","description":"Object with keyword percentages when keywords are provided","additionalProperties":{"type":"number","format":"float"}},{"type":"null","description":"Null when no keywords are provided"}]},"top_entities":{"type":"object","additionalProperties":{"type":"array","items":{"type":"object","required":["text","count"],"properties":{"text":{"type":"string"},"count":{"type":"integer"}}}}},"score":{"type":"integer"}}}}}}},"metadata":{"type":"object","required":["word_count","sentiment","performance","eval_id"],"properties":{"word_count":{"type":"integer"},"sentiment":{"type":"object","required":["polarity","subjectivity"],"properties":{"polarity":{"type":"number","format":"float"},"subjectivity":{"type":"number","format":"float"}}},"performance":{"type":"object","required":["automated_metrics","keyword_analysis","llm_evaluation","combine_metrics","quality_score"],"properties":{"automated_metrics":{"type":"number","format":"float"},"keyword_analysis":{"type":"number","format":"float"},"llm_evaluation":{"type":"number","format":"float"},"combine_metrics":{"type":"integer"},"quality_score":{"type":"integer"}}},"eval_id":{"type":"string"}}}},"title":"ContentEvaluationResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

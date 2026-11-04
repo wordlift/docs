@@ -1,0 +1,482 @@
+---
+title: "Prompt Library"
+description: "Copy ready-to-use Agent WordLift prompts for analysis, content creation, SEO, Search Console, Analytics, local SEO and AI Overview tasks."
+sidebar_position: 5
+last_updated: 2026-10-27
+---
+
+# Prompt Library
+
+This library contains ready-to-use prompts for Agent WordLift, for both the web app and the Chrome extension. Each prompt is formatted so you can copy it and use it right away.
+
+These prompts also ship inside the downloadable [Agent WordLift Skill](/tools/agent-wordlift-skill/), ready to use from any MCP-capable AI assistant.
+
+To see how Agent WordLift capabilities are organized into tool families, data sources, workflows and integration surfaces, see [Agent WordLift tool families](/platform/agent-wordlift/tool-families/).
+
+## Analysis and research {#-analysis--research}
+
+### Analyze text
+
+```md className=wlx-send-to-agent
+analyze this text to identify the main entities and keywords: [your text here]
+```
+
+### Analyze URL
+
+```md className=wlx-send-to-agent
+analyze the entities on this webpage: [URL]
+```
+
+### Analyze query
+
+```md className=wlx-send-to-agent
+analyze the query '[query]' on [google.co.uk]
+```
+
+### Domain-specific search
+
+```md className=wlx-send-to-agent
+perform a domain-specific search for articles related to '[topic]' on my website
+```
+
+### Analyze Google Trends
+
+```md className=wlx-send-to-agent
+analyze the trends for '[keyword1]' and '[keyword2]'
+```
+
+### Search Reddit mentions
+
+```md className=wlx-send-to-agent
+Provide me with insights on the Reddit exposure of the following domains: [URL]
+```
+
+## Content creation and enhancement {#-content-creation--enhancement}
+
+### Content expansion
+
+```md className=wlx-send-to-agent
+expand the content of this URL '[URL]' by focusing on the entities '[entity1]' and '[entity2]'
+```
+
+### Content creation
+
+```md className=wlx-send-to-agent
+create a new article about '[topic]' using insights from our website's existing content
+```
+
+### Generate AI Overview
+
+```md className=wlx-send-to-agent
+run a search on '[topic]' using only the content on this website. Develop an AI-powered snapshot that provides a quick overview, offering links with text anchors to supporting articles. Be extremely concise, using only three sentences. Embed links directly in the key text of each statement.
+```
+
+### Generate meta titles and descriptions
+
+```md className=wlx-send-to-agent
+search the site and generate an SEO-optimized meta title and meta description for this webpage: [URL]. Use the Keyword Suggestion tool to incorporate high-impact keywords relevant to the content, and maintain a clear, concise tone. For the meta description, aim for an informative and engaging tone that aligns with user search intent and encourages clicks. Ensure the meta title is under 60 characters and the description under 160 characters for optimal discoverability.
+```
+
+## SEO and technical analysis {#-seo--technical-analysis}
+
+### Entity gap analysis
+
+```md className=wlx-send-to-agent
+perform an entity gap analysis for '[URL]' against the query '[query]'
+```
+
+### Content evaluation
+
+```md className=wlx-send-to-agent
+evaluate the content quality for the keyword '[keyword]' in relation to the content on '[URL]'
+```
+
+### Google Search Console analysis
+
+```md className=wlx-send-to-agent
+show me the top 10 queries that have high impressions but low CTR over the last 30 days
+```
+
+### Performance comparison
+
+```md className=wlx-send-to-agent
+analyze my Google Search Console data and compare desktop vs. mobile performance for my top 20 landing pages in the last 14 days
+```
+
+### Opportunity discovery
+
+```md className=wlx-send-to-agent
+identify new keyword opportunities from my Google Search Console data where I'm ranking on page 2 (positions 11-20)
+```
+
+### Google Discover analysis
+
+```md className=wlx-send-to-agent
+analyze my Google Search Console data for the search type "discover". Show me the top 20 pages with the highest clicks over the last 30 days. Include clicks, impressions, and CTR for each page.
+```
+
+### Google Analytics 4 (GA4) analysis
+
+```md className=wlx-send-to-agent
+provide an analysis of all AI referral traffic over the last week
+```
+
+```md className=wlx-send-to-agent
+analyze my GA4 data and show the top landing pages by sessions, engagement rate, and conversions over the last 30 days
+```
+
+```md className=wlx-send-to-agent
+compare organic search traffic vs AI referral traffic in GA4 for the last 28 days, including sessions, engaged sessions, and conversion rate
+```
+
+### Generate diagram
+
+```md className=wlx-send-to-agent
+generate a mind map to visualize the topic clusters for '[topic]'
+```
+
+### Fact-checking
+
+```md className=wlx-send-to-agent
+fact-check this statement: '[statement]'
+```
+
+### Keyword suggestions
+
+```md className=wlx-send-to-agent
+generate keyword suggestions based on '[keyword]' to refine content focus and enhance discoverability online
+```
+
+### Analyze and differentiate webpages
+
+```md className=wlx-send-to-agent
+analyze the following pages from the website:
+URL1: [URL1], Title1: [Title1]
+URL2: [URL2], Title2: [Title2]
+
+For each page:
+1. Extract Entities
+2. Identify Keywords
+3. Determine Detailed Search Intent
+4. Propose differentiation strategies
+5. Recommend optimizations
+```
+
+### Audit the markup
+
+```md className=wlx-send-to-agent
+analyze the markup of the page at [URL], focusing on the JSON-LD. Provide a brief review and include your recommendations for improvement. Keep the analysis concise.
+```
+
+### Analyze schema types
+
+```md className=wlx-send-to-agent
+1. Analyze the schema types and properties used in the JSON-LD of this article: [URL]
+2. Perform a SERP analysis for the query "[query]"
+3. Extract the URLs of the top 3 results and note their schema types
+4. Analyze differences in markup implementation
+5. Create a comparison table
+6. Write recommendations for improvement
+```
+
+## AI sub-agent workflows {#-ai-sub-agent-workflows}
+
+### Instagram indexing analysis
+
+```md className=wlx-send-to-agent
+Generate a comprehensive Instagram indexing report for @[instagram_handle]. Please analyze my website's entity structure, audit Instagram content indexing using search operators, and provide content alignment recommendations.
+```
+
+### Instagram content audit
+
+```md className=wlx-send-to-agent
+Using search operators, audit my Instagram presence:
+1. site:instagram.com/[handle] - total indexed posts
+2. site:instagram.com/[handle] "[keyword]" - topic-specific visibility
+3. Compare findings with my website's content coverage
+```
+
+### Cross-platform content strategy
+
+```md className=wlx-send-to-agent
+Analyze content alignment between my website and Instagram account @[handle]. Identify entities that are well-covered on Instagram but missing from my website, and suggest content opportunities for both platforms.
+```
+
+### Instagram SERP monitoring
+
+```md className=wlx-send-to-agent
+Set up monitoring for key search queries where my Instagram content @[handle] could rank. Compare current visibility against main website pages and identify optimization opportunities.
+```
+
+## Enhanced Knowledge Graph research {#enhanced-knowledge-graph-research}
+
+### Enhanced entity lookup
+
+```md className=wlx-send-to-agent
+research comprehensive information about [entity name] using the enhanced Google Knowledge Graph with WordLift semantic enrichment
+```
+
+### Corporate intelligence research
+
+```md className=wlx-send-to-agent
+analyze the company [company name] using enhanced knowledge graph data. Include headquarters, key people, industry classification, founding details, and semantic relationships with competitors
+```
+
+### Person entity deep dive
+
+```md className=wlx-send-to-agent
+provide enhanced biographical data for [person name] including occupation, education, nationality, and semantic connections using the enhanced knowledge graph
+```
+
+### Entity relationship mapping
+
+```md className=wlx-send-to-agent
+map the semantic relationships between [entity1] and [entity2] using enhanced knowledge graph data. Identify shared attributes, connections, and contextual relationships
+```
+
+### Multi-entity comparative analysis
+
+```md className=wlx-send-to-agent
+compare and analyze the following entities using enhanced knowledge graph data: [entity1], [entity2], [entity3]. Highlight similarities, differences, and competitive positioning
+```
+
+### Content enhancement research
+
+```md className=wlx-send-to-agent
+research [entity name] for content creation purposes using enhanced knowledge graph data. Focus on unique details, lesser-known facts, notable achievements, and semantic connections that would enhance article depth and authority
+```
+
+### Corporate leadership analysis
+
+```md className=wlx-send-to-agent
+analyze the leadership team of [company name] using enhanced knowledge graph data. Include biographical details, career backgrounds, education, and cross-company relationships
+```
+
+### Geographic entity intelligence
+
+```md className=wlx-send-to-agent
+research comprehensive geographic and demographic data for [location name] using enhanced knowledge graph. Include population, administrative divisions, economic data, and regional relationships
+```
+
+## Internal linking {#-internal-linking}
+
+### Create internal links
+
+```md className=wlx-send-to-agent
+find content on my website from the '[title]' page ([URL]). Analyze the text to identify up to 5 related articles. For each article, determine a relevant keyword, generate keyword suggestions, and create an anchor text of no more than 30 characters. Compile the HTML for all 5 links with their respective anchor texts.
+```
+
+### Create internal links in batch
+
+```md className=wlx-send-to-agent
+do the same internal linking work for the following pages:
+- '[Title1]' ([URL1])
+- '[Title2]' ([URL2])
+- '[Title3]' ([URL3])
+Remember: never link to the homepage; choose anchors based on content relevance and keyword opportunity.
+```
+
+## Product content
+
+### Generate product highlights
+
+```md className=wlx-send-to-agent
+find everything on the website about [product]. Based on this information, write short bullet points of the most relevant product highlights. The highlights should help shoppers with easily consumable, quick-to-scan sentence fragments that answer common consumer questions or focus on the most important attributes of the product. Instructions: Limit 1-150 characters per highlight; recommend 4-6 highlights; minimum 2 highlights; do not mention discounts; ensure content complies with data privacy regulations.
+```
+
+## Social media {#-social-media}
+
+### Content buckets
+
+```md className=wlx-send-to-agent
+search for content related to '[topic1]', '[topic2]' and create content buckets for social media.
+```
+
+### Create a thread on X
+
+```md className=wlx-send-to-agent
+search for '[topic]' and analyze the writing style on my website. Create a Twitter thread to promote the topic to [target audience], adding links back to the website to help users discover additional information.
+```
+
+## HTML and technical analysis {#-html--technical-analysis}
+
+### HTML analysis
+
+```md className=wlx-send-to-agent
+extract html from '[URL]' and analyze the page focusing on:
+1. visual hierarchy
+2. CTA placement and effectiveness
+3. messaging clarity
+4. user experience
+5. trust signals
+Provide specific recommendations for improving conversion rates.
+```
+
+## Conversion rate optimization {#-conversion-rate-optimization}
+
+### Comprehensive SEO and CRO analysis
+
+```md className=wlx-send-to-agent
+**Task: Comprehensive HTML Extraction, SEO, and Conversion Optimization Analysis**
+
+1. **HTML & Metadata Extraction**
+   - **Retrieve Full HTML**:
+     - Extract the complete HTML content from the following URL, ensuring that all dynamic and lazy-loaded content is captured:
+       [URL]
+   - **Metadata Extraction**:
+     - Extract meta tags (e.g., title, meta description, keywords) to assess SEO alignment.
+     - Identify canonical tags, viewport settings, and robots meta tags to ensure proper indexing and mobile responsiveness.
+   - **Structural Elements & Schema Markup**:
+     - Extract header tags (H1, H2, etc.) to evaluate content hierarchy.
+     - Identify any structured data (schema markup) for potential rich snippet opportunities.
+   - **Resource & Performance Analysis**:
+     - Evaluate external versus inline assets (scripts, CSS, images) to understand their impact on page load speed and overall performance.
+     - Identify any resources that might block rendering or affect mobile responsiveness.
+
+2. **On-Page SEO & Content Analysis**
+   - **Content Quality & Keyword Usage**:
+     - Assess keyword placement and relevancy throughout the content.
+     - Evaluate readability factors such as sentence structure, paragraph length, and overall copy quality.
+   - **Link & Anchor Analysis**:
+     - Extract and analyze all internal and external links, including their anchor texts.
+     - Identify any broken or redundant links that could negatively impact SEO.
+   - **Technical SEO Checks**:
+     - Check for duplicate content and missing or broken elements (images, scripts, etc.).
+     - Review embedded scripts and comments for outdated code or potential performance issues.
+   - **Accessibility & Usability**:
+     - Verify the presence and quality of alt text for images and ARIA labels for improved accessibility.
+
+3. **Design, UX, & Conversion Analysis**
+   - **Visual Hierarchy & Layout**:
+     - Examine whether the page design highlights key elements (e.g., product details, benefits) in a way that naturally guides user attention.
+   - **Call-to-Action (CTA) Evaluation**:
+     - Assess the placement, visibility, and effectiveness of CTAs to ensure they are compelling and well-positioned.
+   - **User Experience (UX)**:
+     - Analyze the navigational structure and overall user journey to determine if the page logically guides visitors toward conversion actions.
+   - **Trust Signals & Credibility**:
+     - Identify trust-building elements such as testimonials, certifications, reviews, or security badges that enhance user credibility.
+
+4. **Conversion Optimization Recommendations**
+   - **Actionable Recommendations**:
+     - Provide a prioritized, step-by-step list of improvements addressing technical SEO, design, and UX enhancements.
+     - Suggest optimizations for meta elements, header structures, link strategies, and resource loading.
+   - **Testing & Measurement**:
+     - Recommend A/B testing scenarios and tracking metrics to validate the impact of the proposed changes on user engagement and conversion rates.
+
+5. **Summary of Suggested Changes**
+   - **Prioritization Table**:
+     - Summarize all recommended changes in a table format, ranked from most to least important in terms of their potential impact on conversion rates.
+   - **Table Structure**:
+
+     | Recommendation/Change               | Priority Level (High/Med/Low) | Expected Impact on Conversions         | Notes                                  |
+     |-------------------------------------|-------------------------------|----------------------------------------|----------------------------------------|
+     | Improve CTA placement and design    | High                          | Significant increase in click-throughs | Test with A/B variations               |
+     | Optimize meta tags and header structure | High                          | Better organic ranking, more traffic   | Ensure keyword alignment               |
+     | Enhance page load speed             | High                          | Reduced bounce rate, higher engagement | Optimize external resources            |
+     | Add or improve trust signals (testimonials, certifications) | Medium                        | Increased user confidence, improved conversions | Include visual and textual elements  |
+     | Streamline content for clarity      | Medium                        | Better user understanding, improved conversion funnel | Revise copy for readability          |
+     | Fix broken links and improve internal linking | Low                           | Incremental SEO benefits                | Regular maintenance required           |
+
+**Deliverables**
+- A detailed critical review summarizing the page’s strengths and weaknesses across SEO, technical performance, content quality, design, UX, and conversion optimization.
+- A prioritized, step-by-step roadmap of actionable recommendations, supported by specific examples or benchmarks, based on current best practices.
+
+**Additional Considerations**
+- Ensure insights align with the latest SEO trends and guidelines.
+- Highlight any technical or design issues that could significantly impact user engagement, page speed, and organic search performance.
+- Use both qualitative and quantitative data to support recommendations.
+```
+
+## Local SEO {#-local-seo}
+
+### Analyze a Business Profile {#analyze-business-profile}
+
+```md className=wlx-send-to-agent
+Analyze the Google Business Profile for "[business name]" in "[City,State,Country]". Identify strengths, weaknesses, and opportunities for optimization.
+```
+
+### Research Local Pack results
+
+```md className=wlx-send-to-agent
+Show me the Local Pack results for "[keyword]" in "[City,State,Country]". Analyze what factors might be helping these businesses rank in the Local Pack.
+```
+
+### Track business rankings
+
+```md className=wlx-send-to-agent
+Track the rankings of "[business name]" for "[keyword]" in "[City,State,Country]".
+```
+
+### Analyze customer Q&A
+
+```md className=wlx-send-to-agent
+Analyze questions and answers for "[business name]" in "[City,State,Country]". Identify common themes, response patterns, and opportunities for better engagement.
+```
+
+### Comprehensive local SEO audit
+
+```md className=wlx-send-to-agent
+Conduct a complete local SEO audit for "[business name]" in "[City,State,Country]":
+1. Analyze their Google Business Profile
+2. Track their rankings for "[primary keyword]" and "[secondary keyword]"
+3. Examine the Local Pack for their main category
+4. Review their customer Q&A
+5. Provide actionable recommendations for improvement
+```
+
+### Compare with competitors
+
+```md className=wlx-send-to-agent
+Compare the Google Business Profile for "[my business]" with competitors "[competitor 1]" and "[competitor 2]" in "[City,State,Country]". Highlight key differences and competitive advantages.
+```
+
+### Local business visibility strategy
+
+```md className=wlx-send-to-agent
+Create a comprehensive strategy to help "[business name]" in "[City,State,Country]" improve local search visibility for "[target keyword]". Include profile optimization, review management, and Q&A engagement tactics.
+```
+
+## Google AI Overview and SERP intelligence {#-google-ai-overview--serp-intelligence}
+
+### Check AI Overview presence
+
+```md className=wlx-send-to-agent
+Check if Google is showing an AI Overview for the query "[keyword]" in [Country].
+```
+
+### Get AI Overview insights
+
+```md className=wlx-send-to-agent
+Analyze the Google AI Overview for "[keyword]" and tell me which websites are being cited.
+```
+
+### Batch AI Overview detection
+
+```md className=wlx-send-to-agent
+For the following keywords, check which ones trigger a Google AI Overview:
+- "[keyword1]"
+- "[keyword2]"
+- "[keyword3]"
+```
+
+### Compare organic search vs AI Mode
+
+```md className=wlx-send-to-agent
+Compare the Google AI Overview (standard search) with the Google AI Mode response for the query "[keyword]". Highlight differences in cited sources, answer depth, and follow-up topics.
+```
+
+## Tips for using prompts
+
+1. **Be specific.** Include the exact URLs, keywords or text you want to analyze.
+2. **Customize.** Change the prompts to match your needs.
+3. **Combine.** Use several prompts together for a fuller analysis.
+4. **Verify.** Always review and verify the generated content.
+5. **Iterate.** Refine your prompts based on the results.
+
+Need help? Contact support at [support@wordlift.io](mailto:support@wordlift.io).
+
+:::tip
+
+For tasks that involve many entities, such as products, use [Content Generation](/platform/agent-wordlift/content-generation/).
+
+:::

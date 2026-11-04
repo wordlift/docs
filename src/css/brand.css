@@ -1,0 +1,1022 @@
+/**
+ * WordLift brand theme for the docs (layer 1: tokens and site chrome).
+ *
+ * Tokens follow the WordLift design system: Sky as the one interactive
+ * accent, neutral page and white surfaces, Denim INK for headings, Open Sauce
+ * Sans for body text and DM Mono for uppercase labels. Extra accents come
+ * from one approved triad only: Sky + Moss + Berry.
+ *
+ * Denim INK is licensed in Regular only. Headings stay at weight 400 and
+ * font-synthesis is off, so no browser fakes a bold or italic style.
+ */
+
+/* Open Sauce Sans 400: @fontsource 5.3.0 ships the latin 400 WOFF2 files as
+   PostScript data browsers reject, so load the valid WOFF files directly.
+   Weights 500 and 600 come from the package as WOFF2. */
+@font-face {
+  font-family: "Open Sauce Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../node_modules/@fontsource/open-sauce-sans/files/open-sauce-sans-latin-400-normal.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Open Sauce Sans";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../node_modules/@fontsource/open-sauce-sans/files/open-sauce-sans-latin-400-italic.woff") format("woff");
+}
+
+:root {
+  /* WordLift palette */
+  --wl-sky: #3452db;
+  --wl-sky-hover: #2a43b8;
+  --wl-sky-ink: #1f2f8c;
+  --wl-sky-tint: rgba(52, 82, 219, 0.08);
+  --wl-sky-tint-strong: rgba(52, 82, 219, 0.14);
+  --wl-moss: #125054;
+  --wl-moss-tint: rgba(18, 80, 84, 0.1);
+  --wl-moss-ink: #0b3a3d;
+  --wl-berry: #d55471;
+  --wl-berry-tint: rgba(213, 84, 113, 0.1);
+  --wl-berry-ink: #8a1c35;
+  --wl-leaf: #22a286;
+  --wl-leaf-ink: #146052;
+  --wl-sand: #c2a41d;
+  --wl-sand-tint: rgba(194, 164, 29, 0.14);
+  --wl-sand-ink: #5a4500;
+  --wl-petal: #a10269;
+
+  /* Neutrals and surfaces */
+  --wl-bg-page: #ffffff;
+  --wl-bg-muted: #f6f6f7;
+  --wl-bg-surface: #ffffff;
+  --wl-bg-inverse: #191919;
+  --wl-fg-1: #191919;
+  --wl-fg-2: #4a4a4a;
+  --wl-fg-3: #6f757d;
+  --wl-border-subtle: rgba(25, 25, 25, 0.07);
+  --wl-border-default: rgba(25, 25, 25, 0.13);
+  --wl-shadow-card: 0 1px 2px rgba(25, 25, 25, 0.04), 0 8px 24px -12px rgba(25, 25, 25, 0.12);
+  --wl-hover: rgba(25, 25, 25, 0.055);
+  --wl-scroll-shadow: rgba(25, 25, 25, 0.16);
+  /* Docs type scale. Denser than the brand's marketing scale: docs are read
+     in long sessions next to the product. Body 15px, steps of about 1.25,
+     set in rem so browser zoom and font-size preferences still apply. */
+  --wl-text-label: 0.6875rem;  /* 11px  DM Mono labels */
+  --wl-text-sm: 0.8125rem;     /* 13px  table of contents, breadcrumbs, captions */
+  --wl-text-ui: 0.875rem;      /* 14px  sidebar, tables, card text */
+  --wl-text-body: 0.9375rem;   /* 15px  body (16px on phones) */
+  --wl-text-lede: 1.0625rem;   /* 17px  first paragraph */
+  --wl-text-h4: 1rem;          /* 16px */
+  --wl-text-h3: 1.1875rem;     /* 19px */
+  --wl-text-h2: 1.5rem;        /* 24px */
+  --wl-text-h1: 2.25rem;       /* 36px */
+  --wl-leading-body: 1.6;
+  --wl-reading-width: 44rem;   /* about 70 characters a line */
+
+  /* Motion tokens (aligned with Linear's docs): hover appears instantly and
+     fades out; state changes are quick; one quad easing family. */
+  --wl-speed-quick: 100ms;
+  --wl-speed-fade-out: 150ms;
+  --wl-speed-regular: 250ms;
+  --wl-ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --wl-ease-in: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --wl-ease-in-out: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --wl-zoom-backdrop: rgba(246, 246, 247, 0.94);
+  --wl-shot-frame: linear-gradient(135deg, rgba(52, 82, 219, 0.1), rgba(18, 80, 84, 0.07));
+
+  /* Type */
+  --wl-font-display: "Denim INK", "Bricolage Grotesque", system-ui, sans-serif;
+  --wl-font-sans: "Open Sauce Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --wl-font-mono: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --wl-radius-sm: 6px;
+  --wl-radius-md: 12px;
+  --wl-radius-pill: 999px;
+
+  /* Infima mapping */
+  --ifm-color-primary: var(--wl-sky);
+  --ifm-color-primary-dark: #2f4ac5;
+  --ifm-color-primary-darker: #2c46ba;
+  --ifm-color-primary-darkest: #243a9a;
+  --ifm-color-primary-light: #4a65df;
+  --ifm-color-primary-lighter: #556ee1;
+  --ifm-color-primary-lightest: #778be7;
+  --ifm-background-color: var(--wl-bg-page);
+  --ifm-background-surface-color: var(--wl-bg-surface);
+  --ifm-font-color-base: var(--wl-fg-1);
+  --ifm-font-family-base: var(--wl-font-sans);
+  --ifm-heading-font-family: var(--wl-font-display);
+  --ifm-heading-font-weight: 400;
+  --ifm-heading-color: var(--wl-fg-1);
+  --ifm-font-family-monospace: var(--wl-font-mono);
+  --ifm-font-size-base: 100%;
+  --ifm-line-height-base: var(--wl-leading-body);
+  --ifm-link-color: var(--wl-sky);
+  --ifm-link-hover-color: var(--wl-sky-hover);
+  --ifm-link-hover-decoration: none;
+  --ifm-code-font-size: 90%;
+  --ifm-code-background: var(--wl-bg-muted);
+  --ifm-code-border-radius: 5px;
+  --ifm-toc-border-color: var(--wl-border-subtle);
+  --ifm-hr-background-color: var(--wl-border-subtle);
+  --ifm-table-border-color: var(--wl-border-subtle);
+  --ifm-table-stripe-background: transparent;
+  --ifm-table-head-background: var(--wl-bg-muted);
+  --ifm-navbar-height: 64px;
+  --ifm-navbar-shadow: none;
+  --ifm-navbar-background-color: var(--wl-bg-page);
+  --ifm-navbar-link-color: var(--wl-fg-2);
+  --ifm-navbar-link-hover-color: var(--wl-fg-1);
+  --ifm-menu-color: var(--wl-fg-2);
+  --ifm-menu-color-active: var(--wl-sky-ink);
+  --ifm-menu-color-background-active: var(--wl-sky-tint);
+  --ifm-menu-color-background-hover: var(--wl-hover);
+  --ifm-menu-link-padding-vertical: 0.4rem;
+  --ifm-menu-link-padding-horizontal: 0.75rem;
+  --ifm-global-radius: var(--wl-radius-sm);
+  --ifm-card-border-radius: var(--wl-radius-md);
+  --ifm-pagination-nav-border-radius: var(--wl-radius-md);
+  --ifm-footer-background-color: var(--wl-bg-inverse);
+  --docusaurus-highlighted-code-line-bg: rgba(52, 82, 219, 0.1);
+  --docsearch-primary-color: var(--wl-sky);
+}
+
+[data-theme="dark"] {
+  --wl-sky: #8ea0f7;
+  --wl-sky-hover: #aebbf9;
+  --wl-sky-ink: #c9d2fb;
+  --wl-sky-tint: rgba(142, 160, 247, 0.1);
+  --wl-sky-tint-strong: rgba(142, 160, 247, 0.18);
+  --wl-moss: #5fa9ad;
+  --wl-moss-tint: rgba(95, 169, 173, 0.14);
+  --wl-moss-ink: #b5e0e2;
+  --wl-berry: #e58099;
+  --wl-berry-tint: rgba(229, 128, 153, 0.13);
+  --wl-berry-ink: #f5b8c7;
+  --wl-leaf: #4cc2a6;
+  --wl-leaf-ink: #a6e6d6;
+  --wl-sand-tint: rgba(214, 186, 64, 0.15);
+  --wl-sand-ink: #ecd98a;
+
+  --wl-bg-page: #121212;
+  --wl-bg-muted: #1a1a1b;
+  --wl-bg-surface: #1c1c1d;
+  --wl-bg-inverse: #0b0b0b;
+  --wl-fg-1: #f2f2f3;
+  --wl-fg-2: #c4c7cd;
+  --wl-fg-3: #8d929b;
+  --wl-border-subtle: rgba(246, 246, 247, 0.08);
+  --wl-border-default: rgba(246, 246, 247, 0.15);
+  --wl-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  --wl-hover: rgba(255, 255, 255, 0.06);
+  --wl-scroll-shadow: rgba(0, 0, 0, 0.55);
+  --wl-zoom-backdrop: rgba(12, 12, 12, 0.92);
+  --wl-shot-frame: linear-gradient(135deg, rgba(142, 160, 247, 0.12), rgba(95, 169, 173, 0.08));
+
+  --ifm-color-primary: var(--wl-sky);
+  --ifm-color-primary-dark: #6e85f4;
+  --ifm-color-primary-darker: #5f78f3;
+  --ifm-color-primary-darkest: #3352ef;
+  --ifm-color-primary-light: #aebbf9;
+  --ifm-color-primary-lighter: #bdc8fa;
+  --ifm-color-primary-lightest: #dde3fd;
+  --docusaurus-highlighted-code-line-bg: rgba(142, 160, 247, 0.14);
+}
+
+/* ---------- Base typography ---------- */
+
+@media (max-width: 600px) {
+  :root {
+    --wl-text-body: 1rem;
+    --wl-text-lede: 1.125rem;
+    --wl-text-h1: 2rem;
+  }
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6,
+.markdown h1, .markdown h2, .markdown h3, .markdown h4 {
+  font-family: var(--wl-font-display);
+  font-weight: 400;
+  font-synthesis: none;
+  text-wrap: balance;
+}
+
+.markdown {
+  font-size: var(--wl-text-body);
+  line-height: var(--wl-leading-body);
+}
+
+.markdown h1:first-child,
+.markdown header h1 {
+  font-size: var(--wl-text-h1);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.markdown h2 {
+  font-size: var(--wl-text-h2);
+  line-height: 1.25;
+  letter-spacing: -0.012em;
+  margin-top: 2.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.markdown h3 {
+  font-size: var(--wl-text-h3);
+  line-height: 1.3;
+  letter-spacing: -0.006em;
+  margin-top: 2rem;
+}
+
+.markdown h4 {
+  font-size: var(--wl-text-h4);
+}
+
+/* First paragraph after the H1 reads as the page lede */
+.markdown > header + p,
+.markdown h1 + p {
+  font-size: var(--wl-text-lede);
+  line-height: 1.6;
+  color: var(--wl-fg-2);
+  max-width: 46rem;
+}
+
+.markdown p,
+.markdown li {
+  color: var(--wl-fg-1);
+}
+
+.markdown a {
+  text-decoration: underline;
+  text-decoration-color: var(--wl-sky-tint-strong);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--wl-speed-fade-out) var(--wl-ease-out);
+}
+
+.markdown a:hover {
+  text-decoration-color: currentColor;
+}
+
+.markdown strong {
+  font-weight: 600;
+}
+
+.markdown hr {
+  margin: 2.5rem 0;
+}
+
+.markdown blockquote {
+  border-left: 3px solid var(--wl-sky);
+  background: var(--wl-sky-tint);
+  border-radius: 0 var(--wl-radius-sm) var(--wl-radius-sm) 0;
+  color: var(--wl-fg-2);
+  padding: 0.75rem 1rem;
+}
+
+/* Inline code */
+.markdown code:not(pre code) {
+  border: 1px solid var(--wl-border-subtle);
+  padding: 0.1em 0.35em;
+  color: var(--wl-fg-1);
+}
+
+/* Code blocks */
+.theme-code-block {
+  border: 1px solid var(--wl-border-subtle);
+  border-radius: var(--wl-radius-md);
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.theme-code-block pre,
+.theme-code-block code {
+  font-size: var(--wl-text-sm);
+  line-height: 1.6;
+}
+
+[data-theme="light"] .theme-code-block div[class*="codeBlockTitle"] {
+  background: var(--wl-bg-muted);
+}
+
+/* ---------- Tables ---------- */
+
+/* Tables size to their content up to the reading column, then scroll
+   sideways inside their own box, so wide tables never run under the
+   table of contents. */
+.markdown table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--wl-border-default);
+  border-radius: var(--wl-radius-md);
+  font-size: var(--wl-text-ui);
+  /* Scroll hint: a soft shadow at an edge only while more table hides
+     beyond it (the "local" covers slide away with the content). */
+  background:
+    linear-gradient(to right, var(--wl-bg-surface) 40%, transparent) left / 2rem 100% no-repeat local,
+    linear-gradient(to left, var(--wl-bg-surface) 40%, transparent) right / 2rem 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, var(--wl-scroll-shadow), transparent) left / 0.75rem 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, var(--wl-scroll-shadow), transparent) right / 0.75rem 100% no-repeat scroll;
+  background-color: var(--wl-bg-surface);
+}
+
+.markdown table thead tr {
+  border: 0;
+}
+
+.markdown table th {
+  background: var(--wl-bg-muted);
+  color: var(--wl-fg-3);
+  font-family: var(--wl-font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border: 0;
+  border-bottom: 1px solid var(--wl-border-default);
+}
+
+.markdown table td {
+  padding: 0.75rem 1rem;
+  border: 0;
+  border-bottom: 1px solid var(--wl-border-subtle);
+  vertical-align: top;
+}
+
+.markdown table tr:last-child td {
+  border-bottom: 0;
+}
+
+.markdown table tr {
+  background: transparent;
+  transition: background-color var(--wl-speed-fade-out) var(--wl-ease-out);
+}
+
+.markdown table tbody tr:hover td {
+  background: var(--wl-sky-tint);
+}
+
+/* Group rows: a row whose second cell is empty, such as
+   | **Knowledge Graph** | | | |, reads as a section header */
+.markdown table tr:has(> td:nth-child(2):empty) td {
+  background: var(--wl-bg-muted);
+  color: var(--wl-sky-ink);
+  font-family: var(--wl-font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--wl-border-default);
+}
+
+.markdown table tr:has(> td:nth-child(2):empty) td strong {
+  font-weight: 500;
+}
+
+.markdown table tr:has(> td:nth-child(2):empty):hover td {
+  background: var(--wl-bg-muted);
+}
+
+
+/* ---------- Admonitions ---------- */
+
+.theme-admonition.alert {
+  --wl-adm-accent: var(--wl-sky);
+  --wl-adm-ink: var(--wl-sky-ink);
+  --wl-adm-tint: var(--wl-sky-tint);
+  background: var(--wl-adm-tint);
+  border: 1px solid var(--wl-border-subtle);
+  border-left: 3px solid var(--wl-adm-accent);
+  border-radius: 0 var(--wl-radius-md) var(--wl-radius-md) 0;
+  box-shadow: none;
+  color: var(--wl-fg-1);
+  padding: 0.9rem 1.1rem;
+}
+
+.theme-admonition.alert--success {
+  --wl-adm-accent: var(--wl-leaf);
+  --wl-adm-ink: var(--wl-leaf-ink);
+  --wl-adm-tint: rgba(34, 162, 134, 0.08);
+}
+
+.theme-admonition.alert--info {
+  --wl-adm-accent: var(--wl-moss);
+  --wl-adm-ink: var(--wl-moss-ink);
+  --wl-adm-tint: var(--wl-moss-tint);
+}
+
+.theme-admonition.alert--warning {
+  --wl-adm-accent: var(--wl-sand);
+  --wl-adm-ink: var(--wl-sand-ink);
+  --wl-adm-tint: var(--wl-sand-tint);
+}
+
+.theme-admonition.alert--danger {
+  --wl-adm-accent: var(--wl-berry);
+  --wl-adm-ink: var(--wl-berry-ink);
+  --wl-adm-tint: var(--wl-berry-tint);
+}
+
+.theme-admonition [class*="admonitionHeading"] {
+  color: var(--wl-adm-ink);
+  font-family: var(--wl-font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.theme-admonition [class*="admonitionIcon"] svg {
+  fill: var(--wl-adm-accent);
+  width: 1rem;
+  height: 1rem;
+}
+
+.theme-admonition a {
+  color: var(--wl-sky);
+}
+
+/* ---------- Navbar ---------- */
+
+.navbar {
+  border-bottom: 1px solid var(--wl-border-subtle);
+  background-color: transparent;
+}
+
+/* The frosted glass sits on a pseudo-element. A backdrop-filter on .navbar
+   itself would trap the fixed mobile drawer inside the navbar's height. */
+.navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  backdrop-filter: saturate(160%) blur(10px);
+  background-color: color-mix(in srgb, var(--wl-bg-page) 88%, transparent);
+}
+
+.navbar__logo {
+  height: 1.9rem;
+  margin-right: 0.6rem;
+}
+
+.navbar__logo img {
+  border-radius: 7px;
+}
+
+/* Brand lockup: square mark, wordmark, then a mono "Docs" label */
+.navbar__title {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--wl-font-display);
+  font-weight: 400;
+  font-synthesis: none;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+  color: var(--wl-fg-1);
+}
+
+.navbar__title::after {
+  content: "Docs";
+  margin-left: 0.7rem;
+  padding-left: 0.7rem;
+  border-left: 1px solid var(--wl-border-default);
+  color: var(--wl-fg-3);
+  font-family: var(--wl-font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Raised navbar once the page scrolls (class set by src/client/motion.js) */
+.navbar {
+  transition: box-shadow var(--wl-speed-regular) var(--wl-ease-out);
+}
+
+html.wl-scrolled .navbar {
+  box-shadow: 0 1px 0 var(--wl-border-subtle), 0 10px 30px -18px rgba(25, 25, 25, 0.25);
+}
+
+.navbar__link {
+  font-size: 0.92rem;
+  font-weight: 500;
+  border-radius: var(--wl-radius-sm);
+  padding: 0.35rem 0.7rem;
+}
+
+.navbar__link:hover {
+  background: var(--wl-hover);
+}
+
+.navbar__link--active {
+  color: var(--wl-sky-ink);
+  background: var(--wl-sky-tint);
+}
+
+.DocSearch-Button {
+  border-radius: var(--wl-radius-pill);
+  border: 1px solid var(--wl-border-default);
+  background: var(--wl-bg-muted);
+  font-family: var(--wl-font-sans);
+}
+
+.DocSearch-Button-Key {
+  font-family: var(--wl-font-mono);
+  box-shadow: none;
+  border: 1px solid var(--wl-border-default);
+  background: var(--wl-bg-page);
+}
+
+/* ---------- Sidebar ---------- */
+
+.theme-doc-sidebar-container {
+  background: var(--wl-bg-muted);
+  border-right: 1px solid var(--wl-border-subtle) !important;
+}
+
+.theme-doc-sidebar-menu {
+  font-size: var(--wl-text-ui);
+  padding-bottom: 2rem;
+}
+
+.menu__link {
+  position: relative;
+  border-radius: 7px;
+  line-height: 1.35;
+  transition: background-color var(--wl-speed-fade-out) var(--wl-ease-out), color var(--wl-speed-fade-out) var(--wl-ease-out);
+}
+
+.menu__link:hover {
+  color: var(--wl-fg-1);
+}
+
+/* Active page: tinted row plus a Sky marker that grows in */
+.menu__link--active:not(.menu__link--sublist) {
+  font-weight: 500;
+  background: var(--wl-sky-tint-strong);
+}
+
+.menu__link:not(.menu__link--sublist)::before {
+  content: "";
+  position: absolute;
+  left: -0.4rem;
+  top: 22%;
+  bottom: 22%;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--wl-sky);
+  transform: scaleY(0);
+  transition: transform var(--wl-speed-regular) var(--wl-ease-out);
+}
+
+.menu__link--active:not(.menu__link--sublist)::before {
+  transform: scaleY(1);
+}
+
+.menu__caret::before,
+.menu__link--sublist-caret::after {
+  transition: transform 120ms var(--wl-ease-in-out), opacity var(--wl-speed-fade-out) ease;
+}
+
+.menu__caret:hover,
+.menu__link--sublist-caret:hover {
+  background: var(--wl-hover);
+}
+
+.menu__list .menu__list {
+  border-left: 1px solid var(--wl-border-default);
+  margin-left: 0.85rem;
+  padding-left: 0.35rem;
+}
+
+.menu__caret::before,
+.menu__link--sublist-caret::after {
+  opacity: 0.55;
+}
+
+.sidebar-cluster-heading {
+  margin: 1.4rem 0 0.35rem;
+  padding: 0 0.75rem;
+  color: var(--wl-fg-3);
+  font-family: var(--wl-font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.theme-doc-sidebar-menu > li:first-child .sidebar-cluster-heading {
+  margin-top: 0.5rem;
+}
+
+/* ---------- Sidebar section icons ----------
+ * Outline icons from Untitled UI (untitledui.com/icons), the WordLift
+ * brand icon set. Licensed for use in our products; not for redistribution
+ * as an icon set. Drawn as CSS masks so they take the text color. */
+
+.wl-ico-welcome { --wl-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 17h8M11.018 2.764 4.235 8.039c-.453.353-.68.53-.843.75a2 2 0 0 0-.318.65C3 9.704 3 9.991 3 10.565V17.8c0 1.12 0 1.68.218 2.108a2 2 0 0 0 .874.874C4.52 21 5.08 21 6.2 21h11.6c1.12 0 1.68 0 2.108-.218a2 2 0 0 0 .874-.874C21 19.48 21 18.92 21 17.8v-7.235c0-.574 0-.861-.074-1.126a2.002 2.002 0 0 0-.318-.65c-.163-.22-.39-.397-.843-.75l-6.783-5.275c-.351-.273-.527-.41-.72-.462a1 1 0 0 0-.523 0c-.194.052-.37.189-.721.462Z'/%3E%3C/svg%3E"); }
+.wl-ico-platform { --wl-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m2 12 9.642 4.821c.131.066.197.099.266.111.06.012.123.012.184 0 .069-.012.135-.045.266-.11L22 12M2 17l9.642 4.821c.131.066.197.099.266.111.06.012.123.012.184 0 .069-.012.135-.045.266-.11L22 17M2 7l9.642-4.821c.131-.066.197-.098.266-.111a.5.5 0 0 1 .184 0c.069.013.135.045.266.11L22 7l-9.642 4.821a1.028 1.028 0 0 1-.266.111.501.501 0 0 1-.184 0c-.069-.012-.135-.045-.266-.11L2 7Z'/%3E%3C/svg%3E"); }
+.wl-ico-tools { --wl-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 6 4.5 4.5M6 6H3L2 3l1-1 3 1v3Zm13.259-3.259-2.628 2.628c-.396.396-.594.594-.668.822a1 1 0 0 0 0 .618c.074.228.272.426.668.822l.238.238c.396.396.594.594.822.668a1 1 0 0 0 .618 0c.228-.074.426-.272.822-.668L21.59 5.41a5.5 5.5 0 0 1-6.16 7.485c-.485-.096-.729-.144-.876-.13a.836.836 0 0 0-.373.114c-.13.07-.261.201-.523.463L6.5 20.5a2.121 2.121 0 0 1-3-3l7.157-7.157c.262-.262.393-.393.463-.524a.836.836 0 0 0 .113-.372c.015-.148-.033-.39-.129-.877a5.5 5.5 0 0 1 8.155-5.83ZM12 15l5.5 5.5a2.121 2.121 0 0 0 3-3l-4.525-4.525a5.475 5.475 0 0 1-.934-.17c-.39-.107-.816-.03-1.101.255L12 15Z'/%3E%3C/svg%3E"); }
+.wl-ico-integrations { --wl-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7.5 4.5a2.5 2.5 0 0 1 5 0V6h1c1.398 0 2.097 0 2.648.228a3 3 0 0 1 1.624 1.624C18 8.403 18 9.102 18 10.5h1.5a2.5 2.5 0 0 1 0 5H18v1.7c0 1.68 0 2.52-.327 3.162a3 3 0 0 1-1.311 1.311C15.72 22 14.88 22 13.2 22h-.7v-1.75a2.25 2.25 0 0 0-4.5 0V22H6.8c-1.68 0-2.52 0-3.162-.327a3 3 0 0 1-1.311-1.311C2 19.72 2 18.88 2 17.2v-1.7h1.5a2.5 2.5 0 0 0 0-5H2c0-1.398 0-2.097.228-2.648a3 3 0 0 1 1.624-1.624C4.403 6 5.102 6 6.5 6h1V4.5Z'/%3E%3C/svg%3E"); }
+.wl-ico-apis { --wl-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m17 17 5-5-5-5M7 7l-5 5 5 5m7-14-4 18'/%3E%3C/svg%3E"); }
+.wl-ico-concepts { --wl-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m12 21-.1-.15c-.695-1.042-1.042-1.563-1.5-1.94a4 4 0 0 0-1.378-.737C8.453 18 7.827 18 6.575 18H5.2c-1.12 0-1.68 0-2.108-.218a2 2 0 0 1-.874-.874C2 16.48 2 15.92 2 14.8V6.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C3.52 3 4.08 3 5.2 3h.4c2.24 0 3.36 0 4.216.436a4 4 0 0 1 1.748 1.748C12 6.04 12 7.16 12 9.4M12 21V9.4M12 21l.1-.15c.695-1.042 1.042-1.563 1.5-1.94a3.999 3.999 0 0 1 1.378-.737C15.547 18 16.173 18 17.425 18H18.8c1.12 0 1.68 0 2.108-.218a2 2 0 0 0 .874-.874C22 16.48 22 15.92 22 14.8V6.2c0-1.12 0-1.68-.218-2.108a2 2 0 0 0-.874-.874C20.48 3 19.92 3 18.8 3h-.4c-2.24 0-3.36 0-4.216.436a4 4 0 0 0-1.748 1.748C12 6.04 12 7.16 12 9.4'/%3E%3C/svg%3E"); }
+.wl-ico-plans { --wl-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 10H2m9 4H6M2 8.2v7.6c0 1.12 0 1.68.218 2.108a2 2 0 0 0 .874.874C3.52 19 4.08 19 5.2 19h13.6c1.12 0 1.68 0 2.108-.218a2 2 0 0 0 .874-.874C22 17.48 22 16.92 22 15.8V8.2c0-1.12 0-1.68-.218-2.108a2 2 0 0 0-.874-.874C20.48 5 19.92 5 18.8 5H5.2c-1.12 0-1.68 0-2.108.218a2 2 0 0 0-.874.874C2 6.52 2 7.08 2 8.2Z'/%3E%3C/svg%3E"); }
+.wl-ico-whats-new { --wl-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 22v-5m0-10V2M2 4.5h5m-5 15h5M13 3l-1.734 4.509c-.282.733-.423 1.1-.643 1.408a3 3 0 0 1-.706.707c-.308.219-.675.36-1.408.642L4 12l4.509 1.734c.733.282 1.1.423 1.408.643.273.194.512.433.707.706.219.308.36.675.642 1.408L13 21l1.734-4.509c.282-.733.423-1.1.643-1.408.194-.273.433-.512.706-.707.308-.219.675-.36 1.408-.642L22 12l-4.509-1.734c-.733-.282-1.1-.423-1.408-.642a3 3 0 0 1-.706-.707c-.22-.308-.36-.675-.643-1.408L13 3Z'/%3E%3C/svg%3E"); }
+.wl-ico-support { --wl-ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9.136 9.136 4.93 4.93m0 14.142 4.239-4.239m5.693.032 4.207 4.207m0-14.142-4.24 4.24M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Zm-6 0a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z'/%3E%3C/svg%3E"); }
+
+.theme-doc-sidebar-menu .wl-ico > .menu__list-item-collapsible > .menu__link,
+.theme-doc-sidebar-menu .wl-ico > .menu__link {
+  justify-content: flex-start;
+  gap: 0.6rem;
+}
+
+.theme-doc-sidebar-menu .wl-ico > .menu__list-item-collapsible > .menu__link::after,
+.theme-doc-sidebar-menu .wl-ico > .menu__link::after {
+  content: "";
+  order: -1;
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+  background: currentColor;
+  opacity: 0.7;
+  -webkit-mask: var(--wl-ico) center / contain no-repeat;
+  mask: var(--wl-ico) center / contain no-repeat;
+  transform: none;
+  transition: opacity var(--wl-speed-fade-out) var(--wl-ease-out), background-color var(--wl-speed-fade-out) var(--wl-ease-out);
+}
+
+.theme-doc-sidebar-menu .wl-ico > .menu__list-item-collapsible:hover > .menu__link::after,
+.theme-doc-sidebar-menu .wl-ico > .menu__link:hover::after {
+  opacity: 1;
+}
+
+.theme-doc-sidebar-menu .wl-ico > .menu__list-item-collapsible > .menu__link--active::after,
+.theme-doc-sidebar-menu .wl-ico > .menu__link--active::after {
+  opacity: 1;
+  color: var(--wl-sky);
+  background: var(--wl-sky);
+}
+
+/* ---------- Breadcrumbs, TOC, pagination ---------- */
+
+.breadcrumbs__link {
+  font-size: var(--wl-text-sm);
+  color: var(--wl-fg-3);
+  background: none;
+  padding: 0.15rem 0.35rem;
+}
+
+.breadcrumbs__item--active .breadcrumbs__link {
+  color: var(--wl-fg-2);
+  background: none;
+}
+
+.table-of-contents {
+  font-size: var(--wl-text-sm);
+}
+
+.table-of-contents__link {
+  color: var(--wl-fg-3);
+}
+
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: var(--wl-sky);
+}
+
+.theme-doc-toc-desktop .table-of-contents {
+  border-left: 1px solid var(--wl-border-subtle);
+  padding-left: 0.25rem;
+}
+
+.pagination-nav__link {
+  border: 1px solid var(--wl-border-default);
+  border-radius: var(--wl-radius-md);
+  padding: 1rem 1.2rem;
+  transition: border-color var(--wl-speed-fade-out) var(--wl-ease-out), background-color var(--wl-speed-fade-out) var(--wl-ease-out);
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--wl-sky);
+  background: var(--wl-sky-tint);
+}
+
+.pagination-nav__sublabel {
+  color: var(--wl-fg-3);
+  font-family: var(--wl-font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.pagination-nav__label {
+  font-family: var(--wl-font-display);
+  font-weight: 400;
+  font-synthesis: none;
+  font-size: var(--wl-text-h4);
+}
+
+.theme-last-updated,
+.theme-edit-this-page {
+  font-size: var(--wl-text-sm);
+  color: var(--wl-fg-3);
+}
+
+/* Infima badges (used in a few pages and the API reference) */
+.badge {
+  border-radius: var(--wl-radius-pill);
+  font-family: var(--wl-font-mono);
+  font-weight: 500;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  vertical-align: middle;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  background: var(--wl-bg-inverse);
+  padding: 3.5rem 1.5rem 2.5rem;
+}
+
+.footer__title {
+  color: #a1a7af;
+  font-family: var(--wl-font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.footer__link-item {
+  color: #e9eaec;
+  font-size: 0.92rem;
+}
+
+.footer__link-item:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer__item {
+  padding: 0.3rem 0;
+}
+
+.footer__copyright {
+  color: #a1a7af;
+  font-size: 0.82rem;
+  margin-top: 1.5rem;
+}
+
+/* ---------- Main column width ---------- */
+
+@media (min-width: 997px) {
+  .theme-doc-markdown {
+    max-width: var(--wl-reading-width);
+  }
+}
+
+/* ---------- Micro-interactions ---------- */
+
+::selection {
+  background: rgba(52, 82, 219, 0.2);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.markdown :is(h2, h3, h4)[id] {
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 1.25rem);
+}
+
+/* Heading anchors fade in on hover */
+.hash-link {
+  opacity: 0;
+  color: var(--wl-fg-3);
+  transition: opacity var(--wl-speed-fade-out) var(--wl-ease-out), color var(--wl-speed-fade-out) var(--wl-ease-out);
+}
+
+:is(h2, h3, h4):hover .hash-link,
+.hash-link:focus-visible {
+  opacity: 1;
+}
+
+.hash-link:hover {
+  color: var(--wl-sky);
+}
+
+/* Visible, on-brand keyboard focus */
+:is(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--wl-sky);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Table of contents: active entry carries a Sky marker */
+.table-of-contents__link {
+  position: relative;
+  display: inline-block;
+  transition: color var(--wl-speed-fade-out) var(--wl-ease-out);
+}
+
+.theme-doc-toc-desktop .table-of-contents__link--active::before {
+  content: "";
+  position: absolute;
+  left: calc(-0.25rem - var(--ifm-toc-padding-horizontal, 0.5rem) - 1px);
+  top: 0.15em;
+  bottom: 0.15em;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--wl-sky);
+}
+
+
+/* Code blocks: a calm copy button that confirms with a Leaf check */
+.theme-code-block [class*="buttonGroup"] button {
+  border: 1px solid var(--wl-border-default);
+  border-radius: 8px;
+  background: var(--wl-bg-surface);
+  transition: opacity 160ms ease, background-color 200ms ease, border-color 200ms ease, box-shadow 260ms var(--wl-ease-out);
+}
+
+.theme-code-block [class*="buttonGroup"] button:hover {
+  border-color: var(--wl-sky);
+}
+
+.theme-code-block button[class*="copyButtonCopied"] {
+  border-color: var(--wl-leaf);
+  background: rgba(34, 162, 134, 0.12);
+  box-shadow: 0 0 0 4px rgba(34, 162, 134, 0.14);
+}
+
+/* Docusaurus centres the tick with top/left 50% plus translate(-50%, -50%),
+   but in the built CSS its base rule (top/left 0) lands later and wins, so
+   the tick sat 9px up and left, outside the button. Pin the centre here. */
+.theme-code-block [class*="copyButtonSuccessIcon"] {
+  top: 50%;
+  left: 50%;
+  color: var(--wl-leaf);
+}
+
+.theme-code-block button[class*="copyButtonCopied"] [class*="copyButtonSuccessIcon"] {
+  animation: wl-copied 380ms var(--wl-ease-out);
+}
+
+/* Keeps Docusaurus's centering translate while the check pops in */
+@keyframes wl-copied {
+  0% { transform: translate(-50%, -50%) scale(0.5); }
+  60% { transform: translate(-50%, -50%) scale(1.1); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Tabs: the active underline slides between tabs (position set by src/client/motion.js) */
+.theme-tabs-container > .tabs {
+  position: relative;
+}
+
+.theme-tabs-container > .tabs .tabs__item {
+  border-radius: 8px 8px 0 0;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.theme-tabs-container > .tabs.wl-tabs-ready .tabs__item--active {
+  border-bottom-color: transparent;
+}
+
+.theme-tabs-container > .tabs.wl-tabs-ready::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: var(--wl-tab-w, 0);
+  border-radius: 2px;
+  background: var(--wl-sky);
+  transform: translateX(var(--wl-tab-x, 0));
+  transition: transform 280ms var(--wl-ease-out), width 280ms var(--wl-ease-out);
+}
+
+.DocSearch-Button {
+  transition: border-color var(--wl-speed-fade-out) var(--wl-ease-out);
+}
+
+.DocSearch-Button:hover {
+  border-color: var(--wl-sky);
+}
+
+
+/* Hover feedback appears instantly and fades out on leave, and only on
+   devices that can hover, so taps never leave a stuck highlight */
+@media (any-hover: hover) {
+  .menu__link:hover,
+  .navbar__link:hover,
+  .markdown a:hover,
+  .markdown table tbody tr:hover td,
+  .pagination-nav__link:hover,
+  .table-of-contents__link:hover,
+  .hash-link:hover,
+  .DocSearch-Button:hover {
+    transition-duration: 0s;
+  }
+}
+
+@media (hover: none) {
+  .markdown table tbody tr:hover td {
+    background: transparent;
+  }
+}
+
+/* Screenshots: a branded frame, a fade-in once loaded, and click to zoom
+   (classes set by src/client/motion.js for images at least 480px wide) */
+.markdown img {
+  transition: opacity 600ms var(--wl-ease-out);
+}
+
+.markdown img.wl-img-pending {
+  opacity: 0;
+}
+
+.markdown img.wl-shot {
+  display: block;
+  box-sizing: border-box;
+  max-width: 100%;
+  height: auto;
+  margin: 1.25rem 0;
+  padding: 12px;
+  border: 1px solid var(--wl-border-subtle);
+  border-radius: 14px;
+  background: var(--wl-shot-frame);
+  cursor: zoom-in;
+}
+
+.medium-zoom-overlay {
+  z-index: calc(var(--ifm-z-index-fixed) + 10);
+  transition: opacity var(--wl-speed-regular) var(--wl-ease-out) !important;
+}
+
+.medium-zoom-image--opened {
+  z-index: calc(var(--ifm-z-index-fixed) + 11);
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+  background: none !important;
+  cursor: zoom-out;
+}
+
+.medium-zoom-image {
+  transition: transform 400ms var(--wl-ease-out) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .markdown a,
+  .pagination-nav__link,
+  .pagination-nav__label,
+  .menu__link,
+  .menu__link::before,
+  .table-of-contents__link,
+  .markdown img,
+  .medium-zoom-image,
+  .medium-zoom-overlay,
+  .theme-tabs-container > .tabs.wl-tabs-ready::after,
+  .theme-doc-sidebar-menu .wl-ico > .menu__link::after,
+  .theme-doc-sidebar-menu .wl-ico > .menu__list-item-collapsible > .menu__link::after {
+    transition: none;
+  }
+
+  .theme-code-block button[class*="copyButtonCopied"] [class*="copyButtonSuccessIcon"] {
+    animation: none;
+  }
+}

@@ -1,0 +1,71 @@
+---
+id: list-fields
+title: "List"
+description: "List"
+sidebar_label: "List"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVktv2zgQ/ivEXLYFlMgJij3o1KJoigIFutim2ENgpAw1sthQpEoOk7iG/vtiKMmRbTlIcpJNzuOb18fZgGvRS9LOfimhAKMDXWg0ZYAMWullg4Q+QHG1gRKD8rplWSjgskahog/OQwaaT35H9GvIwMoGoYDtpcffUXssoaikCZhBUDU2EooN0Lpl0UBe2xV0XTbnpZEPuomNsLG5QS9cJTyGaCgccWx0o+lZfrUlXCFjLLGS0RAUZ4sjKD46S2hJfEY7JEzo8nSE0EqqJ6H3so+iX8odPOTj03Aq5xtJ/dHf76DrlqweWmcDBtY4Xyz4Mzjin7JtjVbJW/4rMOzNoQd38wsVpXin8X0QrVyh6G/FvaZaGG1vgyAnGneH/HVUo09yQUhbCqpRcLdwPXrFwNloPTcU6R5mpX2gw0Lv+79Mtuwt+2G7SS35YpM2GiNvDPZ56zLQhE2YWJXey/VhUFakiz2A+8rblOwi1+WzCjOWfKaVgTQxaEjzlE6MfE02WOt4Miw+vMImaw1F9+InG/0pdMVXHv8KwrrjDluPdy93yFraxfBKpwFN9XKnKnrPM3vEbDedyauhWccOGao1JHgIewCyfCzuP3KFY4G7fTwXLtrylLvk3eKM4e91aKQaLQ1TKy6kNtFj6pSAKnpN60S8459rJyPV51BcLZkQSK6YmGGGmQYKX+4D+qpTSA1S7ZjuV5hCY/IqIB/Y5GS1NRTyzQyXdXk1PhEB/d34PkRvoICaqA1FnstWn947Xxpd0al2wIjHQL4zL/VzdhDbBirj7tMdnziv/yS3H12JB4c/dlyGqcM8GcxHccwZrXJt7/ZGBq2g6L8inXOZyN3iM4wmsbwf8oFFevR8om3lRm6WKs0mNlInm2iMez/NyvbJ+M/58quuuBy7edzJ4X49h6qgUK5pDaaSiRsZsBTOChUDuUb/wZKnYhV1IK1E40o0iQqNVmhDyuqA4o16K5Rr116vahLni/Pzk9Zj4O56LkBC34Rv1Xf0d1rhvFyehE5cdRJ6MS7OOFGH7QwZcJP1IZ+dLthN6wI10k6wD729k6AtYRA+UN4aqS0rpwA2Q99fwUzfQwbF/CtebUerdszmV7DZcMZ/eNN1fNxvI2lh0oHZ5nEB2cO2fb13l6lZyLe4nu5Ud9JEFoK0rLzIz1Pr1BOux63q0fOS/3jdE+qLwn3z70C7b8WTq9UsnPHRt+spmm2GZorWLbsMapQl+gS0l/ygFLbTiA42KI5wS5WfP11Clthnujz0Y5/Blpk38/h6vhlBjnxzRPgZ1DNakkphCJcjbb3K5A5FDmYj1U/a22Hha8XcPOquvLR0nbS6Zdd1/wPEF0dO
+sidebar_class_name: "get api-method"
+info_path: apis-and-sdks/api-reference/content-generation/content-generation
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/content-generations/{contentGenerationId}/fields"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+List
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"The cursor","in":"query","name":"cursor","required":false,"schema":{"type":"string"}},{"description":"The maximum number of results","in":"query","name":"limit","required":false,"schema":{"type":"integer","default":10}},{"description":"The Content Generation id.","in":"path","name":"contentGenerationId","required":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"type":"object","description":"A page object with links to move to other pages and the list of objects.","properties":{"first":{"type":"string","description":"The link to the first page.","nullable":true},"items":{"type":"array","description":"An array of objects.","items":{"type":"object","properties":{"id":{"type":"integer","format":"int64"},"name":{"type":"string"}},"title":"Field"}},"last":{"type":"string","description":"The link to the last page.","nullable":true},"next":{"type":"string","description":"The link to the next page or `null` if there's no page.","nullable":true},"prev":{"type":"string","description":"The link to the previous page or `null` if there's no page.","nullable":true},"self":{"type":"string","description":"The link to the current page.","nullable":true}},"required":["first","items","last","next","prev","self"],"title":"PageField"}}},"description":"Found."},"401":{"description":"Authentication Failure"}}}
+>
+  
+</StatusCodes>
+
+
+      
