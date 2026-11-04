@@ -19,7 +19,7 @@ Convert a link-group CSV to RDF and optionally apply changes via WordLift API.
 | --- | --- | --- | --- |
 | `--format` | choice | `turtle` | Output RDF format: `turtle`, `json-ld`, `xml`, `n3`. |
 | `--apply` | bool | `false` | Apply changes via WordLift API. |
-| `--dry-run` | bool | `false` | Show curl commands without executing them. |
+| `--dry-run` | bool | `false` | With `--apply`, show curl commands without executing them. The API key is shown as `<API_KEY_HIDDEN>`. |
 | `--concurrency` | int | `2` | Number of concurrent API requests. |
 | `--retries` | int | `3` | Number of retries for failed API requests. |
 
@@ -28,4 +28,5 @@ Convert a link-group CSV to RDF and optionally apply changes via WordLift API.
 - `worai link-groups ./links.csv --apply --dry-run --concurrency 4`
 
 ## Notes
-- `--apply` requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config).
+- `--apply` requires `WORDLIFT_API_KEY` (or `profiles.<name>.api_key` in config). `--apply --dry-run` does not need a key.
+- To run a command printed by `--dry-run`, replace `<API_KEY_HIDDEN>` with your API key.
